@@ -1,3 +1,1 @@
-# toistottalteen
-Toistot talteen -sovelluksen repo
-TODO: täydennä README.md
+Tänne tulee sovelluksen julkaistavat versiot
