@@ -1,6 +1,6 @@
 Tänne flutterflow haaraan kommitoidaan flutterflowsta ladatut koodit.
 
-##Aloitus
+## Aloitus
 FlutterFlow-projektit on rakennettu ajettavaksi Flutterin vakaa versiolla.
 Tämä projekti on lähtökohta Flutter-sovellukselle.
 Joitain resursseja, jotka auttavat aloittamaan, jos tämä on ensimmäinen Flutter-projektisi:
@@ -10,7 +10,7 @@ Joitain resursseja, jotka auttavat aloittamaan, jos tämä on ensimmäinen Flutt
 Jos tarvitset apua Flutterin käyttöönotossa, tarkastele [verkkodokumentaatiotamme](https://flutter.dev/docs), joka tarjoaa opetusohjelmia, esimerkkejä, ohjeita mobiilikehitykseen ja koko API:n viittauksen.
 
 
-##TÄRKEÄÄ:
+## TÄRKEÄÄ:
 Firestore-integraatiota käyttävissä projekteissa sinun täytyy ensin ajaa seuraavat komennot, jotta projekti kääntyy onnistuneesti:
 ```
 flutter pub get
