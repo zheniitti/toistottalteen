@@ -10,7 +10,7 @@ Joitain resursseja, jotka auttavat aloittamaan, jos tämä on ensimmäinen Flutt
 Jos tarvitset apua Flutterin käyttöönotossa, tarkastele [verkkodokumentaatiotamme](https://flutter.dev/docs), joka tarjoaa opetusohjelmia, esimerkkejä, ohjeita mobiilikehitykseen ja koko API:n viittauksen.
 
 
-###TÄRKEÄÄ:
+##TÄRKEÄÄ:
 Firestore-integraatiota käyttävissä projekteissa sinun täytyy ensin ajaa seuraavat komennot, jotta projekti kääntyy onnistuneesti:
 ```
 flutter pub get
@@ -20,7 +20,11 @@ Tämä komento luo luodut tiedostot, jotka muuntavat jokaisen Firestore-tietueen
 
 
 
+
+
 ----------------------------english below-------------------------------------------------------------------
+
+
 
 
 ## Getting Started
