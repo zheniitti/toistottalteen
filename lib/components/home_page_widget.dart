@@ -1,0 +1,1392 @@
+import '../components/album_details_tile_widget.dart';
+import '../components/song_details_tile_widget.dart';
+import '../flutter_flow/flutter_flow_animations.dart';
+import '../flutter_flow/flutter_flow_theme.dart';
+import '../flutter_flow/flutter_flow_util.dart';
+import '../song_details_page/song_details_page_widget.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'home_page_model.dart';
+export 'home_page_model.dart';
+
+class HomePageWidget extends StatefulWidget {
+  const HomePageWidget({Key? key}) : super(key: key);
+
+  @override
+  _HomePageWidgetState createState() => _HomePageWidgetState();
+}
+
+class _HomePageWidgetState extends State<HomePageWidget>
+    with TickerProviderStateMixin {
+  late HomePageModel _model;
+
+  final animationsMap = {
+    'imageOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 300.ms,
+          begin: Offset(0, -10),
+          end: Offset(0, 0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+      ],
+    ),
+    'imageOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 100.ms,
+          duration: 300.ms,
+          begin: Offset(0, -10),
+          end: Offset(0, 0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 100.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+      ],
+    ),
+    'imageOnPageLoadAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 200.ms,
+          duration: 300.ms,
+          begin: Offset(0, -10),
+          end: Offset(0, 0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 200.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+      ],
+    ),
+    'stackOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 400.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 400.ms,
+          duration: 300.ms,
+          begin: Offset(0, -10),
+          end: Offset(0, 0),
+        ),
+      ],
+    ),
+    'imageOnPageLoadAnimation4': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 500.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 500.ms,
+          duration: 300.ms,
+          begin: Offset(0, -10),
+          end: Offset(0, 0),
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 600.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 600.ms,
+          duration: 300.ms,
+          begin: Offset(0, -10),
+          end: Offset(0, 0),
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 700.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 700.ms,
+          duration: 300.ms,
+          begin: Offset(20, 0),
+          end: Offset(0, 0),
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 800.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 800.ms,
+          duration: 300.ms,
+          begin: Offset(20, 0),
+          end: Offset(0, 0),
+        ),
+      ],
+    ),
+    'columnOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 900.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 900.ms,
+          duration: 300.ms,
+          begin: Offset(0, 10),
+          end: Offset(0, 0),
+        ),
+      ],
+    ),
+  };
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => HomePageModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
+    return Align(
+      alignment: AlignmentDirectional(0, 0),
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            if (FFAppState().currentIndex == 0)
+              Align(
+                alignment: AlignmentDirectional(0, -1),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(25, 30, 25, 24),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SvgPicture.asset(
+                        'assets/images/search.svg',
+                        width: 25,
+                        height: 25,
+                        fit: BoxFit.cover,
+                      ).animateOnPageLoad(
+                          animationsMap['imageOnPageLoadAnimation1']!),
+                      SvgPicture.asset(
+                        'assets/images/spotify.svg',
+                        width: 108,
+                        height: 33,
+                        fit: BoxFit.scaleDown,
+                      ).animateOnPageLoad(
+                          animationsMap['imageOnPageLoadAnimation2']!),
+                      SvgPicture.asset(
+                        'assets/images/vert.svg',
+                        width: 4,
+                        height: 18,
+                        fit: BoxFit.cover,
+                      ).animateOnPageLoad(
+                          animationsMap['imageOnPageLoadAnimation3']!),
+                    ],
+                  ),
+                ),
+              ),
+            if (FFAppState().currentIndex == 0)
+              Align(
+                alignment: AlignmentDirectional(0, -0.78),
+                child: Container(
+                  height: 142.6,
+                  child: Stack(
+                    alignment: AlignmentDirectional(0, 0),
+                    children: [
+                      Align(
+                        alignment: AlignmentDirectional(0, 0),
+                        child: Stack(
+                          children: [
+                            Align(
+                              alignment: AlignmentDirectional(0, -0.71),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    28, 0, 28, 0),
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 118,
+                                  constraints: BoxConstraints(
+                                    maxWidth: double.infinity,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryColor,
+                                    borderRadius: BorderRadius.circular(30),
+                                  ),
+                                  alignment: AlignmentDirectional(0, 0),
+                                  child: Align(
+                                    alignment: AlignmentDirectional(-0.85, 0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10, 0, 0, 0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              'opbwkg3w' /* New Song */,
+                                            ),
+                                            style: TextStyle(
+                                              fontFamily: 'Satoshi',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .fbfbfb,
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 10,
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 3, 0, 0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '0831f2fu' /* F64 */,
+                                              ),
+                                              style: TextStyle(
+                                                fontFamily: 'Satoshi',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .fbfbfb,
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 19,
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 3, 0, 0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '3yetjsgr' /* Ed Sheeran */,
+                                              ),
+                                              style: TextStyle(
+                                                fontFamily: 'Satoshi',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .fbfbfb,
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 13,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.75, -0.75),
+                              child: Image.asset(
+                                'assets/images/union_3.png',
+                                height: 100,
+                                fit: BoxFit.scaleDown,
+                              ),
+                            ),
+                          ],
+                        ).animateOnPageLoad(
+                            animationsMap['stackOnPageLoadAnimation']!),
+                      ),
+                      Align(
+                        alignment: AlignmentDirectional(0.49, -210.76),
+                        child: Image.asset(
+                          'assets/images/ed.png',
+                          height: 142.4,
+                          fit: BoxFit.fitHeight,
+                        ).animateOnPageLoad(
+                            animationsMap['imageOnPageLoadAnimation4']!),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            if (FFAppState().currentIndex == 0)
+              Align(
+                alignment: AlignmentDirectional(0, 1),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Align(
+                      alignment: AlignmentDirectional(0, -0.47),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 24),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                width: 34,
+                                height: 0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                              ),
+                              Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 3, 0, 0),
+                                    child: SelectionArea(
+                                        child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        'ce01zixk' /* Songs */,
+                                      ),
+                                      style: TextStyle(
+                                        fontFamily: 'Satoshi',
+                                        color:
+                                            FlutterFlowTheme.of(context).fbfbfb,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 20,
+                                      ),
+                                    )),
+                                  ),
+                                  Container(
+                                    width: 26,
+                                    height: 3,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryColor,
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(20),
+                                        bottomRight: Radius.circular(20),
+                                        topLeft: Radius.circular(0),
+                                        topRight: Radius.circular(0),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                width: 40,
+                                height: 0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 3, 0, 0),
+                                child: SelectionArea(
+                                    child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'yfqmxmcb' /* Albums */,
+                                  ),
+                                  style: TextStyle(
+                                    fontFamily: 'Satoshi',
+                                    color: FlutterFlowTheme.of(context).c616161,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 20,
+                                  ),
+                                )),
+                              ),
+                              Container(
+                                width: 40,
+                                height: 0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 3, 0, 0),
+                                child: SelectionArea(
+                                    child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    '0455wd4w' /* Artists */,
+                                  ),
+                                  style: TextStyle(
+                                    fontFamily: 'Satoshi',
+                                    color: FlutterFlowTheme.of(context).c616161,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 20,
+                                  ),
+                                )),
+                              ),
+                              Container(
+                                width: 40,
+                                height: 0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 3, 0, 0),
+                                child: SelectionArea(
+                                    child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'rx411xod' /* Podcasts */,
+                                  ),
+                                  style: TextStyle(
+                                    fontFamily: 'Satoshi',
+                                    color: FlutterFlowTheme.of(context).c616161,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 20,
+                                  ),
+                                )),
+                              ),
+                              Container(
+                                width: 40,
+                                height: 0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 3, 0, 0),
+                                child: SelectionArea(
+                                    child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'jp86rxll' /* Playlists */,
+                                  ),
+                                  style: TextStyle(
+                                    fontFamily: 'Satoshi',
+                                    color: FlutterFlowTheme.of(context).c616161,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 20,
+                                  ),
+                                )),
+                              ),
+                              Container(
+                                width: 28,
+                                height: 0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ).animateOnPageLoad(
+                            animationsMap['rowOnPageLoadAnimation1']!),
+                      ),
+                    ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 28,
+                            height: 0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () async {
+                              await Navigator.push(
+                                context,
+                                PageTransition(
+                                  type: PageTransitionType.rightToLeft,
+                                  duration: Duration(milliseconds: 300),
+                                  reverseDuration: Duration(milliseconds: 300),
+                                  child: SongDetailsPageWidget(
+                                    imageURL:
+                                        'https://sun9-40.userapi.com/impf/c621705/v621705168/38088/ozNr6edPo9w.jpg?size=604x256&quality=96&sign=65cfe0a5b385ead2615c601a5d977da6&c_uniq_tag=aw-1RY8snYllk9s5KLLu6PU_BAnp581q5AjI5dzImsY&type=album',
+                                    songName: 'Perfect',
+                                    artistName: 'Ed Sheeran',
+                                  ),
+                                ),
+                              );
+                            },
+                            child: wrapWithModel(
+                              model: _model.songDetailsTileModel,
+                              updateCallback: () => setState(() {}),
+                              child: SongDetailsTileWidget(
+                                imageURL:
+                                    'https://sun9-40.userapi.com/impf/c621705/v621705168/38088/ozNr6edPo9w.jpg?size=604x256&quality=96&sign=65cfe0a5b385ead2615c601a5d977da6&c_uniq_tag=aw-1RY8snYllk9s5KLLu6PU_BAnp581q5AjI5dzImsY&type=album',
+                                songName: 'Perfect',
+                                artistName: 'Ed Sheeran',
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: 14,
+                            height: 0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () async {
+                              await Navigator.push(
+                                context,
+                                PageTransition(
+                                  type: PageTransitionType.rightToLeft,
+                                  duration: Duration(milliseconds: 300),
+                                  reverseDuration: Duration(milliseconds: 300),
+                                  child: SongDetailsPageWidget(
+                                    imageURL:
+                                        'https://i.scdn.co/image/ab67616d0000b2739618642c20d509b21b11301f',
+                                    songName: 'If I Can Dream',
+                                    artistName: 'Elvis Presely',
+                                  ),
+                                ),
+                              );
+                            },
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Stack(
+                                  alignment: AlignmentDirectional(0.8, 1),
+                                  children: [
+                                    Align(
+                                      alignment: AlignmentDirectional(0, 0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 0, 13),
+                                        child: Hero(
+                                          tag:
+                                              'https://i.scdn.co/image/ab67616d0000b2739618642c20d509b21b11301f',
+                                          transitionOnUserGestures: true,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(30),
+                                            child: CachedNetworkImage(
+                                              imageUrl:
+                                                  'https://i.scdn.co/image/ab67616d0000b2739618642c20d509b21b11301f',
+                                              width: 147,
+                                              height: 185,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: AlignmentDirectional(1, 0.43),
+                                      child: SvgPicture.asset(
+                                        'assets/images/play.svg',
+                                        width: 29,
+                                        height: 29,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10, 0, 0, 3),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'qjcpyx7s' /* If I Can Dream */,
+                                    ),
+                                    style: TextStyle(
+                                      fontFamily: 'Satoshi',
+                                      color:
+                                          FlutterFlowTheme.of(context).e1e1e1,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10, 0, 0, 0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      '5g2rl7q0' /* Elvis Presely */,
+                                    ),
+                                    style: TextStyle(
+                                      fontFamily: 'Satoshi',
+                                      color:
+                                          FlutterFlowTheme.of(context).e1e1e1,
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            width: 14,
+                            height: 0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () async {
+                              await Navigator.push(
+                                context,
+                                PageTransition(
+                                  type: PageTransitionType.rightToLeft,
+                                  duration: Duration(milliseconds: 300),
+                                  reverseDuration: Duration(milliseconds: 300),
+                                  child: SongDetailsPageWidget(
+                                    imageURL:
+                                        'https://i.scdn.co/image/ab67616d0000b273e13ab134bdec59e2d0e82290',
+                                    songName: 'Love Yourself',
+                                    artistName: 'Justin Bieber',
+                                  ),
+                                ),
+                              );
+                            },
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Stack(
+                                  alignment: AlignmentDirectional(0.8, 1),
+                                  children: [
+                                    Align(
+                                      alignment: AlignmentDirectional(0, 0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 0, 13),
+                                        child: Hero(
+                                          tag:
+                                              'https://i.scdn.co/image/ab67616d0000b273e13ab134bdec59e2d0e82290',
+                                          transitionOnUserGestures: true,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(30),
+                                            child: CachedNetworkImage(
+                                              imageUrl:
+                                                  'https://i.scdn.co/image/ab67616d0000b273e13ab134bdec59e2d0e82290',
+                                              width: 147,
+                                              height: 185,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: AlignmentDirectional(1, 0.43),
+                                      child: SvgPicture.asset(
+                                        'assets/images/play.svg',
+                                        width: 29,
+                                        height: 29,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10, 0, 0, 3),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'lhaduo9z' /* Love Yourself */,
+                                    ),
+                                    style: TextStyle(
+                                      fontFamily: 'Satoshi',
+                                      color:
+                                          FlutterFlowTheme.of(context).e1e1e1,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10, 0, 0, 0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'dlemjq9b' /* Justin Bieber */,
+                                    ),
+                                    style: TextStyle(
+                                      fontFamily: 'Satoshi',
+                                      color:
+                                          FlutterFlowTheme.of(context).e1e1e1,
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            width: 14,
+                            height: 0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () async {
+                              await Navigator.push(
+                                context,
+                                PageTransition(
+                                  type: PageTransitionType.rightToLeft,
+                                  duration: Duration(milliseconds: 300),
+                                  reverseDuration: Duration(milliseconds: 300),
+                                  child: SongDetailsPageWidget(
+                                    imageURL:
+                                        'https://i.scdn.co/image/ab67616d0000b2734e0362c225863f6ae2432651',
+                                    songName: 'Fix You',
+                                    artistName: 'Coldplay',
+                                  ),
+                                ),
+                              );
+                            },
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Stack(
+                                  alignment: AlignmentDirectional(0.8, 1),
+                                  children: [
+                                    Align(
+                                      alignment: AlignmentDirectional(0, 0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 0, 13),
+                                        child: Hero(
+                                          tag:
+                                              'https://i.scdn.co/image/ab67616d0000b2734e0362c225863f6ae2432651',
+                                          transitionOnUserGestures: true,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(30),
+                                            child: CachedNetworkImage(
+                                              imageUrl:
+                                                  'https://i.scdn.co/image/ab67616d0000b2734e0362c225863f6ae2432651',
+                                              width: 147,
+                                              height: 185,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: AlignmentDirectional(1, 0.43),
+                                      child: SvgPicture.asset(
+                                        'assets/images/play.svg',
+                                        width: 29,
+                                        height: 29,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10, 0, 0, 3),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      '38x759gx' /* Fix You */,
+                                    ),
+                                    style: TextStyle(
+                                      fontFamily: 'Satoshi',
+                                      color:
+                                          FlutterFlowTheme.of(context).e1e1e1,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10, 0, 0, 0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'rkl9muhf' /* Coldplay */,
+                                    ),
+                                    style: TextStyle(
+                                      fontFamily: 'Satoshi',
+                                      color:
+                                          FlutterFlowTheme.of(context).e1e1e1,
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            width: 14,
+                            height: 0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () async {
+                              await Navigator.push(
+                                context,
+                                PageTransition(
+                                  type: PageTransitionType.rightToLeft,
+                                  duration: Duration(milliseconds: 300),
+                                  reverseDuration: Duration(milliseconds: 300),
+                                  child: SongDetailsPageWidget(
+                                    imageURL:
+                                        'https://i.scdn.co/image/ab67616d0000b273b46f74097655d7f353caab14',
+                                    songName: 'As It Was',
+                                    artistName: 'Harry Styles',
+                                  ),
+                                ),
+                              );
+                            },
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Stack(
+                                  alignment: AlignmentDirectional(0.8, 1),
+                                  children: [
+                                    Align(
+                                      alignment: AlignmentDirectional(0, 0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 0, 0, 13),
+                                        child: Hero(
+                                          tag:
+                                              'https://i.scdn.co/image/ab67616d0000b273b46f74097655d7f353caab14',
+                                          transitionOnUserGestures: true,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(30),
+                                            child: CachedNetworkImage(
+                                              imageUrl:
+                                                  'https://i.scdn.co/image/ab67616d0000b273b46f74097655d7f353caab14',
+                                              width: 147,
+                                              height: 185,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: AlignmentDirectional(1, 0.43),
+                                      child: SvgPicture.asset(
+                                        'assets/images/play.svg',
+                                        width: 29,
+                                        height: 29,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10, 0, 0, 3),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      '1tchxm02' /* As It Was */,
+                                    ),
+                                    style: TextStyle(
+                                      fontFamily: 'Satoshi',
+                                      color:
+                                          FlutterFlowTheme.of(context).e1e1e1,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10, 0, 0, 0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'c1jilrrm' /* Harry Styles */,
+                                    ),
+                                    style: TextStyle(
+                                      fontFamily: 'Satoshi',
+                                      color:
+                                          FlutterFlowTheme.of(context).e1e1e1,
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            width: 14,
+                            height: 0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ).animateOnPageLoad(
+                        animationsMap['rowOnPageLoadAnimation2']!),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(34, 37, 29, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            FFLocalizations.of(context).getText(
+                              'h7a22uv2' /* Albums */,
+                            ),
+                            style: TextStyle(
+                              fontFamily: 'Satoshi',
+                              color: FlutterFlowTheme.of(context).dbdbdb,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 20,
+                            ),
+                          ),
+                          Text(
+                            FFLocalizations.of(context).getText(
+                              'nvlw00t6' /* See More */,
+                            ),
+                            style: TextStyle(
+                              fontFamily: 'Satoshi',
+                              color: FlutterFlowTheme.of(context).c6c6c6,
+                              fontWeight: FontWeight.w300,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ],
+                      ).animateOnPageLoad(
+                          animationsMap['rowOnPageLoadAnimation3']!),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(28, 23, 20, 85),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          wrapWithModel(
+                            model: _model.albumDetailsTileModel,
+                            updateCallback: () => setState(() {}),
+                            child: AlbumDetailsTileWidget(
+                              albumName: '÷ (Deluxe)',
+                              artistName: 'Ed Sheeran',
+                              duration: '59:33',
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 19),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 0, 23, 0),
+                                      child: SvgPicture.asset(
+                                        'assets/images/play.svg',
+                                        width: 37,
+                                        height: 37,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'h0r5y9xx' /* Elvis 30 #1 Hits */,
+                                          ),
+                                          style: TextStyle(
+                                            fontFamily: 'Satoshi',
+                                            color: FlutterFlowTheme.of(context)
+                                                .d6d6d6,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 16,
+                                          ),
+                                        ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'p8f12dxq' /* Elvis Presely */,
+                                          ),
+                                          style: TextStyle(
+                                            fontFamily: 'Satoshi',
+                                            color: FlutterFlowTheme.of(context)
+                                                .d6d6d6,
+                                            fontWeight: FontWeight.w300,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        'c92dnb8o' /* 1:18:00 */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          49, 0, 0, 0),
+                                      child: SvgPicture.asset(
+                                        'assets/images/heart_filled.svg',
+                                        width: 21,
+                                        height: 21,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 19),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 0, 23, 0),
+                                      child: SvgPicture.asset(
+                                        'assets/images/play.svg',
+                                        width: 37,
+                                        height: 37,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'jx4vkzlr' /* Fine Line */,
+                                          ),
+                                          style: TextStyle(
+                                            fontFamily: 'Satoshi',
+                                            color: FlutterFlowTheme.of(context)
+                                                .d6d6d6,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 16,
+                                          ),
+                                        ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'todg5b5t' /* Harry Styles */,
+                                          ),
+                                          style: TextStyle(
+                                            fontFamily: 'Satoshi',
+                                            color: FlutterFlowTheme.of(context)
+                                                .d6d6d6,
+                                            fontWeight: FontWeight.w300,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        'uqxydkyy' /* 46:43 */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          49, 0, 0, 0),
+                                      child: SvgPicture.asset(
+                                        'assets/images/heart_filled.svg',
+                                        width: 21,
+                                        height: 21,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 19),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 0, 23, 0),
+                                      child: SvgPicture.asset(
+                                        'assets/images/play.svg',
+                                        width: 37,
+                                        height: 37,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'qymrmifh' /* FOUR (Deluxe) */,
+                                          ),
+                                          style: TextStyle(
+                                            fontFamily: 'Satoshi',
+                                            color: FlutterFlowTheme.of(context)
+                                                .d6d6d6,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 16,
+                                          ),
+                                        ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'hv9a922v' /* One Direction */,
+                                          ),
+                                          style: TextStyle(
+                                            fontFamily: 'Satoshi',
+                                            color: FlutterFlowTheme.of(context)
+                                                .d6d6d6,
+                                            fontWeight: FontWeight.w300,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        'so4ezntq' /* 57:15 */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          49, 0, 0, 0),
+                                      child: SvgPicture.asset(
+                                        'assets/images/heart_filled.svg',
+                                        width: 21,
+                                        height: 21,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 19),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 0, 23, 0),
+                                      child: SvgPicture.asset(
+                                        'assets/images/play.svg',
+                                        width: 37,
+                                        height: 37,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'hijmeagw' /* V (Asis Tour) */,
+                                          ),
+                                          style: TextStyle(
+                                            fontFamily: 'Satoshi',
+                                            color: FlutterFlowTheme.of(context)
+                                                .d6d6d6,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 16,
+                                          ),
+                                        ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'zh8ahm8i' /* Maroon 5 */,
+                                          ),
+                                          style: TextStyle(
+                                            fontFamily: 'Satoshi',
+                                            color: FlutterFlowTheme.of(context)
+                                                .d6d6d6,
+                                            fontWeight: FontWeight.w300,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        '6hjsccf1' /* 1:18:00 */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          49, 0, 0, 0),
+                                      child: SvgPicture.asset(
+                                        'assets/images/heart_filled.svg',
+                                        width: 21,
+                                        height: 21,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ).animateOnPageLoad(
+                          animationsMap['columnOnPageLoadAnimation']!),
+                    ),
+                  ],
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}

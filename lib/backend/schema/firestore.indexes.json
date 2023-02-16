@@ -1,0 +1,18 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "appData",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "userRef",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "docCreatedTime",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ]
+}
