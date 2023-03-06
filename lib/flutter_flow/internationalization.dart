@@ -25,6 +25,10 @@ class FFLocalizations {
   }
 
   String get languageCode => locale.toString();
+  String? get languageShortCode =>
+      _languagesWithShortCode.contains(locale.toString())
+          ? '${locale.toString()}_short'
+          : null;
   int get languageIndex => languages().contains(languageCode)
       ? languages().indexOf(languageCode)
       : 0;
@@ -37,6 +41,39 @@ class FFLocalizations {
     String? enText = '',
   }) =>
       [fiText, enText][languageIndex] ?? '';
+
+  static const Set<String> _languagesWithShortCode = {
+    'ar',
+    'az',
+    'ca',
+    'cs',
+    'da',
+    'de',
+    'dv',
+    'en',
+    'es',
+    'et',
+    'fi',
+    'fr',
+    'gr',
+    'he',
+    'hi',
+    'hu',
+    'it',
+    'km',
+    'ku',
+    'mn',
+    'ms',
+    'no',
+    'pt',
+    'ro',
+    'ru',
+    'rw',
+    'sv',
+    'th',
+    'uk',
+    'vi',
+  };
 }
 
 class FFLocalizationsDelegate extends LocalizationsDelegate<FFLocalizations> {
@@ -68,39 +105,30 @@ Locale createLocale(String language) => language.contains('_')
     : Locale(language);
 
 final kTranslationsMap = <Map<String, Map<String, String>>>[
-  // treeniRutiinit
+  // tilastot_sivu
+  {
+    'jxhd0x84': {
+      'fi': 'Analytiikka',
+      'en': '',
+    },
+    'pugewx7s': {
+      'fi': 'Aika',
+      'en': '',
+    },
+    '3ehztlt6': {
+      'fi': 'Painot',
+      'en': '',
+    },
+    '2ebrd02h': {
+      'fi': 'Home',
+      'en': '',
+    },
+  },
+  // paasivu
   {
     'uwbd7u0v': {
       'fi': 'Treenirutiinit',
       'en': 'Worcout routines',
-    },
-    'tki5o3m2': {
-      'fi': 'Luo tili',
-      'en': 'Create account',
-    },
-    'n2lnw1tc': {
-      'fi': 'Treenirutiinit',
-      'en': 'Workout routines',
-    },
-    'xdjt7h9s': {
-      'fi': 'Treenihistoria',
-      'en': 'Workout history',
-    },
-    'qz51yime': {
-      'fi': 'Analytiikka',
-      'en': 'Analytics',
-    },
-    'h5cqva6j': {
-      'fi': 'Asetukset',
-      'en': 'Settings',
-    },
-    'y2oim1eg': {
-      'fi': 'Lähetä palaute',
-      'en': 'Send feedback',
-    },
-    'mqf5zmpq': {
-      'fi': 'Tietosuoja ja käyttöehdot',
-      'en': 'Privacy policy and User agreetment',
     },
     't1qezc6y': {
       'fi': 'Luo treenirutiini',
@@ -111,7 +139,73 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Training routines',
     },
   },
-  // luoRutiiniSivu
+  // treenaaminen_sivu
+  {
+    'g945lhgq': {
+      'fi': '',
+      'en': '',
+    },
+    'x4q0c5hj': {
+      'fi': 'Rutiinin nimi',
+      'en': '\nRoutine name',
+    },
+    '87ajo4v7': {
+      'fi': '',
+      'en': '',
+    },
+    'x5r59ypf': {
+      'fi': 'Kommentti (vapaaehtoinen)',
+      'en': 'Comment (optional)',
+    },
+    '3aek1fwt': {
+      'fi': 'Lisää  liike',
+      'en': 'New exercise',
+    },
+    'd3nmcgqj': {
+      'fi': 'Aikaa kulunut: 29 mim',
+      'en': 'Started: 29min ago',
+    },
+    'm4nghcy9': {
+      'fi': 'Aloita',
+      'en': 'Start',
+    },
+    'gb9kwjv0': {
+      'fi': 'Home',
+      'en': '',
+    },
+  },
+  // aloitus
+  {
+    'rmgg2g5f': {
+      'fi': 'Luo rutiini',
+      'en': 'Create routine',
+    },
+    'ogtztobw': {
+      'fi': 'Päänäkymä',
+      'en': 'Main page',
+    },
+    'sexpp0z3': {
+      'fi': 'Heatmap',
+      'en': 'heatmap',
+    },
+    'cflqv0g1': {
+      'fi': 'Ylävartalo',
+      'en': 'Upperbody',
+    },
+    'sln6ta4a': {
+      'fi': 'Työntävät',
+      'en': 'Push',
+    },
+    'ahatfazp': {
+      'fi': 'Valitse treenirutiini',
+      'en': 'Select routine',
+    },
+    '83k34jhr': {
+      'fi': 'Treenaa',
+      'en': 'Train',
+    },
+  },
+  // luoRutiini_sivu
   {
     '3zslehjv': {
       'fi': 'Rutiinin / ohjelman nimi',
@@ -146,18 +240,22 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Home',
     },
   },
-  // luoLiikeSivu
+  // rutiininHistoria_sivu
   {
-    'kf3zbmmg': {
-      'fi': 'Treeniliikkeen luominen',
-      'en': 'Create an new exercise',
+    '9gg1x79r': {
+      'fi': 'Heatmap',
+      'en': 'heatmap',
     },
-    '7qho7dik': {
-      'fi': 'Koti',
-      'en': 'Home',
+    '0cczlpf8': {
+      'fi': 'Page Title',
+      'en': '',
+    },
+    '12nwsek2': {
+      'fi': 'Home',
+      'en': '',
     },
   },
-  // getStartedPage
+  // getStarted_sivu
   {
     'aizxhddb': {
       'fi': 'Tallenna treenisuoritukset',
@@ -169,7 +267,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en':
           'Kirjaa muistiin treeniharjoitteet ja seuraa kehitystäsi. Vie treenamisesi seuraavalle tasolle!',
     },
-    'l8prkehd': {
+    'epmt554y': {
       'fi': 'Seuraava',
       'en': 'Next',
     },
@@ -178,49 +276,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Home',
     },
   },
-  // navBarPage1
-  {
-    'zbs6e136': {
-      'fi': 'Button',
-      'en': '',
-    },
-    'rmgg2g5f': {
-      'fi': 'Luo ohjelma',
-      'en': 'Create routine',
-    },
-    'ogtztobw': {
-      'fi': 'Valitse treeni rutiini ja aloita treenaaminen',
-      'en': 'Select routine and start training',
-    },
-    'cflqv0g1': {
-      'fi': 'Ylävartalo',
-      'en': 'Upperbody',
-    },
-    'sln6ta4a': {
-      'fi': 'Työntävät',
-      'en': 'Push',
-    },
-    'ahatfazp': {
-      'fi': 'Valitse treenirutiini',
-      'en': 'Select routine',
-    },
-    'qdzyod45': {
-      'fi': 'Aloita treenaaminen',
-      'en': 'Start workout',
-    },
-    '83k34jhr': {
-      'fi': 'Treenaa',
-      'en': 'Train',
-    },
-  },
-  // navBarPage3
-  {
-    '5cvj3ee1': {
-      'fi': 'Home',
-      'en': 'home',
-    },
-  },
-  // chooseModePage
+  // chooseMode
   {
     'hnae47eh': {
       'fi': 'Choose Mode',
@@ -341,72 +397,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
-  // mainPageeee
-  {
-    '5tm3fmm4': {
-      'fi': 'Home',
-      'en': '',
-    },
-  },
-  // songDetailsPage
-  {
-    'xkh8lxgv': {
-      'fi': 'Now Playing',
-      'en': '',
-    },
-    'szrxfdg4': {
-      'fi': '2:25',
-      'en': '',
-    },
-    'qgl5p0vw': {
-      'fi': '4:02',
-      'en': '',
-    },
-    'rc3y0eva': {
-      'fi': 'Lyrics',
-      'en': '',
-    },
-    'yk48zt41': {
-      'fi': 'Home',
-      'en': '',
-    },
-  },
-  // songLyricsPage
-  {
-    'kw98bf1j': {
-      'fi':
-          'Well, I found a woman, stronger than \n\nanyone I know\n\nShe shares my dreams, I hope that \n\nsomeday I\'ll share her home\n\nI found a lover, to carry more than just \n\nmy secrets\n\nTo carry love, to carry children of our \n\nown\n',
-      'en': '',
-    },
-    '7q332qcx': {
-      'fi': 'We are still kids, but we\'re so in love. \n',
-      'en': '',
-    },
-    'jgm5tkga': {
-      'fi':
-          'Fighting against all odds I know we\'ll be\n\nalright this time Darling, just hold my \n\nhand Be my girl, I\'ll be your man\n\nI see my future in your eyes',
-      'en': '',
-    },
-    'bwj4e3kh': {
-      'fi': '2:25',
-      'en': '',
-    },
-    'u7rs8qhs': {
-      'fi': '4:02',
-      'en': '',
-    },
-    '3l1f7p06': {
-      'fi': 'Home',
-      'en': '',
-    },
-  },
-  // userProfilePage
-  {
-    'v9pb51mn': {
-      'fi': 'Home',
-      'en': '',
-    },
-  },
   // registerOrSignInPage
   {
     '4dm3cb84': {
@@ -431,364 +421,29 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
-  // testailu
+  // tietosuojaJaYksityisyys
   {
-    '0kxnxyi3': {
+    'm51gs2fz': {
       'fi': 'Home',
       'en': '',
     },
   },
-  // ProfilePage
+  // builder
   {
-    'pnobztlw': {
-      'fi': 'Profile',
+    'cuagdidc': {
+      'fi': 'Hello World',
       'en': '',
     },
-    'd5zmc5k9': {
-      'fi': 'alvishramani4@gmail.com',
+    'v1rlq3l4': {
+      'fi': 'Page Title',
       'en': '',
     },
-    'v03s3k6z': {
-      'fi': 'Alvish0407',
-      'en': '',
-    },
-    '784x1lrg': {
-      'fi': '09',
-      'en': '',
-    },
-    'i4z8pphd': {
-      'fi': 'Followers',
-      'en': '',
-    },
-    '12se3d8g': {
-      'fi': '19',
-      'en': '',
-    },
-    '108ic2nq': {
-      'fi': 'Following',
-      'en': '',
-    },
-    '4kfffoxq': {
-      'fi': 'PUBLIC PLAYLISTS',
-      'en': '',
-    },
-    '6fgu9hov': {
-      'fi': 'Wrap 2022',
-      'en': '',
-    },
-    'lckback2': {
-      'fi': '101 Songs',
-      'en': '',
-    },
-    'a099ymbc': {
-      'fi': '6:00:00',
-      'en': '',
-    },
-    'agiu9ijz': {
-      'fi': 'Wrap 2021',
-      'en': '',
-    },
-    '8nww9w03': {
-      'fi': '100 Songs',
-      'en': '',
-    },
-    'gmwbdui7': {
-      'fi': '6:00:00',
-      'en': '',
-    },
-    'r6q92ivg': {
-      'fi': 'Goes Relax',
-      'en': '',
-    },
-    'kp2ysvx1': {
-      'fi': '94 Songs',
-      'en': '',
-    },
-    'd3dczm6g': {
-      'fi': '5:30:00',
-      'en': '',
-    },
-    'nd8jznnt': {
-      'fi': 'JB\'s World',
-      'en': '',
-    },
-    '7qhyvmog': {
-      'fi': '17 Songs',
-      'en': '',
-    },
-    'od0jn1lk': {
-      'fi': '58:02',
-      'en': '',
-    },
-    'xyplm3cl': {
-      'fi': '1 Direction',
-      'en': '',
-    },
-    'taju221k': {
-      'fi': '21 Songs',
-      'en': '',
-    },
-    't6wlsi7w': {
-      'fi': '01:14',
-      'en': '',
-    },
-    'p3c7nun3': {
-      'fi': 'Maroon 5',
-      'en': '',
-    },
-    'xb2lhmse': {
-      'fi': '8 Songs',
-      'en': '',
-    },
-    'fszpymfl': {
-      'fi': '29:20',
-      'en': '',
-    },
-    'u8tn55ba': {
-      'fi': 'ColdPlay\'s Age',
-      'en': '',
-    },
-    'hglzgw9n': {
-      'fi': '8 Songs',
-      'en': '',
-    },
-    '0or8ycm1': {
-      'fi': '35:47',
+    't3ej29tw': {
+      'fi': 'Home',
       'en': '',
     },
   },
-  // FavouritePage
-  {
-    'zgkylfxt': {
-      'fi': 'Ed Sheeran',
-      'en': '',
-    },
-    'fj4mc0q5': {
-      'fi': '5 Album , 256 Track',
-      'en': '',
-    },
-    '70uzvugp': {
-      'fi':
-          'Edward Christopher Sheeran MBE is an English singer-songwriter. Born in Halifax, West Yorkshire and raised in Framlingham, Suffolk, he began writing songs around the age of eleven.',
-      'en': '',
-    },
-    '6uhvfrr8': {
-      'fi': 'Albums',
-      'en': '',
-    },
-    'in0j6vlt': {
-      'fi': '= (Tour Edition)',
-      'en': '',
-    },
-    'rbvytv3i': {
-      'fi': 'No.6 Collaboration ...',
-      'en': '',
-    },
-    'r4fhi2mi': {
-      'fi': '÷ (Deluxe)',
-      'en': '',
-    },
-    't8tbhx9a': {
-      'fi': 'x (Wembley Edition)',
-      'en': '',
-    },
-    'za8w437i': {
-      'fi': '+',
-      'en': '',
-    },
-    '973m28ev': {
-      'fi': 'Songs',
-      'en': '',
-    },
-    'p2vozggh': {
-      'fi': 'See More',
-      'en': '',
-    },
-    'lagn53da': {
-      'fi': 'Celestial',
-      'en': '',
-    },
-    'dthj8id0': {
-      'fi': 'Pokemon x Ed Sheeran',
-      'en': '',
-    },
-    's0j2mpg6': {
-      'fi': '03:29',
-      'en': '',
-    },
-    'jhhathih': {
-      'fi': 'Bam Bam',
-      'en': '',
-    },
-    '62zjeea2': {
-      'fi': 'Camiila Cabello x Ed Sh...',
-      'en': '',
-    },
-    '8s3r0cyq': {
-      'fi': '03:26',
-      'en': '',
-    },
-    'vo1z9jfg': {
-      'fi': 'Merry Christmas',
-      'en': '',
-    },
-    'vh5hts3g': {
-      'fi': 'Elton John x Ed Sheeran',
-      'en': '',
-    },
-    'qblr47xy': {
-      'fi': '03:28',
-      'en': '',
-    },
-    'j8h6603m': {
-      'fi': 'TJATQ',
-      'en': '',
-    },
-    'i92inv3i': {
-      'fi': 'Tylor Swift x Ed Sheeran',
-      'en': '',
-    },
-    '3fr3cetm': {
-      'fi': '03:05',
-      'en': '',
-    },
-    'a4mfeytx': {
-      'fi': 'Call on me',
-      'en': '',
-    },
-    'a9tck26d': {
-      'fi': 'Vianney x Ed Sheeran',
-      'en': '',
-    },
-    'ymmr475n': {
-      'fi': '03:20',
-      'en': '',
-    },
-  },
-  // HomePage
-  {
-    'opbwkg3w': {
-      'fi': 'New Song',
-      'en': '',
-    },
-    '0831f2fu': {
-      'fi': 'F64',
-      'en': '',
-    },
-    '3yetjsgr': {
-      'fi': 'Ed Sheeran',
-      'en': '',
-    },
-    'ce01zixk': {
-      'fi': 'Songs',
-      'en': '',
-    },
-    'yfqmxmcb': {
-      'fi': 'Albums',
-      'en': '',
-    },
-    '0455wd4w': {
-      'fi': 'Artists',
-      'en': '',
-    },
-    'rx411xod': {
-      'fi': 'Podcasts',
-      'en': '',
-    },
-    'jp86rxll': {
-      'fi': 'Playlists',
-      'en': '',
-    },
-    'qjcpyx7s': {
-      'fi': 'If I Can Dream',
-      'en': '',
-    },
-    '5g2rl7q0': {
-      'fi': 'Elvis Presely',
-      'en': '',
-    },
-    'lhaduo9z': {
-      'fi': 'Love Yourself',
-      'en': '',
-    },
-    'dlemjq9b': {
-      'fi': 'Justin Bieber',
-      'en': '',
-    },
-    '38x759gx': {
-      'fi': 'Fix You',
-      'en': '',
-    },
-    'rkl9muhf': {
-      'fi': 'Coldplay',
-      'en': '',
-    },
-    '1tchxm02': {
-      'fi': 'As It Was',
-      'en': '',
-    },
-    'c1jilrrm': {
-      'fi': 'Harry Styles',
-      'en': '',
-    },
-    'h7a22uv2': {
-      'fi': 'Albums',
-      'en': '',
-    },
-    'nvlw00t6': {
-      'fi': 'See More',
-      'en': '',
-    },
-    'h0r5y9xx': {
-      'fi': 'Elvis 30 #1 Hits',
-      'en': '',
-    },
-    'p8f12dxq': {
-      'fi': 'Elvis Presely',
-      'en': '',
-    },
-    'c92dnb8o': {
-      'fi': '1:18:00',
-      'en': '',
-    },
-    'jx4vkzlr': {
-      'fi': 'Fine Line',
-      'en': '',
-    },
-    'todg5b5t': {
-      'fi': 'Harry Styles',
-      'en': '',
-    },
-    'uqxydkyy': {
-      'fi': '46:43',
-      'en': '',
-    },
-    'qymrmifh': {
-      'fi': 'FOUR (Deluxe)',
-      'en': '',
-    },
-    'hv9a922v': {
-      'fi': 'One Direction',
-      'en': '',
-    },
-    'so4ezntq': {
-      'fi': '57:15',
-      'en': '',
-    },
-    'hijmeagw': {
-      'fi': 'V (Asis Tour)',
-      'en': '',
-    },
-    'zh8ahm8i': {
-      'fi': 'Maroon 5',
-      'en': '',
-    },
-    '6hjsccf1': {
-      'fi': '1:18:00',
-      'en': '',
-    },
-  },
-  // ToistotTalteen
+  // ToistotTalteenText
   {
     'ezf7x56w': {
       'fi': 'Toistot Talteen',
@@ -797,9 +452,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // treeniRutiini
   {
-    '0m4il322': {
-      'fi': 'Heatmap kalenteri',
-      'en': 'Heatmap valendar',
+    '5hsnij9t': {
+      'fi': '18:05',
+      'en': '18:05',
+    },
+    'dm2kbqw6': {
+      'fi': '1H 25min',
+      'en': '1H 25min',
+    },
+    '452cnmn6': {
+      'fi': '5',
+      'en': '5',
     },
     'r1v3hyro': {
       'fi':
@@ -808,8 +471,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           'Use the selected day\'s training as a basis. Otherwise, the basis is the basic routine.',
     },
     'hn9k2t8e': {
-      'fi': 'Treenaa',
+      'fi': 'Suorita',
       'en': 'Start',
+    },
+    'zg2n2e21': {
+      'fi': 'Treenihistoria',
+      'en': 'Worcout history',
+    },
+    'h16b2vng': {
+      'fi': 'Suorita nyt',
+      'en': 'Start now',
     },
   },
   // treeniLiikeForm
@@ -824,19 +495,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'x622rgz7': {
       'fi': 'KUNTOSALI (penkki, pystypunnerrus käsipainolla jne...)',
-      'en': 'gym exercise (Bench Press, Dumbell flies etc...)',
-    },
-    '9sqedszu': {
-      'fi': 'KEHONPAINO (lankku, punnerrukset jne...)',
-      'en': 'bodyweight (blank, push ups etc...)',
-    },
-    '5gdi5onb': {
-      'fi': 'AEROBINEN (Uinti, juoksu, jalkapallo jne...)',
-      'en': 'cardio (Swimming, running, football etc...)',
+      'en': 'GYM (Bench Press, Dumbell flies etc...)',
     },
     'ithsk40p': {
-      'fi': 'MUU (laskettelu, sukellus, seinäkiipeily jne.)',
-      'en': 'OTHER (diving, boulder, skateboarding etc.)',
+      'fi': 'MUU (venyttely, uinti, palloilu jne...)',
+      'en': 'OTHER (exercise that doesn\'t fit in gym category )',
     },
     'eod0ssb0': {
       'fi': 'Valitse tyyppi (Ei pakollinen)',
@@ -906,11 +569,151 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Delete',
     },
   },
-  // MyIconButtonCopy
+  // toistotJaPaino
   {
-    'dy1gb863': {
-      'fi': 'Poista',
-      'en': 'Delete',
+    'mx954vsy': {
+      'fi': '.\nsarja',
+      'en': '',
+    },
+    'sgoh1uqn': {
+      'fi': 'Toistot',
+      'en': 'Reps',
+    },
+    '4lw9eht6': {
+      'fi': '0',
+      'en': 'Repetitions',
+    },
+    'vmoelc5t': {
+      'fi': 'Paino (kg)',
+      'en': 'Weight (kg)',
+    },
+    'e8e42meb': {
+      'fi': '0',
+      'en': 'Repetitions',
+    },
+  },
+  // liike_treenaaminen
+  {
+    '29oo50bm': {
+      'fi': 'Liikkeen nimi',
+      'en': 'Excercise name',
+    },
+    'l7w663ju': {
+      'fi': 'Kommentti (vapaaehtoinen)',
+      'en': 'Commment (Optional)',
+    },
+    '6pg85p64': {
+      'fi': '1',
+      'en': '',
+    },
+    '1k7piz7l': {
+      'fi': '.\nsarja',
+      'en': '',
+    },
+    'u1j0c71n': {
+      'fi': 'Toistot',
+      'en': 'Reps',
+    },
+    'vzw2070w': {
+      'fi': '0',
+      'en': 'Repetitions',
+    },
+    '1zpp3lp9': {
+      'fi': 'Paino (kg)',
+      'en': 'Weight (kg)',
+    },
+    'utdud272': {
+      'fi': '0',
+      'en': 'Repetitions',
+    },
+    'dxvry4te': {
+      'fi': 'lisää sarja',
+      'en': 'add set',
+    },
+  },
+  // drawer
+  {
+    'ku53fmbs': {
+      'fi': 'Luo tili',
+      'en': 'Create account',
+    },
+    'lf9x72qv': {
+      'fi': 'Treenirutiinit',
+      'en': 'Workout routines',
+    },
+    '14gzlzjt': {
+      'fi': 'Treenihistoria',
+      'en': 'Workout history',
+    },
+    'lbpdvgf4': {
+      'fi': 'Treenitilastot',
+      'en': 'Workout Statistics',
+    },
+    'sh3jbjpm': {
+      'fi': 'Asetukset',
+      'en': 'Settings',
+    },
+    'ny2fhrqk': {
+      'fi': 'Lähetä palaute',
+      'en': 'Send feedback',
+    },
+    '2ttiy67c': {
+      'fi': 'Tietosuoja ja käyttöehdot',
+      'en': 'Privacy policy and User agreetment',
+    },
+  },
+  // rutiinitSivu
+  {
+    'pr2ftdmo': {
+      'fi': 'Ylävartalo',
+      'en': 'Upperbody',
+    },
+    '1d67hhk0': {
+      'fi': 'Työntävät',
+      'en': 'Push',
+    },
+    '68nw3eu6': {
+      'fi': 'Valitse treenirutiini',
+      'en': 'Select routine',
+    },
+  },
+  // treeniHistoria_sivu
+  {
+    'yozizy8i': {
+      'fi': 'Sinulla ei ole vielä tehtyjä treenejä',
+      'en': 'You don\'t have finished workouts yet',
+    },
+  },
+  // poistaRutiiniBottomSheet
+  {
+    'e0l254zt': {
+      'fi': 'Poista rutiini',
+      'en': 'Delete routine',
+    },
+  },
+  // aikaisemmatSuoritukset
+  {
+    'nuyg0kz2': {
+      'fi': 'Heatmap kalenteri',
+      'en': 'Heatmap valendar',
+    },
+    '42oknvjl': {
+      'fi': 'Heat map',
+      'en': 'Heat map',
+    },
+  },
+  // button_aloitaTreenaaminen
+  {
+    'wmqwog4s': {
+      'fi': 'Aloita treenaaminen',
+      'en': 'Start workout',
+    },
+  },
+  // button_luoRutiini
+  {
+    '3myg55ek': {
+      'fi': 'Luo rutiini',
+      'en': 'Create an routine',
     },
   },
   // Miscellaneous

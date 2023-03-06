@@ -1,8 +1,10 @@
-import '../components/my_delete_button_widget.dart';
-import '../flutter_flow/flutter_flow_drop_down.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
+import '/backend/backend.dart';
+import '/components/my_delete_button_widget.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -10,6 +12,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class TreeniLiikeFormModel extends FlutterFlowModel {
+  ///  Local state fields for this component.
+
+  TreeniRutiiniStruct? luotavaRutiini;
+
+  LiikeStruct? luotavaLiike;
+
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for liikeNimi widget.
@@ -52,6 +60,7 @@ class TreeniLiikeFormModel extends FlutterFlowModel {
     kestoController?.dispose();
     matkaController?.dispose();
     liikeKommenttiController?.dispose();
+    myDeleteButtonModel.dispose();
   }
 
   /// Additional helper methods are added here.

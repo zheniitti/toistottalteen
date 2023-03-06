@@ -41,14 +41,6 @@ class _$EsimerkkiDataRecordSerializer
             specifiedType: const FullType(
                 BuiltList, const [const FullType(LiikeStruct)])));
     }
-    value = object.esimerkkiSessiot;
-    if (value != null) {
-      result
-        ..add('esimerkkiSessiot')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(
-                BuiltList, const [const FullType(TreeniSessioStruct)])));
-    }
     value = object.languageCode;
     if (value != null) {
       result
@@ -91,12 +83,6 @@ class _$EsimerkkiDataRecordSerializer
                       BuiltList, const [const FullType(LiikeStruct)]))!
               as BuiltList<Object?>);
           break;
-        case 'esimerkkiSessiot':
-          result.esimerkkiSessiot.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      BuiltList, const [const FullType(TreeniSessioStruct)]))!
-              as BuiltList<Object?>);
-          break;
         case 'languageCode':
           result.languageCode = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
@@ -120,8 +106,6 @@ class _$EsimerkkiDataRecord extends EsimerkkiDataRecord {
   @override
   final BuiltList<LiikeStruct>? esimerkkiLiikkeet;
   @override
-  final BuiltList<TreeniSessioStruct>? esimerkkiSessiot;
-  @override
   final String? languageCode;
   @override
   final DocumentReference<Object?>? ffRef;
@@ -133,7 +117,6 @@ class _$EsimerkkiDataRecord extends EsimerkkiDataRecord {
   _$EsimerkkiDataRecord._(
       {this.esimerkkiRutiinit,
       this.esimerkkiLiikkeet,
-      this.esimerkkiSessiot,
       this.languageCode,
       this.ffRef})
       : super._();
@@ -153,7 +136,6 @@ class _$EsimerkkiDataRecord extends EsimerkkiDataRecord {
     return other is EsimerkkiDataRecord &&
         esimerkkiRutiinit == other.esimerkkiRutiinit &&
         esimerkkiLiikkeet == other.esimerkkiLiikkeet &&
-        esimerkkiSessiot == other.esimerkkiSessiot &&
         languageCode == other.languageCode &&
         ffRef == other.ffRef;
   }
@@ -161,11 +143,7 @@ class _$EsimerkkiDataRecord extends EsimerkkiDataRecord {
   @override
   int get hashCode {
     return $jf($jc(
-        $jc(
-            $jc(
-                $jc($jc(0, esimerkkiRutiinit.hashCode),
-                    esimerkkiLiikkeet.hashCode),
-                esimerkkiSessiot.hashCode),
+        $jc($jc($jc(0, esimerkkiRutiinit.hashCode), esimerkkiLiikkeet.hashCode),
             languageCode.hashCode),
         ffRef.hashCode));
   }
@@ -175,7 +153,6 @@ class _$EsimerkkiDataRecord extends EsimerkkiDataRecord {
     return (newBuiltValueToStringHelper(r'EsimerkkiDataRecord')
           ..add('esimerkkiRutiinit', esimerkkiRutiinit)
           ..add('esimerkkiLiikkeet', esimerkkiLiikkeet)
-          ..add('esimerkkiSessiot', esimerkkiSessiot)
           ..add('languageCode', languageCode)
           ..add('ffRef', ffRef))
         .toString();
@@ -198,12 +175,6 @@ class EsimerkkiDataRecordBuilder
   set esimerkkiLiikkeet(ListBuilder<LiikeStruct>? esimerkkiLiikkeet) =>
       _$this._esimerkkiLiikkeet = esimerkkiLiikkeet;
 
-  ListBuilder<TreeniSessioStruct>? _esimerkkiSessiot;
-  ListBuilder<TreeniSessioStruct> get esimerkkiSessiot =>
-      _$this._esimerkkiSessiot ??= new ListBuilder<TreeniSessioStruct>();
-  set esimerkkiSessiot(ListBuilder<TreeniSessioStruct>? esimerkkiSessiot) =>
-      _$this._esimerkkiSessiot = esimerkkiSessiot;
-
   String? _languageCode;
   String? get languageCode => _$this._languageCode;
   set languageCode(String? languageCode) => _$this._languageCode = languageCode;
@@ -221,7 +192,6 @@ class EsimerkkiDataRecordBuilder
     if ($v != null) {
       _esimerkkiRutiinit = $v.esimerkkiRutiinit?.toBuilder();
       _esimerkkiLiikkeet = $v.esimerkkiLiikkeet?.toBuilder();
-      _esimerkkiSessiot = $v.esimerkkiSessiot?.toBuilder();
       _languageCode = $v.languageCode;
       _ffRef = $v.ffRef;
       _$v = null;
@@ -250,7 +220,6 @@ class EsimerkkiDataRecordBuilder
           new _$EsimerkkiDataRecord._(
               esimerkkiRutiinit: _esimerkkiRutiinit?.build(),
               esimerkkiLiikkeet: _esimerkkiLiikkeet?.build(),
-              esimerkkiSessiot: _esimerkkiSessiot?.build(),
               languageCode: languageCode,
               ffRef: ffRef);
     } catch (_) {
@@ -260,8 +229,6 @@ class EsimerkkiDataRecordBuilder
         _esimerkkiRutiinit?.build();
         _$failedField = 'esimerkkiLiikkeet';
         _esimerkkiLiikkeet?.build();
-        _$failedField = 'esimerkkiSessiot';
-        _esimerkkiSessiot?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'EsimerkkiDataRecord', _$failedField, e.toString());

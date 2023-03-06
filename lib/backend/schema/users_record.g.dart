@@ -61,13 +61,15 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.appDataRef;
+    value = object.appDataRefs;
     if (value != null) {
       result
-        ..add('appDataRef')
+        ..add('appDataRefs')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(
-                DocumentReference, const [const FullType.nullable(Object)])));
+            specifiedType: const FullType(BuiltList, const [
+              const FullType(
+                  DocumentReference, const [const FullType.nullable(Object)])
+            ])));
     }
     value = object.ffRef;
     if (value != null) {
@@ -115,11 +117,12 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
           result.phoneNumber = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'appDataRef':
-          result.appDataRef = serializers.deserialize(value,
-              specifiedType: const FullType(DocumentReference, const [
-                const FullType.nullable(Object)
-              ])) as DocumentReference<Object?>?;
+        case 'appDataRefs':
+          result.appDataRefs.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(
+                    DocumentReference, const [const FullType.nullable(Object)])
+              ]))! as BuiltList<Object?>);
           break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
@@ -148,7 +151,7 @@ class _$UsersRecord extends UsersRecord {
   @override
   final String? phoneNumber;
   @override
-  final DocumentReference<Object?>? appDataRef;
+  final BuiltList<DocumentReference<Object?>>? appDataRefs;
   @override
   final DocumentReference<Object?>? ffRef;
 
@@ -162,7 +165,7 @@ class _$UsersRecord extends UsersRecord {
       this.uid,
       this.createdTime,
       this.phoneNumber,
-      this.appDataRef,
+      this.appDataRefs,
       this.ffRef})
       : super._();
 
@@ -183,7 +186,7 @@ class _$UsersRecord extends UsersRecord {
         uid == other.uid &&
         createdTime == other.createdTime &&
         phoneNumber == other.phoneNumber &&
-        appDataRef == other.appDataRef &&
+        appDataRefs == other.appDataRefs &&
         ffRef == other.ffRef;
   }
 
@@ -199,7 +202,7 @@ class _$UsersRecord extends UsersRecord {
                         uid.hashCode),
                     createdTime.hashCode),
                 phoneNumber.hashCode),
-            appDataRef.hashCode),
+            appDataRefs.hashCode),
         ffRef.hashCode));
   }
 
@@ -212,7 +215,7 @@ class _$UsersRecord extends UsersRecord {
           ..add('uid', uid)
           ..add('createdTime', createdTime)
           ..add('phoneNumber', phoneNumber)
-          ..add('appDataRef', appDataRef)
+          ..add('appDataRefs', appDataRefs)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -245,10 +248,11 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   String? get phoneNumber => _$this._phoneNumber;
   set phoneNumber(String? phoneNumber) => _$this._phoneNumber = phoneNumber;
 
-  DocumentReference<Object?>? _appDataRef;
-  DocumentReference<Object?>? get appDataRef => _$this._appDataRef;
-  set appDataRef(DocumentReference<Object?>? appDataRef) =>
-      _$this._appDataRef = appDataRef;
+  ListBuilder<DocumentReference<Object?>>? _appDataRefs;
+  ListBuilder<DocumentReference<Object?>> get appDataRefs =>
+      _$this._appDataRefs ??= new ListBuilder<DocumentReference<Object?>>();
+  set appDataRefs(ListBuilder<DocumentReference<Object?>>? appDataRefs) =>
+      _$this._appDataRefs = appDataRefs;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
@@ -267,7 +271,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _uid = $v.uid;
       _createdTime = $v.createdTime;
       _phoneNumber = $v.phoneNumber;
-      _appDataRef = $v.appDataRef;
+      _appDataRefs = $v.appDataRefs?.toBuilder();
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -289,16 +293,29 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   UsersRecord build() => _build();
 
   _$UsersRecord _build() {
-    final _$result = _$v ??
-        new _$UsersRecord._(
-            email: email,
-            displayName: displayName,
-            photoUrl: photoUrl,
-            uid: uid,
-            createdTime: createdTime,
-            phoneNumber: phoneNumber,
-            appDataRef: appDataRef,
-            ffRef: ffRef);
+    _$UsersRecord _$result;
+    try {
+      _$result = _$v ??
+          new _$UsersRecord._(
+              email: email,
+              displayName: displayName,
+              photoUrl: photoUrl,
+              uid: uid,
+              createdTime: createdTime,
+              phoneNumber: phoneNumber,
+              appDataRefs: _appDataRefs?.build(),
+              ffRef: ffRef);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'appDataRefs';
+        _appDataRefs?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'UsersRecord', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

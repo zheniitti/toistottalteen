@@ -8,6 +8,7 @@ import 'treeni_sessiot_record.dart';
 import 'app_data_record.dart';
 import 'tilastot_ja_analytiikka_record.dart';
 import 'esimerkki_data_record.dart';
+import 'esimerkki_analytiikka_data_record.dart';
 
 import 'index.dart';
 
@@ -25,11 +26,12 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   AppDataRecord,
   TilastotJaAnalytiikkaRecord,
   EsimerkkiDataRecord,
+  EsimerkkiAnalytiikkaDataRecord,
   LiikeStruct,
-  TreeniSessioStruct,
   TreeniRutiiniStruct,
   AikavaliStruct,
   ValitutViikonPaivatStruct,
+  SarjaStruct,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())

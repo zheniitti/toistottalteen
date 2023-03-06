@@ -1,10 +1,10 @@
-import '../backend/backend.dart';
-import '../components/liike_widget.dart';
-import '../components/treeni_liike_form_widget.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/backend/backend.dart';
+import '/components/liike_widget.dart';
+import '/components/treeni_liike_form_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
-import '../flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -43,6 +43,7 @@ class LuoRutiiniSivuModel extends FlutterFlowModel {
   void dispose() {
     rutiininnimiController?.dispose();
     rutiiniKommenttiController?.dispose();
+    treeniLiikeFormModel.dispose();
   }
 
   /// Additional helper methods are added here.

@@ -10,29 +10,8 @@ abstract class AppDataRecord
     implements Built<AppDataRecord, AppDataRecordBuilder> {
   static Serializer<AppDataRecord> get serializer => _$appDataRecordSerializer;
 
-  String? get email;
-
-  @BuiltValueField(wireName: 'display_name')
-  String? get displayName;
-
-  @BuiltValueField(wireName: 'photo_url')
-  String? get photoUrl;
-
-  String? get uid;
-
   @BuiltValueField(wireName: 'created_time')
   DateTime? get createdTime;
-
-  @BuiltValueField(wireName: 'phone_number')
-  String? get phoneNumber;
-
-  @BuiltValueField(wireName: 'edited_time')
-  DateTime? get editedTime;
-
-  String? get bio;
-
-  @BuiltValueField(wireName: 'user_name')
-  String? get userName;
 
   String? get appLangCode;
 
@@ -44,32 +23,21 @@ abstract class AppDataRecord
 
   BuiltList<TreeniRutiiniStruct>? get treeniRutiinit;
 
-  BuiltList<TreeniSessioStruct>? get treeniSessiot;
-
-  DateTime? get latestTrainingSessionTime;
-
-  DateTime? get docCreatedTime;
-
   DocumentReference? get userRef;
+
+  String? get latestPlatform;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(AppDataRecordBuilder builder) => builder
-    ..email = ''
-    ..displayName = ''
-    ..photoUrl = ''
-    ..uid = ''
-    ..phoneNumber = ''
-    ..bio = ''
-    ..userName = ''
     ..appLangCode = ''
     ..darkMode = false
     ..weightUnit = ''
     ..treeniliikeNimet = ListBuilder()
     ..treeniRutiinit = ListBuilder()
-    ..treeniSessiot = ListBuilder();
+    ..latestPlatform = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('appData');
@@ -93,44 +61,25 @@ abstract class AppDataRecord
 }
 
 Map<String, dynamic> createAppDataRecordData({
-  String? email,
-  String? displayName,
-  String? photoUrl,
-  String? uid,
   DateTime? createdTime,
-  String? phoneNumber,
-  DateTime? editedTime,
-  String? bio,
-  String? userName,
   String? appLangCode,
   bool? darkMode,
   String? weightUnit,
-  DateTime? latestTrainingSessionTime,
-  DateTime? docCreatedTime,
   DocumentReference? userRef,
+  String? latestPlatform,
 }) {
   final firestoreData = serializers.toFirestore(
     AppDataRecord.serializer,
     AppDataRecord(
       (a) => a
-        ..email = email
-        ..displayName = displayName
-        ..photoUrl = photoUrl
-        ..uid = uid
         ..createdTime = createdTime
-        ..phoneNumber = phoneNumber
-        ..editedTime = editedTime
-        ..bio = bio
-        ..userName = userName
         ..appLangCode = appLangCode
         ..darkMode = darkMode
         ..weightUnit = weightUnit
         ..treeniliikeNimet = null
         ..treeniRutiinit = null
-        ..treeniSessiot = null
-        ..latestTrainingSessionTime = latestTrainingSessionTime
-        ..docCreatedTime = docCreatedTime
-        ..userRef = userRef,
+        ..userRef = userRef
+        ..latestPlatform = latestPlatform,
     ),
   );
 

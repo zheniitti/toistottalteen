@@ -20,68 +20,12 @@ class _$AppDataRecordSerializer implements StructuredSerializer<AppDataRecord> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
-    value = object.email;
-    if (value != null) {
-      result
-        ..add('email')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.displayName;
-    if (value != null) {
-      result
-        ..add('display_name')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.photoUrl;
-    if (value != null) {
-      result
-        ..add('photo_url')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.uid;
-    if (value != null) {
-      result
-        ..add('uid')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.createdTime;
     if (value != null) {
       result
         ..add('created_time')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(DateTime)));
-    }
-    value = object.phoneNumber;
-    if (value != null) {
-      result
-        ..add('phone_number')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.editedTime;
-    if (value != null) {
-      result
-        ..add('edited_time')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(DateTime)));
-    }
-    value = object.bio;
-    if (value != null) {
-      result
-        ..add('bio')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.userName;
-    if (value != null) {
-      result
-        ..add('user_name')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
     }
     value = object.appLangCode;
     if (value != null) {
@@ -120,28 +64,6 @@ class _$AppDataRecordSerializer implements StructuredSerializer<AppDataRecord> {
             specifiedType: const FullType(
                 BuiltList, const [const FullType(TreeniRutiiniStruct)])));
     }
-    value = object.treeniSessiot;
-    if (value != null) {
-      result
-        ..add('treeniSessiot')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(
-                BuiltList, const [const FullType(TreeniSessioStruct)])));
-    }
-    value = object.latestTrainingSessionTime;
-    if (value != null) {
-      result
-        ..add('latestTrainingSessionTime')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(DateTime)));
-    }
-    value = object.docCreatedTime;
-    if (value != null) {
-      result
-        ..add('docCreatedTime')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(DateTime)));
-    }
     value = object.userRef;
     if (value != null) {
       result
@@ -149,6 +71,13 @@ class _$AppDataRecordSerializer implements StructuredSerializer<AppDataRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(
                 DocumentReference, const [const FullType.nullable(Object)])));
+    }
+    value = object.latestPlatform;
+    if (value != null) {
+      result
+        ..add('latestPlatform')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.ffRef;
     if (value != null) {
@@ -173,41 +102,9 @@ class _$AppDataRecordSerializer implements StructuredSerializer<AppDataRecord> {
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'email':
-          result.email = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'display_name':
-          result.displayName = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'photo_url':
-          result.photoUrl = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'uid':
-          result.uid = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
         case 'created_time':
           result.createdTime = serializers.deserialize(value,
               specifiedType: const FullType(DateTime)) as DateTime?;
-          break;
-        case 'phone_number':
-          result.phoneNumber = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'edited_time':
-          result.editedTime = serializers.deserialize(value,
-              specifiedType: const FullType(DateTime)) as DateTime?;
-          break;
-        case 'bio':
-          result.bio = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'user_name':
-          result.userName = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
           break;
         case 'appLangCode':
           result.appLangCode = serializers.deserialize(value,
@@ -233,25 +130,15 @@ class _$AppDataRecordSerializer implements StructuredSerializer<AppDataRecord> {
                       BuiltList, const [const FullType(TreeniRutiiniStruct)]))!
               as BuiltList<Object?>);
           break;
-        case 'treeniSessiot':
-          result.treeniSessiot.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      BuiltList, const [const FullType(TreeniSessioStruct)]))!
-              as BuiltList<Object?>);
-          break;
-        case 'latestTrainingSessionTime':
-          result.latestTrainingSessionTime = serializers.deserialize(value,
-              specifiedType: const FullType(DateTime)) as DateTime?;
-          break;
-        case 'docCreatedTime':
-          result.docCreatedTime = serializers.deserialize(value,
-              specifiedType: const FullType(DateTime)) as DateTime?;
-          break;
         case 'userRef':
           result.userRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
                 const FullType.nullable(Object)
               ])) as DocumentReference<Object?>?;
+          break;
+        case 'latestPlatform':
+          result.latestPlatform = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
@@ -268,23 +155,7 @@ class _$AppDataRecordSerializer implements StructuredSerializer<AppDataRecord> {
 
 class _$AppDataRecord extends AppDataRecord {
   @override
-  final String? email;
-  @override
-  final String? displayName;
-  @override
-  final String? photoUrl;
-  @override
-  final String? uid;
-  @override
   final DateTime? createdTime;
-  @override
-  final String? phoneNumber;
-  @override
-  final DateTime? editedTime;
-  @override
-  final String? bio;
-  @override
-  final String? userName;
   @override
   final String? appLangCode;
   @override
@@ -296,13 +167,9 @@ class _$AppDataRecord extends AppDataRecord {
   @override
   final BuiltList<TreeniRutiiniStruct>? treeniRutiinit;
   @override
-  final BuiltList<TreeniSessioStruct>? treeniSessiot;
-  @override
-  final DateTime? latestTrainingSessionTime;
-  @override
-  final DateTime? docCreatedTime;
-  @override
   final DocumentReference<Object?>? userRef;
+  @override
+  final String? latestPlatform;
   @override
   final DocumentReference<Object?>? ffRef;
 
@@ -310,24 +177,14 @@ class _$AppDataRecord extends AppDataRecord {
       (new AppDataRecordBuilder()..update(updates))._build();
 
   _$AppDataRecord._(
-      {this.email,
-      this.displayName,
-      this.photoUrl,
-      this.uid,
-      this.createdTime,
-      this.phoneNumber,
-      this.editedTime,
-      this.bio,
-      this.userName,
+      {this.createdTime,
       this.appLangCode,
       this.darkMode,
       this.weightUnit,
       this.treeniliikeNimet,
       this.treeniRutiinit,
-      this.treeniSessiot,
-      this.latestTrainingSessionTime,
-      this.docCreatedTime,
       this.userRef,
+      this.latestPlatform,
       this.ffRef})
       : super._();
 
@@ -342,24 +199,14 @@ class _$AppDataRecord extends AppDataRecord {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is AppDataRecord &&
-        email == other.email &&
-        displayName == other.displayName &&
-        photoUrl == other.photoUrl &&
-        uid == other.uid &&
         createdTime == other.createdTime &&
-        phoneNumber == other.phoneNumber &&
-        editedTime == other.editedTime &&
-        bio == other.bio &&
-        userName == other.userName &&
         appLangCode == other.appLangCode &&
         darkMode == other.darkMode &&
         weightUnit == other.weightUnit &&
         treeniliikeNimet == other.treeniliikeNimet &&
         treeniRutiinit == other.treeniRutiinit &&
-        treeniSessiot == other.treeniSessiot &&
-        latestTrainingSessionTime == other.latestTrainingSessionTime &&
-        docCreatedTime == other.docCreatedTime &&
         userRef == other.userRef &&
+        latestPlatform == other.latestPlatform &&
         ffRef == other.ffRef;
   }
 
@@ -372,67 +219,28 @@ class _$AppDataRecord extends AppDataRecord {
                     $jc(
                         $jc(
                             $jc(
-                                $jc(
-                                    $jc(
-                                        $jc(
-                                            $jc(
-                                                $jc(
-                                                    $jc(
-                                                        $jc(
-                                                            $jc(
-                                                                $jc(
-                                                                    $jc(
-                                                                        $jc(
-                                                                            $jc(
-                                                                                0,
-                                                                                email
-                                                                                    .hashCode),
-                                                                            displayName
-                                                                                .hashCode),
-                                                                        photoUrl
-                                                                            .hashCode),
-                                                                    uid
-                                                                        .hashCode),
-                                                                createdTime
-                                                                    .hashCode),
-                                                            phoneNumber
-                                                                .hashCode),
-                                                        editedTime.hashCode),
-                                                    bio.hashCode),
-                                                userName.hashCode),
-                                            appLangCode.hashCode),
-                                        darkMode.hashCode),
-                                    weightUnit.hashCode),
-                                treeniliikeNimet.hashCode),
-                            treeniRutiinit.hashCode),
-                        treeniSessiot.hashCode),
-                    latestTrainingSessionTime.hashCode),
-                docCreatedTime.hashCode),
-            userRef.hashCode),
+                                $jc($jc(0, createdTime.hashCode),
+                                    appLangCode.hashCode),
+                                darkMode.hashCode),
+                            weightUnit.hashCode),
+                        treeniliikeNimet.hashCode),
+                    treeniRutiinit.hashCode),
+                userRef.hashCode),
+            latestPlatform.hashCode),
         ffRef.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'AppDataRecord')
-          ..add('email', email)
-          ..add('displayName', displayName)
-          ..add('photoUrl', photoUrl)
-          ..add('uid', uid)
           ..add('createdTime', createdTime)
-          ..add('phoneNumber', phoneNumber)
-          ..add('editedTime', editedTime)
-          ..add('bio', bio)
-          ..add('userName', userName)
           ..add('appLangCode', appLangCode)
           ..add('darkMode', darkMode)
           ..add('weightUnit', weightUnit)
           ..add('treeniliikeNimet', treeniliikeNimet)
           ..add('treeniRutiinit', treeniRutiinit)
-          ..add('treeniSessiot', treeniSessiot)
-          ..add('latestTrainingSessionTime', latestTrainingSessionTime)
-          ..add('docCreatedTime', docCreatedTime)
           ..add('userRef', userRef)
+          ..add('latestPlatform', latestPlatform)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -442,41 +250,9 @@ class AppDataRecordBuilder
     implements Builder<AppDataRecord, AppDataRecordBuilder> {
   _$AppDataRecord? _$v;
 
-  String? _email;
-  String? get email => _$this._email;
-  set email(String? email) => _$this._email = email;
-
-  String? _displayName;
-  String? get displayName => _$this._displayName;
-  set displayName(String? displayName) => _$this._displayName = displayName;
-
-  String? _photoUrl;
-  String? get photoUrl => _$this._photoUrl;
-  set photoUrl(String? photoUrl) => _$this._photoUrl = photoUrl;
-
-  String? _uid;
-  String? get uid => _$this._uid;
-  set uid(String? uid) => _$this._uid = uid;
-
   DateTime? _createdTime;
   DateTime? get createdTime => _$this._createdTime;
   set createdTime(DateTime? createdTime) => _$this._createdTime = createdTime;
-
-  String? _phoneNumber;
-  String? get phoneNumber => _$this._phoneNumber;
-  set phoneNumber(String? phoneNumber) => _$this._phoneNumber = phoneNumber;
-
-  DateTime? _editedTime;
-  DateTime? get editedTime => _$this._editedTime;
-  set editedTime(DateTime? editedTime) => _$this._editedTime = editedTime;
-
-  String? _bio;
-  String? get bio => _$this._bio;
-  set bio(String? bio) => _$this._bio = bio;
-
-  String? _userName;
-  String? get userName => _$this._userName;
-  set userName(String? userName) => _$this._userName = userName;
 
   String? _appLangCode;
   String? get appLangCode => _$this._appLangCode;
@@ -502,25 +278,14 @@ class AppDataRecordBuilder
   set treeniRutiinit(ListBuilder<TreeniRutiiniStruct>? treeniRutiinit) =>
       _$this._treeniRutiinit = treeniRutiinit;
 
-  ListBuilder<TreeniSessioStruct>? _treeniSessiot;
-  ListBuilder<TreeniSessioStruct> get treeniSessiot =>
-      _$this._treeniSessiot ??= new ListBuilder<TreeniSessioStruct>();
-  set treeniSessiot(ListBuilder<TreeniSessioStruct>? treeniSessiot) =>
-      _$this._treeniSessiot = treeniSessiot;
-
-  DateTime? _latestTrainingSessionTime;
-  DateTime? get latestTrainingSessionTime => _$this._latestTrainingSessionTime;
-  set latestTrainingSessionTime(DateTime? latestTrainingSessionTime) =>
-      _$this._latestTrainingSessionTime = latestTrainingSessionTime;
-
-  DateTime? _docCreatedTime;
-  DateTime? get docCreatedTime => _$this._docCreatedTime;
-  set docCreatedTime(DateTime? docCreatedTime) =>
-      _$this._docCreatedTime = docCreatedTime;
-
   DocumentReference<Object?>? _userRef;
   DocumentReference<Object?>? get userRef => _$this._userRef;
   set userRef(DocumentReference<Object?>? userRef) => _$this._userRef = userRef;
+
+  String? _latestPlatform;
+  String? get latestPlatform => _$this._latestPlatform;
+  set latestPlatform(String? latestPlatform) =>
+      _$this._latestPlatform = latestPlatform;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
@@ -533,24 +298,14 @@ class AppDataRecordBuilder
   AppDataRecordBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _email = $v.email;
-      _displayName = $v.displayName;
-      _photoUrl = $v.photoUrl;
-      _uid = $v.uid;
       _createdTime = $v.createdTime;
-      _phoneNumber = $v.phoneNumber;
-      _editedTime = $v.editedTime;
-      _bio = $v.bio;
-      _userName = $v.userName;
       _appLangCode = $v.appLangCode;
       _darkMode = $v.darkMode;
       _weightUnit = $v.weightUnit;
       _treeniliikeNimet = $v.treeniliikeNimet?.toBuilder();
       _treeniRutiinit = $v.treeniRutiinit?.toBuilder();
-      _treeniSessiot = $v.treeniSessiot?.toBuilder();
-      _latestTrainingSessionTime = $v.latestTrainingSessionTime;
-      _docCreatedTime = $v.docCreatedTime;
       _userRef = $v.userRef;
+      _latestPlatform = $v.latestPlatform;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -576,24 +331,14 @@ class AppDataRecordBuilder
     try {
       _$result = _$v ??
           new _$AppDataRecord._(
-              email: email,
-              displayName: displayName,
-              photoUrl: photoUrl,
-              uid: uid,
               createdTime: createdTime,
-              phoneNumber: phoneNumber,
-              editedTime: editedTime,
-              bio: bio,
-              userName: userName,
               appLangCode: appLangCode,
               darkMode: darkMode,
               weightUnit: weightUnit,
               treeniliikeNimet: _treeniliikeNimet?.build(),
               treeniRutiinit: _treeniRutiinit?.build(),
-              treeniSessiot: _treeniSessiot?.build(),
-              latestTrainingSessionTime: latestTrainingSessionTime,
-              docCreatedTime: docCreatedTime,
               userRef: userRef,
+              latestPlatform: latestPlatform,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;
@@ -602,8 +347,6 @@ class AppDataRecordBuilder
         _treeniliikeNimet?.build();
         _$failedField = 'treeniRutiinit';
         _treeniRutiinit?.build();
-        _$failedField = 'treeniSessiot';
-        _treeniSessiot?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'AppDataRecord', _$failedField, e.toString());

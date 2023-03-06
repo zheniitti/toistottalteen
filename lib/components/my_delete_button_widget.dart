@@ -1,5 +1,5 @@
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -27,11 +27,13 @@ class _MyDeleteButtonWidgetState extends State<MyDeleteButtonWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MyDeleteButtonModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
-    _model.dispose();
+    _model.maybeDispose();
 
     super.dispose();
   }
@@ -41,15 +43,15 @@ class _MyDeleteButtonWidgetState extends State<MyDeleteButtonWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(-1, 0),
+      alignment: AlignmentDirectional(-1.0, 0.0),
       child: Container(
-        width: 100,
-        height: 36,
+        width: 100.0,
+        height: 36.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.0),
         ),
-        alignment: AlignmentDirectional(0, 0),
+        alignment: AlignmentDirectional(0.0, 0.0),
         child: Row(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -57,7 +59,7 @@ class _MyDeleteButtonWidgetState extends State<MyDeleteButtonWidget> {
             Icon(
               Icons.delete_rounded,
               color: Colors.black,
-              size: 24,
+              size: 24.0,
             ),
             Text(
               FFLocalizations.of(context).getText(

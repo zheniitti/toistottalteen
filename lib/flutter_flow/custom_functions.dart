@@ -16,7 +16,7 @@ String? liikkeenToistot(LiikeStruct? liike) {
   final String setit = liike?.sarjaMaara.toString() ?? '';
   final String toistot = liike?.toistoMaara.toString() ?? '';
   final String paino = (liike?.painoKg.toString() ?? '0') + 'kg';
-  return setit + ' x ' + toistot + ' x ' + paino;
+  return setit + ' x ' + toistot;
 }
 
 LiikeStruct paivitaLiike(
@@ -59,6 +59,13 @@ TreeniRutiiniStruct emptyRutiini() {
   return TreeniRutiiniStruct();
 }
 
-TreeniSessioStruct? emptySessio() {
-  return TreeniSessioStruct();
+TreeniRutiiniStruct? getTreeniRutiiniByName(
+  List<TreeniRutiiniStruct>? rutiinitList,
+  String? name,
+) {
+  if (rutiinitList == null ||
+      rutiinitList.isEmpty ||
+      name == null ||
+      name.isEmpty) return null;
+  return rutiinitList.firstWhere((rutiini) => rutiini.nimi == name);
 }

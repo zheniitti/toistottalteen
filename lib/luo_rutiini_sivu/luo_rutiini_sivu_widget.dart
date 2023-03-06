@@ -1,10 +1,10 @@
-import '../backend/backend.dart';
-import '../components/liike_widget.dart';
-import '../components/treeni_liike_form_widget.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/backend/backend.dart';
+import '/components/liike_widget.dart';
+import '/components/treeni_liike_form_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
-import '../flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -37,8 +37,9 @@ class _LuoRutiiniSivuWidgetState extends State<LuoRutiiniSivuWidget> {
       _model.luotavaRutiini = functions.emptyRutiini();
     });
 
-    _model.rutiininnimiController = TextEditingController();
-    _model.rutiiniKommenttiController = TextEditingController();
+    _model.rutiininnimiController ??= TextEditingController();
+    _model.rutiiniKommenttiController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -60,10 +61,10 @@ class _LuoRutiiniSivuWidgetState extends State<LuoRutiiniSivuWidget> {
         visible: !_model.showLuoLiikeForm,
         child: FloatingActionButton.extended(
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
           backgroundColor: FlutterFlowTheme.of(context).primaryColor,
-          elevation: 8,
+          elevation: 8.0,
           label: Text(
             FFLocalizations.of(context).getText(
               '2b1k7jba' /* Valmis */,
@@ -97,18 +98,18 @@ class _LuoRutiiniSivuWidgetState extends State<LuoRutiiniSivuWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                 child: Icon(
                   Icons.help_outline_rounded,
                   color: FlutterFlowTheme.of(context).primaryBackground,
-                  size: 30,
+                  size: 30.0,
                 ),
               ),
             ],
           ),
         ],
         centerTitle: true,
-        elevation: 4,
+        elevation: 4.0,
       ),
       body: SafeArea(
         child: GestureDetector(
@@ -128,134 +129,153 @@ class _LuoRutiiniSivuWidgetState extends State<LuoRutiiniSivuWidget> {
                           color: FlutterFlowTheme.of(context).primaryBackground,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 8.0, 8.0, 8.0),
                           child: SingleChildScrollView(
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                TextFormField(
-                                  controller: _model.rutiininnimiController,
-                                  onChanged: (_) => EasyDebounce.debounce(
-                                    '_model.rutiininnimiController',
-                                    Duration(milliseconds: 2000),
-                                    () async {
-                                      setState(() {
-                                        _model.luotavaRutiini =
-                                            _model.luotavaRutiini;
-                                      });
-                                    },
-                                  ),
-                                  autofocus: true,
-                                  obscureText: false,
-                                  decoration: InputDecoration(
-                                    labelText:
-                                        FFLocalizations.of(context).getText(
-                                      '3zslehjv' /* Rutiinin / ohjelman nimi */,
-                                    ),
-                                    hintText:
-                                        FFLocalizations.of(context).getText(
-                                      'hyob330v' /* esim Ylövartalo, Työhtävät tai... */,
-                                    ),
-                                    hintStyle:
-                                        FlutterFlowTheme.of(context).bodyText2,
-                                    enabledBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0x00000000),
-                                        width: 1,
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    TextFormField(
+                                      controller: _model.rutiininnimiController,
+                                      onChanged: (_) => EasyDebounce.debounce(
+                                        '_model.rutiininnimiController',
+                                        Duration(milliseconds: 2000),
+                                        () async {
+                                          setState(() {
+                                            _model.luotavaRutiini =
+                                                _model.luotavaRutiini;
+                                          });
+                                        },
                                       ),
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    focusedBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0x00000000),
-                                        width: 1,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    errorBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0x00000000),
-                                        width: 1,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    focusedErrorBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0x00000000),
-                                        width: 1,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    filled: true,
-                                    fillColor: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  style: FlutterFlowTheme.of(context).subtitle2,
-                                  maxLines: 3,
-                                  minLines: 1,
-                                  validator: _model
-                                      .rutiininnimiControllerValidator
-                                      .asValidator(context),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 4, 0, 0),
-                                  child: TextFormField(
-                                    controller:
-                                        _model.rutiiniKommenttiController,
-                                    autofocus: true,
-                                    obscureText: false,
-                                    decoration: InputDecoration(
-                                      labelText:
-                                          FFLocalizations.of(context).getText(
-                                        'vps9eyym' /* Kommentti / ohjeet (vapaaehtoi... */,
-                                      ),
-                                      hintText:
-                                          FFLocalizations.of(context).getText(
-                                        'oeb00uyr' /* esim. Tämä on kokonaisvaltaine... */,
-                                      ),
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .bodyText2,
-                                      enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1,
+                                      autofocus: true,
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        labelText:
+                                            FFLocalizations.of(context).getText(
+                                          '3zslehjv' /* Rutiinin / ohjelman nimi */,
                                         ),
-                                        borderRadius: BorderRadius.circular(8),
-                                      ),
-                                      focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1,
+                                        hintText:
+                                            FFLocalizations.of(context).getText(
+                                          'hyob330v' /* esim Ylövartalo, Työhtävät tai... */,
                                         ),
-                                        borderRadius: BorderRadius.circular(8),
-                                      ),
-                                      errorBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1,
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .bodyText2,
+                                        enabledBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: Color(0x00000000),
+                                            width: 1.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
                                         ),
-                                        borderRadius: BorderRadius.circular(8),
-                                      ),
-                                      focusedErrorBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1,
+                                        focusedBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: Color(0x00000000),
+                                            width: 1.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
                                         ),
-                                        borderRadius: BorderRadius.circular(8),
+                                        errorBorder: UnderlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: Color(0x00000000),
+                                            width: 1.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        focusedErrorBorder:
+                                            UnderlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: Color(0x00000000),
+                                            width: 1.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        filled: true,
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
                                       ),
-                                      filled: true,
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
+                                      style: FlutterFlowTheme.of(context)
+                                          .subtitle2,
+                                      maxLines: 3,
+                                      minLines: 1,
+                                      validator: _model
+                                          .rutiininnimiControllerValidator
+                                          .asValidator(context),
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).subtitle2,
-                                    maxLines: 5,
-                                    minLines: 1,
-                                    validator: _model
-                                        .rutiiniKommenttiControllerValidator
-                                        .asValidator(context),
-                                  ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 4.0, 0.0, 0.0),
+                                      child: TextFormField(
+                                        controller:
+                                            _model.rutiiniKommenttiController,
+                                        autofocus: true,
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          labelText: FFLocalizations.of(context)
+                                              .getText(
+                                            'vps9eyym' /* Kommentti / ohjeet (vapaaehtoi... */,
+                                          ),
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            'oeb00uyr' /* esim. Tämä on kokonaisvaltaine... */,
+                                          ),
+                                          hintStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyText2,
+                                          enabledBorder: UnderlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          focusedBorder: UnderlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          errorBorder: UnderlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          focusedErrorBorder:
+                                              UnderlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          filled: true,
+                                          fillColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryBackground,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .subtitle2,
+                                        maxLines: 5,
+                                        minLines: 1,
+                                        validator: _model
+                                            .rutiiniKommenttiControllerValidator
+                                            .asValidator(context),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                                 Builder(
                                   builder: (context) {
@@ -282,13 +302,14 @@ class _LuoRutiiniSivuWidgetState extends State<LuoRutiiniSivuWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 8, 0, 0),
+                                      0.0, 8.0, 0.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Align(
-                                        alignment: AlignmentDirectional(-1, 0),
+                                        alignment:
+                                            AlignmentDirectional(-1.0, 0.0),
                                         child: InkWell(
                                           onTap: () async {
                                             setState(() {
@@ -296,19 +317,19 @@ class _LuoRutiiniSivuWidgetState extends State<LuoRutiiniSivuWidget> {
                                             });
                                           },
                                           child: Container(
-                                            height: 50,
+                                            height: 50.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryColor,
                                               borderRadius:
-                                                  BorderRadius.circular(12),
+                                                  BorderRadius.circular(12.0),
                                             ),
                                             alignment:
-                                                AlignmentDirectional(0, 0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(8, 0, 8, 0),
+                                                  .fromSTEB(8.0, 0.0, 8.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -319,13 +340,13 @@ class _LuoRutiiniSivuWidgetState extends State<LuoRutiiniSivuWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryColor,
-                                                    size: 24,
+                                                    size: 24.0,
                                                   ),
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                4, 0, 4, 0),
+                                                            .fromSTEB(4.0, 0.0,
+                                                                4.0, 0.0),
                                                     child: Text(
                                                       FFLocalizations.of(
                                                               context)
@@ -363,8 +384,8 @@ class _LuoRutiiniSivuWidgetState extends State<LuoRutiiniSivuWidget> {
                         return ClipRect(
                           child: ImageFiltered(
                             imageFilter: ImageFilter.blur(
-                              sigmaX: 2,
-                              sigmaY: 2,
+                              sigmaX: 0.0,
+                              sigmaY: 0.0,
                             ),
                             child: child,
                           ),
@@ -385,9 +406,9 @@ class _LuoRutiiniSivuWidgetState extends State<LuoRutiiniSivuWidget> {
                           decoration: BoxDecoration(
                             boxShadow: [
                               BoxShadow(
-                                blurRadius: 4,
+                                blurRadius: 4.0,
                                 color: Color(0x33000000),
-                                offset: Offset(0, 2),
+                                offset: Offset(0.0, 2.0),
                               )
                             ],
                           ),
@@ -396,18 +417,30 @@ class _LuoRutiiniSivuWidgetState extends State<LuoRutiiniSivuWidget> {
                   ],
                 ),
               ),
-              if (_model.showLuoLiikeForm)
-                Align(
-                  alignment: AlignmentDirectional(0, 0),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
-                    child: wrapWithModel(
-                      model: _model.treeniLiikeFormModel,
-                      updateCallback: () => setState(() {}),
-                      child: TreeniLiikeFormWidget(),
-                    ),
-                  ),
+              SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if (_model.showLuoLiikeForm)
+                      Align(
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              12.0, 100.0, 12.0, 12.0),
+                          child: wrapWithModel(
+                            model: _model.treeniLiikeFormModel,
+                            updateCallback: () => setState(() {}),
+                            child: TreeniLiikeFormWidget(
+                              luotavaRutiini: _model.luotavaRutiini,
+                              liike: _model.luotavaLiike,
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
                 ),
+              ),
             ],
           ),
         ),

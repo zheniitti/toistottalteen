@@ -9,7 +9,21 @@
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "docCreatedTime",
+          "fieldPath": "created_time",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "treeniSessiot",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "userRef",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "alku",
           "order": "ASCENDING"
         }
       ]

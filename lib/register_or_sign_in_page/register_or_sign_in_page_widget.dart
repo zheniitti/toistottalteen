@@ -1,10 +1,8 @@
-import '../components/toistot_talteen_widget.dart';
-import '../flutter_flow/flutter_flow_animations.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
-import '../register_page/register_page_widget.dart';
-import '../sign_in_page/sign_in_page_widget.dart';
+import '/components/toistot_talteen_text_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -38,8 +36,8 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
           curve: Curves.easeInOut,
           delay: 400.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -50,8 +48,8 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
           curve: Curves.easeInOut,
           delay: 600.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -62,8 +60,8 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
           curve: Curves.easeInOut,
           delay: 800.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -74,8 +72,8 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
           curve: Curves.easeInOut,
           delay: 800.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -86,8 +84,8 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -97,6 +95,8 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => RegisterOrSignInPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -113,40 +113,40 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
 
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: FlutterFlowTheme.of(context).primaryColor,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Align(
-            alignment: AlignmentDirectional(0, 0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Stack(
-              alignment: AlignmentDirectional(0, 0),
+              alignment: AlignmentDirectional(0.0, 0.0),
               children: [
                 Align(
-                  alignment: AlignmentDirectional(1, -1),
+                  alignment: AlignmentDirectional(1.0, -1.0),
                   child: Image.asset(
                     'assets/images/union.png',
-                    width: 160,
+                    width: 160.0,
                     fit: BoxFit.cover,
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(1, 1),
+                  alignment: AlignmentDirectional(1.0, 1.0),
                   child: Image.asset(
                     'assets/images/union_2.png',
-                    width: 150,
+                    width: 150.0,
                     fit: BoxFit.cover,
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1, 1),
+                  alignment: AlignmentDirectional(-1.0, 1.0),
                   child: Image.asset(
                     'assets/images/billie_3.png',
                     fit: BoxFit.cover,
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0, -0.3),
+                  alignment: AlignmentDirectional(0.0, -0.3),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -154,21 +154,22 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
                     children: [
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 70),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 70.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               wrapWithModel(
-                                model: _model.toistotTalteenModel,
+                                model: _model.toistotTalteenTextModel,
                                 updateCallback: () => setState(() {}),
-                                child: ToistotTalteenWidget(),
+                                child: ToistotTalteenTextWidget(),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(0, 0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 21),
+                                      0.0, 0.0, 0.0, 21.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       '4dm3cb84' /* Enjoy Listening To Music */,
@@ -178,17 +179,17 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
                                       color:
                                           FlutterFlowTheme.of(context).f2f2f2,
                                       fontWeight: FontWeight.w500,
-                                      fontSize: 26,
+                                      fontSize: 26.0,
                                     ),
                                   ).animateOnPageLoad(animationsMap[
                                       'textOnPageLoadAnimation1']!),
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(0, 0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      34, 0, 34, 21),
+                                      34.0, 0.0, 34.0, 21.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       'lfc11480' /* Spotify is a proprietary Swedi... */,
@@ -199,7 +200,7 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
                                       color:
                                           FlutterFlowTheme.of(context).a0a0a0,
                                       fontWeight: FontWeight.w300,
-                                      fontSize: 17,
+                                      fontSize: 17.0,
                                     ),
                                   ).animateOnPageLoad(animationsMap[
                                       'textOnPageLoadAnimation2']!),
@@ -207,32 +208,26 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    30, 0, 30, 0),
+                                    30.0, 0.0, 30.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     FFButtonWidget(
                                       onPressed: () async {
-                                        await Navigator.push(
-                                          context,
-                                          PageTransition(
-                                            type:
-                                                PageTransitionType.rightToLeft,
-                                            duration:
-                                                Duration(milliseconds: 300),
-                                            reverseDuration:
-                                                Duration(milliseconds: 300),
-                                            child: RegisterPageWidget(),
-                                          ),
-                                        );
+                                        context.pushNamed('registerPage');
                                       },
                                       text: FFLocalizations.of(context).getText(
                                         'ynzbt1fc' /* Register */,
                                       ),
                                       options: FFButtonOptions(
-                                        width: 147,
-                                        height: 73,
+                                        width: 147.0,
+                                        height: 73.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .primaryColor,
                                         textStyle: TextStyle(
@@ -240,58 +235,54 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
                                           color: FlutterFlowTheme.of(context)
                                               .f6f6f6,
                                           fontWeight: FontWeight.w500,
-                                          fontSize: 19,
+                                          fontSize: 19.0,
                                         ),
                                         borderSide: BorderSide(
                                           color: Colors.transparent,
-                                          width: 1,
+                                          width: 1.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(30),
+                                        borderRadius:
+                                            BorderRadius.circular(30.0),
                                       ),
                                       showLoadingIndicator: false,
                                     ).animateOnPageLoad(animationsMap[
                                         'buttonOnPageLoadAnimation1']!),
                                     Container(
-                                      width: 20,
+                                      width: 20.0,
                                       decoration: BoxDecoration(
                                         color: Colors.transparent,
                                       ),
                                     ),
                                     FFButtonWidget(
                                       onPressed: () async {
-                                        await Navigator.push(
-                                          context,
-                                          PageTransition(
-                                            type:
-                                                PageTransitionType.rightToLeft,
-                                            duration:
-                                                Duration(milliseconds: 300),
-                                            reverseDuration:
-                                                Duration(milliseconds: 300),
-                                            child: SignInPageWidget(),
-                                          ),
-                                        );
+                                        context.pushNamed('signInPage');
                                       },
                                       text: FFLocalizations.of(context).getText(
                                         'leb41kqz' /* Sign in */,
                                       ),
                                       options: FFButtonOptions(
-                                        width: 147,
-                                        height: 73,
+                                        width: 147.0,
+                                        height: 73.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
                                         color: Colors.transparent,
                                         textStyle: TextStyle(
                                           fontFamily: 'Satoshi',
                                           color: FlutterFlowTheme.of(context)
                                               .f6f6f6,
                                           fontWeight: FontWeight.w500,
-                                          fontSize: 19,
+                                          fontSize: 19.0,
                                         ),
-                                        elevation: 0,
+                                        elevation: 0.0,
                                         borderSide: BorderSide(
                                           color: Colors.transparent,
-                                          width: 1,
+                                          width: 1.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(30),
+                                        borderRadius:
+                                            BorderRadius.circular(30.0),
                                       ),
                                       showLoadingIndicator: false,
                                     ).animateOnPageLoad(animationsMap[
@@ -307,19 +298,20 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1, -1),
+                  alignment: AlignmentDirectional(-1.0, -1.0),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(25, 30, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(25.0, 30.0, 0.0, 0.0),
                     child: Container(
-                      width: 32,
-                      height: 32,
+                      width: 32.0,
+                      height: 32.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         shape: BoxShape.circle,
                       ),
                       child: InkWell(
                         onTap: () async {
-                          Navigator.pop(context);
+                          context.pop();
                         },
                         child: SvgPicture.asset(
                           'assets/images/left.svg',
