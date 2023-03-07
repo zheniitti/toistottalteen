@@ -65,7 +65,7 @@ abstract class FlutterFlowTheme {
 class LightModeTheme extends FlutterFlowTheme {
   late Color primaryColor = const Color(0xFF14181B);
   late Color secondaryColor = const Color(0xFFFFFFFF);
-  late Color tertiaryColor = const Color(0xFFDBE2E7);
+  late Color tertiaryColor = const Color(0xFFE28100);
   late Color alternate = const Color(0xFFDBE2E7);
   late Color primaryBackground = const Color(0xFFF1F4F8);
   late Color secondaryBackground = const Color(0xFFFFFFFF);
@@ -127,49 +127,49 @@ class ThemeTypography extends Typography {
         'Outfit',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 34,
+        fontSize: 34.0,
       );
   String get title2Family => 'Outfit';
   TextStyle get title2 => GoogleFonts.getFont(
         'Outfit',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
-        fontSize: 28,
+        fontSize: 28.0,
       );
   String get title3Family => 'Outfit';
   TextStyle get title3 => GoogleFonts.getFont(
         'Outfit',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 20,
+        fontSize: 20.0,
       );
   String get subtitle1Family => 'Outfit';
   TextStyle get subtitle1 => GoogleFonts.getFont(
         'Outfit',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
-        fontSize: 18,
+        fontSize: 18.0,
       );
   String get subtitle2Family => 'Roboto';
   TextStyle get subtitle2 => GoogleFonts.getFont(
         'Roboto',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 16,
+        fontSize: 16.0,
       );
   String get bodyText1Family => 'Roboto';
   TextStyle get bodyText1 => GoogleFonts.getFont(
         'Roboto',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
-        fontSize: 14,
+        fontSize: 14.0,
       );
   String get bodyText2Family => 'Roboto';
   TextStyle get bodyText2 => GoogleFonts.getFont(
         'Roboto',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
-        fontSize: 14,
+        fontSize: 14.0,
       );
 }
 

@@ -1,6 +1,6 @@
 import '/backend/backend.dart';
+import '/components/bottom_sheet_rutiini_widget.dart';
 import '/components/liikkeet_widget.dart';
-import '/components/poista_rutiini_bottom_sheet_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'treeni_rutiini_model.dart';
 export 'treeni_rutiini_model.dart';
 
@@ -17,10 +18,12 @@ class TreeniRutiiniWidget extends StatefulWidget {
     Key? key,
     this.treeniRutiini,
     this.treeniSessio,
+    this.appData,
   }) : super(key: key);
 
   final TreeniRutiiniStruct? treeniRutiini;
   final TreeniSessiotRecord? treeniSessio;
+  final AppDataRecord? appData;
 
   @override
   _TreeniRutiiniWidgetState createState() => _TreeniRutiiniWidgetState();
@@ -55,10 +58,10 @@ class _TreeniRutiiniWidgetState extends State<TreeniRutiiniWidget> {
     context.watch<FFAppState>();
 
     return Container(
-      width: MediaQuery.of(context).size.width * 1.0,
+      width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
-        borderRadius: BorderRadius.circular(8.0),
+        borderRadius: BorderRadius.circular(8),
       ),
       child: Container(
         width: double.infinity,
@@ -73,7 +76,7 @@ class _TreeniRutiiniWidgetState extends State<TreeniRutiiniWidget> {
               children: [
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 6.0, 0.0, 8.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(8, 6, 0, 8),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -94,12 +97,11 @@ class _TreeniRutiiniWidgetState extends State<TreeniRutiiniWidget> {
                           Container(
                             width: double.infinity,
                             decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
+                              color: FlutterFlowTheme.of(context).secondaryBackground,
                             ),
                             child: Wrap(
-                              spacing: 8.0,
-                              runSpacing: 2.0,
+                              spacing: 8,
+                              runSpacing: 2,
                               alignment: WrapAlignment.spaceAround,
                               crossAxisAlignment: WrapCrossAlignment.start,
                               direction: Axis.horizontal,
@@ -114,8 +116,7 @@ class _TreeniRutiiniWidgetState extends State<TreeniRutiiniWidget> {
                                       FFLocalizations.of(context).getText(
                                         '5hsnij9t' /* 18:05 */,
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText2,
+                                      style: FlutterFlowTheme.of(context).bodyText2,
                                     ),
                                   ],
                                 ),
@@ -126,8 +127,7 @@ class _TreeniRutiiniWidgetState extends State<TreeniRutiiniWidget> {
                                       FFLocalizations.of(context).getText(
                                         'dm2kbqw6' /* 1H 25min */,
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText2,
+                                      style: FlutterFlowTheme.of(context).bodyText2,
                                     ),
                                   ],
                                 ),
@@ -138,8 +138,7 @@ class _TreeniRutiiniWidgetState extends State<TreeniRutiiniWidget> {
                                       FFLocalizations.of(context).getText(
                                         '452cnmn6' /* 5 */,
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText2,
+                                      style: FlutterFlowTheme.of(context).bodyText2,
                                     ),
                                   ],
                                 ),
@@ -151,7 +150,7 @@ class _TreeniRutiiniWidgetState extends State<TreeniRutiiniWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 8.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 6, 8, 0),
                   child: InkWell(
                     onTap: () async {
                       await showModalBottomSheet(
@@ -161,34 +160,37 @@ class _TreeniRutiiniWidgetState extends State<TreeniRutiiniWidget> {
                         builder: (context) {
                           return Padding(
                             padding: MediaQuery.of(context).viewInsets,
-                            child: PoistaRutiiniBottomSheetWidget(),
+                            child: BottomSheetRutiiniWidget(
+                              rutiininNimi: widget.treeniRutiini?.nimi,
+                              appData: widget.appData,
+                            ),
                           );
                         },
-                      ).then((value) => setState(() {}));
+                      )/* .then((value) => setState(() {})) */;
                     },
                     child: Icon(
                       Icons.more_vert_rounded,
                       color: Colors.black,
-                      size: 24.0,
+                      size: 24,
                     ),
                   ),
                 ),
               ],
             ),
             collapsed: Container(
-              width: MediaQuery.of(context).size.width * 1.0,
-              height: 0.0,
+              width: MediaQuery.of(context).size.width,
+              height: 0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
               ),
             ),
             expanded: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 8.0),
+              padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 8),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(-1.0, 0.0),
+                    alignment: AlignmentDirectional(-1, 0),
                     child: Text(
                       FFLocalizations.of(context).getVariableText(
                         fiText: 'Kommentti: ${widget.treeniRutiini?.kommentti}',
@@ -206,12 +208,12 @@ class _TreeniRutiiniWidgetState extends State<TreeniRutiiniWidget> {
                     ),
                   ),
                   Divider(
-                    thickness: 1.0,
+                    thickness: 1,
                   ),
                   if (false)
                     Wrap(
-                      spacing: 0.0,
-                      runSpacing: 12.0,
+                      spacing: 0,
+                      runSpacing: 12,
                       alignment: WrapAlignment.center,
                       crossAxisAlignment: WrapCrossAlignment.center,
                       direction: Axis.horizontal,
@@ -220,11 +222,10 @@ class _TreeniRutiiniWidgetState extends State<TreeniRutiiniWidget> {
                       clipBehavior: Clip.none,
                       children: [
                         Container(
-                          width: 180.0,
-                          height: 50.0,
+                          width: 180,
+                          height: 50,
                           decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
+                            color: FlutterFlowTheme.of(context).secondaryBackground,
                           ),
                           child: Theme(
                             data: ThemeData(
@@ -233,31 +234,26 @@ class _TreeniRutiiniWidgetState extends State<TreeniRutiiniWidget> {
                             child: CheckboxListTile(
                               value: _model.checkboxListTileValue ??= false,
                               onChanged: (newValue) async {
-                                setState(() =>
-                                    _model.checkboxListTileValue = newValue!);
+                                setState(() => _model.checkboxListTileValue = newValue!);
                               },
                               subtitle: Text(
                                 FFLocalizations.of(context).getText(
                                   'r1v3hyro' /* Ota pohjaksi valitun päivän tr... */,
                                 ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
+                                style: FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Roboto',
-                                      fontSize: 10.0,
+                                      fontSize: 10,
                                     ),
                               ),
                               tileColor: Color(0xFFF5F5F5),
-                              activeColor:
-                                  FlutterFlowTheme.of(context).primaryColor,
+                              activeColor: FlutterFlowTheme.of(context).primaryColor,
                               dense: false,
                               controlAffinity: ListTileControlAffinity.trailing,
                             ),
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 8.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               context.pushNamed('treenaaminen_sivu');
@@ -266,24 +262,20 @@ class _TreeniRutiiniWidgetState extends State<TreeniRutiiniWidget> {
                               'hn9k2t8e' /* Suorita */,
                             ),
                             options: FFButtonOptions(
-                              width: 120.0,
-                              height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                              width: 120,
+                              height: 40,
+                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: FlutterFlowTheme.of(context).tertiaryColor,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
-                                  .override(
+                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                     fontFamily: 'Roboto',
                                     color: Colors.white,
                                   ),
                               borderSide: BorderSide(
                                 color: Colors.transparent,
-                                width: 1.0,
+                                width: 1,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(12),
                             ),
                           ),
                         ),
@@ -295,10 +287,10 @@ class _TreeniRutiiniWidgetState extends State<TreeniRutiiniWidget> {
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                     child: Visibility(
-                      visible: false,
+                      visible: true,
                       child: Wrap(
-                        spacing: 20.0,
-                        runSpacing: 12.0,
+                        spacing: 20,
+                        runSpacing: 12,
                         alignment: WrapAlignment.center,
                         crossAxisAlignment: WrapCrossAlignment.center,
                         direction: Axis.horizontal,
@@ -308,30 +300,26 @@ class _TreeniRutiiniWidgetState extends State<TreeniRutiiniWidget> {
                         children: [
                           FFButtonWidget(
                             onPressed: () async {
-                              context.pushNamed('treenaaminen_sivu');
+                              context.pushNamed('rutiininHistoria_sivu');
                             },
                             text: FFLocalizations.of(context).getText(
                               'zg2n2e21' /* Treenihistoria */,
                             ),
                             options: FFButtonOptions(
-                              width: 120.0,
-                              height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                              width: 120,
+                              height: 40,
+                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: FlutterFlowTheme.of(context).primaryColor,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
-                                  .override(
+                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                     fontFamily: 'Roboto',
                                     color: Colors.white,
                                   ),
                               borderSide: BorderSide(
                                 color: Colors.transparent,
-                                width: 1.0,
+                                width: 1,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(12),
                             ),
                           ),
                           FFButtonWidget(
@@ -342,24 +330,20 @@ class _TreeniRutiiniWidgetState extends State<TreeniRutiiniWidget> {
                               'h16b2vng' /* Suorita nyt */,
                             ),
                             options: FFButtonOptions(
-                              width: 120.0,
-                              height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                              width: 120,
+                              height: 40,
+                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                               color: FlutterFlowTheme.of(context).tertiaryColor,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
-                                  .override(
+                              textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                     fontFamily: 'Roboto',
                                     color: Colors.white,
                                   ),
                               borderSide: BorderSide(
                                 color: Colors.transparent,
-                                width: 1.0,
+                                width: 1,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(12),
                             ),
                           ),
                         ],

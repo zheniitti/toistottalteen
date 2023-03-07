@@ -69,3 +69,12 @@ TreeniRutiiniStruct? getTreeniRutiiniByName(
       name.isEmpty) return null;
   return rutiinitList.firstWhere((rutiini) => rutiini.nimi == name);
 }
+
+
+List<String> mapRutiiniNimet(List<TreeniRutiiniStruct>? treeniRutiinit) {
+  /// MODIFY CODE ONLY BELOW THIS LINE
+  //map treeniRutiinit to a list of rutiininNimi
+  if (treeniRutiinit == null || treeniRutiinit.isEmpty) return [];
+  return treeniRutiinit.toList().map((rutiini) => rutiini.nimi).toList() as List<String>;
+  /// MODIFY CODE ONLY ABOVE THIS LINE
+}

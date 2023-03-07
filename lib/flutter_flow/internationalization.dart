@@ -147,7 +147,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'x4q0c5hj': {
       'fi': 'Rutiinin nimi',
-      'en': '\nRoutine name',
+      'en': 'Routine name',
     },
     '87ajo4v7': {
       'fi': '',
@@ -213,7 +213,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'hyob330v': {
       'fi': 'esim Ylövartalo, Työhtävät tai Juoksu',
-      'en': '\nRoutine name (e.g. Upper body or Rnning)',
+      'en': 'Routine name (e.g. Upper body or Rnning)',
     },
     'vps9eyym': {
       'fi': 'Kommentti / ohjeet (vapaaehtoinen)',
@@ -491,7 +491,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'c1kh8kio': {
       'fi': 'esim. Maastaveto, Ylätalja vastaotteella, Uinti jne...',
-      'en': '\nRoutine name (e.g. Upper body or Rnning)',
+      'en': 'Routine name (e.g. Upper body or Rnning)',
     },
     'x622rgz7': {
       'fi': 'KUNTOSALI (penkki, pystypunnerrus käsipainolla jne...)',
@@ -573,7 +573,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'mx954vsy': {
       'fi': '.\nsarja',
-      'en': '',
+      'en': '.\nset',
     },
     'sgoh1uqn': {
       'fi': 'Toistot',
@@ -608,7 +608,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '1k7piz7l': {
       'fi': '.\nsarja',
-      'en': '',
+      'en': '.\nset',
     },
     'u1j0c71n': {
       'fi': 'Toistot',

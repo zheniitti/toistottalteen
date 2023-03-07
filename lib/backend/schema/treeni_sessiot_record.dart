@@ -11,16 +11,23 @@ abstract class TreeniSessiotRecord
   static Serializer<TreeniSessiotRecord> get serializer =>
       _$treeniSessiotRecordSerializer;
 
-  TreeniSessioStruct get treeniSessio;
-
   DocumentReference? get userRef;
+
+  DateTime? get alku;
+
+  DateTime? get loppu;
+
+  String? get kommentti;
+
+  TreeniRutiiniStruct get treeniRutiiniData;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
-  static void _initializeBuilder(TreeniSessiotRecordBuilder builder) =>
-      builder..treeniSessio = TreeniSessioStructBuilder();
+  static void _initializeBuilder(TreeniSessiotRecordBuilder builder) => builder
+    ..kommentti = ''
+    ..treeniRutiiniData = TreeniRutiiniStructBuilder();
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('treeniSessiot');
@@ -45,20 +52,27 @@ abstract class TreeniSessiotRecord
 }
 
 Map<String, dynamic> createTreeniSessiotRecordData({
-  TreeniSessioStruct? treeniSessio,
   DocumentReference? userRef,
+  DateTime? alku,
+  DateTime? loppu,
+  String? kommentti,
+  TreeniRutiiniStruct? treeniRutiiniData,
 }) {
   final firestoreData = serializers.toFirestore(
     TreeniSessiotRecord.serializer,
     TreeniSessiotRecord(
       (t) => t
-        ..treeniSessio = TreeniSessioStructBuilder()
-        ..userRef = userRef,
+        ..userRef = userRef
+        ..alku = alku
+        ..loppu = loppu
+        ..kommentti = kommentti
+        ..treeniRutiiniData = TreeniRutiiniStructBuilder(),
     ),
   );
 
-  // Handle nested data for "treeniSessio" field.
-  addTreeniSessioStructData(firestoreData, treeniSessio, 'treeniSessio');
+  // Handle nested data for "treeniRutiiniData" field.
+  addTreeniRutiiniStructData(
+      firestoreData, treeniRutiiniData, 'treeniRutiiniData');
 
   return firestoreData;
 }

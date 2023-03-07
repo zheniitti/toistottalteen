@@ -26,12 +26,6 @@ class FFAppState extends ChangeNotifier {
 
   late FlutterSecureStorage secureStorage;
 
-  int _currentIndex = 0;
-  int get currentIndex => _currentIndex;
-  set currentIndex(int _value) {
-    _currentIndex = _value;
-  }
-
   int _navBarIndex = 0;
   int get navBarIndex => _navBarIndex;
   set navBarIndex(int _value) {

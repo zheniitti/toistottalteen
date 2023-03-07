@@ -21,6 +21,12 @@ abstract class TreeniRutiiniStruct
 
   ValitutViikonPaivatStruct get valitutViikonPaivat;
 
+  bool? get widgetExpanded;
+
+  DateTime? get lastWorkoutTime;
+
+  BuiltList<DateTime>? get modifiedTimes;
+
   /// Utility class for Firestore updates
   FirestoreUtilData get firestoreUtilData;
 
@@ -29,6 +35,8 @@ abstract class TreeniRutiiniStruct
     ..kommentti = ''
     ..nimi = ''
     ..valitutViikonPaivat = ValitutViikonPaivatStructBuilder()
+    ..widgetExpanded = false
+    ..modifiedTimes = ListBuilder()
     ..firestoreUtilData = FirestoreUtilData();
 
   TreeniRutiiniStruct._();
@@ -42,6 +50,8 @@ TreeniRutiiniStruct createTreeniRutiiniStruct({
   DateTime? createdTime,
   String? nimi,
   ValitutViikonPaivatStruct? valitutViikonPaivat,
+  bool? widgetExpanded,
+  DateTime? lastWorkoutTime,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -55,6 +65,9 @@ TreeniRutiiniStruct createTreeniRutiiniStruct({
         ..nimi = nimi
         ..valitutViikonPaivat = valitutViikonPaivat?.toBuilder() ??
             ValitutViikonPaivatStructBuilder()
+        ..widgetExpanded = widgetExpanded
+        ..lastWorkoutTime = lastWorkoutTime
+        ..modifiedTimes = null
         ..firestoreUtilData = FirestoreUtilData(
           clearUnsetFields: clearUnsetFields,
           create: create,

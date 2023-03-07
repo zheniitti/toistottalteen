@@ -27,6 +27,8 @@ abstract class LiikeStruct implements Built<LiikeStruct, LiikeStructBuilder> {
 
   int? get kestoMinuutit;
 
+  BuiltList<SarjaStruct> get sarjat;
+
   /// Utility class for Firestore updates
   FirestoreUtilData get firestoreUtilData;
 
@@ -40,6 +42,7 @@ abstract class LiikeStruct implements Built<LiikeStruct, LiikeStructBuilder> {
     ..matkaMetri = 0.0
     ..kestoSekunnit = 0.0
     ..kestoMinuutit = 0
+    ..sarjat = ListBuilder()
     ..firestoreUtilData = FirestoreUtilData();
 
   LiikeStruct._();
@@ -73,6 +76,7 @@ LiikeStruct createLiikeStruct({
         ..matkaMetri = matkaMetri
         ..kestoSekunnit = kestoSekunnit
         ..kestoMinuutit = kestoMinuutit
+        ..sarjat = null
         ..firestoreUtilData = FirestoreUtilData(
           clearUnsetFields: clearUnsetFields,
           create: create,

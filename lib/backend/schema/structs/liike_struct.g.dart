@@ -18,6 +18,10 @@ class _$LiikeStructSerializer implements StructuredSerializer<LiikeStruct> {
   Iterable<Object?> serialize(Serializers serializers, LiikeStruct object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
+      'sarjat',
+      serializers.serialize(object.sarjat,
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(SarjaStruct)])),
       'firestoreUtilData',
       serializers.serialize(object.firestoreUtilData,
           specifiedType: const FullType(FirestoreUtilData)),
@@ -133,6 +137,12 @@ class _$LiikeStructSerializer implements StructuredSerializer<LiikeStruct> {
           result.kestoMinuutit = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
+        case 'sarjat':
+          result.sarjat.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(SarjaStruct)]))!
+              as BuiltList<Object?>);
+          break;
         case 'firestoreUtilData':
           result.firestoreUtilData = serializers.deserialize(value,
                   specifiedType: const FullType(FirestoreUtilData))!
@@ -165,6 +175,8 @@ class _$LiikeStruct extends LiikeStruct {
   @override
   final int? kestoMinuutit;
   @override
+  final BuiltList<SarjaStruct> sarjat;
+  @override
   final FirestoreUtilData firestoreUtilData;
 
   factory _$LiikeStruct([void Function(LiikeStructBuilder)? updates]) =>
@@ -180,8 +192,10 @@ class _$LiikeStruct extends LiikeStruct {
       this.matkaMetri,
       this.kestoSekunnit,
       this.kestoMinuutit,
+      required this.sarjat,
       required this.firestoreUtilData})
       : super._() {
+    BuiltValueNullFieldError.checkNotNull(sarjat, r'LiikeStruct', 'sarjat');
     BuiltValueNullFieldError.checkNotNull(
         firestoreUtilData, r'LiikeStruct', 'firestoreUtilData');
   }
@@ -206,6 +220,7 @@ class _$LiikeStruct extends LiikeStruct {
         matkaMetri == other.matkaMetri &&
         kestoSekunnit == other.kestoSekunnit &&
         kestoMinuutit == other.kestoMinuutit &&
+        sarjat == other.sarjat &&
         firestoreUtilData == other.firestoreUtilData;
   }
 
@@ -219,15 +234,17 @@ class _$LiikeStruct extends LiikeStruct {
                         $jc(
                             $jc(
                                 $jc(
-                                    $jc($jc(0, nimi.hashCode),
-                                        toistoMaara.hashCode),
-                                    sarjaMaara.hashCode),
-                                liikeTyyppi.hashCode),
-                            painoKg.hashCode),
-                        kommentti.hashCode),
-                    matkaMetri.hashCode),
-                kestoSekunnit.hashCode),
-            kestoMinuutit.hashCode),
+                                    $jc(
+                                        $jc($jc(0, nimi.hashCode),
+                                            toistoMaara.hashCode),
+                                        sarjaMaara.hashCode),
+                                    liikeTyyppi.hashCode),
+                                painoKg.hashCode),
+                            kommentti.hashCode),
+                        matkaMetri.hashCode),
+                    kestoSekunnit.hashCode),
+                kestoMinuutit.hashCode),
+            sarjat.hashCode),
         firestoreUtilData.hashCode));
   }
 
@@ -243,6 +260,7 @@ class _$LiikeStruct extends LiikeStruct {
           ..add('matkaMetri', matkaMetri)
           ..add('kestoSekunnit', kestoSekunnit)
           ..add('kestoMinuutit', kestoMinuutit)
+          ..add('sarjat', sarjat)
           ..add('firestoreUtilData', firestoreUtilData))
         .toString();
   }
@@ -289,6 +307,11 @@ class LiikeStructBuilder implements Builder<LiikeStruct, LiikeStructBuilder> {
   set kestoMinuutit(int? kestoMinuutit) =>
       _$this._kestoMinuutit = kestoMinuutit;
 
+  ListBuilder<SarjaStruct>? _sarjat;
+  ListBuilder<SarjaStruct> get sarjat =>
+      _$this._sarjat ??= new ListBuilder<SarjaStruct>();
+  set sarjat(ListBuilder<SarjaStruct>? sarjat) => _$this._sarjat = sarjat;
+
   FirestoreUtilData? _firestoreUtilData;
   FirestoreUtilData? get firestoreUtilData => _$this._firestoreUtilData;
   set firestoreUtilData(FirestoreUtilData? firestoreUtilData) =>
@@ -310,6 +333,7 @@ class LiikeStructBuilder implements Builder<LiikeStruct, LiikeStructBuilder> {
       _matkaMetri = $v.matkaMetri;
       _kestoSekunnit = $v.kestoSekunnit;
       _kestoMinuutit = $v.kestoMinuutit;
+      _sarjat = $v.sarjat.toBuilder();
       _firestoreUtilData = $v.firestoreUtilData;
       _$v = null;
     }
@@ -331,19 +355,33 @@ class LiikeStructBuilder implements Builder<LiikeStruct, LiikeStructBuilder> {
   LiikeStruct build() => _build();
 
   _$LiikeStruct _build() {
-    final _$result = _$v ??
-        new _$LiikeStruct._(
-            nimi: nimi,
-            toistoMaara: toistoMaara,
-            sarjaMaara: sarjaMaara,
-            liikeTyyppi: liikeTyyppi,
-            painoKg: painoKg,
-            kommentti: kommentti,
-            matkaMetri: matkaMetri,
-            kestoSekunnit: kestoSekunnit,
-            kestoMinuutit: kestoMinuutit,
-            firestoreUtilData: BuiltValueNullFieldError.checkNotNull(
-                firestoreUtilData, r'LiikeStruct', 'firestoreUtilData'));
+    _$LiikeStruct _$result;
+    try {
+      _$result = _$v ??
+          new _$LiikeStruct._(
+              nimi: nimi,
+              toistoMaara: toistoMaara,
+              sarjaMaara: sarjaMaara,
+              liikeTyyppi: liikeTyyppi,
+              painoKg: painoKg,
+              kommentti: kommentti,
+              matkaMetri: matkaMetri,
+              kestoSekunnit: kestoSekunnit,
+              kestoMinuutit: kestoMinuutit,
+              sarjat: sarjat.build(),
+              firestoreUtilData: BuiltValueNullFieldError.checkNotNull(
+                  firestoreUtilData, r'LiikeStruct', 'firestoreUtilData'));
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'sarjat';
+        sarjat.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'LiikeStruct', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

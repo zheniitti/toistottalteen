@@ -1,6 +1,6 @@
 import '/backend/backend.dart';
 import '/components/liikkeet_widget.dart';
-import '/components/poista_rutiini_bottom_sheet_widget.dart';
+import 'bottom_sheet_rutiini_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';

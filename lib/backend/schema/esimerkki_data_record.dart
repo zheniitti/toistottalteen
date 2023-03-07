@@ -15,8 +15,6 @@ abstract class EsimerkkiDataRecord
 
   BuiltList<LiikeStruct>? get esimerkkiLiikkeet;
 
-  BuiltList<TreeniSessioStruct>? get esimerkkiSessiot;
-
   String? get languageCode;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
@@ -26,7 +24,6 @@ abstract class EsimerkkiDataRecord
   static void _initializeBuilder(EsimerkkiDataRecordBuilder builder) => builder
     ..esimerkkiRutiinit = ListBuilder()
     ..esimerkkiLiikkeet = ListBuilder()
-    ..esimerkkiSessiot = ListBuilder()
     ..languageCode = '';
 
   static CollectionReference get collection =>
@@ -60,7 +57,6 @@ Map<String, dynamic> createEsimerkkiDataRecordData({
       (e) => e
         ..esimerkkiRutiinit = null
         ..esimerkkiLiikkeet = null
-        ..esimerkkiSessiot = null
         ..languageCode = languageCode,
     ),
   );
