@@ -118,9 +118,9 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
                               color: FlutterFlowTheme.of(context).gradient2,
                             )
                           ],
-                          xLabels: containerEsimerkkiAnalytiikkaDataRecordList
+                          xLabels:[] /* TODO fix containerEsimerkkiAnalytiikkaDataRecordList
                               .map((d) => d.idPvm)
-                              .toList(),
+                              .toList() */,
                           barWidth: 25.0,
                           barBorderRadius: BorderRadius.circular(0.0),
                           groupSpace: 5.0,
