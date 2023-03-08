@@ -86,10 +86,10 @@ class FFAppState extends ChangeNotifier {
               }
             }).toList() ??
             _testJsonList;
-    _testLatLngList = (await secureStorage.getStringList('ff_testLatLngList'))
+  /*   _testLatLngList = (await secureStorage.getStringList('ff_testLatLngList'))
             ?.map(_latLngFromString)
             .toList() ??
-        _testLatLngList;
+        _testLatLngList; */
     _testLatLng =
         _latLngFromString(await secureStorage.getString('ff_testLatLng')) ??
             _testLatLng;
