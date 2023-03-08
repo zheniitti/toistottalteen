@@ -34,6 +34,7 @@ dependencies:
   cloud_firestore_web: 3.1.1
   csv: 5.0.1
   easy_debounce: 2.0.1
+  emoji_flag_converter: 1.1.0
   expandable: 5.0.1
   firebase_auth: 4.2.0
   firebase_auth_platform_interface: 6.11.4
@@ -79,9 +80,18 @@ dependencies:
 dev_dependencies:
   build_runner: 2.2.0
   built_value_generator: 8.4.0
+  flutter_launcher_icons: 0.9.3
 
   flutter_test:
     sdk: flutter
+
+
+flutter_icons:
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  image_path: 'assets/images/app_launcher_icon.png'
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

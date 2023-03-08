@@ -15,32 +15,11 @@ service cloud.firestore {
       allow delete: if false;
     }
 
-    match /jsonStrings/{document} {
-      allow create: if true;
-      allow read: if resource.data.userRef == /databases/$(database)/documents/users/$(request.auth.uid);
-      allow write: if resource.data.userRef == /databases/$(database)/documents/users/$(request.auth.uid);
-      allow delete: if resource.data.userRef == /databases/$(database)/documents/users/$(request.auth.uid);
-    }
-
     match /treeniSessiot/{document} {
       allow create: if request.resource.data.userRef == /databases/$(database)/documents/users/$(request.auth.uid);
       allow read: if resource.data.userRef == /databases/$(database)/documents/users/$(request.auth.uid);
       allow write: if resource.data.userRef == /databases/$(database)/documents/users/$(request.auth.uid);
       allow delete: if resource.data.userRef == /databases/$(database)/documents/users/$(request.auth.uid);
-    }
-
-    match /appData/{document} {
-      allow create: if request.resource.data.userRef == /databases/$(database)/documents/users/$(request.auth.uid);
-      allow read: if resource.data.userRef == /databases/$(database)/documents/users/$(request.auth.uid);
-      allow write: if resource.data.userRef == /databases/$(database)/documents/users/$(request.auth.uid);
-      allow delete: if resource.data.userRef == /databases/$(database)/documents/users/$(request.auth.uid);
-    }
-
-    match /tilastotJaAnalytiikka/{document} {
-      allow create: if true;
-      allow read: if true;
-      allow write: if false;
-      allow delete: if false;
     }
 
     match /esimerkkiData/{document} {

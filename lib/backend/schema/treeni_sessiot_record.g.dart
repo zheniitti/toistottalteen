@@ -58,6 +58,13 @@ class _$TreeniSessiotRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.docCreatedTime;
+    if (value != null) {
+      result
+        ..add('docCreatedTime')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -104,6 +111,10 @@ class _$TreeniSessiotRecordSerializer
                   specifiedType: const FullType(TreeniRutiiniStruct))!
               as TreeniRutiiniStruct);
           break;
+        case 'docCreatedTime':
+          result.docCreatedTime = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -129,6 +140,8 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
   @override
   final TreeniRutiiniStruct treeniRutiiniData;
   @override
+  final DateTime? docCreatedTime;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$TreeniSessiotRecord(
@@ -141,6 +154,7 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
       this.loppu,
       this.kommentti,
       required this.treeniRutiiniData,
+      this.docCreatedTime,
       this.ffRef})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -165,6 +179,7 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
         loppu == other.loppu &&
         kommentti == other.kommentti &&
         treeniRutiiniData == other.treeniRutiiniData &&
+        docCreatedTime == other.docCreatedTime &&
         ffRef == other.ffRef;
   }
 
@@ -173,10 +188,12 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
     return $jf($jc(
         $jc(
             $jc(
-                $jc($jc($jc(0, userRef.hashCode), alku.hashCode),
-                    loppu.hashCode),
-                kommentti.hashCode),
-            treeniRutiiniData.hashCode),
+                $jc(
+                    $jc($jc($jc(0, userRef.hashCode), alku.hashCode),
+                        loppu.hashCode),
+                    kommentti.hashCode),
+                treeniRutiiniData.hashCode),
+            docCreatedTime.hashCode),
         ffRef.hashCode));
   }
 
@@ -188,6 +205,7 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
           ..add('loppu', loppu)
           ..add('kommentti', kommentti)
           ..add('treeniRutiiniData', treeniRutiiniData)
+          ..add('docCreatedTime', docCreatedTime)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -219,6 +237,11 @@ class TreeniSessiotRecordBuilder
   set treeniRutiiniData(TreeniRutiiniStructBuilder? treeniRutiiniData) =>
       _$this._treeniRutiiniData = treeniRutiiniData;
 
+  DateTime? _docCreatedTime;
+  DateTime? get docCreatedTime => _$this._docCreatedTime;
+  set docCreatedTime(DateTime? docCreatedTime) =>
+      _$this._docCreatedTime = docCreatedTime;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -235,6 +258,7 @@ class TreeniSessiotRecordBuilder
       _loppu = $v.loppu;
       _kommentti = $v.kommentti;
       _treeniRutiiniData = $v.treeniRutiiniData.toBuilder();
+      _docCreatedTime = $v.docCreatedTime;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -265,6 +289,7 @@ class TreeniSessiotRecordBuilder
               loppu: loppu,
               kommentti: kommentti,
               treeniRutiiniData: treeniRutiiniData.build(),
+              docCreatedTime: docCreatedTime,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;

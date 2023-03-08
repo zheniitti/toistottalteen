@@ -21,6 +21,8 @@ abstract class TreeniSessiotRecord
 
   TreeniRutiiniStruct get treeniRutiiniData;
 
+  DateTime? get docCreatedTime;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -57,6 +59,7 @@ Map<String, dynamic> createTreeniSessiotRecordData({
   DateTime? loppu,
   String? kommentti,
   TreeniRutiiniStruct? treeniRutiiniData,
+  DateTime? docCreatedTime,
 }) {
   final firestoreData = serializers.toFirestore(
     TreeniSessiotRecord.serializer,
@@ -66,7 +69,8 @@ Map<String, dynamic> createTreeniSessiotRecordData({
         ..alku = alku
         ..loppu = loppu
         ..kommentti = kommentti
-        ..treeniRutiiniData = TreeniRutiiniStructBuilder(),
+        ..treeniRutiiniData = TreeniRutiiniStructBuilder()
+        ..docCreatedTime = docCreatedTime,
     ),
   );
 

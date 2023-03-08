@@ -9,23 +9,14 @@ part of 'serializers.dart';
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(AikavaliStruct.serializer)
       ..add(AppConfigRecord.serializer)
-      ..add(AppDataRecord.serializer)
       ..add(EsimerkkiAnalytiikkaDataRecord.serializer)
       ..add(EsimerkkiDataRecord.serializer)
-      ..add(JsonStringsRecord.serializer)
       ..add(LiikeStruct.serializer)
       ..add(SarjaStruct.serializer)
-      ..add(TilastotJaAnalytiikkaRecord.serializer)
       ..add(TreeniRutiiniStruct.serializer)
       ..add(TreeniSessiotRecord.serializer)
       ..add(UsersRecord.serializer)
       ..add(ValitutViikonPaivatStruct.serializer)
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [
-            const FullType(
-                DocumentReference, const [const FullType.nullable(Object)])
-          ]),
-          () => new ListBuilder<DocumentReference<Object?>>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(LiikeStruct)]),
           () => new ListBuilder<LiikeStruct>())
@@ -35,15 +26,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(SarjaStruct)]),
           () => new ListBuilder<SarjaStruct>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(TreeniRutiiniStruct)]),

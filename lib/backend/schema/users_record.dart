@@ -25,7 +25,13 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
   @BuiltValueField(wireName: 'phone_number')
   String? get phoneNumber;
 
-  BuiltList<DocumentReference>? get appDataRefs;
+  String? get appLangCode;
+
+  bool? get darkMode;
+
+  String? get weightUnit;
+
+  BuiltList<TreeniRutiiniStruct>? get treeniRutiinit;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
@@ -37,7 +43,10 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
     ..photoUrl = ''
     ..uid = ''
     ..phoneNumber = ''
-    ..appDataRefs = ListBuilder();
+    ..appLangCode = ''
+    ..darkMode = false
+    ..weightUnit = ''
+    ..treeniRutiinit = ListBuilder();
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('users');
@@ -67,6 +76,9 @@ Map<String, dynamic> createUsersRecordData({
   String? uid,
   DateTime? createdTime,
   String? phoneNumber,
+  String? appLangCode,
+  bool? darkMode,
+  String? weightUnit,
 }) {
   final firestoreData = serializers.toFirestore(
     UsersRecord.serializer,
@@ -78,7 +90,10 @@ Map<String, dynamic> createUsersRecordData({
         ..uid = uid
         ..createdTime = createdTime
         ..phoneNumber = phoneNumber
-        ..appDataRefs = null,
+        ..appLangCode = appLangCode
+        ..darkMode = darkMode
+        ..weightUnit = weightUnit
+        ..treeniRutiinit = null,
     ),
   );
 

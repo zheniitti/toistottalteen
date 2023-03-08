@@ -92,11 +92,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'treenaaminen_sivu',
               path: 'treenaaminenSivu',
-              asyncParams: {
-                'userAppData': getDoc(['appData'], AppDataRecord.serializer),
-              },
               builder: (context, params) => TreenaaminenSivuWidget(
-                userAppData: params.getParam('userAppData', ParamType.Document),
                 rutiininNimi: params.getParam('rutiininNimi', ParamType.String),
               ),
             ),
@@ -121,14 +117,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => GetStartedSivuWidget(),
             ),
             FFRoute(
-              name: 'chooseMode',
-              path: 'chooseMode',
-              builder: (context, params) => ChooseModeWidget(),
-            ),
-            FFRoute(
               name: 'registerPage',
               path: 'registerPage',
               builder: (context, params) => RegisterPageWidget(),
+            ),
+            FFRoute(
+              name: 'chooseMode',
+              path: 'chooseMode',
+              builder: (context, params) => ChooseModeWidget(),
             ),
             FFRoute(
               name: 'signInPage',

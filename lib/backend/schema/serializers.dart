@@ -3,10 +3,7 @@ import 'package:from_css_color/from_css_color.dart';
 
 import 'users_record.dart';
 import 'app_config_record.dart';
-import 'json_strings_record.dart';
 import 'treeni_sessiot_record.dart';
-import 'app_data_record.dart';
-import 'tilastot_ja_analytiikka_record.dart';
 import 'esimerkki_data_record.dart';
 import 'esimerkki_analytiikka_data_record.dart';
 
@@ -21,10 +18,7 @@ const kDocumentReferenceField = 'Document__Reference__Field';
 @SerializersFor(const [
   UsersRecord,
   AppConfigRecord,
-  JsonStringsRecord,
   TreeniSessiotRecord,
-  AppDataRecord,
-  TilastotJaAnalytiikkaRecord,
   EsimerkkiDataRecord,
   EsimerkkiAnalytiikkaDataRecord,
   LiikeStruct,

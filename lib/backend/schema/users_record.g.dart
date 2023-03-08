@@ -61,15 +61,34 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.appDataRefs;
+    value = object.appLangCode;
     if (value != null) {
       result
-        ..add('appDataRefs')
+        ..add('appLangCode')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltList, const [
-              const FullType(
-                  DocumentReference, const [const FullType.nullable(Object)])
-            ])));
+            specifiedType: const FullType(String)));
+    }
+    value = object.darkMode;
+    if (value != null) {
+      result
+        ..add('darkMode')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.weightUnit;
+    if (value != null) {
+      result
+        ..add('weightUnit')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.treeniRutiinit;
+    if (value != null) {
+      result
+        ..add('treeniRutiinit')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(TreeniRutiiniStruct)])));
     }
     value = object.ffRef;
     if (value != null) {
@@ -117,12 +136,23 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
           result.phoneNumber = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'appDataRefs':
-          result.appDataRefs.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [
-                const FullType(
-                    DocumentReference, const [const FullType.nullable(Object)])
-              ]))! as BuiltList<Object?>);
+        case 'appLangCode':
+          result.appLangCode = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'darkMode':
+          result.darkMode = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'weightUnit':
+          result.weightUnit = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'treeniRutiinit':
+          result.treeniRutiinit.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(TreeniRutiiniStruct)]))!
+              as BuiltList<Object?>);
           break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
@@ -151,7 +181,13 @@ class _$UsersRecord extends UsersRecord {
   @override
   final String? phoneNumber;
   @override
-  final BuiltList<DocumentReference<Object?>>? appDataRefs;
+  final String? appLangCode;
+  @override
+  final bool? darkMode;
+  @override
+  final String? weightUnit;
+  @override
+  final BuiltList<TreeniRutiiniStruct>? treeniRutiinit;
   @override
   final DocumentReference<Object?>? ffRef;
 
@@ -165,7 +201,10 @@ class _$UsersRecord extends UsersRecord {
       this.uid,
       this.createdTime,
       this.phoneNumber,
-      this.appDataRefs,
+      this.appLangCode,
+      this.darkMode,
+      this.weightUnit,
+      this.treeniRutiinit,
       this.ffRef})
       : super._();
 
@@ -186,7 +225,10 @@ class _$UsersRecord extends UsersRecord {
         uid == other.uid &&
         createdTime == other.createdTime &&
         phoneNumber == other.phoneNumber &&
-        appDataRefs == other.appDataRefs &&
+        appLangCode == other.appLangCode &&
+        darkMode == other.darkMode &&
+        weightUnit == other.weightUnit &&
+        treeniRutiinit == other.treeniRutiinit &&
         ffRef == other.ffRef;
   }
 
@@ -197,12 +239,20 @@ class _$UsersRecord extends UsersRecord {
             $jc(
                 $jc(
                     $jc(
-                        $jc($jc($jc(0, email.hashCode), displayName.hashCode),
-                            photoUrl.hashCode),
-                        uid.hashCode),
-                    createdTime.hashCode),
-                phoneNumber.hashCode),
-            appDataRefs.hashCode),
+                        $jc(
+                            $jc(
+                                $jc(
+                                    $jc(
+                                        $jc($jc(0, email.hashCode),
+                                            displayName.hashCode),
+                                        photoUrl.hashCode),
+                                    uid.hashCode),
+                                createdTime.hashCode),
+                            phoneNumber.hashCode),
+                        appLangCode.hashCode),
+                    darkMode.hashCode),
+                weightUnit.hashCode),
+            treeniRutiinit.hashCode),
         ffRef.hashCode));
   }
 
@@ -215,7 +265,10 @@ class _$UsersRecord extends UsersRecord {
           ..add('uid', uid)
           ..add('createdTime', createdTime)
           ..add('phoneNumber', phoneNumber)
-          ..add('appDataRefs', appDataRefs)
+          ..add('appLangCode', appLangCode)
+          ..add('darkMode', darkMode)
+          ..add('weightUnit', weightUnit)
+          ..add('treeniRutiinit', treeniRutiinit)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -248,11 +301,23 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   String? get phoneNumber => _$this._phoneNumber;
   set phoneNumber(String? phoneNumber) => _$this._phoneNumber = phoneNumber;
 
-  ListBuilder<DocumentReference<Object?>>? _appDataRefs;
-  ListBuilder<DocumentReference<Object?>> get appDataRefs =>
-      _$this._appDataRefs ??= new ListBuilder<DocumentReference<Object?>>();
-  set appDataRefs(ListBuilder<DocumentReference<Object?>>? appDataRefs) =>
-      _$this._appDataRefs = appDataRefs;
+  String? _appLangCode;
+  String? get appLangCode => _$this._appLangCode;
+  set appLangCode(String? appLangCode) => _$this._appLangCode = appLangCode;
+
+  bool? _darkMode;
+  bool? get darkMode => _$this._darkMode;
+  set darkMode(bool? darkMode) => _$this._darkMode = darkMode;
+
+  String? _weightUnit;
+  String? get weightUnit => _$this._weightUnit;
+  set weightUnit(String? weightUnit) => _$this._weightUnit = weightUnit;
+
+  ListBuilder<TreeniRutiiniStruct>? _treeniRutiinit;
+  ListBuilder<TreeniRutiiniStruct> get treeniRutiinit =>
+      _$this._treeniRutiinit ??= new ListBuilder<TreeniRutiiniStruct>();
+  set treeniRutiinit(ListBuilder<TreeniRutiiniStruct>? treeniRutiinit) =>
+      _$this._treeniRutiinit = treeniRutiinit;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
@@ -271,7 +336,10 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _uid = $v.uid;
       _createdTime = $v.createdTime;
       _phoneNumber = $v.phoneNumber;
-      _appDataRefs = $v.appDataRefs?.toBuilder();
+      _appLangCode = $v.appLangCode;
+      _darkMode = $v.darkMode;
+      _weightUnit = $v.weightUnit;
+      _treeniRutiinit = $v.treeniRutiinit?.toBuilder();
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -303,13 +371,16 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
               uid: uid,
               createdTime: createdTime,
               phoneNumber: phoneNumber,
-              appDataRefs: _appDataRefs?.build(),
+              appLangCode: appLangCode,
+              darkMode: darkMode,
+              weightUnit: weightUnit,
+              treeniRutiinit: _treeniRutiinit?.build(),
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'appDataRefs';
-        _appDataRefs?.build();
+        _$failedField = 'treeniRutiinit';
+        _treeniRutiinit?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'UsersRecord', _$failedField, e.toString());

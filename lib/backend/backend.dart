@@ -7,10 +7,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 
 import 'schema/users_record.dart';
 import 'schema/app_config_record.dart';
-import 'schema/json_strings_record.dart';
 import 'schema/treeni_sessiot_record.dart';
-import 'schema/app_data_record.dart';
-import 'schema/tilastot_ja_analytiikka_record.dart';
 import 'schema/esimerkki_data_record.dart';
 import 'schema/esimerkki_analytiikka_data_record.dart';
 import 'schema/serializers.dart';
@@ -22,10 +19,7 @@ export 'schema/serializers.dart';
 
 export 'schema/users_record.dart';
 export 'schema/app_config_record.dart';
-export 'schema/json_strings_record.dart';
 export 'schema/treeni_sessiot_record.dart';
-export 'schema/app_data_record.dart';
-export 'schema/tilastot_ja_analytiikka_record.dart';
 export 'schema/esimerkki_data_record.dart';
 export 'schema/esimerkki_analytiikka_data_record.dart';
 
@@ -133,58 +127,6 @@ Future<FFFirestorePage<AppConfigRecord>> queryAppConfigRecordPage({
       isStream: isStream,
     );
 
-/// Functions to query JsonStringsRecords (as a Stream and as a Future).
-Future<int> queryJsonStringsRecordCount({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-}) =>
-    queryCollectionCount(
-      JsonStringsRecord.collection,
-      queryBuilder: queryBuilder,
-      limit: limit,
-    );
-
-Stream<List<JsonStringsRecord>> queryJsonStringsRecord({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollection(
-      JsonStringsRecord.collection,
-      JsonStringsRecord.serializer,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<List<JsonStringsRecord>> queryJsonStringsRecordOnce({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollectionOnce(
-      JsonStringsRecord.collection,
-      JsonStringsRecord.serializer,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<FFFirestorePage<JsonStringsRecord>> queryJsonStringsRecordPage({
-  Query Function(Query)? queryBuilder,
-  DocumentSnapshot? nextPageMarker,
-  required int pageSize,
-  required bool isStream,
-}) =>
-    queryCollectionPage(
-      JsonStringsRecord.collection,
-      JsonStringsRecord.serializer,
-      queryBuilder: queryBuilder,
-      nextPageMarker: nextPageMarker,
-      pageSize: pageSize,
-      isStream: isStream,
-    );
-
 /// Functions to query TreeniSessiotRecords (as a Stream and as a Future).
 Future<int> queryTreeniSessiotRecordCount({
   Query Function(Query)? queryBuilder,
@@ -236,111 +178,6 @@ Future<FFFirestorePage<TreeniSessiotRecord>> queryTreeniSessiotRecordPage({
       pageSize: pageSize,
       isStream: isStream,
     );
-
-/// Functions to query AppDataRecords (as a Stream and as a Future).
-Future<int> queryAppDataRecordCount({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-}) =>
-    queryCollectionCount(
-      AppDataRecord.collection,
-      queryBuilder: queryBuilder,
-      limit: limit,
-    );
-
-Stream<List<AppDataRecord>> queryAppDataRecord({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollection(
-      AppDataRecord.collection,
-      AppDataRecord.serializer,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<List<AppDataRecord>> queryAppDataRecordOnce({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollectionOnce(
-      AppDataRecord.collection,
-      AppDataRecord.serializer,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<FFFirestorePage<AppDataRecord>> queryAppDataRecordPage({
-  Query Function(Query)? queryBuilder,
-  DocumentSnapshot? nextPageMarker,
-  required int pageSize,
-  required bool isStream,
-}) =>
-    queryCollectionPage(
-      AppDataRecord.collection,
-      AppDataRecord.serializer,
-      queryBuilder: queryBuilder,
-      nextPageMarker: nextPageMarker,
-      pageSize: pageSize,
-      isStream: isStream,
-    );
-
-/// Functions to query TilastotJaAnalytiikkaRecords (as a Stream and as a Future).
-Future<int> queryTilastotJaAnalytiikkaRecordCount({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-}) =>
-    queryCollectionCount(
-      TilastotJaAnalytiikkaRecord.collection,
-      queryBuilder: queryBuilder,
-      limit: limit,
-    );
-
-Stream<List<TilastotJaAnalytiikkaRecord>> queryTilastotJaAnalytiikkaRecord({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollection(
-      TilastotJaAnalytiikkaRecord.collection,
-      TilastotJaAnalytiikkaRecord.serializer,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<List<TilastotJaAnalytiikkaRecord>> queryTilastotJaAnalytiikkaRecordOnce({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollectionOnce(
-      TilastotJaAnalytiikkaRecord.collection,
-      TilastotJaAnalytiikkaRecord.serializer,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<FFFirestorePage<TilastotJaAnalytiikkaRecord>>
-    queryTilastotJaAnalytiikkaRecordPage({
-  Query Function(Query)? queryBuilder,
-  DocumentSnapshot? nextPageMarker,
-  required int pageSize,
-  required bool isStream,
-}) =>
-        queryCollectionPage(
-          TilastotJaAnalytiikkaRecord.collection,
-          TilastotJaAnalytiikkaRecord.serializer,
-          queryBuilder: queryBuilder,
-          nextPageMarker: nextPageMarker,
-          pageSize: pageSize,
-          isStream: isStream,
-        );
 
 /// Functions to query EsimerkkiDataRecords (as a Stream and as a Future).
 Future<int> queryEsimerkkiDataRecordCount({

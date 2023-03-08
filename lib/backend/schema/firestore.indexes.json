@@ -1,7 +1,7 @@
 {
   "indexes": [
     {
-      "collectionGroup": "appData",
+      "collectionGroup": "treeniSessiot",
       "queryScope": "COLLECTION",
       "fields": [
         {
@@ -9,7 +9,7 @@
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "created_time",
+          "fieldPath": "alku",
           "order": "DESCENDING"
         }
       ]
@@ -23,8 +23,8 @@
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "alku",
-          "order": "ASCENDING"
+          "fieldPath": "docCreatedTime",
+          "order": "DESCENDING"
         }
       ]
     }
