@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-Future<TreeniRutiiniStruct> createTreeniRutiiniStruct() async {
+Future<TreeniRutiiniStruct> customCreateTreeniRutiiniStruct() async {
   // Add your function code here!
   return createTreeniRutiiniStruct();
 }
