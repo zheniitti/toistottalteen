@@ -127,7 +127,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // paasivu
   {
     'uwbd7u0v': {
-      'fi': 'Treenirutiinit',
+      'fi': 'Treenipohjat',
       'en': 'Worcout routines',
     },
     'd9b3r5r8': {
@@ -657,7 +657,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Poista pysyvästi',
       'en': 'Delete permanently',
     },
-    'z89yi85w': {
+    'p9a6vjd2': {
       'fi': '(paina pitkään)',
       'en': '',
     },

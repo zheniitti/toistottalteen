@@ -51,21 +51,31 @@ class _ButtonAloitaTreenaaminenWidgetState
 
     return FFButtonWidget(
       onPressed: () async {
-        _model.emptRutiiniStruct = await actions.createTreeniRutiiniStruct();
+        _model.newRutiini = await actions.customCreateTreeniRutiiniStruct();
 
-        final treeniSessiotCreateData = createTreeniSessiotRecordData(
-          userRef: currentUserReference,
-          treeniRutiiniData: updateTreeniRutiiniStruct(
-            _model.emptRutiiniStruct,
-            clearUnsetFields: false,
+        final treeniSessiotCreateData = {
+          ...createTreeniSessiotRecordData(
+            userRef: currentUserReference,
+            treeniRutiiniData: updateTreeniRutiiniStruct(
+              _model.newRutiini,
+              clearUnsetFields: false,
+            ),
           ),
-        );
+          'docCreatedTime': FieldValue.serverTimestamp(),
+        };
         var treeniSessiotRecordReference = TreeniSessiotRecord.collection.doc();
         await treeniSessiotRecordReference.set(treeniSessiotCreateData);
         _model.uusiTreeniSessio = TreeniSessiotRecord.getDocumentFromData(
             treeniSessiotCreateData, treeniSessiotRecordReference);
+        _model.jsonRutiini = await actions.jsonRutiiniFromDataStruct(
+          _model.uusiTreeniSessio!.treeniRutiiniData,
+        );
         FFAppState().update(() {
           FFAppState().showTreenaaSivu = true;
+          FFAppState().valittuTreenattavaHistorianSessioRef =
+              _model.uusiTreeniSessio!.reference;
+          FFAppState().valittuTreenattavaTreeniRutiini = _model.jsonRutiini!;
+          FFAppState().isEditing = false;
         });
 
         setState(() {});

@@ -113,7 +113,7 @@ class _BottomSheetRutiiniJaSessioWidgetState
                     ),
                     subtitle: Text(
                       FFLocalizations.of(context).getText(
-                        'z89yi85w' /* (paina pitkään) */,
+                        'p9a6vjd2' /* (paina pitkään) */,
                       ),
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodyText1,

@@ -79,155 +79,144 @@ class _PaasivuWidgetState extends State<PaasivuWidget> {
           child: DrawerWidget(),
         ),
       ),
-      appBar: !FFAppState().showTreenaaSivu
-          ? AppBar(
-              backgroundColor: FlutterFlowTheme.of(context).primaryColor,
-              automaticallyImplyLeading: true,
-              title: Column(
+      appBar: AppBar(
+        backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+        automaticallyImplyLeading: true,
+        title: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            if (FFAppState().navBarIndex == 0)
+              Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  if (FFAppState().navBarIndex == 0)
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          FFLocalizations.of(context).getText(
-                            'uwbd7u0v' /* Treenirutiinit */,
-                          ),
-                          style: FlutterFlowTheme.of(context)
-                              .subtitle1
-                              .override(
-                                fontFamily: 'Outfit',
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryColor,
-                              ),
-                        ),
-                      ],
+                  Text(
+                    FFLocalizations.of(context).getText(
+                      'uwbd7u0v' /* Treenipohjat */,
                     ),
-                  if (FFAppState().showTreenaaSivu)
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          FFLocalizations.of(context).getText(
-                            'd9b3r5r8' /* Aikaa kulunut: 29min */,
-                          ),
-                          style: FlutterFlowTheme.of(context)
-                              .subtitle1
-                              .override(
-                                fontFamily: 'Outfit',
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryColor,
-                              ),
+                    style: FlutterFlowTheme.of(context).subtitle1.override(
+                          fontFamily: 'Outfit',
+                          color: FlutterFlowTheme.of(context).secondaryColor,
                         ),
-                        Row(
+                  ),
+                ],
+              ),
+            if (FFAppState().showTreenaaSivu)
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Text(
+                    FFLocalizations.of(context).getText(
+                      'd9b3r5r8' /* Aikaa kulunut: 29min */,
+                    ),
+                    style: FlutterFlowTheme.of(context).subtitle1.override(
+                          fontFamily: 'Outfit',
+                          color: FlutterFlowTheme.of(context).secondaryColor,
+                        ),
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.not_started_rounded,
+                        color: FlutterFlowTheme.of(context).secondaryColor,
+                        size: 30.0,
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                        child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
-                              Icons.not_started_rounded,
-                              color:
-                                  FlutterFlowTheme.of(context).secondaryColor,
-                              size: 30.0,
-                            ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 16.0, 0.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        2.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'hwbly3hr' /* Aloita ajanotto */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryColor,
-                                            fontSize: 12.0,
-                                          ),
+                                  2.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  'hwbly3hr' /* Aloita ajanotto */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryColor,
+                                      fontSize: 12.0,
                                     ),
-                                  ),
-                                ],
                               ),
                             ),
                           ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
-              actions: [
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 8.0, 0.0),
-                          child: Icon(
-                            Icons.help_rounded,
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            size: 24.0,
-                          ),
-                        ),
-                      ],
+          ],
+        ),
+        actions: [
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                    child: Icon(
+                      Icons.help_rounded,
+                      color: FlutterFlowTheme.of(context).primaryBackground,
+                      size: 24.0,
                     ),
-                    if (FFAppState().showTreenaaSivu && null!)
-                      Row(
+                  ),
+                ],
+              ),
+              if (FFAppState().showTreenaaSivu && true)
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Icon(
+                      Icons.stop_circle_rounded,
+                      color: FlutterFlowTheme.of(context).secondaryColor,
+                      size: 30.0,
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                      child: Column(
                         mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(
-                            Icons.stop_circle_rounded,
-                            color: FlutterFlowTheme.of(context).secondaryColor,
-                            size: 30.0,
-                          ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 16.0, 0.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      2.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'wbg0l8iz' /* Lopeta treeni */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryColor,
-                                          fontSize: 12.0,
-                                        ),
+                                2.0, 0.0, 0.0, 0.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                'wbg0l8iz' /* Lopeta treeni */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Roboto',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryColor,
+                                    fontSize: 12.0,
                                   ),
-                                ),
-                              ],
                             ),
                           ),
                         ],
                       ),
+                    ),
                   ],
                 ),
-              ],
-              centerTitle: true,
-              elevation: 4.0,
-            )
-          : null,
+            ],
+          ),
+        ],
+        centerTitle: true,
+        elevation: 4.0,
+      ),
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
