@@ -53,7 +53,7 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
+            padding: EdgeInsetsDirectional.fromSTEB(12.0, 100.0, 12.0, 12.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
