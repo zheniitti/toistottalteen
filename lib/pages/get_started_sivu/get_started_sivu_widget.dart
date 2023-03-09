@@ -74,6 +74,9 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
     super.initState();
     _model = createModel(context, () => GetStartedSivuModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'getStarted_sivu'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -197,15 +200,21 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                               ),
                               FFButtonWidget(
                                 onPressed: () async {
+                                  logFirebaseEvent(
+                                      'GET_STARTED_SIVU_PAGE_Button_uusi_ON_TAP');
+                                  logFirebaseEvent('Button_uusi_auth');
                                   GoRouter.of(context).prepareAuthEvent();
                                   final user = await signInAnonymously(context);
                                   if (user == null) {
                                     return;
                                   }
                                   // getPlatform
+                                  logFirebaseEvent('Button_uusi_getPlatform');
                                   _model.platformString =
                                       await actions.getPlatformAsString();
                                   // updateUsersRecord
+                                  logFirebaseEvent(
+                                      'Button_uusi_updateUsersRecord');
 
                                   final usersUpdateData = {
                                     ...createUsersRecordData(
@@ -224,6 +233,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                   };
                                   await currentUserReference!
                                       .update(usersUpdateData);
+                                  logFirebaseEvent('Button_uusi_navigate_to');
 
                                   context.goNamedAuth('paasivu', mounted);
 

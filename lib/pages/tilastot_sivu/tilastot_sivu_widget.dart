@@ -29,6 +29,8 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
     super.initState();
     _model = createModel(context, () => TilastotSivuModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'tilastot_sivu'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

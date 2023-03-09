@@ -166,6 +166,9 @@ class _RutiiniTaiSessioWidgetState extends State<RutiiniTaiSessioWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 8.0, 0.0),
                   child: InkWell(
                     onTap: () async {
+                      logFirebaseEvent(
+                          'RUTIINI_TAI_SESSIO_Icon_q579ijmn_ON_TAP');
+                      logFirebaseEvent('Icon_bottom_sheet');
                       await showModalBottomSheet(
                         isScrollControlled: true,
                         backgroundColor: Colors.transparent,
@@ -273,10 +276,14 @@ class _RutiiniTaiSessioWidgetState extends State<RutiiniTaiSessioWidget> {
                           ),
                           FFButtonWidget(
                             onPressed: () async {
+                              logFirebaseEvent(
+                                  'RUTIINI_TAI_SESSIO_TREENAA_NYT_BTN_ON_TA');
+                              logFirebaseEvent('Button_custom_action');
                               _model.rutiiniJson =
                                   await actions.jsonRutiiniFromDataStruct(
                                 widget.treeniRutiini,
                               );
+                              logFirebaseEvent('Button_update_app_state');
                               FFAppState().update(() {
                                 FFAppState().valittuTreenattavaTreeniRutiini =
                                     _model.rutiiniJson!;

@@ -29,6 +29,8 @@ class _AloitusEiKaytossaWidgetState extends State<AloitusEiKaytossaWidget> {
     super.initState();
     _model = createModel(context, () => AloitusEiKaytossaModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'aloitus_eiKaytossa'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

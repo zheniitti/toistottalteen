@@ -705,33 +705,44 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Miscellaneous
   {
+    'tjoan72u': {
+      'fi': 'Sovellus tarvitsee luvan lähettää ilmoituksia',
+      'en': 'Permission needed for sending notifications',
+    },
+    '5x6hdd8r': {
+      'fi':
+          'Lupa käyttää kalenteria tarvitaan, jotta treenien lisääminen kalenteriin onnistuisi.',
+      'en': 'Permission for calendar is need to add workouts to calendar',
+    },
     '1u6cda3u': {
-      'fi': '',
-      'en': '',
+      'fi': '😭Virhe: [error]',
+      'en': '😭Error: [error]',
     },
     'au7x8ize': {
-      'fi': '',
-      'en': '',
+      'fi': '✅ Salasanan vaihtolinkki lähetetty sähköpostiisi!',
+      'en': '✅ Password reset email sent!',
     },
     'lhbjyw2o': {
-      'fi': '',
-      'en': '',
+      'fi': '❗Sähköposti on pakollinen!',
+      'en': '❗Email required!',
     },
     'zr9l0xc3': {
-      'fi': '',
-      'en': '',
+      'fi': '❗Puhelinnumero tarvitaan ja sen pitää alkaa + merkillä.',
+      'en': '❗Phone number required and has to start with +',
     },
     'r9kev20w': {
-      'fi': '',
-      'en': '',
+      'fi': '🙅 Salasanat eivät täsmää',
+      'en': '🙅 Passwords don\'t match',
     },
     'oy345b43': {
-      'fi': '',
-      'en': '',
+      'fi': '💬 Syötä tekstiviestivahvistuskoodi',
+      'en': '💬 Enter SMS verification code',
     },
     'tsdpc6n6': {
-      'fi': '',
-      'en': '',
+      'fi':
+          'Liian kauan viimeisimmästä sisäänkirjautumisesta. Kirjaudu uudelleen sisään ennen kuin poistat tilisi.',
+      'en':
+          'Too long since most recent sign in. Sign in again before deleting your account.',
     },
     'f38sf9gj': {
       'fi': '',

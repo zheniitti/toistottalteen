@@ -127,6 +127,11 @@ class _SivuTreenaaTaiLuoRutiiniWidgetState
                                         () => setState(() {}),
                                       ),
                                       onFieldSubmitted: (_) async {
+                                        logFirebaseEvent(
+                                            'SIVU_TREENAA_TAI_LUO_RUTIINI_rutiininnim');
+                                        logFirebaseEvent(
+                                            'rutiininnimi_backend_call');
+
                                         final treeniSessiotUpdateData =
                                             createTreeniSessiotRecordData(
                                           treeniRutiiniData:
@@ -211,6 +216,11 @@ class _SivuTreenaaTaiLuoRutiiniWidgetState
                                         () => setState(() {}),
                                       ),
                                       onFieldSubmitted: (_) async {
+                                        logFirebaseEvent(
+                                            'SIVU_TREENAA_TAI_LUO_RUTIINI_rutiiniKomm');
+                                        logFirebaseEvent(
+                                            'rutiiniKommentti_backend_call');
+
                                         final treeniSessiotUpdateData =
                                             createTreeniSessiotRecordData(
                                           treeniRutiiniData:
@@ -341,7 +351,13 @@ class _SivuTreenaaTaiLuoRutiiniWidgetState
                       EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 108.0),
                   child: InkWell(
                     onTap: () async {
+                      logFirebaseEvent(
+                          'SIVU_TREENAA_TAI_LUO_RUTIINI_Container_p');
+                      logFirebaseEvent(
+                          'Container_painike_uusiLiike_custom_actio');
                       _model.luotuTyhjaSarja = await actions.createSarjaList();
+                      logFirebaseEvent(
+                          'Container_painike_uusiLiike_custom_actio');
                       _model.luotuLiike = await actions.createLiike(
                         null,
                         null,
@@ -349,6 +365,8 @@ class _SivuTreenaaTaiLuoRutiiniWidgetState
                         null,
                         _model.luotuTyhjaSarja?.toList(),
                       );
+                      logFirebaseEvent(
+                          'Container_painike_uusiLiike_backend_call');
 
                       final treeniSessiotUpdateData =
                           createTreeniSessiotRecordData(

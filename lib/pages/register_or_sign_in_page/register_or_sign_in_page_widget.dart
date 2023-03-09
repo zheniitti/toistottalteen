@@ -96,6 +96,9 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
     super.initState();
     _model = createModel(context, () => RegisterOrSignInPageModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'registerOrSignInPage'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -215,6 +218,10 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
                                   children: [
                                     FFButtonWidget(
                                       onPressed: () async {
+                                        logFirebaseEvent(
+                                            'REGISTER_OR_SIGN_IN_REGISTER_BTN_ON_TAP');
+                                        logFirebaseEvent('Button_navigate_to');
+
                                         context.pushNamed('registerPage');
                                       },
                                       text: FFLocalizations.of(context).getText(
@@ -255,6 +262,10 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
                                     ),
                                     FFButtonWidget(
                                       onPressed: () async {
+                                        logFirebaseEvent(
+                                            'REGISTER_OR_SIGN_IN_SIGN_IN_BTN_ON_TAP');
+                                        logFirebaseEvent('Button_navigate_to');
+
                                         context.pushNamed('signInPage');
                                       },
                                       text: FFLocalizations.of(context).getText(
@@ -311,6 +322,9 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
                       ),
                       child: InkWell(
                         onTap: () async {
+                          logFirebaseEvent(
+                              'REGISTER_OR_SIGN_IN_Image_zmu99xj3_ON_TA');
+                          logFirebaseEvent('Image_navigate_back');
                           context.pop();
                         },
                         child: SvgPicture.asset(

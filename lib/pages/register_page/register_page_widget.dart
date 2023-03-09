@@ -199,6 +199,8 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
     super.initState();
     _model = createModel(context, () => RegisterPageModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'registerPage'});
     _model.textController1 ??= TextEditingController();
     _model.textController2 ??= TextEditingController();
     _model.textController3 ??= TextEditingController();
@@ -249,6 +251,9 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                           ),
                           child: InkWell(
                             onTap: () async {
+                              logFirebaseEvent(
+                                  'REGISTER_PAGE_PAGE_Image_a21r0qb0_ON_TAP');
+                              logFirebaseEvent('Image_navigate_back');
                               context.pop();
                             },
                             child: SvgPicture.asset(
@@ -548,6 +553,9 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 21.0),
                   child: FFButtonWidget(
                     onPressed: () async {
+                      logFirebaseEvent('REGISTER_CREATE_ACCOUNT_BTN_ON_TAP');
+                      logFirebaseEvent('Button_navigate_to');
+
                       context.pushNamed('paasivu');
                     },
                     text: FFLocalizations.of(context).getText(
@@ -695,6 +703,10 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                       ),
                       InkWell(
                         onTap: () async {
+                          logFirebaseEvent(
+                              'REGISTER_PAGE_PAGE_Text_y518nym8_ON_TAP');
+                          logFirebaseEvent('Text_navigate_to');
+
                           context.pushNamed('signInPage');
                         },
                         child: Text(

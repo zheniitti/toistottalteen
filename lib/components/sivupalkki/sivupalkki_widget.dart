@@ -75,7 +75,11 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                   alignment: AlignmentDirectional(-1.0, 0.0),
                   child: InkWell(
                     onTap: () async {
+                      logFirebaseEvent('SIVUPALKKI_Text_treenirutiinit_ON_TAP');
+                      logFirebaseEvent(
+                          'Text_treenirutiinit_close_dialog,_drawer');
                       Navigator.pop(context);
+                      logFirebaseEvent('Text_treenirutiinit_update_app_state');
                       FFAppState().update(() {
                         FFAppState().navBarIndex = 0;
                       });
@@ -92,7 +96,11 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                   alignment: AlignmentDirectional(-1.0, 0.0),
                   child: InkWell(
                     onTap: () async {
+                      logFirebaseEvent('SIVUPALKKI_Text_treenihistoria_ON_TAP');
+                      logFirebaseEvent(
+                          'Text_treenihistoria_close_dialog,_drawer');
                       Navigator.pop(context);
+                      logFirebaseEvent('Text_treenihistoria_update_app_state');
                       FFAppState().update(() {
                         FFAppState().navBarIndex = 2;
                       });
@@ -116,7 +124,10 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                 ),
                 InkWell(
                   onTap: () async {
+                    logFirebaseEvent('SIVUPALKKI_COMP_Row_48iupzve_ON_TAP');
+                    logFirebaseEvent('Row_close_dialog,_drawer,_etc');
                     Navigator.pop(context);
+                    logFirebaseEvent('Row_update_app_state');
                     setState(() {
                       FFAppState().navBarIndex = 1;
                       FFAppState().showTreenaaTaiLuoRutiiniSivu = true;

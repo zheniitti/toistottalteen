@@ -25,6 +25,7 @@ Future<User?> signInOrCreateAccount(
 ) async {
   try {
     final userCredential = await signInFunc();
+    logFirebaseAuthEvent(userCredential?.user, authProvider);
     if (userCredential?.user != null) {
       await maybeCreateUser(userCredential!.user!);
     }
@@ -32,13 +33,19 @@ Future<User?> signInOrCreateAccount(
   } on FirebaseAuthException catch (e) {
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Error: ${e.message!}')),
+      SnackBar(
+          content: Text(FFLocalizations.of(context)
+              .getText(
+                '1u6cda3u' /* 😭Virhe: [error] */,
+              )
+              .replaceAll('[error]', e.message!))),
     );
     return null;
   }
 }
 
 Future signOut() {
+  logFirebaseEvent("SIGN_OUT");
   return FirebaseAuth.instance.signOut();
 }
 
@@ -48,14 +55,16 @@ Future deleteUser(BuildContext context) async {
       print('Error: delete user attempted with no logged in user!');
       return;
     }
+    logFirebaseEvent("DELETE_USER");
     await currentUser?.user?.delete();
   } on FirebaseAuthException catch (e) {
     if (e.code == 'requires-recent-login') {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-            content: Text(
-                'Too long since most recent sign in. Sign in again before deleting your account.')),
+            content: Text(FFLocalizations.of(context).getText(
+          'tsdpc6n6' /* Liian kauan viimeisimmästä sis... */,
+        ))),
       );
     }
   }
@@ -68,12 +77,20 @@ Future resetPassword(
   } on FirebaseAuthException catch (e) {
     ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Error: ${e.message!}')),
+      SnackBar(
+          content: Text(FFLocalizations.of(context)
+              .getText(
+                '1u6cda3u' /* 😭Virhe: [error] */,
+              )
+              .replaceAll('[error]', e.message!))),
     );
     return null;
   }
   ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(content: Text('Password reset email sent')),
+    SnackBar(
+        content: Text(FFLocalizations.of(context).getText(
+      'au7x8ize' /* ✅ Salasanan vaihtolinkki lähet... */,
+    ))),
   );
 }
 
@@ -153,7 +170,11 @@ Future beginPhoneAuth({
     verificationFailed: (e) {
       completer.complete(false);
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text('Error: ${e.message!}'),
+        content: Text(FFLocalizations.of(context)
+            .getText(
+              '1u6cda3u' /* 😭Virhe: [error] */,
+            )
+            .replaceAll('[error]', e.message!)),
       ));
     },
     codeSent: (verificationId, _) {

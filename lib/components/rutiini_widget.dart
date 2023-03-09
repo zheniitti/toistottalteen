@@ -248,6 +248,8 @@ class _RutiiniWidgetState extends State<RutiiniWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 8.0, 0.0),
                 child: InkWell(
                   onTap: () async {
+                    logFirebaseEvent('RUTIINI_COMP_Icon_223u20c6_ON_TAP');
+                    logFirebaseEvent('Icon_bottom_sheet');
                     await showModalBottomSheet(
                       isScrollControlled: true,
                       backgroundColor: Colors.transparent,
@@ -562,10 +564,14 @@ class _RutiiniWidgetState extends State<RutiiniWidget> {
                         ),
                         FFButtonWidget(
                           onPressed: () async {
+                            logFirebaseEvent(
+                                'RUTIINI_COMP_TREENAA_NYT_BTN_ON_TAP');
+                            logFirebaseEvent('Button_custom_action');
                             _model.rutiiniJson =
                                 await actions.jsonRutiiniFromDataStruct(
                               widget.rutiini,
                             );
+                            logFirebaseEvent('Button_update_app_state');
                             FFAppState().update(() {
                               FFAppState().valittuTreenattavaTreeniRutiini =
                                   _model.rutiiniJson!;

@@ -27,6 +27,7 @@ class _BuilderWidgetState extends State<BuilderWidget> {
     super.initState();
     _model = createModel(context, () => BuilderModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'builder'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -59,6 +60,8 @@ class _BuilderWidgetState extends State<BuilderWidget> {
             size: 30.0,
           ),
           onPressed: () async {
+            logFirebaseEvent('BUILDER_arrow_back_rounded_ICN_ON_TAP');
+            logFirebaseEvent('IconButton_navigate_back');
             context.pop();
           },
         ),

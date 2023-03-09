@@ -209,6 +209,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.1"
+  cloud_functions:
+    dependency: "direct main"
+    description:
+      name: cloud_functions
+      sha256: "526e35134fcd903028152da30fa7492152f7b5949005fa9a5961798786dd3f6f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.6"
+  cloud_functions_platform_interface:
+    dependency: "direct main"
+    description:
+      name: cloud_functions_platform_interface
+      sha256: "3dc1592355375a56ee80f02b7ef6da0d3d0470f78bca72370ff2de2706ad6bc6"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.1.25"
+  cloud_functions_web:
+    dependency: "direct main"
+    description:
+      name: cloud_functions_web
+      sha256: "64e280bb4dddd829436731ba2fd64bcfb3a9103f87518a0718bdf6655bce6b0c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.3.14"
   code_builder:
     dependency: transitive
     description:
@@ -321,6 +345,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.4"
+  firebase_analytics:
+    dependency: "direct main"
+    description:
+      name: firebase_analytics
+      sha256: "8e83227fc21defec65f298e266d5d68cc0102e0e9ae69f2954d37cf204adf89e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "10.0.7"
+  firebase_analytics_platform_interface:
+    dependency: "direct main"
+    description:
+      name: firebase_analytics_platform_interface
+      sha256: "95009d4bdbccd827565f741b657270fa5e7f848fd542d015732a81cd75062108"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.3.15"
+  firebase_analytics_web:
+    dependency: "direct main"
+    description:
+      name: firebase_analytics_web
+      sha256: "676eea01b5e4a3067106096423f6776f0b4bef1246b5390ec96ee2a57774e91b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.5.1+6"
   firebase_auth:
     dependency: "direct main"
     description:
@@ -369,6 +417,46 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.2"
+  firebase_crashlytics:
+    dependency: "direct main"
+    description:
+      name: firebase_crashlytics
+      sha256: afaff0d67da21a0c2a916c438218188060e9eeeef22619e0a3e31994e9e366fb
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.7"
+  firebase_crashlytics_platform_interface:
+    dependency: "direct main"
+    description:
+      name: firebase_crashlytics_platform_interface
+      sha256: "3bbd82065006a133119b23d0123bf26f2f33fec3ad37f9561a01e35788c69106"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.3.8"
+  firebase_messaging:
+    dependency: "direct main"
+    description:
+      name: firebase_messaging
+      sha256: "5299f2a702b958746941b47edb275272d4305e0fad99a4774b091346293d99c7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "14.1.4"
+  firebase_messaging_platform_interface:
+    dependency: "direct main"
+    description:
+      name: firebase_messaging_platform_interface
+      sha256: "7a8739ad1634767444329e7836249d9dbe3624597ec98dd2af8e1754062190e3"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.2.8"
+  firebase_messaging_web:
+    dependency: "direct main"
+    description:
+      name: firebase_messaging_web
+      sha256: aeb9958a23efac1ac9035e55bc21c6a365c06d576396ed4dc0b974df790457a5
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.2.9"
   fixnum:
     dependency: transitive
     description:
@@ -549,6 +637,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.1"
+  google_mobile_ads:
+    dependency: "direct main"
+    description:
+      name: google_mobile_ads
+      sha256: "7a39fe63007764115395550fc3eaf0d469de685298208040138c373d5444ab48"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.0"
   google_sign_in:
     dependency: "direct main"
     description:
@@ -1242,6 +1338,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+  visibility_detector:
+    dependency: transitive
+    description:
+      name: visibility_detector
+      sha256: "15c54a459ec2c17b4705450483f3d5a2858e733aee893dcee9d75fd04814940d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.3"
   watcher:
     dependency: transitive
     description:

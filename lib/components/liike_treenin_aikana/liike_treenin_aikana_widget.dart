@@ -495,6 +495,9 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> {
                                       10.0, 0.0, 10.0, 10.0),
                                   child: InkWell(
                                     onTap: () async {
+                                      logFirebaseEvent(
+                                          'LIIKE_TREENIN_AIKANA_Icon_5s381y0e_ON_TA');
+                                      logFirebaseEvent('Icon_custom_action');
                                       await actions.removeSessioSarjaAtIndex(
                                         widget.treeniSessio,
                                         widget.liikeIndexInList!,
@@ -579,7 +582,11 @@ sarja */
                                   0.0, 2.0, 0.0, 6.0),
                               child: InkWell(
                                 onTap: () async {
+                                  logFirebaseEvent(
+                                      'LIIKE_TREENIN_AIKANA_Row_5f3q34g1_ON_TAP');
+                                  logFirebaseEvent('Row_update_widget_state');
                                   setState(() {});
+                                  logFirebaseEvent('Row_backend_call');
 
                                   final treeniSessiotUpdateData =
                                       createTreeniSessiotRecordData(
@@ -636,7 +643,11 @@ sarja */
                               0.0, 2.0, 8.0, 6.0),
                           child: InkWell(
                             onTap: () async {
+                              logFirebaseEvent(
+                                  'LIIKE_TREENIN_AIKANA_Row_55r3gb8v_ON_TAP');
+                              logFirebaseEvent('Row_update_widget_state');
                               setState(() {});
+                              logFirebaseEvent('Row_backend_call');
 
                               final treeniSessiotUpdateData =
                                   createTreeniSessiotRecordData(

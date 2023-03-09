@@ -81,9 +81,14 @@ class _BottomSheetRutiiniJaSessioWidgetState
                 ),
                 child: InkWell(
                   onTap: () async {
+                    logFirebaseEvent(
+                        'BOTTOM_SHEET_RUTIINI_JA_SESSIO_ListTile_');
                     if (widget.treeniSessioDoc != null) {
+                      logFirebaseEvent('ListTile_backend_call');
                       await widget.treeniSessioDoc!.reference.delete();
                     } else {
+                      logFirebaseEvent('ListTile_backend_call');
+
                       final usersUpdateData = {
                         'treeniRutiinit': FieldValue.arrayRemove([
                           getTreeniRutiiniFirestoreData(
@@ -98,6 +103,7 @@ class _BottomSheetRutiiniJaSessioWidgetState
                       await currentUserReference!.update(usersUpdateData);
                     }
 
+                    logFirebaseEvent('ListTile_close_dialog,_drawer,_etc');
                     Navigator.pop(context);
                   },
                   child: ListTile(
@@ -145,19 +151,26 @@ class _BottomSheetRutiiniJaSessioWidgetState
                 ),
                 child: InkWell(
                   onTap: () async {
+                    logFirebaseEvent(
+                        'BOTTOM_SHEET_RUTIINI_JA_SESSIO_ListTile_');
+                    logFirebaseEvent('ListTile_close_dialog,_drawer,_etc');
                     Navigator.pop(context);
                     if (widget.treeniSessioDoc != null) {
+                      logFirebaseEvent('ListTile_update_app_state');
                       FFAppState().valittuTreenattavaHistorianSessioRef =
                           widget.treeniSessioDoc!.reference;
                     } else {
+                      logFirebaseEvent('ListTile_custom_action');
                       _model.rutiiniDataJson =
                           await actions.jsonRutiiniFromDataStruct(
                         widget.rutiiniData,
                       );
+                      logFirebaseEvent('ListTile_update_app_state');
                       FFAppState().valittuTreenattavaTreeniRutiini =
                           _model.rutiiniDataJson!;
                     }
 
+                    logFirebaseEvent('ListTile_update_app_state');
                     FFAppState().update(() {
                       FFAppState().isEditing = true;
                       FFAppState().navBarIndex = 1;
@@ -200,6 +213,9 @@ class _BottomSheetRutiiniJaSessioWidgetState
                 ),
                 child: InkWell(
                   onTap: () async {
+                    logFirebaseEvent(
+                        'BOTTOM_SHEET_RUTIINI_JA_SESSIO_ListTile_');
+                    logFirebaseEvent('ListTile_close_dialog,_drawer,_etc');
                     Navigator.pop(context);
                   },
                   child: ListTile(

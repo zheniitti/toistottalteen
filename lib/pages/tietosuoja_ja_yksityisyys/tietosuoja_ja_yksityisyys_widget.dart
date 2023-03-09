@@ -27,6 +27,8 @@ class _TietosuojaJaYksityisyysWidgetState
     super.initState();
     _model = createModel(context, () => TietosuojaJaYksityisyysModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'tietosuojaJaYksityisyys'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

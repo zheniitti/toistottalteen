@@ -62,6 +62,8 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget> {
           children: [
             InkWell(
               onTap: () async {
+                logFirebaseEvent('NAVIGATION_BAR_Container_8dx41aen_ON_TAP');
+                logFirebaseEvent('Container_update_app_state');
                 FFAppState().update(() {
                   FFAppState().navBarIndex = 0;
                 });
@@ -106,6 +108,8 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget> {
             ),
             InkWell(
               onTap: () async {
+                logFirebaseEvent('NAVIGATION_BAR_Container_5pr6gwjo_ON_TAP');
+                logFirebaseEvent('Container_update_app_state');
                 FFAppState().update(() {
                   FFAppState().navBarIndex = 1;
                 });
@@ -150,6 +154,8 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget> {
             ),
             InkWell(
               onTap: () async {
+                logFirebaseEvent('NAVIGATION_BAR_Container_0i6hubd6_ON_TAP');
+                logFirebaseEvent('Container_update_app_state');
                 FFAppState().update(() {
                   FFAppState().navBarIndex = 2;
                 });
@@ -195,6 +201,8 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget> {
             if (false)
               InkWell(
                 onTap: () async {
+                  logFirebaseEvent('NAVIGATION_BAR_Container_dp5acew7_ON_TAP');
+                  logFirebaseEvent('Container_update_app_state');
                   FFAppState().update(() {
                     FFAppState().navBarIndex = 3;
                   });

@@ -1,0 +1,2 @@
+PermissionGroupNotification = "Permission needed for sending notifications";
+NSCalendarsUsageDescription = "Permission for calendar is need to add workouts to calendar";

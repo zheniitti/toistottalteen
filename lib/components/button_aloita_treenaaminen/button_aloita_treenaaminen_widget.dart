@@ -51,6 +51,9 @@ class _ButtonAloitaTreenaaminenWidgetState
 
     return FFButtonWidget(
       onPressed: () async {
+        logFirebaseEvent('BUTTON_ALOITA_TREENAAMINEN_ALOITA_TREENA');
+        logFirebaseEvent('Button_backend_call');
+
         final treeniSessiotCreateData = {
           ...createTreeniSessiotRecordData(
             userRef: currentUserReference,
@@ -71,9 +74,11 @@ class _ButtonAloitaTreenaaminenWidgetState
         await treeniSessiotRecordReference.set(treeniSessiotCreateData);
         _model.uusiTreeniSessio = TreeniSessiotRecord.getDocumentFromData(
             treeniSessiotCreateData, treeniSessiotRecordReference);
+        logFirebaseEvent('Button_custom_action');
         _model.jsonRutiini = await actions.jsonRutiiniFromDataStruct(
           _model.uusiTreeniSessio!.treeniRutiiniData,
         );
+        logFirebaseEvent('Button_update_app_state');
         FFAppState().update(() {
           FFAppState().valittuTreenattavaHistorianSessioRef =
               _model.uusiTreeniSessio!.reference;

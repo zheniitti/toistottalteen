@@ -49,9 +49,12 @@ class _ButtonLuoRutiiniWidgetState extends State<ButtonLuoRutiiniWidget> {
 
     return FFButtonWidget(
       onPressed: () async {
+        logFirebaseEvent('BUTTON_LUO_RUTIINI_LUO_TREENIPOHJA_BTN_O');
         if (true) {
+          logFirebaseEvent('Button_custom_action');
           _model.createdRutiini =
               await actions.customCreateTreeniRutiiniStruct();
+          logFirebaseEvent('Button_backend_call');
 
           final usersUpdateData = {
             'treeniRutiinit': FieldValue.arrayUnion([
@@ -66,6 +69,7 @@ class _ButtonLuoRutiiniWidgetState extends State<ButtonLuoRutiiniWidget> {
           };
           await currentUserReference!.update(usersUpdateData);
         } else {
+          logFirebaseEvent('Button_update_app_state');
           FFAppState().update(() {
             FFAppState().navBarIndex = 0;
             FFAppState().showTreenaaTaiLuoRutiiniSivu = true;

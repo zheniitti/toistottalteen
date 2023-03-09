@@ -8,6 +8,8 @@ import '../flutter_flow_theme.dart';
 import '../../backend/backend.dart';
 
 import '../../auth/firebase_user_provider.dart';
+import '../../backend/push_notifications/push_notifications_handler.dart'
+    show PushNotificationsHandler;
 
 import '../../index.dart';
 import '../../main.dart';
@@ -82,16 +84,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'tilastot_sivu',
               path: 'tilastotSivu',
+              requireAuth: true,
               builder: (context, params) => TilastotSivuWidget(),
             ),
             FFRoute(
               name: 'paasivu',
               path: 'paasivu',
+              requireAuth: true,
               builder: (context, params) => PaasivuWidget(),
             ),
             FFRoute(
               name: 'aloitus_eiKaytossa',
               path: 'aloitusEiKaytossa',
+              requireAuth: true,
               builder: (context, params) => AloitusEiKaytossaWidget(),
             ),
             FFRoute(
@@ -102,31 +107,37 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'registerPage',
               path: 'registerPage',
+              requireAuth: true,
               builder: (context, params) => RegisterPageWidget(),
             ),
             FFRoute(
               name: 'chooseMode',
               path: 'chooseMode',
+              requireAuth: true,
               builder: (context, params) => ChooseModeWidget(),
             ),
             FFRoute(
               name: 'signInPage',
               path: 'signInPage',
+              requireAuth: true,
               builder: (context, params) => SignInPageWidget(),
             ),
             FFRoute(
               name: 'registerOrSignInPage',
               path: 'registerOrSignInPage',
+              requireAuth: true,
               builder: (context, params) => RegisterOrSignInPageWidget(),
             ),
             FFRoute(
               name: 'tietosuojaJaYksityisyys',
               path: 'tietosuojaJaYksityisyys',
+              requireAuth: true,
               builder: (context, params) => TietosuojaJaYksityisyysWidget(),
             ),
             FFRoute(
               name: 'builder',
               path: 'builder',
+              requireAuth: true,
               builder: (context, params) => BuilderWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
@@ -317,7 +328,7 @@ class FFRoute {
                     fit: BoxFit.cover,
                   ),
                 )
-              : page;
+              : PushNotificationsHandler(child: page);
 
           final transitionInfo = state.transitionInfo;
           return transitionInfo.hasTransition

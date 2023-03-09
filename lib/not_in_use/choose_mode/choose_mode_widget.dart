@@ -83,6 +83,8 @@ class _ChooseModeWidgetState extends State<ChooseModeWidget>
     super.initState();
     _model = createModel(context, () => ChooseModeModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'chooseMode'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -307,6 +309,10 @@ class _ChooseModeWidgetState extends State<ChooseModeWidget>
                           ),
                           FFButtonWidget(
                             onPressed: () async {
+                              logFirebaseEvent(
+                                  'CHOOSE_MODE_PAGE_JATKA_BTN_ON_TAP');
+                              logFirebaseEvent('Button_navigate_to');
+
                               context.pushNamed('registerOrSignInPage');
                             },
                             text: FFLocalizations.of(context).getText(

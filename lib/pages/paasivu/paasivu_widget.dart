@@ -31,6 +31,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget> {
     super.initState();
     _model = createModel(context, () => PaasivuModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'paasivu'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

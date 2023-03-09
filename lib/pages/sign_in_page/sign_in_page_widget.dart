@@ -168,6 +168,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget>
     super.initState();
     _model = createModel(context, () => SignInPageModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'signInPage'});
     _model.textController1 ??= TextEditingController();
     _model.textController2 ??= TextEditingController();
 
@@ -217,6 +218,9 @@ class _SignInPageWidgetState extends State<SignInPageWidget>
                           ),
                           child: InkWell(
                             onTap: () async {
+                              logFirebaseEvent(
+                                  'SIGN_IN_PAGE_PAGE_Image_rab0dwhr_ON_TAP');
+                              logFirebaseEvent('Image_navigate_back');
                               context.pop();
                             },
                             child: SvgPicture.asset(
@@ -450,6 +454,9 @@ class _SignInPageWidgetState extends State<SignInPageWidget>
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 21.0),
                   child: FFButtonWidget(
                     onPressed: () async {
+                      logFirebaseEvent('SIGN_IN_PAGE_PAGE_SIGN_IN_BTN_ON_TAP');
+                      logFirebaseEvent('Button_navigate_to');
+
                       context.pushNamed('paasivu');
                     },
                     text: FFLocalizations.of(context).getText(
@@ -597,6 +604,10 @@ class _SignInPageWidgetState extends State<SignInPageWidget>
                       ),
                       InkWell(
                         onTap: () async {
+                          logFirebaseEvent(
+                              'SIGN_IN_PAGE_PAGE_Text_lod6hz20_ON_TAP');
+                          logFirebaseEvent('Text_navigate_to');
+
                           context.pushNamed('registerPage');
                         },
                         child: Text(
