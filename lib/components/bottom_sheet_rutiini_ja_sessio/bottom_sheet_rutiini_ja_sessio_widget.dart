@@ -113,7 +113,7 @@ class _BottomSheetRutiiniJaSessioWidgetState
                     ),
                     subtitle: Text(
                       FFLocalizations.of(context).getText(
-                        'p9a6vjd2' /* (paina pitkään) */,
+                        '2a9bmoed' /* (paina pitkään) */,
                       ),
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodyText1,
@@ -159,8 +159,8 @@ class _BottomSheetRutiiniJaSessioWidgetState
                     }
 
                     FFAppState().update(() {
-                      FFAppState().showTreenaaSivu = true;
                       FFAppState().isEditing = true;
+                      FFAppState().navBarIndex = 1;
                     });
 
                     setState(() {});
@@ -175,6 +175,43 @@ class _BottomSheetRutiiniJaSessioWidgetState
                     ),
                     trailing: Icon(
                       Icons.edit_rounded,
+                      color: Color(0xFF303030),
+                      size: 30.0,
+                    ),
+                    tileColor: FlutterFlowTheme.of(context).secondaryBackground,
+                    dense: false,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+              child: Container(
+                width: double.infinity,
+                constraints: BoxConstraints(
+                  maxWidth: 300.0,
+                ),
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+                child: InkWell(
+                  onTap: () async {
+                    Navigator.pop(context);
+                  },
+                  child: ListTile(
+                    title: Text(
+                      FFLocalizations.of(context).getText(
+                        'elbafojn' /* Luo tästä rutiinipohja */,
+                      ),
+                      textAlign: TextAlign.center,
+                      style: FlutterFlowTheme.of(context).title3,
+                    ),
+                    trailing: Icon(
+                      Icons.content_copy_rounded,
                       color: Color(0xFF303030),
                       size: 30.0,
                     ),

@@ -90,19 +90,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => PaasivuWidget(),
             ),
             FFRoute(
-              name: 'aloitus',
-              path: 'aloitus',
-              builder: (context, params) => AloitusWidget(),
-            ),
-            FFRoute(
-              name: 'luoRutiini_sivu',
-              path: 'luoRutiin',
-              builder: (context, params) => LuoRutiiniSivuWidget(),
-            ),
-            FFRoute(
-              name: 'rutiininHistoria_sivu',
-              path: 'rutiininHistoriaSivu',
-              builder: (context, params) => RutiininHistoriaSivuWidget(),
+              name: 'aloitus_eiKaytossa',
+              path: 'aloitusEiKaytossa',
+              builder: (context, params) => AloitusEiKaytossaWidget(),
             ),
             FFRoute(
               name: 'getStarted_sivu',
@@ -140,8 +130,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => BuilderWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
-        ).toRoute(appStateNotifier),
-      ],
+        ),
+      ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,
     );
 
@@ -187,6 +177,16 @@ extension NavigationExtensions on BuildContext {
               queryParams: queryParams,
               extra: extra,
             );
+
+  void safePop() {
+    // If there is only one route on the stack, navigate to the initial
+    // page instead of popping.
+    if (GoRouter.of(this).routerDelegate.matches.length <= 1) {
+      go('/');
+    } else {
+      pop();
+    }
+  }
 }
 
 extension GoRouterExtensions on GoRouter {

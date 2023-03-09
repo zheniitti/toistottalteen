@@ -1,9 +1,9 @@
 import '/backend/backend.dart';
-import '/components/drawer/drawer_widget.dart';
 import '/components/navigation_bar/navigation_bar_widget.dart';
-import '/components/rutiinit_sivu/rutiinit_sivu_widget.dart';
-import '/components/treenaa_tai_luo_rutiini_sivu/treenaa_tai_luo_rutiini_sivu_widget.dart';
-import '/components/treeni_historia_sivu/treeni_historia_sivu_widget.dart';
+import '/components/sivu_rutiinit/sivu_rutiinit_widget.dart';
+import '/components/sivu_treenaa_tai_luo_rutiini/sivu_treenaa_tai_luo_rutiini_widget.dart';
+import '/components/sivu_treeni_historia/sivu_treeni_historia_widget.dart';
+import '/components/sivupalkki/sivupalkki_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -14,41 +14,41 @@ import 'package:provider/provider.dart';
 class PaasivuModel extends FlutterFlowModel {
   ///  Local state fields for this page.
 
-  TreeniRutiiniStruct? valittuTreenattavaRutiini;
+  TreeniRutiiniStruct? treenattavaRutiini;
 
-  TreeniSessiotRecord? valittuSessioDoc;
+  TreeniSessiotRecord? treenattavaSessioDoc;
 
   ///  State fields for stateful widgets in this page.
 
-  // Model for rutiinit_sivu component.
-  late RutiinitSivuModel rutiinitSivuModel;
-  // Model for TreeniHistoriaSivu.
-  late TreeniHistoriaSivuModel treeniHistoriaSivuModel;
-  // Model for treenaaTaiLuoRutiini_sivu component.
-  late TreenaaTaiLuoRutiiniSivuModel treenaaTaiLuoRutiiniSivuModel;
+  // Model for sivu_rutiinit component.
+  late SivuRutiinitModel sivuRutiinitModel;
+  // Model for sivu_treeniHistoria component.
+  late SivuTreeniHistoriaModel sivuTreeniHistoriaModel;
+  // Model for sivu_treenaaTaiLuoRutiini component.
+  late SivuTreenaaTaiLuoRutiiniModel sivuTreenaaTaiLuoRutiiniModel;
   // Model for navigationBar component.
   late NavigationBarModel navigationBarModel;
-  // Model for drawer component.
-  late DrawerModel drawerModel;
+  // Model for sivupalkki component.
+  late SivupalkkiModel sivupalkkiModel;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    rutiinitSivuModel = createModel(context, () => RutiinitSivuModel());
-    treeniHistoriaSivuModel =
-        createModel(context, () => TreeniHistoriaSivuModel());
-    treenaaTaiLuoRutiiniSivuModel =
-        createModel(context, () => TreenaaTaiLuoRutiiniSivuModel());
+    sivuRutiinitModel = createModel(context, () => SivuRutiinitModel());
+    sivuTreeniHistoriaModel =
+        createModel(context, () => SivuTreeniHistoriaModel());
+    sivuTreenaaTaiLuoRutiiniModel =
+        createModel(context, () => SivuTreenaaTaiLuoRutiiniModel());
     navigationBarModel = createModel(context, () => NavigationBarModel());
-    drawerModel = createModel(context, () => DrawerModel());
+    sivupalkkiModel = createModel(context, () => SivupalkkiModel());
   }
 
   void dispose() {
-    rutiinitSivuModel.dispose();
-    treeniHistoriaSivuModel.dispose();
-    treenaaTaiLuoRutiiniSivuModel.dispose();
+    sivuRutiinitModel.dispose();
+    sivuTreeniHistoriaModel.dispose();
+    sivuTreenaaTaiLuoRutiiniModel.dispose();
     navigationBarModel.dispose();
-    drawerModel.dispose();
+    sivupalkkiModel.dispose();
   }
 
   /// Additional helper methods are added here.

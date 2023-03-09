@@ -93,6 +93,13 @@ class _$TreeniRutiiniStructSerializer
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.uid;
+    if (value != null) {
+      result
+        ..add('UID')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -153,6 +160,10 @@ class _$TreeniRutiiniStructSerializer
           result.showComment = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
           break;
+        case 'UID':
+          result.uid = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'firestoreUtilData':
           result.firestoreUtilData = serializers.deserialize(value,
                   specifiedType: const FullType(FirestoreUtilData))!
@@ -187,6 +198,8 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
   @override
   final bool? showComment;
   @override
+  final String? uid;
+  @override
   final FirestoreUtilData firestoreUtilData;
 
   factory _$TreeniRutiiniStruct(
@@ -204,6 +217,7 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
       this.modifiedTimes,
       this.isTreeniPohja,
       this.showComment,
+      this.uid,
       required this.firestoreUtilData})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -237,6 +251,7 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
         modifiedTimes == other.modifiedTimes &&
         isTreeniPohja == other.isTreeniPohja &&
         showComment == other.showComment &&
+        uid == other.uid &&
         firestoreUtilData == other.firestoreUtilData;
   }
 
@@ -251,16 +266,18 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
                             $jc(
                                 $jc(
                                     $jc(
-                                        $jc($jc(0, liikkeet.hashCode),
-                                            kommentti.hashCode),
-                                        createdTime.hashCode),
-                                    nimi.hashCode),
-                                valitutViikonPaivat.hashCode),
-                            widgetExpanded.hashCode),
-                        lastWorkoutTime.hashCode),
-                    modifiedTimes.hashCode),
-                isTreeniPohja.hashCode),
-            showComment.hashCode),
+                                        $jc(
+                                            $jc($jc(0, liikkeet.hashCode),
+                                                kommentti.hashCode),
+                                            createdTime.hashCode),
+                                        nimi.hashCode),
+                                    valitutViikonPaivat.hashCode),
+                                widgetExpanded.hashCode),
+                            lastWorkoutTime.hashCode),
+                        modifiedTimes.hashCode),
+                    isTreeniPohja.hashCode),
+                showComment.hashCode),
+            uid.hashCode),
         firestoreUtilData.hashCode));
   }
 
@@ -277,6 +294,7 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
           ..add('modifiedTimes', modifiedTimes)
           ..add('isTreeniPohja', isTreeniPohja)
           ..add('showComment', showComment)
+          ..add('uid', uid)
           ..add('firestoreUtilData', firestoreUtilData))
         .toString();
   }
@@ -336,6 +354,10 @@ class TreeniRutiiniStructBuilder
   bool? get showComment => _$this._showComment;
   set showComment(bool? showComment) => _$this._showComment = showComment;
 
+  String? _uid;
+  String? get uid => _$this._uid;
+  set uid(String? uid) => _$this._uid = uid;
+
   FirestoreUtilData? _firestoreUtilData;
   FirestoreUtilData? get firestoreUtilData => _$this._firestoreUtilData;
   set firestoreUtilData(FirestoreUtilData? firestoreUtilData) =>
@@ -358,6 +380,7 @@ class TreeniRutiiniStructBuilder
       _modifiedTimes = $v.modifiedTimes?.toBuilder();
       _isTreeniPohja = $v.isTreeniPohja;
       _showComment = $v.showComment;
+      _uid = $v.uid;
       _firestoreUtilData = $v.firestoreUtilData;
       _$v = null;
     }
@@ -393,6 +416,7 @@ class TreeniRutiiniStructBuilder
               modifiedTimes: _modifiedTimes?.build(),
               isTreeniPohja: isTreeniPohja,
               showComment: showComment,
+              uid: uid,
               firestoreUtilData: BuiltValueNullFieldError.checkNotNull(
                   firestoreUtilData,
                   r'TreeniRutiiniStruct',

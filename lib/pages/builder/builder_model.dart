@@ -1,4 +1,4 @@
-import '/components/bottom_sheet_rutiini_ja_sessio/bottom_sheet_rutiini_ja_sessio_widget.dart';
+import '/components/rutiini_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -10,18 +10,17 @@ import 'package:provider/provider.dart';
 class BuilderModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
-  // Model for bottomSheet_rutiiniJaSessio component.
-  late BottomSheetRutiiniJaSessioModel bottomSheetRutiiniJaSessioModel;
+  // Model for rutiini component.
+  late RutiiniModel rutiiniModel;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    bottomSheetRutiiniJaSessioModel =
-        createModel(context, () => BottomSheetRutiiniJaSessioModel());
+    rutiiniModel = createModel(context, () => RutiiniModel());
   }
 
   void dispose() {
-    bottomSheetRutiiniJaSessioModel.dispose();
+    rutiiniModel.dispose();
   }
 
   /// Additional helper methods are added here.

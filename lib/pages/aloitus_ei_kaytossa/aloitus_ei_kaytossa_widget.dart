@@ -1,5 +1,5 @@
 import '/components/button_aloita_treenaaminen/button_aloita_treenaaminen_widget.dart';
-import '/components/drawer/drawer_widget.dart';
+import '/components/sivupalkki/sivupalkki_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -7,18 +7,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'aloitus_model.dart';
-export 'aloitus_model.dart';
+import 'aloitus_ei_kaytossa_model.dart';
+export 'aloitus_ei_kaytossa_model.dart';
 
-class AloitusWidget extends StatefulWidget {
-  const AloitusWidget({Key? key}) : super(key: key);
+class AloitusEiKaytossaWidget extends StatefulWidget {
+  const AloitusEiKaytossaWidget({Key? key}) : super(key: key);
 
   @override
-  _AloitusWidgetState createState() => _AloitusWidgetState();
+  _AloitusEiKaytossaWidgetState createState() =>
+      _AloitusEiKaytossaWidgetState();
 }
 
-class _AloitusWidgetState extends State<AloitusWidget> {
-  late AloitusModel _model;
+class _AloitusEiKaytossaWidgetState extends State<AloitusEiKaytossaWidget> {
+  late AloitusEiKaytossaModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
@@ -26,7 +27,7 @@ class _AloitusWidgetState extends State<AloitusWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => AloitusModel());
+    _model = createModel(context, () => AloitusEiKaytossaModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -74,9 +75,9 @@ class _AloitusWidgetState extends State<AloitusWidget> {
         drawer: Drawer(
           elevation: 16.0,
           child: wrapWithModel(
-            model: _model.drawerModel,
+            model: _model.sivupalkkiModel,
             updateCallback: () => setState(() {}),
-            child: DrawerWidget(),
+            child: SivupalkkiWidget(),
           ),
         ),
         appBar: AppBar(

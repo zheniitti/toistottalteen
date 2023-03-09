@@ -9,19 +9,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'treeni_historia_sivu_model.dart';
-export 'treeni_historia_sivu_model.dart';
+import 'sivu_treeni_historia_model.dart';
+export 'sivu_treeni_historia_model.dart';
 
-class TreeniHistoriaSivuWidget extends StatefulWidget {
-  const TreeniHistoriaSivuWidget({Key? key}) : super(key: key);
+class SivuTreeniHistoriaWidget extends StatefulWidget {
+  const SivuTreeniHistoriaWidget({Key? key}) : super(key: key);
 
   @override
-  _TreeniHistoriaSivuWidgetState createState() =>
-      _TreeniHistoriaSivuWidgetState();
+  _SivuTreeniHistoriaWidgetState createState() =>
+      _SivuTreeniHistoriaWidgetState();
 }
 
-class _TreeniHistoriaSivuWidgetState extends State<TreeniHistoriaSivuWidget> {
-  late TreeniHistoriaSivuModel _model;
+class _SivuTreeniHistoriaWidgetState extends State<SivuTreeniHistoriaWidget> {
+  late SivuTreeniHistoriaModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -32,7 +32,7 @@ class _TreeniHistoriaSivuWidgetState extends State<TreeniHistoriaSivuWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => TreeniHistoriaSivuModel());
+    _model = createModel(context, () => SivuTreeniHistoriaModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -76,12 +76,12 @@ class _TreeniHistoriaSivuWidgetState extends State<TreeniHistoriaSivuWidget> {
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).primaryBackground,
           ),
-          child: Stack(
-            children: [
-              Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+          child: Align(
+            alignment: AlignmentDirectional(0.0, 0.0),
+            child: Stack(
+              children: [
+                Align(
+                  alignment: AlignmentDirectional(0.0, 1.0),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -89,7 +89,7 @@ class _TreeniHistoriaSivuWidgetState extends State<TreeniHistoriaSivuWidget> {
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 150.0),
+                              0.0, 22.0, 0.0, 150.0),
                           child: Builder(
                             builder: (context) {
                               final treeniSessio =
@@ -130,46 +130,66 @@ class _TreeniHistoriaSivuWidgetState extends State<TreeniHistoriaSivuWidget> {
                     ),
                   ),
                 ),
-              ),
-              if (containerTreeniSessiotRecordList.length == 0)
-                Align(
-                  alignment: AlignmentDirectional(0.0, 1.0),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 200.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          FFLocalizations.of(context).getText(
-                            'uur18ydl' /* Sinulla ei ole vielä tehtyjä t... */,
-                          ),
-                          style: FlutterFlowTheme.of(context).bodyText1,
-                        ),
-                        Padding(
+                if (containerTreeniSessiotRecordList.length == 0)
+                  Align(
+                    alignment: AlignmentDirectional(0.0, 0.0),
+                    child: Container(
+                      constraints: BoxConstraints(
+                        maxWidth: 400.0,
+                      ),
+                      decoration: BoxDecoration(),
+                      child: Align(
+                        alignment: AlignmentDirectional(0.0, 1.0),
+                        child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 20.0, 0.0, 0.0),
-                          child: wrapWithModel(
-                            model: _model.buttonAloitaTreenaaminenModel,
-                            updateCallback: () => setState(() {}),
-                            child: ButtonAloitaTreenaaminenWidget(),
+                              0.0, 80.0, 0.0, 200.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    22.0, 0.0, 22.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'uur18ydl' /* Tämä sivu on tyhjä koska sinul... */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context).bodyText1,
+                                ),
+                              ),
+                              if (false)
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 20.0, 0.0, 0.0),
+                                      child: wrapWithModel(
+                                        model: _model.buttonLuoRutiiniModel,
+                                        updateCallback: () => setState(() {}),
+                                        child: ButtonLuoRutiiniWidget(),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 20.0, 0.0, 0.0),
+                                      child: wrapWithModel(
+                                        model: _model
+                                            .buttonAloitaTreenaaminenModel,
+                                        updateCallback: () => setState(() {}),
+                                        child: ButtonAloitaTreenaaminenWidget(),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                            ],
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 20.0, 0.0, 0.0),
-                          child: wrapWithModel(
-                            model: _model.buttonLuoRutiiniModel,
-                            updateCallback: () => setState(() {}),
-                            child: ButtonLuoRutiiniWidget(),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                   ),
-                ),
-            ],
+              ],
+            ),
           ),
         );
       },

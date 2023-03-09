@@ -13,8 +13,6 @@ import 'package:provider/provider.dart';
 class ButtonAloitaTreenaaminenModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
-  // Stores action output result for [Custom Action - customCreateTreeniRutiiniStruct] action in Button widget.
-  TreeniRutiiniStruct? newRutiini;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   TreeniSessiotRecord? uusiTreeniSessio;
   // Stores action output result for [Custom Action - jsonRutiiniFromDataStruct] action in Button widget.

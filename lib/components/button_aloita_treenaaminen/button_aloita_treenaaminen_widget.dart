@@ -51,14 +51,18 @@ class _ButtonAloitaTreenaaminenWidgetState
 
     return FFButtonWidget(
       onPressed: () async {
-        _model.newRutiini = await actions.customCreateTreeniRutiiniStruct();
-
         final treeniSessiotCreateData = {
           ...createTreeniSessiotRecordData(
             userRef: currentUserReference,
-            treeniRutiiniData: updateTreeniRutiiniStruct(
-              _model.newRutiini,
+            treeniRutiiniData: createTreeniRutiiniStruct(
+              widgetExpanded: true,
+              isTreeniPohja: false,
+              showComment: false,
+              fieldValues: {
+                'createdTime': FieldValue.serverTimestamp(),
+              },
               clearUnsetFields: false,
+              create: true,
             ),
           ),
           'docCreatedTime': FieldValue.serverTimestamp(),
@@ -71,7 +75,6 @@ class _ButtonAloitaTreenaaminenWidgetState
           _model.uusiTreeniSessio!.treeniRutiiniData,
         );
         FFAppState().update(() {
-          FFAppState().showTreenaaSivu = true;
           FFAppState().valittuTreenattavaHistorianSessioRef =
               _model.uusiTreeniSessio!.reference;
           FFAppState().valittuTreenattavaTreeniRutiini = _model.jsonRutiini!;

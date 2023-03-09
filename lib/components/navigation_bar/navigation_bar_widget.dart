@@ -45,7 +45,7 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget> {
 
     return Container(
       width: MediaQuery.of(context).size.width * 1.0,
-      height: 80.0,
+      height: 76.0,
       constraints: BoxConstraints(
         maxWidth: 600.0,
         maxHeight: 200.0,
@@ -79,16 +79,16 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Icon(
-                      Icons.accessibility_new_rounded,
+                      Icons.featured_play_list_rounded,
                       color: FlutterFlowTheme.of(context).secondaryColor,
-                      size: 40.0,
+                      size: 36.0,
                     ),
                     RichText(
                       text: TextSpan(
                         children: [
                           TextSpan(
                             text: FFLocalizations.of(context).getVariableText(
-                              fiText: 'Rutiinit',
+                              fiText: 'Treenipohjat',
                               enText: 'Routines',
                             ),
                             style: TextStyle(
@@ -123,17 +123,17 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Icon(
-                      Icons.history_toggle_off_rounded,
+                      Icons.accessibility_new_rounded,
                       color: FlutterFlowTheme.of(context).secondaryColor,
-                      size: 40.0,
+                      size: 36.0,
                     ),
                     RichText(
                       text: TextSpan(
                         children: [
                           TextSpan(
                             text: FFLocalizations.of(context).getVariableText(
-                              fiText: 'Historia',
-                              enText: 'History',
+                              fiText: 'Treenaa',
+                              enText: 'Workout',
                             ),
                             style: TextStyle(
                               color:
@@ -167,17 +167,17 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Icon(
-                      Icons.bar_chart_rounded,
+                      Icons.history_toggle_off_rounded,
                       color: FlutterFlowTheme.of(context).secondaryColor,
-                      size: 40.0,
+                      size: 36.0,
                     ),
                     RichText(
                       text: TextSpan(
                         children: [
                           TextSpan(
                             text: FFLocalizations.of(context).getVariableText(
-                              fiText: 'Tilastot',
-                              enText: 'Statistics',
+                              fiText: 'Treenihistoria',
+                              enText: 'History',
                             ),
                             style: TextStyle(
                               color:
@@ -192,6 +192,51 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget> {
                 ),
               ),
             ),
+            if (false)
+              InkWell(
+                onTap: () async {
+                  FFAppState().update(() {
+                    FFAppState().navBarIndex = 3;
+                  });
+                },
+                child: Container(
+                  width: 100.0,
+                  decoration: BoxDecoration(
+                    color: FFAppState().navBarIndex == 3
+                        ? FlutterFlowTheme.of(context).tertiaryColor
+                        : Color(0x00000000),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(
+                        Icons.bar_chart_rounded,
+                        color: FlutterFlowTheme.of(context).secondaryColor,
+                        size: 40.0,
+                      ),
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: FFLocalizations.of(context).getVariableText(
+                                fiText: 'Tilastot',
+                                enText: 'Statistics',
+                              ),
+                              style: TextStyle(
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryColor,
+                              ),
+                            )
+                          ],
+                          style: FlutterFlowTheme.of(context).bodyText1,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
           ],
         ),
       ),

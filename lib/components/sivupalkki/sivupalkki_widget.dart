@@ -6,18 +6,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'drawer_model.dart';
-export 'drawer_model.dart';
+import 'sivupalkki_model.dart';
+export 'sivupalkki_model.dart';
 
-class DrawerWidget extends StatefulWidget {
-  const DrawerWidget({Key? key}) : super(key: key);
+class SivupalkkiWidget extends StatefulWidget {
+  const SivupalkkiWidget({Key? key}) : super(key: key);
 
   @override
-  _DrawerWidgetState createState() => _DrawerWidgetState();
+  _SivupalkkiWidgetState createState() => _SivupalkkiWidgetState();
 }
 
-class _DrawerWidgetState extends State<DrawerWidget> {
-  late DrawerModel _model;
+class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
+  late SivupalkkiModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -28,7 +28,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => DrawerModel());
+    _model = createModel(context, () => SivupalkkiModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -46,7 +46,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
 
     return Container(
       decoration: BoxDecoration(
-        color: FlutterFlowTheme.of(context).secondaryBackground,
+        color: FlutterFlowTheme.of(context).secondaryColor,
       ),
       child: Column(
         mainAxisSize: MainAxisSize.max,
@@ -71,45 +71,14 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                     ),
                   ),
                 ),
-                Divider(
-                  thickness: 1.0,
-                  color: FlutterFlowTheme.of(context).primaryText,
-                ),
-                Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
-                  child: RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: FFLocalizations.of(context).getVariableText(
-                            fiText: 'Treenaa',
-                            enText: 'Workout',
-                          ),
-                          style: TextStyle(),
-                        ),
-                        TextSpan(
-                          text: FFLocalizations.of(context).getText(
-                            'cuq5wlq3' /* Hello World  */,
-                          ),
-                          style: TextStyle(),
-                        )
-                      ],
-                      style: FlutterFlowTheme.of(context).subtitle2,
-                    ),
-                  ),
-                ),
-                Divider(
-                  thickness: 1.0,
-                  color: FlutterFlowTheme.of(context).primaryText,
-                ),
                 Align(
                   alignment: AlignmentDirectional(-1.0, 0.0),
                   child: InkWell(
                     onTap: () async {
+                      Navigator.pop(context);
                       FFAppState().update(() {
                         FFAppState().navBarIndex = 0;
                       });
-                      Navigator.pop(context);
                     },
                     child: Text(
                       FFLocalizations.of(context).getText(
@@ -119,18 +88,14 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                     ),
                   ),
                 ),
-                Divider(
-                  thickness: 1.0,
-                  color: FlutterFlowTheme.of(context).primaryText,
-                ),
                 Align(
                   alignment: AlignmentDirectional(-1.0, 0.0),
                   child: InkWell(
                     onTap: () async {
-                      FFAppState().update(() {
-                        FFAppState().navBarIndex = 1;
-                      });
                       Navigator.pop(context);
+                      FFAppState().update(() {
+                        FFAppState().navBarIndex = 2;
+                      });
                     },
                     child: Text(
                       FFLocalizations.of(context).getText(
@@ -140,25 +105,62 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                     ),
                   ),
                 ),
-                Divider(
-                  thickness: 1.0,
-                  color: FlutterFlowTheme.of(context).primaryText,
-                ),
                 Align(
                   alignment: AlignmentDirectional(-1.0, 0.0),
-                  child: InkWell(
-                    onTap: () async {
-                      FFAppState().update(() {
-                        FFAppState().navBarIndex = 2;
-                      });
-                      Navigator.pop(context);
-                    },
-                    child: Text(
-                      FFLocalizations.of(context).getText(
-                        'lbpdvgf4' /* Treenitilastot */,
-                      ),
-                      style: FlutterFlowTheme.of(context).subtitle2,
+                  child: Text(
+                    FFLocalizations.of(context).getText(
+                      'lbpdvgf4' /* Treenitilastot */,
                     ),
+                    style: FlutterFlowTheme.of(context).subtitle2,
+                  ),
+                ),
+                InkWell(
+                  onTap: () async {
+                    Navigator.pop(context);
+                    setState(() {
+                      FFAppState().navBarIndex = 1;
+                      FFAppState().showTreenaaTaiLuoRutiiniSivu = true;
+                    });
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 22.0, 0.0),
+                        child: Icon(
+                          Icons.accessibility_new_rounded,
+                          color: Colors.black,
+                          size: 30.0,
+                        ),
+                      ),
+                      Expanded(
+                        child: Align(
+                          alignment: AlignmentDirectional(-1.0, 0.0),
+                          child: RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: FFLocalizations.of(context)
+                                      .getVariableText(
+                                    fiText: 'Treenaa',
+                                    enText: 'Workout',
+                                  ),
+                                  style: TextStyle(),
+                                ),
+                                TextSpan(
+                                  text: FFLocalizations.of(context).getText(
+                                    'cuq5wlq3' /*   (käynnissä) */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context).bodyText1,
+                                )
+                              ],
+                              style: FlutterFlowTheme.of(context).subtitle2,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -176,13 +178,15 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Align(
-                          alignment: AlignmentDirectional(-1.0, 0.0),
-                          child: Text(
-                            FFLocalizations.of(context).getText(
-                              'gax7p69h' /* Language */,
+                        Expanded(
+                          child: Align(
+                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                'gax7p69h' /* Language */,
+                              ),
+                              style: FlutterFlowTheme.of(context).subtitle2,
                             ),
-                            style: FlutterFlowTheme.of(context).subtitle2,
                           ),
                         ),
                         FlutterFlowLanguageSelector(

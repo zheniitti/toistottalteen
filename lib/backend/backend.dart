@@ -9,7 +9,6 @@ import 'schema/users_record.dart';
 import 'schema/app_config_record.dart';
 import 'schema/treeni_sessiot_record.dart';
 import 'schema/esimerkki_data_record.dart';
-import 'schema/esimerkki_analytiikka_data_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -21,7 +20,6 @@ export 'schema/users_record.dart';
 export 'schema/app_config_record.dart';
 export 'schema/treeni_sessiot_record.dart';
 export 'schema/esimerkki_data_record.dart';
-export 'schema/esimerkki_analytiikka_data_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -230,61 +228,6 @@ Future<FFFirestorePage<EsimerkkiDataRecord>> queryEsimerkkiDataRecordPage({
       pageSize: pageSize,
       isStream: isStream,
     );
-
-/// Functions to query EsimerkkiAnalytiikkaDataRecords (as a Stream and as a Future).
-Future<int> queryEsimerkkiAnalytiikkaDataRecordCount({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-}) =>
-    queryCollectionCount(
-      EsimerkkiAnalytiikkaDataRecord.collection,
-      queryBuilder: queryBuilder,
-      limit: limit,
-    );
-
-Stream<List<EsimerkkiAnalytiikkaDataRecord>>
-    queryEsimerkkiAnalytiikkaDataRecord({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-        queryCollection(
-          EsimerkkiAnalytiikkaDataRecord.collection,
-          EsimerkkiAnalytiikkaDataRecord.serializer,
-          queryBuilder: queryBuilder,
-          limit: limit,
-          singleRecord: singleRecord,
-        );
-
-Future<List<EsimerkkiAnalytiikkaDataRecord>>
-    queryEsimerkkiAnalytiikkaDataRecordOnce({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-        queryCollectionOnce(
-          EsimerkkiAnalytiikkaDataRecord.collection,
-          EsimerkkiAnalytiikkaDataRecord.serializer,
-          queryBuilder: queryBuilder,
-          limit: limit,
-          singleRecord: singleRecord,
-        );
-
-Future<FFFirestorePage<EsimerkkiAnalytiikkaDataRecord>>
-    queryEsimerkkiAnalytiikkaDataRecordPage({
-  Query Function(Query)? queryBuilder,
-  DocumentSnapshot? nextPageMarker,
-  required int pageSize,
-  required bool isStream,
-}) =>
-        queryCollectionPage(
-          EsimerkkiAnalytiikkaDataRecord.collection,
-          EsimerkkiAnalytiikkaDataRecord.serializer,
-          queryBuilder: queryBuilder,
-          nextPageMarker: nextPageMarker,
-          pageSize: pageSize,
-          isStream: isStream,
-        );
 
 Future<int> queryCollectionCount(
   Query collection, {

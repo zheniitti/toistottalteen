@@ -1,9 +1,9 @@
 import '/backend/backend.dart';
-import '/components/drawer/drawer_widget.dart';
 import '/components/navigation_bar/navigation_bar_widget.dart';
-import '/components/rutiinit_sivu/rutiinit_sivu_widget.dart';
-import '/components/treenaa_tai_luo_rutiini_sivu/treenaa_tai_luo_rutiini_sivu_widget.dart';
-import '/components/treeni_historia_sivu/treeni_historia_sivu_widget.dart';
+import '/components/sivu_rutiinit/sivu_rutiinit_widget.dart';
+import '/components/sivu_treenaa_tai_luo_rutiini/sivu_treenaa_tai_luo_rutiini_widget.dart';
+import '/components/sivu_treeni_historia/sivu_treeni_historia_widget.dart';
+import '/components/sivupalkki/sivupalkki_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -46,79 +46,142 @@ class _PaasivuWidgetState extends State<PaasivuWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      floatingActionButton: Visibility(
-        visible: false,
-        child: FloatingActionButton.extended(
-          onPressed: () async {
-            context.pushNamed('luoRutiini_sivu');
-          },
-          backgroundColor: FlutterFlowTheme.of(context).primaryColor,
-          icon: Icon(
-            Icons.add,
-          ),
-          elevation: 8.0,
-          label: Text(
-            FFLocalizations.of(context).getText(
-              't1qezc6y' /* Luo treenirutiini */,
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        floatingActionButton: Visibility(
+          visible: false,
+          child: FloatingActionButton.extended(
+            onPressed: () {
+              print('FloatingActionButton pressed ...');
+            },
+            backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+            icon: Icon(
+              Icons.add,
             ),
-            style: FlutterFlowTheme.of(context).bodyText1.override(
-                  fontFamily: 'Roboto',
-                  color: FlutterFlowTheme.of(context).secondaryColor,
-                ),
+            elevation: 8.0,
+            label: Text(
+              FFLocalizations.of(context).getText(
+                't1qezc6y' /* Luo treenirutiini */,
+              ),
+              style: FlutterFlowTheme.of(context).bodyText1.override(
+                    fontFamily: 'Roboto',
+                    color: FlutterFlowTheme.of(context).secondaryColor,
+                  ),
+            ),
           ),
         ),
-      ),
-      drawer: Drawer(
-        elevation: 16.0,
-        child: wrapWithModel(
-          model: _model.drawerModel,
-          updateCallback: () => setState(() {}),
-          child: DrawerWidget(),
+        drawer: Drawer(
+          elevation: 16.0,
+          child: wrapWithModel(
+            model: _model.sivupalkkiModel,
+            updateCallback: () => setState(() {}),
+            child: SivupalkkiWidget(),
+          ),
         ),
-      ),
-      appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryColor,
-        automaticallyImplyLeading: true,
-        title: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            if (FFAppState().navBarIndex == 0)
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Text(
-                    FFLocalizations.of(context).getText(
-                      'uwbd7u0v' /* Treenipohjat */,
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+          automaticallyImplyLeading: true,
+          title: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              if (FFAppState().navBarIndex == 0)
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Text(
+                      FFLocalizations.of(context).getText(
+                        'uwbd7u0v' /* Treenpohjat (rutiinit) */,
+                      ),
+                      style: FlutterFlowTheme.of(context).subtitle1.override(
+                            fontFamily: 'Outfit',
+                            color: FlutterFlowTheme.of(context).secondaryColor,
+                          ),
                     ),
-                    style: FlutterFlowTheme.of(context).subtitle1.override(
-                          fontFamily: 'Outfit',
-                          color: FlutterFlowTheme.of(context).secondaryColor,
-                        ),
-                  ),
-                ],
-              ),
-            if (FFAppState().showTreenaaSivu)
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Text(
-                    FFLocalizations.of(context).getText(
-                      'd9b3r5r8' /* Aikaa kulunut: 29min */,
+                  ],
+                ),
+              if (FFAppState().navBarIndex == 1)
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Text(
+                      FFLocalizations.of(context).getText(
+                        'd9b3r5r8' /* Aikaa kulunut: 29min */,
+                      ),
+                      style: FlutterFlowTheme.of(context).subtitle1.override(
+                            fontFamily: 'Outfit',
+                            color: FlutterFlowTheme.of(context).secondaryColor,
+                          ),
                     ),
-                    style: FlutterFlowTheme.of(context).subtitle1.override(
-                          fontFamily: 'Outfit',
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.not_started_rounded,
                           color: FlutterFlowTheme.of(context).secondaryColor,
+                          size: 30.0,
                         ),
-                  ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 16.0, 0.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    2.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'hwbly3hr' /* Aloita ajanotto */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryColor,
+                                        fontSize: 12.0,
+                                      ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+            ],
+          ),
+          actions: [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                      child: Icon(
+                        Icons.help_rounded,
+                        color: FlutterFlowTheme.of(context).primaryBackground,
+                        size: 24.0,
+                      ),
+                    ),
+                  ],
+                ),
+                if ((FFAppState().navBarIndex == 1) && true)
                   Row(
                     mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
-                        Icons.not_started_rounded,
+                        Icons.stop_circle_rounded,
                         color: FlutterFlowTheme.of(context).secondaryColor,
                         size: 30.0,
                       ),
@@ -134,7 +197,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget> {
                                   2.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  'hwbly3hr' /* Aloita ajanotto */,
+                                  'wbg0l8iz' /* Lopeta treeni */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
@@ -151,133 +214,75 @@ class _PaasivuWidgetState extends State<PaasivuWidget> {
                       ),
                     ],
                   ),
-                ],
-              ),
+              ],
+            ),
           ],
+          centerTitle: true,
+          elevation: 4.0,
         ),
-        actions: [
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
-                    child: Icon(
-                      Icons.help_rounded,
-                      color: FlutterFlowTheme.of(context).primaryBackground,
-                      size: 24.0,
-                    ),
-                  ),
-                ],
-              ),
-              if (FFAppState().showTreenaaSivu && true)
-                Row(
-                  mainAxisSize: MainAxisSize.max,
+        body: SafeArea(
+          child: GestureDetector(
+            onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+            child: Container(
+              width: double.infinity,
+              height: double.infinity,
+              decoration: BoxDecoration(),
+              child: Container(
+                width: double.infinity,
+                height: double.infinity,
+                child: Stack(
                   children: [
-                    Icon(
-                      Icons.stop_circle_rounded,
-                      color: FlutterFlowTheme.of(context).secondaryColor,
-                      size: 30.0,
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                2.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              FFLocalizations.of(context).getText(
-                                'wbg0l8iz' /* Lopeta treeni */,
+                    Container(
+                      width: double.infinity,
+                      height: double.infinity,
+                      decoration: BoxDecoration(),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 0.0, 16.0, 0.0),
+                        child: Stack(
+                          children: [
+                            if (FFAppState().navBarIndex == 0)
+                              wrapWithModel(
+                                model: _model.sivuRutiinitModel,
+                                updateCallback: () => setState(() {}),
+                                child: SivuRutiinitWidget(),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Roboto',
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryColor,
-                                    fontSize: 12.0,
-                                  ),
-                            ),
-                          ),
-                        ],
+                            if (FFAppState().navBarIndex == 2)
+                              wrapWithModel(
+                                model: _model.sivuTreeniHistoriaModel,
+                                updateCallback: () => setState(() {}),
+                                child: SivuTreeniHistoriaWidget(),
+                              ),
+                            if ((FFAppState().navBarIndex == 1) ||
+                                FFAppState().showTreenaaTaiLuoRutiiniSivu)
+                              wrapWithModel(
+                                model: _model.sivuTreenaaTaiLuoRutiiniModel,
+                                updateCallback: () => setState(() {}),
+                                child: SivuTreenaaTaiLuoRutiiniWidget(
+                                  sessioRef: FFAppState()
+                                      .valittuTreenattavaHistorianSessioRef,
+                                  rutiinipohja: _model.treenattavaRutiini,
+                                  isEditing: FFAppState().isEditing,
+                                ),
+                              ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 1.0),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 14.0, 16.0, 14.0),
+                        child: wrapWithModel(
+                          model: _model.navigationBarModel,
+                          updateCallback: () => setState(() {}),
+                          child: NavigationBarWidget(),
+                        ),
                       ),
                     ),
                   ],
                 ),
-            ],
-          ),
-        ],
-        centerTitle: true,
-        elevation: 4.0,
-      ),
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-          child: Container(
-            width: double.infinity,
-            height: double.infinity,
-            decoration: BoxDecoration(),
-            child: Container(
-              width: double.infinity,
-              height: double.infinity,
-              child: Stack(
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: double.infinity,
-                    decoration: BoxDecoration(),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                      child: Stack(
-                        children: [
-                          if (FFAppState().navBarIndex == 0)
-                            wrapWithModel(
-                              model: _model.rutiinitSivuModel,
-                              updateCallback: () => setState(() {}),
-                              child: RutiinitSivuWidget(),
-                            ),
-                          if (FFAppState().navBarIndex == 1)
-                            wrapWithModel(
-                              model: _model.treeniHistoriaSivuModel,
-                              updateCallback: () => setState(() {}),
-                              child: TreeniHistoriaSivuWidget(),
-                            ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  if (FFAppState().showTreenaaSivu == true)
-                    wrapWithModel(
-                      model: _model.treenaaTaiLuoRutiiniSivuModel,
-                      updateCallback: () => setState(() {}),
-                      child: TreenaaTaiLuoRutiiniSivuWidget(
-                        sessioRef:
-                            FFAppState().valittuTreenattavaHistorianSessioRef,
-                        rutiinipohja: _model.valittuTreenattavaRutiini,
-                        isEditing: FFAppState().isEditing,
-                      ),
-                    ),
-                  Align(
-                    alignment: AlignmentDirectional(0.0, 1.0),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          16.0, 14.0, 16.0, 14.0),
-                      child: wrapWithModel(
-                        model: _model.navigationBarModel,
-                        updateCallback: () => setState(() {}),
-                        child: NavigationBarWidget(),
-                      ),
-                    ),
-                  ),
-                ],
               ),
             ),
           ),

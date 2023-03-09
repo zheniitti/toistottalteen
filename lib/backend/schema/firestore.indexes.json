@@ -13,20 +13,6 @@
           "order": "DESCENDING"
         }
       ]
-    },
-    {
-      "collectionGroup": "treeniSessiot",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "userRef",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "docCreatedTime",
-          "order": "DESCENDING"
-        }
-      ]
     }
   ]
 }

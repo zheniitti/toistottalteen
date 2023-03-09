@@ -6,11 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'liike_model.dart';
-export 'liike_model.dart';
+import 'liike_rutiinin_tai_historian_model.dart';
+export 'liike_rutiinin_tai_historian_model.dart';
 
-class LiikeWidget extends StatefulWidget {
-  const LiikeWidget({
+class LiikeRutiininTaiHistorianWidget extends StatefulWidget {
+  const LiikeRutiininTaiHistorianWidget({
     Key? key,
     this.liike,
   }) : super(key: key);
@@ -18,11 +18,13 @@ class LiikeWidget extends StatefulWidget {
   final LiikeStruct? liike;
 
   @override
-  _LiikeWidgetState createState() => _LiikeWidgetState();
+  _LiikeRutiininTaiHistorianWidgetState createState() =>
+      _LiikeRutiininTaiHistorianWidgetState();
 }
 
-class _LiikeWidgetState extends State<LiikeWidget> {
-  late LiikeModel _model;
+class _LiikeRutiininTaiHistorianWidgetState
+    extends State<LiikeRutiininTaiHistorianWidget> {
+  late LiikeRutiininTaiHistorianModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -33,7 +35,7 @@ class _LiikeWidgetState extends State<LiikeWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => LiikeModel());
+    _model = createModel(context, () => LiikeRutiininTaiHistorianModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }

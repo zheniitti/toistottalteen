@@ -1,6 +1,10 @@
+import '/auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -45,7 +49,31 @@ class _ButtonLuoRutiiniWidgetState extends State<ButtonLuoRutiiniWidget> {
 
     return FFButtonWidget(
       onPressed: () async {
-        context.pushNamed('luoRutiini_sivu');
+        if (true) {
+          _model.createdRutiini =
+              await actions.customCreateTreeniRutiiniStruct();
+
+          final usersUpdateData = {
+            'treeniRutiinit': FieldValue.arrayUnion([
+              getTreeniRutiiniFirestoreData(
+                updateTreeniRutiiniStruct(
+                  _model.createdRutiini,
+                  clearUnsetFields: false,
+                ),
+                true,
+              )
+            ]),
+          };
+          await currentUserReference!.update(usersUpdateData);
+        } else {
+          FFAppState().update(() {
+            FFAppState().navBarIndex = 0;
+            FFAppState().showTreenaaTaiLuoRutiiniSivu = true;
+            FFAppState().isCreatingRutiini = true;
+          });
+        }
+
+        setState(() {});
       },
       text: FFLocalizations.of(context).getText(
         '3myg55ek' /* Luo treenipohja */,

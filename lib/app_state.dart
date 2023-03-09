@@ -93,6 +93,8 @@ class FFAppState extends ChangeNotifier {
     _testLatLng =
         _latLngFromString(await secureStorage.getString('ff_testLatLng')) ??
             _testLatLng;
+    _isCreatingRutiini = await secureStorage.getBool('ff_isCreatingRutiini') ??
+        _isCreatingRutiini;
   }
 
   void update(VoidCallback callback) {
@@ -111,12 +113,6 @@ class FFAppState extends ChangeNotifier {
 
   void deleteNavBarIndex() {
     secureStorage.delete(key: 'ff_navBarIndex');
-  }
-
-  bool _showTreenaaSivu = false;
-  bool get showTreenaaSivu => _showTreenaaSivu;
-  set showTreenaaSivu(bool _value) {
-    _showTreenaaSivu = _value;
   }
 
   DocumentReference? _valittuTreenattavaHistorianSessioRef;
@@ -500,6 +496,23 @@ class FFAppState extends ChangeNotifier {
   bool get isEditing => _isEditing;
   set isEditing(bool _value) {
     _isEditing = _value;
+  }
+
+  bool _showTreenaaTaiLuoRutiiniSivu = false;
+  bool get showTreenaaTaiLuoRutiiniSivu => _showTreenaaTaiLuoRutiiniSivu;
+  set showTreenaaTaiLuoRutiiniSivu(bool _value) {
+    _showTreenaaTaiLuoRutiiniSivu = _value;
+  }
+
+  bool _isCreatingRutiini = false;
+  bool get isCreatingRutiini => _isCreatingRutiini;
+  set isCreatingRutiini(bool _value) {
+    _isCreatingRutiini = _value;
+    secureStorage.setBool('ff_isCreatingRutiini', _value);
+  }
+
+  void deleteIsCreatingRutiini() {
+    secureStorage.delete(key: 'ff_isCreatingRutiini');
   }
 }
 

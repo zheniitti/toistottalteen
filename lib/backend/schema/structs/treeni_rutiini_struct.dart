@@ -31,6 +31,9 @@ abstract class TreeniRutiiniStruct
 
   bool? get showComment;
 
+  @BuiltValueField(wireName: 'UID')
+  String? get uid;
+
   /// Utility class for Firestore updates
   FirestoreUtilData get firestoreUtilData;
 
@@ -43,6 +46,7 @@ abstract class TreeniRutiiniStruct
     ..modifiedTimes = ListBuilder()
     ..isTreeniPohja = false
     ..showComment = false
+    ..uid = ''
     ..firestoreUtilData = FirestoreUtilData();
 
   TreeniRutiiniStruct._();
@@ -60,6 +64,7 @@ TreeniRutiiniStruct createTreeniRutiiniStruct({
   DateTime? lastWorkoutTime,
   bool? isTreeniPohja,
   bool? showComment,
+  String? uid,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -78,6 +83,7 @@ TreeniRutiiniStruct createTreeniRutiiniStruct({
         ..modifiedTimes = null
         ..isTreeniPohja = isTreeniPohja
         ..showComment = showComment
+        ..uid = uid
         ..firestoreUtilData = FirestoreUtilData(
           clearUnsetFields: clearUnsetFields,
           create: create,

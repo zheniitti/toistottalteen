@@ -1,11 +1,8 @@
 // Export pages
 export '/pages/tilastot_sivu/tilastot_sivu_widget.dart' show TilastotSivuWidget;
 export '/pages/paasivu/paasivu_widget.dart' show PaasivuWidget;
-export '/pages/aloitus/aloitus_widget.dart' show AloitusWidget;
-export '/pages/luo_rutiini_sivu/luo_rutiini_sivu_widget.dart'
-    show LuoRutiiniSivuWidget;
-export '/pages/rutiinin_historia_sivu/rutiinin_historia_sivu_widget.dart'
-    show RutiininHistoriaSivuWidget;
+export '/pages/aloitus_ei_kaytossa/aloitus_ei_kaytossa_widget.dart'
+    show AloitusEiKaytossaWidget;
 export '/pages/get_started_sivu/get_started_sivu_widget.dart'
     show GetStartedSivuWidget;
 export '/pages/register_page/register_page_widget.dart' show RegisterPageWidget;

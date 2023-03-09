@@ -1,6 +1,6 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/liike_treenaaminen/liike_treenaaminen_widget.dart';
+import '/components/liike_treenin_aikana/liike_treenin_aikana_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
@@ -10,11 +10,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'treenaa_tai_luo_rutiini_sivu_model.dart';
-export 'treenaa_tai_luo_rutiini_sivu_model.dart';
+import 'sivu_treenaa_tai_luo_rutiini_model.dart';
+export 'sivu_treenaa_tai_luo_rutiini_model.dart';
 
-class TreenaaTaiLuoRutiiniSivuWidget extends StatefulWidget {
-  const TreenaaTaiLuoRutiiniSivuWidget({
+class SivuTreenaaTaiLuoRutiiniWidget extends StatefulWidget {
+  const SivuTreenaaTaiLuoRutiiniWidget({
     Key? key,
     this.sessioRef,
     this.rutiinipohja,
@@ -26,13 +26,13 @@ class TreenaaTaiLuoRutiiniSivuWidget extends StatefulWidget {
   final bool? isEditing;
 
   @override
-  _TreenaaTaiLuoRutiiniSivuWidgetState createState() =>
-      _TreenaaTaiLuoRutiiniSivuWidgetState();
+  _SivuTreenaaTaiLuoRutiiniWidgetState createState() =>
+      _SivuTreenaaTaiLuoRutiiniWidgetState();
 }
 
-class _TreenaaTaiLuoRutiiniSivuWidgetState
-    extends State<TreenaaTaiLuoRutiiniSivuWidget> {
-  late TreenaaTaiLuoRutiiniSivuModel _model;
+class _SivuTreenaaTaiLuoRutiiniWidgetState
+    extends State<SivuTreenaaTaiLuoRutiiniWidget> {
+  late SivuTreenaaTaiLuoRutiiniModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -43,7 +43,7 @@ class _TreenaaTaiLuoRutiiniSivuWidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => TreenaaTaiLuoRutiiniSivuModel());
+    _model = createModel(context, () => SivuTreenaaTaiLuoRutiiniModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -59,13 +59,8 @@ class _TreenaaTaiLuoRutiiniSivuWidgetState
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return StreamBuilder<List<TreeniSessiotRecord>>(
-      stream: queryTreeniSessiotRecord(
-        queryBuilder: (treeniSessiotRecord) => treeniSessiotRecord
-            .where('userRef', isEqualTo: currentUserReference)
-            .orderBy('docCreatedTime', descending: true),
-        singleRecord: true,
-      ),
+    return StreamBuilder<TreeniSessiotRecord>(
+      stream: TreeniSessiotRecord.getDocument(widget.sessioRef!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -80,16 +75,7 @@ class _TreenaaTaiLuoRutiiniSivuWidgetState
             ),
           );
         }
-        List<TreeniSessiotRecord> containerTreeniSessiotRecordList =
-            snapshot.data!;
-        // Return an empty Container when the item does not exist.
-        if (snapshot.data!.isEmpty) {
-          return Container();
-        }
-        final containerTreeniSessiotRecord =
-            containerTreeniSessiotRecordList.isNotEmpty
-                ? containerTreeniSessiotRecordList.first
-                : null;
+        final containerTreeniSessiotRecord = snapshot.data!;
         return Container(
           width: double.infinity,
           height: double.infinity,
@@ -104,8 +90,8 @@ class _TreenaaTaiLuoRutiiniSivuWidgetState
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          16.0, 0.0, 16.0, 240.0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 240.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -132,7 +118,7 @@ class _TreenaaTaiLuoRutiiniSivuWidgetState
                                       controller:
                                           _model.rutiininnimiController ??=
                                               TextEditingController(
-                                        text: containerTreeniSessiotRecord!
+                                        text: containerTreeniSessiotRecord
                                             .treeniRutiiniData.nimi,
                                       ),
                                       onChanged: (_) => EasyDebounce.debounce(
@@ -158,7 +144,7 @@ class _TreenaaTaiLuoRutiiniSivuWidgetState
                                       decoration: InputDecoration(
                                         hintText:
                                             FFLocalizations.of(context).getText(
-                                          'y2ovng6h' /* Rutiinin nimi */,
+                                          'y2ovng6h' /* Treenin nimi */,
                                         ),
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodyText2
@@ -216,7 +202,7 @@ class _TreenaaTaiLuoRutiiniSivuWidgetState
                                       controller:
                                           _model.rutiiniKommenttiController ??=
                                               TextEditingController(
-                                        text: containerTreeniSessiotRecord!
+                                        text: containerTreeniSessiotRecord
                                             .kommentti,
                                       ),
                                       onChanged: (_) => EasyDebounce.debounce(
@@ -312,7 +298,7 @@ class _TreenaaTaiLuoRutiiniSivuWidgetState
                             child: Builder(
                               builder: (context) {
                                 final rutiininLiikkeet =
-                                    containerTreeniSessiotRecord!
+                                    containerTreeniSessiotRecord
                                             .treeniRutiiniData.liikkeet
                                             ?.toList()
                                             ?.toList() ??
@@ -328,7 +314,7 @@ class _TreenaaTaiLuoRutiiniSivuWidgetState
                                     return Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 12.0, 0.0, 0.0),
-                                      child: LiikeTreenaaminenWidget(
+                                      child: LiikeTreeninAikanaWidget(
                                         key: Key(
                                             'Keyr68_${rutiininLiikkeetIndex}_of_${rutiininLiikkeet.length}'),
                                         liike: rutiininLiikkeetItem,

@@ -1,21 +1,19 @@
-import '/auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/bottom_sheet_rutiini_ja_sessio/bottom_sheet_rutiini_ja_sessio_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:easy_debounce/easy_debounce.dart';
-import 'package:flutter/gestures.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 
-class LiikeTreenaaminenModel extends FlutterFlowModel {
+class RutiiniModel extends FlutterFlowModel {
   ///  Local state fields for this component.
 
-  bool? showKommenttiKentta = false;
+  bool isEditing = false;
 
   ///  State fields for stateful widgets in this component.
 
@@ -27,13 +25,12 @@ class LiikeTreenaaminenModel extends FlutterFlowModel {
   String? Function(BuildContext, String?)? textController2Validator;
   // State field(s) for TextField widget.
   TextEditingController? textController3;
-  final textFieldMask3 = MaskTextInputFormatter(mask: '#####');
   String? Function(BuildContext, String?)? textController3Validator;
   // State field(s) for TextField widget.
   TextEditingController? textController4;
   String? Function(BuildContext, String?)? textController4Validator;
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue;
+  // Stores action output result for [Custom Action - jsonRutiiniFromDataStruct] action in Button widget.
+  dynamic? rutiiniJson;
 
   /// Initialization and disposal methods.
 

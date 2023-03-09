@@ -5,7 +5,6 @@ import 'users_record.dart';
 import 'app_config_record.dart';
 import 'treeni_sessiot_record.dart';
 import 'esimerkki_data_record.dart';
-import 'esimerkki_analytiikka_data_record.dart';
 
 import 'index.dart';
 
@@ -20,7 +19,6 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   AppConfigRecord,
   TreeniSessiotRecord,
   EsimerkkiDataRecord,
-  EsimerkkiAnalytiikkaDataRecord,
   LiikeStruct,
   TreeniRutiiniStruct,
   AikavaliStruct,

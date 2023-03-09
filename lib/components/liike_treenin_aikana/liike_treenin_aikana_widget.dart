@@ -11,11 +11,11 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
-import 'liike_treenaaminen_model.dart';
-export 'liike_treenaaminen_model.dart';
+import 'liike_treenin_aikana_model.dart';
+export 'liike_treenin_aikana_model.dart';
 
-class LiikeTreenaaminenWidget extends StatefulWidget {
-  const LiikeTreenaaminenWidget({
+class LiikeTreeninAikanaWidget extends StatefulWidget {
+  const LiikeTreeninAikanaWidget({
     Key? key,
     this.liike,
     this.treeniSessio,
@@ -27,12 +27,12 @@ class LiikeTreenaaminenWidget extends StatefulWidget {
   final int? liikeIndexInList;
 
   @override
-  _LiikeTreenaaminenWidgetState createState() =>
-      _LiikeTreenaaminenWidgetState();
+  _LiikeTreeninAikanaWidgetState createState() =>
+      _LiikeTreeninAikanaWidgetState();
 }
 
-class _LiikeTreenaaminenWidgetState extends State<LiikeTreenaaminenWidget> {
-  late LiikeTreenaaminenModel _model;
+class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> {
+  late LiikeTreeninAikanaModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -43,7 +43,7 @@ class _LiikeTreenaaminenWidgetState extends State<LiikeTreenaaminenWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => LiikeTreenaaminenModel());
+    _model = createModel(context, () => LiikeTreeninAikanaModel());
 
     _model.textController1 ??= TextEditingController(text: widget.liike?.nimi);
     _model.textController2 ??=

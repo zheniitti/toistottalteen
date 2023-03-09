@@ -1,4 +1,4 @@
-import '/components/bottom_sheet_rutiini_ja_sessio/bottom_sheet_rutiini_ja_sessio_widget.dart';
+import '/components/rutiini_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -79,59 +79,17 @@ class _BuilderWidgetState extends State<BuilderWidget> {
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-          child: InkWell(
-            onTap: () async {
-              await showDialog(
-                context: context,
-                builder: (alertDialogContext) {
-                  return AlertDialog(
-                    title: Text(FFLocalizations.of(context).getVariableText(
-                      fiText: 'Poista rutiini',
-                      enText: 'Delete routine',
-                    )),
-                    content: Text(FFLocalizations.of(context).getVariableText(
-                      fiText: 'Haluatko varmasti poistaa rutiinin?',
-                      enText: 'Are you sure you want to delete the routine?',
-                    )),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(alertDialogContext),
-                        child: Text(FFLocalizations.of(context).getVariableText(
-                          fiText: 'Poista',
-                          enText: 'Delete',
-                        )),
-                      ),
-                    ],
-                  );
-                },
-              );
-            },
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Text(
-                  FFLocalizations.of(context).getText(
-                    'nvbc1cqj' /* Hello World */,
-                  ),
-                  style: FlutterFlowTheme.of(context).bodyText1,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              wrapWithModel(
+                model: _model.rutiiniModel,
+                updateCallback: () => setState(() {}),
+                child: RutiiniWidget(
+                  rutiini: null,
                 ),
-                wrapWithModel(
-                  model: _model.bottomSheetRutiiniJaSessioModel,
-                  updateCallback: () => setState(() {}),
-                  child: BottomSheetRutiiniJaSessioWidget(
-                    rutiiniData: null,
-                    treeniSessioDoc: null,
-                  ),
-                ),
-                Container(
-                  width: 100.0,
-                  height: 100.0,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

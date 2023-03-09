@@ -10,18 +10,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'rutiinit_sivu_model.dart';
-export 'rutiinit_sivu_model.dart';
+import 'sivu_rutiinit_model.dart';
+export 'sivu_rutiinit_model.dart';
 
-class RutiinitSivuWidget extends StatefulWidget {
-  const RutiinitSivuWidget({Key? key}) : super(key: key);
+class SivuRutiinitWidget extends StatefulWidget {
+  const SivuRutiinitWidget({Key? key}) : super(key: key);
 
   @override
-  _RutiinitSivuWidgetState createState() => _RutiinitSivuWidgetState();
+  _SivuRutiinitWidgetState createState() => _SivuRutiinitWidgetState();
 }
 
-class _RutiinitSivuWidgetState extends State<RutiinitSivuWidget> {
-  late RutiinitSivuModel _model;
+class _SivuRutiinitWidgetState extends State<SivuRutiinitWidget> {
+  late SivuRutiinitModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -32,7 +32,7 @@ class _RutiinitSivuWidgetState extends State<RutiinitSivuWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => RutiinitSivuModel());
+    _model = createModel(context, () => SivuRutiinitModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -127,10 +127,13 @@ class _RutiinitSivuWidgetState extends State<RutiinitSivuWidget> {
                                 child: ButtonLuoRutiiniWidget(),
                               ),
                             ),
-                            wrapWithModel(
-                              model: _model.buttonAloitaTreenaaminenModel,
-                              updateCallback: () => setState(() {}),
-                              child: ButtonAloitaTreenaaminenWidget(),
+                            Visibility(
+                              visible: false,
+                              child: wrapWithModel(
+                                model: _model.buttonAloitaTreenaaminenModel,
+                                updateCallback: () => setState(() {}),
+                                child: ButtonAloitaTreenaaminenWidget(),
+                              ),
                             ),
                           ],
                         ),
@@ -141,7 +144,7 @@ class _RutiinitSivuWidgetState extends State<RutiinitSivuWidget> {
               ),
             if (true)
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 50.0, 16.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 200.0),
                 child: AuthUserStreamWidget(
                   builder: (context) => Builder(
                     builder: (context) {

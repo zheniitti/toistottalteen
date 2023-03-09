@@ -9,7 +9,6 @@ part of 'serializers.dart';
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(AikavaliStruct.serializer)
       ..add(AppConfigRecord.serializer)
-      ..add(EsimerkkiAnalytiikkaDataRecord.serializer)
       ..add(EsimerkkiDataRecord.serializer)
       ..add(LiikeStruct.serializer)
       ..add(SarjaStruct.serializer)

@@ -127,7 +127,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // paasivu
   {
     'uwbd7u0v': {
-      'fi': 'Treenipohjat',
+      'fi': 'Treenpohjat (rutiinit)',
       'en': 'Worcout routines',
     },
     'd9b3r5r8': {
@@ -151,7 +151,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Training routines',
     },
   },
-  // aloitus
+  // aloitus_eiKaytossa
   {
     'rmgg2g5f': {
       'fi': 'Luo rutiini',
@@ -180,56 +180,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '83k34jhr': {
       'fi': 'Treenaa',
       'en': 'Train',
-    },
-  },
-  // luoRutiini_sivu
-  {
-    '3zslehjv': {
-      'fi': 'Rutiinin / ohjelman nimi',
-      'en': 'Routine / workout name',
-    },
-    'hyob330v': {
-      'fi': 'esim Ylövartalo, Työhtävät tai Juoksu',
-      'en': 'Routine name (e.g. Upper body or Rnning)',
-    },
-    'vps9eyym': {
-      'fi': 'Kommentti / ohjeet (vapaaehtoinen)',
-      'en': 'comment / instruction (optional)',
-    },
-    'oeb00uyr': {
-      'fi': 'esim. Tämä on kokonaisvaltainen tasapainoa kyhittävä treeni',
-      'en': 'e.g. This is a comprehensive balance-improving workout',
-    },
-    'sxlzl4hk': {
-      'fi': 'Lisää treeniliike',
-      'en': 'Add exrcise',
-    },
-    '2b1k7jba': {
-      'fi': 'Valmis',
-      'en': 'Ready',
-    },
-    'xr4kgiol': {
-      'fi': 'Treenirutiinin luominen',
-      'en': 'Create routine',
-    },
-    'h61n0u71': {
-      'fi': 'Koti',
-      'en': 'Home',
-    },
-  },
-  // rutiininHistoria_sivu
-  {
-    '9gg1x79r': {
-      'fi': 'Heatmap',
-      'en': 'heatmap',
-    },
-    '0cczlpf8': {
-      'fi': 'Page Title',
-      'en': '',
-    },
-    '12nwsek2': {
-      'fi': 'Home',
-      'en': '',
     },
   },
   // getStarted_sivu
@@ -407,10 +357,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // builder
   {
-    'nvbc1cqj': {
-      'fi': 'Hello World',
-      'en': '',
-    },
     'v1rlq3l4': {
       'fi': 'Page Title',
       'en': '',
@@ -434,7 +380,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '1H 25min',
     },
     'zg2n2e21': {
-      'fi': 'Treenihistoria',
+      'fi': 'Rutiinihistoria',
       'en': 'Worcout history',
     },
     'h16b2vng': {
@@ -551,7 +497,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Repetitions',
     },
   },
-  // liike_treenaaminen
+  // liike_treeninAikana
   {
     '29oo50bm': {
       'fi': 'Liikkeen nimi',
@@ -590,15 +536,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Done',
     },
   },
-  // drawer
+  // sivupalkki
   {
     'ku53fmbs': {
       'fi': 'Luo tili tai kirjaudu',
       'en': 'Create account or login',
-    },
-    'cuq5wlq3': {
-      'fi': 'Hello World ',
-      'en': '',
     },
     '9hgn22d8': {
       'fi': 'Treenirutiinit',
@@ -611,6 +553,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'lbpdvgf4': {
       'fi': 'Treenitilastot',
       'en': 'Workout Statistics',
+    },
+    'cuq5wlq3': {
+      'fi': '  (käynnissä)',
+      'en': '',
     },
     'gax7p69h': {
       'fi': 'Language',
@@ -629,7 +575,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Privacy policy and User agreetment',
     },
   },
-  // rutiinit_sivu
+  // sivu_rutiinit
   {
     'pr2ftdmo': {
       'fi': 'Ylävartalo',
@@ -644,11 +590,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Select routine',
     },
   },
-  // treeniHistoria_sivu
+  // sivu_treeniHistoria
   {
     'uur18ydl': {
-      'fi': 'Sinulla ei ole vielä tehtyjä treenejä',
-      'en': 'You don\'t have finished workouts yet',
+      'fi': 'Tämä sivu on tyhjä koska sinulla ei ole vielä tehtyjä treenejä',
+      'en': 'This page is empty because you don\'t have finished workouts yet',
     },
   },
   // bottomSheet_rutiiniJaSessio
@@ -657,13 +603,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Poista pysyvästi',
       'en': 'Delete permanently',
     },
-    'p9a6vjd2': {
+    '2a9bmoed': {
       'fi': '(paina pitkään)',
       'en': '',
     },
     'e0l254zt': {
       'fi': 'Muokkaa',
       'en': 'Edit',
+    },
+    'elbafojn': {
+      'fi': 'Luo tästä rutiinipohja',
+      'en': 'Create an routine from this',
     },
   },
   // aikaisemmatSuoritukset
@@ -691,14 +641,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Create an routine',
     },
   },
-  // treenaaTaiLuoRutiini_sivu
+  // sivu_treenaaTaiLuoRutiini
   {
     '7y5lnu4x': {
       'fi': '',
       'en': '',
     },
     'y2ovng6h': {
-      'fi': 'Rutiinin nimi',
+      'fi': 'Treenin nimi',
       'en': 'Routine name',
     },
     'mdlqfic5': {
@@ -712,6 +662,45 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'c9ll95ki': {
       'fi': 'Lisää  liike',
       'en': 'New exercise',
+    },
+  },
+  // rutiini
+  {
+    'yi3kozht': {
+      'fi': 'Treenipohjan nimi',
+      'en': 'Routine name',
+    },
+    '95uudkh7': {
+      'fi': 'Ylävartalo',
+      'en': '',
+    },
+    'hve3d9eg': {
+      'fi': 'Treenipohjan kommentti 💬',
+      'en': 'Routine comment 💬',
+    },
+    'fku8v94c': {
+      'fi': 'Liikkeen nimi',
+      'en': 'Exercise name',
+    },
+    'p6ehf4o5': {
+      'fi': 'Liikkeen kommentti',
+      'en': 'Exercise comment',
+    },
+    'm9mgmk0g': {
+      'fi': 'Lisää liike',
+      'en': 'Add exercise',
+    },
+    'f5f0mc89': {
+      'fi': 'Lopeta muokkaus',
+      'en': 'Finish editing',
+    },
+    'xvtlnaay': {
+      'fi': 'Treenihistoria',
+      'en': 'Worcout history',
+    },
+    '5o4nggqe': {
+      'fi': 'Treenaa nyt',
+      'en': 'Start now',
     },
   },
   // Miscellaneous

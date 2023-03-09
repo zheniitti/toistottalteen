@@ -244,11 +244,11 @@ class _RutiiniTaiSessioWidgetState extends State<RutiiniTaiSessioWidget> {
                         clipBehavior: Clip.none,
                         children: [
                           FFButtonWidget(
-                            onPressed: () async {
-                              context.pushNamed('rutiininHistoria_sivu');
+                            onPressed: () {
+                              print('Button pressed ...');
                             },
                             text: FFLocalizations.of(context).getText(
-                              'zg2n2e21' /* Treenihistoria */,
+                              'zg2n2e21' /* Rutiinihistoria */,
                             ),
                             options: FFButtonOptions(
                               width: 120.0,
@@ -278,9 +278,9 @@ class _RutiiniTaiSessioWidgetState extends State<RutiiniTaiSessioWidget> {
                                 widget.treeniRutiini,
                               );
                               FFAppState().update(() {
-                                FFAppState().showTreenaaSivu = true;
                                 FFAppState().valittuTreenattavaTreeniRutiini =
                                     _model.rutiiniJson!;
+                                FFAppState().navBarIndex = 1;
                               });
 
                               setState(() {});

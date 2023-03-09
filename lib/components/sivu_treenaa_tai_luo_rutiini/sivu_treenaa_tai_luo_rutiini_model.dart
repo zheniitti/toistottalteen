@@ -1,6 +1,6 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/liike_treenaaminen/liike_treenaaminen_widget.dart';
+import '/components/liike_treenin_aikana/liike_treenin_aikana_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
@@ -11,7 +11,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class TreenaaTaiLuoRutiiniSivuModel extends FlutterFlowModel {
+class SivuTreenaaTaiLuoRutiiniModel extends FlutterFlowModel {
   ///  Local state fields for this component.
 
   TreeniSessiotRecord? treeniSessio;

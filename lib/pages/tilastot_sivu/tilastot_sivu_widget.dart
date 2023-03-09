@@ -1,5 +1,6 @@
+import '/auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/drawer/drawer_widget.dart';
+import '/components/sivupalkki/sivupalkki_widget.dart';
 import '/flutter_flow/flutter_flow_charts.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -49,9 +50,9 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
       drawer: Drawer(
         elevation: 16.0,
         child: wrapWithModel(
-          model: _model.drawerModel,
+          model: _model.sivupalkkiModel,
           updateCallback: () => setState(() {}),
-          child: DrawerWidget(),
+          child: SivupalkkiWidget(),
         ),
       ),
       appBar: AppBar(
@@ -78,10 +79,11 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
             children: [
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
-                child: StreamBuilder<List<EsimerkkiAnalytiikkaDataRecord>>(
-                  stream: queryEsimerkkiAnalytiikkaDataRecord(
-                    queryBuilder: (esimerkkiAnalytiikkaDataRecord) =>
-                        esimerkkiAnalytiikkaDataRecord.orderBy('id_pvm'),
+                child: StreamBuilder<List<TreeniSessiotRecord>>(
+                  stream: queryTreeniSessiotRecord(
+                    queryBuilder: (treeniSessiotRecord) => treeniSessiotRecord
+                        .where('userRef', isEqualTo: currentUserReference)
+                        .orderBy('alku', descending: true),
                   ),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
@@ -97,8 +99,7 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
                         ),
                       );
                     }
-                    List<EsimerkkiAnalytiikkaDataRecord>
-                        containerEsimerkkiAnalytiikkaDataRecordList =
+                    List<TreeniSessiotRecord> containerTreeniSessiotRecordList =
                         snapshot.data!;
                     return Container(
                       width: double.infinity,
@@ -112,8 +113,8 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
                         child: FlutterFlowBarChart(
                           barData: [
                             FFBarChartData(
-                              yData: containerEsimerkkiAnalytiikkaDataRecordList
-                                  .map((d) => d.painot)
+                              yData: containerTreeniSessiotRecordList
+                                  .map((d) => d.alku)
                                   .toList(),
                               color: FlutterFlowTheme.of(context).gradient2,
                             )
