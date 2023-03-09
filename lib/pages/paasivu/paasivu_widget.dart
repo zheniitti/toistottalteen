@@ -7,6 +7,7 @@ import '/components/sivupalkki/sivupalkki_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -32,6 +33,13 @@ class _PaasivuWidgetState extends State<PaasivuWidget> {
     _model = createModel(context, () => PaasivuModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'paasivu'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('PAASIVU_PAGE_paasivu_ON_PAGE_LOAD');
+      logFirebaseEvent('paasivu_set_dark_mode_settings');
+      setDarkModeSetting(context, ThemeMode.light);
+    });
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

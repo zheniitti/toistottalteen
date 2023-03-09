@@ -66,7 +66,7 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
           ),
           style: FlutterFlowTheme.of(context).bodyText1.override(
                 fontFamily: 'Roboto',
-                color: FlutterFlowTheme.of(context).dadada,
+                color: Color(0xFFDADADA),
               ),
         ),
         actions: [],
@@ -118,7 +118,7 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
                               yData: containerTreeniSessiotRecordList
                                   .map((d) => d.alku)
                                   .toList(),
-                              color: FlutterFlowTheme.of(context).gradient2,
+                              color: Color(0xFF252525),
                             )
                           ],
                           xLabels:[] /* TODO fix containerEsimerkkiAnalytiikkaDataRecordList

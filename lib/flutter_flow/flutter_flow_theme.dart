@@ -3,9 +3,31 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'package:shared_preferences/shared_preferences.dart';
+
+const kThemeModeKey = '__theme_mode__';
+SharedPreferences? _prefs;
+
 abstract class FlutterFlowTheme {
+  static Future initialize() async =>
+      _prefs = await SharedPreferences.getInstance();
+  static ThemeMode get themeMode {
+    final darkMode = _prefs?.getBool(kThemeModeKey);
+    return darkMode == null
+        ? ThemeMode.system
+        : darkMode
+            ? ThemeMode.dark
+            : ThemeMode.light;
+  }
+
+  static void saveThemeMode(ThemeMode mode) => mode == ThemeMode.system
+      ? _prefs?.remove(kThemeModeKey)
+      : _prefs?.setBool(kThemeModeKey, mode == ThemeMode.dark);
+
   static FlutterFlowTheme of(BuildContext context) {
-    return LightModeTheme();
+    return Theme.of(context).brightness == Brightness.dark
+        ? DarkModeTheme()
+        : LightModeTheme();
   }
 
   late Color primaryColor;
@@ -17,32 +39,8 @@ abstract class FlutterFlowTheme {
   late Color primaryText;
   late Color secondaryText;
 
-  late Color dadada;
   late Color c797979;
-  late Color f6f6f6;
-  late Color f2f2f2;
-  late Color a0a0a0;
-  late Color d7d7d7;
-  late Color e1e1e1;
   late Color hintColor;
-  late Color aeaeae;
-  late Color gradient1;
-  late Color gradient2;
-  late Color dcdcdc;
-  late Color dbdbdb;
-  late Color blueColor;
-  late Color fbfbfb;
-  late Color c616161;
-  late Color c6c6c6;
-  late Color d6d6d6;
-  late Color dddddd;
-  late Color dfdfdf;
-  late Color bababa;
-  late Color b7b7b7;
-  late Color c878787;
-  late Color c939393;
-  late Color cbcbcb;
-  late Color c2C2B2B;
 
   String get title1Family => typography.title1Family;
   TextStyle get title1 => typography.title1;
@@ -72,32 +70,8 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color primaryText = const Color(0xFF14181B);
   late Color secondaryText = const Color(0xFF57636C);
 
-  late Color dadada = Color(0xFFDADADA);
   late Color c797979 = Color(0xFF797979);
-  late Color f6f6f6 = Color(0xFFF6F6F6);
-  late Color f2f2f2 = Color(0xFFF2F2F2);
-  late Color a0a0a0 = Color(0xFFA0A0A0);
-  late Color d7d7d7 = Color(0xFFD7D7D7);
-  late Color e1e1e1 = Color(0xFFE1E1E1);
   late Color hintColor = Color(0xFFA7A7A7);
-  late Color aeaeae = Color(0xFFAEAEAE);
-  late Color gradient1 = Color(0xFF5B5B5B);
-  late Color gradient2 = Color(0xFF252525);
-  late Color dcdcdc = Color(0xFFDCDCDC);
-  late Color dbdbdb = Color(0xFFDBDBDB);
-  late Color blueColor = Color(0xFF288CE9);
-  late Color fbfbfb = Color(0xFFFBFBFB);
-  late Color c616161 = Color(0xFF616161);
-  late Color c6c6c6 = Color(0xFFC6C6C6);
-  late Color d6d6d6 = Color(0xFFD6D6D6);
-  late Color dddddd = Color(0xFFDDDDDD);
-  late Color dfdfdf = Color(0xFFDFDFDF);
-  late Color bababa = Color(0xFFBABABA);
-  late Color b7b7b7 = Color(0xFFB7B7B7);
-  late Color c878787 = Color(0xFF878787);
-  late Color c939393 = Color(0xFF939393);
-  late Color cbcbcb = Color(0xFFCBCBCB);
-  late Color c2C2B2B = Color(0xFF2C2B2B);
 }
 
 abstract class Typography {
@@ -171,6 +145,20 @@ class ThemeTypography extends Typography {
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
+}
+
+class DarkModeTheme extends FlutterFlowTheme {
+  late Color primaryColor = const Color(0xFFFFFFFF);
+  late Color secondaryColor = const Color(0xFF000000);
+  late Color tertiaryColor = const Color(0xFFEB8600);
+  late Color alternate = const Color(0xFF262D34);
+  late Color primaryBackground = const Color(0xFF1A1F24);
+  late Color secondaryBackground = const Color(0xFF000000);
+  late Color primaryText = const Color(0xFFFFFFFF);
+  late Color secondaryText = const Color(0xFFBAC9D5);
+
+  late Color c797979 = Color(0xFF5B6C38);
+  late Color hintColor = Color(0xFF0E9CA8);
 }
 
 extension TextStyleHelper on TextStyle {

@@ -179,8 +179,7 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
                                     ),
                                     style: TextStyle(
                                       fontFamily: 'Satoshi',
-                                      color:
-                                          FlutterFlowTheme.of(context).f2f2f2,
+                                      color: Color(0xFFF2F2F2),
                                       fontWeight: FontWeight.w500,
                                       fontSize: 26.0,
                                     ),
@@ -200,8 +199,7 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       fontFamily: 'Satoshi',
-                                      color:
-                                          FlutterFlowTheme.of(context).a0a0a0,
+                                      color: Color(0xFFA0A0A0),
                                       fontWeight: FontWeight.w300,
                                       fontSize: 17.0,
                                     ),
@@ -239,8 +237,7 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
                                             .primaryColor,
                                         textStyle: TextStyle(
                                           fontFamily: 'Satoshi',
-                                          color: FlutterFlowTheme.of(context)
-                                              .f6f6f6,
+                                          color: Color(0xFFF6F6F6),
                                           fontWeight: FontWeight.w500,
                                           fontSize: 19.0,
                                         ),
@@ -282,8 +279,7 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
                                         color: Colors.transparent,
                                         textStyle: TextStyle(
                                           fontFamily: 'Satoshi',
-                                          color: FlutterFlowTheme.of(context)
-                                              .f6f6f6,
+                                          color: Color(0xFFF6F6F6),
                                           fontWeight: FontWeight.w500,
                                           fontSize: 19.0,
                                         ),

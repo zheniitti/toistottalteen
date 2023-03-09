@@ -261,7 +261,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget>
                     textAlign: TextAlign.start,
                     style: TextStyle(
                       fontFamily: 'Satoshi',
-                      color: FlutterFlowTheme.of(context).f2f2f2,
+                      color: Color(0xFFF2F2F2),
                       fontWeight: FontWeight.w500,
                       fontSize: 30.0,
                     ),
@@ -280,7 +280,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget>
                         ),
                         style: TextStyle(
                           fontFamily: 'Satoshi',
-                          color: FlutterFlowTheme.of(context).e1e1e1,
+                          color: Color(0xFFE1E1E1),
                           fontWeight: FontWeight.w300,
                           fontSize: 12.0,
                         ),
@@ -440,7 +440,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget>
                           ),
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: FlutterFlowTheme.of(context).aeaeae,
+                            color: Color(0xFFAEAEAE),
                             fontWeight: FontWeight.w500,
                             fontSize: 14.0,
                           ),
@@ -472,7 +472,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget>
                       color: FlutterFlowTheme.of(context).primaryColor,
                       textStyle: TextStyle(
                         fontFamily: 'Satoshi',
-                        color: FlutterFlowTheme.of(context).f6f6f6,
+                        color: Color(0xFFF6F6F6),
                         fontWeight: FontWeight.w500,
                         fontSize: 22.0,
                       ),
@@ -499,10 +499,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget>
                           height: 1.0,
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
-                              colors: [
-                                FlutterFlowTheme.of(context).gradient1,
-                                FlutterFlowTheme.of(context).gradient2
-                              ],
+                              colors: [Color(0xFF5B5B5B), Color(0xFF252525)],
                               stops: [0.0, 1.0],
                               begin: AlignmentDirectional(0.0, -1.0),
                               end: AlignmentDirectional(0, 1.0),
@@ -524,7 +521,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget>
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Roboto',
-                                    color: FlutterFlowTheme.of(context).dcdcdc,
+                                    color: Color(0xFFDCDCDC),
                                     fontSize: 12.0,
                                     fontWeight: FontWeight.w300,
                                   ),
@@ -537,10 +534,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget>
                           height: 1.0,
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
-                              colors: [
-                                FlutterFlowTheme.of(context).gradient2,
-                                FlutterFlowTheme.of(context).gradient1
-                              ],
+                              colors: [Color(0xFF252525), Color(0xFF5B5B5B)],
                               stops: [0.0, 1.0],
                               begin: AlignmentDirectional(0.0, -1.0),
                               end: AlignmentDirectional(0, 1.0),
@@ -597,7 +591,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget>
                         ),
                         style: TextStyle(
                           fontFamily: 'Satoshi',
-                          color: FlutterFlowTheme.of(context).dbdbdb,
+                          color: Color(0xFFDBDBDB),
                           fontWeight: FontWeight.w500,
                           fontSize: 14.0,
                         ),
@@ -615,7 +609,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget>
                             'jpzgcgld' /*  Register Now */,
                           ),
                           style: TextStyle(
-                            color: FlutterFlowTheme.of(context).blueColor,
+                            color: Color(0xFF288CE9),
                             fontWeight: FontWeight.w500,
                             fontSize: 14.0,
                           ),

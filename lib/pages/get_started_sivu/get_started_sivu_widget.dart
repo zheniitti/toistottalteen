@@ -76,6 +76,12 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'getStarted_sivu'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('GET_STARTED_SIVU_getStarted_sivu_ON_LOAD');
+      logFirebaseEvent('getStarted_sivu_set_dark_mode_settings');
+      setDarkModeSetting(context, ThemeMode.light);
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -168,8 +174,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                     ),
                                     style: TextStyle(
                                       fontFamily: 'Satoshi',
-                                      color:
-                                          FlutterFlowTheme.of(context).dadada,
+                                      color: Color(0xFFDADADA),
                                       fontWeight: FontWeight.w500,
                                       fontSize: 25.0,
                                     ),
@@ -249,7 +254,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).f6f6f6,
+                                  color: Color(0xFFF6F6F6),
                                   textStyle:
                                       FlutterFlowTheme.of(context).title2,
                                   borderSide: BorderSide(
