@@ -2,6 +2,7 @@ import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/sivupalkki/sivupalkki_widget.dart';
 import '/flutter_flow/flutter_flow_charts.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -76,91 +77,124 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
-                child: StreamBuilder<List<TreeniSessiotRecord>>(
-                  stream: queryTreeniSessiotRecord(
-                    queryBuilder: (treeniSessiotRecord) => treeniSessiotRecord
-                        .where('userRef', isEqualTo: currentUserReference)
-                        .orderBy('alku', descending: true),
-                  ),
-                  builder: (context, snapshot) {
-                    // Customize what your widget looks like when it's loading.
-                    if (!snapshot.hasData) {
-                      return Center(
-                        child: SizedBox(
-                          width: 50.0,
+          child: Container(
+            width: MediaQuery.of(context).size.width * 1.0,
+            height: MediaQuery.of(context).size.height * 1.0,
+            decoration: BoxDecoration(
+              color: FlutterFlowTheme.of(context).secondaryBackground,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Align(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                    child: StreamBuilder<List<TreeniSessiotRecord>>(
+                      stream: queryTreeniSessiotRecord(
+                        queryBuilder: (treeniSessiotRecord) =>
+                            treeniSessiotRecord
+                                .where('userRef',
+                                    isEqualTo: currentUserReference)
+                                .orderBy('treeniRutiiniData.nimi'),
+                        singleRecord: true,
+                      ),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: SpinKitCircle(
+                                color:
+                                    FlutterFlowTheme.of(context).primaryColor,
+                                size: 50.0,
+                              ),
+                            ),
+                          );
+                        }
+                        List<TreeniSessiotRecord>
+                            dropDownTreeniSessiotRecordList = snapshot.data!;
+                        // Return an empty Container when the item does not exist.
+                        if (snapshot.data!.isEmpty) {
+                          return Container();
+                        }
+                        final dropDownTreeniSessiotRecord =
+                            dropDownTreeniSessiotRecordList.isNotEmpty
+                                ? dropDownTreeniSessiotRecordList.first
+                                : null;
+                        return FlutterFlowDropDown<String>(
+                          options: <String>[],
+                          onChanged: (val) =>
+                              setState(() => _model.dropDownValue = val),
+                          width: 180.0,
                           height: 50.0,
-                          child: SpinKitCircle(
-                            color: FlutterFlowTheme.of(context).primaryColor,
-                            size: 50.0,
+                          textStyle:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Roboto',
+                                    color: Colors.black,
+                                  ),
+                          hintText: FFLocalizations.of(context).getText(
+                            '3w46zho5' /* Please select... */,
                           ),
-                        ),
-                      );
-                    }
-                    List<TreeniSessiotRecord> containerTreeniSessiotRecordList =
-                        snapshot.data!;
-                    return Container(
-                      width: double.infinity,
-                      height: MediaQuery.of(context).size.height * 0.45,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                      ),
-                      child: Container(
-                        width: 300.0,
-                        height: 300.0,
-                        child: FlutterFlowBarChart(
-                          barData: [
-                            FFBarChartData(
-                              yData: containerTreeniSessiotRecordList
-                                  .map((d) => d.alku)
-                                  .toList(),
-                              color: Color(0xFF252525),
-                            )
-                          ],
-                          xLabels:[] /* TODO fix containerEsimerkkiAnalytiikkaDataRecordList
-                              .map((d) => d.idPvm)
-                              .toList() */,
-                          barWidth: 25.0,
-                          barBorderRadius: BorderRadius.circular(0.0),
-                          groupSpace: 5.0,
-                          chartStylingInfo: ChartStylingInfo(
-                            backgroundColor: Colors.white,
-                            showBorder: false,
-                          ),
-                          axisBounds: AxisBounds(),
-                          xAxisLabelInfo: AxisLabelInfo(
-                            title: FFLocalizations.of(context).getText(
-                              'pugewx7s' /* Aika */,
-                            ),
-                            titleTextStyle: FlutterFlowTheme.of(context).title3,
-                          ),
-                          yAxisLabelInfo: AxisLabelInfo(
-                            title: FFLocalizations.of(context).getText(
-                              '3ehztlt6' /* Painot */,
-                            ),
-                            titleTextStyle: FlutterFlowTheme.of(context).title3,
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
-                child: Container(
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 0.45,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                          fillColor: Colors.white,
+                          elevation: 2.0,
+                          borderColor: Colors.transparent,
+                          borderWidth: 0.0,
+                          borderRadius: 0.0,
+                          margin: EdgeInsetsDirectional.fromSTEB(
+                              12.0, 4.0, 12.0, 4.0),
+                          hidesUnderline: true,
+                        );
+                      },
+                    ),
                   ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                  child: Container(
+                    width: 300.0,
+                    height: 300.0,
+                    child: FlutterFlowBarChart(
+                      barData: [
+                        FFBarChartData(
+                          yData: [],
+                          color: Color(0xFFD354E3),
+                        )
+                      ],
+                      xLabels: [],
+                      barWidth: 25.0,
+                      barBorderRadius: BorderRadius.circular(0.0),
+                      groupSpace: 5.0,
+                      chartStylingInfo: ChartStylingInfo(
+                        backgroundColor: Colors.white,
+                        showBorder: false,
+                      ),
+                      axisBounds: AxisBounds(),
+                      xAxisLabelInfo: AxisLabelInfo(
+                        title: FFLocalizations.of(context).getText(
+                          'nwjx4q5d' /* Toistot */,
+                        ),
+                        titleTextStyle: TextStyle(
+                          fontSize: 14.0,
+                        ),
+                      ),
+                      yAxisLabelInfo: AxisLabelInfo(
+                        title: FFLocalizations.of(context).getText(
+                          'xky4l2vu' /* Painot */,
+                        ),
+                        titleTextStyle: TextStyle(
+                          fontSize: 14.0,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

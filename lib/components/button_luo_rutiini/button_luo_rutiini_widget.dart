@@ -47,13 +47,14 @@ class _ButtonLuoRutiiniWidgetState extends State<ButtonLuoRutiiniWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return FFButtonWidget(
+    return
+        // Tämä nappi lisää uuden tyhjän treeniRutiinin käyttäjän treenirutiinit listaan. Jos lista ei ole olemassa, luo se automaattisesti listan.
+        FFButtonWidget(
       onPressed: () async {
-        logFirebaseEvent('BUTTON_LUO_RUTIINI_LUO_TREENIPOHJA_BTN_O');
+        logFirebaseEvent('BUTTON_LUO_RUTIINI_LISÄÄ_TREENIPOHJA_BTN');
         if (true) {
           logFirebaseEvent('Button_custom_action');
-          _model.createdRutiini =
-              await actions.customCreateTreeniRutiiniStruct();
+          _model.createdRutiini = await actions.myCreateTreeniRutiiniStruct();
           logFirebaseEvent('Button_backend_call');
 
           final usersUpdateData = {
@@ -80,7 +81,7 @@ class _ButtonLuoRutiiniWidgetState extends State<ButtonLuoRutiiniWidget> {
         setState(() {});
       },
       text: FFLocalizations.of(context).getText(
-        '3myg55ek' /* Luo treenipohja */,
+        '3myg55ek' /* Lisää treenipohja */,
       ),
       options: FFButtonOptions(
         width: 240.0,

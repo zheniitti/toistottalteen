@@ -5,6 +5,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:easy_debounce/easy_debounce.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -38,15 +40,12 @@ class _RutiiniWidgetState extends State<RutiiniWidget> {
     super.initState();
     _model = createModel(context, () => RutiiniModel());
 
-    _model.textController1 ??= TextEditingController();
+    _model.textController1 ??=
+        TextEditingController(text: widget.rutiini?.nimi);
     _model.textController2 ??= TextEditingController();
     _model.textController3 ??= TextEditingController();
     _model.textController4 ??= TextEditingController();
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
-          _model.textController1?.text = FFLocalizations.of(context).getText(
-            '95uudkh7' /* Ylävartalo */,
-          );
-        }));
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -86,6 +85,31 @@ class _RutiiniWidgetState extends State<RutiiniWidget> {
                     children: [
                       TextFormField(
                         controller: _model.textController1,
+                        onChanged: (_) => EasyDebounce.debounce(
+                          '_model.textController1',
+                          Duration(milliseconds: 2000),
+                          () async {
+                            logFirebaseEvent(
+                                'RUTIINI_TextField_oho31lin_ON_TEXTFIELD_');
+                            logFirebaseEvent('TextField_custom_action');
+                            await actions.myUpdateTreenirutiini(
+                              widget.rutiini,
+                              null,
+                              null,
+                              null,
+                              null,
+                              null,
+                              _model.textController1.text,
+                              null,
+                              widget.rutiini?.liikkeet?.toList()?.toList(),
+                              null,
+                              null,
+                              null,
+                              null,
+                              true,
+                            );
+                          },
+                        ),
                         autofocus: true,
                         obscureText: false,
                         decoration: InputDecoration(
@@ -174,6 +198,31 @@ class _RutiiniWidgetState extends State<RutiiniWidget> {
                             ),
                           TextFormField(
                             controller: _model.textController2,
+                            onChanged: (_) => EasyDebounce.debounce(
+                              '_model.textController2',
+                              Duration(milliseconds: 2000),
+                              () async {
+                                logFirebaseEvent(
+                                    'RUTIINI_TextField_jv40h5qj_ON_TEXTFIELD_');
+                                logFirebaseEvent('TextField_custom_action');
+                                await actions.myUpdateTreenirutiini(
+                                  widget.rutiini,
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  _model.textController1.text,
+                                  null,
+                                  widget.rutiini?.liikkeet?.toList()?.toList(),
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  true,
+                                );
+                              },
+                            ),
                             autofocus: true,
                             obscureText: false,
                             decoration: InputDecoration(
@@ -233,7 +282,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget> {
                                       fontSize: 16.0,
                                     ),
                             textAlign: TextAlign.center,
-                            maxLines: 3,
+                            maxLines: 5,
                             minLines: 1,
                             validator: _model.textController2Validator
                                 .asValidator(context),
@@ -311,6 +360,30 @@ class _RutiiniWidgetState extends State<RutiiniWidget> {
                                     children: [
                                       TextFormField(
                                         controller: _model.textController3,
+                                        onChanged: (_) => EasyDebounce.debounce(
+                                          '_model.textController3',
+                                          Duration(milliseconds: 2000),
+                                          () async {
+                                            logFirebaseEvent(
+                                                'RUTIINI_TextField_bx35mkk1_ON_TEXTFIELD_');
+                                            logFirebaseEvent(
+                                                'TextField_custom_action');
+                                            await actions.myUpdateLiikeAtIndex(
+                                              liikkeetIndex,
+                                              widget.rutiini,
+                                              _model.textController3.text,
+                                              null,
+                                              null,
+                                              null,
+                                              null,
+                                              null,
+                                              null,
+                                              null,
+                                              null,
+                                              null,
+                                            );
+                                          },
+                                        ),
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -381,6 +454,30 @@ class _RutiiniWidgetState extends State<RutiiniWidget> {
                                       ),
                                       TextFormField(
                                         controller: _model.textController4,
+                                        onChanged: (_) => EasyDebounce.debounce(
+                                          '_model.textController4',
+                                          Duration(milliseconds: 2000),
+                                          () async {
+                                            logFirebaseEvent(
+                                                'RUTIINI_TextField_1p35njsm_ON_TEXTFIELD_');
+                                            logFirebaseEvent(
+                                                'TextField_custom_action');
+                                            await actions.myUpdateLiikeAtIndex(
+                                              liikkeetIndex,
+                                              widget.rutiini,
+                                              null,
+                                              _model.textController4.text,
+                                              null,
+                                              null,
+                                              null,
+                                              null,
+                                              null,
+                                              null,
+                                              null,
+                                              null,
+                                            );
+                                          },
+                                        ),
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -452,14 +549,18 @@ class _RutiiniWidgetState extends State<RutiiniWidget> {
                                     ],
                                   ),
                                 ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 2.0, 0.0, 0.0),
-                                  child: Text(
-                                    valueOrDefault<String>(
-                                      functions.liikkeenToistot(liikkeetItem),
-                                      ' - ',
-                                    ),
+                                RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: valueOrDefault<String>(
+                                          functions
+                                              .liikkeenToistot(liikkeetItem),
+                                          ' - ',
+                                        ),
+                                        style: TextStyle(),
+                                      )
+                                    ],
                                     style:
                                         FlutterFlowTheme.of(context).bodyText1,
                                   ),
@@ -475,7 +576,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget> {
                 Divider(
                   thickness: 1.0,
                 ),
-                if (_model.isEditing)
+                if (!widget.rutiini!.finishedEditing!)
                   Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
@@ -485,41 +586,87 @@ class _RutiiniWidgetState extends State<RutiiniWidget> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 4.0, 0.0),
-                              child: Icon(
-                                Icons.add_rounded,
-                                color: Colors.black,
-                                size: 24.0,
+                        InkWell(
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'RUTIINI_COMP_Row_a4bmbafi_ON_TAP');
+                            logFirebaseEvent('Row_custom_action');
+                            await actions.myUpdateTreenirutiini(
+                              widget.rutiini,
+                              true,
+                              null,
+                              null,
+                              null,
+                              null,
+                              null,
+                              null,
+                              widget.rutiini?.liikkeet?.toList()?.toList(),
+                              null,
+                              null,
+                              null,
+                              null,
+                              true,
+                            );
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 4.0, 0.0),
+                                child: Icon(
+                                  Icons.add_rounded,
+                                  color: Colors.black,
+                                  size: 24.0,
+                                ),
                               ),
-                            ),
-                            Text(
-                              FFLocalizations.of(context).getText(
-                                'm9mgmk0g' /* Lisää liike */,
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'm9mgmk0g' /* Lisää liike */,
+                                ),
+                                style: FlutterFlowTheme.of(context).subtitle2,
                               ),
-                              style: FlutterFlowTheme.of(context).subtitle2,
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                        Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              FFLocalizations.of(context).getText(
-                                'f5f0mc89' /* Lopeta muokkaus */,
+                        InkWell(
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'RUTIINI_COMP_Row_p50usw6f_ON_TAP');
+                            logFirebaseEvent('Row_custom_action');
+                            await actions.myUpdateTreenirutiini(
+                              widget.rutiini,
+                              null,
+                              null,
+                              true,
+                              null,
+                              null,
+                              null,
+                              null,
+                              widget.rutiini?.liikkeet?.toList()?.toList(),
+                              null,
+                              null,
+                              null,
+                              null,
+                              true,
+                            );
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'f5f0mc89' /* Lopeta muokkaus */,
+                                ),
+                                style: FlutterFlowTheme.of(context).subtitle2,
                               ),
-                              style: FlutterFlowTheme.of(context).subtitle2,
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ],
                     ),
                   ),
-                if (!_model.isEditing)
+                if (widget.rutiini?.finishedEditing ?? true)
                   Container(
                     width: double.infinity,
                     decoration: BoxDecoration(

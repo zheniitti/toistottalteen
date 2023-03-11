@@ -2,6 +2,7 @@ import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/sivupalkki/sivupalkki_widget.dart';
 import '/flutter_flow/flutter_flow_charts.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,8 @@ class TilastotSivuModel extends FlutterFlowModel {
 
   // Model for sivupalkki component.
   late SivupalkkiModel sivupalkkiModel;
+  // State field(s) for DropDown widget.
+  String? dropDownValue;
 
   /// Initialization and disposal methods.
 

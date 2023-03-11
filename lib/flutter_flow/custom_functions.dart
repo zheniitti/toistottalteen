@@ -15,7 +15,7 @@ String? liikkeenToistot(LiikeStruct? liike) {
   if (liike == null) return 'null';
   final String setit = liike?.sarjaMaara.toString() ?? '';
   final String toistot = liike?.toistoMaara.toString() ?? '';
-  final String paino = (liike?.painoKg.toString() ?? '0') + 'kg';
+  final String paino = (liike?.aloitusPainoKg.toString() ?? '0') + 'kg';
   return setit + ' x ' + toistot;
 }
 

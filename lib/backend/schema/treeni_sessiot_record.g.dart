@@ -72,6 +72,21 @@ class _$TreeniSessiotRecordSerializer
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.photos;
+    if (value != null) {
+      result
+        ..add('photos')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    value = object.isEditing;
+    if (value != null) {
+      result
+        ..add('isEditing')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -126,6 +141,16 @@ class _$TreeniSessiotRecordSerializer
           result.showComment = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
           break;
+        case 'photos':
+          result.photos.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'isEditing':
+          result.isEditing = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -155,6 +180,10 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
   @override
   final bool? showComment;
   @override
+  final BuiltList<String>? photos;
+  @override
+  final bool? isEditing;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$TreeniSessiotRecord(
@@ -169,6 +198,8 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
       required this.treeniRutiiniData,
       this.docCreatedTime,
       this.showComment,
+      this.photos,
+      this.isEditing,
       this.ffRef})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -195,6 +226,8 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
         treeniRutiiniData == other.treeniRutiiniData &&
         docCreatedTime == other.docCreatedTime &&
         showComment == other.showComment &&
+        photos == other.photos &&
+        isEditing == other.isEditing &&
         ffRef == other.ffRef;
   }
 
@@ -205,12 +238,18 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
             $jc(
                 $jc(
                     $jc(
-                        $jc($jc($jc(0, userRef.hashCode), alku.hashCode),
-                            loppu.hashCode),
-                        kommentti.hashCode),
-                    treeniRutiiniData.hashCode),
-                docCreatedTime.hashCode),
-            showComment.hashCode),
+                        $jc(
+                            $jc(
+                                $jc(
+                                    $jc($jc(0, userRef.hashCode),
+                                        alku.hashCode),
+                                    loppu.hashCode),
+                                kommentti.hashCode),
+                            treeniRutiiniData.hashCode),
+                        docCreatedTime.hashCode),
+                    showComment.hashCode),
+                photos.hashCode),
+            isEditing.hashCode),
         ffRef.hashCode));
   }
 
@@ -224,6 +263,8 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
           ..add('treeniRutiiniData', treeniRutiiniData)
           ..add('docCreatedTime', docCreatedTime)
           ..add('showComment', showComment)
+          ..add('photos', photos)
+          ..add('isEditing', isEditing)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -264,6 +305,15 @@ class TreeniSessiotRecordBuilder
   bool? get showComment => _$this._showComment;
   set showComment(bool? showComment) => _$this._showComment = showComment;
 
+  ListBuilder<String>? _photos;
+  ListBuilder<String> get photos =>
+      _$this._photos ??= new ListBuilder<String>();
+  set photos(ListBuilder<String>? photos) => _$this._photos = photos;
+
+  bool? _isEditing;
+  bool? get isEditing => _$this._isEditing;
+  set isEditing(bool? isEditing) => _$this._isEditing = isEditing;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -282,6 +332,8 @@ class TreeniSessiotRecordBuilder
       _treeniRutiiniData = $v.treeniRutiiniData.toBuilder();
       _docCreatedTime = $v.docCreatedTime;
       _showComment = $v.showComment;
+      _photos = $v.photos?.toBuilder();
+      _isEditing = $v.isEditing;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -314,12 +366,17 @@ class TreeniSessiotRecordBuilder
               treeniRutiiniData: treeniRutiiniData.build(),
               docCreatedTime: docCreatedTime,
               showComment: showComment,
+              photos: _photos?.build(),
+              isEditing: isEditing,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'treeniRutiiniData';
         treeniRutiiniData.build();
+
+        _$failedField = 'photos';
+        _photos?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'TreeniSessiotRecord', _$failedField, e.toString());

@@ -77,7 +77,7 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> {
           color: FlutterFlowTheme.of(context).secondaryBackground,
           borderRadius: BorderRadius.circular(12.0),
           border: Border.all(
-            color: FlutterFlowTheme.of(context).c797979,
+            color: Color(0xFF797979),
             width: 1.0,
           ),
         ),

@@ -54,6 +54,7 @@ class _MyDeleteButtonWidgetState extends State<MyDeleteButtonWidget> {
         alignment: AlignmentDirectional(0.0, 0.0),
         child: Row(
           mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Icon(

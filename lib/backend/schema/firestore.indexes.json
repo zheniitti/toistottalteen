@@ -9,6 +9,20 @@
           "order": "ASCENDING"
         },
         {
+          "fieldPath": "treeniRutiiniData.nimi",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "treeniSessiot",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "userRef",
+          "order": "ASCENDING"
+        },
+        {
           "fieldPath": "alku",
           "order": "DESCENDING"
         }

@@ -6,11 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'liikkeet_model.dart';
-export 'liikkeet_model.dart';
+import 'liikkeet_lista_model.dart';
+export 'liikkeet_lista_model.dart';
 
-class LiikkeetWidget extends StatefulWidget {
-  const LiikkeetWidget({
+class LiikkeetListaWidget extends StatefulWidget {
+  const LiikkeetListaWidget({
     Key? key,
     this.rutiini,
   }) : super(key: key);
@@ -18,11 +18,11 @@ class LiikkeetWidget extends StatefulWidget {
   final TreeniRutiiniStruct? rutiini;
 
   @override
-  _LiikkeetWidgetState createState() => _LiikkeetWidgetState();
+  _LiikkeetListaWidgetState createState() => _LiikkeetListaWidgetState();
 }
 
-class _LiikkeetWidgetState extends State<LiikkeetWidget> {
-  late LiikkeetModel _model;
+class _LiikkeetListaWidgetState extends State<LiikkeetListaWidget> {
+  late LiikkeetListaModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -33,7 +33,7 @@ class _LiikkeetWidgetState extends State<LiikkeetWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => LiikkeetModel());
+    _model = createModel(context, () => LiikkeetListaModel());
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }

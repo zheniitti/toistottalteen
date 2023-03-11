@@ -1,7 +1,7 @@
 import '/auth/auth_util.dart';
 import '/components/button_aloita_treenaaminen/button_aloita_treenaaminen_widget.dart';
 import '/components/button_luo_rutiini/button_luo_rutiini_widget.dart';
-import '/components/rutiini_tai_sessio/rutiini_tai_sessio_widget.dart';
+import '/components/rutiini_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -159,21 +159,11 @@ class _SivuRutiinitWidgetState extends State<SivuRutiinitWidget> {
                           final rutiinitItem = rutiinit[rutiinitIndex];
                           return Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 6.0, 0.0, 4.0),
-                            child: wrapWithModel(
-                              model: _model.rutiiniTaiSessioModels.getModel(
-                                rutiinitItem.createdTime!.toString(),
-                                rutiinitIndex,
-                              ),
-                              updateCallback: () => setState(() {}),
-                              updateOnChange: true,
-                              child: RutiiniTaiSessioWidget(
-                                key: Key(
-                                  'Key35x_${rutiinitItem.createdTime!.toString()}',
-                                ),
-                                treeniRutiini: rutiinitItem,
-                                treeniSessio: null,
-                              ),
+                                0.0, 0.0, 0.0, 20.0),
+                            child: RutiiniWidget(
+                              key: Key(
+                                  'Key6wy_${rutiinitIndex}_of_${rutiinit.length}'),
+                              rutiini: rutiinitItem,
                             ),
                           );
                         }),

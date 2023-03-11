@@ -39,7 +39,6 @@ abstract class FlutterFlowTheme {
   late Color primaryText;
   late Color secondaryText;
 
-  late Color c797979;
   late Color hintColor;
 
   String get title1Family => typography.title1Family;
@@ -70,7 +69,6 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color primaryText = const Color(0xFF14181B);
   late Color secondaryText = const Color(0xFF57636C);
 
-  late Color c797979 = Color(0xFF797979);
   late Color hintColor = Color(0xFFA7A7A7);
 }
 
@@ -157,7 +155,6 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color primaryText = const Color(0xFFFFFFFF);
   late Color secondaryText = const Color(0xFFBAC9D5);
 
-  late Color c797979 = Color(0xFF5B6C38);
   late Color hintColor = Color(0xFF0E9CA8);
 }
 

@@ -5,7 +5,9 @@ import '/components/sivu_treenaa_tai_luo_rutiini/sivu_treenaa_tai_luo_rutiini_wi
 import '/components/sivu_treeni_historia/sivu_treeni_historia_widget.dart';
 import '/components/sivupalkki/sivupalkki_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -17,7 +19,7 @@ class PaasivuModel extends FlutterFlowModel {
 
   TreeniRutiiniStruct? treenattavaRutiini;
 
-  TreeniSessiotRecord? treenattavaSessioDoc;
+  TreeniSessiotRecord? valittuSessioDoc;
 
   ///  State fields for stateful widgets in this page.
 
@@ -29,6 +31,11 @@ class PaasivuModel extends FlutterFlowModel {
   late SivuTreenaaTaiLuoRutiiniModel sivuTreenaaTaiLuoRutiiniModel;
   // Model for navigationBar component.
   late NavigationBarModel navigationBarModel;
+  // State field(s) for Timer widget.
+  int timerMilliseconds = 0;
+  String timerValue = StopWatchTimer.getDisplayTime(0, milliSecond: false);
+  StopWatchTimer timerController = StopWatchTimer(mode: StopWatchMode.countUp);
+
   // Model for sivupalkki component.
   late SivupalkkiModel sivupalkkiModel;
 
@@ -49,6 +56,7 @@ class PaasivuModel extends FlutterFlowModel {
     sivuTreeniHistoriaModel.dispose();
     sivuTreenaaTaiLuoRutiiniModel.dispose();
     navigationBarModel.dispose();
+    timerController.dispose();
     sivupalkkiModel.dispose();
   }
 

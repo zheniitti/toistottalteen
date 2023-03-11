@@ -194,8 +194,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       fontFamily: 'Satoshi',
-                                      color:
-                                          FlutterFlowTheme.of(context).c797979,
+                                      color: Color(0xFF797979),
                                       fontWeight: FontWeight.w300,
                                       fontSize: 17.0,
                                     ),

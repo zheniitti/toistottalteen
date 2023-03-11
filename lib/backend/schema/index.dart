@@ -4,7 +4,6 @@ export 'package:built_collection/built_collection.dart';
 export 'package:flutter/material.dart' show Color, Colors;
 export '../../flutter_flow/lat_lng.dart';
 
-export 'structs/aikavali_struct.dart';
 export 'structs/liike_struct.dart';
 export 'structs/sarja_struct.dart';
 export 'structs/treeni_rutiini_struct.dart';

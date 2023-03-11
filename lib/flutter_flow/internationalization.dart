@@ -111,11 +111,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Analytiikka',
       'en': '',
     },
-    'pugewx7s': {
-      'fi': 'Aika',
+    '3w46zho5': {
+      'fi': 'Please select...',
       'en': '',
     },
-    '3ehztlt6': {
+    'nwjx4q5d': {
+      'fi': 'Toistot',
+      'en': '',
+    },
+    'xky4l2vu': {
       'fi': 'Painot',
       'en': '',
     },
@@ -131,7 +135,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Worcout routines',
     },
     'd9b3r5r8': {
-      'fi': 'Aikaa kulunut: 29min',
+      'fi': 'Aikaa kulunut:',
       'en': 'Duration: ',
     },
     'hwbly3hr': {
@@ -388,85 +392,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Start now',
     },
   },
-  // treeniLiikeForm
-  {
-    '6fex8zp8': {
-      'fi': 'Treeniliikkeen nimi',
-      'en': 'Exercise name',
-    },
-    'c1kh8kio': {
-      'fi': 'esim. Maastaveto, Ylätalja vastaotteella, Uinti jne...',
-      'en': 'Routine name (e.g. Upper body or Rnning)',
-    },
-    'x622rgz7': {
-      'fi': 'KUNTOSALI (penkki, pystypunnerrus käsipainolla jne...)',
-      'en': 'GYM (Bench Press, Dumbell flies etc...)',
-    },
-    'ithsk40p': {
-      'fi': 'MUU (venyttely, uinti, palloilu jne...)',
-      'en': 'OTHER (exercise that doesn\'t fit in gym category )',
-    },
-    'eod0ssb0': {
-      'fi': 'Valitse tyyppi (Ei pakollinen)',
-      'en': 'Select type (Optional)',
-    },
-    'adxqhecq': {
-      'fi': '',
-      'en': '',
-    },
-    'i3wiah5x': {
-      'fi': 'Sarjojen määrä (Ei pakollinen)',
-      'en': 'Number of sets (Optional)',
-    },
-    'familqw5': {
-      'fi': '',
-      'en': '',
-    },
-    'pk7tuluo': {
-      'fi': 'Toistojen  määrä (Ei pakollinen)',
-      'en': 'Number of repetitions (Optional)',
-    },
-    'r5xevs00': {
-      'fi': '',
-      'en': '',
-    },
-    'auarlbrk': {
-      'fi': 'Paino (Ei pakollinen)',
-      'en': 'Weight (Optional)',
-    },
-    'suqrryhr': {
-      'fi': '',
-      'en': '',
-    },
-    '73cntf0m': {
-      'fi': 'Kesto minuutteina (Ei pakollinen)',
-      'en': 'Duration in minutes (Optional)',
-    },
-    'xlu1l4ad': {
-      'fi': '',
-      'en': '',
-    },
-    'g0mp3d39': {
-      'fi': 'Matka metreinä (Ei pakollinen)',
-      'en': 'Distance in meters (Optional)',
-    },
-    'xjb36tr5': {
-      'fi': 'Kommentti (Ei pakollinen)',
-      'en': 'Comment (Optional)',
-    },
-    'bvpq99bs': {
-      'fi': 'esim. Tee ainakin kaksi lämmittelysarjaa kevyellä painolla',
-      'en': 'e.g. Do atleast two warmup set with light weight',
-    },
-    '5khcc0a1': {
-      'fi': 'Muutokset tallennettu',
-      'en': 'Chages saved',
-    },
-    '449n4liv': {
-      'fi': 'Valmis',
-      'en': 'Ready',
-    },
-  },
   // MyDeleteButton
   {
     '8t3o2ple': {
@@ -616,17 +541,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Create an routine from this',
     },
   },
-  // aikaisemmatSuoritukset
-  {
-    'nuyg0kz2': {
-      'fi': 'Heatmap kalenteri',
-      'en': 'Heatmap valendar',
-    },
-    '42oknvjl': {
-      'fi': 'Heat map',
-      'en': 'Heat map',
-    },
-  },
   // button_aloitaTreenaaminen
   {
     'wmqwog4s': {
@@ -637,8 +551,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // button_luoRutiini
   {
     '3myg55ek': {
-      'fi': 'Luo treenipohja',
-      'en': 'Create an routine',
+      'fi': 'Lisää treenipohja',
+      'en': 'Add an routine',
     },
   },
   // sivu_treenaaTaiLuoRutiini
@@ -669,10 +583,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'yi3kozht': {
       'fi': 'Treenipohjan nimi',
       'en': 'Routine name',
-    },
-    '95uudkh7': {
-      'fi': 'Ylävartalo',
-      'en': '',
     },
     'hve3d9eg': {
       'fi': 'Treenipohjan kommentti 💬',

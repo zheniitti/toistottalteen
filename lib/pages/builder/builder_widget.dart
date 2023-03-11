@@ -1,7 +1,9 @@
-import '/components/rutiini_widget.dart';
+import '/auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -85,11 +87,24 @@ class _BuilderWidgetState extends State<BuilderWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              wrapWithModel(
-                model: _model.rutiiniModel,
-                updateCallback: () => setState(() {}),
-                child: RutiiniWidget(
-                  rutiini: null,
+              InkWell(
+                onTap: () async {
+                  logFirebaseEvent('BUILDER_PAGE_Container_kyp4e9su_ON_TAP');
+                  logFirebaseEvent('Container_backend_call');
+
+                  final usersUpdateData = {
+                    'treeniRutiinit': getTreeniRutiiniListFirestoreData(
+                      (currentUserDocument?.treeniRutiinit?.toList() ?? []),
+                    ),
+                  };
+                  await currentUserReference!.update(usersUpdateData);
+                },
+                child: Container(
+                  width: 100.0,
+                  height: 100.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                  ),
                 ),
               ),
             ],

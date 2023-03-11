@@ -11,13 +11,13 @@ abstract class TreeniRutiiniStruct
   static Serializer<TreeniRutiiniStruct> get serializer =>
       _$treeniRutiiniStructSerializer;
 
-  BuiltList<LiikeStruct> get liikkeet;
-
-  String? get kommentti;
-
   DateTime? get createdTime;
 
   String? get nimi;
+
+  BuiltList<LiikeStruct> get liikkeet;
+
+  String? get kommentti;
 
   ValitutViikonPaivatStruct get valitutViikonPaivat;
 
@@ -25,28 +25,27 @@ abstract class TreeniRutiiniStruct
 
   DateTime? get lastWorkoutTime;
 
-  BuiltList<DateTime>? get modifiedTimes;
-
   bool? get isTreeniPohja;
 
   bool? get showComment;
 
-  @BuiltValueField(wireName: 'UID')
-  String? get uid;
+  bool? get finishedEditing;
+
+  BuiltList<DateTime>? get modifiedTimes;
 
   /// Utility class for Firestore updates
   FirestoreUtilData get firestoreUtilData;
 
   static void _initializeBuilder(TreeniRutiiniStructBuilder builder) => builder
+    ..nimi = ''
     ..liikkeet = ListBuilder()
     ..kommentti = ''
-    ..nimi = ''
     ..valitutViikonPaivat = ValitutViikonPaivatStructBuilder()
     ..widgetExpanded = false
-    ..modifiedTimes = ListBuilder()
     ..isTreeniPohja = false
     ..showComment = false
-    ..uid = ''
+    ..finishedEditing = false
+    ..modifiedTimes = ListBuilder()
     ..firestoreUtilData = FirestoreUtilData();
 
   TreeniRutiiniStruct._();
@@ -56,15 +55,15 @@ abstract class TreeniRutiiniStruct
 }
 
 TreeniRutiiniStruct createTreeniRutiiniStruct({
-  String? kommentti,
   DateTime? createdTime,
   String? nimi,
+  String? kommentti,
   ValitutViikonPaivatStruct? valitutViikonPaivat,
   bool? widgetExpanded,
   DateTime? lastWorkoutTime,
   bool? isTreeniPohja,
   bool? showComment,
-  String? uid,
+  bool? finishedEditing,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -72,18 +71,18 @@ TreeniRutiiniStruct createTreeniRutiiniStruct({
 }) =>
     TreeniRutiiniStruct(
       (t) => t
-        ..liikkeet = null
-        ..kommentti = kommentti
         ..createdTime = createdTime
         ..nimi = nimi
+        ..liikkeet = null
+        ..kommentti = kommentti
         ..valitutViikonPaivat = valitutViikonPaivat?.toBuilder() ??
             ValitutViikonPaivatStructBuilder()
         ..widgetExpanded = widgetExpanded
         ..lastWorkoutTime = lastWorkoutTime
-        ..modifiedTimes = null
         ..isTreeniPohja = isTreeniPohja
         ..showComment = showComment
-        ..uid = uid
+        ..finishedEditing = finishedEditing
+        ..modifiedTimes = null
         ..firestoreUtilData = FirestoreUtilData(
           clearUnsetFields: clearUnsetFields,
           create: create,
@@ -103,52 +102,34 @@ TreeniRutiiniStruct? updateTreeniRutiiniStruct(
             .build()
         : null;
 
-
-/// Add TreeniRutiiniStruct data to Map<String, dynamic> object
 void addTreeniRutiiniStructData(
   Map<String, dynamic> firestoreData,
   TreeniRutiiniStruct? treeniRutiini,
   String fieldName, [
   bool forFieldValue = false,
 ]) {
-  // Remove any existing value for the given fieldName.
   firestoreData.remove(fieldName);
-
-  // If treeniRutiini is null, do nothing.
   if (treeniRutiini == null) {
     return;
   }
-
-  // If treeniRutiini has the delete flag set to true, add FieldValue.delete() to firestoreData and return.
   if (treeniRutiini.firestoreUtilData.delete) {
     firestoreData[fieldName] = FieldValue.delete();
     return;
   }
-
-  // If forFieldValue is false and treeniRutiini has the clearUnsetFields flag set to true, add an empty map to firestoreData for the given fieldName.
   if (!forFieldValue && treeniRutiini.firestoreUtilData.clearUnsetFields) {
     firestoreData[fieldName] = <String, dynamic>{};
   }
-
-  // Get the Firestore data for treeniRutiini using the getTreeniRutiiniFirestoreData function.
   final treeniRutiiniData =
       getTreeniRutiiniFirestoreData(treeniRutiini, forFieldValue);
-
-  // Create a Map of the nested data in treeniRutiiniData by prefixing each key with the fieldName.
   final nestedData =
       treeniRutiiniData.map((k, v) => MapEntry('$fieldName.$k', v));
 
-  // If treeniRutiini has the create flag set to true, merge the nested data with any existing data in firestoreData using the mergeNestedFields function.
-  // Otherwise, add the nested data directly to firestoreData.
   final create = treeniRutiini.firestoreUtilData.create;
   firestoreData.addAll(create ? mergeNestedFields(nestedData) : nestedData);
 
-  // Return.
   return;
 }
 
-
-/// Convert TreeniRutiiniStruct to Map<String, dynamic>
 Map<String, dynamic> getTreeniRutiiniFirestoreData(
   TreeniRutiiniStruct? treeniRutiini, [
   bool forFieldValue = false,
@@ -170,8 +151,6 @@ Map<String, dynamic> getTreeniRutiiniFirestoreData(
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
 }
 
-
-/// Convert List<TreeniRutiiniStruct> to List<Map<String, dynamic>>
 List<Map<String, dynamic>> getTreeniRutiiniListFirestoreData(
   List<TreeniRutiiniStruct>? treeniRutiinis,
 ) =>

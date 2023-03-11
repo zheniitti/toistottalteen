@@ -21,7 +21,6 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   EsimerkkiDataRecord,
   LiikeStruct,
   TreeniRutiiniStruct,
-  AikavaliStruct,
   ValitutViikonPaivatStruct,
   SarjaStruct,
 ])

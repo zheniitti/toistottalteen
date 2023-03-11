@@ -8,7 +8,9 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-Future<TreeniRutiiniStruct> customCreateTreeniRutiiniStruct() async {
+Future<TreeniRutiiniStruct> myCreateTreeniRutiiniStruct() async {
   // Add your function code here!
-  return createTreeniRutiiniStruct();
+  return createTreeniRutiiniStruct(
+      fieldValues: {'createdTime': FieldValue.serverTimestamp()},
+      finishedEditing: false);
 }

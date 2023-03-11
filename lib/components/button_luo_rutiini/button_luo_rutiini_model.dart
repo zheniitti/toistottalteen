@@ -13,7 +13,7 @@ import 'package:provider/provider.dart';
 class ButtonLuoRutiiniModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
-  // Stores action output result for [Custom Action - customCreateTreeniRutiiniStruct] action in Button widget.
+  // Stores action output result for [Custom Action - myCreateTreeniRutiiniStruct] action in Button widget.
   TreeniRutiiniStruct? createdRutiini;
 
   /// Initialization and disposal methods.

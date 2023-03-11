@@ -18,10 +18,10 @@ Future<LiikeStruct> createLiike(
   // Add your function code here!
   sarjat = sarjat ?? [createSarjaStruct()];
   LiikeStruct liike = createLiikeStruct(
-    nimi: nimi,
-    kommentti: kommentti,
-    liikeTyyppi: liikeTyyppi,
-    painoKg: painoKg,
+    nimi: nimi ?? '',
+    kommentti: kommentti ?? '',
+    liikeTyyppi: liikeTyyppi ?? '',
+    aloitusPainoKg: painoKg,
     fieldValues: {'sarjat': sarjat},
   );
   return liike;

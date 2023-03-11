@@ -34,6 +34,13 @@ class _$LiikeStructSerializer implements StructuredSerializer<LiikeStruct> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.kommentti;
+    if (value != null) {
+      result
+        ..add('kommentti')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.toistoMaara;
     if (value != null) {
       result
@@ -46,24 +53,17 @@ class _$LiikeStructSerializer implements StructuredSerializer<LiikeStruct> {
         ..add('sarjaMaara')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.aloitusPainoKg;
+    if (value != null) {
+      result
+        ..add('aloitusPainoKg')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(double)));
+    }
     value = object.liikeTyyppi;
     if (value != null) {
       result
         ..add('liikeTyyppi')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.painoKg;
-    if (value != null) {
-      result
-        ..add('painoKg')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(double)));
-    }
-    value = object.kommentti;
-    if (value != null) {
-      result
-        ..add('kommentti')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
@@ -74,18 +74,12 @@ class _$LiikeStructSerializer implements StructuredSerializer<LiikeStruct> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(double)));
     }
-    value = object.kestoSekunnit;
+    value = object.tehty;
     if (value != null) {
       result
-        ..add('kestoSekunnit')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(double)));
-    }
-    value = object.kestoMinuutit;
-    if (value != null) {
-      result
-        ..add('kestoMinuutit')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add('tehty')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     value = object.showComment;
     if (value != null) {
@@ -94,12 +88,20 @@ class _$LiikeStructSerializer implements StructuredSerializer<LiikeStruct> {
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
-    value = object.tehty;
+    value = object.photos;
     if (value != null) {
       result
-        ..add('tehty')
-        ..add(
-            serializers.serialize(value, specifiedType: const FullType(bool)));
+        ..add('photos')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    value = object.kestoSekunteina;
+    if (value != null) {
+      result
+        ..add('kestoSekunteina')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(double)));
     }
     return result;
   }
@@ -119,6 +121,10 @@ class _$LiikeStructSerializer implements StructuredSerializer<LiikeStruct> {
           result.nimi = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'kommentti':
+          result.kommentti = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'toistoMaara':
           result.toistoMaara = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
@@ -127,43 +133,41 @@ class _$LiikeStructSerializer implements StructuredSerializer<LiikeStruct> {
           result.sarjaMaara = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
-        case 'liikeTyyppi':
-          result.liikeTyyppi = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'painoKg':
-          result.painoKg = serializers.deserialize(value,
-              specifiedType: const FullType(double)) as double?;
-          break;
-        case 'kommentti':
-          result.kommentti = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'matkaMetri':
-          result.matkaMetri = serializers.deserialize(value,
-              specifiedType: const FullType(double)) as double?;
-          break;
-        case 'kestoSekunnit':
-          result.kestoSekunnit = serializers.deserialize(value,
-              specifiedType: const FullType(double)) as double?;
-          break;
-        case 'kestoMinuutit':
-          result.kestoMinuutit = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
         case 'sarjat':
           result.sarjat.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType(SarjaStruct)]))!
               as BuiltList<Object?>);
           break;
-        case 'showComment':
-          result.showComment = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool?;
+        case 'aloitusPainoKg':
+          result.aloitusPainoKg = serializers.deserialize(value,
+              specifiedType: const FullType(double)) as double?;
+          break;
+        case 'liikeTyyppi':
+          result.liikeTyyppi = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'matkaMetri':
+          result.matkaMetri = serializers.deserialize(value,
+              specifiedType: const FullType(double)) as double?;
           break;
         case 'tehty':
           result.tehty = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'showComment':
+          result.showComment = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'photos':
+          result.photos.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'kestoSekunteina':
+          result.kestoSekunteina = serializers.deserialize(value,
+              specifiedType: const FullType(double)) as double?;
           break;
         case 'firestoreUtilData':
           result.firestoreUtilData = serializers.deserialize(value,
@@ -181,27 +185,27 @@ class _$LiikeStruct extends LiikeStruct {
   @override
   final String? nimi;
   @override
+  final String? kommentti;
+  @override
   final int? toistoMaara;
   @override
   final int? sarjaMaara;
   @override
+  final BuiltList<SarjaStruct> sarjat;
+  @override
+  final double? aloitusPainoKg;
+  @override
   final String? liikeTyyppi;
-  @override
-  final double? painoKg;
-  @override
-  final String? kommentti;
   @override
   final double? matkaMetri;
   @override
-  final double? kestoSekunnit;
-  @override
-  final int? kestoMinuutit;
-  @override
-  final BuiltList<SarjaStruct> sarjat;
+  final bool? tehty;
   @override
   final bool? showComment;
   @override
-  final bool? tehty;
+  final BuiltList<String>? photos;
+  @override
+  final double? kestoSekunteina;
   @override
   final FirestoreUtilData firestoreUtilData;
 
@@ -210,17 +214,17 @@ class _$LiikeStruct extends LiikeStruct {
 
   _$LiikeStruct._(
       {this.nimi,
+      this.kommentti,
       this.toistoMaara,
       this.sarjaMaara,
-      this.liikeTyyppi,
-      this.painoKg,
-      this.kommentti,
-      this.matkaMetri,
-      this.kestoSekunnit,
-      this.kestoMinuutit,
       required this.sarjat,
-      this.showComment,
+      this.aloitusPainoKg,
+      this.liikeTyyppi,
+      this.matkaMetri,
       this.tehty,
+      this.showComment,
+      this.photos,
+      this.kestoSekunteina,
       required this.firestoreUtilData})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(sarjat, r'LiikeStruct', 'sarjat');
@@ -240,17 +244,17 @@ class _$LiikeStruct extends LiikeStruct {
     if (identical(other, this)) return true;
     return other is LiikeStruct &&
         nimi == other.nimi &&
+        kommentti == other.kommentti &&
         toistoMaara == other.toistoMaara &&
         sarjaMaara == other.sarjaMaara &&
-        liikeTyyppi == other.liikeTyyppi &&
-        painoKg == other.painoKg &&
-        kommentti == other.kommentti &&
-        matkaMetri == other.matkaMetri &&
-        kestoSekunnit == other.kestoSekunnit &&
-        kestoMinuutit == other.kestoMinuutit &&
         sarjat == other.sarjat &&
-        showComment == other.showComment &&
+        aloitusPainoKg == other.aloitusPainoKg &&
+        liikeTyyppi == other.liikeTyyppi &&
+        matkaMetri == other.matkaMetri &&
         tehty == other.tehty &&
+        showComment == other.showComment &&
+        photos == other.photos &&
+        kestoSekunteina == other.kestoSekunteina &&
         firestoreUtilData == other.firestoreUtilData;
   }
 
@@ -268,17 +272,17 @@ class _$LiikeStruct extends LiikeStruct {
                                         $jc(
                                             $jc(
                                                 $jc($jc(0, nimi.hashCode),
-                                                    toistoMaara.hashCode),
-                                                sarjaMaara.hashCode),
-                                            liikeTyyppi.hashCode),
-                                        painoKg.hashCode),
-                                    kommentti.hashCode),
-                                matkaMetri.hashCode),
-                            kestoSekunnit.hashCode),
-                        kestoMinuutit.hashCode),
-                    sarjat.hashCode),
-                showComment.hashCode),
-            tehty.hashCode),
+                                                    kommentti.hashCode),
+                                                toistoMaara.hashCode),
+                                            sarjaMaara.hashCode),
+                                        sarjat.hashCode),
+                                    aloitusPainoKg.hashCode),
+                                liikeTyyppi.hashCode),
+                            matkaMetri.hashCode),
+                        tehty.hashCode),
+                    showComment.hashCode),
+                photos.hashCode),
+            kestoSekunteina.hashCode),
         firestoreUtilData.hashCode));
   }
 
@@ -286,17 +290,17 @@ class _$LiikeStruct extends LiikeStruct {
   String toString() {
     return (newBuiltValueToStringHelper(r'LiikeStruct')
           ..add('nimi', nimi)
+          ..add('kommentti', kommentti)
           ..add('toistoMaara', toistoMaara)
           ..add('sarjaMaara', sarjaMaara)
-          ..add('liikeTyyppi', liikeTyyppi)
-          ..add('painoKg', painoKg)
-          ..add('kommentti', kommentti)
-          ..add('matkaMetri', matkaMetri)
-          ..add('kestoSekunnit', kestoSekunnit)
-          ..add('kestoMinuutit', kestoMinuutit)
           ..add('sarjat', sarjat)
-          ..add('showComment', showComment)
+          ..add('aloitusPainoKg', aloitusPainoKg)
+          ..add('liikeTyyppi', liikeTyyppi)
+          ..add('matkaMetri', matkaMetri)
           ..add('tehty', tehty)
+          ..add('showComment', showComment)
+          ..add('photos', photos)
+          ..add('kestoSekunteina', kestoSekunteina)
           ..add('firestoreUtilData', firestoreUtilData))
         .toString();
   }
@@ -309,6 +313,10 @@ class LiikeStructBuilder implements Builder<LiikeStruct, LiikeStructBuilder> {
   String? get nimi => _$this._nimi;
   set nimi(String? nimi) => _$this._nimi = nimi;
 
+  String? _kommentti;
+  String? get kommentti => _$this._kommentti;
+  set kommentti(String? kommentti) => _$this._kommentti = kommentti;
+
   int? _toistoMaara;
   int? get toistoMaara => _$this._toistoMaara;
   set toistoMaara(int? toistoMaara) => _$this._toistoMaara = toistoMaara;
@@ -317,44 +325,41 @@ class LiikeStructBuilder implements Builder<LiikeStruct, LiikeStructBuilder> {
   int? get sarjaMaara => _$this._sarjaMaara;
   set sarjaMaara(int? sarjaMaara) => _$this._sarjaMaara = sarjaMaara;
 
-  String? _liikeTyyppi;
-  String? get liikeTyyppi => _$this._liikeTyyppi;
-  set liikeTyyppi(String? liikeTyyppi) => _$this._liikeTyyppi = liikeTyyppi;
-
-  double? _painoKg;
-  double? get painoKg => _$this._painoKg;
-  set painoKg(double? painoKg) => _$this._painoKg = painoKg;
-
-  String? _kommentti;
-  String? get kommentti => _$this._kommentti;
-  set kommentti(String? kommentti) => _$this._kommentti = kommentti;
-
-  double? _matkaMetri;
-  double? get matkaMetri => _$this._matkaMetri;
-  set matkaMetri(double? matkaMetri) => _$this._matkaMetri = matkaMetri;
-
-  double? _kestoSekunnit;
-  double? get kestoSekunnit => _$this._kestoSekunnit;
-  set kestoSekunnit(double? kestoSekunnit) =>
-      _$this._kestoSekunnit = kestoSekunnit;
-
-  int? _kestoMinuutit;
-  int? get kestoMinuutit => _$this._kestoMinuutit;
-  set kestoMinuutit(int? kestoMinuutit) =>
-      _$this._kestoMinuutit = kestoMinuutit;
-
   ListBuilder<SarjaStruct>? _sarjat;
   ListBuilder<SarjaStruct> get sarjat =>
       _$this._sarjat ??= new ListBuilder<SarjaStruct>();
   set sarjat(ListBuilder<SarjaStruct>? sarjat) => _$this._sarjat = sarjat;
 
-  bool? _showComment;
-  bool? get showComment => _$this._showComment;
-  set showComment(bool? showComment) => _$this._showComment = showComment;
+  double? _aloitusPainoKg;
+  double? get aloitusPainoKg => _$this._aloitusPainoKg;
+  set aloitusPainoKg(double? aloitusPainoKg) =>
+      _$this._aloitusPainoKg = aloitusPainoKg;
+
+  String? _liikeTyyppi;
+  String? get liikeTyyppi => _$this._liikeTyyppi;
+  set liikeTyyppi(String? liikeTyyppi) => _$this._liikeTyyppi = liikeTyyppi;
+
+  double? _matkaMetri;
+  double? get matkaMetri => _$this._matkaMetri;
+  set matkaMetri(double? matkaMetri) => _$this._matkaMetri = matkaMetri;
 
   bool? _tehty;
   bool? get tehty => _$this._tehty;
   set tehty(bool? tehty) => _$this._tehty = tehty;
+
+  bool? _showComment;
+  bool? get showComment => _$this._showComment;
+  set showComment(bool? showComment) => _$this._showComment = showComment;
+
+  ListBuilder<String>? _photos;
+  ListBuilder<String> get photos =>
+      _$this._photos ??= new ListBuilder<String>();
+  set photos(ListBuilder<String>? photos) => _$this._photos = photos;
+
+  double? _kestoSekunteina;
+  double? get kestoSekunteina => _$this._kestoSekunteina;
+  set kestoSekunteina(double? kestoSekunteina) =>
+      _$this._kestoSekunteina = kestoSekunteina;
 
   FirestoreUtilData? _firestoreUtilData;
   FirestoreUtilData? get firestoreUtilData => _$this._firestoreUtilData;
@@ -369,17 +374,17 @@ class LiikeStructBuilder implements Builder<LiikeStruct, LiikeStructBuilder> {
     final $v = _$v;
     if ($v != null) {
       _nimi = $v.nimi;
+      _kommentti = $v.kommentti;
       _toistoMaara = $v.toistoMaara;
       _sarjaMaara = $v.sarjaMaara;
-      _liikeTyyppi = $v.liikeTyyppi;
-      _painoKg = $v.painoKg;
-      _kommentti = $v.kommentti;
-      _matkaMetri = $v.matkaMetri;
-      _kestoSekunnit = $v.kestoSekunnit;
-      _kestoMinuutit = $v.kestoMinuutit;
       _sarjat = $v.sarjat.toBuilder();
-      _showComment = $v.showComment;
+      _aloitusPainoKg = $v.aloitusPainoKg;
+      _liikeTyyppi = $v.liikeTyyppi;
+      _matkaMetri = $v.matkaMetri;
       _tehty = $v.tehty;
+      _showComment = $v.showComment;
+      _photos = $v.photos?.toBuilder();
+      _kestoSekunteina = $v.kestoSekunteina;
       _firestoreUtilData = $v.firestoreUtilData;
       _$v = null;
     }
@@ -406,17 +411,17 @@ class LiikeStructBuilder implements Builder<LiikeStruct, LiikeStructBuilder> {
       _$result = _$v ??
           new _$LiikeStruct._(
               nimi: nimi,
+              kommentti: kommentti,
               toistoMaara: toistoMaara,
               sarjaMaara: sarjaMaara,
-              liikeTyyppi: liikeTyyppi,
-              painoKg: painoKg,
-              kommentti: kommentti,
-              matkaMetri: matkaMetri,
-              kestoSekunnit: kestoSekunnit,
-              kestoMinuutit: kestoMinuutit,
               sarjat: sarjat.build(),
-              showComment: showComment,
+              aloitusPainoKg: aloitusPainoKg,
+              liikeTyyppi: liikeTyyppi,
+              matkaMetri: matkaMetri,
               tehty: tehty,
+              showComment: showComment,
+              photos: _photos?.build(),
+              kestoSekunteina: kestoSekunteina,
               firestoreUtilData: BuiltValueNullFieldError.checkNotNull(
                   firestoreUtilData, r'LiikeStruct', 'firestoreUtilData'));
     } catch (_) {
@@ -424,6 +429,9 @@ class LiikeStructBuilder implements Builder<LiikeStruct, LiikeStructBuilder> {
       try {
         _$failedField = 'sarjat';
         sarjat.build();
+
+        _$failedField = 'photos';
+        _photos?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'LiikeStruct', _$failedField, e.toString());

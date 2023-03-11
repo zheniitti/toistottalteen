@@ -1,6 +1,6 @@
 import '/backend/backend.dart';
 import '/components/bottom_sheet_rutiini_ja_sessio/bottom_sheet_rutiini_ja_sessio_widget.dart';
-import '/components/liikkeet/liikkeet_widget.dart';
+import '/components/liikkeet_lista/liikkeet_lista_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -15,14 +15,14 @@ class RutiiniTaiSessioModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
   // Model for rutiininLiikkeet.
-  late LiikkeetModel rutiininLiikkeetModel;
+  late LiikkeetListaModel rutiininLiikkeetModel;
   // Stores action output result for [Custom Action - jsonRutiiniFromDataStruct] action in Button widget.
   dynamic? rutiiniJson;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
-    rutiininLiikkeetModel = createModel(context, () => LiikkeetModel());
+    rutiininLiikkeetModel = createModel(context, () => LiikkeetListaModel());
   }
 
   void dispose() {
