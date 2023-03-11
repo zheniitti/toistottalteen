@@ -103,34 +103,52 @@ TreeniRutiiniStruct? updateTreeniRutiiniStruct(
             .build()
         : null;
 
+
+/// Add TreeniRutiiniStruct data to Map<String, dynamic> object
 void addTreeniRutiiniStructData(
   Map<String, dynamic> firestoreData,
   TreeniRutiiniStruct? treeniRutiini,
   String fieldName, [
   bool forFieldValue = false,
 ]) {
+  // Remove any existing value for the given fieldName.
   firestoreData.remove(fieldName);
+
+  // If treeniRutiini is null, do nothing.
   if (treeniRutiini == null) {
     return;
   }
+
+  // If treeniRutiini has the delete flag set to true, add FieldValue.delete() to firestoreData and return.
   if (treeniRutiini.firestoreUtilData.delete) {
     firestoreData[fieldName] = FieldValue.delete();
     return;
   }
+
+  // If forFieldValue is false and treeniRutiini has the clearUnsetFields flag set to true, add an empty map to firestoreData for the given fieldName.
   if (!forFieldValue && treeniRutiini.firestoreUtilData.clearUnsetFields) {
     firestoreData[fieldName] = <String, dynamic>{};
   }
+
+  // Get the Firestore data for treeniRutiini using the getTreeniRutiiniFirestoreData function.
   final treeniRutiiniData =
       getTreeniRutiiniFirestoreData(treeniRutiini, forFieldValue);
+
+  // Create a Map of the nested data in treeniRutiiniData by prefixing each key with the fieldName.
   final nestedData =
       treeniRutiiniData.map((k, v) => MapEntry('$fieldName.$k', v));
 
+  // If treeniRutiini has the create flag set to true, merge the nested data with any existing data in firestoreData using the mergeNestedFields function.
+  // Otherwise, add the nested data directly to firestoreData.
   final create = treeniRutiini.firestoreUtilData.create;
   firestoreData.addAll(create ? mergeNestedFields(nestedData) : nestedData);
 
+  // Return.
   return;
 }
 
+
+/// Convert TreeniRutiiniStruct to Map<String, dynamic>
 Map<String, dynamic> getTreeniRutiiniFirestoreData(
   TreeniRutiiniStruct? treeniRutiini, [
   bool forFieldValue = false,
@@ -152,6 +170,8 @@ Map<String, dynamic> getTreeniRutiiniFirestoreData(
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
 }
 
+
+/// Convert List<TreeniRutiiniStruct> to List<Map<String, dynamic>>
 List<Map<String, dynamic>> getTreeniRutiiniListFirestoreData(
   List<TreeniRutiiniStruct>? treeniRutiinis,
 ) =>
