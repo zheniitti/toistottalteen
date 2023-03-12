@@ -1,5 +1,3 @@
-import 'package:toistot_talteen/custom_code/actions/my_update_treenirutiini.dart';
-
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -25,10 +23,12 @@ class RutiininLiikeNimiTextfieldWidget extends StatefulWidget {
   final LiikeStruct? liike;
 
   @override
-  _RutiininLiikeNimiTextfieldWidgetState createState() => _RutiininLiikeNimiTextfieldWidgetState();
+  _RutiininLiikeNimiTextfieldWidgetState createState() =>
+      _RutiininLiikeNimiTextfieldWidgetState();
 }
 
-class _RutiininLiikeNimiTextfieldWidgetState extends State<RutiininLiikeNimiTextfieldWidget> {
+class _RutiininLiikeNimiTextfieldWidgetState
+    extends State<RutiininLiikeNimiTextfieldWidget> {
   late RutiininLiikeNimiTextfieldModel _model;
 
   @override
@@ -83,14 +83,7 @@ class _RutiininLiikeNimiTextfieldWidgetState extends State<RutiininLiikeNimiText
       ),
       autofocus: true,
       obscureText: false,
-      onTap: () async {
-        logFirebaseEvent('RUTIININ_LIIKE_NIMI_TEXTFIELD_TextField_');
-        logFirebaseEvent('TextField_tap');
-        await myUpdateTreenirutiini(widget.rutiini, null, null, false, null, null, null, null, null, null, null, null, null, null);
-      },
       decoration: InputDecoration(
-        isDense: true,
-        contentPadding: EdgeInsets.zero,
         hintText: FFLocalizations.of(context).getText(
           '6g69qd7e' /* Treenilikkeen nimi */,
         ),

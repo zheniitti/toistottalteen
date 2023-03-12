@@ -23,10 +23,12 @@ class RutiininLiikeKommenttiTextfieldWidget extends StatefulWidget {
   final LiikeStruct? liike;
 
   @override
-  _RutiininLiikeKommenttiTextfieldWidgetState createState() => _RutiininLiikeKommenttiTextfieldWidgetState();
+  _RutiininLiikeKommenttiTextfieldWidgetState createState() =>
+      _RutiininLiikeKommenttiTextfieldWidgetState();
 }
 
-class _RutiininLiikeKommenttiTextfieldWidgetState extends State<RutiininLiikeKommenttiTextfieldWidget> {
+class _RutiininLiikeKommenttiTextfieldWidgetState
+    extends State<RutiininLiikeKommenttiTextfieldWidget> {
   late RutiininLiikeKommenttiTextfieldModel _model;
 
   @override
@@ -40,7 +42,8 @@ class _RutiininLiikeKommenttiTextfieldWidgetState extends State<RutiininLiikeKom
     super.initState();
     _model = createModel(context, () => RutiininLiikeKommenttiTextfieldModel());
 
-    _model.textController ??= TextEditingController(text: widget.liike?.kommentti);
+    _model.textController ??=
+        TextEditingController(text: widget.liike?.kommentti);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -82,8 +85,6 @@ class _RutiininLiikeKommenttiTextfieldWidgetState extends State<RutiininLiikeKom
       autofocus: true,
       obscureText: false,
       decoration: InputDecoration(
-        isDense: true,
-        contentPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
         hintText: FFLocalizations.of(context).getText(
           'jc8zfh0n' /* Treeniliikkeen kommentti */,
         ),
