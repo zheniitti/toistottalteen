@@ -580,34 +580,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Treenipohjan kommentti 💬',
       'en': 'Routine comment 💬',
     },
-    'yod6uchb': {
-      'fi': 'Ma',
-      'en': 'Mon',
-    },
-    'vv4fc4r4': {
-      'fi': 'Ti',
-      'en': 'Tue',
-    },
-    'yuw8d4lw': {
-      'fi': 'Ke',
-      'en': 'Wed',
-    },
-    'ruf636mt': {
-      'fi': 'To',
-      'en': 'Thu',
-    },
-    'an7uyedx': {
-      'fi': 'Pe',
-      'en': 'Fri',
-    },
-    'vlibsxm0': {
-      'fi': 'La',
-      'en': 'Sat',
-    },
-    'c5mfuuxh': {
-      'fi': 'Su',
-      'en': 'Sun',
-    },
     'm9mgmk0g': {
       'fi': 'Lisää liike',
       'en': 'Add exercise',

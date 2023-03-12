@@ -4,14 +4,12 @@ import '/components/sivu_rutiinit/sivu_rutiinit_widget.dart';
 import '/components/sivu_treenaa_tai_luo_rutiini/sivu_treenaa_tai_luo_rutiini_widget.dart';
 import '/components/sivu_treeni_historia/sivu_treeni_historia_widget.dart';
 import '/components/sivupalkki/sivupalkki_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -25,27 +23,11 @@ class PaasivuWidget extends StatefulWidget {
   _PaasivuWidgetState createState() => _PaasivuWidgetState();
 }
 
-class _PaasivuWidgetState extends State<PaasivuWidget>
-    with TickerProviderStateMixin {
+class _PaasivuWidgetState extends State<PaasivuWidget> {
   late PaasivuModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
-
-  final animationsMap = {
-    'navigationBarOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 100.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -334,8 +316,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                         model: _model.navigationBarModel,
                         updateCallback: () => setState(() {}),
                         child: NavigationBarWidget(),
-                      ).animateOnPageLoad(
-                          animationsMap['navigationBarOnPageLoadAnimation']!),
+                      ),
                     ),
                   ),
                 ],

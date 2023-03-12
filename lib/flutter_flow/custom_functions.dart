@@ -35,33 +35,3 @@ List<String> mapRutiiniNimet(List<TreeniRutiiniStruct>? treeniRutiinit) {
   return treeniRutiinit.toList().map((rutiini) => rutiini.nimi).toList()
       as List<String>;
 }
-
-bool showLuoRutiiniButton(List<TreeniRutiiniStruct>? rutiiniList) {
-  // return false if atleast one of the rutiini in the rutiiniList has finishedEditing field set to false
-  if (rutiiniList == null || rutiiniList.isEmpty) return true;
-  return rutiiniList.every((rutiini) => rutiini.finishedEditing == true);
-}
-
-ValitutViikonPaivatStruct updatedValitutViikonPaivat(
-  ValitutViikonPaivatStruct? valitutViikonPaivat,
-  bool? mon,
-  bool? tue,
-  bool? wed,
-  bool? thu,
-  bool? fri,
-  bool? sat,
-  bool? sun,
-) {
-  if (valitutViikonPaivat == null) {
-    return createValitutViikonPaivatStruct();
-  }
-  return createValitutViikonPaivatStruct(
-      ma: mon ?? valitutViikonPaivat?.ma ?? false,
-      ti: tue ?? valitutViikonPaivat?.ti ?? false,
-      ke: wed ?? valitutViikonPaivat?.ke ?? false,
-      to: thu ?? valitutViikonPaivat?.to ?? false,
-      pe: fri ?? valitutViikonPaivat?.pe ?? false,
-      la: sat ?? valitutViikonPaivat?.la ?? false,
-      su: sun ?? valitutViikonPaivat?.su ?? false,
-      clearUnsetFields: false);
-}

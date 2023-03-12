@@ -8,5 +8,3 @@ export 'json_rutiini_from_data_struct.dart' show jsonRutiiniFromDataStruct;
 export 'my_update_treenirutiini.dart' show myUpdateTreenirutiini;
 export 'my_update_liike_at_index.dart' show myUpdateLiikeAtIndex;
 export 'my_update_sarja_at_index.dart' show myUpdateSarjaAtIndex;
-export 'my_update_rutiinin_valitut_paivat.dart'
-    show myUpdateRutiininValitutPaivat;
