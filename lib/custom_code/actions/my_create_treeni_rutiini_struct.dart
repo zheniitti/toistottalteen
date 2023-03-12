@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 Future<TreeniRutiiniStruct> myCreateTreeniRutiiniStruct() async {
   // Add your function code here!
   return createTreeniRutiiniStruct(
-      fieldValues: {'createdTime': FieldValue.serverTimestamp()},
+      createdTime: getCurrentTimestamp,
+      //fieldValues: {'createdTime': FieldValue.serverTimestamp()},
       finishedEditing: false);
 }

@@ -1,15 +1,15 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/sarja_paino_textfield_widget.dart';
+import '/components/sarja_toistot_textfield_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'liike_treenin_aikana_model.dart';
 export 'liike_treenin_aikana_model.dart';
@@ -315,83 +315,13 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> {
                                       Container(
                                         width: 130.0,
                                         decoration: BoxDecoration(),
-                                        child: TextFormField(
-                                          controller: _model.textController3 ??=
-                                              TextEditingController(
-                                            text: sarjatItem.toistoMaara
-                                                ?.toString(),
-                                          ),
-                                          onChanged: (_) =>
-                                              EasyDebounce.debounce(
-                                            '_model.textController3',
-                                            Duration(milliseconds: 2000),
-                                            () => setState(() {}),
-                                          ),
-                                          autofocus: true,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            hintText:
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                              'vzw2070w' /* 0 */,
-                                            ),
-                                            hintStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyText2
-                                                    .override(
-                                                      fontFamily: 'Roboto',
-                                                      fontSize: 20.0,
-                                                    ),
-                                            enabledBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            focusedBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryColor,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            errorBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            focusedErrorBorder:
-                                                UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .subtitle2
-                                              .override(
-                                                fontFamily: 'Roboto',
-                                                fontSize: 20.0,
-                                              ),
-                                          textAlign: TextAlign.center,
-                                          keyboardType: TextInputType.number,
-                                          validator: _model
-                                              .textController3Validator
-                                              .asValidator(context),
-                                          inputFormatters: [
-                                            _model.textFieldMask3
-                                          ],
+                                        child: SarjaToistotTextfieldWidget(
+                                          key: Key(
+                                              'Keyfrz_${sarjatIndex}_of_${sarjat.length}'),
+                                          sarjaIndex: sarjatIndex,
+                                          liikeIndex: widget.liikeIndexInList,
+                                          sarja: sarjatItem,
+                                          sessioDoc: widget.treeniSessio,
                                         ),
                                       ),
                                     ],
@@ -413,75 +343,13 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> {
                                       Container(
                                         width: 130.0,
                                         decoration: BoxDecoration(),
-                                        child: TextFormField(
-                                          controller: _model.textController4 ??=
-                                              TextEditingController(
-                                            text: sarjatItem.paino?.toString(),
-                                          ),
-                                          onChanged: (_) =>
-                                              EasyDebounce.debounce(
-                                            '_model.textController4',
-                                            Duration(milliseconds: 2000),
-                                            () => setState(() {}),
-                                          ),
-                                          autofocus: true,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            hintText:
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                              'utdud272' /* 0 */,
-                                            ),
-                                            hintStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyText2
-                                                    .override(
-                                                      fontFamily: 'Roboto',
-                                                      fontSize: 20.0,
-                                                    ),
-                                            enabledBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            focusedBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryColor,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            errorBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            focusedErrorBorder:
-                                                UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .title3,
-                                          textAlign: TextAlign.center,
-                                          keyboardType: TextInputType.number,
-                                          validator: _model
-                                              .textController4Validator
-                                              .asValidator(context),
+                                        child: SarjaPainoTextfieldWidget(
+                                          key: Key(
+                                              'Key3ik_${sarjatIndex}_of_${sarjat.length}'),
+                                          sarjaIndex: sarjatIndex,
+                                          liikeIndex: widget.liikeIndexInList,
+                                          sarja: sarjatItem,
+                                          sessioDoc: widget.treeniSessio,
                                         ),
                                       ),
                                     ],

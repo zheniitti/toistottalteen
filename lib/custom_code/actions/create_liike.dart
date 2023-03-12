@@ -15,7 +15,6 @@ Future<LiikeStruct> createLiike(
   double? painoKg,
   List<SarjaStruct>? sarjat,
 ) async {
-  // Add your function code here!
   sarjat = sarjat ?? [createSarjaStruct()];
   LiikeStruct liike = createLiikeStruct(
     nimi: nimi ?? '',

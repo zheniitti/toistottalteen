@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import '../../auth/auth_util.dart';
+
 Future removeSessioSarjaAtIndex(
   TreeniSessiotRecord? sessioDoc,
   int liikeIndexInList,

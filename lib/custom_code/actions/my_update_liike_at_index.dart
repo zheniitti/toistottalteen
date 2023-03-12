@@ -1,5 +1,4 @@
 // Automatic FlutterFlow imports
-import '../../auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -8,6 +7,8 @@ import '/flutter_flow/custom_functions.dart'; // Imports custom functions
 import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
+
+import '../../auth/auth_util.dart';
 
 Future myUpdateLiikeAtIndex(
   int liikeIndex,
@@ -25,40 +26,62 @@ Future myUpdateLiikeAtIndex(
 ) async {
   if (treeniRutiini == null || treeniRutiini.createdTime == null) return;
 
-  final int rutiiniIndex = currentUserDocument!.treeniRutiinit!.indexWhere(
-      (rutiini) => rutiini.createdTime! == treeniRutiini?.createdTime);
-  List<Map<String, dynamic>> rutiinitListaFirestoreData =
-      getTreeniRutiiniListFirestoreData(
-          currentUserDocument?.treeniRutiinit?.toList() ?? []);
+  final int rutiiniIndex = currentUserDocument!.treeniRutiinit!.indexWhere((rutiini) => rutiini.createdTime! == treeniRutiini?.createdTime);
+  List<Map<String, dynamic>> rutiinitListaFirestoreData = getTreeniRutiiniListFirestoreData(currentUserDocument?.treeniRutiinit?.toList() ?? []);
   if (rutiinitListaFirestoreData.isEmpty) return;
 
-  Map<String, dynamic> rutiiniFirestoreData =
-      rutiinitListaFirestoreData[rutiiniIndex];
+  Map<String, dynamic> rutiiniFirestoreData = rutiinitListaFirestoreData[rutiiniIndex];
   List<LiikeStruct> liikkeet = treeniRutiini?.liikkeet?.toList() ?? [];
-  Map<String, dynamic> liikeFirestoreData =
-      getLiikeFirestoreData(liikkeet[liikeIndex]);
+  Map<String, dynamic> liikeFirestoreData = getLiikeFirestoreData(liikkeet[liikeIndex], true);
 
+  rutiiniFirestoreData['finishedEditing'] = false;
   liikeFirestoreData['nimi'] = liikeNimi ?? liikeFirestoreData['nimi'];
-  liikeFirestoreData['kommentti'] =
-      liikeKommentti ?? liikeFirestoreData['kommentti'];
-  liikeFirestoreData['toistoMaara'] =
-      toistoMaara ?? liikeFirestoreData['toistoMaara'];
-  liikeFirestoreData['sarjaMaara'] =
-      sarjaMaara ?? liikeFirestoreData['sarjaMaara'];
-  liikeFirestoreData['aloitusPainoKg'] =
-      aloitusPainoKg ?? liikeFirestoreData['aloitusPainoKg'];
-  liikeFirestoreData['liikeTyyppi'] =
-      liikeTyyppi ?? liikeFirestoreData['liikeTyyppi'];
+  liikeFirestoreData['kommentti'] = liikeKommentti ?? liikeFirestoreData['kommentti'];
+  liikeFirestoreData['toistoMaara'] = toistoMaara ?? liikeFirestoreData['toistoMaara'];
+  liikeFirestoreData['sarjaMaara'] = sarjaMaara ?? liikeFirestoreData['sarjaMaara'];
+  liikeFirestoreData['aloitusPainoKg'] = aloitusPainoKg ?? liikeFirestoreData['aloitusPainoKg'];
+  liikeFirestoreData['liikeTyyppi'] = liikeTyyppi ?? liikeFirestoreData['liikeTyyppi'];
   liikeFirestoreData['tehty'] = isTehty ?? liikeFirestoreData['tehty'];
-  liikeFirestoreData['showKommentti'] =
-      showKommentti ?? liikeFirestoreData['showKommentti'];
-  liikeFirestoreData['matkaMetri'] =
-      matkaMetreina ?? liikeFirestoreData['matkaMetri'];
-  liikeFirestoreData['kestoSekunteina'] =
-      kestoSekunteina ?? liikeFirestoreData['kestoSekunteina'];
+  liikeFirestoreData['showKommentti'] = showKommentti ?? liikeFirestoreData['showKommentti'];
+  liikeFirestoreData['matkaMetri'] = matkaMetreina ?? liikeFirestoreData['matkaMetri'];
+  liikeFirestoreData['kestoSekunteina'] = kestoSekunteina ?? liikeFirestoreData['kestoSekunteina'];
 
   rutiiniFirestoreData['liikkeet'][liikeIndex] = liikeFirestoreData;
   rutiinitListaFirestoreData[rutiiniIndex] = rutiiniFirestoreData;
-  await currentUserReference!
-      .update({'treeniRutiinit': rutiinitListaFirestoreData});
+  await currentUserReference!.update({'treeniRutiinit': rutiinitListaFirestoreData});
+}
+
+Future myUpdateRutiininValitutPaivat(
+  TreeniRutiiniStruct? rutiini,
+  bool? toggleMa,
+  bool? toggleTi,
+  bool? toggleKe,
+  bool? toggleTo,
+  bool? togglePe,
+  bool? toggleLa,
+  bool? toggleSu,
+) async {
+  if (rutiini == null || rutiini.createdTime == null) return;
+
+  try {
+    final int rutiiniIndex = currentUserDocument!.treeniRutiinit!.indexWhere((rutiini) => rutiini.createdTime! == rutiini?.createdTime);
+    List<Map<String, dynamic>> rutiinitListaFirestoreData = getTreeniRutiiniListFirestoreData(currentUserDocument?.treeniRutiinit?.toList() ?? []);
+    if (rutiinitListaFirestoreData.isEmpty) return;
+
+    Map<String, dynamic> rutiiniFirestoreData = rutiinitListaFirestoreData[rutiiniIndex];
+    Map<String, dynamic> valitutViikonPaivat = rutiiniFirestoreData['valitutPaivat'] ?? {};
+    valitutViikonPaivat['ma'] = toggleMa ?? !valitutViikonPaivat['ma'];
+    valitutViikonPaivat['ti'] = toggleTi ?? !valitutViikonPaivat['ti'];
+    valitutViikonPaivat['ke'] = toggleKe ?? !valitutViikonPaivat['ke'];
+    valitutViikonPaivat['to'] = toggleTo ?? !valitutViikonPaivat['to'];
+    valitutViikonPaivat['pe'] = togglePe ?? !valitutViikonPaivat['pe'];
+    valitutViikonPaivat['la'] = toggleLa ?? !valitutViikonPaivat['la'];
+    valitutViikonPaivat['su'] = toggleSu ?? !valitutViikonPaivat['su'];
+
+    rutiiniFirestoreData['valitutPaivat'] = valitutViikonPaivat;
+    rutiinitListaFirestoreData[rutiiniIndex] = rutiiniFirestoreData;
+    await currentUserReference!.update({'treeniRutiinit': rutiinitListaFirestoreData});
+  } on Exception catch (e) {
+    print('Error updating rutiinin valitut paivat: $e');
+  }
 }

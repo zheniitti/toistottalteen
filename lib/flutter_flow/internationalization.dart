@@ -436,17 +436,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Toistot',
       'en': 'Reps',
     },
-    'vzw2070w': {
-      'fi': '0',
-      'en': 'Repetitions',
-    },
     '1zpp3lp9': {
       'fi': 'Paino (kg)',
       'en': 'Weight (kg)',
-    },
-    'utdud272': {
-      'fi': '0',
-      'en': 'Repetitions',
     },
     'hcx7u96d': {
       'fi': '.\nsarja',
@@ -588,14 +580,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Treenipohjan kommentti 💬',
       'en': 'Routine comment 💬',
     },
-    'fku8v94c': {
-      'fi': 'Liikkeen nimi',
-      'en': 'Exercise name',
-    },
-    'p6ehf4o5': {
-      'fi': 'Liikkeen kommentti',
-      'en': 'Exercise comment',
-    },
     'm9mgmk0g': {
       'fi': 'Lisää liike',
       'en': 'Add exercise',
@@ -611,6 +595,34 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '5o4nggqe': {
       'fi': 'Treenaa nyt',
       'en': 'Start now',
+    },
+  },
+  // rutiininLiikeNimiTextfield
+  {
+    '6g69qd7e': {
+      'fi': 'Treenilikkeen nimi',
+      'en': 'Exercise name',
+    },
+  },
+  // rutiininLiikeKommenttiTextfield
+  {
+    'jc8zfh0n': {
+      'fi': 'Treeniliikkeen kommentti',
+      'en': 'Exercise comment',
+    },
+  },
+  // sarjaToistotTextfield
+  {
+    'yylnuo9q': {
+      'fi': '0',
+      'en': 'Repetitions',
+    },
+  },
+  // sarjaPainoTextfield
+  {
+    'vd95k1b9': {
+      'fi': '0',
+      'en': 'Repetitions',
     },
   },
   // Miscellaneous
