@@ -112,7 +112,7 @@ class _SivuRutiinitWidgetState extends State<SivuRutiinitWidget> {
                         Wrap(
                           spacing: 20.0,
                           runSpacing: 20.0,
-                          alignment: WrapAlignment.start,
+                          alignment: WrapAlignment.center,
                           crossAxisAlignment: WrapCrossAlignment.start,
                           direction: Axis.horizontal,
                           runAlignment: WrapAlignment.start,
@@ -134,6 +134,11 @@ class _SivuRutiinitWidgetState extends State<SivuRutiinitWidget> {
                                 updateCallback: () => setState(() {}),
                                 child: ButtonAloitaTreenaaminenWidget(),
                               ),
+                            ),
+                            Container(
+                              width: double.infinity,
+                              height: 70.0,
+                              decoration: BoxDecoration(),
                             ),
                           ],
                         ),

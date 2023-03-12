@@ -1,5 +1,3 @@
-import 'package:toistot_talteen/custom_code/actions/my_update_treenirutiini.dart';
-
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -25,10 +23,12 @@ class RutiininLiikeNimiTextfieldWidget extends StatefulWidget {
   final LiikeStruct? liike;
 
   @override
-  _RutiininLiikeNimiTextfieldWidgetState createState() => _RutiininLiikeNimiTextfieldWidgetState();
+  _RutiininLiikeNimiTextfieldWidgetState createState() =>
+      _RutiininLiikeNimiTextfieldWidgetState();
 }
 
-class _RutiininLiikeNimiTextfieldWidgetState extends State<RutiininLiikeNimiTextfieldWidget> {
+class _RutiininLiikeNimiTextfieldWidgetState
+    extends State<RutiininLiikeNimiTextfieldWidget> {
   late RutiininLiikeNimiTextfieldModel _model;
 
   @override

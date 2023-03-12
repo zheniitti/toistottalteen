@@ -27,12 +27,16 @@ Future myUpdateTreenirutiini(
   bool? addModifiedTime,
 ) async {
   if (treeniRutiini == null || treeniRutiini.createdTime == null) return;
-  List<TreeniRutiiniStruct>? rutiinitLista = currentUserDocument?.treeniRutiinit?.toList() ?? [];
-  List<Map<String, dynamic>> rutiiniListaFirestoreData = getTreeniRutiiniListFirestoreData(rutiinitLista);
+  List<TreeniRutiiniStruct>? rutiinitLista =
+      currentUserDocument?.treeniRutiinit?.toList() ?? [];
+  List<Map<String, dynamic>> rutiiniListaFirestoreData =
+      getTreeniRutiiniListFirestoreData(rutiinitLista);
   if (rutiinitLista.isEmpty) return;
 
-  final int rutiiniIndex = rutiinitLista.indexWhere((rutiini) => rutiini.createdTime! == treeniRutiini?.createdTime);
-  Map<String, dynamic> rutiiniFirestoreData = getTreeniRutiiniFirestoreData(treeniRutiini);
+  final int rutiiniIndex = rutiinitLista.indexWhere(
+      (rutiini) => rutiini.createdTime! == treeniRutiini?.createdTime);
+  Map<String, dynamic> rutiiniFirestoreData =
+      getTreeniRutiiniFirestoreData(treeniRutiini);
 
   try {
     if (lisaaUusiLiike != null && lisaaUusiLiike) {
@@ -49,16 +53,15 @@ Future myUpdateTreenirutiini(
   }
 
   try {
-    if (finishedEditing != null && finishedEditing)
-      rutiiniFirestoreData['finishedEditing'] = true;
-    else
-      rutiiniFirestoreData['finishedEditing'] = false;
+    if (finishedEditing != null && finishedEditing) {
+      rutiiniFirestoreData['finishedEditing'] = finishedEditing;
+    }
   } on Exception catch (e) {
     print('Rutiinin finishedEditing päivitys epäonnistui: $e');
   }
 
   try {
-    if (isTreeniPohja != null && isTreeniPohja) {
+    if (isTreeniPohja != null) {
       rutiiniFirestoreData['isTreeniPohja'] = isTreeniPohja;
     }
   } on Exception catch (e) {
@@ -93,7 +96,8 @@ Future myUpdateTreenirutiini(
 
   try {
     if (valitutViikonPaivat != null) {
-      rutiiniFirestoreData['valitutViikonPaivat'] = getValitutViikonPaivatFirestoreData(valitutViikonPaivat);
+      rutiiniFirestoreData['valitutViikonPaivat'] =
+          getValitutViikonPaivatFirestoreData(valitutViikonPaivat);
     }
   } on Exception catch (e) {
     print('Rutiinin valittujen viikonpäivien päivitys epäonnistui: $e');
@@ -125,7 +129,9 @@ Future myUpdateTreenirutiini(
 
   try {
     if (addModifiedTime != null && addModifiedTime) {
-      rutiiniFirestoreData['modifiedTimes'] = rutiiniFirestoreData['modifiedTimes'].toList()..add(getCurrentTimestamp);
+      rutiiniFirestoreData['modifiedTimes'] =
+          rutiiniFirestoreData['modifiedTimes'].toList()
+            ..add(getCurrentTimestamp);
     }
   } on Exception catch (e) {
     print('Rutiinin modifiedTimes päivitys epäonnistui: $e');
@@ -134,7 +140,8 @@ Future myUpdateTreenirutiini(
   try {
     //rutiinitLista[rutiiniIndex] = treeniRutiini!;
     rutiiniListaFirestoreData[rutiiniIndex] = rutiiniFirestoreData;
-    await currentUserReference!.update({'treeniRutiinit': rutiiniListaFirestoreData});
+    await currentUserReference!
+        .update({'treeniRutiinit': rutiiniListaFirestoreData});
   } on Exception catch (e) {
     print('Rutiinin päivitys epäonnistui: $e');
   }

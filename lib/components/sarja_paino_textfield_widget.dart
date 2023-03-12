@@ -24,7 +24,8 @@ class SarjaPainoTextfieldWidget extends StatefulWidget {
   final TreeniSessiotRecord? sessioDoc;
 
   @override
-  _SarjaPainoTextfieldWidgetState createState() => _SarjaPainoTextfieldWidgetState();
+  _SarjaPainoTextfieldWidgetState createState() =>
+      _SarjaPainoTextfieldWidgetState();
 }
 
 class _SarjaPainoTextfieldWidgetState extends State<SarjaPainoTextfieldWidget> {
@@ -41,7 +42,8 @@ class _SarjaPainoTextfieldWidgetState extends State<SarjaPainoTextfieldWidget> {
     super.initState();
     _model = createModel(context, () => SarjaPainoTextfieldModel());
 
-    _model.textController ??= TextEditingController(text: widget.sarja?.paino?.toString());
+    _model.textController ??=
+        TextEditingController(text: widget.sarja?.paino?.toString());
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
