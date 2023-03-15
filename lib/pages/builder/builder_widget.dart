@@ -1,9 +1,13 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/rutiinin_liikkeet_widget.dart';
+import '/flutter_flow/flutter_flow_ad_banner.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:expandable/expandable.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -104,6 +108,95 @@ class _BuilderWidgetState extends State<BuilderWidget> {
                   height: 100.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
+                  ),
+                ),
+              ),
+              FlutterFlowAdBanner(
+                width: MediaQuery.of(context).size.width * 1.0,
+                height: 60.0,
+                showsTestAd: true,
+                iOSAdUnitID: 'ca-app-pub-6667798289242281/3798313004',
+                androidAdUnitID: 'ca-app-pub-6667798289242281/8613432088',
+              ),
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                ),
+                child: Container(
+                  width: double.infinity,
+                  color: Colors.white,
+                  child: ExpandableNotifier(
+                    initialExpanded: false,
+                    child: ExpandablePanel(
+                      header: Wrap(
+                        spacing: 12.0,
+                        runSpacing: 2.0,
+                        alignment: WrapAlignment.start,
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        direction: Axis.horizontal,
+                        runAlignment: WrapAlignment.center,
+                        verticalDirection: VerticalDirection.down,
+                        clipBehavior: Clip.none,
+                        children: [
+                          Text(
+                            FFLocalizations.of(context).getText(
+                              'v217xhtu' /* Ylävartalotreeni */,
+                            ),
+                            style: FlutterFlowTheme.of(context).subtitle2,
+                          ),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: FFLocalizations.of(context).getText(
+                                    'cfxbyihj' /* Aloitettu:  */,
+                                  ),
+                                  style: TextStyle(),
+                                ),
+                                TextSpan(
+                                  text: FFLocalizations.of(context).getText(
+                                    'et9cdvrl' /* 30 min sitten dsltkphklp */,
+                                  ),
+                                  style: TextStyle(),
+                                )
+                              ],
+                              style: FlutterFlowTheme.of(context).bodyText1,
+                            ),
+                          ),
+                        ],
+                      ),
+                      collapsed: Container(
+                        width: MediaQuery.of(context).size.width * 1.0,
+                        height: 0.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                        ),
+                      ),
+                      expanded: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Container(
+                            width: double.infinity,
+                            decoration: BoxDecoration(),
+                            child: wrapWithModel(
+                              model: _model.rutiininLiikkeetModel,
+                              updateCallback: () => setState(() {}),
+                              child: RutiininLiikkeetWidget(),
+                            ),
+                          ),
+                        ],
+                      ),
+                      theme: ExpandableThemeData(
+                        tapHeaderToExpand: true,
+                        tapBodyToExpand: false,
+                        tapBodyToCollapse: false,
+                        headerAlignment: ExpandablePanelHeaderAlignment.center,
+                        hasIcon: true,
+                        iconSize: 24.0,
+                      ),
+                    ),
                   ),
                 ),
               ),

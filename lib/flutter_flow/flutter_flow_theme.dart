@@ -40,6 +40,7 @@ abstract class FlutterFlowTheme {
   late Color secondaryText;
 
   late Color hintColor;
+  late Color deleteRed;
 
   String get title1Family => typography.title1Family;
   TextStyle get title1 => typography.title1;
@@ -70,6 +71,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color secondaryText = const Color(0xFF57636C);
 
   late Color hintColor = Color(0xFFA7A7A7);
+  late Color deleteRed = Color(0xFFFF3500);
 }
 
 abstract class Typography {
@@ -156,6 +158,7 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color secondaryText = const Color(0xFFBAC9D5);
 
   late Color hintColor = Color(0xFF0E9CA8);
+  late Color deleteRed = Color(0xFFFF3500);
 }
 
 extension TextStyleHelper on TextStyle {

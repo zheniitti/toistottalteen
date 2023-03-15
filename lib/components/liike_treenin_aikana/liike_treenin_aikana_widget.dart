@@ -94,12 +94,13 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> {
                     children: [
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            20.0, 0.0, 20.0, 0.0),
+                            20.0, 9.0, 20.0, 0.0),
                         child: TextFormField(
                           controller: _model.textController1,
                           autofocus: true,
                           obscureText: false,
                           decoration: InputDecoration(
+                            isDense: true,
                             hintText: FFLocalizations.of(context).getText(
                               '29oo50bm' /* Liikkeen nimi */,
                             ),
@@ -163,74 +164,82 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> {
                               .asValidator(context),
                         ),
                       ),
-                      if (widget.liike?.showComment ?? true)
-                        TextFormField(
-                          controller: _model.textController2,
-                          autofocus: true,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            hintText: FFLocalizations.of(context).getText(
-                              'l7w663ju' /* Kommentti (vapaaehtoinen) */,
-                            ),
-                            hintStyle:
-                                FlutterFlowTheme.of(context).bodyText2.override(
-                                      fontFamily: 'Roboto',
-                                      fontSize: 14.0,
-                                      lineHeight: 1.0,
-                                    ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1.0,
+                      if (widget.liike!.showComment! ||
+                          (widget.liike?.kommentti != null &&
+                              widget.liike?.kommentti != ''))
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 4.0, 0.0, 0.0),
+                          child: TextFormField(
+                            controller: _model.textController2,
+                            autofocus: true,
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              isDense: true,
+                              hintText: FFLocalizations.of(context).getText(
+                                'l7w663ju' /* Kommentti (vapaaehtoinen) */,
                               ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1.0,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            errorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1.0,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            focusedErrorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1.0,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                          ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                              hintStyle: FlutterFlowTheme.of(context)
+                                  .bodyText2
+                                  .override(
                                     fontFamily: 'Roboto',
                                     fontSize: 14.0,
-                                    fontWeight: FontWeight.w500,
                                     lineHeight: 1.0,
                                   ),
-                          textAlign: TextAlign.start,
-                          maxLines: 20,
-                          minLines: 1,
-                          validator: _model.textController2Validator
-                              .asValidator(context),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 1.0,
+                                ),
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(4.0),
+                                  topRight: Radius.circular(4.0),
+                                ),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 1.0,
+                                ),
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(4.0),
+                                  topRight: Radius.circular(4.0),
+                                ),
+                              ),
+                              errorBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 1.0,
+                                ),
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(4.0),
+                                  topRight: Radius.circular(4.0),
+                                ),
+                              ),
+                              focusedErrorBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 1.0,
+                                ),
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(4.0),
+                                  topRight: Radius.circular(4.0),
+                                ),
+                              ),
+                            ),
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Roboto',
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.normal,
+                                      lineHeight: 1.0,
+                                    ),
+                            textAlign: TextAlign.start,
+                            maxLines: 20,
+                            minLines: 1,
+                            validator: _model.textController2Validator
+                                .asValidator(context),
+                          ),
                         ),
                     ],
                   ),
@@ -253,7 +262,9 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> {
                     ],
                   ),
                 ),
-                if (!widget.liike!.showComment!)
+                if (!widget.liike!.showComment! ||
+                    (widget.liike?.kommentti == null ||
+                        widget.liike?.kommentti == ''))
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 10.0),
@@ -426,157 +437,124 @@ sarja */
                 );
               },
             ),
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: Stack(
-                    children: [
-                      Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
-                        child: Wrap(
-                          spacing: 50.0,
-                          runSpacing: 0.0,
-                          alignment: WrapAlignment.center,
-                          crossAxisAlignment: WrapCrossAlignment.center,
-                          direction: Axis.horizontal,
-                          runAlignment: WrapAlignment.center,
-                          verticalDirection: VerticalDirection.down,
-                          clipBehavior: Clip.none,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 2.0, 0.0, 6.0),
-                              child: InkWell(
-                                onTap: () async {
-                                  logFirebaseEvent(
-                                      'LIIKE_TREENIN_AIKANA_Row_5f3q34g1_ON_TAP');
-                                  logFirebaseEvent('Row_update_widget_state');
-                                  setState(() {});
-                                  logFirebaseEvent('Row_backend_call');
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 8.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InkWell(
+                    onTap: () async {
+                      logFirebaseEvent(
+                          'LIIKE_TREENIN_AIKANA_Row_5f3q34g1_ON_TAP');
+                      logFirebaseEvent('Row_update_widget_state');
+                      setState(() {});
+                      logFirebaseEvent('Row_backend_call');
 
-                                  final treeniSessiotUpdateData =
-                                      createTreeniSessiotRecordData(
-                                    treeniRutiiniData:
-                                        createTreeniRutiiniStruct(
-                                      fieldValues: {
-                                        'liikkeet': FieldValue.arrayUnion([
-                                          getLiikeFirestoreData(
-                                            createLiikeStruct(
-                                              nimi: '',
-                                              clearUnsetFields: false,
-                                            ),
-                                            true,
-                                          )
-                                        ]),
-                                      },
-                                      clearUnsetFields: false,
-                                    ),
-                                  );
-                                  await widget.treeniSessio!.reference
-                                      .update(treeniSessiotUpdateData);
-                                },
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          4.0, 0.0, 4.0, 0.0),
-                                      child: Icon(
-                                        Icons.add_circle_outline_rounded,
-                                        color: Colors.black,
-                                        size: 30.0,
-                                      ),
-                                    ),
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        'dxvry4te' /* lisää sarja */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Align(
-                        alignment: AlignmentDirectional(1.0, 0.0),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 2.0, 8.0, 6.0),
-                          child: InkWell(
-                            onTap: () async {
-                              logFirebaseEvent(
-                                  'LIIKE_TREENIN_AIKANA_Row_55r3gb8v_ON_TAP');
-                              logFirebaseEvent('Row_update_widget_state');
-                              setState(() {});
-                              logFirebaseEvent('Row_backend_call');
-
-                              final treeniSessiotUpdateData =
-                                  createTreeniSessiotRecordData(
-                                treeniRutiiniData: createTreeniRutiiniStruct(
-                                  fieldValues: {
-                                    'liikkeet': FieldValue.arrayUnion([
-                                      getLiikeFirestoreData(
-                                        createLiikeStruct(
-                                          nimi: '',
-                                          clearUnsetFields: false,
-                                        ),
-                                        true,
-                                      )
-                                    ]),
-                                  },
+                      final treeniSessiotUpdateData =
+                          createTreeniSessiotRecordData(
+                        treeniRutiiniData: createTreeniRutiiniStruct(
+                          fieldValues: {
+                            'liikkeet': FieldValue.arrayUnion([
+                              getLiikeFirestoreData(
+                                createLiikeStruct(
+                                  nimi: '',
                                   clearUnsetFields: false,
                                 ),
-                              );
-                              await widget.treeniSessio!.reference
-                                  .update(treeniSessiotUpdateData);
-                            },
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'rrk6y01u' /* Tehty */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context).bodyText1,
-                                ),
-                                Theme(
-                                  data: ThemeData(
-                                    checkboxTheme: CheckboxThemeData(
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(4.0),
-                                      ),
-                                    ),
-                                    unselectedWidgetColor: Color(0xFFF5F5F5),
-                                  ),
-                                  child: Checkbox(
-                                    value: _model.checkboxValue ??=
-                                        widget.liike!.tehty!,
-                                    onChanged: (newValue) async {
-                                      setState(() =>
-                                          _model.checkboxValue = newValue!);
-                                    },
-                                    activeColor: FlutterFlowTheme.of(context)
-                                        .primaryColor,
-                                  ),
-                                ),
-                              ],
-                            ),
+                                true,
+                              )
+                            ]),
+                          },
+                          clearUnsetFields: false,
+                        ),
+                      );
+                      await widget.treeniSessio!.reference
+                          .update(treeniSessiotUpdateData);
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              4.0, 0.0, 4.0, 0.0),
+                          child: Icon(
+                            Icons.add_circle_outline_rounded,
+                            color: Colors.black,
+                            size: 30.0,
                           ),
                         ),
-                      ),
-                    ],
+                        Text(
+                          FFLocalizations.of(context).getText(
+                            'dxvry4te' /* Lisää sarja */,
+                          ),
+                          style: FlutterFlowTheme.of(context).bodyText1,
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                  InkWell(
+                    onTap: () async {
+                      logFirebaseEvent(
+                          'LIIKE_TREENIN_AIKANA_Row_55r3gb8v_ON_TAP');
+                      logFirebaseEvent('Row_update_widget_state');
+                      setState(() {});
+                      logFirebaseEvent('Row_backend_call');
+
+                      final treeniSessiotUpdateData =
+                          createTreeniSessiotRecordData(
+                        treeniRutiiniData: createTreeniRutiiniStruct(
+                          fieldValues: {
+                            'liikkeet': FieldValue.arrayUnion([
+                              getLiikeFirestoreData(
+                                createLiikeStruct(
+                                  nimi: '',
+                                  clearUnsetFields: false,
+                                ),
+                                true,
+                              )
+                            ]),
+                          },
+                          clearUnsetFields: false,
+                        ),
+                      );
+                      await widget.treeniSessio!.reference
+                          .update(treeniSessiotUpdateData);
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          FFLocalizations.of(context).getText(
+                            'rrk6y01u' /* Tehty */,
+                          ),
+                          style: FlutterFlowTheme.of(context).bodyText1,
+                        ),
+                        Theme(
+                          data: ThemeData(
+                            checkboxTheme: CheckboxThemeData(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(4.0),
+                              ),
+                            ),
+                            unselectedWidgetColor: Color(0xFFF5F5F5),
+                          ),
+                          child: Checkbox(
+                            value: _model.checkboxValue ??=
+                                widget.liike!.tehty!,
+                            onChanged: (newValue) async {
+                              setState(() => _model.checkboxValue = newValue!);
+                            },
+                            activeColor:
+                                FlutterFlowTheme.of(context).primaryColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

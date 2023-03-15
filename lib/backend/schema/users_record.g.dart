@@ -17,7 +17,11 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
   @override
   Iterable<Object?> serialize(Serializers serializers, UsersRecord object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
+    final result = <Object?>[
+      'selectedRutiiniToWorkout',
+      serializers.serialize(object.selectedRutiiniToWorkout,
+          specifiedType: const FullType(TreeniRutiiniStruct)),
+    ];
     Object? value;
     value = object.email;
     if (value != null) {
@@ -90,6 +94,70 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
             specifiedType: const FullType(
                 BuiltList, const [const FullType(TreeniRutiiniStruct)])));
     }
+    value = object.maRutiinit;
+    if (value != null) {
+      result
+        ..add('maRutiinit')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(DateTime)])));
+    }
+    value = object.tiRutiinit;
+    if (value != null) {
+      result
+        ..add('tiRutiinit')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(DateTime)])));
+    }
+    value = object.keRutiinit;
+    if (value != null) {
+      result
+        ..add('keRutiinit')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(DateTime)])));
+    }
+    value = object.toRutiinit;
+    if (value != null) {
+      result
+        ..add('toRutiinit')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(DateTime)])));
+    }
+    value = object.peRutiinit;
+    if (value != null) {
+      result
+        ..add('peRutiinit')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(DateTime)])));
+    }
+    value = object.laRutiinit;
+    if (value != null) {
+      result
+        ..add('laRutiinit')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(DateTime)])));
+    }
+    value = object.suRutiinit;
+    if (value != null) {
+      result
+        ..add('suRutiinit')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(DateTime)])));
+    }
+    value = object.refSessioToEdit;
+    if (value != null) {
+      result
+        ..add('refSessioToEdit')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                DocumentReference, const [const FullType.nullable(Object)])));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -154,6 +222,59 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
                       BuiltList, const [const FullType(TreeniRutiiniStruct)]))!
               as BuiltList<Object?>);
           break;
+        case 'maRutiinit':
+          result.maRutiinit.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(DateTime)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'tiRutiinit':
+          result.tiRutiinit.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(DateTime)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'keRutiinit':
+          result.keRutiinit.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(DateTime)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'toRutiinit':
+          result.toRutiinit.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(DateTime)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'peRutiinit':
+          result.peRutiinit.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(DateTime)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'laRutiinit':
+          result.laRutiinit.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(DateTime)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'suRutiinit':
+          result.suRutiinit.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(DateTime)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'refSessioToEdit':
+          result.refSessioToEdit = serializers.deserialize(value,
+              specifiedType: const FullType(DocumentReference, const [
+                const FullType.nullable(Object)
+              ])) as DocumentReference<Object?>?;
+          break;
+        case 'selectedRutiiniToWorkout':
+          result.selectedRutiiniToWorkout.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TreeniRutiiniStruct))!
+              as TreeniRutiiniStruct);
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -189,6 +310,24 @@ class _$UsersRecord extends UsersRecord {
   @override
   final BuiltList<TreeniRutiiniStruct>? treeniRutiinit;
   @override
+  final BuiltList<DateTime>? maRutiinit;
+  @override
+  final BuiltList<DateTime>? tiRutiinit;
+  @override
+  final BuiltList<DateTime>? keRutiinit;
+  @override
+  final BuiltList<DateTime>? toRutiinit;
+  @override
+  final BuiltList<DateTime>? peRutiinit;
+  @override
+  final BuiltList<DateTime>? laRutiinit;
+  @override
+  final BuiltList<DateTime>? suRutiinit;
+  @override
+  final DocumentReference<Object?>? refSessioToEdit;
+  @override
+  final TreeniRutiiniStruct selectedRutiiniToWorkout;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$UsersRecord([void Function(UsersRecordBuilder)? updates]) =>
@@ -205,8 +344,20 @@ class _$UsersRecord extends UsersRecord {
       this.darkMode,
       this.weightUnit,
       this.treeniRutiinit,
+      this.maRutiinit,
+      this.tiRutiinit,
+      this.keRutiinit,
+      this.toRutiinit,
+      this.peRutiinit,
+      this.laRutiinit,
+      this.suRutiinit,
+      this.refSessioToEdit,
+      required this.selectedRutiiniToWorkout,
       this.ffRef})
-      : super._();
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        selectedRutiiniToWorkout, r'UsersRecord', 'selectedRutiiniToWorkout');
+  }
 
   @override
   UsersRecord rebuild(void Function(UsersRecordBuilder) updates) =>
@@ -229,6 +380,15 @@ class _$UsersRecord extends UsersRecord {
         darkMode == other.darkMode &&
         weightUnit == other.weightUnit &&
         treeniRutiinit == other.treeniRutiinit &&
+        maRutiinit == other.maRutiinit &&
+        tiRutiinit == other.tiRutiinit &&
+        keRutiinit == other.keRutiinit &&
+        toRutiinit == other.toRutiinit &&
+        peRutiinit == other.peRutiinit &&
+        laRutiinit == other.laRutiinit &&
+        suRutiinit == other.suRutiinit &&
+        refSessioToEdit == other.refSessioToEdit &&
+        selectedRutiiniToWorkout == other.selectedRutiiniToWorkout &&
         ffRef == other.ffRef;
   }
 
@@ -243,16 +403,34 @@ class _$UsersRecord extends UsersRecord {
                             $jc(
                                 $jc(
                                     $jc(
-                                        $jc($jc(0, email.hashCode),
-                                            displayName.hashCode),
-                                        photoUrl.hashCode),
-                                    uid.hashCode),
-                                createdTime.hashCode),
-                            phoneNumber.hashCode),
-                        appLangCode.hashCode),
-                    darkMode.hashCode),
-                weightUnit.hashCode),
-            treeniRutiinit.hashCode),
+                                        $jc(
+                                            $jc(
+                                                $jc(
+                                                    $jc(
+                                                        $jc(
+                                                            $jc(
+                                                                $jc(
+                                                                    $jc(
+                                                                        $jc(
+                                                                            $jc($jc(0, email.hashCode),
+                                                                                displayName.hashCode),
+                                                                            photoUrl.hashCode),
+                                                                        uid.hashCode),
+                                                                    createdTime.hashCode),
+                                                                phoneNumber.hashCode),
+                                                            appLangCode.hashCode),
+                                                        darkMode.hashCode),
+                                                    weightUnit.hashCode),
+                                                treeniRutiinit.hashCode),
+                                            maRutiinit.hashCode),
+                                        tiRutiinit.hashCode),
+                                    keRutiinit.hashCode),
+                                toRutiinit.hashCode),
+                            peRutiinit.hashCode),
+                        laRutiinit.hashCode),
+                    suRutiinit.hashCode),
+                refSessioToEdit.hashCode),
+            selectedRutiiniToWorkout.hashCode),
         ffRef.hashCode));
   }
 
@@ -269,6 +447,15 @@ class _$UsersRecord extends UsersRecord {
           ..add('darkMode', darkMode)
           ..add('weightUnit', weightUnit)
           ..add('treeniRutiinit', treeniRutiinit)
+          ..add('maRutiinit', maRutiinit)
+          ..add('tiRutiinit', tiRutiinit)
+          ..add('keRutiinit', keRutiinit)
+          ..add('toRutiinit', toRutiinit)
+          ..add('peRutiinit', peRutiinit)
+          ..add('laRutiinit', laRutiinit)
+          ..add('suRutiinit', suRutiinit)
+          ..add('refSessioToEdit', refSessioToEdit)
+          ..add('selectedRutiiniToWorkout', selectedRutiiniToWorkout)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -319,6 +506,60 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   set treeniRutiinit(ListBuilder<TreeniRutiiniStruct>? treeniRutiinit) =>
       _$this._treeniRutiinit = treeniRutiinit;
 
+  ListBuilder<DateTime>? _maRutiinit;
+  ListBuilder<DateTime> get maRutiinit =>
+      _$this._maRutiinit ??= new ListBuilder<DateTime>();
+  set maRutiinit(ListBuilder<DateTime>? maRutiinit) =>
+      _$this._maRutiinit = maRutiinit;
+
+  ListBuilder<DateTime>? _tiRutiinit;
+  ListBuilder<DateTime> get tiRutiinit =>
+      _$this._tiRutiinit ??= new ListBuilder<DateTime>();
+  set tiRutiinit(ListBuilder<DateTime>? tiRutiinit) =>
+      _$this._tiRutiinit = tiRutiinit;
+
+  ListBuilder<DateTime>? _keRutiinit;
+  ListBuilder<DateTime> get keRutiinit =>
+      _$this._keRutiinit ??= new ListBuilder<DateTime>();
+  set keRutiinit(ListBuilder<DateTime>? keRutiinit) =>
+      _$this._keRutiinit = keRutiinit;
+
+  ListBuilder<DateTime>? _toRutiinit;
+  ListBuilder<DateTime> get toRutiinit =>
+      _$this._toRutiinit ??= new ListBuilder<DateTime>();
+  set toRutiinit(ListBuilder<DateTime>? toRutiinit) =>
+      _$this._toRutiinit = toRutiinit;
+
+  ListBuilder<DateTime>? _peRutiinit;
+  ListBuilder<DateTime> get peRutiinit =>
+      _$this._peRutiinit ??= new ListBuilder<DateTime>();
+  set peRutiinit(ListBuilder<DateTime>? peRutiinit) =>
+      _$this._peRutiinit = peRutiinit;
+
+  ListBuilder<DateTime>? _laRutiinit;
+  ListBuilder<DateTime> get laRutiinit =>
+      _$this._laRutiinit ??= new ListBuilder<DateTime>();
+  set laRutiinit(ListBuilder<DateTime>? laRutiinit) =>
+      _$this._laRutiinit = laRutiinit;
+
+  ListBuilder<DateTime>? _suRutiinit;
+  ListBuilder<DateTime> get suRutiinit =>
+      _$this._suRutiinit ??= new ListBuilder<DateTime>();
+  set suRutiinit(ListBuilder<DateTime>? suRutiinit) =>
+      _$this._suRutiinit = suRutiinit;
+
+  DocumentReference<Object?>? _refSessioToEdit;
+  DocumentReference<Object?>? get refSessioToEdit => _$this._refSessioToEdit;
+  set refSessioToEdit(DocumentReference<Object?>? refSessioToEdit) =>
+      _$this._refSessioToEdit = refSessioToEdit;
+
+  TreeniRutiiniStructBuilder? _selectedRutiiniToWorkout;
+  TreeniRutiiniStructBuilder get selectedRutiiniToWorkout =>
+      _$this._selectedRutiiniToWorkout ??= new TreeniRutiiniStructBuilder();
+  set selectedRutiiniToWorkout(
+          TreeniRutiiniStructBuilder? selectedRutiiniToWorkout) =>
+      _$this._selectedRutiiniToWorkout = selectedRutiiniToWorkout;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -340,6 +581,15 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _darkMode = $v.darkMode;
       _weightUnit = $v.weightUnit;
       _treeniRutiinit = $v.treeniRutiinit?.toBuilder();
+      _maRutiinit = $v.maRutiinit?.toBuilder();
+      _tiRutiinit = $v.tiRutiinit?.toBuilder();
+      _keRutiinit = $v.keRutiinit?.toBuilder();
+      _toRutiinit = $v.toRutiinit?.toBuilder();
+      _peRutiinit = $v.peRutiinit?.toBuilder();
+      _laRutiinit = $v.laRutiinit?.toBuilder();
+      _suRutiinit = $v.suRutiinit?.toBuilder();
+      _refSessioToEdit = $v.refSessioToEdit;
+      _selectedRutiiniToWorkout = $v.selectedRutiiniToWorkout.toBuilder();
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -375,12 +625,38 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
               darkMode: darkMode,
               weightUnit: weightUnit,
               treeniRutiinit: _treeniRutiinit?.build(),
+              maRutiinit: _maRutiinit?.build(),
+              tiRutiinit: _tiRutiinit?.build(),
+              keRutiinit: _keRutiinit?.build(),
+              toRutiinit: _toRutiinit?.build(),
+              peRutiinit: _peRutiinit?.build(),
+              laRutiinit: _laRutiinit?.build(),
+              suRutiinit: _suRutiinit?.build(),
+              refSessioToEdit: refSessioToEdit,
+              selectedRutiiniToWorkout: selectedRutiiniToWorkout.build(),
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'treeniRutiinit';
         _treeniRutiinit?.build();
+        _$failedField = 'maRutiinit';
+        _maRutiinit?.build();
+        _$failedField = 'tiRutiinit';
+        _tiRutiinit?.build();
+        _$failedField = 'keRutiinit';
+        _keRutiinit?.build();
+        _$failedField = 'toRutiinit';
+        _toRutiinit?.build();
+        _$failedField = 'peRutiinit';
+        _peRutiinit?.build();
+        _$failedField = 'laRutiinit';
+        _laRutiinit?.build();
+        _$failedField = 'suRutiinit';
+        _suRutiinit?.build();
+
+        _$failedField = 'selectedRutiiniToWorkout';
+        selectedRutiiniToWorkout.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'UsersRecord', _$failedField, e.toString());

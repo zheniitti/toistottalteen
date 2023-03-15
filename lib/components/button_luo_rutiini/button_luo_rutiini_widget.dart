@@ -1,11 +1,14 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -19,8 +22,32 @@ class ButtonLuoRutiiniWidget extends StatefulWidget {
   _ButtonLuoRutiiniWidgetState createState() => _ButtonLuoRutiiniWidgetState();
 }
 
-class _ButtonLuoRutiiniWidgetState extends State<ButtonLuoRutiiniWidget> {
+class _ButtonLuoRutiiniWidgetState extends State<ButtonLuoRutiiniWidget>
+    with TickerProviderStateMixin {
   late ButtonLuoRutiiniModel _model;
+
+  final animationsMap = {
+    'buttonOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 400.ms),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 400.ms,
+          duration: 800.ms,
+          begin: Offset(-100.0, 0.0),
+          end: Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 400.ms,
+          duration: 800.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+  };
 
   @override
   void setState(VoidCallback callback) {
@@ -102,6 +129,6 @@ class _ButtonLuoRutiiniWidgetState extends State<ButtonLuoRutiiniWidget> {
         ),
         borderRadius: BorderRadius.circular(16.0),
       ),
-    );
+    ).animateOnPageLoad(animationsMap['buttonOnPageLoadAnimation']!);
   }
 }

@@ -27,8 +27,6 @@ abstract class TreeniRutiiniStruct
 
   bool? get isTreeniPohja;
 
-  bool? get showComment;
-
   bool? get finishedEditing;
 
   BuiltList<DateTime>? get modifiedTimes;
@@ -43,7 +41,6 @@ abstract class TreeniRutiiniStruct
     ..valitutViikonPaivat = ValitutViikonPaivatStructBuilder()
     ..widgetExpanded = false
     ..isTreeniPohja = false
-    ..showComment = false
     ..finishedEditing = false
     ..modifiedTimes = ListBuilder()
     ..firestoreUtilData = FirestoreUtilData();
@@ -62,7 +59,6 @@ TreeniRutiiniStruct createTreeniRutiiniStruct({
   bool? widgetExpanded,
   DateTime? lastWorkoutTime,
   bool? isTreeniPohja,
-  bool? showComment,
   bool? finishedEditing,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
@@ -80,7 +76,6 @@ TreeniRutiiniStruct createTreeniRutiiniStruct({
         ..widgetExpanded = widgetExpanded
         ..lastWorkoutTime = lastWorkoutTime
         ..isTreeniPohja = isTreeniPohja
-        ..showComment = showComment
         ..finishedEditing = finishedEditing
         ..modifiedTimes = null
         ..firestoreUtilData = FirestoreUtilData(

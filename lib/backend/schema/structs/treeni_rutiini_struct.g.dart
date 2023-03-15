@@ -78,13 +78,6 @@ class _$TreeniRutiiniStructSerializer
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
-    value = object.showComment;
-    if (value != null) {
-      result
-        ..add('showComment')
-        ..add(
-            serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
     value = object.finishedEditing;
     if (value != null) {
       result
@@ -150,10 +143,6 @@ class _$TreeniRutiiniStructSerializer
           result.isTreeniPohja = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
           break;
-        case 'showComment':
-          result.showComment = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool?;
-          break;
         case 'finishedEditing':
           result.finishedEditing = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
@@ -194,8 +183,6 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
   @override
   final bool? isTreeniPohja;
   @override
-  final bool? showComment;
-  @override
   final bool? finishedEditing;
   @override
   final BuiltList<DateTime>? modifiedTimes;
@@ -215,7 +202,6 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
       this.widgetExpanded,
       this.lastWorkoutTime,
       this.isTreeniPohja,
-      this.showComment,
       this.finishedEditing,
       this.modifiedTimes,
       required this.firestoreUtilData})
@@ -249,7 +235,6 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
         widgetExpanded == other.widgetExpanded &&
         lastWorkoutTime == other.lastWorkoutTime &&
         isTreeniPohja == other.isTreeniPohja &&
-        showComment == other.showComment &&
         finishedEditing == other.finishedEditing &&
         modifiedTimes == other.modifiedTimes &&
         firestoreUtilData == other.firestoreUtilData;
@@ -266,16 +251,14 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
                             $jc(
                                 $jc(
                                     $jc(
-                                        $jc(
-                                            $jc($jc(0, createdTime.hashCode),
-                                                nimi.hashCode),
-                                            liikkeet.hashCode),
-                                        kommentti.hashCode),
-                                    valitutViikonPaivat.hashCode),
-                                widgetExpanded.hashCode),
-                            lastWorkoutTime.hashCode),
-                        isTreeniPohja.hashCode),
-                    showComment.hashCode),
+                                        $jc($jc(0, createdTime.hashCode),
+                                            nimi.hashCode),
+                                        liikkeet.hashCode),
+                                    kommentti.hashCode),
+                                valitutViikonPaivat.hashCode),
+                            widgetExpanded.hashCode),
+                        lastWorkoutTime.hashCode),
+                    isTreeniPohja.hashCode),
                 finishedEditing.hashCode),
             modifiedTimes.hashCode),
         firestoreUtilData.hashCode));
@@ -292,7 +275,6 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
           ..add('widgetExpanded', widgetExpanded)
           ..add('lastWorkoutTime', lastWorkoutTime)
           ..add('isTreeniPohja', isTreeniPohja)
-          ..add('showComment', showComment)
           ..add('finishedEditing', finishedEditing)
           ..add('modifiedTimes', modifiedTimes)
           ..add('firestoreUtilData', firestoreUtilData))
@@ -344,10 +326,6 @@ class TreeniRutiiniStructBuilder
   set isTreeniPohja(bool? isTreeniPohja) =>
       _$this._isTreeniPohja = isTreeniPohja;
 
-  bool? _showComment;
-  bool? get showComment => _$this._showComment;
-  set showComment(bool? showComment) => _$this._showComment = showComment;
-
   bool? _finishedEditing;
   bool? get finishedEditing => _$this._finishedEditing;
   set finishedEditing(bool? finishedEditing) =>
@@ -379,7 +357,6 @@ class TreeniRutiiniStructBuilder
       _widgetExpanded = $v.widgetExpanded;
       _lastWorkoutTime = $v.lastWorkoutTime;
       _isTreeniPohja = $v.isTreeniPohja;
-      _showComment = $v.showComment;
       _finishedEditing = $v.finishedEditing;
       _modifiedTimes = $v.modifiedTimes?.toBuilder();
       _firestoreUtilData = $v.firestoreUtilData;
@@ -415,7 +392,6 @@ class TreeniRutiiniStructBuilder
               widgetExpanded: widgetExpanded,
               lastWorkoutTime: lastWorkoutTime,
               isTreeniPohja: isTreeniPohja,
-              showComment: showComment,
               finishedEditing: finishedEditing,
               modifiedTimes: _modifiedTimes?.build(),
               firestoreUtilData: BuiltValueNullFieldError.checkNotNull(

@@ -60,7 +60,6 @@ class _ButtonAloitaTreenaaminenWidgetState
             treeniRutiiniData: createTreeniRutiiniStruct(
               widgetExpanded: true,
               isTreeniPohja: false,
-              showComment: false,
               fieldValues: {
                 'createdTime': FieldValue.serverTimestamp(),
               },

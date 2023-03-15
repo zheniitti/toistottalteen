@@ -514,6 +514,50 @@ class FFAppState extends ChangeNotifier {
   void deleteIsCreatingRutiini() {
     secureStorage.delete(key: 'ff_isCreatingRutiini');
   }
+
+  String _searchbarText = '';
+  String get searchbarText => _searchbarText;
+  set searchbarText(String _value) {
+    _searchbarText = _value;
+  }
+
+  List<dynamic> _kopiedLiikeListFirestoreData = [];
+  List<dynamic> get kopiedLiikeListFirestoreData =>
+      _kopiedLiikeListFirestoreData;
+  set kopiedLiikeListFirestoreData(List<dynamic> _value) {
+    _kopiedLiikeListFirestoreData = _value;
+  }
+
+  void addToKopiedLiikeListFirestoreData(dynamic _value) {
+    _kopiedLiikeListFirestoreData.add(_value);
+  }
+
+  void removeFromKopiedLiikeListFirestoreData(dynamic _value) {
+    _kopiedLiikeListFirestoreData.remove(_value);
+  }
+
+  void removeAtIndexFromKopiedLiikeListFirestoreData(int _index) {
+    _kopiedLiikeListFirestoreData.removeAt(_index);
+  }
+
+  List<DateTime> _sessioChunkListLastItemDateTime = [];
+  List<DateTime> get sessioChunkListLastItemDateTime =>
+      _sessioChunkListLastItemDateTime;
+  set sessioChunkListLastItemDateTime(List<DateTime> _value) {
+    _sessioChunkListLastItemDateTime = _value;
+  }
+
+  void addToSessioChunkListLastItemDateTime(DateTime _value) {
+    _sessioChunkListLastItemDateTime.add(_value);
+  }
+
+  void removeFromSessioChunkListLastItemDateTime(DateTime _value) {
+    _sessioChunkListLastItemDateTime.remove(_value);
+  }
+
+  void removeAtIndexFromSessioChunkListLastItemDateTime(int _index) {
+    _sessioChunkListLastItemDateTime.removeAt(_index);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

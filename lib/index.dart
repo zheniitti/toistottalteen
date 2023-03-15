@@ -13,3 +13,4 @@ export '/pages/register_or_sign_in_page/register_or_sign_in_page_widget.dart'
 export '/pages/tietosuoja_ja_yksityisyys/tietosuoja_ja_yksityisyys_widget.dart'
     show TietosuojaJaYksityisyysWidget;
 export '/pages/builder/builder_widget.dart' show BuilderWidget;
+export '/actions_to_copy/actions_to_copy_widget.dart' show ActionsToCopyWidget;

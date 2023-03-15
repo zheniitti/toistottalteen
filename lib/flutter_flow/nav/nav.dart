@@ -139,6 +139,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'builder',
               requireAuth: true,
               builder: (context, params) => BuilderWidget(),
+            ),
+            FFRoute(
+              name: 'actionsToCopy',
+              path: 'actionsToCopy',
+              requireAuth: true,
+              builder: (context, params) => ActionsToCopyWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

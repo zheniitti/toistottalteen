@@ -51,13 +51,6 @@ class _$TreeniSessiotRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(DateTime)));
     }
-    value = object.kommentti;
-    if (value != null) {
-      result
-        ..add('kommentti')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.docCreatedTime;
     if (value != null) {
       result
@@ -124,10 +117,6 @@ class _$TreeniSessiotRecordSerializer
           result.loppu = serializers.deserialize(value,
               specifiedType: const FullType(DateTime)) as DateTime?;
           break;
-        case 'kommentti':
-          result.kommentti = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
         case 'treeniRutiiniData':
           result.treeniRutiiniData.replace(serializers.deserialize(value,
                   specifiedType: const FullType(TreeniRutiiniStruct))!
@@ -172,8 +161,6 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
   @override
   final DateTime? loppu;
   @override
-  final String? kommentti;
-  @override
   final TreeniRutiiniStruct treeniRutiiniData;
   @override
   final DateTime? docCreatedTime;
@@ -194,7 +181,6 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
       {this.userRef,
       this.alku,
       this.loppu,
-      this.kommentti,
       required this.treeniRutiiniData,
       this.docCreatedTime,
       this.showComment,
@@ -222,7 +208,6 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
         userRef == other.userRef &&
         alku == other.alku &&
         loppu == other.loppu &&
-        kommentti == other.kommentti &&
         treeniRutiiniData == other.treeniRutiiniData &&
         docCreatedTime == other.docCreatedTime &&
         showComment == other.showComment &&
@@ -239,12 +224,8 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
                 $jc(
                     $jc(
                         $jc(
-                            $jc(
-                                $jc(
-                                    $jc($jc(0, userRef.hashCode),
-                                        alku.hashCode),
-                                    loppu.hashCode),
-                                kommentti.hashCode),
+                            $jc($jc($jc(0, userRef.hashCode), alku.hashCode),
+                                loppu.hashCode),
                             treeniRutiiniData.hashCode),
                         docCreatedTime.hashCode),
                     showComment.hashCode),
@@ -259,7 +240,6 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
           ..add('userRef', userRef)
           ..add('alku', alku)
           ..add('loppu', loppu)
-          ..add('kommentti', kommentti)
           ..add('treeniRutiiniData', treeniRutiiniData)
           ..add('docCreatedTime', docCreatedTime)
           ..add('showComment', showComment)
@@ -285,10 +265,6 @@ class TreeniSessiotRecordBuilder
   DateTime? _loppu;
   DateTime? get loppu => _$this._loppu;
   set loppu(DateTime? loppu) => _$this._loppu = loppu;
-
-  String? _kommentti;
-  String? get kommentti => _$this._kommentti;
-  set kommentti(String? kommentti) => _$this._kommentti = kommentti;
 
   TreeniRutiiniStructBuilder? _treeniRutiiniData;
   TreeniRutiiniStructBuilder get treeniRutiiniData =>
@@ -328,7 +304,6 @@ class TreeniSessiotRecordBuilder
       _userRef = $v.userRef;
       _alku = $v.alku;
       _loppu = $v.loppu;
-      _kommentti = $v.kommentti;
       _treeniRutiiniData = $v.treeniRutiiniData.toBuilder();
       _docCreatedTime = $v.docCreatedTime;
       _showComment = $v.showComment;
@@ -362,7 +337,6 @@ class TreeniSessiotRecordBuilder
               userRef: userRef,
               alku: alku,
               loppu: loppu,
-              kommentti: kommentti,
               treeniRutiiniData: treeniRutiiniData.build(),
               docCreatedTime: docCreatedTime,
               showComment: showComment,

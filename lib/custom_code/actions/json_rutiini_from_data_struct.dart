@@ -11,7 +11,9 @@ import 'package:flutter/material.dart';
 Future<dynamic> jsonRutiiniFromDataStruct(
     TreeniRutiiniStruct? rutiiniDataStruct) async {
   if (rutiiniDataStruct == null) {
-    return {};
+    return getTreeniRutiiniFirestoreData(createTreeniRutiiniStruct());
   }
-  return getTreeniRutiiniFirestoreData(rutiiniDataStruct);
+  Map<String, dynamic> map = getTreeniRutiiniFirestoreData(rutiiniDataStruct);
+  map['isTreeniPohja'] = false;
+  return map;
 }

@@ -1,9 +1,7 @@
-import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -89,49 +87,36 @@ class _BottomSheetRutiiniJaSessioWidgetState
                   onTap: () async {
                     logFirebaseEvent(
                         'BOTTOM_SHEET_RUTIINI_JA_SESSIO_ListTile_');
-                    if (widget.treeniSessioDoc != null) {
-                      logFirebaseEvent('ListTile_backend_call');
-                      await widget.treeniSessioDoc!.reference.delete();
-                    } else {
-                      logFirebaseEvent('ListTile_backend_call');
-
-                      final usersUpdateData = {
-                        'treeniRutiinit': FieldValue.arrayRemove([
-                          getTreeniRutiiniFirestoreData(
-                            updateTreeniRutiiniStruct(
-                              widget.rutiiniData,
-                              clearUnsetFields: false,
-                            ),
-                            true,
-                          )
-                        ]),
-                      };
-                      await currentUserReference!.update(usersUpdateData);
-                    }
-
                     logFirebaseEvent('ListTile_close_dialog,_drawer,_etc');
                     Navigator.pop(context);
+                    logFirebaseEvent('ListTile_show_snack_bar');
+                    ScaffoldMessenger.of(context).clearSnackBars();
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          FFLocalizations.of(context).getVariableText(
+                            fiText: '🙁 Tämä toiminto ei toimi vielä...',
+                            enText: '🙁This function doesn\'t work yet',
+                          ),
+                          style: TextStyle(
+                            color: FlutterFlowTheme.of(context).secondaryColor,
+                          ),
+                        ),
+                        duration: Duration(milliseconds: 4000),
+                        backgroundColor: Color(0xFFE00000),
+                      ),
+                    );
                   },
                   child: ListTile(
                     title: Text(
                       FFLocalizations.of(context).getText(
-                        'esn5dhxf' /* Poista pysyvästi */,
+                        'elbafojn' /* Kopioi liikkeet */,
                       ),
                       textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).title3.override(
-                            fontFamily: 'Outfit',
-                            color: Color(0xFFE00000),
-                          ),
-                    ),
-                    subtitle: Text(
-                      FFLocalizations.of(context).getText(
-                        '2a9bmoed' /* (paina pitkään) */,
-                      ),
-                      textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).bodyText1,
+                      style: FlutterFlowTheme.of(context).title3,
                     ),
                     trailing: Icon(
-                      Icons.delete,
+                      Icons.content_copy_rounded,
                       color: Color(0xFF303030),
                       size: 30.0,
                     ),
@@ -159,30 +144,32 @@ class _BottomSheetRutiiniJaSessioWidgetState
                   onTap: () async {
                     logFirebaseEvent(
                         'BOTTOM_SHEET_RUTIINI_JA_SESSIO_ListTile_');
-                    logFirebaseEvent('ListTile_close_dialog,_drawer,_etc');
-                    Navigator.pop(context);
                     if (widget.treeniSessioDoc != null) {
-                      logFirebaseEvent('ListTile_update_app_state');
-                      FFAppState().valittuTreenattavaHistorianSessioRef =
-                          widget.treeniSessioDoc!.reference;
+                      logFirebaseEvent('ListTile_backend_call');
+                      await widget.treeniSessioDoc!.reference.delete();
                     } else {
                       logFirebaseEvent('ListTile_custom_action');
-                      _model.rutiiniDataJson =
-                          await actions.jsonRutiiniFromDataStruct(
+                      await actions.myUpdateTreenirutiini(
                         widget.rutiiniData,
+                        null,
+                        null,
+                        false,
+                        null,
+                        null,
+                        null,
+                        null,
+                        widget.rutiiniData?.liikkeet?.toList()?.toList(),
+                        null,
+                        null,
+                        null,
+                        true,
+                        true,
+                        null,
                       );
-                      logFirebaseEvent('ListTile_update_app_state');
-                      FFAppState().valittuTreenattavaTreeniRutiini =
-                          _model.rutiiniDataJson!;
                     }
 
-                    logFirebaseEvent('ListTile_update_app_state');
-                    FFAppState().update(() {
-                      FFAppState().isEditing = true;
-                      FFAppState().navBarIndex = 1;
-                    });
-
-                    setState(() {});
+                    logFirebaseEvent('ListTile_close_dialog,_drawer,_etc');
+                    Navigator.pop(context);
                   },
                   child: ListTile(
                     title: Text(
@@ -218,22 +205,56 @@ class _BottomSheetRutiiniJaSessioWidgetState
                   borderRadius: BorderRadius.circular(12.0),
                 ),
                 child: InkWell(
-                  onTap: () async {
+                  onLongPress: () async {
                     logFirebaseEvent(
                         'BOTTOM_SHEET_RUTIINI_JA_SESSIO_ListTile_');
+                    if (widget.treeniSessioDoc != null) {
+                      logFirebaseEvent('ListTile_backend_call');
+                      await widget.treeniSessioDoc!.reference.delete();
+                    } else {
+                      logFirebaseEvent('ListTile_custom_action');
+                      await actions.myUpdateTreenirutiini(
+                        widget.rutiiniData,
+                        null,
+                        null,
+                        false,
+                        null,
+                        null,
+                        null,
+                        null,
+                        widget.rutiiniData?.liikkeet?.toList()?.toList(),
+                        null,
+                        null,
+                        null,
+                        null,
+                        true,
+                        true,
+                      );
+                    }
+
                     logFirebaseEvent('ListTile_close_dialog,_drawer,_etc');
                     Navigator.pop(context);
                   },
                   child: ListTile(
                     title: Text(
                       FFLocalizations.of(context).getText(
-                        'elbafojn' /* Luo tästä rutiinipohja */,
+                        'esn5dhxf' /* Poista pysyvästi */,
                       ),
                       textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).title3,
+                      style: FlutterFlowTheme.of(context).title3.override(
+                            fontFamily: 'Outfit',
+                            color: Color(0xFFE00000),
+                          ),
+                    ),
+                    subtitle: Text(
+                      FFLocalizations.of(context).getText(
+                        '2a9bmoed' /* (paina pitkään) */,
+                      ),
+                      textAlign: TextAlign.center,
+                      style: FlutterFlowTheme.of(context).bodyText1,
                     ),
                     trailing: Icon(
-                      Icons.content_copy_rounded,
+                      Icons.delete,
                       color: Color(0xFF303030),
                       size: 30.0,
                     ),

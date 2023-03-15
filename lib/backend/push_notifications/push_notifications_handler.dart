@@ -119,6 +119,7 @@ final parametersBuilderMap =
   'registerOrSignInPage': ParameterData.none(),
   'tietosuojaJaYksityisyys': ParameterData.none(),
   'builder': ParameterData.none(),
+  'actionsToCopy': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

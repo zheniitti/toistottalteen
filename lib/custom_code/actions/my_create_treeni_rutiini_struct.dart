@@ -11,7 +11,10 @@ import 'package:flutter/material.dart';
 Future<TreeniRutiiniStruct> myCreateTreeniRutiiniStruct() async {
   // Add your function code here!
   return createTreeniRutiiniStruct(
+      isTreeniPohja: true,
       createdTime: getCurrentTimestamp,
-      //fieldValues: {'createdTime': FieldValue.serverTimestamp()},
+      fieldValues: {
+        'liikkeet': getLiikeListFirestoreData([createLiikeStruct()])
+      },
       finishedEditing: false);
 }

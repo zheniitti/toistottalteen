@@ -17,8 +17,6 @@ abstract class TreeniSessiotRecord
 
   DateTime? get loppu;
 
-  String? get kommentti;
-
   TreeniRutiiniStruct get treeniRutiiniData;
 
   DateTime? get docCreatedTime;
@@ -34,7 +32,6 @@ abstract class TreeniSessiotRecord
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(TreeniSessiotRecordBuilder builder) => builder
-    ..kommentti = ''
     ..treeniRutiiniData = TreeniRutiiniStructBuilder()
     ..showComment = false
     ..photos = ListBuilder()
@@ -66,7 +63,6 @@ Map<String, dynamic> createTreeniSessiotRecordData({
   DocumentReference? userRef,
   DateTime? alku,
   DateTime? loppu,
-  String? kommentti,
   TreeniRutiiniStruct? treeniRutiiniData,
   DateTime? docCreatedTime,
   bool? showComment,
@@ -79,7 +75,6 @@ Map<String, dynamic> createTreeniSessiotRecordData({
         ..userRef = userRef
         ..alku = alku
         ..loppu = loppu
-        ..kommentti = kommentti
         ..treeniRutiiniData = TreeniRutiiniStructBuilder()
         ..docCreatedTime = docCreatedTime
         ..showComment = showComment

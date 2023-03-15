@@ -1,4 +1,3 @@
-import '../custom_code/actions/my_update_treenirutiini.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -8,11 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'rutiinin_liike_nimi_textfield_model.dart';
-export 'rutiinin_liike_nimi_textfield_model.dart';
+import 'rutiinin_liike_kommentti_textfield_model.dart';
+export 'rutiinin_liike_kommentti_textfield_model.dart';
 
-class RutiininLiikeNimiTextfieldWidget extends StatefulWidget {
-  const RutiininLiikeNimiTextfieldWidget({
+class RutiininLiikeKommenttiTextfieldWidget extends StatefulWidget {
+  const RutiininLiikeKommenttiTextfieldWidget({
     Key? key,
     this.rutiini,
     this.liikeIndex,
@@ -24,13 +23,13 @@ class RutiininLiikeNimiTextfieldWidget extends StatefulWidget {
   final LiikeStruct? liike;
 
   @override
-  _RutiininLiikeNimiTextfieldWidgetState createState() =>
-      _RutiininLiikeNimiTextfieldWidgetState();
+  _RutiininLiikeKommenttiTextfieldWidgetState createState() =>
+      _RutiininLiikeKommenttiTextfieldWidgetState();
 }
 
-class _RutiininLiikeNimiTextfieldWidgetState
-    extends State<RutiininLiikeNimiTextfieldWidget> {
-  late RutiininLiikeNimiTextfieldModel _model;
+class _RutiininLiikeKommenttiTextfieldWidgetState
+    extends State<RutiininLiikeKommenttiTextfieldWidget> {
+  late RutiininLiikeKommenttiTextfieldModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -41,9 +40,10 @@ class _RutiininLiikeNimiTextfieldWidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => RutiininLiikeNimiTextfieldModel());
+    _model = createModel(context, () => RutiininLiikeKommenttiTextfieldModel());
 
-    _model.textController ??= TextEditingController(text: widget.liike?.nimi);
+    _model.textController ??=
+        TextEditingController(text: widget.liike?.kommentti);
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -62,15 +62,15 @@ class _RutiininLiikeNimiTextfieldWidgetState
       controller: _model.textController,
       onChanged: (_) => EasyDebounce.debounce(
         '_model.textController',
-        Duration(milliseconds: 2000),
+        Duration(milliseconds: 3000),
         () async {
-          logFirebaseEvent('RUTIININ_LIIKE_NIMI_TEXTFIELD_TextField_');
+          logFirebaseEvent('RUTIININ_LIIKE_KOMMENTTI_TEXTFIELD_TextF');
           logFirebaseEvent('TextField_custom_action');
           await actions.myUpdateLiikeAtIndex(
             widget.liikeIndex!,
             widget.rutiini,
-            _model.textController.text,
             null,
+            _model.textController.text,
             null,
             null,
             null,
@@ -84,20 +84,14 @@ class _RutiininLiikeNimiTextfieldWidgetState
       ),
       autofocus: true,
       obscureText: false,
-      onTap: () async {
-        logFirebaseEvent('RUTIININ_LIIKE_NIMI_TEXTFIELD_TextField_');
-        logFirebaseEvent('TextField_tap');
-        await myUpdateTreenirutiini(widget.rutiini, null, null, false, null, null, null, null, null, null, null, null, null, null);
-      },
       decoration: InputDecoration(
         isDense: true,
-        contentPadding: EdgeInsets.zero,
         hintText: FFLocalizations.of(context).getText(
-          '6g69qd7e' /* Treenilikkeen nimi */,
+          'jc8zfh0n' /* Treeniliikkeen kommentti */,
         ),
         hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
               fontFamily: 'Roboto',
-              fontSize: 16.0,
+              fontSize: 14.0,
             ),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(
@@ -140,7 +134,7 @@ class _RutiininLiikeNimiTextfieldWidgetState
           ),
         ),
       ),
-      style: FlutterFlowTheme.of(context).subtitle2,
+      style: FlutterFlowTheme.of(context).bodyText1,
       textAlign: TextAlign.start,
       maxLines: null,
       validator: _model.textControllerValidator.asValidator(context),

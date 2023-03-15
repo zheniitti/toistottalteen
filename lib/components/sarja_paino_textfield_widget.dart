@@ -68,7 +68,6 @@ class _SarjaPainoTextfieldWidgetState extends State<SarjaPainoTextfieldWidget> {
       autofocus: true,
       obscureText: false,
       decoration: InputDecoration(
-        isDense: true,
         hintText: FFLocalizations.of(context).getText(
           'vd95k1b9' /* 0 */,
         ),
