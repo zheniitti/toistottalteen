@@ -56,7 +56,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
       builder: (context) {
         final liikkeet = widget.rutiini?.liikkeet?.toList()?.toList() ?? [];
         return Column(
-          mainAxisSize: MainAxisSize.max,
+          mainAxisSize: MainAxisSize.min,
           children: List.generate(liikkeet.length, (liikkeetIndex) {
             final liikkeetItem = liikkeet[liikkeetIndex];
             return Padding(
@@ -101,7 +101,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                               functions.rutiininToistotJaPaino(liikkeetItem),
                               ' - ',
                             ),
-                            style: TextStyle(),
+                            style: FlutterFlowTheme.of(context).subtitle2,
                           )
                         ],
                         style: FlutterFlowTheme.of(context).bodyText1,

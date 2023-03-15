@@ -61,7 +61,7 @@ class _RutiininLiikeNimiTextfieldWidgetState
       controller: _model.textController,
       onChanged: (_) => EasyDebounce.debounce(
         '_model.textController',
-        Duration(milliseconds: 2000),
+        Duration(milliseconds: 500),
         () async {
           logFirebaseEvent('RUTIININ_LIIKE_NIMI_TEXTFIELD_TextField_');
           logFirebaseEvent('TextField_custom_action');
@@ -81,7 +81,6 @@ class _RutiininLiikeNimiTextfieldWidgetState
           );
         },
       ),
-      autofocus: true,
       obscureText: false,
       decoration: InputDecoration(
         isDense: true,
@@ -132,6 +131,7 @@ class _RutiininLiikeNimiTextfieldWidgetState
             topRight: Radius.circular(4.0),
           ),
         ),
+        contentPadding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 2.0),
       ),
       style: FlutterFlowTheme.of(context).subtitle2,
       textAlign: TextAlign.start,

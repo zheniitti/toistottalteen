@@ -134,6 +134,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Aloita ajanotto',
       'en': 'Finish workout',
     },
+    '9vtdiidl': {
+      'fi': 'Option 1',
+      'en': '',
+    },
     'ouj3p8pa': {
       'fi': 'Lopeta treeni',
       'en': 'Finish workout',
@@ -373,9 +377,41 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Aloitettu: ',
       'en': 'Started: ',
     },
-    'et9cdvrl': {
+    'kyjyqea3': {
       'fi': '30 min sitten dsltkphklp',
       'en': '',
+    },
+    '1m5tl9sj': {
+      'fi': 'Sali',
+      'en': 'Other',
+    },
+    'k7lo5s5w': {
+      'fi': 'Muu',
+      'en': 'Other',
+    },
+    'cykyp8iu': {
+      'fi': 'Sarjamäärä',
+      'en': 'Number of sets',
+    },
+    'tjhs4fc2': {
+      'fi': 'Toistomäärä',
+      'en': 'Number of reps',
+    },
+    'r93x98wu': {
+      'fi': 'Suorituksen kesto',
+      'en': 'Duration',
+    },
+    'odc8cr6f': {
+      'fi': 'Matka',
+      'en': 'Distance',
+    },
+    '51k460dl': {
+      'fi': 'Peruuta',
+      'en': 'Cancel',
+    },
+    'j2dhm7ge': {
+      'fi': 'Tallenna',
+      'en': 'Save',
     },
     'v1rlq3l4': {
       'fi': 'Page Title',
@@ -667,14 +703,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Su',
       'en': 'Sun',
     },
-    'm9mgmk0g': {
-      'fi': 'Lisää liike',
-      'en': 'Add exercise',
-    },
-    'f5f0mc89': {
-      'fi': 'Lopeta muokkaus ✔',
-      'en': 'Finish editing ✔',
-    },
     'xvtlnaay': {
       'fi': 'Treenihistoria',
       'en': 'Worcout history',
@@ -682,6 +710,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '5o4nggqe': {
       'fi': 'Treenaa nyt',
       'en': 'Start now',
+    },
+    'm9mgmk0g': {
+      'fi': 'Lisää liike',
+      'en': 'Add exercise',
+    },
+    'f5f0mc89': {
+      'fi': 'Lopeta muokkaus ✔',
+      'en': 'Finish editing ✔',
     },
   },
   // rutiininLiikeNimiTextfield
@@ -694,8 +730,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // rutiininLiikeKommenttiTextfield
   {
     'jc8zfh0n': {
-      'fi': 'Treeniliikkeen kommentti',
-      'en': 'Exercise comment',
+      'fi': 'Kommentti 💬',
+      'en': 'Comment 💬',
     },
   },
   // sarjaToistotTextfield
@@ -729,8 +765,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // KeskenerainenTreeni_komponentti
   {
     'tghu42c9': {
-      'fi': 'Keskeneräinen treeni',
-      'en': 'Unfinished workout',
+      'fi': 'Sinulla on keskeneräinen treeni',
+      'en': 'You have an unfinished workout',
     },
     '2umh30ea': {
       'fi': 'Ylävartalotreeni',
@@ -740,17 +776,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Aloitettu: ',
       'en': 'Started: ',
     },
-    'rzpz7hpm': {
+    '3opv7jr7': {
       'fi': '30 min sitten dsltkphklp',
       'en': '',
     },
-    'jrjz2upt': {
-      'fi': 'Poista treeni',
-      'en': '',
+    's3c8dkfv': {
+      'fi': 'Lopeta treeni',
+      'en': 'Finish workout',
     },
-    'napa6qd9': {
+    '9x6faz9l': {
       'fi': 'Jatka treeniä',
-      'en': '',
+      'en': 'Continue workout',
     },
   },
   // Miscellaneous

@@ -1,7 +1,6 @@
 import '/auth/auth_util.dart';
-import '/components/button_aloita_treenaaminen/button_aloita_treenaaminen_widget.dart';
 import '/components/button_luo_rutiini/button_luo_rutiini_widget.dart';
-import '/components/keskenerainen_treeni_komponentti_widget.dart';
+import '/components/keskenerainen_treeni_komponentti/keskenerainen_treeni_komponentti_widget.dart';
 import '/components/rutiini/rutiini_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -110,6 +109,18 @@ class _SivuRutiinitKomponenttiWidgetState
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
+                                Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 40.0),
+                                    child: wrapWithModel(
+                                      model: _model.buttonLuoRutiiniModel,
+                                      updateCallback: () => setState(() {}),
+                                      child: ButtonLuoRutiiniWidget(),
+                                    ),
+                                  ),
+                                ),
                                 if (false)
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -153,61 +164,6 @@ class _SivuRutiinitKomponenttiWidgetState
                                       ),
                                     ),
                                   ),
-                                Wrap(
-                                  spacing: 20.0,
-                                  runSpacing: 20.0,
-                                  alignment: WrapAlignment.center,
-                                  crossAxisAlignment: WrapCrossAlignment.center,
-                                  direction: Axis.horizontal,
-                                  runAlignment: WrapAlignment.center,
-                                  verticalDirection: VerticalDirection.down,
-                                  clipBehavior: Clip.none,
-                                  children: [
-                                    Visibility(
-                                      visible: functions.showLuoRutiiniButton(
-                                          (currentUserDocument?.treeniRutiinit
-                                                      ?.toList() ??
-                                                  [])
-                                              .toList()),
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 40.0),
-                                          child: wrapWithModel(
-                                            model: _model.buttonLuoRutiiniModel,
-                                            updateCallback: () =>
-                                                setState(() {}),
-                                            child: ButtonLuoRutiiniWidget(),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Visibility(
-                                      visible: false,
-                                      child: wrapWithModel(
-                                        model: _model
-                                            .buttonAloitaTreenaaminenModel,
-                                        updateCallback: () => setState(() {}),
-                                        child: ButtonAloitaTreenaaminenWidget(),
-                                      ),
-                                    ),
-                                    Visibility(
-                                      visible: !functions.showLuoRutiiniButton(
-                                          (currentUserDocument?.treeniRutiinit
-                                                      ?.toList() ??
-                                                  [])
-                                              .toList()),
-                                      child: Container(
-                                        width: double.infinity,
-                                        height: 70.0,
-                                        decoration: BoxDecoration(),
-                                      ),
-                                    ),
-                                  ],
-                                ),
                                 if ((currentUserDocument?.treeniRutiinit
                                                 ?.toList() ??
                                             [])

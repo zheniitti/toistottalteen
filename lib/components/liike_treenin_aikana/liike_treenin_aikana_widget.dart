@@ -1,7 +1,7 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/sarja_paino_textfield_widget.dart';
-import '/components/sarja_toistot_textfield_widget.dart';
+import '/components/sarja_paino_textfield/sarja_paino_textfield_widget.dart';
+import '/components/sarja_toistot_textfield/sarja_toistot_textfield_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;

@@ -1,7 +1,7 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/bottom_sheet_rutiini_ja_sessio/bottom_sheet_rutiini_ja_sessio_widget.dart';
-import '/components/rutiinin_liikkeet_widget.dart';
+import '/components/rutiinin_liikkeet/rutiinin_liikkeet_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';

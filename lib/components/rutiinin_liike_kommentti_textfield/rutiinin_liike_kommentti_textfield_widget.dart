@@ -62,7 +62,7 @@ class _RutiininLiikeKommenttiTextfieldWidgetState
       controller: _model.textController,
       onChanged: (_) => EasyDebounce.debounce(
         '_model.textController',
-        Duration(milliseconds: 3000),
+        Duration(milliseconds: 500),
         () async {
           logFirebaseEvent('RUTIININ_LIIKE_KOMMENTTI_TEXTFIELD_TextF');
           logFirebaseEvent('TextField_custom_action');
@@ -82,12 +82,11 @@ class _RutiininLiikeKommenttiTextfieldWidgetState
           );
         },
       ),
-      autofocus: true,
       obscureText: false,
       decoration: InputDecoration(
         isDense: true,
         hintText: FFLocalizations.of(context).getText(
-          'jc8zfh0n' /* Treeniliikkeen kommentti */,
+          'jc8zfh0n' /* Kommentti 💬 */,
         ),
         hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
               fontFamily: 'Roboto',
@@ -133,6 +132,7 @@ class _RutiininLiikeKommenttiTextfieldWidgetState
             topRight: Radius.circular(4.0),
           ),
         ),
+        contentPadding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 2.0),
       ),
       style: FlutterFlowTheme.of(context).bodyText1,
       textAlign: TextAlign.start,

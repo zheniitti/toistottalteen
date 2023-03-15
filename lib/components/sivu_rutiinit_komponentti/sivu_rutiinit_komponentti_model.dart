@@ -1,7 +1,6 @@
 import '/auth/auth_util.dart';
-import '/components/button_aloita_treenaaminen/button_aloita_treenaaminen_widget.dart';
 import '/components/button_luo_rutiini/button_luo_rutiini_widget.dart';
-import '/components/keskenerainen_treeni_komponentti_widget.dart';
+import '/components/keskenerainen_treeni_komponentti/keskenerainen_treeni_komponentti_widget.dart';
 import '/components/rutiini/rutiini_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -18,12 +17,10 @@ import 'package:provider/provider.dart';
 class SivuRutiinitKomponenttiModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
   // Model for button_luoRutiini component.
   late ButtonLuoRutiiniModel buttonLuoRutiiniModel;
-  // Model for button_aloitaTreenaaminen component.
-  late ButtonAloitaTreenaaminenModel buttonAloitaTreenaaminenModel;
+  // State field(s) for DropDown widget.
+  String? dropDownValue;
   // Model for KeskenerainenTreeni_komponentti component.
   late KeskenerainenTreeniKomponenttiModel keskenerainenTreeniKomponenttiModel;
   // Models for rutiini dynamic component.
@@ -33,8 +30,6 @@ class SivuRutiinitKomponenttiModel extends FlutterFlowModel {
 
   void initState(BuildContext context) {
     buttonLuoRutiiniModel = createModel(context, () => ButtonLuoRutiiniModel());
-    buttonAloitaTreenaaminenModel =
-        createModel(context, () => ButtonAloitaTreenaaminenModel());
     keskenerainenTreeniKomponenttiModel =
         createModel(context, () => KeskenerainenTreeniKomponenttiModel());
     rutiiniModels = FlutterFlowDynamicModels(() => RutiiniModel());
@@ -42,7 +37,6 @@ class SivuRutiinitKomponenttiModel extends FlutterFlowModel {
 
   void dispose() {
     buttonLuoRutiiniModel.dispose();
-    buttonAloitaTreenaaminenModel.dispose();
     keskenerainenTreeniKomponenttiModel.dispose();
     rutiiniModels.dispose();
   }

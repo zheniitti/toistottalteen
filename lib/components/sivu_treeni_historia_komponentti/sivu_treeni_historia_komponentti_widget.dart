@@ -229,7 +229,7 @@ class _SivuTreeniHistoriaKomponenttiWidgetState
                                         return Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 12.0),
+                                                  0.0, 0.0, 0.0, 20.0),
                                           child: SessioWidget(
                                             key: Key(
                                                 'Keylwp_${listViewIndex}_of_${_model.pagingController!.itemList!.length}'),
