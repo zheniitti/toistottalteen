@@ -61,7 +61,7 @@ class _RutiininLiikeNimiTextfieldWidgetState
       controller: _model.textController,
       onChanged: (_) => EasyDebounce.debounce(
         '_model.textController',
-        Duration(milliseconds: 300),
+        Duration(milliseconds: 200),
         () async {
           logFirebaseEvent('RUTIININ_LIIKE_NIMI_TEXTFIELD_TextField_');
           logFirebaseEvent('TextField_custom_action');

@@ -11,7 +11,6 @@ import 'package:flutter/material.dart';
 Future<LiikeStruct> createLiike(
   String? nimi,
   String? kommentti,
-  String? liikeTyyppi,
   double? painoKg,
   List<SarjaStruct>? sarjat,
 ) async {
@@ -19,7 +18,6 @@ Future<LiikeStruct> createLiike(
   LiikeStruct liike = createLiikeStruct(
     nimi: nimi ?? '',
     kommentti: kommentti ?? '',
-    liikeTyyppi: liikeTyyppi ?? '',
     aloitusPainoKg: painoKg,
     fieldValues: {'sarjat': sarjat},
   );

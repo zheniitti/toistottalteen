@@ -1085,108 +1085,118 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                 ),
                                 Expanded(
                                   flex: 1,
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      if (FFAppState().navBarIndex != 1)
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(1.0, 0.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 12.0, 0.0),
-                                            child: Icon(
-                                              Icons.help_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              size: 28.0,
-                                            ),
-                                          ),
-                                        ),
-                                      if ((FFAppState().navBarIndex == 1) &&
-                                          (containerQueryLatestSessioTreeniSessiotRecord!
-                                                  .loppu ==
-                                              null) &&
-                                          (containerQueryLatestSessioTreeniSessiotRecord!
-                                                  .alku !=
-                                              null))
-                                        InkWell(
-                                          onTap: () async {
-                                            logFirebaseEvent(
-                                                'PAASIVU_PAGE_Row_lopetaTreeni_ON_TAP');
-                                            logFirebaseEvent(
-                                                'Row_lopetaTreeni_backend_call');
-
-                                            final treeniSessiotUpdateData = {
-                                              'loppu':
-                                                  FieldValue.serverTimestamp(),
-                                            };
-                                            await containerQueryLatestSessioTreeniSessiotRecord!
-                                                .reference
-                                                .update(
-                                                    treeniSessiotUpdateData);
-                                          },
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Icon(
-                                                Icons.stop_circle_rounded,
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 4.0, 0.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        if (FFAppState().navBarIndex != 1)
+                                          Align(
+                                            alignment:
+                                                AlignmentDirectional(1.0, 0.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 12.0, 0.0),
+                                              child: Icon(
+                                                Icons.help_rounded,
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryColor,
-                                                size: 30.0,
+                                                        .primaryBackground,
+                                                size: 28.0,
                                               ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 16.0, 0.0),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  2.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'ouj3p8pa' /* Lopeta treeni */,
-                                                        ),
-                                                        style:
+                                            ),
+                                          ),
+                                        if ((FFAppState().navBarIndex == 1) &&
+                                            (containerQueryLatestSessioTreeniSessiotRecord!
+                                                    .loppu ==
+                                                null) &&
+                                            (containerQueryLatestSessioTreeniSessiotRecord!
+                                                    .alku !=
+                                                null))
+                                          InkWell(
+                                            onTap: () async {
+                                              logFirebaseEvent(
+                                                  'PAASIVU_PAGE_Row_lopetaTreeni_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'Row_lopetaTreeni_backend_call');
+
+                                              final treeniSessiotUpdateData = {
+                                                'loppu': FieldValue
+                                                    .serverTimestamp(),
+                                              };
+                                              await containerQueryLatestSessioTreeniSessiotRecord!
+                                                  .reference
+                                                  .update(
+                                                      treeniSessiotUpdateData);
+                                            },
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Expanded(
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Icon(
+                                                        Icons
+                                                            .stop_circle_rounded,
+                                                        color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryColor,
-                                                                  fontSize:
-                                                                      12.0,
-                                                                ),
+                                                                .secondaryColor,
+                                                        size: 30.0,
                                                       ),
-                                                    ),
-                                                  ],
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    2.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'ouj3p8pa' /* Lopeta treeni */,
+                                                          ),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryColor,
+                                                                fontSize: 12.0,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                    ],
-                                  ).animateOnPageLoad(animationsMap[
-                                      'columnOnPageLoadAnimation1']!),
+                                      ],
+                                    ).animateOnPageLoad(animationsMap[
+                                        'columnOnPageLoadAnimation1']!),
+                                  ),
                                 ),
                               ],
                             ),

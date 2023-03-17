@@ -39,12 +39,13 @@ class _KeskenerainenTreeniKomponenttiWidgetState
       reverse: true,
       trigger: AnimationTrigger.onPageLoad,
       effects: [
+        VisibilityEffect(duration: 1.ms),
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 1000.ms,
-          begin: 1.0,
-          end: 1.05,
+          begin: 0.97,
+          end: 1.02,
         ),
       ],
     ),

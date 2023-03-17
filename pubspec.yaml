@@ -53,7 +53,6 @@ dependencies:
   firebase_messaging: 14.1.4
   firebase_messaging_platform_interface: 4.2.8
   firebase_messaging_web: 3.2.9
-  fl_chart: 0.55.0
   flutter_animate: 1.0.0
   flutter_cache_manager: 3.3.0
   flutter_keyboard_visibility: 5.2.0

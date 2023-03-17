@@ -64,7 +64,6 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: Row(

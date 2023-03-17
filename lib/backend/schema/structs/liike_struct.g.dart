@@ -60,13 +60,6 @@ class _$LiikeStructSerializer implements StructuredSerializer<LiikeStruct> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(double)));
     }
-    value = object.liikeTyyppi;
-    if (value != null) {
-      result
-        ..add('liikeTyyppi')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.matkaMetri;
     if (value != null) {
       result
@@ -102,6 +95,13 @@ class _$LiikeStructSerializer implements StructuredSerializer<LiikeStruct> {
         ..add('kestoSekunteina')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(double)));
+    }
+    value = object.isOtherExerciseType;
+    if (value != null) {
+      result
+        ..add('isOtherExerciseType')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     return result;
   }
@@ -143,10 +143,6 @@ class _$LiikeStructSerializer implements StructuredSerializer<LiikeStruct> {
           result.aloitusPainoKg = serializers.deserialize(value,
               specifiedType: const FullType(double)) as double?;
           break;
-        case 'liikeTyyppi':
-          result.liikeTyyppi = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
         case 'matkaMetri':
           result.matkaMetri = serializers.deserialize(value,
               specifiedType: const FullType(double)) as double?;
@@ -168,6 +164,10 @@ class _$LiikeStructSerializer implements StructuredSerializer<LiikeStruct> {
         case 'kestoSekunteina':
           result.kestoSekunteina = serializers.deserialize(value,
               specifiedType: const FullType(double)) as double?;
+          break;
+        case 'isOtherExerciseType':
+          result.isOtherExerciseType = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
           break;
         case 'firestoreUtilData':
           result.firestoreUtilData = serializers.deserialize(value,
@@ -195,8 +195,6 @@ class _$LiikeStruct extends LiikeStruct {
   @override
   final double? aloitusPainoKg;
   @override
-  final String? liikeTyyppi;
-  @override
   final double? matkaMetri;
   @override
   final bool? tehty;
@@ -206,6 +204,8 @@ class _$LiikeStruct extends LiikeStruct {
   final BuiltList<String>? photos;
   @override
   final double? kestoSekunteina;
+  @override
+  final bool? isOtherExerciseType;
   @override
   final FirestoreUtilData firestoreUtilData;
 
@@ -219,12 +219,12 @@ class _$LiikeStruct extends LiikeStruct {
       this.sarjaMaara,
       required this.sarjat,
       this.aloitusPainoKg,
-      this.liikeTyyppi,
       this.matkaMetri,
       this.tehty,
       this.showComment,
       this.photos,
       this.kestoSekunteina,
+      this.isOtherExerciseType,
       required this.firestoreUtilData})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(sarjat, r'LiikeStruct', 'sarjat');
@@ -249,12 +249,12 @@ class _$LiikeStruct extends LiikeStruct {
         sarjaMaara == other.sarjaMaara &&
         sarjat == other.sarjat &&
         aloitusPainoKg == other.aloitusPainoKg &&
-        liikeTyyppi == other.liikeTyyppi &&
         matkaMetri == other.matkaMetri &&
         tehty == other.tehty &&
         showComment == other.showComment &&
         photos == other.photos &&
         kestoSekunteina == other.kestoSekunteina &&
+        isOtherExerciseType == other.isOtherExerciseType &&
         firestoreUtilData == other.firestoreUtilData;
   }
 
@@ -277,12 +277,12 @@ class _$LiikeStruct extends LiikeStruct {
                                             sarjaMaara.hashCode),
                                         sarjat.hashCode),
                                     aloitusPainoKg.hashCode),
-                                liikeTyyppi.hashCode),
-                            matkaMetri.hashCode),
-                        tehty.hashCode),
-                    showComment.hashCode),
-                photos.hashCode),
-            kestoSekunteina.hashCode),
+                                matkaMetri.hashCode),
+                            tehty.hashCode),
+                        showComment.hashCode),
+                    photos.hashCode),
+                kestoSekunteina.hashCode),
+            isOtherExerciseType.hashCode),
         firestoreUtilData.hashCode));
   }
 
@@ -295,12 +295,12 @@ class _$LiikeStruct extends LiikeStruct {
           ..add('sarjaMaara', sarjaMaara)
           ..add('sarjat', sarjat)
           ..add('aloitusPainoKg', aloitusPainoKg)
-          ..add('liikeTyyppi', liikeTyyppi)
           ..add('matkaMetri', matkaMetri)
           ..add('tehty', tehty)
           ..add('showComment', showComment)
           ..add('photos', photos)
           ..add('kestoSekunteina', kestoSekunteina)
+          ..add('isOtherExerciseType', isOtherExerciseType)
           ..add('firestoreUtilData', firestoreUtilData))
         .toString();
   }
@@ -335,10 +335,6 @@ class LiikeStructBuilder implements Builder<LiikeStruct, LiikeStructBuilder> {
   set aloitusPainoKg(double? aloitusPainoKg) =>
       _$this._aloitusPainoKg = aloitusPainoKg;
 
-  String? _liikeTyyppi;
-  String? get liikeTyyppi => _$this._liikeTyyppi;
-  set liikeTyyppi(String? liikeTyyppi) => _$this._liikeTyyppi = liikeTyyppi;
-
   double? _matkaMetri;
   double? get matkaMetri => _$this._matkaMetri;
   set matkaMetri(double? matkaMetri) => _$this._matkaMetri = matkaMetri;
@@ -361,6 +357,11 @@ class LiikeStructBuilder implements Builder<LiikeStruct, LiikeStructBuilder> {
   set kestoSekunteina(double? kestoSekunteina) =>
       _$this._kestoSekunteina = kestoSekunteina;
 
+  bool? _isOtherExerciseType;
+  bool? get isOtherExerciseType => _$this._isOtherExerciseType;
+  set isOtherExerciseType(bool? isOtherExerciseType) =>
+      _$this._isOtherExerciseType = isOtherExerciseType;
+
   FirestoreUtilData? _firestoreUtilData;
   FirestoreUtilData? get firestoreUtilData => _$this._firestoreUtilData;
   set firestoreUtilData(FirestoreUtilData? firestoreUtilData) =>
@@ -379,12 +380,12 @@ class LiikeStructBuilder implements Builder<LiikeStruct, LiikeStructBuilder> {
       _sarjaMaara = $v.sarjaMaara;
       _sarjat = $v.sarjat.toBuilder();
       _aloitusPainoKg = $v.aloitusPainoKg;
-      _liikeTyyppi = $v.liikeTyyppi;
       _matkaMetri = $v.matkaMetri;
       _tehty = $v.tehty;
       _showComment = $v.showComment;
       _photos = $v.photos?.toBuilder();
       _kestoSekunteina = $v.kestoSekunteina;
+      _isOtherExerciseType = $v.isOtherExerciseType;
       _firestoreUtilData = $v.firestoreUtilData;
       _$v = null;
     }
@@ -416,12 +417,12 @@ class LiikeStructBuilder implements Builder<LiikeStruct, LiikeStructBuilder> {
               sarjaMaara: sarjaMaara,
               sarjat: sarjat.build(),
               aloitusPainoKg: aloitusPainoKg,
-              liikeTyyppi: liikeTyyppi,
               matkaMetri: matkaMetri,
               tehty: tehty,
               showComment: showComment,
               photos: _photos?.build(),
               kestoSekunteina: kestoSekunteina,
+              isOtherExerciseType: isOtherExerciseType,
               firestoreUtilData: BuiltValueNullFieldError.checkNotNull(
                   firestoreUtilData, r'LiikeStruct', 'firestoreUtilData'));
     } catch (_) {
