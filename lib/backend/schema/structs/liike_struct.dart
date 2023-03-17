@@ -21,8 +21,6 @@ abstract class LiikeStruct implements Built<LiikeStruct, LiikeStructBuilder> {
 
   double? get aloitusPainoKg;
 
-  String? get liikeTyyppi;
-
   double? get matkaMetri;
 
   bool? get tehty;
@@ -32,6 +30,8 @@ abstract class LiikeStruct implements Built<LiikeStruct, LiikeStructBuilder> {
   BuiltList<String>? get photos;
 
   double? get kestoSekunteina;
+
+  bool? get isOtherExerciseType;
 
   /// Utility class for Firestore updates
   FirestoreUtilData get firestoreUtilData;
@@ -43,12 +43,12 @@ abstract class LiikeStruct implements Built<LiikeStruct, LiikeStructBuilder> {
     ..sarjaMaara = 0
     ..sarjat = ListBuilder()
     ..aloitusPainoKg = 0.0
-    ..liikeTyyppi = ''
     ..matkaMetri = 0.0
     ..tehty = false
     ..showComment = false
     ..photos = ListBuilder()
     ..kestoSekunteina = 0.0
+    ..isOtherExerciseType = false
     ..firestoreUtilData = FirestoreUtilData();
 
   LiikeStruct._();
@@ -62,11 +62,11 @@ LiikeStruct createLiikeStruct({
   int? toistoMaara,
   int? sarjaMaara,
   double? aloitusPainoKg,
-  String? liikeTyyppi,
   double? matkaMetri,
   bool? tehty,
   bool? showComment,
   double? kestoSekunteina,
+  bool? isOtherExerciseType,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -80,12 +80,12 @@ LiikeStruct createLiikeStruct({
         ..sarjaMaara = sarjaMaara
         ..sarjat = null
         ..aloitusPainoKg = aloitusPainoKg
-        ..liikeTyyppi = liikeTyyppi
         ..matkaMetri = matkaMetri
         ..tehty = tehty
         ..showComment = showComment
         ..photos = null
         ..kestoSekunteina = kestoSekunteina
+        ..isOtherExerciseType = isOtherExerciseType
         ..firestoreUtilData = FirestoreUtilData(
           clearUnsetFields: clearUnsetFields,
           create: create,

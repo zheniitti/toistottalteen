@@ -122,99 +122,93 @@ class _SivuRutiinitKomponenttiWidgetState
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        if (((currentUserDocument?.treeniRutiinit?.toList() ??
-                                        [])
-                                    .length ==
-                                0) ||
-                            true)
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 50.0, 0.0, 0.0),
-                            child: AuthUserStreamWidget(
-                              builder: (context) => SingleChildScrollView(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 40.0),
-                                        child: wrapWithModel(
-                                          model: _model.buttonLuoRutiiniModel,
-                                          updateCallback: () => setState(() {}),
-                                          child: ButtonLuoRutiiniWidget(),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 50.0, 0.0, 0.0),
+                          child: SingleChildScrollView(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 40.0),
+                                    child: wrapWithModel(
+                                      model: _model.buttonLuoRutiiniModel,
+                                      updateCallback: () => setState(() {}),
+                                      child: ButtonLuoRutiiniWidget(),
+                                    ),
+                                  ),
+                                ),
+                                if (false)
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 30.0),
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width *
+                                          0.8,
+                                      height: 70.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      child: AuthUserStreamWidget(
+                                        builder: (context) =>
+                                            FlutterFlowDropDown<String>(
+                                          controller: _model
+                                                  .dropDownController ??=
+                                              FormFieldController<String>(null),
+                                          options: functions
+                                              .mapRutiiniNimet(
+                                                  (currentUserDocument
+                                                              ?.treeniRutiinit
+                                                              ?.toList() ??
+                                                          [])
+                                                      .toList())
+                                              .toList(),
+                                          onChanged: (val) => setState(
+                                              () => _model.dropDownValue = val),
+                                          width: 180.0,
+                                          height: 50.0,
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .subtitle2,
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            '68nw3eu6' /* Valitse treenirutiini */,
+                                          ),
+                                          elevation: 2.0,
+                                          borderColor: Colors.transparent,
+                                          borderWidth: 0.0,
+                                          borderRadius: 0.0,
+                                          margin:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 4.0, 12.0, 4.0),
+                                          hidesUnderline: true,
                                         ),
                                       ),
                                     ),
-                                    if (false)
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 30.0),
-                                        child: Container(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.8,
-                                          height: 70.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          child: FlutterFlowDropDown<String>(
-                                            controller:
-                                                _model.dropDownController ??=
-                                                    FormFieldController<String>(
-                                                        null),
-                                            options: functions
-                                                .mapRutiiniNimet(
-                                                    (currentUserDocument
-                                                                ?.treeniRutiinit
-                                                                ?.toList() ??
-                                                            [])
-                                                        .toList())
-                                                .toList(),
-                                            onChanged: (val) => setState(() =>
-                                                _model.dropDownValue = val),
-                                            width: 180.0,
-                                            height: 50.0,
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .subtitle2,
-                                            hintText:
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                              '68nw3eu6' /* Valitse treenirutiini */,
-                                            ),
-                                            elevation: 2.0,
-                                            borderColor: Colors.transparent,
-                                            borderWidth: 0.0,
-                                            borderRadius: 0.0,
-                                            margin:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 4.0, 12.0, 4.0),
-                                            hidesUnderline: true,
-                                          ),
-                                        ),
-                                      ),
-                                    if ((currentUserDocument?.treeniRutiinit
-                                                    ?.toList() ??
-                                                [])
-                                            .length ==
-                                        0)
-                                      Container(
-                                        width: 100.0,
-                                        height: 250.0,
-                                        decoration: BoxDecoration(),
-                                      ),
-                                  ],
-                                ),
-                              ),
+                                  ),
+                                if ((currentUserDocument?.treeniRutiinit
+                                                ?.toList() ??
+                                            [])
+                                        .length ==
+                                    0)
+                                  AuthUserStreamWidget(
+                                    builder: (context) => Container(
+                                      width: 100.0,
+                                      height: 250.0,
+                                      decoration: BoxDecoration(),
+                                    ),
+                                  ),
+                              ],
                             ),
                           ),
+                        ),
                         if ((widget.latestSessio != null) &&
                             (widget.latestSessio!.loppu == null))
                           Padding(
@@ -273,7 +267,7 @@ class _SivuRutiinitKomponenttiWidgetState
                                                   (widget.latestSessio!.loppu ==
                                                       null),
                                           pageStateSelectedRutiini:
-                                              _model.localStateValittuRutiini,
+                                              _model.pageStateValittuRutiini,
                                         ),
                                       ).animateOnPageLoad(animationsMap[
                                           'rutiiniOnPageLoadAnimation']!),
@@ -327,9 +321,9 @@ class _SivuRutiinitKomponenttiWidgetState
             model: _model.rutiininSarjatToistotKestoMatkaModel,
             updateCallback: () => setState(() {}),
             child: RutiininSarjatToistotKestoMatkaWidget(
-              liikeIndex: _model.localStateValittuLiikeIndex,
-              rutiini: _model.localStateValittuRutiini,
-              liike: _model.localStateValittuLiike,
+              liikeIndex: _model.pageStateValittuMuokattavaLiikeIndex,
+              rutiini: _model.pageStateValittuRutiini,
+              liike: _model.pageStateValittuMuokattavaLiike,
             ),
           ),
       ],

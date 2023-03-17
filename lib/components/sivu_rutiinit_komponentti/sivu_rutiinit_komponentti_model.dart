@@ -23,11 +23,11 @@ class SivuRutiinitKomponenttiModel extends FlutterFlowModel {
 
   bool showEditRutiiniSarjatToistot = false;
 
-  TreeniRutiiniStruct? localStateValittuRutiini;
+  TreeniRutiiniStruct? pageStateValittuRutiini;
 
-  LiikeStruct? localStateValittuLiike;
+  LiikeStruct? pageStateValittuMuokattavaLiike;
 
-  int? localStateValittuLiikeIndex;
+  int? pageStateValittuMuokattavaLiikeIndex;
 
   ///  State fields for stateful widgets in this component.
 

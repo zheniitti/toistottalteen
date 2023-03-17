@@ -2,12 +2,15 @@ import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/sarja_paino_textfield/sarja_paino_textfield_widget.dart';
 import '/components/sarja_toistot_textfield/sarja_toistot_textfield_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -31,8 +34,24 @@ class LiikeTreeninAikanaWidget extends StatefulWidget {
       _LiikeTreeninAikanaWidgetState();
 }
 
-class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> {
+class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
+    with TickerProviderStateMixin {
   late LiikeTreeninAikanaModel _model;
+
+  final animationsMap = {
+    'containerOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 300.ms,
+          duration: 1200.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+  };
 
   @override
   void setState(VoidCallback callback) {
@@ -48,6 +67,7 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> {
     _model.textController1 ??= TextEditingController(text: widget.liike?.nimi);
     _model.textController2 ??=
         TextEditingController(text: widget.liike?.kommentti);
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -172,7 +192,6 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> {
                               0.0, 4.0, 0.0, 0.0),
                           child: TextFormField(
                             controller: _model.textController2,
-                            autofocus: true,
                             obscureText: false,
                             decoration: InputDecoration(
                               isDense: true,
@@ -493,72 +512,74 @@ sarja */
                       ],
                     ),
                   ),
-                  InkWell(
-                    onTap: () async {
-                      logFirebaseEvent(
-                          'LIIKE_TREENIN_AIKANA_Row_55r3gb8v_ON_TAP');
-                      logFirebaseEvent('Row_update_widget_state');
-                      setState(() {});
-                      logFirebaseEvent('Row_backend_call');
+                  if (widget.liike!.sarjat!.toList().length > 0)
+                    InkWell(
+                      onTap: () async {
+                        logFirebaseEvent(
+                            'LIIKE_TREENIN_AIKANA_Row_55r3gb8v_ON_TAP');
+                        logFirebaseEvent('Row_update_widget_state');
+                        setState(() {});
+                        logFirebaseEvent('Row_backend_call');
 
-                      final treeniSessiotUpdateData =
-                          createTreeniSessiotRecordData(
-                        treeniRutiiniData: createTreeniRutiiniStruct(
-                          fieldValues: {
-                            'liikkeet': FieldValue.arrayUnion([
-                              getLiikeFirestoreData(
-                                createLiikeStruct(
-                                  nimi: '',
-                                  clearUnsetFields: false,
-                                ),
-                                true,
-                              )
-                            ]),
-                          },
-                          clearUnsetFields: false,
-                        ),
-                      );
-                      await widget.treeniSessio!.reference
-                          .update(treeniSessiotUpdateData);
-                    },
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          FFLocalizations.of(context).getText(
-                            'rrk6y01u' /* Tehty */,
-                          ),
-                          style: FlutterFlowTheme.of(context).bodyText1,
-                        ),
-                        Theme(
-                          data: ThemeData(
-                            checkboxTheme: CheckboxThemeData(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(4.0),
-                              ),
-                            ),
-                            unselectedWidgetColor: Color(0xFFF5F5F5),
-                          ),
-                          child: Checkbox(
-                            value: _model.checkboxValue ??=
-                                widget.liike!.tehty!,
-                            onChanged: (newValue) async {
-                              setState(() => _model.checkboxValue = newValue!);
+                        final treeniSessiotUpdateData =
+                            createTreeniSessiotRecordData(
+                          treeniRutiiniData: createTreeniRutiiniStruct(
+                            fieldValues: {
+                              'liikkeet': FieldValue.arrayUnion([
+                                getLiikeFirestoreData(
+                                  createLiikeStruct(
+                                    nimi: '',
+                                    clearUnsetFields: false,
+                                  ),
+                                  true,
+                                )
+                              ]),
                             },
-                            activeColor:
-                                FlutterFlowTheme.of(context).primaryColor,
+                            clearUnsetFields: false,
                           ),
-                        ),
-                      ],
+                        );
+                        await widget.treeniSessio!.reference
+                            .update(treeniSessiotUpdateData);
+                      },
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            FFLocalizations.of(context).getText(
+                              'rrk6y01u' /* Tehty */,
+                            ),
+                            style: FlutterFlowTheme.of(context).bodyText1,
+                          ),
+                          Theme(
+                            data: ThemeData(
+                              checkboxTheme: CheckboxThemeData(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(4.0),
+                                ),
+                              ),
+                              unselectedWidgetColor: Color(0xFFF5F5F5),
+                            ),
+                            child: Checkbox(
+                              value: _model.checkboxValue ??=
+                                  widget.liike!.tehty!,
+                              onChanged: (newValue) async {
+                                setState(
+                                    () => _model.checkboxValue = newValue!);
+                              },
+                              activeColor:
+                                  FlutterFlowTheme.of(context).primaryColor,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
                 ],
               ),
             ),
           ],
         ),
       ),
-    );
+    ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!);
   }
 }

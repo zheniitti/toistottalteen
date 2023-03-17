@@ -62,7 +62,7 @@ class _SarjaPainoTextfieldWidgetState extends State<SarjaPainoTextfieldWidget> {
       controller: _model.textController,
       onChanged: (_) => EasyDebounce.debounce(
         '_model.textController',
-        Duration(milliseconds: 2000),
+        Duration(milliseconds: 300),
         () => setState(() {}),
       ),
       autofocus: true,

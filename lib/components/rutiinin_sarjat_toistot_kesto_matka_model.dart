@@ -25,11 +25,10 @@ class RutiininSarjatToistotKestoMatkaModel extends FlutterFlowModel {
   String? Function(BuildContext, String?)? textController2Validator;
   // State field(s) for TextField widget.
   TextEditingController? textController3;
-  final textFieldMask3 = MaskTextInputFormatter(mask: '###');
   String? Function(BuildContext, String?)? textController3Validator;
   // State field(s) for TextField widget.
   TextEditingController? textController4;
-  final textFieldMask4 = MaskTextInputFormatter(mask: '##');
+  final textFieldMask4 = MaskTextInputFormatter(mask: '###');
   String? Function(BuildContext, String?)? textController4Validator;
   // State field(s) for TextField widget.
   TextEditingController? textController5;
@@ -37,8 +36,12 @@ class RutiininSarjatToistotKestoMatkaModel extends FlutterFlowModel {
   String? Function(BuildContext, String?)? textController5Validator;
   // State field(s) for TextField widget.
   TextEditingController? textController6;
-  final textFieldMask6 = MaskTextInputFormatter(mask: '#######.###');
+  final textFieldMask6 = MaskTextInputFormatter(mask: '##');
   String? Function(BuildContext, String?)? textController6Validator;
+  // State field(s) for TextField widget.
+  TextEditingController? textController7;
+  final textFieldMask7 = MaskTextInputFormatter(mask: '#######.###');
+  String? Function(BuildContext, String?)? textController7Validator;
 
   /// Initialization and disposal methods.
 
@@ -51,6 +54,7 @@ class RutiininSarjatToistotKestoMatkaModel extends FlutterFlowModel {
     textController4?.dispose();
     textController5?.dispose();
     textController6?.dispose();
+    textController7?.dispose();
   }
 
   /// Additional helper methods are added here.

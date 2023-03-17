@@ -341,7 +341,9 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
         maxWidth: 500.0,
       ),
       decoration: BoxDecoration(
-        color: FlutterFlowTheme.of(context).secondaryBackground,
+        color: widget.rutiini?.finishedEditing == false
+            ? FlutterFlowTheme.of(context).alternate
+            : FlutterFlowTheme.of(context).secondaryBackground,
         borderRadius: BorderRadius.circular(22.0),
       ),
       child: Padding(
@@ -1185,15 +1187,15 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                 ],
               ),
             ),
-            if (widget.rutiini!.liikkeet!.toList().length >= 1)
-              Divider(
-                thickness: 1.0,
-              ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 8.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
+                  if (widget.rutiini!.liikkeet!.toList().length >= 1)
+                    Divider(
+                      thickness: 1.0,
+                    ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                     child: wrapWithModel(
@@ -1212,13 +1214,11 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        if (widget.rutiini?.finishedEditing ?? true)
+                        if (widget.rutiini!.finishedEditing! &&
+                            (widget.rutiini!.liikkeet!.toList().length > 0))
                           Container(
                             width: double.infinity,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                            ),
+                            decoration: BoxDecoration(),
                             child: Wrap(
                               spacing: 30.0,
                               runSpacing: 12.0,
@@ -1333,10 +1333,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                           Container(
                             width: double.infinity,
                             height: 40.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                            ),
+                            decoration: BoxDecoration(),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1400,21 +1397,55 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                       logFirebaseEvent(
                                           'RUTIINI_COMP_Row_lopetaMuokkaus_ON_TAP');
                                       logFirebaseEvent(
+                                          'Row_lopetaMuokkaus_widget_animation');
+                                      if (animationsMap[
+                                              'rowOnActionTriggerAnimation'] !=
+                                          null) {
+                                        animationsMap[
+                                                'rowOnActionTriggerAnimation']!
+                                            .controller
+                                            .forward(from: 0.0);
+                                      }
+                                      logFirebaseEvent(
+                                          'Row_lopetaMuokkaus_widget_animation');
+                                      if (animationsMap[
+                                              'rowOnActionTriggerAnimation'] !=
+                                          null) {
+                                        animationsMap[
+                                                'rowOnActionTriggerAnimation']!
+                                            .controller
+                                            .forward(from: 0.0);
+                                      }
+                                      logFirebaseEvent(
                                           'Row_lopetaMuokkaus_custom_action');
                                       await actions.myUpdateTreenirutiini(
                                         widget.rutiini,
                                         null,
                                         null,
                                         true,
-                                        null,
+                                        true,
                                         null,
                                         _model.textFieldNimiController.text,
                                         _model
                                             .textFieldKommenttiController.text,
-                                        widget.rutiini?.liikkeet
+                                        _model.componentStateRutiini?.liikkeet
                                             ?.toList()
                                             ?.toList(),
-                                        null,
+                                        functions.myCreateValitutViikonPaivat(
+                                            _model.componentStateRutiini
+                                                ?.valitutViikonPaivat?.ma,
+                                            _model.componentStateRutiini
+                                                ?.valitutViikonPaivat?.ti,
+                                            _model.componentStateRutiini
+                                                ?.valitutViikonPaivat?.ke,
+                                            _model.componentStateRutiini
+                                                ?.valitutViikonPaivat?.to,
+                                            _model.componentStateRutiini
+                                                ?.valitutViikonPaivat?.pe,
+                                            _model.componentStateRutiini
+                                                ?.valitutViikonPaivat?.la,
+                                            _model.componentStateRutiini
+                                                ?.valitutViikonPaivat?.su),
                                         null,
                                         null,
                                         _model.textFieldKommenttiController
@@ -1426,26 +1457,6 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                         true,
                                         false,
                                       );
-                                      logFirebaseEvent(
-                                          'Row_lopetaMuokkaus_widget_animation');
-                                      if (animationsMap[
-                                              'rowOnActionTriggerAnimation'] !=
-                                          null) {
-                                        animationsMap[
-                                                'rowOnActionTriggerAnimation']!
-                                            .controller
-                                            .forward(from: 0.0);
-                                      }
-                                      logFirebaseEvent(
-                                          'Row_lopetaMuokkaus_widget_animation');
-                                      if (animationsMap[
-                                              'rowOnActionTriggerAnimation'] !=
-                                          null) {
-                                        animationsMap[
-                                                'rowOnActionTriggerAnimation']!
-                                            .controller
-                                            .forward(from: 0.0);
-                                      }
                                     },
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,

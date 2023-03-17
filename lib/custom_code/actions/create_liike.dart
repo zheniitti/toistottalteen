@@ -19,7 +19,6 @@ Future<LiikeStruct> createLiike(
   LiikeStruct liike = createLiikeStruct(
     nimi: nimi ?? '',
     kommentti: kommentti ?? '',
-    liikeTyyppi: liikeTyyppi ?? '',
     aloitusPainoKg: painoKg,
     fieldValues: {'sarjat': sarjat},
   );

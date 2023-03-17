@@ -16,7 +16,31 @@ String? rutiininToistotJaPaino(LiikeStruct? liike) {
   final String setit = liike?.sarjaMaara.toString() ?? '';
   final String toistot = liike?.toistoMaara.toString() ?? '';
   final String paino = (liike?.aloitusPainoKg.toString() ?? '0') + 'kg';
-  return setit + ' x ' + toistot;
+  if (liike?.isOtherExerciseType ?? false) {
+    final double seconds = liike.kestoSekunteina ?? 0;
+    int hours = (seconds / 3600).floor();
+    int minutes = ((seconds / 60) % 60).floor();
+    int secs = (seconds % 60).floor();
+
+    String hoursStr = (hours < 10) ? "0$hours" : "$hours";
+    String minutesStr = (minutes < 10) ? "0$minutes" : "$minutes";
+    String secondsStr = (secs < 10) ? "0$secs" : "$secs";
+    String kestoStr = "$hoursStr:$minutesStr:$secondsStr";
+    final meters = liike.matkaMetri ?? 0;
+    int kilometers = (meters / 1000).floor();
+    int metersRemaining = (meters % 1000).floor();
+
+    String kilometersStr = (kilometers > 0) ? "$kilometers km" : "";
+    String metersStr = (metersRemaining > 0) ? "$metersRemaining m" : "";
+    String matkaStr = '';
+    if (kilometers > 0 && metersRemaining > 0) {
+      matkaStr = "$kilometersStr $metersStr";
+    } else {
+      matkaStr = "$kilometersStr$metersStr";
+    }
+    return kestoStr + ' ' + matkaStr;
+  } else
+    return setit + ' x ' + toistot;
 }
 
 TreeniRutiiniStruct? getTreeniRutiiniByName(
@@ -34,12 +58,6 @@ List<String> mapRutiiniNimet(List<TreeniRutiiniStruct>? treeniRutiinit) {
   if (treeniRutiinit == null || treeniRutiinit.isEmpty) return [];
   return treeniRutiinit.toList().map((rutiini) => rutiini.nimi).toList()
       as List<String>;
-}
-
-bool showLuoRutiiniButton(List<TreeniRutiiniStruct>? rutiiniList) {
-  // return false if atleast one of the rutiini in the rutiiniList has finishedEditing field set to false
-  if (rutiiniList == null || rutiiniList.isEmpty) return true;
-  return rutiiniList.every((rutiini) => rutiini.finishedEditing == true);
 }
 
 ValitutViikonPaivatStruct updatedValitutViikonPaivat(

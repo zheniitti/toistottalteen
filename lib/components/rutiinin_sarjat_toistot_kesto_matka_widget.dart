@@ -39,6 +39,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
   final animationsMap = {
     'containerOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
+      applyInitialState: true,
       effects: [
         VisibilityEffect(duration: 1.ms),
         FadeEffect(
@@ -47,6 +48,33 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
           duration: 400.ms,
           begin: 0.0,
           end: 1.0,
+        ),
+        ScaleEffect(
+          curve: Curves.easeInOut,
+          delay: 400.ms,
+          duration: 400.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'containerOnActionTriggerAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onActionTrigger,
+      applyInitialState: true,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 300.ms,
+          begin: 1.0,
+          end: 0.0,
+        ),
+        ScaleEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 300.ms,
+          begin: 1.0,
+          end: 0.0,
         ),
       ],
     ),
@@ -69,6 +97,13 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
     _model.textController4 ??= TextEditingController();
     _model.textController5 ??= TextEditingController();
     _model.textController6 ??= TextEditingController();
+    _model.textController7 ??= TextEditingController();
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -86,13 +121,20 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
 
     return Material(
       color: Colors.transparent,
-      elevation: 3.0,
+      elevation: 2.0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30.0),
       ),
       child: Container(
         width: MediaQuery.of(context).size.width * 0.86,
         decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 4.0,
+              color: Color(0x33000000),
+              offset: Offset(0.0, 2.0),
+            )
+          ],
           gradient: LinearGradient(
             colors: [Color(0xFFACC2DF), Color(0xFFB1B1B1)],
             stops: [0.0, 1.0],
@@ -318,6 +360,81 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                       ),
                     ),
                     Visibility(
+                      visible: !_model.switchValue!,
+                      child: Container(
+                        width: 330.0,
+                        constraints: BoxConstraints(
+                          maxWidth: 334.0,
+                        ),
+                        decoration: BoxDecoration(),
+                        child: TextFormField(
+                          controller: _model.textController3,
+                          autofocus: true,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            labelText: FFLocalizations.of(context).getText(
+                              'o3f0pnq1' /* Aloituspaino */,
+                            ),
+                            labelStyle: FlutterFlowTheme.of(context)
+                                .bodyText2
+                                .override(
+                                  fontFamily: 'Roboto',
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  fontSize: 20.0,
+                                ),
+                            hintText: FFLocalizations.of(context).getText(
+                              '7x1niggu' /* 0 */,
+                            ),
+                            hintStyle:
+                                FlutterFlowTheme.of(context).bodyText2.override(
+                                      fontFamily: 'Roboto',
+                                      fontSize: 20.0,
+                                    ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(12.0),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color:
+                                    FlutterFlowTheme.of(context).primaryColor,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(12.0),
+                            ),
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).deleteRed,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(12.0),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).deleteRed,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(12.0),
+                            ),
+                            contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 2.0, 12.0, 2.0),
+                          ),
+                          style: FlutterFlowTheme.of(context).title2,
+                          textAlign: TextAlign.center,
+                          keyboardType: TextInputType.number,
+                          validator: _model.textController3Validator
+                              .asValidator(context),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                          ],
+                        ),
+                      ),
+                    ),
+                    Visibility(
                       visible: _model.switchValue ?? true,
                       child: Container(
                         decoration: BoxDecoration(),
@@ -362,7 +479,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                             BorderRadius.circular(12.0),
                                       ),
                                       child: TextFormField(
-                                        controller: _model.textController3,
+                                        controller: _model.textController4,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -376,92 +493,6 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                           hintText: FFLocalizations.of(context)
                                               .getText(
                                             'lllwaw6l' /* 0 */,
-                                          ),
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyText2
-                                                  .override(
-                                                    fontFamily: 'Roboto',
-                                                    fontSize: 20.0,
-                                                  ),
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                          ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryColor,
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                          ),
-                                          errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .deleteRed,
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                          ),
-                                          focusedErrorBorder:
-                                              OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .deleteRed,
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                          ),
-                                          contentPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 2.0, 12.0, 2.0),
-                                        ),
-                                        style:
-                                            FlutterFlowTheme.of(context).title2,
-                                        textAlign: TextAlign.center,
-                                        keyboardType: TextInputType.number,
-                                        validator: _model
-                                            .textController3Validator
-                                            .asValidator(context),
-                                        inputFormatters: [
-                                          _model.textFieldMask3
-                                        ],
-                                      ),
-                                    ),
-                                    Container(
-                                      width: 100.0,
-                                      decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(12.0),
-                                      ),
-                                      child: TextFormField(
-                                        controller: _model.textController4,
-                                        autofocus: true,
-                                        obscureText: false,
-                                        decoration: InputDecoration(
-                                          labelText: FFLocalizations.of(context)
-                                              .getText(
-                                            '0bue537t' /* Minuutit */,
-                                          ),
-                                          labelStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyText1,
-                                          hintText: FFLocalizations.of(context)
-                                              .getText(
-                                            'lue7nrio' /* 0 */,
                                           ),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
@@ -540,6 +571,92 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                         decoration: InputDecoration(
                                           labelText: FFLocalizations.of(context)
                                               .getText(
+                                            '0bue537t' /* Minuutit */,
+                                          ),
+                                          labelStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyText1,
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            'lue7nrio' /* 0 */,
+                                          ),
+                                          hintStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyText2
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    fontSize: 20.0,
+                                                  ),
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryColor,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          errorBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .deleteRed,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          focusedErrorBorder:
+                                              OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .deleteRed,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          contentPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 2.0, 12.0, 2.0),
+                                        ),
+                                        style:
+                                            FlutterFlowTheme.of(context).title2,
+                                        textAlign: TextAlign.center,
+                                        keyboardType: TextInputType.number,
+                                        validator: _model
+                                            .textController5Validator
+                                            .asValidator(context),
+                                        inputFormatters: [
+                                          _model.textFieldMask5
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      width: 100.0,
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      child: TextFormField(
+                                        controller: _model.textController6,
+                                        autofocus: true,
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          labelText: FFLocalizations.of(context)
+                                              .getText(
                                             'eeqsfopl' /* Sekunnit */,
                                           ),
                                           labelStyle:
@@ -606,10 +723,10 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                         textAlign: TextAlign.center,
                                         keyboardType: TextInputType.number,
                                         validator: _model
-                                            .textController5Validator
+                                            .textController6Validator
                                             .asValidator(context),
                                         inputFormatters: [
-                                          _model.textFieldMask5
+                                          _model.textFieldMask6
                                         ],
                                       ),
                                     ),
@@ -622,7 +739,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                   ),
                                   decoration: BoxDecoration(),
                                   child: TextFormField(
-                                    controller: _model.textController6,
+                                    controller: _model.textController7,
                                     autofocus: true,
                                     obscureText: false,
                                     decoration: InputDecoration(
@@ -691,9 +808,9 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                     style: FlutterFlowTheme.of(context).title2,
                                     textAlign: TextAlign.center,
                                     keyboardType: TextInputType.number,
-                                    validator: _model.textController6Validator
+                                    validator: _model.textController7Validator
                                         .asValidator(context),
-                                    inputFormatters: [_model.textFieldMask6],
+                                    inputFormatters: [_model.textFieldMask7],
                                   ),
                                 ),
                               ],
@@ -744,8 +861,18 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                             ),
                           ),
                           FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
+                            onPressed: () async {
+                              logFirebaseEvent(
+                                  'RUTIININ_SARJAT_TOISTOT_KESTO_MATKA_VALM');
+                              logFirebaseEvent('Button_widget_animation');
+                              if (animationsMap[
+                                      'containerOnActionTriggerAnimation'] !=
+                                  null) {
+                                animationsMap[
+                                        'containerOnActionTriggerAnimation']!
+                                    .controller
+                                    .forward(from: 0.0);
+                              }
                             },
                             text: FFLocalizations.of(context).getText(
                               's1jna036' /* Valmis */,
@@ -781,6 +908,10 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
           ),
         ),
       ),
-    ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!);
+    )
+        .animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!)
+        .animateOnActionTrigger(
+          animationsMap['containerOnActionTriggerAnimation']!,
+        );
   }
 }

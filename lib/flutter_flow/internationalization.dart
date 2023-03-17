@@ -111,18 +111,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Analytiikka',
       'en': '',
     },
-    '3w46zho5': {
-      'fi': 'Please select...',
-      'en': '',
-    },
-    'nwjx4q5d': {
-      'fi': 'Toistot',
-      'en': '',
-    },
-    'xky4l2vu': {
-      'fi': 'Painot',
-      'en': '',
-    },
     '2ebrd02h': {
       'fi': 'Home',
       'en': '',
@@ -780,6 +768,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Goal of number of reps',
     },
     'i4zrk6hf': {
+      'fi': '0',
+      'en': '0',
+    },
+    'o3f0pnq1': {
+      'fi': 'Aloituspaino',
+      'en': 'Starting weigth',
+    },
+    '7x1niggu': {
       'fi': '0',
       'en': '0',
     },
