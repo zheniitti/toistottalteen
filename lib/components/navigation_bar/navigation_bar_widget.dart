@@ -48,6 +48,58 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
         ),
       ],
     ),
+    'containerOnActionTriggerAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onActionTrigger,
+      applyInitialState: true,
+      effects: [
+        TiltEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 300.ms,
+          begin: Offset(0, 0),
+          end: Offset(0, 3.142),
+        ),
+      ],
+    ),
+    'containerOnActionTriggerAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onActionTrigger,
+      applyInitialState: true,
+      effects: [
+        TiltEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 300.ms,
+          begin: Offset(0, 0),
+          end: Offset(0, 3.142),
+        ),
+      ],
+    ),
+    'containerOnActionTriggerAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onActionTrigger,
+      applyInitialState: true,
+      effects: [
+        TiltEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 300.ms,
+          begin: Offset(0, 0),
+          end: Offset(0, 3.142),
+        ),
+      ],
+    ),
+    'containerOnActionTriggerAnimation4': AnimationInfo(
+      trigger: AnimationTrigger.onActionTrigger,
+      applyInitialState: true,
+      effects: [
+        TiltEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 300.ms,
+          begin: Offset(0, 0),
+          end: Offset(0, 3.142),
+        ),
+      ],
+    ),
   };
 
   @override
@@ -69,6 +121,13 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
         });
       });
     }
+
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -111,6 +170,17 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
               InkWell(
                 onTap: () async {
                   logFirebaseEvent('NAVIGATION_BAR_Container_8dx41aen_ON_TAP');
+                  logFirebaseEvent('Container_widget_animation');
+                  if (animationsMap['containerOnActionTriggerAnimation1'] !=
+                      null) {
+                    animationsMap['containerOnActionTriggerAnimation1']!
+                        .controller
+                        .forward(from: 0.0)
+                        .whenComplete(
+                            animationsMap['containerOnActionTriggerAnimation1']!
+                                .controller
+                                .reverse);
+                  }
                   logFirebaseEvent('Container_update_app_state');
                   FFAppState().update(() {
                     FFAppState().navBarIndex = 0;
@@ -153,10 +223,23 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
                     ],
                   ),
                 ),
+              ).animateOnActionTrigger(
+                animationsMap['containerOnActionTriggerAnimation1']!,
               ),
               InkWell(
                 onTap: () async {
                   logFirebaseEvent('NAVIGATION_BAR_Container_5pr6gwjo_ON_TAP');
+                  logFirebaseEvent('Container_widget_animation');
+                  if (animationsMap['containerOnActionTriggerAnimation2'] !=
+                      null) {
+                    animationsMap['containerOnActionTriggerAnimation2']!
+                        .controller
+                        .forward(from: 0.0)
+                        .whenComplete(
+                            animationsMap['containerOnActionTriggerAnimation2']!
+                                .controller
+                                .reverse);
+                  }
                   logFirebaseEvent('Container_update_app_state');
                   FFAppState().update(() {
                     FFAppState().navBarIndex = 1;
@@ -199,10 +282,23 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
                     ],
                   ),
                 ),
+              ).animateOnActionTrigger(
+                animationsMap['containerOnActionTriggerAnimation2']!,
               ),
               InkWell(
                 onTap: () async {
                   logFirebaseEvent('NAVIGATION_BAR_Container_0i6hubd6_ON_TAP');
+                  logFirebaseEvent('Container_widget_animation');
+                  if (animationsMap['containerOnActionTriggerAnimation3'] !=
+                      null) {
+                    animationsMap['containerOnActionTriggerAnimation3']!
+                        .controller
+                        .forward(from: 0.0)
+                        .whenComplete(
+                            animationsMap['containerOnActionTriggerAnimation3']!
+                                .controller
+                                .reverse);
+                  }
                   logFirebaseEvent('Container_update_app_state');
                   FFAppState().update(() {
                     FFAppState().navBarIndex = 2;
@@ -245,12 +341,25 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
                     ],
                   ),
                 ),
+              ).animateOnActionTrigger(
+                animationsMap['containerOnActionTriggerAnimation3']!,
               ),
               if (false)
                 InkWell(
                   onTap: () async {
                     logFirebaseEvent(
                         'NAVIGATION_BAR_Container_dp5acew7_ON_TAP');
+                    logFirebaseEvent('Container_widget_animation');
+                    if (animationsMap['containerOnActionTriggerAnimation4'] !=
+                        null) {
+                      animationsMap['containerOnActionTriggerAnimation4']!
+                          .controller
+                          .forward(from: 0.0)
+                          .whenComplete(animationsMap[
+                                  'containerOnActionTriggerAnimation4']!
+                              .controller
+                              .reverse);
+                    }
                     logFirebaseEvent('Container_update_app_state');
                     FFAppState().update(() {
                       FFAppState().navBarIndex = 3;
@@ -294,6 +403,8 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
                       ],
                     ),
                   ),
+                ).animateOnActionTrigger(
+                  animationsMap['containerOnActionTriggerAnimation4']!,
                 ),
             ],
           ),

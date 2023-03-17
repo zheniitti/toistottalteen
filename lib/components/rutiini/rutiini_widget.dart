@@ -23,9 +23,13 @@ class RutiiniWidget extends StatefulWidget {
   const RutiiniWidget({
     Key? key,
     this.rutiini,
+    this.hasUnfinishedWorkout,
+    this.pageStateSelectedRutiini,
   }) : super(key: key);
 
   final TreeniRutiiniStruct? rutiini;
+  final bool? hasUnfinishedWorkout;
+  final TreeniRutiiniStruct? pageStateSelectedRutiini;
 
   @override
   _RutiiniWidgetState createState() => _RutiiniWidgetState();
@@ -404,7 +408,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                           controller: _model.textFieldNimiController,
                           onChanged: (_) => EasyDebounce.debounce(
                             '_model.textFieldNimiController',
-                            Duration(milliseconds: 2000),
+                            Duration(milliseconds: 500),
                             () async {
                               logFirebaseEvent(
                                   'RUTIINI_TextField_nimi_ON_TEXTFIELD_CHAN');
@@ -539,7 +543,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                           controller: _model.textFieldKommenttiController,
                           onChanged: (_) => EasyDebounce.debounce(
                             '_model.textFieldKommenttiController',
-                            Duration(milliseconds: 500),
+                            Duration(milliseconds: 300),
                             () async {
                               logFirebaseEvent(
                                   'RUTIINI_TextField_kommentti_ON_TEXTFIELD');
@@ -1290,6 +1294,9 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                     FFAppState().update(() {
                                       FFAppState().navBarIndex = 1;
                                     });
+                                    logFirebaseEvent(
+                                        'Button_update_widget_state');
+                                    setState(() {});
 
                                     setState(() {});
                                   },
@@ -1401,8 +1408,9 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                         true,
                                         null,
                                         null,
-                                        null,
-                                        null,
+                                        _model.textFieldNimiController.text,
+                                        _model
+                                            .textFieldKommenttiController.text,
                                         widget.rutiini?.liikkeet
                                             ?.toList()
                                             ?.toList(),

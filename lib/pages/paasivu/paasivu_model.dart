@@ -39,11 +39,11 @@ class PaasivuModel extends FlutterFlowModel {
   late NavigationBarModel navigationBarModel;
   // Model for workoutDurationText component.
   late WorkoutDurationTextModel workoutDurationTextModel;
-  // State field(s) for TextField widget.
-  final textFieldKey1 = GlobalKey();
-  TextEditingController? textController1;
-  String? textFieldSelectedOption1;
-  String? Function(BuildContext, String?)? textController1Validator;
+  // State field(s) for TextField_seachBar widget.
+  final textFieldSeachBarKey = GlobalKey();
+  TextEditingController? textFieldSeachBarController;
+  String? textFieldSeachBarSelectedOption;
+  String? Function(BuildContext, String?)? textFieldSeachBarControllerValidator;
   // State field(s) for Timer widget.
   int timerMilliseconds = 0;
   String timerValue = StopWatchTimer.getDisplayTime(0, milliSecond: false);

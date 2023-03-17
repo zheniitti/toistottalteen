@@ -2,6 +2,7 @@ import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/bottom_sheet_rutiini_ja_sessio/bottom_sheet_rutiini_ja_sessio_widget.dart';
 import '/components/liikkeet_lista/liikkeet_lista_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -11,6 +12,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -29,8 +32,24 @@ class SessioWidget extends StatefulWidget {
   _SessioWidgetState createState() => _SessioWidgetState();
 }
 
-class _SessioWidgetState extends State<SessioWidget> {
+class _SessioWidgetState extends State<SessioWidget>
+    with TickerProviderStateMixin {
   late SessioModel _model;
+
+  final animationsMap = {
+    'containerOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 1200.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+  };
 
   @override
   void setState(VoidCallback callback) {
@@ -440,6 +459,6 @@ class _SessioWidgetState extends State<SessioWidget> {
           ),
         ),
       ),
-    );
+    ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!);
   }
 }

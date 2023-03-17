@@ -1,7 +1,10 @@
+import '/auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -13,7 +16,12 @@ import 'keskenerainen_treeni_komponentti_model.dart';
 export 'keskenerainen_treeni_komponentti_model.dart';
 
 class KeskenerainenTreeniKomponenttiWidget extends StatefulWidget {
-  const KeskenerainenTreeniKomponenttiWidget({Key? key}) : super(key: key);
+  const KeskenerainenTreeniKomponenttiWidget({
+    Key? key,
+    this.sessio,
+  }) : super(key: key);
+
+  final TreeniSessiotRecord? sessio;
 
   @override
   _KeskenerainenTreeniKomponenttiWidgetState createState() =>
@@ -77,7 +85,7 @@ class _KeskenerainenTreeniKomponenttiWidgetState
       effects: [
         FadeEffect(
           curve: Curves.easeInOut,
-          delay: 0.ms,
+          delay: 400.ms,
           duration: 1200.ms,
           begin: 0.0,
           end: 1.0,
@@ -229,8 +237,16 @@ class _KeskenerainenTreeniKomponenttiWidgetState
                   clipBehavior: Clip.none,
                   children: [
                     FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
+                      onPressed: () async {
+                        logFirebaseEvent(
+                            'KESKENERAINEN_TREENI_KOMPONENTTI_LOPETA_');
+                        logFirebaseEvent('Button_backend_call');
+
+                        final treeniSessiotUpdateData = {
+                          'loppu': FieldValue.serverTimestamp(),
+                        };
+                        await widget.sessio!.reference
+                            .update(treeniSessiotUpdateData);
                       },
                       text: FFLocalizations.of(context).getText(
                         's3c8dkfv' /* Lopeta treeni */,
@@ -256,8 +272,13 @@ class _KeskenerainenTreeniKomponenttiWidgetState
                       ),
                     ),
                     FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
+                      onPressed: () async {
+                        logFirebaseEvent(
+                            'KESKENERAINEN_TREENI_KOMPONENTTI_JATKA_T');
+                        logFirebaseEvent('Button_update_app_state');
+                        FFAppState().update(() {
+                          FFAppState().navBarIndex = 1;
+                        });
                       },
                       text: FFLocalizations.of(context).getText(
                         '9x6faz9l' /* Jatka treeniä */,

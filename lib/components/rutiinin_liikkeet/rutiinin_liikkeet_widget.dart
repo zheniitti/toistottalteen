@@ -83,13 +83,15 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                             rutiini: widget.rutiini,
                             liike: liikkeetItem,
                           ),
-                          RutiininLiikeKommenttiTextfieldWidget(
-                            key: Key(
-                                'Keyst7_${liikkeetIndex}_of_${liikkeet.length}'),
-                            liikeIndex: liikkeetIndex,
-                            rutiini: widget.rutiini,
-                            liike: liikkeetItem,
-                          ),
+                          if (liikkeetItem.nimi != null &&
+                              liikkeetItem.nimi != '')
+                            RutiininLiikeKommenttiTextfieldWidget(
+                              key: Key(
+                                  'Keyst7_${liikkeetIndex}_of_${liikkeet.length}'),
+                              liikeIndex: liikkeetIndex,
+                              rutiini: widget.rutiini,
+                              liike: liikkeetItem,
+                            ),
                         ],
                       ),
                     ),

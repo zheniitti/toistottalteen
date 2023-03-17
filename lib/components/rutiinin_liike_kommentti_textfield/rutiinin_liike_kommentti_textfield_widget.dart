@@ -62,7 +62,7 @@ class _RutiininLiikeKommenttiTextfieldWidgetState
       controller: _model.textController,
       onChanged: (_) => EasyDebounce.debounce(
         '_model.textController',
-        Duration(milliseconds: 500),
+        Duration(milliseconds: 400),
         () async {
           logFirebaseEvent('RUTIININ_LIIKE_KOMMENTTI_TEXTFIELD_TextF');
           logFirebaseEvent('TextField_custom_action');

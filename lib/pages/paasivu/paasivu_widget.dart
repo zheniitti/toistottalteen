@@ -149,7 +149,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
       FFAppState().addToSessioChunkListLastItemDateTime(getCurrentTimestamp);
     });
 
-    _model.textController1 ??=
+    _model.textFieldSeachBarController ??=
         TextEditingController(text: FFAppState().searchbarText);
     _model.textController2 ??=
         TextEditingController(text: FFAppState().searchbarText);
@@ -554,11 +554,14 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                       ),
                     );
                   }
-                  List<TreeniSessiotRecord> containerTreeniSessiotRecordList =
+                  List<TreeniSessiotRecord>
+                      containerQueryLatestSessioTreeniSessiotRecordList =
                       snapshot.data!;
-                  final containerTreeniSessiotRecord =
-                      containerTreeniSessiotRecordList.isNotEmpty
-                          ? containerTreeniSessiotRecordList.first
+                  final containerQueryLatestSessioTreeniSessiotRecord =
+                      containerQueryLatestSessioTreeniSessiotRecordList
+                              .isNotEmpty
+                          ? containerQueryLatestSessioTreeniSessiotRecordList
+                              .first
                           : null;
                   return Container(
                     decoration: BoxDecoration(),
@@ -581,15 +584,23 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                       model:
                                           _model.sivuRutiinitKomponenttiModel,
                                       updateCallback: () => setState(() {}),
-                                      child: SivuRutiinitKomponenttiWidget(),
+                                      updateOnChange: true,
+                                      child: SivuRutiinitKomponenttiWidget(
+                                        latestSessio:
+                                            containerQueryLatestSessioTreeniSessiotRecord,
+                                      ),
                                     ),
                                   if (FFAppState().navBarIndex == 2)
                                     wrapWithModel(
                                       model: _model
                                           .sivuTreeniHistoriaKomponenttiModel,
                                       updateCallback: () => setState(() {}),
+                                      updateOnChange: true,
                                       child:
-                                          SivuTreeniHistoriaKomponenttiWidget(),
+                                          SivuTreeniHistoriaKomponenttiWidget(
+                                        latestSessioStreamDoc:
+                                            containerQueryLatestSessioTreeniSessiotRecord,
+                                      ),
                                     ),
                                   if ((FFAppState().navBarIndex == 1) ||
                                       FFAppState().showTreenaaTaiLuoRutiiniSivu)
@@ -598,7 +609,8 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                       updateCallback: () => setState(() {}),
                                       updateOnChange: true,
                                       child: SivuTreenaaKomponenttiWidget(
-                                        sessioDoc: containerTreeniSessiotRecord,
+                                        sessioDoc:
+                                            containerQueryLatestSessioTreeniSessiotRecord,
                                       ),
                                     ),
                                 ],
@@ -690,7 +702,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                           Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
-                                              if (containerTreeniSessiotRecord!
+                                              if (containerQueryLatestSessioTreeniSessiotRecord!
                                                       .alku !=
                                                   null)
                                                 wrapWithModel(
@@ -701,13 +713,13 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                   child:
                                                       WorkoutDurationTextWidget(
                                                     sessioDoc:
-                                                        containerTreeniSessiotRecord,
+                                                        containerQueryLatestSessioTreeniSessiotRecord,
                                                   ),
                                                 ),
-                                              if ((containerTreeniSessiotRecord!
+                                              if ((containerQueryLatestSessioTreeniSessiotRecord!
                                                           .reference !=
                                                       null) &&
-                                                  (containerTreeniSessiotRecord!
+                                                  (containerQueryLatestSessioTreeniSessiotRecord!
                                                           .alku ==
                                                       null))
                                                 InkWell(
@@ -722,7 +734,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                       'alku': FieldValue
                                                           .serverTimestamp(),
                                                     };
-                                                    await containerTreeniSessiotRecord!
+                                                    await containerQueryLatestSessioTreeniSessiotRecord!
                                                         .reference
                                                         .update(
                                                             treeniSessiotUpdateData);
@@ -832,10 +844,10 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                 optionsViewBuilder: (context,
                                                     onSelected, options) {
                                                   return AutocompleteOptionsList(
-                                                    textFieldKey:
-                                                        _model.textFieldKey1,
-                                                    textController:
-                                                        _model.textController1!,
+                                                    textFieldKey: _model
+                                                        .textFieldSeachBarKey,
+                                                    textController: _model
+                                                        .textFieldSeachBarController!,
                                                     options: options.toList(),
                                                     onSelected: onSelected,
                                                     textStyle: FlutterFlowTheme
@@ -865,7 +877,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                 },
                                                 onSelected: (String selection) {
                                                   setState(() => _model
-                                                          .textFieldSelectedOption1 =
+                                                          .textFieldSeachBarSelectedOption =
                                                       selection);
                                                   FocusScope.of(context)
                                                       .unfocus();
@@ -876,10 +888,11 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                   focusNode,
                                                   onEditingComplete,
                                                 ) {
-                                                  _model.textController1 =
+                                                  _model.textFieldSeachBarController =
                                                       textEditingController;
                                                   return TextFormField(
-                                                    key: _model.textFieldKey1,
+                                                    key: _model
+                                                        .textFieldSeachBarKey,
                                                     controller:
                                                         textEditingController,
                                                     focusNode: focusNode,
@@ -887,10 +900,22 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                         onEditingComplete,
                                                     onChanged: (_) =>
                                                         EasyDebounce.debounce(
-                                                      '_model.textController1',
+                                                      '_model.textFieldSeachBarController',
                                                       Duration(
                                                           milliseconds: 500),
-                                                      () => setState(() {}),
+                                                      () async {
+                                                        logFirebaseEvent(
+                                                            'PAASIVU_TextField_seachBar_ON_TEXTFIELD_');
+                                                        logFirebaseEvent(
+                                                            'TextField_seachBar_update_app_state');
+                                                        setState(() {
+                                                          FFAppState()
+                                                                  .searchbarText =
+                                                              _model
+                                                                  .textFieldSeachBarController
+                                                                  .text;
+                                                        });
+                                                      },
                                                     ),
                                                     obscureText: false,
                                                     decoration: InputDecoration(
@@ -997,14 +1022,25 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                         size: 24.0,
                                                       ),
                                                       suffixIcon: _model
-                                                              .textController1!
+                                                              .textFieldSeachBarController!
                                                               .text
                                                               .isNotEmpty
                                                           ? InkWell(
                                                               onTap: () async {
                                                                 _model
-                                                                    .textController1
+                                                                    .textFieldSeachBarController
                                                                     ?.clear();
+                                                                logFirebaseEvent(
+                                                                    'PAASIVU_TextField_seachBar_ON_TEXTFIELD_');
+                                                                logFirebaseEvent(
+                                                                    'TextField_seachBar_update_app_state');
+                                                                setState(() {
+                                                                  FFAppState()
+                                                                          .searchbarText =
+                                                                      _model
+                                                                          .textFieldSeachBarController
+                                                                          .text;
+                                                                });
                                                                 setState(() {});
                                                               },
                                                               child: Icon(
@@ -1035,7 +1071,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                               FontWeight.normal,
                                                         ),
                                                     validator: _model
-                                                        .textController1Validator
+                                                        .textFieldSeachBarControllerValidator
                                                         .asValidator(context),
                                                   );
                                                 },
@@ -1071,10 +1107,11 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                           ),
                                         ),
                                       if ((FFAppState().navBarIndex == 1) &&
-                                          (containerTreeniSessiotRecord!
+                                          (containerQueryLatestSessioTreeniSessiotRecord!
                                                   .loppu ==
                                               null) &&
-                                          (containerTreeniSessiotRecord!.alku !=
+                                          (containerQueryLatestSessioTreeniSessiotRecord!
+                                                  .alku !=
                                               null))
                                         InkWell(
                                           onTap: () async {
@@ -1087,7 +1124,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                               'loppu':
                                                   FieldValue.serverTimestamp(),
                                             };
-                                            await containerTreeniSessiotRecord!
+                                            await containerQueryLatestSessioTreeniSessiotRecord!
                                                 .reference
                                                 .update(
                                                     treeniSessiotUpdateData);

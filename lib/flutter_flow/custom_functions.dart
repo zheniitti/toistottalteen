@@ -159,3 +159,23 @@ TreeniRutiiniStruct jsonToRutiini(dynamic json) {
   // Return the resulting instance.
   return treeniRutiini!;
 }
+
+ValitutViikonPaivatStruct myCreateValitutViikonPaivat(
+  bool? ma,
+  bool? ti,
+  bool? ke,
+  bool? to,
+  bool? pe,
+  bool? la,
+  bool? su,
+) {
+  return createValitutViikonPaivatStruct(
+    ma: ma ?? false,
+    ti: ti ?? false,
+    ke: ke ?? false,
+    to: to ?? false,
+    pe: pe ?? false,
+    la: la ?? false,
+    su: su ?? false,
+  );
+}

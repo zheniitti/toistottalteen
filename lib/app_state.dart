@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'backend/backend.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:csv/csv.dart';
 import 'flutter_flow/flutter_flow_util.dart';
-import 'flutter_flow/lat_lng.dart';
 import 'dart:convert';
 
 class FFAppState extends ChangeNotifier {

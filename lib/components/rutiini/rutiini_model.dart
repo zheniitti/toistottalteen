@@ -20,7 +20,7 @@ import 'package:provider/provider.dart';
 class RutiiniModel extends FlutterFlowModel {
   ///  Local state fields for this component.
 
-  TreeniRutiiniStruct? rutiini;
+  TreeniRutiiniStruct? componentStateRutiini;
 
   ///  State fields for stateful widgets in this component.
 
