@@ -59,7 +59,15 @@
 	<true/>
 
 
-
+	<key>PermissionGroupNotification</key>
+    <string>Sovellus tarvitsee luvan lähettää ilmoituksia</string>
+	<key>NSCalendarsUsageDescription</key>
+    <string>Lupa käyttää kalenteria tarvitaan, jotta treenien lisääminen kalenteriin onnistuisi.</string>
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>fetch</string>
+        <string>remote-notification</string>
+    </array>
 
 
 	<key>UILaunchStoryboardName</key>
@@ -81,6 +89,16 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-
+  <key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-6667798289242281~6379555956</string>
+	<key>SKAdNetworkItems</key>
+		<array>
+			<dict>
+				<key>SKAdNetworkIdentifier</key>
+				<string>cstr6suwn9.skadnetwork</string>
+			</dict>
+		</array>
+	<key>io.flutter.embedded_views_preview</key>
+	<true/>
 </dict>
 </plist>

@@ -111,11 +111,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Analytiikka',
       'en': '',
     },
-    'pugewx7s': {
-      'fi': 'Aika',
+    '3w46zho5': {
+      'fi': 'Please select...',
       'en': '',
     },
-    '3ehztlt6': {
+    'nwjx4q5d': {
+      'fi': 'Toistot',
+      'en': '',
+    },
+    'xky4l2vu': {
       'fi': 'Painot',
       'en': '',
     },
@@ -126,12 +130,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // paasivu
   {
-    'uwbd7u0v': {
-      'fi': 'Treenirutiinit',
-      'en': 'Worcout routines',
+    'uw6dunth': {
+      'fi': 'Aloita ajanotto',
+      'en': 'Finish workout',
+    },
+    '9mvzr5ip': {
+      'fi': 'Option 1',
+      'en': '',
+    },
+    'ouj3p8pa': {
+      'fi': 'Lopeta treeni',
+      'en': 'Finish workout',
     },
     'd9b3r5r8': {
-      'fi': 'Aikaa kulunut: 29min',
+      'fi': 'Aikaa kulunut:',
       'en': 'Duration: ',
     },
     'hwbly3hr': {
@@ -151,14 +163,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Training routines',
     },
   },
-  // treenaaminen_sivu
-  {
-    'gb9kwjv0': {
-      'fi': 'Home',
-      'en': '',
-    },
-  },
-  // aloitus
+  // aloitus_eiKaytossa
   {
     'rmgg2g5f': {
       'fi': 'Luo rutiini',
@@ -187,56 +192,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '83k34jhr': {
       'fi': 'Treenaa',
       'en': 'Train',
-    },
-  },
-  // luoRutiini_sivu
-  {
-    '3zslehjv': {
-      'fi': 'Rutiinin / ohjelman nimi',
-      'en': 'Routine / workout name',
-    },
-    'hyob330v': {
-      'fi': 'esim Ylövartalo, Työhtävät tai Juoksu',
-      'en': 'Routine name (e.g. Upper body or Rnning)',
-    },
-    'vps9eyym': {
-      'fi': 'Kommentti / ohjeet (vapaaehtoinen)',
-      'en': 'comment / instruction (optional)',
-    },
-    'oeb00uyr': {
-      'fi': 'esim. Tämä on kokonaisvaltainen tasapainoa kyhittävä treeni',
-      'en': 'e.g. This is a comprehensive balance-improving workout',
-    },
-    'sxlzl4hk': {
-      'fi': 'Lisää treeniliike',
-      'en': 'Add exrcise',
-    },
-    '2b1k7jba': {
-      'fi': 'Valmis',
-      'en': 'Ready',
-    },
-    'xr4kgiol': {
-      'fi': 'Treenirutiinin luominen',
-      'en': 'Create routine',
-    },
-    'h61n0u71': {
-      'fi': 'Koti',
-      'en': 'Home',
-    },
-  },
-  // rutiininHistoria_sivu
-  {
-    '9gg1x79r': {
-      'fi': 'Heatmap',
-      'en': 'heatmap',
-    },
-    '0cczlpf8': {
-      'fi': 'Page Title',
-      'en': '',
-    },
-    '12nwsek2': {
-      'fi': 'Home',
-      'en': '',
     },
   },
   // getStarted_sivu
@@ -414,8 +369,16 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // builder
   {
-    'nvbc1cqj': {
-      'fi': 'Hello World',
+    'v217xhtu': {
+      'fi': 'Ylävartalotreeni',
+      'en': 'Upper body workout',
+    },
+    'cfxbyihj': {
+      'fi': 'Aloitettu: ',
+      'en': 'Started: ',
+    },
+    'kyjyqea3': {
+      'fi': '30 min sitten dsltkphklp',
       'en': '',
     },
     'v1rlq3l4': {
@@ -427,6 +390,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
+  // actionsToCopy
+  {
+    'dgt4ezk1': {
+      'fi': 'showSnackbar\n🙁 tämä toiminto ei toimi vielä...',
+      'en': '',
+    },
+    '2f5jkjle': {
+      'fi': 'updateRutiini nimi',
+      'en': '',
+    },
+    '0r18smyh': {
+      'fi': 'Page Title',
+      'en': '',
+    },
+    'hsdzc6hf': {
+      'fi': 'Home',
+      'en': '',
+    },
+  },
   // ToistotTalteenText
   {
     'ezf7x56w': {
@@ -434,116 +416,31 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Toistot Talteen',
     },
   },
-  // rutiiniTaiSessio
+  // sessio
   {
-    '5hsnij9t': {
-      'fi': '18:05',
-      'en': '18:05',
+    '7mlsyz8f': {
+      'fi': '\n',
+      'en': '\n',
     },
-    'dm2kbqw6': {
-      'fi': '1H 25min',
-      'en': '1H 25min',
+    '5fe6fdq5': {
+      'fi': ' - ',
+      'en': ' - ',
     },
-    '452cnmn6': {
-      'fi': '5',
-      'en': '5',
+    '7yngkmsu': {
+      'fi': 'Kesto:\n',
+      'en': 'Duration:\n',
     },
-    'r1v3hyro': {
-      'fi':
-          'Ota pohjaksi valitun päivän treeni. Muuten pohjana on perusrutiini.',
-      'en':
-          'Use the selected day\'s training as a basis. Otherwise, the basis is the basic routine.',
-    },
-    'hn9k2t8e': {
-      'fi': 'Suorita',
-      'en': 'Start',
+    'qfw31zro': {
+      'fi': 'Liikkeitä:\n',
+      'en': 'Exercises:\n',
     },
     'zg2n2e21': {
-      'fi': 'Treenihistoria',
-      'en': 'Worcout history',
+      'fi': 'Muokkaa',
+      'en': 'Edit',
     },
     'h16b2vng': {
-      'fi': 'Treenaa nyt',
-      'en': 'Start now',
-    },
-  },
-  // treeniLiikeForm
-  {
-    '6fex8zp8': {
-      'fi': 'Treeniliikkeen nimi',
-      'en': 'Exercise name',
-    },
-    'c1kh8kio': {
-      'fi': 'esim. Maastaveto, Ylätalja vastaotteella, Uinti jne...',
-      'en': 'Routine name (e.g. Upper body or Rnning)',
-    },
-    'x622rgz7': {
-      'fi': 'KUNTOSALI (penkki, pystypunnerrus käsipainolla jne...)',
-      'en': 'GYM (Bench Press, Dumbell flies etc...)',
-    },
-    'ithsk40p': {
-      'fi': 'MUU (venyttely, uinti, palloilu jne...)',
-      'en': 'OTHER (exercise that doesn\'t fit in gym category )',
-    },
-    'eod0ssb0': {
-      'fi': 'Valitse tyyppi (Ei pakollinen)',
-      'en': 'Select type (Optional)',
-    },
-    'adxqhecq': {
-      'fi': '',
-      'en': '',
-    },
-    'i3wiah5x': {
-      'fi': 'Sarjojen määrä (Ei pakollinen)',
-      'en': 'Number of sets (Optional)',
-    },
-    'familqw5': {
-      'fi': '',
-      'en': '',
-    },
-    'pk7tuluo': {
-      'fi': 'Toistojen  määrä (Ei pakollinen)',
-      'en': 'Number of repetitions (Optional)',
-    },
-    'r5xevs00': {
-      'fi': '',
-      'en': '',
-    },
-    'auarlbrk': {
-      'fi': 'Paino (Ei pakollinen)',
-      'en': 'Weight (Optional)',
-    },
-    'suqrryhr': {
-      'fi': '',
-      'en': '',
-    },
-    '73cntf0m': {
-      'fi': 'Kesto minuutteina (Ei pakollinen)',
-      'en': 'Duration in minutes (Optional)',
-    },
-    'xlu1l4ad': {
-      'fi': '',
-      'en': '',
-    },
-    'g0mp3d39': {
-      'fi': 'Matka metreinä (Ei pakollinen)',
-      'en': 'Distance in meters (Optional)',
-    },
-    'xjb36tr5': {
-      'fi': 'Kommentti (Ei pakollinen)',
-      'en': 'Comment (Optional)',
-    },
-    'bvpq99bs': {
-      'fi': 'esim. Tee ainakin kaksi lämmittelysarjaa kevyellä painolla',
-      'en': 'e.g. Do atleast two warmup set with light weight',
-    },
-    '5khcc0a1': {
-      'fi': 'Muutokset tallennettu',
-      'en': 'Chages saved',
-    },
-    '449n4liv': {
-      'fi': 'Valmis',
-      'en': 'Ready',
+      'fi': 'Treenaa uudestaan',
+      'en': 'Workout again now',
     },
   },
   // MyDeleteButton
@@ -576,7 +473,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Repetitions',
     },
   },
-  // liike_treenaaminen
+  // liike_treeninAikana
   {
     '29oo50bm': {
       'fi': 'Liikkeen nimi',
@@ -586,50 +483,46 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Kommentti (vapaaehtoinen)',
       'en': 'Commment (Optional)',
     },
-    '1k7piz7l': {
-      'fi': '.\nsarja',
-      'en': '.\nset',
-    },
     'u1j0c71n': {
       'fi': 'Toistot',
       'en': 'Reps',
-    },
-    'vzw2070w': {
-      'fi': '0',
-      'en': 'Repetitions',
     },
     '1zpp3lp9': {
       'fi': 'Paino (kg)',
       'en': 'Weight (kg)',
     },
-    'utdud272': {
-      'fi': '0',
-      'en': 'Repetitions',
+    'hcx7u96d': {
+      'fi': '.\nsarja',
+      'en': '.\nset',
     },
     'dxvry4te': {
-      'fi': 'lisää sarja',
-      'en': 'add set',
+      'fi': 'Lisää sarja',
+      'en': 'Add a set',
+    },
+    'rrk6y01u': {
+      'fi': 'Tehty',
+      'en': 'Done',
     },
   },
-  // drawer
+  // sivupalkki
   {
     'ku53fmbs': {
       'fi': 'Luo tili tai kirjaudu',
       'en': 'Create account or login',
     },
-    'qcyu9dqc': {
-      'fi': 'Hello World ',
-      'en': '',
-    },
-    '9hgn22d8': {
+    'tmzzbmg6': {
       'fi': 'Treenirutiinit',
       'en': 'Workout routines',
     },
-    '14gzlzjt': {
+    't717139a': {
+      'fi': '  (käynnissä)',
+      'en': '',
+    },
+    'kmmmsdb7': {
       'fi': 'Treenihistoria',
       'en': 'Workout history',
     },
-    'lbpdvgf4': {
+    'e4qtfwaz': {
       'fi': 'Treenitilastot',
       'en': 'Workout Statistics',
     },
@@ -650,7 +543,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Privacy policy and User agreetment',
     },
   },
-  // rutiinit_sivu
+  // sivu_rutiinit_komponentti
   {
     'pr2ftdmo': {
       'fi': 'Ylävartalo',
@@ -665,33 +558,34 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Select routine',
     },
   },
-  // treeniHistoria_sivu
+  // sivu_treeniHistoria_komponentti
   {
+    'clxdf658': {
+      'fi': 'heatmap calendar\n(tulossa)',
+      'en': 'heatmap calendar\n(available soon)',
+    },
     'uur18ydl': {
-      'fi': 'Sinulla ei ole vielä tehtyjä treenejä',
-      'en': 'You don\'t have finished workouts yet',
+      'fi': 'Tämä sivu on tyhjä koska sinulla ei ole vielä tehtyjä treenejä',
+      'en': 'This page is empty because you don\'t have finished workouts yet',
     },
   },
   // bottomSheet_rutiiniJaSessio
   {
-    'esn5dhxf': {
-      'fi': 'Poista pysyvästi',
-      'en': 'Delete permanently',
+    'elbafojn': {
+      'fi': 'Kopioi liikkeet',
+      'en': 'Copy excercises',
     },
     'e0l254zt': {
       'fi': 'Muokkaa',
       'en': 'Edit',
     },
-  },
-  // aikaisemmatSuoritukset
-  {
-    'nuyg0kz2': {
-      'fi': 'Heatmap kalenteri',
-      'en': 'Heatmap valendar',
+    'esn5dhxf': {
+      'fi': 'Poista pysyvästi',
+      'en': 'Delete permanently',
     },
-    '42oknvjl': {
-      'fi': 'Heat map',
-      'en': 'Heat map',
+    '2a9bmoed': {
+      'fi': '(paina pitkään)',
+      'en': '',
     },
   },
   // button_aloitaTreenaaminen
@@ -704,62 +598,276 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // button_luoRutiini
   {
     '3myg55ek': {
-      'fi': 'Luo treenipohja',
-      'en': 'Create an routine',
+      'fi': 'Lisää treenipohja',
+      'en': 'Add an routine',
     },
   },
-  // treenaa_sivu
+  // sivu_treenaa_komponentti
   {
-    '7y5lnu4x': {
+    'ofm9lu9p': {
       'fi': '',
       'en': '',
     },
-    'y2ovng6h': {
-      'fi': 'Rutiinin nimi',
-      'en': 'Routine name',
+    'a54f48mf': {
+      'fi': 'Treenin nimi',
+      'en': 'Workout name',
     },
-    'mdlqfic5': {
+    'm7j3x68g': {
       'fi': '',
       'en': '',
     },
-    'zpecqtzq': {
+    '8prjh7ks': {
       'fi': 'Kommentti (vapaaehtoinen)',
       'en': 'Comment (optional)',
     },
-    'c9ll95ki': {
+    '44rq35vd': {
       'fi': 'Lisää  liike',
       'en': 'New exercise',
     },
   },
+  // rutiini
+  {
+    'a7t1o69i': {
+      'fi': '💬',
+      'en': '💬',
+    },
+    'yi3kozht': {
+      'fi': 'Treenipohjan nimi',
+      'en': 'Routine name',
+    },
+    'kiyozfj3': {
+      'fi': 'Treenipohjan kommentti 💬',
+      'en': 'Routine comment 💬',
+    },
+    'qqp0ddb4': {
+      'fi': 'Treenipäivät:',
+      'en': 'Workout days',
+    },
+    'yod6uchb': {
+      'fi': 'Ma',
+      'en': 'Mon',
+    },
+    'vv4fc4r4': {
+      'fi': 'Ti',
+      'en': 'Tue',
+    },
+    'yuw8d4lw': {
+      'fi': 'Ke',
+      'en': 'Wed',
+    },
+    'ruf636mt': {
+      'fi': 'To',
+      'en': 'Thu',
+    },
+    'an7uyedx': {
+      'fi': 'Pe',
+      'en': 'Fri',
+    },
+    'vlibsxm0': {
+      'fi': 'La',
+      'en': 'Sat',
+    },
+    'c5mfuuxh': {
+      'fi': 'Su',
+      'en': 'Sun',
+    },
+    'xvtlnaay': {
+      'fi': 'Treenihistoria',
+      'en': 'Worcout history',
+    },
+    '5o4nggqe': {
+      'fi': 'Treenaa nyt',
+      'en': 'Start now',
+    },
+    'm9mgmk0g': {
+      'fi': 'Lisää liike',
+      'en': 'Add exercise',
+    },
+    'f5f0mc89': {
+      'fi': 'Lopeta muokkaus ✔',
+      'en': 'Finish editing ✔',
+    },
+  },
+  // rutiininLiikeNimiTextfield
+  {
+    '6g69qd7e': {
+      'fi': 'Treenilikkeen nimi',
+      'en': 'Exercise name',
+    },
+  },
+  // rutiininLiikeKommenttiTextfield
+  {
+    'jc8zfh0n': {
+      'fi': 'Kommentti 💬',
+      'en': 'Comment 💬',
+    },
+  },
+  // sarjaToistotTextfield
+  {
+    'yylnuo9q': {
+      'fi': '0',
+      'en': 'Repetitions',
+    },
+  },
+  // sarjaPainoTextfield
+  {
+    'vd95k1b9': {
+      'fi': '0',
+      'en': 'Repetitions',
+    },
+  },
+  // sessioChunkList
+  {
+    '5smr29rj': {
+      'fi': 'Näytä lisää',
+      'en': 'Show more',
+    },
+  },
+  // workoutDurationText
+  {
+    '5hy3i3cg': {
+      'fi': 'Aikaa kulunut: ',
+      'en': 'Workout duration: ',
+    },
+  },
+  // KeskenerainenTreeni_komponentti
+  {
+    'tghu42c9': {
+      'fi': 'Sinulla on keskeneräinen treeni',
+      'en': 'You have an unfinished workout',
+    },
+    '2umh30ea': {
+      'fi': 'Ylävartalotreeni',
+      'en': 'Upper body workout',
+    },
+    'j7w2zxkt': {
+      'fi': 'Aloitettu: ',
+      'en': 'Started: ',
+    },
+    '3opv7jr7': {
+      'fi': '30 min sitten dsltkphklp',
+      'en': '',
+    },
+    's3c8dkfv': {
+      'fi': 'Lopeta treeni',
+      'en': 'Finish workout',
+    },
+    '9x6faz9l': {
+      'fi': 'Jatka treeniä',
+      'en': 'Continue workout',
+    },
+  },
+  // rutiininSarjatToistotKestoMatka
+  {
+    'bc5re53k': {
+      'fi': 'Sali',
+      'en': 'Other',
+    },
+    'puhl6gls': {
+      'fi': 'Muu',
+      'en': 'Other',
+    },
+    'jjypk83p': {
+      'fi': 'Tavoite sarjojen määrä',
+      'en': 'Goal of number of sets',
+    },
+    'qq0ca3om': {
+      'fi': '0',
+      'en': '0',
+    },
+    'lguwu79m': {
+      'fi': 'Tavoite toistojen määrä',
+      'en': 'Goal of number of reps',
+    },
+    'i4zrk6hf': {
+      'fi': '0',
+      'en': '0',
+    },
+    '9xaxjmht': {
+      'fi': 'Tavoitekesto',
+      'en': 'Goal duration',
+    },
+    'aqi4i3ec': {
+      'fi': 'Tunnit',
+      'en': 'Hours',
+    },
+    'lllwaw6l': {
+      'fi': '0',
+      'en': '0',
+    },
+    '0bue537t': {
+      'fi': 'Minuutit',
+      'en': 'Minutes',
+    },
+    'lue7nrio': {
+      'fi': '0',
+      'en': '0',
+    },
+    'eeqsfopl': {
+      'fi': 'Sekunnit',
+      'en': 'Secs',
+    },
+    'e857gqcj': {
+      'fi': '0',
+      'en': '0',
+    },
+    '4ff9itxb': {
+      'fi': 'Tavoite matka (metreinä)',
+      'en': 'Goal distance (meters)',
+    },
+    'tloaojew': {
+      'fi': '0 m',
+      'en': '0 m',
+    },
+    '0f93dv4i': {
+      'fi': 'Tyhjennä',
+      'en': 'Clear',
+    },
+    's1jna036': {
+      'fi': 'Valmis',
+      'en': 'Ready',
+    },
+  },
   // Miscellaneous
   {
+    'tjoan72u': {
+      'fi': 'Sovellus tarvitsee luvan lähettää ilmoituksia',
+      'en': 'Permission needed for sending notifications',
+    },
+    '5x6hdd8r': {
+      'fi':
+          'Lupa käyttää kalenteria tarvitaan, jotta treenien lisääminen kalenteriin onnistuisi.',
+      'en': 'Permission for calendar is need to add workouts to calendar',
+    },
     '1u6cda3u': {
-      'fi': '',
-      'en': '',
+      'fi': '😭Virhe: [error]',
+      'en': '😭Error: [error]',
     },
     'au7x8ize': {
-      'fi': '',
-      'en': '',
+      'fi': '✅ Salasanan vaihtolinkki lähetetty sähköpostiisi!',
+      'en': '✅ Password reset email sent!',
     },
     'lhbjyw2o': {
-      'fi': '',
-      'en': '',
+      'fi': '❗Sähköposti on pakollinen!',
+      'en': '❗Email required!',
     },
     'zr9l0xc3': {
-      'fi': '',
-      'en': '',
+      'fi': '❗Puhelinnumero tarvitaan ja sen pitää alkaa + merkillä.',
+      'en': '❗Phone number required and has to start with +',
     },
     'r9kev20w': {
-      'fi': '',
-      'en': '',
+      'fi': '🙅 Salasanat eivät täsmää',
+      'en': '🙅 Passwords don\'t match',
     },
     'oy345b43': {
-      'fi': '',
-      'en': '',
+      'fi': '💬 Syötä tekstiviestivahvistuskoodi',
+      'en': '💬 Enter SMS verification code',
     },
     'tsdpc6n6': {
-      'fi': '',
-      'en': '',
+      'fi':
+          'Liian kauan viimeisimmästä sisäänkirjautumisesta. Kirjaudu uudelleen sisään ennen kuin poistat tilisi.',
+      'en':
+          'Too long since most recent sign in. Sign in again before deleting your account.',
     },
     'f38sf9gj': {
       'fi': '',

@@ -17,19 +17,25 @@ abstract class TreeniSessiotRecord
 
   DateTime? get loppu;
 
-  String? get kommentti;
-
   TreeniRutiiniStruct get treeniRutiiniData;
 
   DateTime? get docCreatedTime;
+
+  bool? get showComment;
+
+  BuiltList<String>? get photos;
+
+  bool? get isEditing;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(TreeniSessiotRecordBuilder builder) => builder
-    ..kommentti = ''
-    ..treeniRutiiniData = TreeniRutiiniStructBuilder();
+    ..treeniRutiiniData = TreeniRutiiniStructBuilder()
+    ..showComment = false
+    ..photos = ListBuilder()
+    ..isEditing = false;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('treeniSessiot');
@@ -57,9 +63,10 @@ Map<String, dynamic> createTreeniSessiotRecordData({
   DocumentReference? userRef,
   DateTime? alku,
   DateTime? loppu,
-  String? kommentti,
   TreeniRutiiniStruct? treeniRutiiniData,
   DateTime? docCreatedTime,
+  bool? showComment,
+  bool? isEditing,
 }) {
   final firestoreData = serializers.toFirestore(
     TreeniSessiotRecord.serializer,
@@ -68,9 +75,11 @@ Map<String, dynamic> createTreeniSessiotRecordData({
         ..userRef = userRef
         ..alku = alku
         ..loppu = loppu
-        ..kommentti = kommentti
         ..treeniRutiiniData = TreeniRutiiniStructBuilder()
-        ..docCreatedTime = docCreatedTime,
+        ..docCreatedTime = docCreatedTime
+        ..showComment = showComment
+        ..photos = null
+        ..isEditing = isEditing,
     ),
   );
 

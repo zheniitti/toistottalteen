@@ -10,7 +10,7 @@ service cloud.firestore {
 
     match /appConfig/{document} {
       allow create: if false;
-      allow read: if request.auth != null;
+      allow read: if true;
       allow write: if false;
       allow delete: if false;
     }
@@ -23,16 +23,9 @@ service cloud.firestore {
     }
 
     match /esimerkkiData/{document} {
-      allow create: if true;
+      allow create: if false;
       allow read: if true;
-      allow write: if false;
-      allow delete: if false;
-    }
-
-    match /esimerkkiAnalytiikkaData/{document} {
-      allow create: if true;
-      allow read: if true;
-      allow write: if false;
+      allow write: if true;
       allow delete: if false;
     }
   }

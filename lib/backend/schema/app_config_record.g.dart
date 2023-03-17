@@ -21,12 +21,70 @@ class _$AppConfigRecordSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
-    value = object.androidShowBannerAds;
+    value = object.daysAfterShowAds;
     if (value != null) {
       result
-        ..add('androidShowBannerAds')
+        ..add('daysAfterShowAds')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.showBannerAdAndroid;
+    if (value != null) {
+      result
+        ..add('showBannerAd_android')
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.showBannerAdIOS;
+    if (value != null) {
+      result
+        ..add('showBannerAd_IOS')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.showBannerAdWeb;
+    if (value != null) {
+      result
+        ..add('showBannerAd_web')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.showInterstitialAdAndroid;
+    if (value != null) {
+      result
+        ..add('showInterstitialAd_android')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.showInterstitialAdIos;
+    if (value != null) {
+      result
+        ..add('showInterstitialAd_ios')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.showInterstitialAdWeb;
+    if (value != null) {
+      result
+        ..add('showInterstitialAd_web')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.showAdsOnAllPlatforms;
+    if (value != null) {
+      result
+        ..add('showAdsOnAllPlatforms')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.developersRefsList;
+    if (value != null) {
+      result
+        ..add('developersRefsList')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltList, const [
+              const FullType(
+                  DocumentReference, const [const FullType.nullable(Object)])
+            ])));
     }
     value = object.ffRef;
     if (value != null) {
@@ -51,9 +109,44 @@ class _$AppConfigRecordSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'androidShowBannerAds':
-          result.androidShowBannerAds = serializers.deserialize(value,
+        case 'daysAfterShowAds':
+          result.daysAfterShowAds = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
+        case 'showBannerAd_android':
+          result.showBannerAdAndroid = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'showBannerAd_IOS':
+          result.showBannerAdIOS = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'showBannerAd_web':
+          result.showBannerAdWeb = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'showInterstitialAd_android':
+          result.showInterstitialAdAndroid = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'showInterstitialAd_ios':
+          result.showInterstitialAdIos = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'showInterstitialAd_web':
+          result.showInterstitialAdWeb = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'showAdsOnAllPlatforms':
+          result.showAdsOnAllPlatforms = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'developersRefsList':
+          result.developersRefsList.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(
+                    DocumentReference, const [const FullType.nullable(Object)])
+              ]))! as BuiltList<Object?>);
           break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
@@ -70,14 +163,41 @@ class _$AppConfigRecordSerializer
 
 class _$AppConfigRecord extends AppConfigRecord {
   @override
-  final bool? androidShowBannerAds;
+  final int? daysAfterShowAds;
+  @override
+  final bool? showBannerAdAndroid;
+  @override
+  final bool? showBannerAdIOS;
+  @override
+  final bool? showBannerAdWeb;
+  @override
+  final bool? showInterstitialAdAndroid;
+  @override
+  final bool? showInterstitialAdIos;
+  @override
+  final bool? showInterstitialAdWeb;
+  @override
+  final bool? showAdsOnAllPlatforms;
+  @override
+  final BuiltList<DocumentReference<Object?>>? developersRefsList;
   @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$AppConfigRecord([void Function(AppConfigRecordBuilder)? updates]) =>
       (new AppConfigRecordBuilder()..update(updates))._build();
 
-  _$AppConfigRecord._({this.androidShowBannerAds, this.ffRef}) : super._();
+  _$AppConfigRecord._(
+      {this.daysAfterShowAds,
+      this.showBannerAdAndroid,
+      this.showBannerAdIOS,
+      this.showBannerAdWeb,
+      this.showInterstitialAdAndroid,
+      this.showInterstitialAdIos,
+      this.showInterstitialAdWeb,
+      this.showAdsOnAllPlatforms,
+      this.developersRefsList,
+      this.ffRef})
+      : super._();
 
   @override
   AppConfigRecord rebuild(void Function(AppConfigRecordBuilder) updates) =>
@@ -91,19 +211,52 @@ class _$AppConfigRecord extends AppConfigRecord {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is AppConfigRecord &&
-        androidShowBannerAds == other.androidShowBannerAds &&
+        daysAfterShowAds == other.daysAfterShowAds &&
+        showBannerAdAndroid == other.showBannerAdAndroid &&
+        showBannerAdIOS == other.showBannerAdIOS &&
+        showBannerAdWeb == other.showBannerAdWeb &&
+        showInterstitialAdAndroid == other.showInterstitialAdAndroid &&
+        showInterstitialAdIos == other.showInterstitialAdIos &&
+        showInterstitialAdWeb == other.showInterstitialAdWeb &&
+        showAdsOnAllPlatforms == other.showAdsOnAllPlatforms &&
+        developersRefsList == other.developersRefsList &&
         ffRef == other.ffRef;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, androidShowBannerAds.hashCode), ffRef.hashCode));
+    return $jf($jc(
+        $jc(
+            $jc(
+                $jc(
+                    $jc(
+                        $jc(
+                            $jc(
+                                $jc(
+                                    $jc($jc(0, daysAfterShowAds.hashCode),
+                                        showBannerAdAndroid.hashCode),
+                                    showBannerAdIOS.hashCode),
+                                showBannerAdWeb.hashCode),
+                            showInterstitialAdAndroid.hashCode),
+                        showInterstitialAdIos.hashCode),
+                    showInterstitialAdWeb.hashCode),
+                showAdsOnAllPlatforms.hashCode),
+            developersRefsList.hashCode),
+        ffRef.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'AppConfigRecord')
-          ..add('androidShowBannerAds', androidShowBannerAds)
+          ..add('daysAfterShowAds', daysAfterShowAds)
+          ..add('showBannerAdAndroid', showBannerAdAndroid)
+          ..add('showBannerAdIOS', showBannerAdIOS)
+          ..add('showBannerAdWeb', showBannerAdWeb)
+          ..add('showInterstitialAdAndroid', showInterstitialAdAndroid)
+          ..add('showInterstitialAdIos', showInterstitialAdIos)
+          ..add('showInterstitialAdWeb', showInterstitialAdWeb)
+          ..add('showAdsOnAllPlatforms', showAdsOnAllPlatforms)
+          ..add('developersRefsList', developersRefsList)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -113,10 +266,53 @@ class AppConfigRecordBuilder
     implements Builder<AppConfigRecord, AppConfigRecordBuilder> {
   _$AppConfigRecord? _$v;
 
-  bool? _androidShowBannerAds;
-  bool? get androidShowBannerAds => _$this._androidShowBannerAds;
-  set androidShowBannerAds(bool? androidShowBannerAds) =>
-      _$this._androidShowBannerAds = androidShowBannerAds;
+  int? _daysAfterShowAds;
+  int? get daysAfterShowAds => _$this._daysAfterShowAds;
+  set daysAfterShowAds(int? daysAfterShowAds) =>
+      _$this._daysAfterShowAds = daysAfterShowAds;
+
+  bool? _showBannerAdAndroid;
+  bool? get showBannerAdAndroid => _$this._showBannerAdAndroid;
+  set showBannerAdAndroid(bool? showBannerAdAndroid) =>
+      _$this._showBannerAdAndroid = showBannerAdAndroid;
+
+  bool? _showBannerAdIOS;
+  bool? get showBannerAdIOS => _$this._showBannerAdIOS;
+  set showBannerAdIOS(bool? showBannerAdIOS) =>
+      _$this._showBannerAdIOS = showBannerAdIOS;
+
+  bool? _showBannerAdWeb;
+  bool? get showBannerAdWeb => _$this._showBannerAdWeb;
+  set showBannerAdWeb(bool? showBannerAdWeb) =>
+      _$this._showBannerAdWeb = showBannerAdWeb;
+
+  bool? _showInterstitialAdAndroid;
+  bool? get showInterstitialAdAndroid => _$this._showInterstitialAdAndroid;
+  set showInterstitialAdAndroid(bool? showInterstitialAdAndroid) =>
+      _$this._showInterstitialAdAndroid = showInterstitialAdAndroid;
+
+  bool? _showInterstitialAdIos;
+  bool? get showInterstitialAdIos => _$this._showInterstitialAdIos;
+  set showInterstitialAdIos(bool? showInterstitialAdIos) =>
+      _$this._showInterstitialAdIos = showInterstitialAdIos;
+
+  bool? _showInterstitialAdWeb;
+  bool? get showInterstitialAdWeb => _$this._showInterstitialAdWeb;
+  set showInterstitialAdWeb(bool? showInterstitialAdWeb) =>
+      _$this._showInterstitialAdWeb = showInterstitialAdWeb;
+
+  bool? _showAdsOnAllPlatforms;
+  bool? get showAdsOnAllPlatforms => _$this._showAdsOnAllPlatforms;
+  set showAdsOnAllPlatforms(bool? showAdsOnAllPlatforms) =>
+      _$this._showAdsOnAllPlatforms = showAdsOnAllPlatforms;
+
+  ListBuilder<DocumentReference<Object?>>? _developersRefsList;
+  ListBuilder<DocumentReference<Object?>> get developersRefsList =>
+      _$this._developersRefsList ??=
+          new ListBuilder<DocumentReference<Object?>>();
+  set developersRefsList(
+          ListBuilder<DocumentReference<Object?>>? developersRefsList) =>
+      _$this._developersRefsList = developersRefsList;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
@@ -129,7 +325,15 @@ class AppConfigRecordBuilder
   AppConfigRecordBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _androidShowBannerAds = $v.androidShowBannerAds;
+      _daysAfterShowAds = $v.daysAfterShowAds;
+      _showBannerAdAndroid = $v.showBannerAdAndroid;
+      _showBannerAdIOS = $v.showBannerAdIOS;
+      _showBannerAdWeb = $v.showBannerAdWeb;
+      _showInterstitialAdAndroid = $v.showInterstitialAdAndroid;
+      _showInterstitialAdIos = $v.showInterstitialAdIos;
+      _showInterstitialAdWeb = $v.showInterstitialAdWeb;
+      _showAdsOnAllPlatforms = $v.showAdsOnAllPlatforms;
+      _developersRefsList = $v.developersRefsList?.toBuilder();
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -151,9 +355,31 @@ class AppConfigRecordBuilder
   AppConfigRecord build() => _build();
 
   _$AppConfigRecord _build() {
-    final _$result = _$v ??
-        new _$AppConfigRecord._(
-            androidShowBannerAds: androidShowBannerAds, ffRef: ffRef);
+    _$AppConfigRecord _$result;
+    try {
+      _$result = _$v ??
+          new _$AppConfigRecord._(
+              daysAfterShowAds: daysAfterShowAds,
+              showBannerAdAndroid: showBannerAdAndroid,
+              showBannerAdIOS: showBannerAdIOS,
+              showBannerAdWeb: showBannerAdWeb,
+              showInterstitialAdAndroid: showInterstitialAdAndroid,
+              showInterstitialAdIos: showInterstitialAdIos,
+              showInterstitialAdWeb: showInterstitialAdWeb,
+              showAdsOnAllPlatforms: showAdsOnAllPlatforms,
+              developersRefsList: _developersRefsList?.build(),
+              ffRef: ffRef);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'developersRefsList';
+        _developersRefsList?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'AppConfigRecord', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

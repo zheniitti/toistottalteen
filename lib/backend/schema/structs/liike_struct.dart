@@ -11,38 +11,44 @@ abstract class LiikeStruct implements Built<LiikeStruct, LiikeStructBuilder> {
 
   String? get nimi;
 
+  String? get kommentti;
+
   int? get toistoMaara;
 
   int? get sarjaMaara;
 
+  BuiltList<SarjaStruct> get sarjat;
+
+  double? get aloitusPainoKg;
+
   String? get liikeTyyppi;
-
-  double? get painoKg;
-
-  String? get kommentti;
 
   double? get matkaMetri;
 
-  double? get kestoSekunnit;
+  bool? get tehty;
 
-  int? get kestoMinuutit;
+  bool? get showComment;
 
-  BuiltList<SarjaStruct> get sarjat;
+  BuiltList<String>? get photos;
+
+  double? get kestoSekunteina;
 
   /// Utility class for Firestore updates
   FirestoreUtilData get firestoreUtilData;
 
   static void _initializeBuilder(LiikeStructBuilder builder) => builder
     ..nimi = ''
+    ..kommentti = ''
     ..toistoMaara = 0
     ..sarjaMaara = 0
-    ..liikeTyyppi = ''
-    ..painoKg = 0.0
-    ..kommentti = ''
-    ..matkaMetri = 0.0
-    ..kestoSekunnit = 0.0
-    ..kestoMinuutit = 0
     ..sarjat = ListBuilder()
+    ..aloitusPainoKg = 0.0
+    ..liikeTyyppi = ''
+    ..matkaMetri = 0.0
+    ..tehty = false
+    ..showComment = false
+    ..photos = ListBuilder()
+    ..kestoSekunteina = 0.0
     ..firestoreUtilData = FirestoreUtilData();
 
   LiikeStruct._();
@@ -52,14 +58,15 @@ abstract class LiikeStruct implements Built<LiikeStruct, LiikeStructBuilder> {
 
 LiikeStruct createLiikeStruct({
   String? nimi,
+  String? kommentti,
   int? toistoMaara,
   int? sarjaMaara,
+  double? aloitusPainoKg,
   String? liikeTyyppi,
-  double? painoKg,
-  String? kommentti,
   double? matkaMetri,
-  double? kestoSekunnit,
-  int? kestoMinuutit,
+  bool? tehty,
+  bool? showComment,
+  double? kestoSekunteina,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -68,15 +75,17 @@ LiikeStruct createLiikeStruct({
     LiikeStruct(
       (l) => l
         ..nimi = nimi
+        ..kommentti = kommentti
         ..toistoMaara = toistoMaara
         ..sarjaMaara = sarjaMaara
-        ..liikeTyyppi = liikeTyyppi
-        ..painoKg = painoKg
-        ..kommentti = kommentti
-        ..matkaMetri = matkaMetri
-        ..kestoSekunnit = kestoSekunnit
-        ..kestoMinuutit = kestoMinuutit
         ..sarjat = null
+        ..aloitusPainoKg = aloitusPainoKg
+        ..liikeTyyppi = liikeTyyppi
+        ..matkaMetri = matkaMetri
+        ..tehty = tehty
+        ..showComment = showComment
+        ..photos = null
+        ..kestoSekunteina = kestoSekunteina
         ..firestoreUtilData = FirestoreUtilData(
           clearUnsetFields: clearUnsetFields,
           create: create,

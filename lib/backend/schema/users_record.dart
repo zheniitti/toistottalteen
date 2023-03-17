@@ -33,6 +33,24 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
 
   BuiltList<TreeniRutiiniStruct>? get treeniRutiinit;
 
+  BuiltList<DateTime>? get maRutiinit;
+
+  BuiltList<DateTime>? get tiRutiinit;
+
+  BuiltList<DateTime>? get keRutiinit;
+
+  BuiltList<DateTime>? get toRutiinit;
+
+  BuiltList<DateTime>? get peRutiinit;
+
+  BuiltList<DateTime>? get laRutiinit;
+
+  BuiltList<DateTime>? get suRutiinit;
+
+  DocumentReference? get refSessioToEdit;
+
+  TreeniRutiiniStruct get selectedRutiiniToWorkout;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -46,7 +64,15 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
     ..appLangCode = ''
     ..darkMode = false
     ..weightUnit = ''
-    ..treeniRutiinit = ListBuilder();
+    ..treeniRutiinit = ListBuilder()
+    ..maRutiinit = ListBuilder()
+    ..tiRutiinit = ListBuilder()
+    ..keRutiinit = ListBuilder()
+    ..toRutiinit = ListBuilder()
+    ..peRutiinit = ListBuilder()
+    ..laRutiinit = ListBuilder()
+    ..suRutiinit = ListBuilder()
+    ..selectedRutiiniToWorkout = TreeniRutiiniStructBuilder();
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('users');
@@ -79,6 +105,8 @@ Map<String, dynamic> createUsersRecordData({
   String? appLangCode,
   bool? darkMode,
   String? weightUnit,
+  DocumentReference? refSessioToEdit,
+  TreeniRutiiniStruct? selectedRutiiniToWorkout,
 }) {
   final firestoreData = serializers.toFirestore(
     UsersRecord.serializer,
@@ -93,9 +121,22 @@ Map<String, dynamic> createUsersRecordData({
         ..appLangCode = appLangCode
         ..darkMode = darkMode
         ..weightUnit = weightUnit
-        ..treeniRutiinit = null,
+        ..treeniRutiinit = null
+        ..maRutiinit = null
+        ..tiRutiinit = null
+        ..keRutiinit = null
+        ..toRutiinit = null
+        ..peRutiinit = null
+        ..laRutiinit = null
+        ..suRutiinit = null
+        ..refSessioToEdit = refSessioToEdit
+        ..selectedRutiiniToWorkout = TreeniRutiiniStructBuilder(),
     ),
   );
+
+  // Handle nested data for "selectedRutiiniToWorkout" field.
+  addTreeniRutiiniStructData(
+      firestoreData, selectedRutiiniToWorkout, 'selectedRutiiniToWorkout');
 
   return firestoreData;
 }

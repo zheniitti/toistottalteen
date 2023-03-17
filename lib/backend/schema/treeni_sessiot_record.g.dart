@@ -51,19 +51,34 @@ class _$TreeniSessiotRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(DateTime)));
     }
-    value = object.kommentti;
-    if (value != null) {
-      result
-        ..add('kommentti')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.docCreatedTime;
     if (value != null) {
       result
         ..add('docCreatedTime')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(DateTime)));
+    }
+    value = object.showComment;
+    if (value != null) {
+      result
+        ..add('showComment')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.photos;
+    if (value != null) {
+      result
+        ..add('photos')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    value = object.isEditing;
+    if (value != null) {
+      result
+        ..add('isEditing')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     value = object.ffRef;
     if (value != null) {
@@ -102,10 +117,6 @@ class _$TreeniSessiotRecordSerializer
           result.loppu = serializers.deserialize(value,
               specifiedType: const FullType(DateTime)) as DateTime?;
           break;
-        case 'kommentti':
-          result.kommentti = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
         case 'treeniRutiiniData':
           result.treeniRutiiniData.replace(serializers.deserialize(value,
                   specifiedType: const FullType(TreeniRutiiniStruct))!
@@ -114,6 +125,20 @@ class _$TreeniSessiotRecordSerializer
         case 'docCreatedTime':
           result.docCreatedTime = serializers.deserialize(value,
               specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'showComment':
+          result.showComment = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'photos':
+          result.photos.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'isEditing':
+          result.isEditing = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
           break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
@@ -136,11 +161,15 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
   @override
   final DateTime? loppu;
   @override
-  final String? kommentti;
-  @override
   final TreeniRutiiniStruct treeniRutiiniData;
   @override
   final DateTime? docCreatedTime;
+  @override
+  final bool? showComment;
+  @override
+  final BuiltList<String>? photos;
+  @override
+  final bool? isEditing;
   @override
   final DocumentReference<Object?>? ffRef;
 
@@ -152,9 +181,11 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
       {this.userRef,
       this.alku,
       this.loppu,
-      this.kommentti,
       required this.treeniRutiiniData,
       this.docCreatedTime,
+      this.showComment,
+      this.photos,
+      this.isEditing,
       this.ffRef})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -177,9 +208,11 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
         userRef == other.userRef &&
         alku == other.alku &&
         loppu == other.loppu &&
-        kommentti == other.kommentti &&
         treeniRutiiniData == other.treeniRutiiniData &&
         docCreatedTime == other.docCreatedTime &&
+        showComment == other.showComment &&
+        photos == other.photos &&
+        isEditing == other.isEditing &&
         ffRef == other.ffRef;
   }
 
@@ -189,11 +222,15 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
         $jc(
             $jc(
                 $jc(
-                    $jc($jc($jc(0, userRef.hashCode), alku.hashCode),
-                        loppu.hashCode),
-                    kommentti.hashCode),
-                treeniRutiiniData.hashCode),
-            docCreatedTime.hashCode),
+                    $jc(
+                        $jc(
+                            $jc($jc($jc(0, userRef.hashCode), alku.hashCode),
+                                loppu.hashCode),
+                            treeniRutiiniData.hashCode),
+                        docCreatedTime.hashCode),
+                    showComment.hashCode),
+                photos.hashCode),
+            isEditing.hashCode),
         ffRef.hashCode));
   }
 
@@ -203,9 +240,11 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
           ..add('userRef', userRef)
           ..add('alku', alku)
           ..add('loppu', loppu)
-          ..add('kommentti', kommentti)
           ..add('treeniRutiiniData', treeniRutiiniData)
           ..add('docCreatedTime', docCreatedTime)
+          ..add('showComment', showComment)
+          ..add('photos', photos)
+          ..add('isEditing', isEditing)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -227,10 +266,6 @@ class TreeniSessiotRecordBuilder
   DateTime? get loppu => _$this._loppu;
   set loppu(DateTime? loppu) => _$this._loppu = loppu;
 
-  String? _kommentti;
-  String? get kommentti => _$this._kommentti;
-  set kommentti(String? kommentti) => _$this._kommentti = kommentti;
-
   TreeniRutiiniStructBuilder? _treeniRutiiniData;
   TreeniRutiiniStructBuilder get treeniRutiiniData =>
       _$this._treeniRutiiniData ??= new TreeniRutiiniStructBuilder();
@@ -241,6 +276,19 @@ class TreeniSessiotRecordBuilder
   DateTime? get docCreatedTime => _$this._docCreatedTime;
   set docCreatedTime(DateTime? docCreatedTime) =>
       _$this._docCreatedTime = docCreatedTime;
+
+  bool? _showComment;
+  bool? get showComment => _$this._showComment;
+  set showComment(bool? showComment) => _$this._showComment = showComment;
+
+  ListBuilder<String>? _photos;
+  ListBuilder<String> get photos =>
+      _$this._photos ??= new ListBuilder<String>();
+  set photos(ListBuilder<String>? photos) => _$this._photos = photos;
+
+  bool? _isEditing;
+  bool? get isEditing => _$this._isEditing;
+  set isEditing(bool? isEditing) => _$this._isEditing = isEditing;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
@@ -256,9 +304,11 @@ class TreeniSessiotRecordBuilder
       _userRef = $v.userRef;
       _alku = $v.alku;
       _loppu = $v.loppu;
-      _kommentti = $v.kommentti;
       _treeniRutiiniData = $v.treeniRutiiniData.toBuilder();
       _docCreatedTime = $v.docCreatedTime;
+      _showComment = $v.showComment;
+      _photos = $v.photos?.toBuilder();
+      _isEditing = $v.isEditing;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -287,15 +337,20 @@ class TreeniSessiotRecordBuilder
               userRef: userRef,
               alku: alku,
               loppu: loppu,
-              kommentti: kommentti,
               treeniRutiiniData: treeniRutiiniData.build(),
               docCreatedTime: docCreatedTime,
+              showComment: showComment,
+              photos: _photos?.build(),
+              isEditing: isEditing,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'treeniRutiiniData';
         treeniRutiiniData.build();
+
+        _$failedField = 'photos';
+        _photos?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'TreeniSessiotRecord', _$failedField, e.toString());

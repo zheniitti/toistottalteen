@@ -199,6 +199,8 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
     super.initState();
     _model = createModel(context, () => RegisterPageModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'registerPage'});
     _model.textController1 ??= TextEditingController();
     _model.textController2 ??= TextEditingController();
     _model.textController3 ??= TextEditingController();
@@ -249,6 +251,9 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                           ),
                           child: InkWell(
                             onTap: () async {
+                              logFirebaseEvent(
+                                  'REGISTER_PAGE_PAGE_Image_a21r0qb0_ON_TAP');
+                              logFirebaseEvent('Image_navigate_back');
                               context.pop();
                             },
                             child: SvgPicture.asset(
@@ -290,7 +295,7 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                     textAlign: TextAlign.start,
                     style: TextStyle(
                       fontFamily: 'Satoshi',
-                      color: FlutterFlowTheme.of(context).f2f2f2,
+                      color: Color(0xFFF2F2F2),
                       fontWeight: FontWeight.w500,
                       fontSize: 30.0,
                     ),
@@ -309,7 +314,7 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                         ),
                         style: TextStyle(
                           fontFamily: 'Satoshi',
-                          color: FlutterFlowTheme.of(context).e1e1e1,
+                          color: Color(0xFFE1E1E1),
                           fontWeight: FontWeight.w300,
                           fontSize: 12.0,
                         ),
@@ -534,7 +539,7 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                           ),
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: FlutterFlowTheme.of(context).aeaeae,
+                            color: Color(0xFFAEAEAE),
                             fontWeight: FontWeight.w500,
                             fontSize: 14.0,
                           ),
@@ -548,6 +553,9 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 21.0),
                   child: FFButtonWidget(
                     onPressed: () async {
+                      logFirebaseEvent('REGISTER_CREATE_ACCOUNT_BTN_ON_TAP');
+                      logFirebaseEvent('Button_navigate_to');
+
                       context.pushNamed('paasivu');
                     },
                     text: FFLocalizations.of(context).getText(
@@ -563,7 +571,7 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                       color: FlutterFlowTheme.of(context).primaryColor,
                       textStyle: TextStyle(
                         fontFamily: 'Satoshi',
-                        color: FlutterFlowTheme.of(context).f6f6f6,
+                        color: Color(0xFFF6F6F6),
                         fontWeight: FontWeight.w500,
                         fontSize: 22.0,
                       ),
@@ -590,10 +598,7 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                           height: 1.0,
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
-                              colors: [
-                                FlutterFlowTheme.of(context).gradient1,
-                                FlutterFlowTheme.of(context).gradient2
-                              ],
+                              colors: [Color(0xFF5B5B5B), Color(0xFF252525)],
                               stops: [0.0, 1.0],
                               begin: AlignmentDirectional(0.0, -1.0),
                               end: AlignmentDirectional(0, 1.0),
@@ -615,7 +620,7 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Roboto',
-                                    color: FlutterFlowTheme.of(context).dcdcdc,
+                                    color: Color(0xFFDCDCDC),
                                     fontSize: 12.0,
                                     fontWeight: FontWeight.w300,
                                   ),
@@ -628,10 +633,7 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                           height: 1.0,
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
-                              colors: [
-                                FlutterFlowTheme.of(context).gradient2,
-                                FlutterFlowTheme.of(context).gradient1
-                              ],
+                              colors: [Color(0xFF252525), Color(0xFF5B5B5B)],
                               stops: [0.0, 1.0],
                               begin: AlignmentDirectional(0.0, -1.0),
                               end: AlignmentDirectional(0, 1.0),
@@ -688,13 +690,17 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                         ),
                         style: TextStyle(
                           fontFamily: 'Satoshi',
-                          color: FlutterFlowTheme.of(context).dbdbdb,
+                          color: Color(0xFFDBDBDB),
                           fontWeight: FontWeight.w500,
                           fontSize: 14.0,
                         ),
                       ),
                       InkWell(
                         onTap: () async {
+                          logFirebaseEvent(
+                              'REGISTER_PAGE_PAGE_Text_y518nym8_ON_TAP');
+                          logFirebaseEvent('Text_navigate_to');
+
                           context.pushNamed('signInPage');
                         },
                         child: Text(
@@ -702,7 +708,7 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                             'f4aq41rb' /*  Sign In */,
                           ),
                           style: TextStyle(
-                            color: FlutterFlowTheme.of(context).blueColor,
+                            color: Color(0xFF288CE9),
                             fontWeight: FontWeight.w500,
                             fontSize: 14.0,
                           ),

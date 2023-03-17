@@ -83,6 +83,8 @@ class _ChooseModeWidgetState extends State<ChooseModeWidget>
     super.initState();
     _model = createModel(context, () => ChooseModeModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'chooseMode'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -136,7 +138,7 @@ class _ChooseModeWidgetState extends State<ChooseModeWidget>
                                 ),
                                 style: TextStyle(
                                   fontFamily: 'Satoshi',
-                                  color: FlutterFlowTheme.of(context).dadada,
+                                  color: Color(0xFFDADADA),
                                   fontWeight: FontWeight.w500,
                                   fontSize: 22.0,
                                 ),
@@ -232,8 +234,7 @@ class _ChooseModeWidgetState extends State<ChooseModeWidget>
                                       ),
                                       style: TextStyle(
                                         fontFamily: 'Satoshi',
-                                        color:
-                                            FlutterFlowTheme.of(context).dadada,
+                                        color: Color(0xFFDADADA),
                                         fontWeight: FontWeight.w500,
                                         fontSize: 17.0,
                                       ),
@@ -293,8 +294,7 @@ class _ChooseModeWidgetState extends State<ChooseModeWidget>
                                       ),
                                       style: TextStyle(
                                         fontFamily: 'Satoshi',
-                                        color:
-                                            FlutterFlowTheme.of(context).dadada,
+                                        color: Color(0xFFDADADA),
                                         fontWeight: FontWeight.w500,
                                         fontSize: 17.0,
                                       ),
@@ -307,6 +307,10 @@ class _ChooseModeWidgetState extends State<ChooseModeWidget>
                           ),
                           FFButtonWidget(
                             onPressed: () async {
+                              logFirebaseEvent(
+                                  'CHOOSE_MODE_PAGE_JATKA_BTN_ON_TAP');
+                              logFirebaseEvent('Button_navigate_to');
+
                               context.pushNamed('registerOrSignInPage');
                             },
                             text: FFLocalizations.of(context).getText(
@@ -322,7 +326,7 @@ class _ChooseModeWidgetState extends State<ChooseModeWidget>
                               color: FlutterFlowTheme.of(context).primaryColor,
                               textStyle: TextStyle(
                                 fontFamily: 'Satoshi',
-                                color: FlutterFlowTheme.of(context).f6f6f6,
+                                color: Color(0xFFF6F6F6),
                                 fontWeight: FontWeight.w500,
                                 fontSize: 22.0,
                               ),

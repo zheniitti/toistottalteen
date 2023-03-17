@@ -96,6 +96,9 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
     super.initState();
     _model = createModel(context, () => RegisterOrSignInPageModel());
 
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'registerOrSignInPage'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -176,8 +179,7 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
                                     ),
                                     style: TextStyle(
                                       fontFamily: 'Satoshi',
-                                      color:
-                                          FlutterFlowTheme.of(context).f2f2f2,
+                                      color: Color(0xFFF2F2F2),
                                       fontWeight: FontWeight.w500,
                                       fontSize: 26.0,
                                     ),
@@ -197,8 +199,7 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       fontFamily: 'Satoshi',
-                                      color:
-                                          FlutterFlowTheme.of(context).a0a0a0,
+                                      color: Color(0xFFA0A0A0),
                                       fontWeight: FontWeight.w300,
                                       fontSize: 17.0,
                                     ),
@@ -215,6 +216,10 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
                                   children: [
                                     FFButtonWidget(
                                       onPressed: () async {
+                                        logFirebaseEvent(
+                                            'REGISTER_OR_SIGN_IN_REGISTER_BTN_ON_TAP');
+                                        logFirebaseEvent('Button_navigate_to');
+
                                         context.pushNamed('registerPage');
                                       },
                                       text: FFLocalizations.of(context).getText(
@@ -232,8 +237,7 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
                                             .primaryColor,
                                         textStyle: TextStyle(
                                           fontFamily: 'Satoshi',
-                                          color: FlutterFlowTheme.of(context)
-                                              .f6f6f6,
+                                          color: Color(0xFFF6F6F6),
                                           fontWeight: FontWeight.w500,
                                           fontSize: 19.0,
                                         ),
@@ -255,6 +259,10 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
                                     ),
                                     FFButtonWidget(
                                       onPressed: () async {
+                                        logFirebaseEvent(
+                                            'REGISTER_OR_SIGN_IN_SIGN_IN_BTN_ON_TAP');
+                                        logFirebaseEvent('Button_navigate_to');
+
                                         context.pushNamed('signInPage');
                                       },
                                       text: FFLocalizations.of(context).getText(
@@ -271,8 +279,7 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
                                         color: Colors.transparent,
                                         textStyle: TextStyle(
                                           fontFamily: 'Satoshi',
-                                          color: FlutterFlowTheme.of(context)
-                                              .f6f6f6,
+                                          color: Color(0xFFF6F6F6),
                                           fontWeight: FontWeight.w500,
                                           fontSize: 19.0,
                                         ),
@@ -311,6 +318,9 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
                       ),
                       child: InkWell(
                         onTap: () async {
+                          logFirebaseEvent(
+                              'REGISTER_OR_SIGN_IN_Image_zmu99xj3_ON_TA');
+                          logFirebaseEvent('Image_navigate_back');
                           context.pop();
                         },
                         child: SvgPicture.asset(

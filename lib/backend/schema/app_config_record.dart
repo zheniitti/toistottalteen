@@ -11,14 +11,44 @@ abstract class AppConfigRecord
   static Serializer<AppConfigRecord> get serializer =>
       _$appConfigRecordSerializer;
 
-  bool? get androidShowBannerAds;
+  int? get daysAfterShowAds;
+
+  @BuiltValueField(wireName: 'showBannerAd_android')
+  bool? get showBannerAdAndroid;
+
+  @BuiltValueField(wireName: 'showBannerAd_IOS')
+  bool? get showBannerAdIOS;
+
+  @BuiltValueField(wireName: 'showBannerAd_web')
+  bool? get showBannerAdWeb;
+
+  @BuiltValueField(wireName: 'showInterstitialAd_android')
+  bool? get showInterstitialAdAndroid;
+
+  @BuiltValueField(wireName: 'showInterstitialAd_ios')
+  bool? get showInterstitialAdIos;
+
+  @BuiltValueField(wireName: 'showInterstitialAd_web')
+  bool? get showInterstitialAdWeb;
+
+  bool? get showAdsOnAllPlatforms;
+
+  BuiltList<DocumentReference>? get developersRefsList;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
-  static void _initializeBuilder(AppConfigRecordBuilder builder) =>
-      builder..androidShowBannerAds = false;
+  static void _initializeBuilder(AppConfigRecordBuilder builder) => builder
+    ..daysAfterShowAds = 0
+    ..showBannerAdAndroid = false
+    ..showBannerAdIOS = false
+    ..showBannerAdWeb = false
+    ..showInterstitialAdAndroid = false
+    ..showInterstitialAdIos = false
+    ..showInterstitialAdWeb = false
+    ..showAdsOnAllPlatforms = false
+    ..developersRefsList = ListBuilder();
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('appConfig');
@@ -42,12 +72,28 @@ abstract class AppConfigRecord
 }
 
 Map<String, dynamic> createAppConfigRecordData({
-  bool? androidShowBannerAds,
+  int? daysAfterShowAds,
+  bool? showBannerAdAndroid,
+  bool? showBannerAdIOS,
+  bool? showBannerAdWeb,
+  bool? showInterstitialAdAndroid,
+  bool? showInterstitialAdIos,
+  bool? showInterstitialAdWeb,
+  bool? showAdsOnAllPlatforms,
 }) {
   final firestoreData = serializers.toFirestore(
     AppConfigRecord.serializer,
     AppConfigRecord(
-      (a) => a..androidShowBannerAds = androidShowBannerAds,
+      (a) => a
+        ..daysAfterShowAds = daysAfterShowAds
+        ..showBannerAdAndroid = showBannerAdAndroid
+        ..showBannerAdIOS = showBannerAdIOS
+        ..showBannerAdWeb = showBannerAdWeb
+        ..showInterstitialAdAndroid = showInterstitialAdAndroid
+        ..showInterstitialAdIos = showInterstitialAdIos
+        ..showInterstitialAdWeb = showInterstitialAdWeb
+        ..showAdsOnAllPlatforms = showAdsOnAllPlatforms
+        ..developersRefsList = null,
     ),
   );
 

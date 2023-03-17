@@ -1,9 +1,10 @@
+import 'form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
 class FlutterFlowDropDown<T> extends StatefulWidget {
   const FlutterFlowDropDown({
-    this.initialOption,
+    required this.controller,
     this.hintText,
     required this.options,
     this.optionLabels,
@@ -22,7 +23,7 @@ class FlutterFlowDropDown<T> extends StatefulWidget {
     this.disabled = false,
   });
 
-  final T? initialOption;
+  final FormFieldController<T> controller;
   final String? hintText;
   final List<T> options;
   final List<String>? optionLabels;
@@ -45,18 +46,27 @@ class FlutterFlowDropDown<T> extends StatefulWidget {
 }
 
 class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
-  T? dropDownValue;
+  void Function() get listener =>
+      () => widget.onChanged(widget.controller.value);
 
   @override
   void initState() {
+    widget.controller.addListener(listener);
     super.initState();
-    dropDownValue = widget.initialOption;
+  }
+
+  @override
+  void dispose() {
+    widget.controller.removeListener(listener);
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     final dropdownWidget = DropdownButton<T>(
-      value: widget.options.contains(dropDownValue) ? dropDownValue : null,
+      value: widget.options.contains(widget.controller.value)
+          ? widget.controller.value
+          : null,
       hint: widget.hintText != null
           ? Text(widget.hintText!, style: widget.textStyle)
           : null,
@@ -77,12 +87,8 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
           )
           .toList(),
       elevation: widget.elevation.toInt(),
-      onChanged: !widget.disabled
-          ? (value) {
-              dropDownValue = value;
-              widget.onChanged(value);
-            }
-          : null,
+      onChanged:
+          !widget.disabled ? (value) => widget.controller.value = value : null,
       icon: widget.icon,
       isExpanded: true,
       dropdownColor: widget.fillColor,

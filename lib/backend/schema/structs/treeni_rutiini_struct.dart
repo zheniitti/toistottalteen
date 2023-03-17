@@ -11,13 +11,13 @@ abstract class TreeniRutiiniStruct
   static Serializer<TreeniRutiiniStruct> get serializer =>
       _$treeniRutiiniStructSerializer;
 
-  BuiltList<LiikeStruct> get liikkeet;
-
-  String? get kommentti;
-
   DateTime? get createdTime;
 
   String? get nimi;
+
+  BuiltList<LiikeStruct> get liikkeet;
+
+  String? get kommentti;
 
   ValitutViikonPaivatStruct get valitutViikonPaivat;
 
@@ -25,21 +25,24 @@ abstract class TreeniRutiiniStruct
 
   DateTime? get lastWorkoutTime;
 
-  BuiltList<DateTime>? get modifiedTimes;
-
   bool? get isTreeniPohja;
+
+  bool? get finishedEditing;
+
+  BuiltList<DateTime>? get modifiedTimes;
 
   /// Utility class for Firestore updates
   FirestoreUtilData get firestoreUtilData;
 
   static void _initializeBuilder(TreeniRutiiniStructBuilder builder) => builder
+    ..nimi = ''
     ..liikkeet = ListBuilder()
     ..kommentti = ''
-    ..nimi = ''
     ..valitutViikonPaivat = ValitutViikonPaivatStructBuilder()
     ..widgetExpanded = false
-    ..modifiedTimes = ListBuilder()
     ..isTreeniPohja = false
+    ..finishedEditing = false
+    ..modifiedTimes = ListBuilder()
     ..firestoreUtilData = FirestoreUtilData();
 
   TreeniRutiiniStruct._();
@@ -49,13 +52,14 @@ abstract class TreeniRutiiniStruct
 }
 
 TreeniRutiiniStruct createTreeniRutiiniStruct({
-  String? kommentti,
   DateTime? createdTime,
   String? nimi,
+  String? kommentti,
   ValitutViikonPaivatStruct? valitutViikonPaivat,
   bool? widgetExpanded,
   DateTime? lastWorkoutTime,
   bool? isTreeniPohja,
+  bool? finishedEditing,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -63,16 +67,17 @@ TreeniRutiiniStruct createTreeniRutiiniStruct({
 }) =>
     TreeniRutiiniStruct(
       (t) => t
-        ..liikkeet = null
-        ..kommentti = kommentti
         ..createdTime = createdTime
         ..nimi = nimi
+        ..liikkeet = null
+        ..kommentti = kommentti
         ..valitutViikonPaivat = valitutViikonPaivat?.toBuilder() ??
             ValitutViikonPaivatStructBuilder()
         ..widgetExpanded = widgetExpanded
         ..lastWorkoutTime = lastWorkoutTime
-        ..modifiedTimes = null
         ..isTreeniPohja = isTreeniPohja
+        ..finishedEditing = finishedEditing
+        ..modifiedTimes = null
         ..firestoreUtilData = FirestoreUtilData(
           clearUnsetFields: clearUnsetFields,
           create: create,

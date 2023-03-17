@@ -7,9 +7,7 @@ part of 'serializers.dart';
 // **************************************************************************
 
 Serializers _$serializers = (new Serializers().toBuilder()
-      ..add(AikavaliStruct.serializer)
       ..add(AppConfigRecord.serializer)
-      ..add(EsimerkkiAnalytiikkaDataRecord.serializer)
       ..add(EsimerkkiDataRecord.serializer)
       ..add(LiikeStruct.serializer)
       ..add(SarjaStruct.serializer)
@@ -17,6 +15,12 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(TreeniSessiotRecord.serializer)
       ..add(UsersRecord.serializer)
       ..add(ValitutViikonPaivatStruct.serializer)
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(
+                DocumentReference, const [const FullType.nullable(Object)])
+          ]),
+          () => new ListBuilder<DocumentReference<Object?>>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(LiikeStruct)]),
           () => new ListBuilder<LiikeStruct>())
@@ -27,9 +31,36 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(SarjaStruct)]),
           () => new ListBuilder<SarjaStruct>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(TreeniRutiiniStruct)]),
           () => new ListBuilder<TreeniRutiiniStruct>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(DateTime)]),
+          () => new ListBuilder<DateTime>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(DateTime)]),
+          () => new ListBuilder<DateTime>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(DateTime)]),
+          () => new ListBuilder<DateTime>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(DateTime)]),
+          () => new ListBuilder<DateTime>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(DateTime)]),
+          () => new ListBuilder<DateTime>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(DateTime)]),
+          () => new ListBuilder<DateTime>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(DateTime)]),
+          () => new ListBuilder<DateTime>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(TreeniRutiiniStruct)]),

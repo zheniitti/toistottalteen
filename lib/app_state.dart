@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'backend/backend.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:csv/csv.dart';
 import 'flutter_flow/flutter_flow_util.dart';
-import 'flutter_flow/lat_lng.dart';
 import 'dart:convert';
 
 class FFAppState extends ChangeNotifier {
@@ -86,13 +85,15 @@ class FFAppState extends ChangeNotifier {
               }
             }).toList() ??
             _testJsonList;
-    _testLatLngList = (await secureStorage.getStringList('ff_testLatLngList'))
+/*     _testLatLngList = (await secureStorage.getStringList('ff_testLatLngList'))
             ?.map(_latLngFromString)
             .toList() ??
         _testLatLngList;
-    _testLatLng =
+    _testLatLng = */
         _latLngFromString(await secureStorage.getString('ff_testLatLng')) ??
             _testLatLng;
+    _isCreatingRutiini = await secureStorage.getBool('ff_isCreatingRutiini') ??
+        _isCreatingRutiini;
   }
 
   void update(VoidCallback callback) {
@@ -111,12 +112,6 @@ class FFAppState extends ChangeNotifier {
 
   void deleteNavBarIndex() {
     secureStorage.delete(key: 'ff_navBarIndex');
-  }
-
-  bool _showTreenaaSivu = false;
-  bool get showTreenaaSivu => _showTreenaaSivu;
-  set showTreenaaSivu(bool _value) {
-    _showTreenaaSivu = _value;
   }
 
   DocumentReference? _valittuTreenattavaHistorianSessioRef;
@@ -494,6 +489,73 @@ class FFAppState extends ChangeNotifier {
 
   void deleteTestLatLng() {
     secureStorage.delete(key: 'ff_testLatLng');
+  }
+
+  bool _isEditing = false;
+  bool get isEditing => _isEditing;
+  set isEditing(bool _value) {
+    _isEditing = _value;
+  }
+
+  bool _showTreenaaTaiLuoRutiiniSivu = false;
+  bool get showTreenaaTaiLuoRutiiniSivu => _showTreenaaTaiLuoRutiiniSivu;
+  set showTreenaaTaiLuoRutiiniSivu(bool _value) {
+    _showTreenaaTaiLuoRutiiniSivu = _value;
+  }
+
+  bool _isCreatingRutiini = false;
+  bool get isCreatingRutiini => _isCreatingRutiini;
+  set isCreatingRutiini(bool _value) {
+    _isCreatingRutiini = _value;
+    secureStorage.setBool('ff_isCreatingRutiini', _value);
+  }
+
+  void deleteIsCreatingRutiini() {
+    secureStorage.delete(key: 'ff_isCreatingRutiini');
+  }
+
+  String _searchbarText = '';
+  String get searchbarText => _searchbarText;
+  set searchbarText(String _value) {
+    _searchbarText = _value;
+  }
+
+  List<dynamic> _kopiedLiikeListFirestoreData = [];
+  List<dynamic> get kopiedLiikeListFirestoreData =>
+      _kopiedLiikeListFirestoreData;
+  set kopiedLiikeListFirestoreData(List<dynamic> _value) {
+    _kopiedLiikeListFirestoreData = _value;
+  }
+
+  void addToKopiedLiikeListFirestoreData(dynamic _value) {
+    _kopiedLiikeListFirestoreData.add(_value);
+  }
+
+  void removeFromKopiedLiikeListFirestoreData(dynamic _value) {
+    _kopiedLiikeListFirestoreData.remove(_value);
+  }
+
+  void removeAtIndexFromKopiedLiikeListFirestoreData(int _index) {
+    _kopiedLiikeListFirestoreData.removeAt(_index);
+  }
+
+  List<DateTime> _sessioChunkListLastItemDateTime = [];
+  List<DateTime> get sessioChunkListLastItemDateTime =>
+      _sessioChunkListLastItemDateTime;
+  set sessioChunkListLastItemDateTime(List<DateTime> _value) {
+    _sessioChunkListLastItemDateTime = _value;
+  }
+
+  void addToSessioChunkListLastItemDateTime(DateTime _value) {
+    _sessioChunkListLastItemDateTime.add(_value);
+  }
+
+  void removeFromSessioChunkListLastItemDateTime(DateTime _value) {
+    _sessioChunkListLastItemDateTime.remove(_value);
+  }
+
+  void removeAtIndexFromSessioChunkListLastItemDateTime(int _index) {
+    _sessioChunkListLastItemDateTime.removeAt(_index);
   }
 }
 

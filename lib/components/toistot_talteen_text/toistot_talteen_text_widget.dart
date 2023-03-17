@@ -72,7 +72,7 @@ class _ToistotTalteenTextWidgetState extends State<ToistotTalteenTextWidget>
           ),
           style: TextStyle(
             fontFamily: 'Satoshi',
-            color: FlutterFlowTheme.of(context).dadada,
+            color: Color(0xFFDADADA),
             fontWeight: FontWeight.w600,
             fontSize: 30.0,
           ),
