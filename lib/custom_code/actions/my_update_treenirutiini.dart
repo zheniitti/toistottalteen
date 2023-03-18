@@ -53,7 +53,7 @@ Future myUpdateTreenirutiini(
   try {
     if (lisaaUusiLiike != null && lisaaUusiLiike) {
       List<LiikeStruct> liikkeet = treeniRutiini.liikkeet.toList();
-      liikkeet.add(await createLiike('', '', '', null, []));
+      liikkeet.add(await createLiike('', '', null, []));
       rutiiniFirestoreData['liikkeet'] = getLiikeListFirestoreData(liikkeet);
     } else if (poistaViimeisinLiike != null && poistaViimeisinLiike) {
       List<LiikeStruct> liikkeet = treeniRutiini.liikkeet.toList();

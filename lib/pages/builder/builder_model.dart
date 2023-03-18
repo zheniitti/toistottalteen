@@ -1,6 +1,7 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/rutiinin_liikkeet/rutiinin_liikkeet_widget.dart';
+import '/components/sessio/sessio_widget.dart';
 import '/flutter_flow/flutter_flow_ad_banner.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -16,16 +17,20 @@ import 'package:provider/provider.dart';
 class BuilderModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
+  // Model for sessio component.
+  late SessioModel sessioModel;
   // Model for rutiininLiikkeet component.
   late RutiininLiikkeetModel rutiininLiikkeetModel;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
+    sessioModel = createModel(context, () => SessioModel());
     rutiininLiikkeetModel = createModel(context, () => RutiininLiikkeetModel());
   }
 
   void dispose() {
+    sessioModel.dispose();
     rutiininLiikkeetModel.dispose();
   }
 

@@ -281,17 +281,23 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                     ],
                   ),
                 ),
-                if (!widget.liike!.showComment! ||
-                    (widget.liike?.kommentti == null ||
-                        widget.liike?.kommentti == ''))
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 10.0),
-                    child: Icon(
-                      Icons.add_comment_rounded,
-                      color: FlutterFlowTheme.of(context).primaryColor,
-                      size: 24.0,
-                    ),
+                if (false)
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      if (!widget.liike!.showComment! ||
+                          (widget.liike?.kommentti == null ||
+                              widget.liike?.kommentti == ''))
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              10.0, 10.0, 0.0, 10.0),
+                          child: Icon(
+                            Icons.add_comment_rounded,
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                            size: 24.0,
+                          ),
+                        ),
+                    ],
                   ),
               ],
             ),
@@ -460,7 +466,7 @@ sarja */
               padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 8.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   InkWell(
                     onTap: () async {
@@ -512,7 +518,7 @@ sarja */
                       ],
                     ),
                   ),
-                  if (widget.liike!.sarjat!.toList().length > 0)
+                  if ((widget.liike!.sarjat!.toList().length > 0) && false)
                     InkWell(
                       onTap: () async {
                         logFirebaseEvent(

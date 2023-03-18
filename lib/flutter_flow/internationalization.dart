@@ -370,7 +370,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
     'v1rlq3l4': {
-      'fi': 'Page Title',
+      'fi': 'Rakennellaan ja kokeillaan erilaisia widgetteja',
       'en': '',
     },
     't3ej29tw': {
@@ -466,6 +466,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '29oo50bm': {
       'fi': 'Liikkeen nimi',
       'en': 'Excercise name',
+    },
+    'z0aezlp0': {
+      'fi': '',
+      'en': '',
     },
     'l7w663ju': {
       'fi': 'Kommentti (vapaaehtoinen)',

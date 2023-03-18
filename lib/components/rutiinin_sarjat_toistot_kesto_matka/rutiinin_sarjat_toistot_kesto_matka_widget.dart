@@ -127,6 +127,9 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
       ),
       child: Container(
         width: MediaQuery.of(context).size.width * 0.86,
+        constraints: BoxConstraints(
+          maxWidth: 840.0,
+        ),
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(

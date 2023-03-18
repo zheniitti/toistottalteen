@@ -3,7 +3,7 @@ import '/backend/backend.dart';
 import '/components/button_luo_rutiini/button_luo_rutiini_widget.dart';
 import '/components/keskenerainen_treeni_komponentti/keskenerainen_treeni_komponentti_widget.dart';
 import '/components/rutiini/rutiini_widget.dart';
-import '/components/rutiinin_sarjat_toistot_kesto_matka_widget.dart';
+import '/components/rutiinin_sarjat_toistot_kesto_matka/rutiinin_sarjat_toistot_kesto_matka_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';

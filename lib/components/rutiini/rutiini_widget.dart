@@ -343,9 +343,13 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
         maxWidth: 500.0,
       ),
       decoration: BoxDecoration(
-        color: widget.rutiini?.finishedEditing == false
-            ? FlutterFlowTheme.of(context).alternate
-            : FlutterFlowTheme.of(context).secondaryBackground,
+        color: valueOrDefault<Color>(
+          widget.rutiini!.finishedEditing! &&
+                  (widget.rutiini!.liikkeet!.toList().length > 0)
+              ? FlutterFlowTheme.of(context).alternate
+              : FlutterFlowTheme.of(context).secondaryBackground,
+          FlutterFlowTheme.of(context).secondaryBackground,
+        ),
         borderRadius: BorderRadius.circular(22.0),
       ),
       child: Padding(
@@ -361,58 +365,67 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    if ((widget.rutiini?.kommentti == null ||
-                            widget.rutiini?.kommentti == '') &&
-                        widget.rutiini!.finishedEditing!)
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(6.0, 8.0, 0.0, 0.0),
-                        child: InkWell(
-                          onTap: () async {
-                            logFirebaseEvent(
-                                'RUTIINI_COMP_Text_ivf90nsb_ON_TAP');
-                            logFirebaseEvent('Text_custom_action');
-                            await actions.myUpdateTreenirutiini(
-                              widget.rutiini,
-                              null,
-                              null,
-                              false,
-                              null,
-                              null,
-                              null,
-                              null,
-                              widget.rutiini?.liikkeet?.toList()?.toList(),
-                              null,
-                              null,
-                              null,
-                              true,
-                              true,
-                              false,
-                            );
-                          },
-                          child: Text(
-                            FFLocalizations.of(context).getText(
-                              'a7t1o69i' /* 💬 */,
+                    if (false)
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          if ((widget.rutiini?.kommentti == null ||
+                                  widget.rutiini?.kommentti == '') &&
+                              widget.rutiini!.finishedEditing!)
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  6.0, 8.0, 0.0, 0.0),
+                              child: InkWell(
+                                onTap: () async {
+                                  logFirebaseEvent(
+                                      'RUTIINI_COMP_Text_ivf90nsb_ON_TAP');
+                                  logFirebaseEvent('Text_custom_action');
+                                  await actions.myUpdateTreenirutiini(
+                                    widget.rutiini,
+                                    null,
+                                    null,
+                                    false,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    widget.rutiini?.liikkeet
+                                        ?.toList()
+                                        ?.toList(),
+                                    null,
+                                    null,
+                                    null,
+                                    true,
+                                    true,
+                                    false,
+                                  );
+                                },
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'a7t1o69i' /* 💬 */,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        fontSize: 20.0,
+                                      ),
+                                ),
+                              ).animateOnPageLoad(
+                                  animationsMap['textOnPageLoadAnimation']!),
                             ),
-                            textAlign: TextAlign.center,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Roboto',
-                                      fontSize: 20.0,
-                                    ),
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['textOnPageLoadAnimation']!),
+                        ],
                       ),
                     Expanded(
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 6.0),
+                            EdgeInsetsDirectional.fromSTEB(10.0, 6.0, 0.0, 6.0),
                         child: TextFormField(
                           controller: _model.textFieldNimiController,
                           onChanged: (_) => EasyDebounce.debounce(
                             '_model.textFieldNimiController',
-                            Duration(milliseconds: 500),
+                            Duration(milliseconds: 300),
                             () async {
                               logFirebaseEvent(
                                   'RUTIINI_TextField_nimi_ON_TEXTFIELD_CHAN');
@@ -503,7 +516,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 6.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 4.0, 0.0),
                       child: InkWell(
                         onTap: () async {
                           logFirebaseEvent('RUTIINI_COMP_Icon_208l4wig_ON_TAP');
@@ -1331,7 +1344,8 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                               ],
                             ),
                           ),
-                        if (!widget.rutiini!.finishedEditing!)
+                        if (!(widget.rutiini!.finishedEditing! &&
+                            (widget.rutiini!.liikkeet!.toList().length > 0)))
                           Container(
                             width: double.infinity,
                             height: 40.0,

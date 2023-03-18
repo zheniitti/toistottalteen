@@ -255,7 +255,10 @@ class _SessioWidgetState extends State<SessioWidget>
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 6.0, 0.0, 0.0),
                           child: Text(
-                            widget.treeniSessio!.treeniRutiiniData.nimi!,
+                            valueOrDefault<String>(
+                              widget.treeniSessio!.treeniRutiiniData.nimi,
+                              'Unnamed workout',
+                            ),
                             style: FlutterFlowTheme.of(context).title3,
                           ),
                         ),
@@ -304,7 +307,7 @@ class _SessioWidgetState extends State<SessioWidget>
             expanded: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 8.0),
               child: Column(
-                mainAxisSize: MainAxisSize.max,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Divider(
                     thickness: 1.0,

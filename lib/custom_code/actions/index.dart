@@ -1,4 +1,5 @@
 export 'get_platform_as_string.dart' show getPlatformAsString;
+export 'luo_liike_rutiinipohjalle.dart' show luoLiikeRutiinipohjalle;
 export 'create_liike.dart' show createLiike;
 export 'create_sarja.dart' show createSarja;
 export 'create_sarja_list.dart' show createSarjaList;

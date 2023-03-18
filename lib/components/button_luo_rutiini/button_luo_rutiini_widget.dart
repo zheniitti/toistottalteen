@@ -30,17 +30,10 @@ class _ButtonLuoRutiiniWidgetState extends State<ButtonLuoRutiiniWidget>
     'buttonOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        VisibilityEffect(duration: 300.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 300.ms,
-          duration: 800.ms,
-          begin: Offset(-100.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
+        VisibilityEffect(duration: 200.ms),
         FadeEffect(
           curve: Curves.easeInOut,
-          delay: 300.ms,
+          delay: 200.ms,
           duration: 800.ms,
           begin: 0.0,
           end: 1.0,

@@ -409,7 +409,6 @@ class _SivuTreenaaKomponenttiWidgetState
                         null,
                         null,
                         null,
-                        null,
                         _model.luotuTyhjaSarja?.toList(),
                       );
                       logFirebaseEvent(

@@ -1,6 +1,7 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/rutiinin_liikkeet/rutiinin_liikkeet_widget.dart';
+import '/components/sessio/sessio_widget.dart';
 import '/flutter_flow/flutter_flow_ad_banner.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -73,12 +74,11 @@ class _BuilderWidgetState extends State<BuilderWidget> {
         ),
         title: Text(
           FFLocalizations.of(context).getText(
-            'v1rlq3l4' /* Page Title */,
+            'v1rlq3l4' /* Rakennellaan ja kokeillaan eri... */,
           ),
-          style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Outfit',
-                color: Colors.white,
-                fontSize: 22.0,
+          style: FlutterFlowTheme.of(context).bodyText1.override(
+                fontFamily: 'Roboto',
+                color: FlutterFlowTheme.of(context).secondaryColor,
               ),
         ),
         actions: [],
@@ -91,24 +91,11 @@ class _BuilderWidgetState extends State<BuilderWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              InkWell(
-                onTap: () async {
-                  logFirebaseEvent('BUILDER_PAGE_Container_kyp4e9su_ON_TAP');
-                  logFirebaseEvent('Container_backend_call');
-
-                  final usersUpdateData = {
-                    'treeniRutiinit': getTreeniRutiiniListFirestoreData(
-                      (currentUserDocument?.treeniRutiinit?.toList() ?? []),
-                    ),
-                  };
-                  await currentUserReference!.update(usersUpdateData);
-                },
-                child: Container(
-                  width: 100.0,
-                  height: 100.0,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                  ),
+              wrapWithModel(
+                model: _model.sessioModel,
+                updateCallback: () => setState(() {}),
+                child: SessioWidget(
+                  treeniSessio: null,
                 ),
               ),
               FlutterFlowAdBanner(
@@ -199,6 +186,26 @@ class _BuilderWidgetState extends State<BuilderWidget> {
                         iconSize: 24.0,
                       ),
                     ),
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () async {
+                  logFirebaseEvent('BUILDER_PAGE_Container_kyp4e9su_ON_TAP');
+                  logFirebaseEvent('Container_backend_call');
+
+                  final usersUpdateData = {
+                    'treeniRutiinit': getTreeniRutiiniListFirestoreData(
+                      (currentUserDocument?.treeniRutiinit?.toList() ?? []),
+                    ),
+                  };
+                  await currentUserReference!.update(usersUpdateData);
+                },
+                child: Container(
+                  width: 100.0,
+                  height: 100.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
                 ),
               ),

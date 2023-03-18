@@ -3,7 +3,7 @@ import '/backend/backend.dart';
 import '/components/button_luo_rutiini/button_luo_rutiini_widget.dart';
 import '/components/keskenerainen_treeni_komponentti/keskenerainen_treeni_komponentti_widget.dart';
 import '/components/rutiini/rutiini_widget.dart';
-import '/components/rutiinin_sarjat_toistot_kesto_matka_widget.dart';
+import '/components/rutiinin_sarjat_toistot_kesto_matka/rutiinin_sarjat_toistot_kesto_matka_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -317,13 +317,25 @@ class _SivuRutiinitKomponenttiWidgetState
             return child;
           }).animateOnPageLoad(animationsMap['blurOnPageLoadAnimation']!),
         if (_model.showEditRutiiniSarjatToistot)
-          wrapWithModel(
-            model: _model.rutiininSarjatToistotKestoMatkaModel,
-            updateCallback: () => setState(() {}),
-            child: RutiininSarjatToistotKestoMatkaWidget(
-              liikeIndex: _model.pageStateValittuMuokattavaLiikeIndex,
-              rutiini: _model.pageStateValittuRutiini,
-              liike: _model.pageStateValittuMuokattavaLiike,
+          SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 120.0),
+                  child: wrapWithModel(
+                    model: _model.rutiininSarjatToistotKestoMatkaModel,
+                    updateCallback: () => setState(() {}),
+                    child: RutiininSarjatToistotKestoMatkaWidget(
+                      liikeIndex: _model.pageStateValittuMuokattavaLiikeIndex,
+                      rutiini: _model.pageStateValittuRutiini,
+                      liike: _model.pageStateValittuMuokattavaLiike,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
       ],
