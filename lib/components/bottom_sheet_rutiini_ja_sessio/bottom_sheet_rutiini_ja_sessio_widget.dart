@@ -165,6 +165,7 @@ class _BottomSheetRutiiniJaSessioWidgetState
                         true,
                         true,
                         null,
+                        false,
                       );
                     }
 
@@ -229,6 +230,7 @@ class _BottomSheetRutiiniJaSessioWidgetState
                         null,
                         true,
                         true,
+                        false,
                       );
                     }
 

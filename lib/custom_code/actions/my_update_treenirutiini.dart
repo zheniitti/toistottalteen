@@ -151,14 +151,21 @@ Future myUpdateTreenirutiini(
   }
   */
 
-     try {
+  try {
     if (removeEmptyLiikes != null && removeEmptyLiikes) {
       List<LiikeStruct> liikkeet = treeniRutiini.liikkeet.toList();
-      liikkeet.removeWhere((liike) => liike.nimi == '' && liike.kommentti == '' && liike.sarjaMaara == 0 && liike.toistoMaara == 0 && liike.toistoMaara == 0 && liike.matkaMetri == 0 && liike.kestoSekunteina == 0);
+      liikkeet.removeWhere((liike) =>
+          liike.nimi == '' &&
+          liike.kommentti == '' &&
+          liike.sarjaMaara == 0 &&
+          liike.toistoMaara == 0 &&
+          liike.toistoMaara == 0 &&
+          liike.matkaMetri == 0 &&
+          liike.kestoSekunteina == 0);
       rutiiniFirestoreData['liikkeet'] = getLiikeListFirestoreData(liikkeet);
     }
   } on Exception catch (e) {
-    print( 'Error: Rutiinin tyhjien liikkeiden poisto epäonnistui: $e');
+    print('Error: Rutiinin tyhjien liikkeiden poisto epäonnistui: $e');
   }
 
   try {

@@ -111,6 +111,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Analytiikka',
       'en': '',
     },
+    '3w46zho5': {
+      'fi': 'Please select...',
+      'en': '',
+    },
     '2ebrd02h': {
       'fi': 'Home',
       'en': '',
@@ -676,8 +680,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Add exercise',
     },
     'f5f0mc89': {
-      'fi': 'Lopeta muokkaus ✔',
-      'en': 'Finish editing ✔',
+      'fi': 'Lopeta muokkaus',
+      'en': 'Finish editing',
     },
   },
   // rutiininLiikeNimiTextfield

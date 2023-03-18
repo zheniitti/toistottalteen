@@ -38,25 +38,6 @@ class _SivuRutiinitKomponenttiWidgetState
   late SivuRutiinitKomponenttiModel _model;
 
   final animationsMap = {
-    'rutiiniOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 800.ms,
-          duration: 800.ms,
-          begin: Offset(-100.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 800.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
     'blurOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
@@ -268,9 +249,9 @@ class _SivuRutiinitKomponenttiWidgetState
                                                       null),
                                           pageStateSelectedRutiini:
                                               _model.pageStateValittuRutiini,
+                                          rutiiniListIndex: rutiinitIndex,
                                         ),
-                                      ).animateOnPageLoad(animationsMap[
-                                          'rutiiniOnPageLoadAnimation']!),
+                                      ),
                                     );
                                   },
                                 );

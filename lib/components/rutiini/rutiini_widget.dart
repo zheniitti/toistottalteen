@@ -25,11 +25,13 @@ class RutiiniWidget extends StatefulWidget {
     this.rutiini,
     this.hasUnfinishedWorkout,
     this.pageStateSelectedRutiini,
+    this.rutiiniListIndex,
   }) : super(key: key);
 
   final TreeniRutiiniStruct? rutiini;
   final bool? hasUnfinishedWorkout;
   final TreeniRutiiniStruct? pageStateSelectedRutiini;
+  final int? rutiiniListIndex;
 
   @override
   _RutiiniWidgetState createState() => _RutiiniWidgetState();
@@ -40,6 +42,19 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
   late RutiiniModel _model;
 
   final animationsMap = {
+    'containerOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 700.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 700.ms,
+          duration: 1000.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
     'textOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
@@ -262,6 +277,20 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
         ),
       ],
     ),
+    'rowOnPageLoadAnimation1': AnimationInfo(
+      loop: true,
+      reverse: true,
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        ScaleEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 800.ms,
+          begin: 1.0,
+          end: 1.05,
+        ),
+      ],
+    ),
     'rowOnActionTriggerAnimation': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
       applyInitialState: true,
@@ -282,18 +311,24 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
         ),
       ],
     ),
-    'rowOnPageLoadAnimation': AnimationInfo(
-      loop: true,
-      reverse: true,
+    'rowOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       applyInitialState: true,
       effects: [
+        VisibilityEffect(duration: 2000.ms),
+        FadeEffect(
+          curve: Curves.elasticOut,
+          delay: 2000.ms,
+          duration: 900.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
         ScaleEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 1.0,
-          end: 1.05,
+          curve: Curves.elasticOut,
+          delay: 2000.ms,
+          duration: 900.ms,
+          begin: 0.9,
+          end: 1.0,
         ),
       ],
     ),
@@ -322,8 +357,6 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
     );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
-
-    _model.componentStateRutiini = widget.rutiini;
   }
 
   @override
@@ -344,8 +377,8 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
       ),
       decoration: BoxDecoration(
         color: valueOrDefault<Color>(
-          widget.rutiini!.finishedEditing! &&
-                  (widget.rutiini!.liikkeet!.toList().length > 0)
+          !(widget.rutiini!.finishedEditing! &&
+                  (widget.rutiini!.liikkeet!.toList().length > 0))
               ? FlutterFlowTheme.of(context).alternate
               : FlutterFlowTheme.of(context).secondaryBackground,
           FlutterFlowTheme.of(context).secondaryBackground,
@@ -398,6 +431,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                     true,
                                     true,
                                     false,
+                                    false,
                                   );
                                 },
                                 child: Text(
@@ -444,6 +478,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                 null,
                                 null,
                                 true,
+                                false,
                                 false,
                                 false,
                               );
@@ -582,6 +617,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                 null,
                                 false,
                                 false,
+                                false,
                               );
                             },
                           ),
@@ -702,10 +738,10 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                               null,
                               null,
                               null,
+                              true,
                               null,
-                              null,
-                              null,
-                              null,
+                              _model.textFieldNimiController.text,
+                              _model.textFieldKommenttiController.text,
                               widget.rutiini?.liikkeet?.toList()?.toList(),
                               functions.updatedValitutViikonPaivat(
                                   widget.rutiini?.valitutViikonPaivat,
@@ -719,6 +755,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                               null,
                               null,
                               null,
+                              false,
                               false,
                               false,
                             );
@@ -775,10 +812,10 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                               null,
                               null,
                               null,
+                              true,
                               null,
-                              null,
-                              null,
-                              null,
+                              _model.textFieldNimiController.text,
+                              _model.textFieldKommenttiController.text,
                               widget.rutiini?.liikkeet?.toList()?.toList(),
                               functions.updatedValitutViikonPaivat(
                                   widget.rutiini?.valitutViikonPaivat,
@@ -792,6 +829,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                               null,
                               null,
                               null,
+                              false,
                               false,
                               false,
                             );
@@ -834,16 +872,24 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                         FFButtonWidget(
                           onPressed: () async {
                             logFirebaseEvent('RUTIINI_COMP_KE_BTN_ON_TAP');
+                            logFirebaseEvent('Button_widget_animation');
+                            if (animationsMap[
+                                    'buttonOnActionTriggerAnimation3'] !=
+                                null) {
+                              animationsMap['buttonOnActionTriggerAnimation3']!
+                                  .controller
+                                  .forward(from: 0.0);
+                            }
                             logFirebaseEvent('Button_custom_action');
                             await actions.myUpdateTreenirutiini(
                               widget.rutiini,
                               null,
                               null,
                               null,
+                              true,
                               null,
-                              null,
-                              null,
-                              null,
+                              _model.textFieldNimiController.text,
+                              _model.textFieldKommenttiController.text,
                               widget.rutiini?.liikkeet?.toList()?.toList(),
                               functions.updatedValitutViikonPaivat(
                                   widget.rutiini?.valitutViikonPaivat,
@@ -859,15 +905,8 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                               null,
                               false,
                               false,
+                              false,
                             );
-                            logFirebaseEvent('Button_widget_animation');
-                            if (animationsMap[
-                                    'buttonOnActionTriggerAnimation3'] !=
-                                null) {
-                              animationsMap['buttonOnActionTriggerAnimation3']!
-                                  .controller
-                                  .forward(from: 0.0);
-                            }
                           },
                           text: FFLocalizations.of(context).getText(
                             'yuw8d4lw' /* Ke */,
@@ -921,10 +960,10 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                               null,
                               null,
                               null,
+                              true,
                               null,
-                              null,
-                              null,
-                              null,
+                              _model.textFieldNimiController.text,
+                              _model.textFieldKommenttiController.text,
                               widget.rutiini?.liikkeet?.toList()?.toList(),
                               functions.updatedValitutViikonPaivat(
                                   widget.rutiini?.valitutViikonPaivat,
@@ -938,6 +977,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                               null,
                               null,
                               null,
+                              false,
                               false,
                               false,
                             );
@@ -994,10 +1034,10 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                               null,
                               null,
                               null,
+                              true,
                               null,
-                              null,
-                              null,
-                              null,
+                              _model.textFieldNimiController.text,
+                              _model.textFieldKommenttiController.text,
                               widget.rutiini?.liikkeet?.toList()?.toList(),
                               functions.updatedValitutViikonPaivat(
                                   widget.rutiini?.valitutViikonPaivat,
@@ -1011,6 +1051,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                               null,
                               null,
                               null,
+                              false,
                               false,
                               false,
                             );
@@ -1067,10 +1108,10 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                               null,
                               null,
                               null,
+                              true,
                               null,
-                              null,
-                              null,
-                              null,
+                              _model.textFieldNimiController.text,
+                              _model.textFieldKommenttiController.text,
                               widget.rutiini?.liikkeet?.toList()?.toList(),
                               functions.updatedValitutViikonPaivat(
                                   widget.rutiini?.valitutViikonPaivat,
@@ -1084,6 +1125,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                               null,
                               null,
                               null,
+                              false,
                               false,
                               false,
                             );
@@ -1140,10 +1182,10 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                               null,
                               null,
                               null,
+                              true,
                               null,
-                              null,
-                              null,
-                              null,
+                              _model.textFieldNimiController.text,
+                              _model.textFieldKommenttiController.text,
                               widget.rutiini?.liikkeet?.toList()?.toList(),
                               functions.updatedValitutViikonPaivat(
                                   widget.rutiini?.valitutViikonPaivat,
@@ -1157,6 +1199,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                               null,
                               null,
                               null,
+                              false,
                               false,
                               false,
                             );
@@ -1363,11 +1406,11 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                       widget.rutiini,
                                       true,
                                       null,
+                                      false,
+                                      true,
                                       null,
-                                      null,
-                                      null,
-                                      null,
-                                      null,
+                                      _model.textFieldNimiController.text,
+                                      _model.textFieldKommenttiController.text,
                                       widget.rutiini?.liikkeet
                                           ?.toList()
                                           ?.toList(),
@@ -1376,6 +1419,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                       null,
                                       null,
                                       true,
+                                      false,
                                       false,
                                     );
                                   },
@@ -1404,7 +1448,8 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                       ),
                                     ],
                                   ),
-                                ),
+                                ).animateOnPageLoad(
+                                    animationsMap['rowOnPageLoadAnimation1']!),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       4.0, 0.0, 0.0, 0.0),
@@ -1444,24 +1489,10 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                         _model.textFieldNimiController.text,
                                         _model
                                             .textFieldKommenttiController.text,
-                                        _model.componentStateRutiini?.liikkeet
+                                        widget.rutiini?.liikkeet
                                             ?.toList()
                                             ?.toList(),
-                                        functions.myCreateValitutViikonPaivat(
-                                            _model.componentStateRutiini
-                                                ?.valitutViikonPaivat?.ma,
-                                            _model.componentStateRutiini
-                                                ?.valitutViikonPaivat?.ti,
-                                            _model.componentStateRutiini
-                                                ?.valitutViikonPaivat?.ke,
-                                            _model.componentStateRutiini
-                                                ?.valitutViikonPaivat?.to,
-                                            _model.componentStateRutiini
-                                                ?.valitutViikonPaivat?.pe,
-                                            _model.componentStateRutiini
-                                                ?.valitutViikonPaivat?.la,
-                                            _model.componentStateRutiini
-                                                ?.valitutViikonPaivat?.su),
+                                        null,
                                         null,
                                         null,
                                         _model.textFieldKommenttiController
@@ -1472,6 +1503,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                                 '',
                                         true,
                                         false,
+                                        true,
                                       );
                                     },
                                     child: Row(
@@ -1479,7 +1511,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                       children: [
                                         Text(
                                           FFLocalizations.of(context).getText(
-                                            'f5f0mc89' /* Lopeta muokkaus ✔ */,
+                                            'f5f0mc89' /* Lopeta muokkaus */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .subtitle2,
@@ -1488,7 +1520,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                     ),
                                   )
                                       .animateOnPageLoad(animationsMap[
-                                          'rowOnPageLoadAnimation']!)
+                                          'rowOnPageLoadAnimation2']!)
                                       .animateOnActionTrigger(
                                         animationsMap[
                                             'rowOnActionTriggerAnimation']!,
@@ -1508,6 +1540,6 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
           ],
         ),
       ),
-    );
+    ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!);
   }
 }
