@@ -322,6 +322,8 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
     );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+
+    _model.componentStateRutiini = widget.rutiini;
   }
 
   @override
