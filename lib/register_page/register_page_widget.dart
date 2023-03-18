@@ -222,7 +222,7 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
 
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+      backgroundColor: FlutterFlowTheme.of(context).secondaryText,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),

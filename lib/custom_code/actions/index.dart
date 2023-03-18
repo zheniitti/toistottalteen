@@ -6,7 +6,7 @@ export 'create_sarja_list.dart' show createSarjaList;
 export 'remove_sessio_sarja_at_index.dart' show removeSessioSarjaAtIndex;
 export 'my_create_treeni_rutiini_struct.dart' show myCreateTreeniRutiiniStruct;
 export 'json_rutiini_from_data_struct.dart' show jsonRutiiniFromDataStruct;
-export 'my_update_treenirutiini.dart' show myUpdateTreenirutiini;
+export 'update_user_doc_treenirutiini.dart' show updateUserDocTreenirutiini;
 export 'my_update_liike_at_index.dart' show myUpdateLiikeAtIndex;
 export 'my_update_sarja_at_index.dart' show myUpdateSarjaAtIndex;
 export 'my_update_treeni_rutiini_struct.dart' show myUpdateTreeniRutiiniStruct;

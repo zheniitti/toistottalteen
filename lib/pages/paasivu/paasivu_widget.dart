@@ -710,6 +710,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                       .workoutDurationTextModel,
                                                   updateCallback: () =>
                                                       setState(() {}),
+                                                  updateOnChange: true,
                                                   child:
                                                       WorkoutDurationTextWidget(
                                                     sessioDoc:
@@ -782,7 +783,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  'uw6dunth' /* Aloita ajanotto */,
+                                                                  'uw6dunth' /* Aloita treeni */,
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)

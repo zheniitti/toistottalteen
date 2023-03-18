@@ -57,6 +57,10 @@ dependencies:
   flutter_cache_manager: 3.3.0
   flutter_keyboard_visibility: 5.2.0
   flutter_secure_storage: 6.0.0
+  flutter_slidable: 
+    git:
+      url: https://github.com/letsar/flutter_slidable.git
+      ref: d10a912aae1fb0da330d9c83169f15ed2b0b42a2
   flutter_spinkit: 5.1.0
   flutter_svg: 0.22.0
   font_awesome_flutter: 10.1.0
@@ -82,6 +86,7 @@ dependencies:
   sign_in_with_apple: 4.1.0
   sign_in_with_apple_platform_interface: 1.0.0
   sign_in_with_apple_web: 1.0.1
+  smooth_page_indicator: 1.0.0+2
   sqflite: 2.2.0+2
   stop_watch_timer: 1.5.0
   substring_highlight: 1.0.33

@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 
 import '../../auth/auth_util.dart';
 
-Future myUpdateTreenirutiini(
+Future updateUserDocTreenirutiini(
   TreeniRutiiniStruct? treeniRutiini,
   bool? lisaaUusiLiike,
   bool? poistaViimeisinLiike,

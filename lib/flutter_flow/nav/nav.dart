@@ -137,7 +137,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'builder',
               path: 'builder',
-              requireAuth: true,
               builder: (context, params) => BuilderWidget(),
             ),
             FFRoute(
@@ -145,6 +144,32 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'actionsToCopy',
               requireAuth: true,
               builder: (context, params) => ActionsToCopyWidget(),
+            ),
+            FFRoute(
+              name: 'onboarding_page',
+              path: 'onboardingPage',
+              requireAuth: true,
+              builder: (context, params) => OnboardingPageWidget(),
+            ),
+            FFRoute(
+              name: 'kirjaudu_sivu',
+              path: 'kirjauduSivu',
+              builder: (context, params) => KirjauduSivuWidget(
+                initialIndex: params.getParam('initialIndex', ParamType.int),
+              ),
+            ),
+            FFRoute(
+              name: 'forgotPassword_page',
+              path: 'forgotPasswordPage',
+              requireAuth: true,
+              builder: (context, params) => ForgotPasswordPageWidget(
+                email: params.getParam('email', ParamType.String),
+              ),
+            ),
+            FFRoute(
+              name: 'verifyPhoneNuber_page',
+              path: 'verifyPhoneNuberPage',
+              builder: (context, params) => VerifyPhoneNuberPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

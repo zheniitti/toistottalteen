@@ -179,7 +179,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                   'RUTIININ_LIIKKEET_Icon_deleteLiike_ON_TA');
                               logFirebaseEvent(
                                   'Icon_deleteLiike_custom_action');
-                              await actions.myUpdateTreenirutiini(
+                              await actions.updateUserDocTreenirutiini(
                                 widget.rutiini,
                                 null,
                                 null,

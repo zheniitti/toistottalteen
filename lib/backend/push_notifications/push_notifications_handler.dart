@@ -120,6 +120,18 @@ final parametersBuilderMap =
   'tietosuojaJaYksityisyys': ParameterData.none(),
   'builder': ParameterData.none(),
   'actionsToCopy': ParameterData.none(),
+  'onboarding_page': ParameterData.none(),
+  'kirjaudu_sivu': (data) async => ParameterData(
+        allParams: {
+          'initialIndex': getParameter<int>(data, 'initialIndex'),
+        },
+      ),
+  'forgotPassword_page': (data) async => ParameterData(
+        allParams: {
+          'email': getParameter<String>(data, 'email'),
+        },
+      ),
+  'verifyPhoneNuber_page': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

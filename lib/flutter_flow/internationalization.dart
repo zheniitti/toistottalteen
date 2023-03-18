@@ -123,8 +123,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // paasivu
   {
     'uw6dunth': {
-      'fi': 'Aloita ajanotto',
-      'en': 'Finish workout',
+      'fi': 'Aloita treeni',
+      'en': 'Start workout',
     },
     '9mvzr5ip': {
       'fi': 'Option 1',
@@ -373,6 +373,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': '30 min sitten dsltkphklp',
       'en': '',
     },
+    'iteexpth': {
+      'fi': 'Share',
+      'en': '',
+    },
+    'e23nbbkk': {
+      'fi': 'Lorem ipsum dolor...',
+      'en': '',
+    },
+    'tmmnmqze': {
+      'fi': 'Lorem ipsum dolor...',
+      'en': '',
+    },
     'v1rlq3l4': {
       'fi': 'Rakennellaan ja kokeillaan erilaisia widgetteja',
       'en': '',
@@ -397,6 +409,187 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
     'hsdzc6hf': {
+      'fi': 'Home',
+      'en': '',
+    },
+  },
+  // onboarding_page
+  {
+    '7vvg4989': {
+      'fi': 'Search for Books',
+      'en': '',
+    },
+    'eovd8m9x': {
+      'fi': 'Find amazing classic books in our library.',
+      'en': '',
+    },
+    '69vyedi0': {
+      'fi': 'Purchase Books',
+      'en': '',
+    },
+    'fmy4s22v': {
+      'fi': 'Buy and view all your favorite books you find in this library.',
+      'en': '',
+    },
+    '8t0nqbkt': {
+      'fi': 'Review Purchases',
+      'en': '',
+    },
+    'az4f1r32': {
+      'fi':
+          'Keep track of all your purchases that you have made, want to trade books in? Go ahead and list them for exchange.',
+      'en': '',
+    },
+    'bglgstik': {
+      'fi': 'Continue',
+      'en': '',
+    },
+  },
+  // kirjaudu_sivu
+  {
+    'faomx7ia': {
+      'fi': 'Kirjaudu',
+      'en': 'Sign in',
+    },
+    'o2cokl1b': {
+      'fi': 'Sähköpostiosoite',
+      'en': 'Email Address',
+    },
+    'di0t3kks': {
+      'fi': 'Salasana',
+      'en': 'Password',
+    },
+    'fj8qah3m': {
+      'fi': 'Kirjaudu',
+      'en': 'Login',
+    },
+    'o0h72rrv': {
+      'fi': 'Unohditiko salasanasi?',
+      'en': 'Forgot Password?',
+    },
+    'ixt1bx4l': {
+      'fi': 'Tai kirjaudu seuraavilla vaihdoehdoilla',
+      'en': 'Or use a social account to login',
+    },
+    'bkk994m5': {
+      'fi': 'Google',
+      'en': 'Google',
+    },
+    'pgktub3b': {
+      'fi': 'Apple',
+      'en': 'Apple',
+    },
+    'csbrhgrc': {
+      'fi': 'Puhelin\nnumero',
+      'en': 'Phone\nnumber',
+    },
+    'a6h2047q': {
+      'fi': 'Puhelinnumero',
+      'en': 'Phone number',
+    },
+    '2rl9emal': {
+      'fi': 'Lähetä vahvistuskoodi',
+      'en': 'Send SMS verifiation code',
+    },
+    'shz6a9m8': {
+      'fi': 'Luo tili',
+      'en': 'Sign up',
+    },
+    'bcx41kw3': {
+      'fi': 'Sähköpostiosoite',
+      'en': 'Email Address',
+    },
+    'h6m23xrn': {
+      'fi': 'Salasana',
+      'en': 'Password',
+    },
+    'ljqsus3d': {
+      'fi': 'Kirjoita salasana uudelleen',
+      'en': 'Confirm Password',
+    },
+    '73gnjam6': {
+      'fi': 'Luo tili',
+      'en': 'Create Account',
+    },
+    '85ixbazd': {
+      'fi': 'Tai luo tili seuraavilla vaihtoehdoilla',
+      'en': 'Or use other method to create account',
+    },
+    'mbvcwu2b': {
+      'fi': 'Google',
+      'en': 'Google',
+    },
+    'ycdu23af': {
+      'fi': 'Apple',
+      'en': 'Apple',
+    },
+    '76tfpspt': {
+      'fi': 'Puhelin\nnumero',
+      'en': 'Phone\nnumber',
+    },
+    '5dkq9pkt': {
+      'fi': 'Puhelinnumero',
+      'en': 'Phone number',
+    },
+    'djspg1ze': {
+      'fi': 'Lähetä vahvistuskoodi',
+      'en': 'Send SMS verifiation code',
+    },
+  },
+  // forgotPassword_page
+  {
+    'bqg6mosw': {
+      'fi': 'Takaisin',
+      'en': 'Back',
+    },
+    'cdee2yci': {
+      'fi':
+          'Lähetämme sinulle sähköpostin, jossa on linkki salasanan vaihtoon. Anna tiliisi yhdistetty sähköpostiosoite alle.',
+      'en':
+          'We will send you an email with a link to reset your password, please enter the email associated with your account below.',
+    },
+    'lsgkuu2w': {
+      'fi': 'Sähköpostiosoite',
+      'en': 'Your email address...',
+    },
+    'skvsfyrg': {
+      'fi': '',
+      'en': '',
+    },
+    'ltxhjq54': {
+      'fi': 'Lähetä linkki',
+      'en': 'Send Link',
+    },
+    'rbz26f9d': {
+      'fi': 'Home',
+      'en': '',
+    },
+  },
+  // verifyPhoneNuber_page
+  {
+    'js4yep2h': {
+      'fi': 'Takaisin',
+      'en': 'Back',
+    },
+    '3a8m9btv': {
+      'fi':
+          'Olemme lähettäneet kuusinumeroisen koodin puhelinnumeroosi. Vahvista puhelinnumerosi kirjoittamalle saamsi koodi alle:',
+      'en':
+          'We have sent a six digit code to your phone number. Please verify your phone number by entering the code below:',
+    },
+    'vm1pinh3': {
+      'fi': 'Tekstiviestivahvistuskoodi',
+      'en': 'SMS verification code',
+    },
+    '93j0gyve': {
+      'fi': '',
+      'en': '',
+    },
+    'ptclw37b': {
+      'fi': 'Vahvista',
+      'en': 'Verify',
+    },
+    'tzx4eiaw': {
       'fi': 'Home',
       'en': '',
     },
@@ -638,6 +831,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'qqp0ddb4': {
       'fi': 'Treenipäivät:',
       'en': 'Workout days',
+    },
+    'o99304t2': {
+      'fi': 'Ma Ti Ke',
+      'en': 'Mon, Wed, Fri',
     },
     'yod6uchb': {
       'fi': 'Ma',

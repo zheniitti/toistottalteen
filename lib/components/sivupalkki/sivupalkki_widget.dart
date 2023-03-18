@@ -70,10 +70,17 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                       logFirebaseEvent('SIVUPALKKI_COMP_Row_48iupzve_ON_TAP');
                       logFirebaseEvent('Row_close_dialog,_drawer,_etc');
                       Navigator.pop(context);
-                      logFirebaseEvent('Row_update_app_state');
-                      FFAppState().update(() {
-                        FFAppState().navBarIndex = 0;
-                      });
+                      logFirebaseEvent('Row_navigate_to');
+
+                      context.pushNamed(
+                        'kirjaudu_sivu',
+                        queryParams: {
+                          'initialIndex': serializeParam(
+                            1,
+                            ParamType.int,
+                          ),
+                        }.withoutNulls,
+                      );
                     },
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
@@ -100,139 +107,153 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
-                  child: InkWell(
-                    onTap: () async {
-                      logFirebaseEvent('SIVUPALKKI_COMP_Row_2iowzp08_ON_TAP');
-                      logFirebaseEvent('Row_close_dialog,_drawer,_etc');
-                      Navigator.pop(context);
-                      logFirebaseEvent('Row_update_app_state');
-                      FFAppState().update(() {
-                        FFAppState().navBarIndex = 0;
-                      });
-                    },
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 22.0, 0.0),
-                          child: Icon(
-                            Icons.sticky_note_2,
-                            color: Colors.black,
-                            size: 30.0,
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(-1.0, 0.0),
-                          child: InkWell(
-                            onTap: () async {
-                              logFirebaseEvent(
-                                  'SIVUPALKKI_Text_treenirutiinit_ON_TAP');
-                              logFirebaseEvent(
-                                  'Text_treenirutiinit_close_dialog,_drawer');
-                              Navigator.pop(context);
-                              logFirebaseEvent(
-                                  'Text_treenirutiinit_update_app_state');
-                              FFAppState().update(() {
-                                FFAppState().navBarIndex = 0;
-                              });
-                            },
-                            child: Text(
-                              FFLocalizations.of(context).getText(
-                                'tmzzbmg6' /* Treenirutiinit */,
-                              ),
-                              style: FlutterFlowTheme.of(context).subtitle2,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
-                  child: InkWell(
-                    onTap: () async {
-                      logFirebaseEvent('SIVUPALKKI_COMP_Row_c295vkmc_ON_TAP');
-                      logFirebaseEvent('Row_close_dialog,_drawer,_etc');
-                      Navigator.pop(context);
-                      logFirebaseEvent('Row_update_app_state');
-                      setState(() {
-                        FFAppState().navBarIndex = 1;
-                        FFAppState().showTreenaaTaiLuoRutiiniSivu = true;
-                      });
-                    },
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 22.0, 0.0),
-                          child: Icon(
-                            Icons.accessibility_new_rounded,
-                            color: Colors.black,
-                            size: 30.0,
-                          ),
-                        ),
-                        Expanded(
-                          child: Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
-                            child: RichText(
-                              text: TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: FFLocalizations.of(context)
-                                        .getVariableText(
-                                      fiText: 'Treenaa',
-                                      enText: 'Workout',
-                                    ),
-                                    style: TextStyle(),
-                                  ),
-                                  TextSpan(
-                                    text: FFLocalizations.of(context).getText(
-                                      't717139a' /*   (käynnissä) */,
-                                    ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText1,
-                                  )
-                                ],
-                                style: FlutterFlowTheme.of(context).subtitle2,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
-                  child: Row(
+                if (false)
+                  Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 22.0, 0.0),
-                        child: Icon(
-                          Icons.event_note_rounded,
-                          color: Colors.black,
-                          size: 30.0,
+                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                        child: InkWell(
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'SIVUPALKKI_COMP_Row_2iowzp08_ON_TAP');
+                            logFirebaseEvent('Row_close_dialog,_drawer,_etc');
+                            Navigator.pop(context);
+                            logFirebaseEvent('Row_update_app_state');
+                            FFAppState().update(() {
+                              FFAppState().navBarIndex = 0;
+                            });
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 22.0, 0.0),
+                                child: Icon(
+                                  Icons.sticky_note_2,
+                                  color: Colors.black,
+                                  size: 30.0,
+                                ),
+                              ),
+                              Align(
+                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                child: InkWell(
+                                  onTap: () async {
+                                    logFirebaseEvent(
+                                        'SIVUPALKKI_Text_treenirutiinit_ON_TAP');
+                                    logFirebaseEvent(
+                                        'Text_treenirutiinit_close_dialog,_drawer');
+                                    Navigator.pop(context);
+                                    logFirebaseEvent(
+                                        'Text_treenirutiinit_update_app_state');
+                                    FFAppState().update(() {
+                                      FFAppState().navBarIndex = 0;
+                                    });
+                                  },
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'tmzzbmg6' /* Treenirutiinit */,
+                                    ),
+                                    style:
+                                        FlutterFlowTheme.of(context).subtitle2,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                      Align(
-                        alignment: AlignmentDirectional(-1.0, 0.0),
-                        child: Text(
-                          FFLocalizations.of(context).getText(
-                            'kmmmsdb7' /* Treenihistoria */,
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                        child: InkWell(
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'SIVUPALKKI_COMP_Row_c295vkmc_ON_TAP');
+                            logFirebaseEvent('Row_close_dialog,_drawer,_etc');
+                            Navigator.pop(context);
+                            logFirebaseEvent('Row_update_app_state');
+                            setState(() {
+                              FFAppState().navBarIndex = 1;
+                              FFAppState().showTreenaaTaiLuoRutiiniSivu = true;
+                            });
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 22.0, 0.0),
+                                child: Icon(
+                                  Icons.accessibility_new_rounded,
+                                  color: Colors.black,
+                                  size: 30.0,
+                                ),
+                              ),
+                              Expanded(
+                                child: Align(
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                  child: RichText(
+                                    text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: FFLocalizations.of(context)
+                                              .getVariableText(
+                                            fiText: 'Treenaa',
+                                            enText: 'Workout',
+                                          ),
+                                          style: TextStyle(),
+                                        ),
+                                        TextSpan(
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            't717139a' /*   (käynnissä) */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1,
+                                        )
+                                      ],
+                                      style: FlutterFlowTheme.of(context)
+                                          .subtitle2,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                          style: FlutterFlowTheme.of(context).subtitle2,
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 22.0, 0.0),
+                              child: Icon(
+                                Icons.event_note_rounded,
+                                color: Colors.black,
+                                size: 30.0,
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  'kmmmsdb7' /* Treenihistoria */,
+                                ),
+                                style: FlutterFlowTheme.of(context).subtitle2,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
                   ),
-                ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                   child: InkWell(
@@ -278,41 +299,45 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          child: Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
-                            child: Text(
-                              FFLocalizations.of(context).getText(
-                                'gax7p69h' /* Language */,
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  'gax7p69h' /* Language */,
+                                ),
+                                style: FlutterFlowTheme.of(context).subtitle2,
                               ),
-                              style: FlutterFlowTheme.of(context).subtitle2,
                             ),
                           ),
-                        ),
-                        FlutterFlowLanguageSelector(
-                          width: 140.0,
-                          height: 40.0,
-                          backgroundColor:
-                              FlutterFlowTheme.of(context).secondaryColor,
-                          borderRadius: 8.0,
-                          textStyle: TextStyle(
-                            color: FlutterFlowTheme.of(context).primaryColor,
-                            fontWeight: FontWeight.normal,
-                            fontSize: 13.0,
+                          FlutterFlowLanguageSelector(
+                            width: 150.0,
+                            height: 40.0,
+                            backgroundColor:
+                                FlutterFlowTheme.of(context).secondaryColor,
+                            borderRadius: 8.0,
+                            textStyle: TextStyle(
+                              color: FlutterFlowTheme.of(context).primaryColor,
+                              fontWeight: FontWeight.normal,
+                              fontSize: 13.0,
+                            ),
+                            hideFlags: false,
+                            flagSize: 24.0,
+                            flagTextGap: 8.0,
+                            currentLanguage:
+                                FFLocalizations.of(context).languageCode,
+                            languages: FFLocalizations.languages(),
+                            onChanged: (lang) => setAppLanguage(context, lang),
                           ),
-                          hideFlags: false,
-                          flagSize: 24.0,
-                          flagTextGap: 8.0,
-                          currentLanguage:
-                              FFLocalizations.of(context).languageCode,
-                          languages: FFLocalizations.languages(),
-                          onChanged: (lang) => setAppLanguage(context, lang),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                     Divider(
                       thickness: 1.0,

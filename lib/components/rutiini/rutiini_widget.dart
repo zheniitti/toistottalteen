@@ -315,17 +315,17 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
       trigger: AnimationTrigger.onPageLoad,
       applyInitialState: true,
       effects: [
-        VisibilityEffect(duration: 2000.ms),
+        VisibilityEffect(duration: 4000.ms),
         FadeEffect(
           curve: Curves.elasticOut,
-          delay: 2000.ms,
+          delay: 4000.ms,
           duration: 900.ms,
           begin: 0.0,
           end: 1.0,
         ),
         ScaleEffect(
           curve: Curves.elasticOut,
-          delay: 2000.ms,
+          delay: 4000.ms,
           duration: 900.ms,
           begin: 0.9,
           end: 1.0,
@@ -413,7 +413,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                   logFirebaseEvent(
                                       'RUTIINI_COMP_Text_ivf90nsb_ON_TAP');
                                   logFirebaseEvent('Text_custom_action');
-                                  await actions.myUpdateTreenirutiini(
+                                  await actions.updateUserDocTreenirutiini(
                                     widget.rutiini,
                                     null,
                                     null,
@@ -464,7 +464,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                               logFirebaseEvent(
                                   'RUTIINI_TextField_nimi_ON_TEXTFIELD_CHAN');
                               logFirebaseEvent('TextField_nimi_custom_action');
-                              await actions.myUpdateTreenirutiini(
+                              await actions.updateUserDocTreenirutiini(
                                 widget.rutiini,
                                 null,
                                 null,
@@ -601,7 +601,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                   'RUTIINI_TextField_kommentti_ON_TEXTFIELD');
                               logFirebaseEvent(
                                   'TextField_kommentti_custom_action');
-                              await actions.myUpdateTreenirutiini(
+                              await actions.updateUserDocTreenirutiini(
                                 widget.rutiini,
                                 null,
                                 null,
@@ -696,18 +696,36 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Align(
-                    alignment: AlignmentDirectional(-1.0, 0.0),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                      child: Text(
-                        FFLocalizations.of(context).getText(
-                          'qqp0ddb4' /* Treenipäivät: */,
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Align(
+                        alignment: AlignmentDirectional(-1.0, 0.0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 0.0, 0.0, 0.0),
+                          child: Text(
+                            FFLocalizations.of(context).getText(
+                              'qqp0ddb4' /* Treenipäivät: */,
+                            ),
+                            style: FlutterFlowTheme.of(context).bodyText1,
+                          ),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1,
                       ),
-                    ),
+                      Align(
+                        alignment: AlignmentDirectional(-1.0, 0.0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 0.0, 0.0, 0.0),
+                          child: Text(
+                            FFLocalizations.of(context).getText(
+                              'o99304t2' /* Ma Ti Ke */,
+                            ),
+                            style: FlutterFlowTheme.of(context).bodyText1,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
@@ -733,7 +751,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                   .forward(from: 0.0);
                             }
                             logFirebaseEvent('Button_custom_action');
-                            await actions.myUpdateTreenirutiini(
+                            await actions.updateUserDocTreenirutiini(
                               widget.rutiini,
                               null,
                               null,
@@ -807,7 +825,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                   .forward(from: 0.0);
                             }
                             logFirebaseEvent('Button_custom_action');
-                            await actions.myUpdateTreenirutiini(
+                            await actions.updateUserDocTreenirutiini(
                               widget.rutiini,
                               null,
                               null,
@@ -881,7 +899,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                   .forward(from: 0.0);
                             }
                             logFirebaseEvent('Button_custom_action');
-                            await actions.myUpdateTreenirutiini(
+                            await actions.updateUserDocTreenirutiini(
                               widget.rutiini,
                               null,
                               null,
@@ -955,7 +973,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                   .forward(from: 0.0);
                             }
                             logFirebaseEvent('Button_custom_action');
-                            await actions.myUpdateTreenirutiini(
+                            await actions.updateUserDocTreenirutiini(
                               widget.rutiini,
                               null,
                               null,
@@ -1029,7 +1047,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                   .forward(from: 0.0);
                             }
                             logFirebaseEvent('Button_custom_action');
-                            await actions.myUpdateTreenirutiini(
+                            await actions.updateUserDocTreenirutiini(
                               widget.rutiini,
                               null,
                               null,
@@ -1103,7 +1121,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                   .forward(from: 0.0);
                             }
                             logFirebaseEvent('Button_custom_action');
-                            await actions.myUpdateTreenirutiini(
+                            await actions.updateUserDocTreenirutiini(
                               widget.rutiini,
                               null,
                               null,
@@ -1177,7 +1195,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                   .forward(from: 0.0);
                             }
                             logFirebaseEvent('Button_custom_action');
-                            await actions.myUpdateTreenirutiini(
+                            await actions.updateUserDocTreenirutiini(
                               widget.rutiini,
                               null,
                               null,
@@ -1250,12 +1268,9 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  if (widget.rutiini!.liikkeet!.toList().length >= 1)
-                    Divider(
-                      thickness: 1.0,
-                    ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 4.0),
                     child: wrapWithModel(
                       model: _model.rutiininLiikkeetModel,
                       updateCallback: () => setState(() {}),
@@ -1402,7 +1417,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                     logFirebaseEvent(
                                         'RUTIINI_COMP_Row_a4bmbafi_ON_TAP');
                                     logFirebaseEvent('Row_custom_action');
-                                    await actions.myUpdateTreenirutiini(
+                                    await actions.updateUserDocTreenirutiini(
                                       widget.rutiini,
                                       true,
                                       null,
@@ -1479,7 +1494,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                       }
                                       logFirebaseEvent(
                                           'Row_lopetaMuokkaus_custom_action');
-                                      await actions.myUpdateTreenirutiini(
+                                      await actions.updateUserDocTreenirutiini(
                                         widget.rutiini,
                                         null,
                                         null,

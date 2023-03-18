@@ -149,7 +149,7 @@ class _BottomSheetRutiiniJaSessioWidgetState
                       await widget.treeniSessioDoc!.reference.delete();
                     } else {
                       logFirebaseEvent('ListTile_custom_action');
-                      await actions.myUpdateTreenirutiini(
+                      await actions.updateUserDocTreenirutiini(
                         widget.rutiiniData,
                         null,
                         null,
@@ -214,7 +214,7 @@ class _BottomSheetRutiiniJaSessioWidgetState
                       await widget.treeniSessioDoc!.reference.delete();
                     } else {
                       logFirebaseEvent('ListTile_custom_action');
-                      await actions.myUpdateTreenirutiini(
+                      await actions.updateUserDocTreenirutiini(
                         widget.rutiiniData,
                         null,
                         null,

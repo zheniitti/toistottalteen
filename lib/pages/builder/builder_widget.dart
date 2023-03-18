@@ -10,6 +10,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -207,6 +208,45 @@ class _BuilderWidgetState extends State<BuilderWidget> {
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
+                ),
+              ),
+              Slidable(
+                endActionPane: ActionPane(
+                  motion: const ScrollMotion(),
+                  extentRatio: 0.25,
+                  children: [
+                    SlidableAction(
+                      label: FFLocalizations.of(context).getText(
+                        'iteexpth' /* Share */,
+                      ),
+                      backgroundColor: Colors.blue,
+                      icon: Icons.share,
+                      onPressed: (_) {
+                        print('SlidableActionWidget pressed ...');
+                      },
+                    ),
+                  ],
+                ),
+                child: ListTile(
+                  title: Text(
+                    FFLocalizations.of(context).getText(
+                      'e23nbbkk' /* Lorem ipsum dolor... */,
+                    ),
+                    style: FlutterFlowTheme.of(context).title3,
+                  ),
+                  subtitle: Text(
+                    FFLocalizations.of(context).getText(
+                      'tmmnmqze' /* Lorem ipsum dolor... */,
+                    ),
+                    style: FlutterFlowTheme.of(context).subtitle2,
+                  ),
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Color(0xFF303030),
+                    size: 20.0,
+                  ),
+                  tileColor: Color(0xFFF5F5F5),
+                  dense: false,
                 ),
               ),
             ],
