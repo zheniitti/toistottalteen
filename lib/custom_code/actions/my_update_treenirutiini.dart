@@ -28,22 +28,17 @@ Future myUpdateTreenirutiini(
   bool? deleteThisRutiini,
 ) async {
   if (treeniRutiini == null || treeniRutiini.createdTime == null) return;
-  List<TreeniRutiiniStruct>? rutiinitLista =
-      currentUserDocument?.treeniRutiinit?.toList() ?? [];
-  List<Map<String, dynamic>> rutiiniListaFirestoreData =
-      getTreeniRutiiniListFirestoreData(rutiinitLista);
+  List<TreeniRutiiniStruct>? rutiinitLista = currentUserDocument?.treeniRutiinit?.toList() ?? [];
+  List<Map<String, dynamic>> rutiiniListaFirestoreData = getTreeniRutiiniListFirestoreData(rutiinitLista);
   if (rutiinitLista.isEmpty) return;
 
-  final int rutiiniIndex = rutiinitLista.indexWhere(
-      (rutiini) => rutiini.createdTime! == treeniRutiini?.createdTime);
-  Map<String, dynamic> rutiiniFirestoreData =
-      getTreeniRutiiniFirestoreData(treeniRutiini);
+  final int rutiiniIndex = rutiinitLista.indexWhere((rutiini) => rutiini.createdTime! == treeniRutiini?.createdTime);
+  Map<String, dynamic> rutiiniFirestoreData = getTreeniRutiiniFirestoreData(treeniRutiini, true);
 
   try {
     if (deleteThisRutiini != null && deleteThisRutiini) {
       rutiiniListaFirestoreData.removeAt(rutiiniIndex);
-      await currentUserReference!
-          .update({'treeniRutiinit': rutiiniListaFirestoreData});
+      await currentUserReference!.update({'treeniRutiinit': rutiiniListaFirestoreData});
       return;
     }
   } on Exception catch (e) {
@@ -53,7 +48,7 @@ Future myUpdateTreenirutiini(
   try {
     if (lisaaUusiLiike != null && lisaaUusiLiike) {
       List<LiikeStruct> liikkeet = treeniRutiini.liikkeet.toList();
-      liikkeet.add(await createLiike('', '', null, []));
+      liikkeet.add(await luoLiikeRutiinipohjalle(null, null, null, null, null, null, null, null));
       rutiiniFirestoreData['liikkeet'] = getLiikeListFirestoreData(liikkeet);
     } else if (poistaViimeisinLiike != null && poistaViimeisinLiike) {
       List<LiikeStruct> liikkeet = treeniRutiini.liikkeet.toList();
@@ -65,7 +60,7 @@ Future myUpdateTreenirutiini(
   }
 
   try {
-    if (finishedEditing != null && finishedEditing) {
+    if (finishedEditing != null) {
       rutiiniFirestoreData['finishedEditing'] = finishedEditing;
     }
   } on Exception catch (e) {
@@ -108,8 +103,7 @@ Future myUpdateTreenirutiini(
 
   try {
     if (valitutViikonPaivat != null) {
-      rutiiniFirestoreData['valitutViikonPaivat'] =
-          getValitutViikonPaivatFirestoreData(valitutViikonPaivat, true);
+      rutiiniFirestoreData['valitutViikonPaivat'] = getValitutViikonPaivatFirestoreData(valitutViikonPaivat, true);
     }
   } on Exception catch (e) {
     print('Rutiinin valittujen viikonpäivien päivitys epäonnistui: $e');
@@ -152,8 +146,7 @@ Future myUpdateTreenirutiini(
   try {
     //rutiinitLista[rutiiniIndex] = treeniRutiini!;
     rutiiniListaFirestoreData[rutiiniIndex] = rutiiniFirestoreData;
-    await currentUserReference!
-        .update({'treeniRutiinit': rutiiniListaFirestoreData});
+    await currentUserReference!.update({'treeniRutiinit': rutiiniListaFirestoreData});
   } on Exception catch (e) {
     print('Error: Rutiinin päivitys epäonnistui: $e');
   }
