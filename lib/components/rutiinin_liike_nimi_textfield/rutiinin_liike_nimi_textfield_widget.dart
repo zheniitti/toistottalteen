@@ -90,6 +90,7 @@ class _RutiininLiikeNimiTextfieldWidgetState
         hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
               fontFamily: 'Roboto',
               fontSize: 16.0,
+              fontWeight: FontWeight.w300,
             ),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(
@@ -133,7 +134,10 @@ class _RutiininLiikeNimiTextfieldWidgetState
         ),
         contentPadding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 2.0),
       ),
-      style: FlutterFlowTheme.of(context).subtitle2,
+      style: FlutterFlowTheme.of(context).subtitle2.override(
+            fontFamily: 'Roboto',
+            fontWeight: FontWeight.normal,
+          ),
       textAlign: TextAlign.start,
       maxLines: null,
       validator: _model.textControllerValidator.asValidator(context),

@@ -81,7 +81,7 @@ class _SessioChunkListWidgetState extends State<SessioChunkListWidget> {
         return Container(
           decoration: BoxDecoration(),
           child: Column(
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 22.0, 0.0, 0.0),
@@ -89,7 +89,7 @@ class _SessioChunkListWidgetState extends State<SessioChunkListWidget> {
                   builder: (context) {
                     final sessio = containerTreeniSessiotRecordList.toList();
                     return Column(
-                      mainAxisSize: MainAxisSize.max,
+                      mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: List.generate(sessio.length, (sessioIndex) {
                         final sessioItem = sessio[sessioIndex];

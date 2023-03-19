@@ -761,13 +761,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // sivu_treeniHistoria_komponentti
   {
-    'clxdf658': {
-      'fi': 'heatmap calendar\n(tulossa)',
-      'en': 'heatmap calendar\n(available soon)',
-    },
     'uur18ydl': {
       'fi': 'Tämä sivu on tyhjä koska sinulla ei ole vielä tehtyjä treenejä',
       'en': 'This page is empty because you don\'t have finished workouts yet',
+    },
+    'clxdf658': {
+      'fi': 'heatmap calendar\n(tulossa)',
+      'en': 'heatmap calendar\n(available soon)',
     },
   },
   // bottomSheet_rutiiniJaSessio
@@ -929,6 +929,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '5hy3i3cg': {
       'fi': 'Aikaa kulunut: ',
       'en': 'Workout duration: ',
+    },
+  },
+  // rutiininLiikkeet
+  {
+    'hr3m8o05': {
+      'fi': 'Hello World',
+      'en': '',
+    },
+    '1hc9efy1': {
+      'fi': 'Hello World',
+      'en': '',
     },
   },
   // KeskenerainenTreeni_komponentti

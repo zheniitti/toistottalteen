@@ -299,14 +299,14 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
-          duration: 700.ms,
+          duration: 900.ms,
           begin: 0.97,
-          end: 1.07,
+          end: 1.01,
         ),
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
-          duration: 700.ms,
+          duration: 900.ms,
           begin: 0.6,
           end: 1.0,
         ),
@@ -477,7 +477,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                         Expanded(
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 6.0, 0.0, 6.0),
+                                10.0, 6.0, 0.0, 0.0),
                             child: TextFormField(
                               controller: _model.textFieldNimiController,
                               onChanged: (_) => EasyDebounce.debounce(
@@ -520,7 +520,8 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                     .bodyText2
                                     .override(
                                       fontFamily: 'Roboto',
-                                      fontSize: 20.0,
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.w300,
                                     ),
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
@@ -567,7 +568,8 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                   .subtitle2
                                   .override(
                                     fontFamily: 'Roboto',
-                                    fontSize: 20.0,
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.normal,
                                   ),
                               textAlign: TextAlign.center,
                               maxLines: 3,
@@ -620,7 +622,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                         children: [
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 0.0, 8.0, 6.0),
+                                8.0, 0.0, 8.0, 0.0),
                             child: TextFormField(
                               controller: _model.textFieldKommenttiController,
                               onChanged: (_) => EasyDebounce.debounce(
@@ -663,7 +665,8 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                     .bodyText2
                                     .override(
                                       fontFamily: 'Roboto',
-                                      fontSize: 16.0,
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.w300,
                                     ),
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
@@ -712,7 +715,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                   .bodyText1
                                   .override(
                                     fontFamily: 'Roboto',
-                                    fontSize: 16.0,
+                                    fontSize: 14.0,
                                   ),
                               textAlign: TextAlign.center,
                               maxLines: 5,
@@ -796,7 +799,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: widget.rutiini!.valitutViikonPaivat!.ma!
-                                    ? FlutterFlowTheme.of(context).tertiaryColor
+                                    ? FlutterFlowTheme.of(context).primaryColor
                                     : FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -871,7 +874,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: widget.rutiini!.valitutViikonPaivat!.ti!
-                                    ? FlutterFlowTheme.of(context).tertiaryColor
+                                    ? FlutterFlowTheme.of(context).primaryColor
                                     : FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -946,7 +949,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: widget.rutiini!.valitutViikonPaivat!.ke!
-                                    ? FlutterFlowTheme.of(context).tertiaryColor
+                                    ? FlutterFlowTheme.of(context).primaryColor
                                     : FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -1021,7 +1024,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: widget.rutiini!.valitutViikonPaivat!.to!
-                                    ? FlutterFlowTheme.of(context).tertiaryColor
+                                    ? FlutterFlowTheme.of(context).primaryColor
                                     : FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -1096,7 +1099,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: widget.rutiini!.valitutViikonPaivat!.pe!
-                                    ? FlutterFlowTheme.of(context).tertiaryColor
+                                    ? FlutterFlowTheme.of(context).primaryColor
                                     : FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -1171,7 +1174,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: widget.rutiini!.valitutViikonPaivat!.la!
-                                    ? FlutterFlowTheme.of(context).tertiaryColor
+                                    ? FlutterFlowTheme.of(context).primaryColor
                                     : FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -1247,7 +1250,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: widget.rutiini!.valitutViikonPaivat!.su!
-                                    ? FlutterFlowTheme.of(context).tertiaryColor
+                                    ? FlutterFlowTheme.of(context).primaryColor
                                     : FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -1271,39 +1274,43 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                             ).animateOnActionTrigger(
                               animationsMap['buttonOnActionTriggerAnimation7']!,
                             ),
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Align(
-                                  alignment: AlignmentDirectional(-1.0, 0.0),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'qqp0ddb4' /* Treenipäivät  */,
+                            Visibility(
+                              visible: !widget.rutiini!.finishedEditing!,
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Align(
+                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          8.0, 0.0, 0.0, 0.0),
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          'qqp0ddb4' /* Treenipäivät  */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1,
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
                                     ),
                                   ),
-                                ),
-                                Align(
-                                  alignment: AlignmentDirectional(-1.0, 0.0),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      functions.treenipaivatString(
-                                          widget.rutiini!.valitutViikonPaivat!,
-                                          FFLocalizations.of(context)
-                                              .languageCode)!,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
+                                  Align(
+                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          8.0, 0.0, 0.0, 0.0),
+                                      child: Text(
+                                        functions.treenipaivatString(
+                                            widget
+                                                .rutiini!.valitutViikonPaivat!,
+                                            FFLocalizations.of(context)
+                                                .languageCode)!,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1,
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ],
                         ),
@@ -1459,8 +1466,9 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                               InkWell(
                                 onTap: () async {
                                   logFirebaseEvent(
-                                      'RUTIINI_COMP_Row_a4bmbafi_ON_TAP');
-                                  logFirebaseEvent('Row_custom_action');
+                                      'RUTIINI_COMP_Row_lisaaLiike_ON_TAP');
+                                  logFirebaseEvent(
+                                      'Row_lisaaLiike_custom_action');
                                   await actions.updateUserDocTreenirutiini(
                                     widget.rutiini,
                                     true,

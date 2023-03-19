@@ -43,9 +43,9 @@ class _KeskenerainenTreeniKomponenttiWidgetState
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.97,
-          end: 1.02,
+          duration: 2000.ms,
+          begin: 0.96,
+          end: 1.0,
         ),
       ],
     ),

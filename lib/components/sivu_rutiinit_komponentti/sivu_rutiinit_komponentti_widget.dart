@@ -41,11 +41,30 @@ class _SivuRutiinitKomponenttiWidgetState
     'blurOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        VisibilityEffect(duration: 1.ms),
+        VisibilityEffect(duration: 100.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 100.ms,
+          duration: 400.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'rutiininSarjatToistotKestoMatkaOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
-          duration: 800.ms,
+          duration: 300.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        ScaleEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 300.ms,
           begin: 0.0,
           end: 1.0,
         ),
@@ -270,38 +289,48 @@ class _SivuRutiinitKomponenttiWidgetState
         if (FFAppState().valittuMuokattavaRutiini != null
             ? (FFAppState().valittuMuokattavaLiikeIndex != null)
             : false)
-          Builder(builder: (_) {
-            final child = InkWell(
-              onTap: () async {
-                logFirebaseEvent('SIVU_RUTIINIT_KOMPONENTTI_Container_alug');
-                logFirebaseEvent('Container_update_app_state');
-                setState(() {
-                  FFAppState().valittuMuokattavaRutiini = null;
-                  FFAppState().valittuMuokattavaLiikeIndex = 0;
-                });
-              },
-              child: Container(
-                width: double.infinity,
-                height: double.infinity,
-                decoration: BoxDecoration(),
-              ),
-            );
-            if (FFAppState().valittuMuokattavaRutiini != null
-                ? (FFAppState().valittuMuokattavaLiikeIndex != null)
-                : false) {
-              return ClipRRect(
-                borderRadius: BorderRadius.circular(0.0),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(
-                    sigmaX: 3.0,
-                    sigmaY: 3.0,
-                  ),
-                  child: child,
+          InkWell(
+            onTap: () async {
+              logFirebaseEvent('SIVU_RUTIINIT_KOMPONENTTI_Blur_ld0ydeuf_');
+              logFirebaseEvent('Blur_update_app_state');
+              FFAppState().update(() {
+                FFAppState().valittuMuokattavaRutiini = null!;
+                FFAppState().valittuMuokattavaLiikeIndex = null!;
+              });
+            },
+            child: Builder(builder: (_) {
+              final child = InkWell(
+                onTap: () async {
+                  logFirebaseEvent('SIVU_RUTIINIT_KOMPONENTTI_Container_alug');
+                  logFirebaseEvent('Container_update_app_state');
+                  FFAppState().update(() {
+                    FFAppState().valittuMuokattavaRutiini = null!;
+                    FFAppState().valittuMuokattavaLiikeIndex = null!;
+                  });
+                },
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 1.0,
+                  height: MediaQuery.of(context).size.height * 1.0,
+                  decoration: BoxDecoration(),
                 ),
               );
-            }
-            return child;
-          }).animateOnPageLoad(animationsMap['blurOnPageLoadAnimation']!),
+              if (FFAppState().valittuMuokattavaRutiini != null
+                  ? (FFAppState().valittuMuokattavaLiikeIndex != null)
+                  : false) {
+                return ClipRRect(
+                  borderRadius: BorderRadius.circular(0.0),
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(
+                      sigmaX: 3.0,
+                      sigmaY: 3.0,
+                    ),
+                    child: child,
+                  ),
+                );
+              }
+              return child;
+            }),
+          ).animateOnPageLoad(animationsMap['blurOnPageLoadAnimation']!),
         if (FFAppState().valittuMuokattavaRutiini != null
             ? (FFAppState().valittuMuokattavaLiikeIndex != null)
             : false)
@@ -321,7 +350,8 @@ class _SivuRutiinitKomponenttiWidgetState
                       rutiini: functions
                           .jsonToRutiini(FFAppState().valittuMuokattavaRutiini),
                     ),
-                  ),
+                  ).animateOnPageLoad(animationsMap[
+                      'rutiininSarjatToistotKestoMatkaOnPageLoadAnimation']!),
                 ),
               ],
             ),

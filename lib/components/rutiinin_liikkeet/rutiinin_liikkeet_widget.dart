@@ -5,8 +5,6 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
-import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -190,7 +188,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                 ))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        2.0, 0.0, 0.0, 0.0),
+                                        1.0, 0.0, 0.0, 0.0),
                                     child:
                                         RutiininLiikeKommenttiTextfieldWidget(
                                       key: Key(
@@ -213,7 +211,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                 widget.rutiini,
                               );
                               logFirebaseEvent('Row_update_app_state');
-                              _model.updatePage(() {
+                              FFAppState().update(() {
                                 FFAppState().valittuMuokattavaLiikeIndex =
                                     liikkeetIndex;
                                 FFAppState().valittuMuokattavaRutiini =
@@ -226,23 +224,29 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                               mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                RichText(
-                                  text: TextSpan(
-                                    children: [
-                                      TextSpan(
-                                        text: valueOrDefault<String>(
-                                          functions
-                                              .rutiininToistotJaPainoString(
-                                                  liikkeetItem),
-                                          ' - ',
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'hr3m8o05' /* Hello World */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1,
                                         ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .subtitle2,
-                                      )
-                                    ],
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText1,
-                                  ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            '1hc9efy1' /* Hello World */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1,
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),

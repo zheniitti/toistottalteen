@@ -29,8 +29,6 @@ abstract class TreeniRutiiniStruct
 
   bool? get finishedEditing;
 
-  BuiltList<DateTime>? get modifiedTimes;
-
   /// Utility class for Firestore updates
   FirestoreUtilData get firestoreUtilData;
 

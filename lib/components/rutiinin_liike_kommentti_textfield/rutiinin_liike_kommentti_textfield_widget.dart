@@ -91,6 +91,7 @@ class _RutiininLiikeKommenttiTextfieldWidgetState
         hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
               fontFamily: 'Roboto',
               fontSize: 14.0,
+              fontWeight: FontWeight.w300,
             ),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(
@@ -134,7 +135,10 @@ class _RutiininLiikeKommenttiTextfieldWidgetState
         ),
         contentPadding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 2.0),
       ),
-      style: FlutterFlowTheme.of(context).bodyText1,
+      style: FlutterFlowTheme.of(context).bodyText1.override(
+            fontFamily: 'Roboto',
+            fontWeight: FontWeight.w300,
+          ),
       textAlign: TextAlign.start,
       maxLines: null,
       validator: _model.textControllerValidator.asValidator(context),

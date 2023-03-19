@@ -25,9 +25,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(LiikeStruct)]),
           () => new ListBuilder<LiikeStruct>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(DateTime)]),
-          () => new ListBuilder<DateTime>())
-      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(SarjaStruct)]),
           () => new ListBuilder<SarjaStruct>())
       ..addBuilderFactory(

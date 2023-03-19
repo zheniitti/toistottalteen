@@ -35,27 +35,6 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
   late RutiininSarjatToistotKestoMatkaModel _model;
 
   final animationsMap = {
-    'containerOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      applyInitialState: true,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 400.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        ScaleEffect(
-          curve: Curves.easeInOut,
-          delay: 400.ms,
-          duration: 400.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
     'containerOnActionTriggerAnimation': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
       applyInitialState: true,
@@ -121,7 +100,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
       color: Colors.transparent,
       elevation: 2.0,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(30.0),
+        borderRadius: BorderRadius.circular(22.0),
       ),
       child: Container(
         width: MediaQuery.of(context).size.width * 0.86,
@@ -142,7 +121,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
             begin: AlignmentDirectional(0.0, -1.0),
             end: AlignmentDirectional(0, 1.0),
           ),
-          borderRadius: BorderRadius.circular(30.0),
+          borderRadius: BorderRadius.circular(22.0),
         ),
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
@@ -858,7 +837,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(12.0),
                             ),
                           ),
                           FFButtonWidget(
@@ -874,6 +853,12 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                     .controller
                                     .forward(from: 0.0);
                               }
+                              logFirebaseEvent('Button_update_app_state');
+                              FFAppState().update(() {
+                                FFAppState().valittuMuokattavaRutiini = null!;
+                                FFAppState().valittuMuokattavaLiikeIndex =
+                                    null!;
+                              });
                             },
                             text: FFLocalizations.of(context).getText(
                               's1jna036' /* Valmis */,
@@ -896,7 +881,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(8.0),
+                              borderRadius: BorderRadius.circular(12.0),
                             ),
                           ),
                         ],
@@ -909,10 +894,8 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
           ),
         ),
       ),
-    )
-        .animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!)
-        .animateOnActionTrigger(
-          animationsMap['containerOnActionTriggerAnimation']!,
-        );
+    ).animateOnActionTrigger(
+      animationsMap['containerOnActionTriggerAnimation']!,
+    );
   }
 }
