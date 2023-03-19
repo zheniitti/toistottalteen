@@ -85,10 +85,6 @@ class FFAppState extends ChangeNotifier {
               }
             }).toList() ??
             _testJsonList;
-  /*   _testLatLngList = (await secureStorage.getStringList('ff_testLatLngList'))
-            ?.map(_latLngFromString)
-            .toList() ??
-        _testLatLngList; */
     _testLatLng =
         _latLngFromString(await secureStorage.getString('ff_testLatLng')) ??
             _testLatLng;
@@ -448,36 +444,6 @@ class FFAppState extends ChangeNotifier {
         'ff_testJsonList', _testJsonList.map((x) => jsonEncode(x)).toList());
   }
 
-  List<LatLng> _testLatLngList = [];
-  List<LatLng> get testLatLngList => _testLatLngList;
-  set testLatLngList(List<LatLng> _value) {
-    _testLatLngList = _value;
-    secureStorage.setStringList(
-        'ff_testLatLngList', _value.map((x) => x.serialize()).toList());
-  }
-
-  void deleteTestLatLngList() {
-    secureStorage.delete(key: 'ff_testLatLngList');
-  }
-
-  void addToTestLatLngList(LatLng _value) {
-    _testLatLngList.add(_value);
-    secureStorage.setStringList('ff_testLatLngList',
-        _testLatLngList.map((x) => x.serialize()).toList());
-  }
-
-  void removeFromTestLatLngList(LatLng _value) {
-    _testLatLngList.remove(_value);
-    secureStorage.setStringList('ff_testLatLngList',
-        _testLatLngList.map((x) => x.serialize()).toList());
-  }
-
-  void removeAtIndexFromTestLatLngList(int _index) {
-    _testLatLngList.removeAt(_index);
-    secureStorage.setStringList('ff_testLatLngList',
-        _testLatLngList.map((x) => x.serialize()).toList());
-  }
-
   LatLng? _testLatLng;
   LatLng? get testLatLng => _testLatLng;
   set testLatLng(LatLng? _value) {
@@ -556,6 +522,18 @@ class FFAppState extends ChangeNotifier {
 
   void removeAtIndexFromSessioChunkListLastItemDateTime(int _index) {
     _sessioChunkListLastItemDateTime.removeAt(_index);
+  }
+
+  dynamic _valittuMuokattavaRutiini;
+  dynamic get valittuMuokattavaRutiini => _valittuMuokattavaRutiini;
+  set valittuMuokattavaRutiini(dynamic _value) {
+    _valittuMuokattavaRutiini = _value;
+  }
+
+  int _valittuMuokattavaLiikeIndex = 0;
+  int get valittuMuokattavaLiikeIndex => _valittuMuokattavaLiikeIndex;
+  set valittuMuokattavaLiikeIndex(int _value) {
+    _valittuMuokattavaLiikeIndex = _value;
   }
 }
 
