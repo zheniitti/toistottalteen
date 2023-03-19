@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_ad_banner.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/gestures.dart';
@@ -22,6 +23,8 @@ class BuilderModel extends FlutterFlowModel {
   late SessioModel sessioModel;
   // Model for rutiininLiikkeet component.
   late RutiininLiikkeetModel rutiininLiikkeetModel;
+  // Stores action output result for [Backend Call - Create Document] action in Button_aloitaUusiTreeni widget.
+  TreeniSessiotRecord? createdSessioDoc;
 
   /// Initialization and disposal methods.
 

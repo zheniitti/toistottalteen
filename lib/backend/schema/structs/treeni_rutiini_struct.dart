@@ -42,7 +42,6 @@ abstract class TreeniRutiiniStruct
     ..widgetExpanded = false
     ..isTreeniPohja = false
     ..finishedEditing = false
-    ..modifiedTimes = ListBuilder()
     ..firestoreUtilData = FirestoreUtilData();
 
   TreeniRutiiniStruct._();
@@ -77,7 +76,6 @@ TreeniRutiiniStruct createTreeniRutiiniStruct({
         ..lastWorkoutTime = lastWorkoutTime
         ..isTreeniPohja = isTreeniPohja
         ..finishedEditing = finishedEditing
-        ..modifiedTimes = null
         ..firestoreUtilData = FirestoreUtilData(
           clearUnsetFields: clearUnsetFields,
           create: create,

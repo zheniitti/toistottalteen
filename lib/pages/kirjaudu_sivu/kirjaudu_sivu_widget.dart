@@ -216,11 +216,441 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                           mainAxisAlignment:
                                               MainAxisAlignment.start,
                                           children: [
-                                            if (!_model
-                                                .showSignInPhoneNumberField!)
+                                            if (!valueOrDefault<bool>(
+                                              _model.showSignInPhoneNumberField,
+                                              true,
+                                            ))
                                               Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    20.0,
+                                                                    0.0,
+                                                                    20.0,
+                                                                    0.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.min,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Expanded(
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            24.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Text(
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    'ixt1bx4l' /* Kirjaudu seuraavilla vaihdoehd... */,
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .subtitle2
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Outfit',
+                                                                        color: Color(
+                                                                            0xC8FFFFFF),
+                                                                        fontSize:
+                                                                            16.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    16.0,
+                                                                    0.0,
+                                                                    8.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceAround,
+                                                          children: [
+                                                            Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                InkWell(
+                                                                  onTap:
+                                                                      () async {
+                                                                    logFirebaseEvent(
+                                                                        'KIRJAUDU_SIVU_Container_aw30qtra_ON_TAP');
+                                                                    logFirebaseEvent(
+                                                                        'Container_auth');
+                                                                    GoRouter.of(
+                                                                            context)
+                                                                        .prepareAuthEvent();
+                                                                    final user =
+                                                                        await signInWithGoogle(
+                                                                            context);
+                                                                    if (user ==
+                                                                        null) {
+                                                                      return;
+                                                                    }
+
+                                                                    context.goNamedAuth(
+                                                                        'paasivu',
+                                                                        mounted);
+                                                                  },
+                                                                  child:
+                                                                      Container(
+                                                                    width: 50.0,
+                                                                    height:
+                                                                        50.0,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Color(
+                                                                          0xFF0F1113),
+                                                                      boxShadow: [
+                                                                        BoxShadow(
+                                                                          blurRadius:
+                                                                              5.0,
+                                                                          color:
+                                                                              Color(0x3314181B),
+                                                                          offset: Offset(
+                                                                              0.0,
+                                                                              2.0),
+                                                                        )
+                                                                      ],
+                                                                      shape: BoxShape
+                                                                          .circle,
+                                                                    ),
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        FaIcon(
+                                                                      FontAwesomeIcons
+                                                                          .google,
+                                                                      color: Colors
+                                                                          .white,
+                                                                      size:
+                                                                          24.0,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      'bkk994m5' /* Google */,
+                                                                    ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyText1
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Roboto',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryColor,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                InkWell(
+                                                                  onTap:
+                                                                      () async {
+                                                                    logFirebaseEvent(
+                                                                        'KIRJAUDU_SIVU_Container_7x64updo_ON_TAP');
+                                                                    logFirebaseEvent(
+                                                                        'Container_auth');
+                                                                    GoRouter.of(
+                                                                            context)
+                                                                        .prepareAuthEvent();
+                                                                    final user =
+                                                                        await signInWithApple(
+                                                                            context);
+                                                                    if (user ==
+                                                                        null) {
+                                                                      return;
+                                                                    }
+
+                                                                    context.goNamedAuth(
+                                                                        'paasivu',
+                                                                        mounted);
+                                                                  },
+                                                                  child:
+                                                                      Container(
+                                                                    width: 50.0,
+                                                                    height:
+                                                                        50.0,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Color(
+                                                                          0xFF0F1113),
+                                                                      boxShadow: [
+                                                                        BoxShadow(
+                                                                          blurRadius:
+                                                                              5.0,
+                                                                          color:
+                                                                              Color(0x3314181B),
+                                                                          offset: Offset(
+                                                                              0.0,
+                                                                              2.0),
+                                                                        )
+                                                                      ],
+                                                                      shape: BoxShape
+                                                                          .circle,
+                                                                    ),
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        FaIcon(
+                                                                      FontAwesomeIcons
+                                                                          .apple,
+                                                                      color: Colors
+                                                                          .white,
+                                                                      size:
+                                                                          24.0,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      'pgktub3b' /* Apple */,
+                                                                    ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyText1
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Roboto',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryColor,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                InkWell(
+                                                                  onTap:
+                                                                      () async {
+                                                                    logFirebaseEvent(
+                                                                        'KIRJAUDU_SIVU_Container_vna5zltq_ON_TAP');
+                                                                    logFirebaseEvent(
+                                                                        'Container_update_widget_state');
+                                                                    setState(
+                                                                        () {
+                                                                      _model.showSignInPhoneNumberField =
+                                                                          false;
+                                                                      _model.showEmailFields =
+                                                                          true;
+                                                                    });
+                                                                  },
+                                                                  child:
+                                                                      Container(
+                                                                    width: 50.0,
+                                                                    height:
+                                                                        50.0,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Color(
+                                                                          0xFF0F1113),
+                                                                      boxShadow: [
+                                                                        BoxShadow(
+                                                                          blurRadius:
+                                                                              5.0,
+                                                                          color:
+                                                                              Color(0x3314181B),
+                                                                          offset: Offset(
+                                                                              0.0,
+                                                                              2.0),
+                                                                        )
+                                                                      ],
+                                                                      shape: BoxShape
+                                                                          .circle,
+                                                                    ),
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .email_rounded,
+                                                                      color: Colors
+                                                                          .white,
+                                                                      size:
+                                                                          24.0,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      'faxkg7hm' /* Sähkö
+posti */
+                                                                      ,
+                                                                    ),
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .center,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyText1
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Roboto',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryColor,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                InkWell(
+                                                                  onTap:
+                                                                      () async {
+                                                                    logFirebaseEvent(
+                                                                        'KIRJAUDU_SIVU_Container_e2aqo5hc_ON_TAP');
+                                                                    logFirebaseEvent(
+                                                                        'Container_update_widget_state');
+                                                                    setState(
+                                                                        () {
+                                                                      _model.showSignInPhoneNumberField =
+                                                                          true;
+                                                                      _model.showEmailFields =
+                                                                          false;
+                                                                    });
+                                                                  },
+                                                                  child:
+                                                                      Container(
+                                                                    width: 50.0,
+                                                                    height:
+                                                                        50.0,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Color(
+                                                                          0xFF0F1113),
+                                                                      boxShadow: [
+                                                                        BoxShadow(
+                                                                          blurRadius:
+                                                                              5.0,
+                                                                          color:
+                                                                              Color(0x3314181B),
+                                                                          offset: Offset(
+                                                                              0.0,
+                                                                              2.0),
+                                                                        )
+                                                                      ],
+                                                                      shape: BoxShape
+                                                                          .circle,
+                                                                    ),
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .phone_sharp,
+                                                                      color: Colors
+                                                                          .white,
+                                                                      size:
+                                                                          24.0,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      'csbrhgrc' /* Puhelin
+numero */
+                                                                      ,
+                                                                    ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyText1
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Roboto',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryColor,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -657,329 +1087,10 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                 ],
                                               ).animateOnPageLoad(animationsMap[
                                                   'columnOnPageLoadAnimation1']!),
-                                            Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          20.0, 0.0, 20.0, 0.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Expanded(
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      24.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'ixt1bx4l' /* Tai kirjaudu seuraavilla vaihd... */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .subtitle2
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Outfit',
-                                                                  color: Color(
-                                                                      0xC8FFFFFF),
-                                                                  fontSize:
-                                                                      16.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 16.0, 0.0, 8.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceAround,
-                                                    children: [
-                                                      Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          InkWell(
-                                                            onTap: () async {
-                                                              logFirebaseEvent(
-                                                                  'KIRJAUDU_SIVU_Container_aw30qtra_ON_TAP');
-                                                              logFirebaseEvent(
-                                                                  'Container_auth');
-                                                              GoRouter.of(
-                                                                      context)
-                                                                  .prepareAuthEvent();
-                                                              final user =
-                                                                  await signInWithGoogle(
-                                                                      context);
-                                                              if (user ==
-                                                                  null) {
-                                                                return;
-                                                              }
-
-                                                              context
-                                                                  .goNamedAuth(
-                                                                      'paasivu',
-                                                                      mounted);
-                                                            },
-                                                            child: Container(
-                                                              width: 50.0,
-                                                              height: 50.0,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: Color(
-                                                                    0xFF0F1113),
-                                                                boxShadow: [
-                                                                  BoxShadow(
-                                                                    blurRadius:
-                                                                        5.0,
-                                                                    color: Color(
-                                                                        0x3314181B),
-                                                                    offset:
-                                                                        Offset(
-                                                                            0.0,
-                                                                            2.0),
-                                                                  )
-                                                                ],
-                                                                shape: BoxShape
-                                                                    .circle,
-                                                              ),
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              child: FaIcon(
-                                                                FontAwesomeIcons
-                                                                    .google,
-                                                                color: Colors
-                                                                    .white,
-                                                                size: 24.0,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        4.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'bkk994m5' /* Google */,
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyText1
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Roboto',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondaryColor,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          InkWell(
-                                                            onTap: () async {
-                                                              logFirebaseEvent(
-                                                                  'KIRJAUDU_SIVU_Container_7x64updo_ON_TAP');
-                                                              logFirebaseEvent(
-                                                                  'Container_auth');
-                                                              GoRouter.of(
-                                                                      context)
-                                                                  .prepareAuthEvent();
-                                                              final user =
-                                                                  await signInWithApple(
-                                                                      context);
-                                                              if (user ==
-                                                                  null) {
-                                                                return;
-                                                              }
-
-                                                              context
-                                                                  .goNamedAuth(
-                                                                      'paasivu',
-                                                                      mounted);
-                                                            },
-                                                            child: Container(
-                                                              width: 50.0,
-                                                              height: 50.0,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: Color(
-                                                                    0xFF0F1113),
-                                                                boxShadow: [
-                                                                  BoxShadow(
-                                                                    blurRadius:
-                                                                        5.0,
-                                                                    color: Color(
-                                                                        0x3314181B),
-                                                                    offset:
-                                                                        Offset(
-                                                                            0.0,
-                                                                            2.0),
-                                                                  )
-                                                                ],
-                                                                shape: BoxShape
-                                                                    .circle,
-                                                              ),
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              child: FaIcon(
-                                                                FontAwesomeIcons
-                                                                    .apple,
-                                                                color: Colors
-                                                                    .white,
-                                                                size: 24.0,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        4.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'pgktub3b' /* Apple */,
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyText1
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Roboto',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondaryColor,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          InkWell(
-                                                            onTap: () async {
-                                                              logFirebaseEvent(
-                                                                  'KIRJAUDU_SIVU_Container_e2aqo5hc_ON_TAP');
-                                                              logFirebaseEvent(
-                                                                  'Container_update_widget_state');
-                                                              setState(() {
-                                                                _model.showSignInPhoneNumberField =
-                                                                    true;
-                                                              });
-                                                            },
-                                                            child: Container(
-                                                              width: 50.0,
-                                                              height: 50.0,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: Color(
-                                                                    0xFF0F1113),
-                                                                boxShadow: [
-                                                                  BoxShadow(
-                                                                    blurRadius:
-                                                                        5.0,
-                                                                    color: Color(
-                                                                        0x3314181B),
-                                                                    offset:
-                                                                        Offset(
-                                                                            0.0,
-                                                                            2.0),
-                                                                  )
-                                                                ],
-                                                                shape: BoxShape
-                                                                    .circle,
-                                                              ),
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              child: Icon(
-                                                                Icons
-                                                                    .phone_sharp,
-                                                                color: Colors
-                                                                    .white,
-                                                                size: 24.0,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        4.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'csbrhgrc' /* Puhelin
-numero */
-                                                                ,
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyText1
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Roboto',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondaryColor,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            if (_model
-                                                    .showSignInPhoneNumberField ??
-                                                true)
+                                            if (valueOrDefault<bool>(
+                                              _model.showSignInPhoneNumberField,
+                                              false,
+                                            ))
                                               Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -1238,8 +1349,390 @@ numero */
                                         child: Column(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
-                                            if (!_model
-                                                .showSignInPhoneNumberField!)
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      20.0, 20.0, 20.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Expanded(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  24.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          '85ixbazd' /* Luo tili seuraavilla vaihtoehd... */,
+                                                        ),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .subtitle2
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Outfit',
+                                                              color: Color(
+                                                                  0xC8FFFFFF),
+                                                              fontSize: 16.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .normal,
+                                                            ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 16.0, 0.0, 8.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceAround,
+                                                children: [
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      InkWell(
+                                                        onTap: () async {
+                                                          logFirebaseEvent(
+                                                              'KIRJAUDU_SIVU_Container_0khtpejl_ON_TAP');
+                                                          logFirebaseEvent(
+                                                              'Container_auth');
+                                                          GoRouter.of(context)
+                                                              .prepareAuthEvent();
+                                                          final user =
+                                                              await signInWithGoogle(
+                                                                  context);
+                                                          if (user == null) {
+                                                            return;
+                                                          }
+
+                                                          context.goNamedAuth(
+                                                              'paasivu',
+                                                              mounted);
+                                                        },
+                                                        child: Container(
+                                                          width: 50.0,
+                                                          height: 50.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0xFF0F1113),
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                blurRadius: 5.0,
+                                                                color: Color(
+                                                                    0x3314181B),
+                                                                offset: Offset(
+                                                                    0.0, 2.0),
+                                                              )
+                                                            ],
+                                                            shape:
+                                                                BoxShape.circle,
+                                                          ),
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          child: FaIcon(
+                                                            FontAwesomeIcons
+                                                                .google,
+                                                            color: Colors.white,
+                                                            size: 24.0,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    4.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'mbvcwu2b' /* Google */,
+                                                          ),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryColor,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      InkWell(
+                                                        onTap: () async {
+                                                          logFirebaseEvent(
+                                                              'KIRJAUDU_SIVU_Container_4x61yn26_ON_TAP');
+                                                          logFirebaseEvent(
+                                                              'Container_auth');
+                                                          GoRouter.of(context)
+                                                              .prepareAuthEvent();
+                                                          final user =
+                                                              await signInWithApple(
+                                                                  context);
+                                                          if (user == null) {
+                                                            return;
+                                                          }
+
+                                                          context.goNamedAuth(
+                                                              'paasivu',
+                                                              mounted);
+                                                        },
+                                                        child: Container(
+                                                          width: 50.0,
+                                                          height: 50.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0xFF0F1113),
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                blurRadius: 5.0,
+                                                                color: Color(
+                                                                    0x3314181B),
+                                                                offset: Offset(
+                                                                    0.0, 2.0),
+                                                              )
+                                                            ],
+                                                            shape:
+                                                                BoxShape.circle,
+                                                          ),
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          child: FaIcon(
+                                                            FontAwesomeIcons
+                                                                .apple,
+                                                            color: Colors.white,
+                                                            size: 24.0,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    4.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'ycdu23af' /* Apple */,
+                                                          ),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryColor,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      InkWell(
+                                                        onTap: () async {
+                                                          logFirebaseEvent(
+                                                              'KIRJAUDU_SIVU_Container_mlusneh8_ON_TAP');
+                                                          logFirebaseEvent(
+                                                              'Container_update_widget_state');
+                                                          setState(() {
+                                                            _model.showSignInPhoneNumberField =
+                                                                false;
+                                                            _model.showEmailFields =
+                                                                true;
+                                                          });
+                                                        },
+                                                        child: Container(
+                                                          width: 50.0,
+                                                          height: 50.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0xFF0F1113),
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                blurRadius: 5.0,
+                                                                color: Color(
+                                                                    0x3314181B),
+                                                                offset: Offset(
+                                                                    0.0, 2.0),
+                                                              )
+                                                            ],
+                                                            shape:
+                                                                BoxShape.circle,
+                                                          ),
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          child: Icon(
+                                                            Icons.email_rounded,
+                                                            color: Colors.white,
+                                                            size: 24.0,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    4.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'jrhzkuav' /* Sähkö
+posti */
+                                                            ,
+                                                          ),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryColor,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      InkWell(
+                                                        onTap: () async {
+                                                          logFirebaseEvent(
+                                                              'KIRJAUDU_SIVU_Container_8r32o2cr_ON_TAP');
+                                                          logFirebaseEvent(
+                                                              'Container_update_widget_state');
+                                                          setState(() {
+                                                            _model.showSignInPhoneNumberField =
+                                                                true;
+                                                            _model.showEmailFields =
+                                                                false;
+                                                          });
+                                                        },
+                                                        child: Container(
+                                                          width: 50.0,
+                                                          height: 50.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0xFF0F1113),
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                blurRadius: 5.0,
+                                                                color: Color(
+                                                                    0x3314181B),
+                                                                offset: Offset(
+                                                                    0.0, 2.0),
+                                                              )
+                                                            ],
+                                                            shape:
+                                                                BoxShape.circle,
+                                                          ),
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          child: Icon(
+                                                            Icons.phone_sharp,
+                                                            color: Colors.white,
+                                                            size: 24.0,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    4.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            '76tfpspt' /* Puhelin
+numero */
+                                                            ,
+                                                          ),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryColor,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            if (valueOrDefault<bool>(
+                                              _model.showEmailFields,
+                                              false,
+                                            ))
                                               Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -1777,303 +2270,10 @@ numero */
                                                 ],
                                               ).animateOnPageLoad(animationsMap[
                                                   'columnOnPageLoadAnimation3']!),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      20.0, 20.0, 20.0, 0.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  24.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '85ixbazd' /* Tai luo tili seuraavilla vaiht... */,
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .subtitle2
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Outfit',
-                                                              color: Color(
-                                                                  0xC8FFFFFF),
-                                                              fontSize: 16.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .normal,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 16.0, 0.0, 8.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceAround,
-                                                children: [
-                                                  Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      InkWell(
-                                                        onTap: () async {
-                                                          logFirebaseEvent(
-                                                              'KIRJAUDU_SIVU_Container_0khtpejl_ON_TAP');
-                                                          logFirebaseEvent(
-                                                              'Container_auth');
-                                                          GoRouter.of(context)
-                                                              .prepareAuthEvent();
-                                                          final user =
-                                                              await signInWithGoogle(
-                                                                  context);
-                                                          if (user == null) {
-                                                            return;
-                                                          }
-
-                                                          context.goNamedAuth(
-                                                              'paasivu',
-                                                              mounted);
-                                                        },
-                                                        child: Container(
-                                                          width: 50.0,
-                                                          height: 50.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: Color(
-                                                                0xFF0F1113),
-                                                            boxShadow: [
-                                                              BoxShadow(
-                                                                blurRadius: 5.0,
-                                                                color: Color(
-                                                                    0x3314181B),
-                                                                offset: Offset(
-                                                                    0.0, 2.0),
-                                                              )
-                                                            ],
-                                                            shape:
-                                                                BoxShape.circle,
-                                                          ),
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: FaIcon(
-                                                            FontAwesomeIcons
-                                                                .google,
-                                                            color: Colors.white,
-                                                            size: 24.0,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    4.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'mbvcwu2b' /* Google */,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryColor,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      InkWell(
-                                                        onTap: () async {
-                                                          logFirebaseEvent(
-                                                              'KIRJAUDU_SIVU_Container_4x61yn26_ON_TAP');
-                                                          logFirebaseEvent(
-                                                              'Container_auth');
-                                                          GoRouter.of(context)
-                                                              .prepareAuthEvent();
-                                                          final user =
-                                                              await signInWithApple(
-                                                                  context);
-                                                          if (user == null) {
-                                                            return;
-                                                          }
-
-                                                          context.goNamedAuth(
-                                                              'paasivu',
-                                                              mounted);
-                                                        },
-                                                        child: Container(
-                                                          width: 50.0,
-                                                          height: 50.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: Color(
-                                                                0xFF0F1113),
-                                                            boxShadow: [
-                                                              BoxShadow(
-                                                                blurRadius: 5.0,
-                                                                color: Color(
-                                                                    0x3314181B),
-                                                                offset: Offset(
-                                                                    0.0, 2.0),
-                                                              )
-                                                            ],
-                                                            shape:
-                                                                BoxShape.circle,
-                                                          ),
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: FaIcon(
-                                                            FontAwesomeIcons
-                                                                .apple,
-                                                            color: Colors.white,
-                                                            size: 24.0,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    4.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'ycdu23af' /* Apple */,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryColor,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      InkWell(
-                                                        onTap: () async {
-                                                          logFirebaseEvent(
-                                                              'KIRJAUDU_SIVU_Container_8r32o2cr_ON_TAP');
-                                                          logFirebaseEvent(
-                                                              'Container_update_widget_state');
-                                                          setState(() {
-                                                            _model.showSignInPhoneNumberField =
-                                                                true;
-                                                          });
-                                                        },
-                                                        child: Container(
-                                                          width: 50.0,
-                                                          height: 50.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: Color(
-                                                                0xFF0F1113),
-                                                            boxShadow: [
-                                                              BoxShadow(
-                                                                blurRadius: 5.0,
-                                                                color: Color(
-                                                                    0x3314181B),
-                                                                offset: Offset(
-                                                                    0.0, 2.0),
-                                                              )
-                                                            ],
-                                                            shape:
-                                                                BoxShape.circle,
-                                                          ),
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Icon(
-                                                            Icons.phone_sharp,
-                                                            color: Colors.white,
-                                                            size: 24.0,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    4.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            '76tfpspt' /* Puhelin
-numero */
-                                                            ,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryColor,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            if (_model
-                                                    .showSignInPhoneNumberField ??
-                                                true)
+                                            if (valueOrDefault<bool>(
+                                              _model.showSignInPhoneNumberField,
+                                              false,
+                                            ))
                                               Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [

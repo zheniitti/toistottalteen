@@ -8,12 +8,12 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-Future<dynamic> jsonRutiiniFromDataStruct(
+Future<dynamic> rutiiniToFirestoreData(
     TreeniRutiiniStruct? rutiiniDataStruct) async {
   if (rutiiniDataStruct == null) {
-    return getTreeniRutiiniFirestoreData(createTreeniRutiiniStruct());
+    return null;
   }
-  Map<String, dynamic> map = getTreeniRutiiniFirestoreData(rutiiniDataStruct);
-  map['isTreeniPohja'] = false;
+  Map<String, dynamic> map =
+      getTreeniRutiiniFirestoreData(rutiiniDataStruct, true);
   return map;
 }

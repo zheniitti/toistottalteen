@@ -15,7 +15,7 @@ class ButtonAloitaTreenaaminenModel extends FlutterFlowModel {
 
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   TreeniSessiotRecord? uusiTreeniSessio;
-  // Stores action output result for [Custom Action - jsonRutiiniFromDataStruct] action in Button widget.
+  // Stores action output result for [Custom Action - rutiiniToFirestoreData] action in Button widget.
   dynamic? jsonRutiini;
 
   /// Initialization and disposal methods.

@@ -19,12 +19,10 @@ class RutiininSarjatToistotKestoMatkaWidget extends StatefulWidget {
     Key? key,
     this.rutiini,
     this.liikeIndex,
-    this.liike,
   }) : super(key: key);
 
   final TreeniRutiiniStruct? rutiini;
   final int? liikeIndex;
-  final LiikeStruct? liike;
 
   @override
   _RutiininSarjatToistotKestoMatkaWidgetState createState() =>
@@ -155,7 +153,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                 child: Text(
-                  widget.liike!.nimi!,
+                  widget.rutiini!.liikkeet!.toList()[widget.liikeIndex!].nimi!,
                   style: FlutterFlowTheme.of(context).subtitle2,
                 ),
               ),

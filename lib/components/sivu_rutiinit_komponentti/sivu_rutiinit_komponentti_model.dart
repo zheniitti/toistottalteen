@@ -21,8 +21,6 @@ import 'package:provider/provider.dart';
 class SivuRutiinitKomponenttiModel extends FlutterFlowModel {
   ///  Local state fields for this component.
 
-  bool showEditRutiiniSarjatToistot = false;
-
   TreeniRutiiniStruct? pageStateValittuRutiini;
 
   LiikeStruct? pageStateValittuMuokattavaLiike;

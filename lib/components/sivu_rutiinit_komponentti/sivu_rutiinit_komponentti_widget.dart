@@ -267,14 +267,17 @@ class _SivuRutiinitKomponenttiWidgetState
             ),
           ),
         ),
-        if (_model.showEditRutiiniSarjatToistot)
+        if (FFAppState().valittuMuokattavaRutiini != null
+            ? (FFAppState().valittuMuokattavaLiikeIndex != null)
+            : false)
           Builder(builder: (_) {
             final child = InkWell(
               onTap: () async {
                 logFirebaseEvent('SIVU_RUTIINIT_KOMPONENTTI_Container_alug');
-                logFirebaseEvent('Container_update_widget_state');
-                _model.updatePage(() {
-                  _model.showEditRutiiniSarjatToistot = false;
+                logFirebaseEvent('Container_update_app_state');
+                setState(() {
+                  FFAppState().valittuMuokattavaRutiini = null;
+                  FFAppState().valittuMuokattavaLiikeIndex = 0;
                 });
               },
               child: Container(
@@ -283,7 +286,9 @@ class _SivuRutiinitKomponenttiWidgetState
                 decoration: BoxDecoration(),
               ),
             );
-            if (_model.showEditRutiiniSarjatToistot) {
+            if (FFAppState().valittuMuokattavaRutiini != null
+                ? (FFAppState().valittuMuokattavaLiikeIndex != null)
+                : false) {
               return ClipRRect(
                 borderRadius: BorderRadius.circular(0.0),
                 child: BackdropFilter(
@@ -297,7 +302,9 @@ class _SivuRutiinitKomponenttiWidgetState
             }
             return child;
           }).animateOnPageLoad(animationsMap['blurOnPageLoadAnimation']!),
-        if (_model.showEditRutiiniSarjatToistot)
+        if (FFAppState().valittuMuokattavaRutiini != null
+            ? (FFAppState().valittuMuokattavaLiikeIndex != null)
+            : false)
           SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -310,9 +317,9 @@ class _SivuRutiinitKomponenttiWidgetState
                     model: _model.rutiininSarjatToistotKestoMatkaModel,
                     updateCallback: () => setState(() {}),
                     child: RutiininSarjatToistotKestoMatkaWidget(
-                      liikeIndex: _model.pageStateValittuMuokattavaLiikeIndex,
-                      rutiini: _model.pageStateValittuRutiini,
-                      liike: _model.pageStateValittuMuokattavaLiike,
+                      liikeIndex: FFAppState().valittuMuokattavaLiikeIndex,
+                      rutiini: functions
+                          .jsonToRutiini(FFAppState().valittuMuokattavaRutiini),
                     ),
                   ),
                 ),

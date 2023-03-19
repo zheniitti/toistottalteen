@@ -8,7 +8,7 @@ export '/pages/get_started_sivu/get_started_sivu_widget.dart'
 export '/register_page/register_page_widget.dart' show RegisterPageWidget;
 export '/not_in_use/choose_mode/choose_mode_widget.dart' show ChooseModeWidget;
 export '/sign_in_page/sign_in_page_widget.dart' show SignInPageWidget;
-export '/pages/register_or_sign_in_page/register_or_sign_in_page_widget.dart'
+export '/register_or_sign_in_page/register_or_sign_in_page_widget.dart'
     show RegisterOrSignInPageWidget;
 export '/pages/tietosuoja_ja_yksityisyys/tietosuoja_ja_yksityisyys_widget.dart'
     show TietosuojaJaYksityisyysWidget;

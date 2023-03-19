@@ -97,6 +97,26 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
         ),
       ],
     ),
+    'rowOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 1200.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 1200.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        ScaleEffect(
+          curve: Curves.easeInOut,
+          delay: 1200.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
     'textFieldOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
@@ -702,9 +722,12 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                           Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
-                                              if (containerQueryLatestSessioTreeniSessiotRecord!
-                                                      .alku !=
-                                                  null)
+                                              if (((containerQueryLatestSessioTreeniSessiotRecord !=
+                                                          null) ==
+                                                      true) &&
+                                                  (containerQueryLatestSessioTreeniSessiotRecord!
+                                                          .alku !=
+                                                      null))
                                                 wrapWithModel(
                                                   model: _model
                                                       .workoutDurationTextModel,
@@ -717,8 +740,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                         containerQueryLatestSessioTreeniSessiotRecord,
                                                   ),
                                                 ),
-                                              if ((containerQueryLatestSessioTreeniSessiotRecord!
-                                                          .reference !=
+                                              if ((containerQueryLatestSessioTreeniSessiotRecord !=
                                                       null) &&
                                                   (containerQueryLatestSessioTreeniSessiotRecord!
                                                           .alku ==
@@ -1112,11 +1134,13 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                             ),
                                           ),
                                         if ((FFAppState().navBarIndex == 1) &&
-                                            (containerQueryLatestSessioTreeniSessiotRecord!
-                                                    .loppu ==
+                                            (containerQueryLatestSessioTreeniSessiotRecord !=
                                                 null) &&
                                             (containerQueryLatestSessioTreeniSessiotRecord!
                                                     .alku !=
+                                                null) &&
+                                            (containerQueryLatestSessioTreeniSessiotRecord!
+                                                    .loppu ==
                                                 null))
                                           InkWell(
                                             onTap: () async {
@@ -1193,7 +1217,8 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                 ),
                                               ],
                                             ),
-                                          ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'rowOnPageLoadAnimation']!),
                                       ],
                                     ).animateOnPageLoad(animationsMap[
                                         'columnOnPageLoadAnimation1']!),

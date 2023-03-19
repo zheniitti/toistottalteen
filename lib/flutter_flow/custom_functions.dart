@@ -11,7 +11,7 @@ import '../backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../auth/auth_util.dart';
 
-String? rutiininToistotJaPaino(LiikeStruct? liike) {
+String? rutiininToistotJaPainoString(LiikeStruct? liike) {
   if (liike == null) return 'null';
   final String setit = liike?.sarjaMaara.toString() ?? '';
   final String toistot = liike?.toistoMaara.toString() ?? '';
@@ -169,13 +169,16 @@ TreeniRutiiniStruct jsonToRutiini(dynamic json) {
   final treeniRutiiniSerializer = TreeniRutiiniStruct.serializer;
 
   // Deserialize the map to a BuiltValue instance.
-  final treeniRutiini = serializers.deserializeWith(
-    treeniRutiiniSerializer,
-    json,
-  );
-
-  // Return the resulting instance.
-  return treeniRutiini!;
+  try {
+    final treeniRutiini = serializers.deserializeWith(
+      treeniRutiiniSerializer,
+      json,
+    );
+    return treeniRutiini!;
+  } on Exception catch (e) {
+    print('Error: $e');
+  }
+  return createTreeniRutiiniStruct();
 }
 
 ValitutViikonPaivatStruct myCreateValitutViikonPaivat(
@@ -196,4 +199,36 @@ ValitutViikonPaivatStruct myCreateValitutViikonPaivat(
     la: la ?? false,
     su: su ?? false,
   );
+}
+
+String? treenipaivatString(
+  ValitutViikonPaivatStruct valitutViikonPaivat,
+  String? langCode,
+) {
+  if (valitutViikonPaivat == null) return '';
+
+  List<String> paivat;
+  switch (langCode) {
+    case 'fi':
+      paivat = ['Ma', 'Ti', 'Ke', 'To', 'Pe', 'La', 'Su'];
+      break;
+    case 'en':
+      paivat = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+      break;
+    default:
+      paivat = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  }
+
+  String str = '';
+  str = valitutViikonPaivat.ma ?? false ? str = str + paivat[0] + ', ' : str;
+  str = valitutViikonPaivat.ti ?? false ? str = str + paivat[1] + ', ' : str;
+  str = valitutViikonPaivat.ke ?? false ? str = str + paivat[2] + ', ' : str;
+  str = valitutViikonPaivat.to ?? false ? str = str + paivat[3] + ', ' : str;
+  str = valitutViikonPaivat.pe ?? false ? str = str + paivat[4] + ', ' : str;
+  str = valitutViikonPaivat.la ?? false ? str = str + paivat[5] + ', ' : str;
+  str = valitutViikonPaivat.su ?? false ? str = str + paivat[6] : str;
+  if (str.endsWith(', ')) {
+    str = str.substring(0, str.length - 2);
+  }
+  return str;
 }

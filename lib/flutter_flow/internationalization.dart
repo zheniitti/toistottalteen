@@ -385,6 +385,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Lorem ipsum dolor...',
       'en': '',
     },
+    'u76vj92f': {
+      'fi': 'Aloita uusi treeni',
+      'en': 'Start a new workout',
+    },
     'v1rlq3l4': {
       'fi': 'Rakennellaan ja kokeillaan erilaisia widgetteja',
       'en': '',
@@ -451,6 +455,26 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Kirjaudu',
       'en': 'Sign in',
     },
+    'ixt1bx4l': {
+      'fi': 'Kirjaudu seuraavilla vaihdoehdoilla',
+      'en': 'Choose a login method',
+    },
+    'bkk994m5': {
+      'fi': 'Google',
+      'en': 'Google',
+    },
+    'pgktub3b': {
+      'fi': 'Apple',
+      'en': 'Apple',
+    },
+    'faxkg7hm': {
+      'fi': 'Sähkö\nposti',
+      'en': 'Email',
+    },
+    'csbrhgrc': {
+      'fi': 'Puhelin\nnumero',
+      'en': 'Phone\nnumber',
+    },
     'o2cokl1b': {
       'fi': 'Sähköpostiosoite',
       'en': 'Email Address',
@@ -467,22 +491,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Unohditiko salasanasi?',
       'en': 'Forgot Password?',
     },
-    'ixt1bx4l': {
-      'fi': 'Tai kirjaudu seuraavilla vaihdoehdoilla',
-      'en': 'Or use a social account to login',
-    },
-    'bkk994m5': {
-      'fi': 'Google',
-      'en': 'Google',
-    },
-    'pgktub3b': {
-      'fi': 'Apple',
-      'en': 'Apple',
-    },
-    'csbrhgrc': {
-      'fi': 'Puhelin\nnumero',
-      'en': 'Phone\nnumber',
-    },
     'a6h2047q': {
       'fi': 'Puhelinnumero',
       'en': 'Phone number',
@@ -494,6 +502,26 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'shz6a9m8': {
       'fi': 'Luo tili',
       'en': 'Sign up',
+    },
+    '85ixbazd': {
+      'fi': 'Luo tili seuraavilla vaihtoehdoilla',
+      'en': 'Choose a method to create account',
+    },
+    'mbvcwu2b': {
+      'fi': 'Google',
+      'en': 'Google',
+    },
+    'ycdu23af': {
+      'fi': 'Apple',
+      'en': 'Apple',
+    },
+    'jrhzkuav': {
+      'fi': 'Sähkö\nposti',
+      'en': 'Email',
+    },
+    '76tfpspt': {
+      'fi': 'Puhelin\nnumero',
+      'en': 'Phone\nnumber',
     },
     'bcx41kw3': {
       'fi': 'Sähköpostiosoite',
@@ -510,22 +538,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '73gnjam6': {
       'fi': 'Luo tili',
       'en': 'Create Account',
-    },
-    '85ixbazd': {
-      'fi': 'Tai luo tili seuraavilla vaihtoehdoilla',
-      'en': 'Or use other method to create account',
-    },
-    'mbvcwu2b': {
-      'fi': 'Google',
-      'en': 'Google',
-    },
-    'ycdu23af': {
-      'fi': 'Apple',
-      'en': 'Apple',
-    },
-    '76tfpspt': {
-      'fi': 'Puhelin\nnumero',
-      'en': 'Phone\nnumber',
     },
     '5dkq9pkt': {
       'fi': 'Puhelinnumero',
@@ -773,8 +785,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Delete permanently',
     },
     '2a9bmoed': {
-      'fi': '(paina pitkään)',
-      'en': '',
+      'fi': '(Paina pitkään)',
+      'en': '(Long press)',
     },
   },
   // button_aloitaTreenaaminen
@@ -828,14 +840,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Treenipohjan kommentti 💬',
       'en': 'Routine comment 💬',
     },
-    'qqp0ddb4': {
-      'fi': 'Treenipäivät:',
-      'en': 'Workout days',
-    },
-    'o99304t2': {
-      'fi': 'Ma Ti Ke',
-      'en': 'Mon, Wed, Fri',
-    },
     'yod6uchb': {
       'fi': 'Ma',
       'en': 'Mon',
@@ -864,6 +868,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Su',
       'en': 'Sun',
     },
+    'qqp0ddb4': {
+      'fi': 'Treenipäivät ',
+      'en': 'Workout days ',
+    },
     'xvtlnaay': {
       'fi': 'Treenihistoria',
       'en': 'Worcout history',
@@ -873,10 +881,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Start now',
     },
     'm9mgmk0g': {
-      'fi': 'Lisää liike',
-      'en': 'Add exercise',
+      'fi': 'Lisää harjoitusliike',
+      'en': 'Add an exercise',
     },
-    'f5f0mc89': {
+    's66i837o': {
       'fi': 'Lopeta muokkaus',
       'en': 'Finish editing',
     },

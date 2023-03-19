@@ -74,7 +74,7 @@ class _ButtonAloitaTreenaaminenWidgetState
         _model.uusiTreeniSessio = TreeniSessiotRecord.getDocumentFromData(
             treeniSessiotCreateData, treeniSessiotRecordReference);
         logFirebaseEvent('Button_custom_action');
-        _model.jsonRutiini = await actions.jsonRutiiniFromDataStruct(
+        _model.jsonRutiini = await actions.rutiiniToFirestoreData(
           _model.uusiTreeniSessio!.treeniRutiiniData,
         );
         logFirebaseEvent('Button_update_app_state');

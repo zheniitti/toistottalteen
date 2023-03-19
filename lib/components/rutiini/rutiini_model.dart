@@ -29,10 +29,6 @@ class RutiiniModel extends FlutterFlowModel {
       textFieldKommenttiControllerValidator;
   // Model for rutiininLiikkeet component.
   late RutiininLiikkeetModel rutiininLiikkeetModel;
-  // Stores action output result for [Backend Call - Create Document] action in Button widget.
-  TreeniSessiotRecord? newSessioWithRutiini;
-  // Stores action output result for [Custom Action - jsonRutiiniFromDataStruct] action in Button widget.
-  dynamic? rutiiniJson;
 
   /// Initialization and disposal methods.
 

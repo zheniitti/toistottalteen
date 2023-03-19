@@ -115,106 +115,144 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
           mainAxisSize: MainAxisSize.min,
           children: List.generate(liikkeet.length, (liikkeetIndex) {
             final liikkeetItem = liikkeet[liikkeetIndex];
-            return Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
-              child: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Column(
+            return Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (!widget.rutiini!.finishedEditing!)
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 8.0, 4.0),
+                    child: InkWell(
+                      onTap: () async {
+                        logFirebaseEvent(
+                            'RUTIININ_LIIKKEET_Icon_deleteLiike_ON_TA');
+                        logFirebaseEvent('Icon_deleteLiike_custom_action');
+                        await actions.updateUserDocTreenirutiini(
+                          widget.rutiini,
+                          null,
+                          null,
+                          false,
+                          true,
+                          liikkeetIndex,
+                          null,
+                          null,
+                          widget.rutiini?.liikkeet?.toList()?.toList(),
+                          null,
+                          null,
+                          null,
+                          null,
+                          true,
+                          false,
+                          false,
+                        );
+                      },
+                      child: Icon(
+                        Icons.remove_circle_rounded,
+                        color: FlutterFlowTheme.of(context).deleteRed,
+                        size: 24.0,
+                      ),
+                    )
+                        .animateOnPageLoad(
+                            animationsMap['iconOnPageLoadAnimation']!)
+                        .animateOnActionTrigger(
+                          animationsMap['iconOnActionTriggerAnimation']!,
+                        ),
+                  ),
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      child: Row(
                         mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          RutiininLiikeNimiTextfieldWidget(
-                            key: Key(
-                                'Key8jh_${liikkeetIndex}_of_${liikkeet.length}'),
-                            liikeIndex: liikkeetIndex,
-                            rutiini: widget.rutiini,
-                            liike: liikkeetItem,
-                          ),
-                          if ((liikkeetItem.kommentti != null &&
-                                  liikkeetItem.kommentti != '') ||
-                              !widget.rutiini!.finishedEditing!)
-                            RutiininLiikeKommenttiTextfieldWidget(
-                              key: Key(
-                                  'Keyst7_${liikkeetIndex}_of_${liikkeet.length}'),
-                              liikeIndex: liikkeetIndex,
-                              rutiini: widget.rutiini,
-                              liike: liikkeetItem,
+                          Expanded(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                RutiininLiikeNimiTextfieldWidget(
+                                  key: Key(
+                                      'Key8jh_${liikkeetIndex}_of_${liikkeet.length}'),
+                                  liikeIndex: liikkeetIndex,
+                                  rutiini: widget.rutiini,
+                                  liike: liikkeetItem,
+                                ),
+                                if (valueOrDefault<bool>(
+                                  widget.rutiini!.finishedEditing!
+                                      ? (liikkeetItem.kommentti != null &&
+                                          liikkeetItem.kommentti != '')
+                                      : (liikkeetItem.nimi != null &&
+                                          liikkeetItem.nimi != ''),
+                                  false,
+                                ))
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        2.0, 0.0, 0.0, 0.0),
+                                    child:
+                                        RutiininLiikeKommenttiTextfieldWidget(
+                                      key: Key(
+                                          'Keyst7_${liikkeetIndex}_of_${liikkeet.length}'),
+                                      liikeIndex: liikkeetIndex,
+                                      rutiini: widget.rutiini,
+                                      liike: liikkeetItem,
+                                    ),
+                                  ),
+                              ],
                             ),
+                          ),
+                          InkWell(
+                            onTap: () async {
+                              logFirebaseEvent(
+                                  'RUTIININ_LIIKKEET_Row_fttroc4g_ON_TAP');
+                              logFirebaseEvent('Row_custom_action');
+                              _model.jsonRutiini =
+                                  await actions.rutiiniToFirestoreData(
+                                widget.rutiini,
+                              );
+                              logFirebaseEvent('Row_update_app_state');
+                              _model.updatePage(() {
+                                FFAppState().valittuMuokattavaLiikeIndex =
+                                    liikkeetIndex;
+                                FFAppState().valittuMuokattavaRutiini =
+                                    _model.jsonRutiini!;
+                              });
+
+                              setState(() {});
+                            },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: valueOrDefault<String>(
+                                          functions
+                                              .rutiininToistotJaPainoString(
+                                                  liikkeetItem),
+                                          ' - ',
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .subtitle2,
+                                      )
+                                    ],
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyText1,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: valueOrDefault<String>(
-                                  functions
-                                      .rutiininToistotJaPaino(liikkeetItem),
-                                  ' - ',
-                                ),
-                                style: FlutterFlowTheme.of(context).subtitle2,
-                              )
-                            ],
-                            style: FlutterFlowTheme.of(context).bodyText1,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 4.0, 8.0, 4.0),
-                          child: InkWell(
-                            onTap: () async {
-                              logFirebaseEvent(
-                                  'RUTIININ_LIIKKEET_Icon_deleteLiike_ON_TA');
-                              logFirebaseEvent(
-                                  'Icon_deleteLiike_custom_action');
-                              await actions.updateUserDocTreenirutiini(
-                                widget.rutiini,
-                                null,
-                                null,
-                                false,
-                                true,
-                                liikkeetIndex,
-                                null,
-                                null,
-                                widget.rutiini?.liikkeet?.toList()?.toList(),
-                                null,
-                                null,
-                                null,
-                                null,
-                                true,
-                                false,
-                                false,
-                              );
-                            },
-                            child: Icon(
-                              Icons.remove_circle_rounded,
-                              color: FlutterFlowTheme.of(context).deleteRed,
-                              size: 24.0,
-                            ),
-                          )
-                              .animateOnPageLoad(
-                                  animationsMap['iconOnPageLoadAnimation']!)
-                              .animateOnActionTrigger(
-                                animationsMap['iconOnActionTriggerAnimation']!,
-                              ),
-                        ),
-                      ],
-                    ),
-                  ],
+                  ),
                 ),
-              ),
+              ],
             );
           }),
         );

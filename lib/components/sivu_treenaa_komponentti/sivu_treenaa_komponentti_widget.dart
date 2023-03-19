@@ -119,8 +119,8 @@ class _SivuTreenaaKomponenttiWidgetState
     return Visibility(
       visible: widget.sessioDoc != null,
       child: Container(
-        width: double.infinity,
-        height: double.infinity,
+        width: MediaQuery.of(context).size.width * 1.0,
+        height: MediaQuery.of(context).size.height * 1.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
         ),
@@ -443,7 +443,7 @@ class _SivuTreenaaKomponenttiWidgetState
                         borderRadius: BorderRadius.circular(16.0),
                       ),
                       child: Container(
-                        width: 150.0,
+                        width: 160.0,
                         height: 50.0,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryColor,

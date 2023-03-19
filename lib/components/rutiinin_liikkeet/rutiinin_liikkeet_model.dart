@@ -15,6 +15,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class RutiininLiikkeetModel extends FlutterFlowModel {
+  ///  State fields for stateful widgets in this component.
+
+  // Stores action output result for [Custom Action - rutiiniToFirestoreData] action in Row widget.
+  dynamic? jsonRutiini;
+
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}

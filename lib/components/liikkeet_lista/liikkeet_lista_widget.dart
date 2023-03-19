@@ -99,7 +99,7 @@ class _LiikkeetListaWidgetState extends State<LiikkeetListaWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
                       child: Text(
                         valueOrDefault<String>(
-                          functions.rutiininToistotJaPaino(liikkeetItem),
+                          functions.rutiininToistotJaPainoString(liikkeetItem),
                           ' - ',
                         ),
                         style: FlutterFlowTheme.of(context).bodyText1,

@@ -15,7 +15,9 @@ import 'package:provider/provider.dart';
 class KirjauduSivuModel extends FlutterFlowModel {
   ///  Local state fields for this page.
 
-  bool? showSignInPhoneNumberField;
+  bool showSignInPhoneNumberField = false;
+
+  bool showEmailFields = false;
 
   ///  State fields for stateful widgets in this page.
 

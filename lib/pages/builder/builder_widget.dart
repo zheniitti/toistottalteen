@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_ad_banner.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/gestures.dart';
@@ -249,6 +250,81 @@ class _BuilderWidgetState extends State<BuilderWidget> {
                   dense: false,
                 ),
               ),
+              if (null ?? true)
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 200.0),
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      logFirebaseEvent(
+                          'BUILDER_Button_aloitaUusiTreeni_ON_TAP');
+                      logFirebaseEvent('Button_aloitaUusiTreeni_backend_call');
+
+                      final treeniSessiotCreateData = {
+                        ...createTreeniSessiotRecordData(
+                          userRef: currentUserReference,
+                          isEditing: false,
+                          treeniRutiiniData: createTreeniRutiiniStruct(
+                            isTreeniPohja: false,
+                            finishedEditing: true,
+                            fieldValues: {
+                              'createdTime': FieldValue.serverTimestamp(),
+                              'liikkeet': [
+                                getLiikeFirestoreData(
+                                  createLiikeStruct(
+                                    tehty: false,
+                                    clearUnsetFields: false,
+                                    create: true,
+                                  ),
+                                  true,
+                                )
+                              ],
+                            },
+                            clearUnsetFields: false,
+                            create: true,
+                          ),
+                        ),
+                        'alku': FieldValue.serverTimestamp(),
+                        'docCreatedTime': FieldValue.serverTimestamp(),
+                      };
+                      var treeniSessiotRecordReference =
+                          TreeniSessiotRecord.collection.doc();
+                      await treeniSessiotRecordReference
+                          .set(treeniSessiotCreateData);
+                      _model.createdSessioDoc =
+                          TreeniSessiotRecord.getDocumentFromData(
+                              treeniSessiotCreateData,
+                              treeniSessiotRecordReference);
+
+                      setState(() {});
+                    },
+                    text: FFLocalizations.of(context).getText(
+                      'u76vj92f' /* Aloita uusi treeni */,
+                    ),
+                    options: FFButtonOptions(
+                      width: 240.0,
+                      height: 70.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).tertiaryColor,
+                      textStyle: FlutterFlowTheme.of(context)
+                          .subtitle1
+                          .override(
+                            fontFamily: 'Outfit',
+                            color: FlutterFlowTheme.of(context).secondaryColor,
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                      elevation: 1.0,
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(16.0),
+                    ),
+                  ),
+                ),
             ],
           ),
         ),

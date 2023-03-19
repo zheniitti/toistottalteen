@@ -25,7 +25,7 @@ class SessioModel extends FlutterFlowModel {
   late LiikkeetListaModel rutiininLiikkeetModel;
   // Stores action output result for [Backend Call - Create Document] action in Button_uudestaan widget.
   TreeniSessiotRecord? newSessioWithRutiini;
-  // Stores action output result for [Custom Action - jsonRutiiniFromDataStruct] action in Button_uudestaan widget.
+  // Stores action output result for [Custom Action - rutiiniToFirestoreData] action in Button_uudestaan widget.
   dynamic? rutiiniJson;
 
   /// Initialization and disposal methods.

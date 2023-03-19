@@ -408,7 +408,7 @@ class _SessioWidgetState extends State<SessioWidget>
                               logFirebaseEvent(
                                   'Button_uudestaan_custom_action');
                               _model.rutiiniJson =
-                                  await actions.jsonRutiiniFromDataStruct(
+                                  await actions.rutiiniToFirestoreData(
                                 widget.treeniSessio!.treeniRutiiniData,
                               );
                               logFirebaseEvent(
