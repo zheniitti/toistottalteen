@@ -29,8 +29,6 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
 
   bool? get darkMode;
 
-  String? get weightUnit;
-
   BuiltList<TreeniRutiiniStruct>? get treeniRutiinit;
 
   BuiltList<DateTime>? get maRutiinit;
@@ -51,6 +49,8 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
 
   TreeniRutiiniStruct get selectedRutiiniToWorkout;
 
+  bool? get isWeightUnitKg;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -63,7 +63,6 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
     ..phoneNumber = ''
     ..appLangCode = ''
     ..darkMode = false
-    ..weightUnit = ''
     ..treeniRutiinit = ListBuilder()
     ..maRutiinit = ListBuilder()
     ..tiRutiinit = ListBuilder()
@@ -72,7 +71,8 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
     ..peRutiinit = ListBuilder()
     ..laRutiinit = ListBuilder()
     ..suRutiinit = ListBuilder()
-    ..selectedRutiiniToWorkout = TreeniRutiiniStructBuilder();
+    ..selectedRutiiniToWorkout = TreeniRutiiniStructBuilder()
+    ..isWeightUnitKg = false;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('users');
@@ -104,9 +104,9 @@ Map<String, dynamic> createUsersRecordData({
   String? phoneNumber,
   String? appLangCode,
   bool? darkMode,
-  String? weightUnit,
   DocumentReference? refSessioToEdit,
   TreeniRutiiniStruct? selectedRutiiniToWorkout,
+  bool? isWeightUnitKg,
 }) {
   final firestoreData = serializers.toFirestore(
     UsersRecord.serializer,
@@ -120,7 +120,6 @@ Map<String, dynamic> createUsersRecordData({
         ..phoneNumber = phoneNumber
         ..appLangCode = appLangCode
         ..darkMode = darkMode
-        ..weightUnit = weightUnit
         ..treeniRutiinit = null
         ..maRutiinit = null
         ..tiRutiinit = null
@@ -130,7 +129,8 @@ Map<String, dynamic> createUsersRecordData({
         ..laRutiinit = null
         ..suRutiinit = null
         ..refSessioToEdit = refSessioToEdit
-        ..selectedRutiiniToWorkout = TreeniRutiiniStructBuilder(),
+        ..selectedRutiiniToWorkout = TreeniRutiiniStructBuilder()
+        ..isWeightUnitKg = isWeightUnitKg,
     ),
   );
 

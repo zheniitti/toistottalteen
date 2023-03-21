@@ -638,7 +638,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.0, 1.0),
+                            alignment: AlignmentDirectional(0.0, 1.03),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 14.0, 16.0, 14.0),

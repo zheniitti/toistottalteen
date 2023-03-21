@@ -530,7 +530,7 @@ class FFAppState extends ChangeNotifier {
     _valittuMuokattavaRutiini = _value;
   }
 
-  int _valittuMuokattavaLiikeIndex = 0;
+  int _valittuMuokattavaLiikeIndex = -1;
   int get valittuMuokattavaLiikeIndex => _valittuMuokattavaLiikeIndex;
   set valittuMuokattavaLiikeIndex(int _value) {
     _valittuMuokattavaLiikeIndex = _value;

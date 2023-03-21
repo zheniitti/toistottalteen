@@ -80,6 +80,13 @@ class _$TreeniSessiotRecordSerializer
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.lastModifiedTime;
+    if (value != null) {
+      result
+        ..add('lastModifiedTime')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -140,6 +147,10 @@ class _$TreeniSessiotRecordSerializer
           result.isEditing = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
           break;
+        case 'lastModifiedTime':
+          result.lastModifiedTime = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -171,6 +182,8 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
   @override
   final bool? isEditing;
   @override
+  final DateTime? lastModifiedTime;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$TreeniSessiotRecord(
@@ -186,6 +199,7 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
       this.showComment,
       this.photos,
       this.isEditing,
+      this.lastModifiedTime,
       this.ffRef})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -213,6 +227,7 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
         showComment == other.showComment &&
         photos == other.photos &&
         isEditing == other.isEditing &&
+        lastModifiedTime == other.lastModifiedTime &&
         ffRef == other.ffRef;
   }
 
@@ -224,13 +239,17 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
                 $jc(
                     $jc(
                         $jc(
-                            $jc($jc($jc(0, userRef.hashCode), alku.hashCode),
-                                loppu.hashCode),
-                            treeniRutiiniData.hashCode),
-                        docCreatedTime.hashCode),
-                    showComment.hashCode),
-                photos.hashCode),
-            isEditing.hashCode),
+                            $jc(
+                                $jc(
+                                    $jc($jc(0, userRef.hashCode),
+                                        alku.hashCode),
+                                    loppu.hashCode),
+                                treeniRutiiniData.hashCode),
+                            docCreatedTime.hashCode),
+                        showComment.hashCode),
+                    photos.hashCode),
+                isEditing.hashCode),
+            lastModifiedTime.hashCode),
         ffRef.hashCode));
   }
 
@@ -245,6 +264,7 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
           ..add('showComment', showComment)
           ..add('photos', photos)
           ..add('isEditing', isEditing)
+          ..add('lastModifiedTime', lastModifiedTime)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -290,6 +310,11 @@ class TreeniSessiotRecordBuilder
   bool? get isEditing => _$this._isEditing;
   set isEditing(bool? isEditing) => _$this._isEditing = isEditing;
 
+  DateTime? _lastModifiedTime;
+  DateTime? get lastModifiedTime => _$this._lastModifiedTime;
+  set lastModifiedTime(DateTime? lastModifiedTime) =>
+      _$this._lastModifiedTime = lastModifiedTime;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -309,6 +334,7 @@ class TreeniSessiotRecordBuilder
       _showComment = $v.showComment;
       _photos = $v.photos?.toBuilder();
       _isEditing = $v.isEditing;
+      _lastModifiedTime = $v.lastModifiedTime;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -342,6 +368,7 @@ class TreeniSessiotRecordBuilder
               showComment: showComment,
               photos: _photos?.build(),
               isEditing: isEditing,
+              lastModifiedTime: lastModifiedTime,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;

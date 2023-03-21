@@ -91,7 +91,8 @@ class _LiikeRutiininTaiHistorianWidgetState
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
             child: Text(
               valueOrDefault<String>(
-                functions.rutiininToistotJaPainoString(widget.liike),
+                functions.rutiininToistotJaPainoString(
+                    widget.liike, FFLocalizations.of(context).languageCode),
                 ' - ',
               ),
               style: FlutterFlowTheme.of(context).bodyText1,

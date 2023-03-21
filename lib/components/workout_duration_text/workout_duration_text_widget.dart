@@ -74,7 +74,7 @@ class _WorkoutDurationTextWidgetState extends State<WorkoutDurationTextWidget> {
                 logFirebaseEvent('WORKOUT_DURATION_TEXT_Timer_vhzwv593_ON_');
                 logFirebaseEvent('Timer_update_widget_state');
                 setState(() {
-                  _model.durationString = functions.duration(
+                  _model.durationString = functions.durationFromStartEnd(
                       widget.sessioDoc!.alku,
                       widget.sessioDoc!.loppu,
                       FFLocalizations.of(context).languageCode);
@@ -100,7 +100,7 @@ class _WorkoutDurationTextWidgetState extends State<WorkoutDurationTextWidget> {
                         ),
                   ),
                   TextSpan(
-                    text: functions.duration(
+                    text: functions.durationFromStartEnd(
                         widget.sessioDoc!.alku,
                         widget.sessioDoc!.loppu,
                         FFLocalizations.of(context).languageCode),

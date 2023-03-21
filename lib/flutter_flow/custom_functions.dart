@@ -11,10 +11,14 @@ import '../backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../auth/auth_util.dart';
 
-String? rutiininToistotJaPainoString(LiikeStruct? liike) {
-  if (liike == null) return 'null';
-  final String setit = liike?.sarjaMaara.toString() ?? '';
-  final String toistot = liike?.toistoMaara.toString() ?? '';
+String? rutiininToistotJaPainoString(
+  LiikeStruct? liike,
+  String langCode,
+) {
+  if (liike == null) return '';
+  bool isKg = currentUserDocument?.isWeightUnitKg ?? true;
+  final String sarjat = liike?.sarjaMaara.toString() ?? '0';
+  final String toistot = liike?.toistoMaara.toString() ?? '0';
   final String paino = (liike?.aloitusPainoKg.toString() ?? '0') + 'kg';
   if (liike?.isOtherExerciseType ?? false) {
     final double seconds = liike.kestoSekunteina ?? 0;
@@ -25,22 +29,43 @@ String? rutiininToistotJaPainoString(LiikeStruct? liike) {
     String hoursStr = (hours < 10) ? "0$hours" : "$hours";
     String minutesStr = (minutes < 10) ? "0$minutes" : "$minutes";
     String secondsStr = (secs < 10) ? "0$secs" : "$secs";
-    String kestoStr = "$hoursStr:$minutesStr:$secondsStr";
+    String kestoStr = hoursStr + 'h ' + minutesStr + 'm ' + secondsStr + 's';
     final meters = liike.matkaMetri ?? 0;
     int kilometers = (meters / 1000).floor();
     int metersRemaining = (meters % 1000).floor();
 
     String kilometersStr = (kilometers > 0) ? "$kilometers km" : "";
-    String metersStr = (metersRemaining > 0) ? "$metersRemaining m" : "";
+    String metersStr = (metersRemaining > 0) ? "$metersRemaining m" : "0 m";
     String matkaStr = '';
     if (kilometers > 0 && metersRemaining > 0) {
       matkaStr = "$kilometersStr $metersStr";
     } else {
-      matkaStr = "$kilometersStr$metersStr";
+      matkaStr = "$kilometersStr $metersStr";
     }
-    return kestoStr + ' ' + matkaStr;
-  } else
-    return setit + ' x ' + toistot;
+    return kestoStr + '\n' + matkaStr;
+  } else {
+    String sarjoja = '';
+    switch (langCode) {
+      case 'fi':
+        sarjoja = 'sarjaa';
+        break;
+      case 'en':
+        sarjoja = 'sets';
+        break;
+      default:
+    }
+    String toistoja = '';
+    switch (langCode) {
+      case 'fi':
+        toistoja = 'toistoa';
+        break;
+      case 'en':
+        toistoja = 'reps';
+        break;
+      default:
+    }
+    return sarjat + ' ' + sarjoja + '\n' + toistot + ' ' + toistoja;
+  }
 }
 
 TreeniRutiiniStruct? getTreeniRutiiniByName(
@@ -103,7 +128,7 @@ List<TreeniRutiiniStruct> filterRutiiniList(
   return list;
 }
 
-String duration(
+String durationFromStartEnd(
   DateTime? start,
   DateTime? end,
   String? langCode,
@@ -181,6 +206,12 @@ TreeniRutiiniStruct jsonToRutiini(dynamic json) {
   return createTreeniRutiiniStruct();
 }
 
+double remainingSeconds(double? seconds) {
+  if (seconds == null) return 0;
+  double remainingSeconds = seconds % 60;
+  return remainingSeconds;
+}
+
 ValitutViikonPaivatStruct myCreateValitutViikonPaivat(
   bool? ma,
   bool? ti,
@@ -199,6 +230,12 @@ ValitutViikonPaivatStruct myCreateValitutViikonPaivat(
     la: la ?? false,
     su: su ?? false,
   );
+}
+
+int remainingMinutes(double? seconds) {
+  if (seconds == null) return 0;
+  int minutes = ((seconds % 3600) ~/ 60).toInt();
+  return minutes;
 }
 
 String? treenipaivatString(
@@ -231,4 +268,33 @@ String? treenipaivatString(
     str = str.substring(0, str.length - 2);
   }
   return str;
+}
+
+double toSeconds(
+  int? hours,
+  int? minutes,
+  double? seconds,
+) {
+  final double totalSeconds =
+      ((hours ?? 0) * 3600) + ((minutes ?? 0) * 60) + (seconds ?? 0);
+  return totalSeconds;
+}
+
+int remainingHours(double? seconds) {
+  if (seconds == null) return 0;
+  return (seconds / 3600).floor();
+}
+
+String durationFromSeconds(
+  double? seconds,
+  String langCode,
+) {
+  if (seconds == null) return '0 h 0 min 0 s';
+  int hours = (seconds ~/ 3600).toInt();
+  int minutes = ((seconds % 3600) ~/ 60).toInt();
+  double remainingSeconds = seconds % 60;
+
+  String result =
+      '$hours hours, $minutes minutes, ${remainingSeconds.toStringAsFixed(2)} seconds';
+  return result;
 }

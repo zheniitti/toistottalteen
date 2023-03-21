@@ -79,13 +79,6 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
-    value = object.weightUnit;
-    if (value != null) {
-      result
-        ..add('weightUnit')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.treeniRutiinit;
     if (value != null) {
       result
@@ -158,6 +151,13 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
             specifiedType: const FullType(
                 DocumentReference, const [const FullType.nullable(Object)])));
     }
+    value = object.isWeightUnitKg;
+    if (value != null) {
+      result
+        ..add('isWeightUnitKg')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -211,10 +211,6 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         case 'darkMode':
           result.darkMode = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
-          break;
-        case 'weightUnit':
-          result.weightUnit = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
           break;
         case 'treeniRutiinit':
           result.treeniRutiinit.replace(serializers.deserialize(value,
@@ -275,6 +271,10 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
                   specifiedType: const FullType(TreeniRutiiniStruct))!
               as TreeniRutiiniStruct);
           break;
+        case 'isWeightUnitKg':
+          result.isWeightUnitKg = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -306,8 +306,6 @@ class _$UsersRecord extends UsersRecord {
   @override
   final bool? darkMode;
   @override
-  final String? weightUnit;
-  @override
   final BuiltList<TreeniRutiiniStruct>? treeniRutiinit;
   @override
   final BuiltList<DateTime>? maRutiinit;
@@ -328,6 +326,8 @@ class _$UsersRecord extends UsersRecord {
   @override
   final TreeniRutiiniStruct selectedRutiiniToWorkout;
   @override
+  final bool? isWeightUnitKg;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$UsersRecord([void Function(UsersRecordBuilder)? updates]) =>
@@ -342,7 +342,6 @@ class _$UsersRecord extends UsersRecord {
       this.phoneNumber,
       this.appLangCode,
       this.darkMode,
-      this.weightUnit,
       this.treeniRutiinit,
       this.maRutiinit,
       this.tiRutiinit,
@@ -353,6 +352,7 @@ class _$UsersRecord extends UsersRecord {
       this.suRutiinit,
       this.refSessioToEdit,
       required this.selectedRutiiniToWorkout,
+      this.isWeightUnitKg,
       this.ffRef})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -378,7 +378,6 @@ class _$UsersRecord extends UsersRecord {
         phoneNumber == other.phoneNumber &&
         appLangCode == other.appLangCode &&
         darkMode == other.darkMode &&
-        weightUnit == other.weightUnit &&
         treeniRutiinit == other.treeniRutiinit &&
         maRutiinit == other.maRutiinit &&
         tiRutiinit == other.tiRutiinit &&
@@ -389,6 +388,7 @@ class _$UsersRecord extends UsersRecord {
         suRutiinit == other.suRutiinit &&
         refSessioToEdit == other.refSessioToEdit &&
         selectedRutiiniToWorkout == other.selectedRutiiniToWorkout &&
+        isWeightUnitKg == other.isWeightUnitKg &&
         ffRef == other.ffRef;
   }
 
@@ -420,17 +420,17 @@ class _$UsersRecord extends UsersRecord {
                                                                 phoneNumber.hashCode),
                                                             appLangCode.hashCode),
                                                         darkMode.hashCode),
-                                                    weightUnit.hashCode),
-                                                treeniRutiinit.hashCode),
-                                            maRutiinit.hashCode),
-                                        tiRutiinit.hashCode),
-                                    keRutiinit.hashCode),
-                                toRutiinit.hashCode),
-                            peRutiinit.hashCode),
-                        laRutiinit.hashCode),
-                    suRutiinit.hashCode),
-                refSessioToEdit.hashCode),
-            selectedRutiiniToWorkout.hashCode),
+                                                    treeniRutiinit.hashCode),
+                                                maRutiinit.hashCode),
+                                            tiRutiinit.hashCode),
+                                        keRutiinit.hashCode),
+                                    toRutiinit.hashCode),
+                                peRutiinit.hashCode),
+                            laRutiinit.hashCode),
+                        suRutiinit.hashCode),
+                    refSessioToEdit.hashCode),
+                selectedRutiiniToWorkout.hashCode),
+            isWeightUnitKg.hashCode),
         ffRef.hashCode));
   }
 
@@ -445,7 +445,6 @@ class _$UsersRecord extends UsersRecord {
           ..add('phoneNumber', phoneNumber)
           ..add('appLangCode', appLangCode)
           ..add('darkMode', darkMode)
-          ..add('weightUnit', weightUnit)
           ..add('treeniRutiinit', treeniRutiinit)
           ..add('maRutiinit', maRutiinit)
           ..add('tiRutiinit', tiRutiinit)
@@ -456,6 +455,7 @@ class _$UsersRecord extends UsersRecord {
           ..add('suRutiinit', suRutiinit)
           ..add('refSessioToEdit', refSessioToEdit)
           ..add('selectedRutiiniToWorkout', selectedRutiiniToWorkout)
+          ..add('isWeightUnitKg', isWeightUnitKg)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -495,10 +495,6 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   bool? _darkMode;
   bool? get darkMode => _$this._darkMode;
   set darkMode(bool? darkMode) => _$this._darkMode = darkMode;
-
-  String? _weightUnit;
-  String? get weightUnit => _$this._weightUnit;
-  set weightUnit(String? weightUnit) => _$this._weightUnit = weightUnit;
 
   ListBuilder<TreeniRutiiniStruct>? _treeniRutiinit;
   ListBuilder<TreeniRutiiniStruct> get treeniRutiinit =>
@@ -560,6 +556,11 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
           TreeniRutiiniStructBuilder? selectedRutiiniToWorkout) =>
       _$this._selectedRutiiniToWorkout = selectedRutiiniToWorkout;
 
+  bool? _isWeightUnitKg;
+  bool? get isWeightUnitKg => _$this._isWeightUnitKg;
+  set isWeightUnitKg(bool? isWeightUnitKg) =>
+      _$this._isWeightUnitKg = isWeightUnitKg;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -579,7 +580,6 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _phoneNumber = $v.phoneNumber;
       _appLangCode = $v.appLangCode;
       _darkMode = $v.darkMode;
-      _weightUnit = $v.weightUnit;
       _treeniRutiinit = $v.treeniRutiinit?.toBuilder();
       _maRutiinit = $v.maRutiinit?.toBuilder();
       _tiRutiinit = $v.tiRutiinit?.toBuilder();
@@ -590,6 +590,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _suRutiinit = $v.suRutiinit?.toBuilder();
       _refSessioToEdit = $v.refSessioToEdit;
       _selectedRutiiniToWorkout = $v.selectedRutiiniToWorkout.toBuilder();
+      _isWeightUnitKg = $v.isWeightUnitKg;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -623,7 +624,6 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
               phoneNumber: phoneNumber,
               appLangCode: appLangCode,
               darkMode: darkMode,
-              weightUnit: weightUnit,
               treeniRutiinit: _treeniRutiinit?.build(),
               maRutiinit: _maRutiinit?.build(),
               tiRutiinit: _tiRutiinit?.build(),
@@ -634,6 +634,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
               suRutiinit: _suRutiinit?.build(),
               refSessioToEdit: refSessioToEdit,
               selectedRutiiniToWorkout: selectedRutiiniToWorkout.build(),
+              isWeightUnitKg: isWeightUnitKg,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;

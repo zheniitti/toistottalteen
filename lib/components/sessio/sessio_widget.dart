@@ -199,11 +199,12 @@ class _SessioWidgetState extends State<SessioWidget>
                                             style: TextStyle(),
                                           ),
                                           TextSpan(
-                                            text: functions.duration(
-                                                widget.treeniSessio!.alku,
-                                                widget.treeniSessio!.loppu,
-                                                FFLocalizations.of(context)
-                                                    .languageCode),
+                                            text:
+                                                functions.durationFromStartEnd(
+                                                    widget.treeniSessio!.alku,
+                                                    widget.treeniSessio!.loppu,
+                                                    FFLocalizations.of(context)
+                                                        .languageCode),
                                             style: TextStyle(),
                                           )
                                         ],

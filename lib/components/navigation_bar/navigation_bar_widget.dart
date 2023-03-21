@@ -326,8 +326,8 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
                           children: [
                             TextSpan(
                               text: FFLocalizations.of(context).getVariableText(
-                                fiText: 'Treenihistoria',
-                                enText: 'History',
+                                fiText: 'Treenit',
+                                enText: 'Workouts',
                               ),
                               style: TextStyle(
                                 color:

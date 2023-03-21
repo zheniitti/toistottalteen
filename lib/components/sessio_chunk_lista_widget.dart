@@ -1,4 +1,4 @@
-import '/components/sessio_chunk_list_widget.dart';
+import '/components/sessio_chunk_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -51,7 +51,7 @@ class _SessioChunkListaWidgetState extends State<SessioChunkListaWidget> {
           mainAxisSize: MainAxisSize.max,
           children: List.generate(chunkList.length, (chunkListIndex) {
             final chunkListItem = chunkList[chunkListIndex];
-            return SessioChunkListWidget(
+            return SessioChunkWidget(
               key: Key('Key6w8_${chunkListIndex}_of_${chunkList.length}'),
               indexInList: chunkListIndex,
               previousLastDateTime: chunkListIndex == 0

@@ -287,15 +287,15 @@ class _SivuRutiinitKomponenttiWidgetState
           ),
         ),
         if (FFAppState().valittuMuokattavaRutiini != null
-            ? (FFAppState().valittuMuokattavaLiikeIndex != null)
+            ? (FFAppState().valittuMuokattavaLiikeIndex >= 0)
             : false)
           InkWell(
             onTap: () async {
               logFirebaseEvent('SIVU_RUTIINIT_KOMPONENTTI_Blur_ld0ydeuf_');
               logFirebaseEvent('Blur_update_app_state');
               FFAppState().update(() {
-                FFAppState().valittuMuokattavaRutiini = null!;
-                FFAppState().valittuMuokattavaLiikeIndex = null!;
+                FFAppState().valittuMuokattavaRutiini = null;
+                FFAppState().valittuMuokattavaLiikeIndex = -1;
               });
             },
             child: Builder(builder: (_) {
@@ -304,8 +304,8 @@ class _SivuRutiinitKomponenttiWidgetState
                   logFirebaseEvent('SIVU_RUTIINIT_KOMPONENTTI_Container_alug');
                   logFirebaseEvent('Container_update_app_state');
                   FFAppState().update(() {
-                    FFAppState().valittuMuokattavaRutiini = null!;
-                    FFAppState().valittuMuokattavaLiikeIndex = null!;
+                    FFAppState().valittuMuokattavaRutiini = null;
+                    FFAppState().valittuMuokattavaLiikeIndex = -1;
                   });
                 },
                 child: Container(
@@ -332,7 +332,7 @@ class _SivuRutiinitKomponenttiWidgetState
             }),
           ).animateOnPageLoad(animationsMap['blurOnPageLoadAnimation']!),
         if (FFAppState().valittuMuokattavaRutiini != null
-            ? (FFAppState().valittuMuokattavaLiikeIndex != null)
+            ? (FFAppState().valittuMuokattavaLiikeIndex >= 0)
             : false)
           SingleChildScrollView(
             child: Column(

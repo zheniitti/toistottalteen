@@ -848,16 +848,15 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                               if (animationsMap[
                                       'containerOnActionTriggerAnimation'] !=
                                   null) {
-                                animationsMap[
+                                await animationsMap[
                                         'containerOnActionTriggerAnimation']!
                                     .controller
                                     .forward(from: 0.0);
                               }
                               logFirebaseEvent('Button_update_app_state');
                               FFAppState().update(() {
-                                FFAppState().valittuMuokattavaRutiini = null!;
-                                FFAppState().valittuMuokattavaLiikeIndex =
-                                    null!;
+                                FFAppState().valittuMuokattavaRutiini = null;
+                                FFAppState().valittuMuokattavaLiikeIndex = -1;
                               });
                             },
                             text: FFLocalizations.of(context).getText(

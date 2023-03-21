@@ -38,7 +38,7 @@
         },
         {
           "fieldPath": "alku",
-          "order": "DESCENDING"
+          "order": "ASCENDING"
         }
       ]
     },
@@ -52,7 +52,7 @@
         },
         {
           "fieldPath": "alku",
-          "order": "ASCENDING"
+          "order": "DESCENDING"
         }
       ]
     }

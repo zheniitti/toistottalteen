@@ -1358,38 +1358,71 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                   verticalDirection: VerticalDirection.down,
                                   clipBehavior: Clip.none,
                                   children: [
-                                    FFButtonWidget(
-                                      onPressed: () {
-                                        print('Button pressed ...');
-                                      },
-                                      text: FFLocalizations.of(context).getText(
-                                        'xvtlnaay' /* Treenihistoria */,
-                                      ),
-                                      options: FFButtonOptions(
-                                        width: 130.0,
-                                        height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 0.0),
-                                        iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .subtitle2
-                                            .override(
-                                              fontFamily: 'Roboto',
-                                              color: Colors.white,
-                                            ),
-                                        borderSide: BorderSide(
-                                          color: Colors.transparent,
-                                          width: 1.0,
+                                    Visibility(
+                                      visible:
+                                          widget.rutiini?.finishedEditing ??
+                                              true,
+                                      child: FFButtonWidget(
+                                        onPressed: () async {
+                                          logFirebaseEvent(
+                                              'RUTIINI_COMP_Button_muokkaa_ON_TAP');
+                                          logFirebaseEvent(
+                                              'Button_muokkaa_custom_action');
+                                          await actions
+                                              .updateUserDocTreenirutiini(
+                                            widget.rutiini,
+                                            null,
+                                            null,
+                                            true,
+                                            true,
+                                            null,
+                                            _model.textFieldNimiController.text,
+                                            _model.textFieldKommenttiController
+                                                .text,
+                                            widget.rutiini?.liikkeet
+                                                ?.toList()
+                                                ?.toList(),
+                                            null,
+                                            null,
+                                            null,
+                                            true,
+                                            false,
+                                            false,
+                                            false,
+                                          );
+                                        },
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'xvtlnaay' /* Muokkaa */,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(12.0),
-                                      ),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'buttonOnPageLoadAnimation1']!),
+                                        options: FFButtonOptions(
+                                          width: 130.0,
+                                          height: 40.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryColor,
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .subtitle2
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    color: Colors.white,
+                                                  ),
+                                          borderSide: BorderSide(
+                                            color: Colors.transparent,
+                                            width: 1.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'buttonOnPageLoadAnimation1']!),
+                                    ),
                                     FFButtonWidget(
                                       onPressed: () async {
                                         logFirebaseEvent(

@@ -873,8 +873,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Workout days ',
     },
     'xvtlnaay': {
-      'fi': 'Treenihistoria',
-      'en': 'Worcout history',
+      'fi': 'Muokkaa',
+      'en': 'Muokkaa',
     },
     '5o4nggqe': {
       'fi': 'Treenaa nyt',
@@ -917,7 +917,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Repetitions',
     },
   },
-  // sessioChunkList
+  // sessioChunk
   {
     '5smr29rj': {
       'fi': 'Näytä lisää',
@@ -933,13 +933,37 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // rutiininLiikkeet
   {
-    'hr3m8o05': {
-      'fi': 'Hello World',
-      'en': '',
+    'sqgnk84v': {
+      'fi': ' sarjaa',
+      'en': ' sets',
     },
-    '1hc9efy1': {
-      'fi': 'Hello World',
-      'en': '',
+    '5aat8tgq': {
+      'fi': ' toistoa',
+      'en': ' reps',
+    },
+    'fyqh7yhs': {
+      'fi': ' tuntia ',
+      'en': ' hours ',
+    },
+    '0wep025x': {
+      'fi': 'minuuttia ',
+      'en': 'minutes ',
+    },
+    'uzijomut': {
+      'fi': ' sekuntia',
+      'en': ' seconds',
+    },
+    'kyunprgy': {
+      'fi': ' tuntia ',
+      'en': ' hours ',
+    },
+    '2fwsecqs': {
+      'fi': 'minuuttia ',
+      'en': 'minutes ',
+    },
+    'eru9zv8k': {
+      'fi': ' sekuntia',
+      'en': ' seconds',
     },
   },
   // KeskenerainenTreeni_komponentti

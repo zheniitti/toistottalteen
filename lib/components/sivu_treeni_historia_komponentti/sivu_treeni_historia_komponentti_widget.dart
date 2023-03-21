@@ -191,7 +191,9 @@ class _SivuTreeniHistoriaKomponenttiWidgetState
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               if ((widget.latestSessioStreamDoc != null) &&
-                                  (widget.latestSessioStreamDoc!.loppu == null))
+                                  (widget.latestSessioStreamDoc!.loppu ==
+                                      null) &&
+                                  false)
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 30.0),

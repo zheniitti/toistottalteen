@@ -209,6 +209,13 @@ class _BuilderWidgetState extends State<BuilderWidget> {
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
+                  child: Text(
+                    valueOrDefault<String>(
+                      FFLocalizations.of(context).languageCode,
+                      'ast',
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyText1,
+                  ),
                 ),
               ),
               Slidable(
