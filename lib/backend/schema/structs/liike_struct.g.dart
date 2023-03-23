@@ -260,30 +260,22 @@ class _$LiikeStruct extends LiikeStruct {
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc(
-            $jc(
-                $jc(
-                    $jc(
-                        $jc(
-                            $jc(
-                                $jc(
-                                    $jc(
-                                        $jc(
-                                            $jc(
-                                                $jc($jc(0, nimi.hashCode),
-                                                    kommentti.hashCode),
-                                                toistoMaara.hashCode),
-                                            sarjaMaara.hashCode),
-                                        sarjat.hashCode),
-                                    aloitusPainoKg.hashCode),
-                                matkaMetri.hashCode),
-                            tehty.hashCode),
-                        showComment.hashCode),
-                    photos.hashCode),
-                kestoSekunteina.hashCode),
-            isOtherExerciseType.hashCode),
-        firestoreUtilData.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, nimi.hashCode);
+    _$hash = $jc(_$hash, kommentti.hashCode);
+    _$hash = $jc(_$hash, toistoMaara.hashCode);
+    _$hash = $jc(_$hash, sarjaMaara.hashCode);
+    _$hash = $jc(_$hash, sarjat.hashCode);
+    _$hash = $jc(_$hash, aloitusPainoKg.hashCode);
+    _$hash = $jc(_$hash, matkaMetri.hashCode);
+    _$hash = $jc(_$hash, tehty.hashCode);
+    _$hash = $jc(_$hash, showComment.hashCode);
+    _$hash = $jc(_$hash, photos.hashCode);
+    _$hash = $jc(_$hash, kestoSekunteina.hashCode);
+    _$hash = $jc(_$hash, isOtherExerciseType.hashCode);
+    _$hash = $jc(_$hash, firestoreUtilData.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
@@ -444,4 +436,4 @@ class LiikeStructBuilder implements Builder<LiikeStruct, LiikeStructBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint

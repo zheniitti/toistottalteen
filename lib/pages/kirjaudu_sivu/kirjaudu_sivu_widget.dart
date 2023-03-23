@@ -149,7 +149,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 50.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -232,45 +232,40 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     20.0,
-                                                                    0.0,
+                                                                    22.0,
                                                                     20.0,
                                                                     0.0),
                                                         child: Row(
                                                           mainAxisSize:
-                                                              MainAxisSize.min,
+                                                              MainAxisSize.max,
                                                           mainAxisAlignment:
                                                               MainAxisAlignment
                                                                   .center,
                                                           children: [
                                                             Expanded(
-                                                              child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            24.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  FFLocalizations.of(
-                                                                          context)
-                                                                      .getText(
-                                                                    'ixt1bx4l' /* Kirjaudu seuraavilla vaihdoehd... */,
-                                                                  ),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .subtitle2
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Outfit',
-                                                                        color: Color(
-                                                                            0xC8FFFFFF),
-                                                                        fontSize:
-                                                                            16.0,
-                                                                        fontWeight:
-                                                                            FontWeight.normal,
-                                                                      ),
+                                                              child: Text(
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'ixt1bx4l' /* Kirjaudu seuraavilla vaihdoehd... */,
                                                                 ),
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .subtitle2
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Outfit',
+                                                                      color: Color(
+                                                                          0xC8FFFFFF),
+                                                                      fontSize:
+                                                                          16.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                    ),
                                                               ),
                                                             ),
                                                           ],
@@ -281,7 +276,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
-                                                                    16.0,
+                                                                    20.0,
                                                                     0.0,
                                                                     8.0),
                                                         child: Row(
@@ -290,6 +285,9 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                           mainAxisAlignment:
                                                               MainAxisAlignment
                                                                   .spaceAround,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
                                                           children: [
                                                             Column(
                                                               mainAxisSize:
@@ -719,7 +717,7 @@ numero */
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            8.0),
+                                                                            12.0),
                                                               ),
                                                               focusedBorder:
                                                                   OutlineInputBorder(
@@ -732,7 +730,7 @@ numero */
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            8.0),
+                                                                            12.0),
                                                               ),
                                                               errorBorder:
                                                                   OutlineInputBorder(
@@ -745,7 +743,7 @@ numero */
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            8.0),
+                                                                            12.0),
                                                               ),
                                                               focusedErrorBorder:
                                                                   OutlineInputBorder(
@@ -758,7 +756,7 @@ numero */
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            8.0),
+                                                                            12.0),
                                                               ),
                                                               filled: true,
                                                               fillColor:
@@ -852,7 +850,7 @@ numero */
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            8.0),
+                                                                            12.0),
                                                               ),
                                                               focusedBorder:
                                                                   OutlineInputBorder(
@@ -865,7 +863,7 @@ numero */
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            8.0),
+                                                                            12.0),
                                                               ),
                                                               errorBorder:
                                                                   OutlineInputBorder(
@@ -878,7 +876,7 @@ numero */
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            8.0),
+                                                                            12.0),
                                                               ),
                                                               focusedErrorBorder:
                                                                   OutlineInputBorder(
@@ -891,7 +889,7 @@ numero */
                                                                 borderRadius:
                                                                     BorderRadius
                                                                         .circular(
-                                                                            8.0),
+                                                                            12.0),
                                                               ),
                                                               filled: true,
                                                               fillColor:
@@ -1033,6 +1031,10 @@ numero */
                                                                     .transparent,
                                                                 width: 1.0,
                                                               ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          12.0),
                                                             ),
                                                           ),
                                                         ),
@@ -1385,43 +1387,35 @@ numero */
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      20.0, 20.0, 20.0, 0.0),
+                                                      20.0, 22.0, 20.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
                                                 children: [
                                                   Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  24.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '85ixbazd' /* Luo tili seuraavilla vaihtoehd... */,
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .subtitle2
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Outfit',
-                                                              color: Color(
-                                                                  0xC8FFFFFF),
-                                                              fontSize: 16.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .normal,
-                                                            ),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '85ixbazd' /* Luo tili seuraavilla vaihtoehd... */,
                                                       ),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .subtitle2
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Outfit',
+                                                                color: Color(
+                                                                    0xC8FFFFFF),
+                                                                fontSize: 16.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
                                                     ),
                                                   ),
                                                 ],
@@ -1430,12 +1424,14 @@ numero */
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      0.0, 16.0, 0.0, 8.0),
+                                                      0.0, 20.0, 0.0, 8.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
                                                         .spaceAround,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
                                                 children: [
                                                   Column(
                                                     mainAxisSize:
@@ -1832,7 +1828,7 @@ numero */
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
-                                                                      8.0),
+                                                                      12.0),
                                                         ),
                                                         focusedBorder:
                                                             OutlineInputBorder(
@@ -1845,7 +1841,7 @@ numero */
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
-                                                                      8.0),
+                                                                      12.0),
                                                         ),
                                                         errorBorder:
                                                             OutlineInputBorder(
@@ -1858,7 +1854,7 @@ numero */
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
-                                                                      8.0),
+                                                                      12.0),
                                                         ),
                                                         focusedErrorBorder:
                                                             OutlineInputBorder(
@@ -1871,7 +1867,7 @@ numero */
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
-                                                                      8.0),
+                                                                      12.0),
                                                         ),
                                                         filled: true,
                                                         fillColor: Colors.white,
@@ -1962,7 +1958,7 @@ numero */
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
-                                                                      8.0),
+                                                                      12.0),
                                                         ),
                                                         focusedBorder:
                                                             OutlineInputBorder(
@@ -1975,7 +1971,7 @@ numero */
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
-                                                                      8.0),
+                                                                      12.0),
                                                         ),
                                                         errorBorder:
                                                             OutlineInputBorder(
@@ -1988,7 +1984,7 @@ numero */
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
-                                                                      8.0),
+                                                                      12.0),
                                                         ),
                                                         focusedErrorBorder:
                                                             OutlineInputBorder(
@@ -2001,7 +1997,7 @@ numero */
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
-                                                                      8.0),
+                                                                      12.0),
                                                         ),
                                                         filled: true,
                                                         fillColor: Colors.white,
@@ -2112,7 +2108,7 @@ numero */
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
-                                                                      8.0),
+                                                                      12.0),
                                                         ),
                                                         focusedBorder:
                                                             OutlineInputBorder(
@@ -2125,7 +2121,7 @@ numero */
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
-                                                                      8.0),
+                                                                      12.0),
                                                         ),
                                                         errorBorder:
                                                             OutlineInputBorder(
@@ -2138,7 +2134,7 @@ numero */
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
-                                                                      8.0),
+                                                                      12.0),
                                                         ),
                                                         focusedErrorBorder:
                                                             OutlineInputBorder(
@@ -2151,7 +2147,7 @@ numero */
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
-                                                                      8.0),
+                                                                      12.0),
                                                         ),
                                                         filled: true,
                                                         fillColor: Colors.white,
@@ -2302,6 +2298,9 @@ numero */
                                                               .transparent,
                                                           width: 1.0,
                                                         ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
                                                       ),
                                                     ),
                                                   ),
@@ -2377,7 +2376,7 @@ numero */
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
-                                                                      8.0),
+                                                                      12.0),
                                                         ),
                                                         focusedBorder:
                                                             OutlineInputBorder(
@@ -2390,7 +2389,7 @@ numero */
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
-                                                                      8.0),
+                                                                      12.0),
                                                         ),
                                                         errorBorder:
                                                             OutlineInputBorder(
@@ -2403,7 +2402,7 @@ numero */
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
-                                                                      8.0),
+                                                                      12.0),
                                                         ),
                                                         focusedErrorBorder:
                                                             OutlineInputBorder(
@@ -2416,7 +2415,7 @@ numero */
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
-                                                                      8.0),
+                                                                      12.0),
                                                         ),
                                                         filled: true,
                                                         fillColor: Colors.white,
@@ -2551,6 +2550,9 @@ numero */
                                                               .transparent,
                                                           width: 1.0,
                                                         ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
                                                       ),
                                                     ),
                                                   ),

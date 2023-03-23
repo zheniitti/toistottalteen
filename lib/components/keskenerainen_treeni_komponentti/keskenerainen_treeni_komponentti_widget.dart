@@ -196,8 +196,11 @@ class _KeskenerainenTreeniKomponenttiWidgetState
                                 style: TextStyle(),
                               ),
                               TextSpan(
-                                text: FFLocalizations.of(context).getText(
-                                  '3opv7jr7' /* 30 min sitten dsltkphklp */,
+                                text: dateTimeFormat(
+                                  'relative',
+                                  widget.sessio!.alku!,
+                                  locale:
+                                      FFLocalizations.of(context).languageCode,
                                 ),
                                 style: TextStyle(),
                               )

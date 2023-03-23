@@ -402,7 +402,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
           decoration: BoxDecoration(
             color: valueOrDefault<Color>(
               !widget.rutiini!.finishedEditing!
-                  ? FlutterFlowTheme.of(context).alternate
+                  ? Color(0xFFCACADB)
                   : FlutterFlowTheme.of(context).secondaryBackground,
               FlutterFlowTheme.of(context).secondaryBackground,
             ),
@@ -590,6 +590,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                               showModalBottomSheet(
                                 isScrollControlled: true,
                                 backgroundColor: Colors.transparent,
+                                barrierColor: Color(0x00000000),
                                 context: context,
                                 builder: (context) {
                                   return Padding(

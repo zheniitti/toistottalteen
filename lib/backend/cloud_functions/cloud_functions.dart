@@ -5,7 +5,7 @@ Future<Map<String, dynamic>> makeCloudCall(
   Map<String, dynamic> input,
 ) async {
   try {
-    final response = await FirebaseFunctions.instance
+    final response = await FirebaseFunctions.instanceFor(region: 'europe-west3')
         .httpsCallable(callName, options: HttpsCallableOptions())
         .call(input);
     return response.data is Map

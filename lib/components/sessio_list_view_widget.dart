@@ -102,6 +102,7 @@ class _SessioListViewWidgetState extends State<SessioListViewWidget> {
       }(),
       padding: EdgeInsets.zero,
       shrinkWrap: true,
+      reverse: false,
       scrollDirection: Axis.vertical,
       builderDelegate: PagedChildBuilderDelegate<TreeniSessiotRecord>(
         // Customize what your widget looks like when it's loading the first page.

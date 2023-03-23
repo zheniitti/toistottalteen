@@ -3,6 +3,9 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -40,7 +43,6 @@ class RutiininSarjatToistotKestoMatkaModel extends FlutterFlowModel {
   String? Function(BuildContext, String?)? textController6Validator;
   // State field(s) for TextField widget.
   TextEditingController? textController7;
-  final textFieldMask7 = MaskTextInputFormatter(mask: '#######.###');
   String? Function(BuildContext, String?)? textController7Validator;
 
   /// Initialization and disposal methods.

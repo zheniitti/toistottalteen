@@ -7,6 +7,8 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart'
+    as smooth_page_indicator;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/gestures.dart';
@@ -25,6 +27,8 @@ class BuilderModel extends FlutterFlowModel {
   late RutiininLiikkeetModel rutiininLiikkeetModel;
   // Stores action output result for [Backend Call - Create Document] action in Button_aloitaUusiTreeni widget.
   TreeniSessiotRecord? createdSessioDoc;
+  // State field(s) for PageView widget.
+  PageController? pageViewController;
 
   /// Initialization and disposal methods.
 

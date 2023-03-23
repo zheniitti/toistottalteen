@@ -18,7 +18,7 @@ Future myUpdateLiikeAtIndex(
   int? toistoMaara,
   int? sarjaMaara,
   double? aloitusPainoKg,
-  String? liikeTyyppi,
+  bool? isOtherExerciseType,
   bool? isTehty,
   bool? showKommentti,
   double? matkaMetreina,
@@ -49,8 +49,8 @@ Future myUpdateLiikeAtIndex(
       sarjaMaara ?? liikeFirestoreData['sarjaMaara'];
   liikeFirestoreData['aloitusPainoKg'] =
       aloitusPainoKg ?? liikeFirestoreData['aloitusPainoKg'];
-  liikeFirestoreData['liikeTyyppi'] =
-      liikeTyyppi ?? liikeFirestoreData['liikeTyyppi'];
+  liikeFirestoreData['isOtherExerciseType'] =
+      isOtherExerciseType ?? liikeFirestoreData['isOtherExerciseType'];
   liikeFirestoreData['tehty'] = isTehty ?? liikeFirestoreData['tehty'];
   liikeFirestoreData['showKommentti'] =
       showKommentti ?? liikeFirestoreData['showKommentti'];

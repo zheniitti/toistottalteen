@@ -117,6 +117,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
             final liikkeetItem = liikkeet[liikkeetIndex];
             return Row(
               mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 if (!widget.rutiini!.finishedEditing!)
                   Padding(

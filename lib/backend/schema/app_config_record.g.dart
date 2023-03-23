@@ -76,15 +76,20 @@ class _$AppConfigRecordSerializer
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
-    value = object.developersRefsList;
+    value = object.developersList;
     if (value != null) {
       result
-        ..add('developersRefsList')
+        ..add('developersList')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltList, const [
-              const FullType(
-                  DocumentReference, const [const FullType.nullable(Object)])
-            ])));
+            specifiedType: const FullType(
+                DocumentReference, const [const FullType.nullable(Object)])));
+    }
+    value = object.privacyPolicyUrl;
+    if (value != null) {
+      result
+        ..add('privacyPolicyUrl')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.ffRef;
     if (value != null) {
@@ -141,12 +146,15 @@ class _$AppConfigRecordSerializer
           result.showAdsOnAllPlatforms = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
           break;
-        case 'developersRefsList':
-          result.developersRefsList.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [
-                const FullType(
-                    DocumentReference, const [const FullType.nullable(Object)])
-              ]))! as BuiltList<Object?>);
+        case 'developersList':
+          result.developersList = serializers.deserialize(value,
+              specifiedType: const FullType(DocumentReference, const [
+                const FullType.nullable(Object)
+              ])) as DocumentReference<Object?>?;
+          break;
+        case 'privacyPolicyUrl':
+          result.privacyPolicyUrl = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
@@ -179,7 +187,9 @@ class _$AppConfigRecord extends AppConfigRecord {
   @override
   final bool? showAdsOnAllPlatforms;
   @override
-  final BuiltList<DocumentReference<Object?>>? developersRefsList;
+  final DocumentReference<Object?>? developersList;
+  @override
+  final String? privacyPolicyUrl;
   @override
   final DocumentReference<Object?>? ffRef;
 
@@ -195,7 +205,8 @@ class _$AppConfigRecord extends AppConfigRecord {
       this.showInterstitialAdIos,
       this.showInterstitialAdWeb,
       this.showAdsOnAllPlatforms,
-      this.developersRefsList,
+      this.developersList,
+      this.privacyPolicyUrl,
       this.ffRef})
       : super._();
 
@@ -219,30 +230,27 @@ class _$AppConfigRecord extends AppConfigRecord {
         showInterstitialAdIos == other.showInterstitialAdIos &&
         showInterstitialAdWeb == other.showInterstitialAdWeb &&
         showAdsOnAllPlatforms == other.showAdsOnAllPlatforms &&
-        developersRefsList == other.developersRefsList &&
+        developersList == other.developersList &&
+        privacyPolicyUrl == other.privacyPolicyUrl &&
         ffRef == other.ffRef;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc(
-            $jc(
-                $jc(
-                    $jc(
-                        $jc(
-                            $jc(
-                                $jc(
-                                    $jc($jc(0, daysAfterShowAds.hashCode),
-                                        showBannerAdAndroid.hashCode),
-                                    showBannerAdIOS.hashCode),
-                                showBannerAdWeb.hashCode),
-                            showInterstitialAdAndroid.hashCode),
-                        showInterstitialAdIos.hashCode),
-                    showInterstitialAdWeb.hashCode),
-                showAdsOnAllPlatforms.hashCode),
-            developersRefsList.hashCode),
-        ffRef.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, daysAfterShowAds.hashCode);
+    _$hash = $jc(_$hash, showBannerAdAndroid.hashCode);
+    _$hash = $jc(_$hash, showBannerAdIOS.hashCode);
+    _$hash = $jc(_$hash, showBannerAdWeb.hashCode);
+    _$hash = $jc(_$hash, showInterstitialAdAndroid.hashCode);
+    _$hash = $jc(_$hash, showInterstitialAdIos.hashCode);
+    _$hash = $jc(_$hash, showInterstitialAdWeb.hashCode);
+    _$hash = $jc(_$hash, showAdsOnAllPlatforms.hashCode);
+    _$hash = $jc(_$hash, developersList.hashCode);
+    _$hash = $jc(_$hash, privacyPolicyUrl.hashCode);
+    _$hash = $jc(_$hash, ffRef.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
@@ -256,7 +264,8 @@ class _$AppConfigRecord extends AppConfigRecord {
           ..add('showInterstitialAdIos', showInterstitialAdIos)
           ..add('showInterstitialAdWeb', showInterstitialAdWeb)
           ..add('showAdsOnAllPlatforms', showAdsOnAllPlatforms)
-          ..add('developersRefsList', developersRefsList)
+          ..add('developersList', developersList)
+          ..add('privacyPolicyUrl', privacyPolicyUrl)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -306,13 +315,15 @@ class AppConfigRecordBuilder
   set showAdsOnAllPlatforms(bool? showAdsOnAllPlatforms) =>
       _$this._showAdsOnAllPlatforms = showAdsOnAllPlatforms;
 
-  ListBuilder<DocumentReference<Object?>>? _developersRefsList;
-  ListBuilder<DocumentReference<Object?>> get developersRefsList =>
-      _$this._developersRefsList ??=
-          new ListBuilder<DocumentReference<Object?>>();
-  set developersRefsList(
-          ListBuilder<DocumentReference<Object?>>? developersRefsList) =>
-      _$this._developersRefsList = developersRefsList;
+  DocumentReference<Object?>? _developersList;
+  DocumentReference<Object?>? get developersList => _$this._developersList;
+  set developersList(DocumentReference<Object?>? developersList) =>
+      _$this._developersList = developersList;
+
+  String? _privacyPolicyUrl;
+  String? get privacyPolicyUrl => _$this._privacyPolicyUrl;
+  set privacyPolicyUrl(String? privacyPolicyUrl) =>
+      _$this._privacyPolicyUrl = privacyPolicyUrl;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
@@ -333,7 +344,8 @@ class AppConfigRecordBuilder
       _showInterstitialAdIos = $v.showInterstitialAdIos;
       _showInterstitialAdWeb = $v.showInterstitialAdWeb;
       _showAdsOnAllPlatforms = $v.showAdsOnAllPlatforms;
-      _developersRefsList = $v.developersRefsList?.toBuilder();
+      _developersList = $v.developersList;
+      _privacyPolicyUrl = $v.privacyPolicyUrl;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -355,34 +367,22 @@ class AppConfigRecordBuilder
   AppConfigRecord build() => _build();
 
   _$AppConfigRecord _build() {
-    _$AppConfigRecord _$result;
-    try {
-      _$result = _$v ??
-          new _$AppConfigRecord._(
-              daysAfterShowAds: daysAfterShowAds,
-              showBannerAdAndroid: showBannerAdAndroid,
-              showBannerAdIOS: showBannerAdIOS,
-              showBannerAdWeb: showBannerAdWeb,
-              showInterstitialAdAndroid: showInterstitialAdAndroid,
-              showInterstitialAdIos: showInterstitialAdIos,
-              showInterstitialAdWeb: showInterstitialAdWeb,
-              showAdsOnAllPlatforms: showAdsOnAllPlatforms,
-              developersRefsList: _developersRefsList?.build(),
-              ffRef: ffRef);
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'developersRefsList';
-        _developersRefsList?.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'AppConfigRecord', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    final _$result = _$v ??
+        new _$AppConfigRecord._(
+            daysAfterShowAds: daysAfterShowAds,
+            showBannerAdAndroid: showBannerAdAndroid,
+            showBannerAdIOS: showBannerAdIOS,
+            showBannerAdWeb: showBannerAdWeb,
+            showInterstitialAdAndroid: showInterstitialAdAndroid,
+            showInterstitialAdIos: showInterstitialAdIos,
+            showInterstitialAdWeb: showInterstitialAdWeb,
+            showAdsOnAllPlatforms: showAdsOnAllPlatforms,
+            developersList: developersList,
+            privacyPolicyUrl: privacyPolicyUrl,
+            ffRef: ffRef);
     replace(_$result);
     return _$result;
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint

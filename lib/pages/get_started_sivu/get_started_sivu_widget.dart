@@ -67,6 +67,18 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
         ),
       ],
     ),
+    'textOnPageLoadAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 900.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
   };
 
   @override
@@ -121,166 +133,223 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                       fit: BoxFit.cover,
                     ),
                   ),
-                  Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
-                    child: FutureBuilder<List<EsimerkkiDataRecord>>(
-                      future: queryEsimerkkiDataRecordOnce(
-                        singleRecord: true,
-                      ),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 50.0,
-                              height: 50.0,
-                              child: SpinKitCircle(
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
-                                size: 50.0,
-                              ),
-                            ),
-                          );
-                        }
-                        List<EsimerkkiDataRecord>
-                            columnEsimerkkiDataRecordList = snapshot.data!;
-                        final columnEsimerkkiDataRecord =
-                            columnEsimerkkiDataRecordList.isNotEmpty
-                                ? columnEsimerkkiDataRecordList.first
-                                : null;
-                        return Column(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: wrapWithModel(
-                                model: _model.toistotTalteenTextModel,
-                                updateCallback: () => setState(() {}),
-                                child: ToistotTalteenTextWidget(),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 70.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 21.0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'aizxhddb' /* Tallenna treenisuoritukset */,
-                                        ),
-                                        style: TextStyle(
-                                          fontFamily: 'Satoshi',
-                                          color: Color(0xFFDADADA),
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 25.0,
-                                        ),
-                                      ).animateOnPageLoad(animationsMap[
-                                          'textOnPageLoadAnimation1']!),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          47.0, 0.0, 47.0, 37.0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'lpepy92t' /* Kirjaa muistiin treeniharjoitt... */,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          fontFamily: 'Satoshi',
-                                          color: Color(0xFF797979),
-                                          fontWeight: FontWeight.w300,
-                                          fontSize: 17.0,
-                                        ),
-                                      ).animateOnPageLoad(animationsMap[
-                                          'textOnPageLoadAnimation2']!),
-                                    ),
-                                  ),
-                                  FFButtonWidget(
-                                    onPressed: () async {
-                                      logFirebaseEvent(
-                                          'GET_STARTED_SIVU_PAGE_Button_uusi_ON_TAP');
-                                      logFirebaseEvent('Button_uusi_auth');
-                                      GoRouter.of(context).prepareAuthEvent();
-                                      final user =
-                                          await signInAnonymously(context);
-                                      if (user == null) {
-                                        return;
-                                      }
-                                      // getPlatform
-                                      logFirebaseEvent(
-                                          'Button_uusi_getPlatform');
-                                      _model.platformString =
-                                          await actions.getPlatformAsString();
-                                      // updateUsersRecord
-                                      logFirebaseEvent(
-                                          'Button_uusi_updateUsersRecord');
-
-                                      final usersUpdateData = {
-                                        ...createUsersRecordData(
-                                          appLangCode:
-                                              FFLocalizations.of(context)
-                                                  .languageCode,
-                                          uid: currentUserUid,
-                                        ),
-                                        'created_time':
-                                            FieldValue.serverTimestamp(),
-                                        'treeniRutiinit':
-                                            getTreeniRutiiniListFirestoreData(
-                                          columnEsimerkkiDataRecord!
-                                              .esimerkkiRutiinit!
-                                              .toList(),
-                                        ),
-                                      };
-                                      await currentUserReference!
-                                          .update(usersUpdateData);
-                                      logFirebaseEvent(
-                                          'Button_uusi_navigate_to');
-
-                                      context.goNamedAuth('paasivu', mounted);
-
-                                      setState(() {});
-                                    },
-                                    text: FFLocalizations.of(context).getText(
-                                      'epmt554y' /* Aloita */,
-                                    ),
-                                    options: FFButtonOptions(
-                                      width: 300.0,
-                                      height: 80.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 0.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      textStyle:
-                                          FlutterFlowTheme.of(context).title2,
-                                      borderSide: BorderSide(
-                                        color: Colors.transparent,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(30.0),
-                                    ),
-                                  ).animateOnPageLoad(animationsMap[
-                                      'buttonOnPageLoadAnimation']!),
-                                ],
-                              ),
-                            ),
-                          ],
-                        );
-                      },
+                  FutureBuilder<List<EsimerkkiDataRecord>>(
+                    future: queryEsimerkkiDataRecordOnce(
+                      singleRecord: true,
                     ),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 50.0,
+                            height: 50.0,
+                            child: SpinKitCircle(
+                              color: FlutterFlowTheme.of(context).primaryColor,
+                              size: 50.0,
+                            ),
+                          ),
+                        );
+                      }
+                      List<EsimerkkiDataRecord> columnEsimerkkiDataRecordList =
+                          snapshot.data!;
+                      final columnEsimerkkiDataRecord =
+                          columnEsimerkkiDataRecordList.isNotEmpty
+                              ? columnEsimerkkiDataRecordList.first
+                              : null;
+                      return Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: wrapWithModel(
+                              model: _model.toistotTalteenTextModel,
+                              updateCallback: () => setState(() {}),
+                              child: ToistotTalteenTextWidget(),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 70.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 50.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 21.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'aizxhddb' /* Tallenna treenisuoritukset */,
+                                            ),
+                                            style: TextStyle(
+                                              fontFamily: 'Satoshi',
+                                              color: Color(0xFFDADADA),
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 25.0,
+                                            ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'textOnPageLoadAnimation1']!),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  47.0, 0.0, 47.0, 0.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'lpepy92t' /* Kirjaa muistiin treeniharjoitt... */,
+                                            ),
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              fontFamily: 'Satoshi',
+                                              color: Color(0xFF797979),
+                                              fontWeight: FontWeight.w300,
+                                              fontSize: 17.0,
+                                            ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'textOnPageLoadAnimation2']!),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    FFButtonWidget(
+                                      onPressed: () async {
+                                        logFirebaseEvent(
+                                            'GET_STARTED_SIVU_PAGE_Button_uusi_ON_TAP');
+                                        logFirebaseEvent(
+                                            'Button_uusi_navigate_to');
+
+                                        context.pushNamed(
+                                          'kirjaudu_sivu',
+                                          queryParams: {
+                                            'initialIndex': serializeParam(
+                                              0,
+                                              ParamType.int,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      },
+                                      text: FFLocalizations.of(context).getText(
+                                        'epmt554y' /* Kirjaudu tai luo tili */,
+                                      ),
+                                      options: FFButtonOptions(
+                                        width: 300.0,
+                                        height: 80.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .subtitle1
+                                            .override(
+                                              fontFamily: 'Outfit',
+                                              fontSize: 22.0,
+                                            ),
+                                        elevation: 3.0,
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(28.0),
+                                      ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'buttonOnPageLoadAnimation']!),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 24.0, 0.0, 0.0),
+                                      child: InkWell(
+                                        onTap: () async {
+                                          logFirebaseEvent(
+                                              'GET_STARTED_SIVU_Text_lpngc9ib_ON_TAP');
+                                          logFirebaseEvent('Text_auth');
+                                          GoRouter.of(context)
+                                              .prepareAuthEvent();
+                                          final user =
+                                              await signInAnonymously(context);
+                                          if (user == null) {
+                                            return;
+                                          }
+                                          // getPlatform
+                                          logFirebaseEvent('Text_getPlatform');
+                                          _model.platformStringCopy =
+                                              await actions
+                                                  .getPlatformAsString();
+                                          // updateUsersRecord
+                                          logFirebaseEvent(
+                                              'Text_updateUsersRecord');
+
+                                          final usersUpdateData = {
+                                            ...createUsersRecordData(
+                                              appLangCode:
+                                                  FFLocalizations.of(context)
+                                                      .languageCode,
+                                              uid: currentUserUid,
+                                            ),
+                                            'created_time':
+                                                FieldValue.serverTimestamp(),
+                                            'treeniRutiinit':
+                                                getTreeniRutiiniListFirestoreData(
+                                              columnEsimerkkiDataRecord!
+                                                  .esimerkkiRutiinit!
+                                                  .toList(),
+                                            ),
+                                          };
+                                          await currentUserReference!
+                                              .update(usersUpdateData);
+                                          logFirebaseEvent('Text_navigate_to');
+
+                                          context.goNamedAuth(
+                                              'paasivu', mounted);
+
+                                          setState(() {});
+                                        },
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'rwzc4awh' /* Jatka ilman kirjautumista */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .subtitle1
+                                              .override(
+                                                fontFamily: 'Outfit',
+                                                color: Color(0xFFDADADA),
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                        ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'textOnPageLoadAnimation3']!),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      );
+                    },
                   ),
                 ],
               ),

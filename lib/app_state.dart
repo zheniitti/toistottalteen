@@ -69,7 +69,7 @@ class FFAppState extends ChangeNotifier {
     _testTimestamp = await secureStorage.read(key: 'ff_testTimestamp') != null
         ? DateTime.fromMillisecondsSinceEpoch(
             (await secureStorage.getInt('ff_testTimestamp'))!)
-        : null;
+        : _testTimestamp;
     _testTimestampList =
         (await secureStorage.getStringList('ff_testTimestampList'))
                 ?.map((x) => DateTime.fromMillisecondsSinceEpoch(int.parse(x)))

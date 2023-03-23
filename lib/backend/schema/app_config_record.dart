@@ -33,7 +33,9 @@ abstract class AppConfigRecord
 
   bool? get showAdsOnAllPlatforms;
 
-  BuiltList<DocumentReference>? get developersRefsList;
+  DocumentReference? get developersList;
+
+  String? get privacyPolicyUrl;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
@@ -48,7 +50,7 @@ abstract class AppConfigRecord
     ..showInterstitialAdIos = false
     ..showInterstitialAdWeb = false
     ..showAdsOnAllPlatforms = false
-    ..developersRefsList = ListBuilder();
+    ..privacyPolicyUrl = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('appConfig');
@@ -80,6 +82,8 @@ Map<String, dynamic> createAppConfigRecordData({
   bool? showInterstitialAdIos,
   bool? showInterstitialAdWeb,
   bool? showAdsOnAllPlatforms,
+  DocumentReference? developersList,
+  String? privacyPolicyUrl,
 }) {
   final firestoreData = serializers.toFirestore(
     AppConfigRecord.serializer,
@@ -93,7 +97,8 @@ Map<String, dynamic> createAppConfigRecordData({
         ..showInterstitialAdIos = showInterstitialAdIos
         ..showInterstitialAdWeb = showInterstitialAdWeb
         ..showAdsOnAllPlatforms = showAdsOnAllPlatforms
-        ..developersRefsList = null,
+        ..developersList = developersList
+        ..privacyPolicyUrl = privacyPolicyUrl,
     ),
   );
 

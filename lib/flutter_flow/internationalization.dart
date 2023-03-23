@@ -198,8 +198,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Track your daily workout and watch your progress!',
     },
     'epmt554y': {
-      'fi': 'Aloita',
-      'en': 'Start',
+      'fi': 'Kirjaudu tai luo tili',
+      'en': 'Create account or login',
+    },
+    'rwzc4awh': {
+      'fi': 'Jatka ilman kirjautumista',
+      'en': 'Continue without login',
     },
     '0mk4h58t': {
       'fi': 'Home',
@@ -979,10 +983,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Aloitettu: ',
       'en': 'Started: ',
     },
-    '3opv7jr7': {
-      'fi': '30 min sitten dsltkphklp',
-      'en': '',
-    },
     's3c8dkfv': {
       'fi': 'Lopeta treeni',
       'en': 'Finish workout',
@@ -995,24 +995,24 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // rutiininSarjatToistotKestoMatka
   {
     'bc5re53k': {
-      'fi': 'Sali',
-      'en': 'Other',
+      'fi': 'Saliliike',
+      'en': 'Gym exercise',
     },
     'puhl6gls': {
-      'fi': 'Muu',
+      'fi': 'Muu liike',
       'en': 'Other',
     },
     'jjypk83p': {
-      'fi': 'Tavoite sarjojen määrä',
-      'en': 'Goal of number of sets',
+      'fi': 'Sarjoja',
+      'en': 'Sets',
     },
     'qq0ca3om': {
       'fi': '0',
       'en': '0',
     },
     'lguwu79m': {
-      'fi': 'Tavoite toistojen määrä',
-      'en': 'Goal of number of reps',
+      'fi': 'Toistoja',
+      'en': 'Reps',
     },
     'i4zrk6hf': {
       'fi': '0',
@@ -1026,47 +1026,47 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': '0',
       'en': '0',
     },
-    '9xaxjmht': {
+    'g4w8isve': {
       'fi': 'Tavoitekesto',
       'en': 'Goal duration',
     },
-    'aqi4i3ec': {
+    'c41dh2o7': {
       'fi': 'Tunnit',
       'en': 'Hours',
     },
-    'lllwaw6l': {
+    '0buphc96': {
       'fi': '0',
       'en': '0',
     },
-    '0bue537t': {
+    'igqi4xj9': {
       'fi': 'Minuutit',
       'en': 'Minutes',
     },
-    'lue7nrio': {
+    'ijhiym6x': {
       'fi': '0',
       'en': '0',
     },
-    'eeqsfopl': {
+    'ujvljcrd': {
       'fi': 'Sekunnit',
       'en': 'Secs',
     },
-    'e857gqcj': {
+    'wjt4ylbn': {
       'fi': '0',
       'en': '0',
     },
-    '4ff9itxb': {
+    'djvuk9g5': {
       'fi': 'Tavoite matka (metreinä)',
       'en': 'Goal distance (meters)',
     },
-    'tloaojew': {
+    '1hygkonx': {
       'fi': '0 m',
       'en': '0 m',
     },
-    '0f93dv4i': {
+    '8brnuzhc': {
       'fi': 'Tyhjennä',
-      'en': 'Clear',
+      'en': 'Reset',
     },
-    's1jna036': {
+    'tgyswa0r': {
       'fi': 'Valmis',
       'en': 'Ready',
     },
