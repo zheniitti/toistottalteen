@@ -90,6 +90,9 @@ class FFAppState extends ChangeNotifier {
             _testLatLng;
     _isCreatingRutiini = await secureStorage.getBool('ff_isCreatingRutiini') ??
         _isCreatingRutiini;
+    _onCreationUserReference =
+        (await secureStorage.getString('ff_onCreationUserReference'))?.ref ??
+            _onCreationUserReference;
   }
 
   void update(VoidCallback callback) {
@@ -534,6 +537,19 @@ class FFAppState extends ChangeNotifier {
   int get valittuMuokattavaLiikeIndex => _valittuMuokattavaLiikeIndex;
   set valittuMuokattavaLiikeIndex(int _value) {
     _valittuMuokattavaLiikeIndex = _value;
+  }
+
+  DocumentReference? _onCreationUserReference;
+  DocumentReference? get onCreationUserReference => _onCreationUserReference;
+  set onCreationUserReference(DocumentReference? _value) {
+    _onCreationUserReference = _value;
+    _value != null
+        ? secureStorage.setString('ff_onCreationUserReference', _value.path)
+        : secureStorage.remove('ff_onCreationUserReference');
+  }
+
+  void deleteOnCreationUserReference() {
+    secureStorage.delete(key: 'ff_onCreationUserReference');
   }
 }
 

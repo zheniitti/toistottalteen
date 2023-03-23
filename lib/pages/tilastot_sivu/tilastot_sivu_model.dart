@@ -1,6 +1,5 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/sivupalkki/sivupalkki_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -13,21 +12,15 @@ import 'package:provider/provider.dart';
 class TilastotSivuModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
-  // Model for sivupalkki component.
-  late SivupalkkiModel sivupalkkiModel;
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownController;
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {
-    sivupalkkiModel = createModel(context, () => SivupalkkiModel());
-  }
+  void initState(BuildContext context) {}
 
-  void dispose() {
-    sivupalkkiModel.dispose();
-  }
+  void dispose() {}
 
   /// Additional helper methods are added here.
 

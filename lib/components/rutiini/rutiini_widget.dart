@@ -1373,7 +1373,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                             widget.rutiini,
                                             null,
                                             null,
-                                            true,
+                                            false,
                                             true,
                                             null,
                                             _model.textFieldNimiController.text,

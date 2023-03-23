@@ -234,6 +234,7 @@ ValitutViikonPaivatStruct myCreateValitutViikonPaivat(
 
 int remainingMinutes(double? seconds) {
   if (seconds == null) return 0;
+
   int minutes = ((seconds % 3600) ~/ 60).toInt();
   return minutes;
 }

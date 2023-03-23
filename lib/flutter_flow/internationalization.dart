@@ -190,13 +190,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'aizxhddb': {
       'fi': 'Tallenna treenisuoritukset',
-      'en': 'Save routine',
+      'en': 'Save daily workouts',
     },
     'lpepy92t': {
       'fi':
           'Kirjaa muistiin treeniharjoitteet ja seuraa kehitystäsi. Vie treenamisesi seuraavalle tasolle!',
-      'en':
-          'Kirjaa muistiin treeniharjoitteet ja seuraa kehitystäsi. Vie treenamisesi seuraavalle tasolle!',
+      'en': 'Track your daily workout and watch your progress!',
     },
     'epmt554y': {
       'fi': 'Aloita',

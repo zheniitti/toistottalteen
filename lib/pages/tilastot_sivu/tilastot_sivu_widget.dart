@@ -1,6 +1,5 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/sivupalkki/sivupalkki_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -50,14 +49,6 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      drawer: Drawer(
-        elevation: 16.0,
-        child: wrapWithModel(
-          model: _model.sivupalkkiModel,
-          updateCallback: () => setState(() {}),
-          child: SivupalkkiWidget(),
-        ),
-      ),
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         automaticallyImplyLeading: true,
