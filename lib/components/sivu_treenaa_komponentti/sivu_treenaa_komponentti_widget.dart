@@ -193,11 +193,7 @@ class _SivuTreenaaKomponenttiWidgetState
                                           ),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2
-                                                  .override(
-                                                    fontFamily: 'Roboto',
-                                                    fontSize: 20.0,
-                                                  ),
+                                                  .subtitle1,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -406,8 +402,8 @@ class _SivuTreenaaKomponenttiWidgetState
                       logFirebaseEvent(
                           'Container_painike_uusiLiike_custom_actio');
                       _model.luotuLiike = await actions.createLiike(
-                        null,
-                        null,
+                        '',
+                        '',
                         null,
                         _model.luotuTyhjaSarja?.toList(),
                       );

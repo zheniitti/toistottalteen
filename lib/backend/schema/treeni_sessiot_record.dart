@@ -21,8 +21,6 @@ abstract class TreeniSessiotRecord
 
   DateTime? get docCreatedTime;
 
-  bool? get showComment;
-
   BuiltList<String>? get photos;
 
   bool? get isEditing;
@@ -35,7 +33,6 @@ abstract class TreeniSessiotRecord
 
   static void _initializeBuilder(TreeniSessiotRecordBuilder builder) => builder
     ..treeniRutiiniData = TreeniRutiiniStructBuilder()
-    ..showComment = false
     ..photos = ListBuilder()
     ..isEditing = false;
 
@@ -67,7 +64,6 @@ Map<String, dynamic> createTreeniSessiotRecordData({
   DateTime? loppu,
   TreeniRutiiniStruct? treeniRutiiniData,
   DateTime? docCreatedTime,
-  bool? showComment,
   bool? isEditing,
   DateTime? lastModifiedTime,
 }) {
@@ -80,7 +76,6 @@ Map<String, dynamic> createTreeniSessiotRecordData({
         ..loppu = loppu
         ..treeniRutiiniData = TreeniRutiiniStructBuilder()
         ..docCreatedTime = docCreatedTime
-        ..showComment = showComment
         ..photos = null
         ..isEditing = isEditing
         ..lastModifiedTime = lastModifiedTime,

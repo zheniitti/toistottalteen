@@ -2,6 +2,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/instant_timer.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/gestures.dart';
@@ -22,12 +23,15 @@ class WorkoutDurationTextModel extends FlutterFlowModel {
   String timerValue = StopWatchTimer.getDisplayTime(0, milliSecond: false);
   StopWatchTimer timerController = StopWatchTimer(mode: StopWatchMode.countUp);
 
+  InstantTimer? instantTimer;
+
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}
 
   void dispose() {
     timerController.dispose();
+    instantTimer?.cancel();
   }
 
   /// Additional helper methods are added here.

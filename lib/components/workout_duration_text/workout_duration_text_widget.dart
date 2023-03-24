@@ -2,6 +2,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/instant_timer.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/gestures.dart';
@@ -72,13 +73,12 @@ class _WorkoutDurationTextWidgetState extends State<WorkoutDurationTextWidget> {
               },
               onEnded: () async {
                 logFirebaseEvent('WORKOUT_DURATION_TEXT_Timer_vhzwv593_ON_');
-                logFirebaseEvent('Timer_update_widget_state');
-                setState(() {
-                  _model.durationString = functions.durationFromStartEnd(
-                      widget.sessioDoc!.alku,
-                      widget.sessioDoc!.loppu,
-                      FFLocalizations.of(context).languageCode);
-                });
+                logFirebaseEvent('Timer_start_periodic_action');
+                _model.instantTimer = InstantTimer.periodic(
+                  duration: Duration(milliseconds: 1000),
+                  callback: (timer) async {},
+                  startImmediately: true,
+                );
               },
               textAlign: TextAlign.start,
               style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -94,7 +94,7 @@ class _WorkoutDurationTextWidgetState extends State<WorkoutDurationTextWidget> {
                     text: FFLocalizations.of(context).getText(
                       '5hy3i3cg' /* Aikaa kulunut:  */,
                     ),
-                    style: FlutterFlowTheme.of(context).subtitle2.override(
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily: 'Roboto',
                           color: FlutterFlowTheme.of(context).secondaryColor,
                         ),

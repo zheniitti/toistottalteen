@@ -181,9 +181,7 @@ class _KeskenerainenTreeniKomponenttiWidgetState
                       clipBehavior: Clip.none,
                       children: [
                         Text(
-                          FFLocalizations.of(context).getText(
-                            '2umh30ea' /* Ylävartalotreeni */,
-                          ),
+                          widget.sessio!.treeniRutiiniData.nimi!,
                           style: FlutterFlowTheme.of(context).subtitle2,
                         ),
                         RichText(

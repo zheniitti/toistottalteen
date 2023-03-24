@@ -58,13 +58,6 @@ class _$TreeniSessiotRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(DateTime)));
     }
-    value = object.showComment;
-    if (value != null) {
-      result
-        ..add('showComment')
-        ..add(
-            serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
     value = object.photos;
     if (value != null) {
       result
@@ -133,10 +126,6 @@ class _$TreeniSessiotRecordSerializer
           result.docCreatedTime = serializers.deserialize(value,
               specifiedType: const FullType(DateTime)) as DateTime?;
           break;
-        case 'showComment':
-          result.showComment = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool?;
-          break;
         case 'photos':
           result.photos.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
@@ -176,8 +165,6 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
   @override
   final DateTime? docCreatedTime;
   @override
-  final bool? showComment;
-  @override
   final BuiltList<String>? photos;
   @override
   final bool? isEditing;
@@ -196,7 +183,6 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
       this.loppu,
       required this.treeniRutiiniData,
       this.docCreatedTime,
-      this.showComment,
       this.photos,
       this.isEditing,
       this.lastModifiedTime,
@@ -224,7 +210,6 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
         loppu == other.loppu &&
         treeniRutiiniData == other.treeniRutiiniData &&
         docCreatedTime == other.docCreatedTime &&
-        showComment == other.showComment &&
         photos == other.photos &&
         isEditing == other.isEditing &&
         lastModifiedTime == other.lastModifiedTime &&
@@ -239,7 +224,6 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
     _$hash = $jc(_$hash, loppu.hashCode);
     _$hash = $jc(_$hash, treeniRutiiniData.hashCode);
     _$hash = $jc(_$hash, docCreatedTime.hashCode);
-    _$hash = $jc(_$hash, showComment.hashCode);
     _$hash = $jc(_$hash, photos.hashCode);
     _$hash = $jc(_$hash, isEditing.hashCode);
     _$hash = $jc(_$hash, lastModifiedTime.hashCode);
@@ -256,7 +240,6 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
           ..add('loppu', loppu)
           ..add('treeniRutiiniData', treeniRutiiniData)
           ..add('docCreatedTime', docCreatedTime)
-          ..add('showComment', showComment)
           ..add('photos', photos)
           ..add('isEditing', isEditing)
           ..add('lastModifiedTime', lastModifiedTime)
@@ -292,10 +275,6 @@ class TreeniSessiotRecordBuilder
   set docCreatedTime(DateTime? docCreatedTime) =>
       _$this._docCreatedTime = docCreatedTime;
 
-  bool? _showComment;
-  bool? get showComment => _$this._showComment;
-  set showComment(bool? showComment) => _$this._showComment = showComment;
-
   ListBuilder<String>? _photos;
   ListBuilder<String> get photos =>
       _$this._photos ??= new ListBuilder<String>();
@@ -326,7 +305,6 @@ class TreeniSessiotRecordBuilder
       _loppu = $v.loppu;
       _treeniRutiiniData = $v.treeniRutiiniData.toBuilder();
       _docCreatedTime = $v.docCreatedTime;
-      _showComment = $v.showComment;
       _photos = $v.photos?.toBuilder();
       _isEditing = $v.isEditing;
       _lastModifiedTime = $v.lastModifiedTime;
@@ -360,7 +338,6 @@ class TreeniSessiotRecordBuilder
               loppu: loppu,
               treeniRutiiniData: treeniRutiiniData.build(),
               docCreatedTime: docCreatedTime,
-              showComment: showComment,
               photos: _photos?.build(),
               isEditing: isEditing,
               lastModifiedTime: lastModifiedTime,

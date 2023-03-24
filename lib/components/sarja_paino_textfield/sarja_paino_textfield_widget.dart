@@ -65,7 +65,6 @@ class _SarjaPainoTextfieldWidgetState extends State<SarjaPainoTextfieldWidget> {
         Duration(milliseconds: 300),
         () => setState(() {}),
       ),
-      autofocus: true,
       obscureText: false,
       decoration: InputDecoration(
         hintText: FFLocalizations.of(context).getText(

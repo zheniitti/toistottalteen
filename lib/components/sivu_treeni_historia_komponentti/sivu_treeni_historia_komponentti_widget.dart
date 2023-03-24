@@ -2,10 +2,10 @@ import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/button_aloita_treenaaminen/button_aloita_treenaaminen_widget.dart';
 import '/components/button_luo_rutiini/button_luo_rutiini_widget.dart';
-import '/components/keskenerainen_treeni_komponentti/keskenerainen_treeni_komponentti_widget.dart';
 import '/components/sessio_chunk_lista_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -93,6 +93,42 @@ class _SivuTreeniHistoriaKomponenttiWidgetState
                 children: [
                   Padding(
                     padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
+                    child: FFButtonWidget(
+                      onPressed: () {
+                        print('Button pressed ...');
+                      },
+                      text: FFLocalizations.of(context).getText(
+                        'i315lsnw' /* Lisää treeni */,
+                      ),
+                      options: FFButtonOptions(
+                        width: 240.0,
+                        height: 70.0,
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).primaryColor,
+                        textStyle: FlutterFlowTheme.of(context)
+                            .subtitle1
+                            .override(
+                              fontFamily: 'Outfit',
+                              color:
+                                  FlutterFlowTheme.of(context).secondaryColor,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                        elevation: 1.0,
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 20.0, 16.0, 150.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -162,54 +198,6 @@ class _SivuTreeniHistoriaKomponenttiWidgetState
                               ),
                             ),
                           ),
-                        if (false)
-                          Container(
-                            width: double.infinity,
-                            height: 300.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              borderRadius: BorderRadius.circular(22.0),
-                            ),
-                            child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  'clxdf658' /* heatmap calendar
-(tulossa) */
-                                  ,
-                                ),
-                                textAlign: TextAlign.center,
-                                style: FlutterFlowTheme.of(context).bodyText1,
-                              ),
-                            ),
-                          ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 50.0, 0.0, 0.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              if ((widget.latestSessioStreamDoc != null) &&
-                                  (widget.latestSessioStreamDoc!.loppu ==
-                                      null) &&
-                                  false)
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 30.0),
-                                  child: wrapWithModel(
-                                    model: _model
-                                        .keskenerainenTreeniKomponenttiModel,
-                                    updateCallback: () => setState(() {}),
-                                    updateOnChange: true,
-                                    child: KeskenerainenTreeniKomponenttiWidget(
-                                      sessio: widget.latestSessioStreamDoc,
-                                    ),
-                                  ),
-                                ),
-                            ],
-                          ),
-                        ),
                         wrapWithModel(
                           model: _model.sessioChunkListaModel,
                           updateCallback: () => setState(() {}),

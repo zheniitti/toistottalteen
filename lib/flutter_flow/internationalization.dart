@@ -764,13 +764,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // sivu_treeniHistoria_komponentti
   {
+    'i315lsnw': {
+      'fi': 'Lisää treeni',
+      'en': 'Add workout',
+    },
     'uur18ydl': {
       'fi': 'Tämä sivu on tyhjä koska sinulla ei ole vielä tehtyjä treenejä',
       'en': 'This page is empty because you don\'t have finished workouts yet',
-    },
-    'clxdf658': {
-      'fi': 'heatmap calendar\n(tulossa)',
-      'en': 'heatmap calendar\n(available soon)',
     },
   },
   // bottomSheet_rutiiniJaSessio
@@ -944,18 +944,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': ' toistoa',
       'en': ' reps',
     },
-    'fyqh7yhs': {
-      'fi': ' tuntia ',
-      'en': ' hours ',
-    },
-    '0wep025x': {
-      'fi': 'minuuttia ',
-      'en': 'minutes ',
-    },
-    'uzijomut': {
-      'fi': ' sekuntia',
-      'en': ' seconds',
-    },
     'kyunprgy': {
       'fi': ' tuntia ',
       'en': ' hours ',
@@ -974,10 +962,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'tghu42c9': {
       'fi': 'Sinulla on keskeneräinen treeni',
       'en': 'You have an unfinished workout',
-    },
-    '2umh30ea': {
-      'fi': 'Ylävartalotreeni',
-      'en': 'Upper body workout',
     },
     'j7w2zxkt': {
       'fi': 'Aloitettu: ',
@@ -1019,16 +1003,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '0',
     },
     'o3f0pnq1': {
-      'fi': 'Aloituspaino',
-      'en': 'Starting weigth',
+      'fi': 'Paino',
+      'en': 'Weigth',
     },
     '7x1niggu': {
       'fi': '0',
       'en': '0',
-    },
-    'g4w8isve': {
-      'fi': 'Tavoitekesto',
-      'en': 'Goal duration',
     },
     'c41dh2o7': {
       'fi': 'Tunnit',

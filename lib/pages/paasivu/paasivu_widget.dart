@@ -557,6 +557,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                 stream: queryTreeniSessiotRecord(
                   queryBuilder: (treeniSessiotRecord) => treeniSessiotRecord
                       .where('userRef', isEqualTo: currentUserReference)
+                      .where('loppu', isEqualTo: null)
                       .orderBy('docCreatedTime', descending: true),
                   singleRecord: true,
                 ),
@@ -1180,38 +1181,40 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .secondaryColor,
+                                                                .deleteRed,
                                                         size: 30.0,
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    2.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'ouj3p8pa' /* Lopeta treeni */,
+                                                      if (false)
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      2.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'ouj3p8pa' /* Lopeta treeni */,
+                                                            ),
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyText1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryColor,
+                                                                  fontSize:
+                                                                      12.0,
+                                                                ),
                                                           ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryColor,
-                                                                fontSize: 12.0,
-                                                              ),
                                                         ),
-                                                      ),
                                                     ],
                                                   ),
                                                 ),

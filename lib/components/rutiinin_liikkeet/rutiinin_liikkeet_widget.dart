@@ -203,14 +203,18 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                   },
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       if (widget.rutiini!.finishedEditing!
                                           ? (valueOrDefault<bool>(
                                                 liikkeetItem.sarjaMaara! > 0,
                                                 false,
                                               ) &&
-                                              (liikkeetItem.toistoMaara! > 0))
-                                          : true)
+                                              (liikkeetItem.toistoMaara! > 0) &&
+                                              !liikkeetItem
+                                                  .isOtherExerciseType!)
+                                          : !liikkeetItem.isOtherExerciseType!)
                                         RichText(
                                           text: TextSpan(
                                             children: [
@@ -287,115 +291,6 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                   VerticalDirection.down,
                                               clipBehavior: Clip.none,
                                               children: [
-                                                Visibility(
-                                                  visible: widget.rutiini!
-                                                          .finishedEditing!
-                                                      ? (valueOrDefault<bool>(
-                                                            liikkeetItem
-                                                                    .kestoSekunteina! >
-                                                                0.0,
-                                                            false,
-                                                          ) &&
-                                                          true)
-                                                      : true,
-                                                  child: RichText(
-                                                    text: TextSpan(
-                                                      children: [
-                                                        TextSpan(
-                                                          text: functions
-                                                              .remainingHours(
-                                                                  liikkeetItem
-                                                                      .kestoSekunteina)
-                                                              .toString(),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                fontSize: 14.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                              ),
-                                                        ),
-                                                        TextSpan(
-                                                          text: FFLocalizations
-                                                                  .of(context)
-                                                              .getText(
-                                                            'fyqh7yhs' /*  tuntia  */,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                fontSize: 14.0,
-                                                              ),
-                                                        ),
-                                                        TextSpan(
-                                                          text: functions
-                                                              .remainingMinutes(
-                                                                  liikkeetItem
-                                                                      .kestoSekunteina)
-                                                              .toString(),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                              ),
-                                                        ),
-                                                        TextSpan(
-                                                          text: FFLocalizations
-                                                                  .of(context)
-                                                              .getText(
-                                                            '0wep025x' /* minuuttia  */,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1,
-                                                        ),
-                                                        TextSpan(
-                                                          text: functions
-                                                              .remainingSeconds(
-                                                                  liikkeetItem
-                                                                      .kestoSekunteina)
-                                                              .toString(),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                              ),
-                                                        ),
-                                                        TextSpan(
-                                                          text: FFLocalizations
-                                                                  .of(context)
-                                                              .getText(
-                                                            'uzijomut' /*  sekuntia */,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyText1,
-                                                        )
-                                                      ],
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyText1,
-                                                    ),
-                                                  ),
-                                                ),
                                                 Visibility(
                                                   visible: widget.rutiini!
                                                           .finishedEditing!

@@ -290,48 +290,28 @@ class _SivuRutiinitKomponenttiWidgetState
         if (FFAppState().valittuMuokattavaRutiini != null
             ? (FFAppState().valittuMuokattavaLiikeIndex >= 0)
             : false)
-          InkWell(
-            onTap: () async {
-              logFirebaseEvent('SIVU_RUTIINIT_KOMPONENTTI_Blur_ld0ydeuf_');
-              logFirebaseEvent('Blur_update_app_state');
-              FFAppState().update(() {
-                FFAppState().valittuMuokattavaRutiini = null;
-                FFAppState().valittuMuokattavaLiikeIndex = -1;
-              });
-            },
-            child: Builder(builder: (_) {
-              final child = InkWell(
-                onTap: () async {
-                  logFirebaseEvent('SIVU_RUTIINIT_KOMPONENTTI_Container_alug');
-                  logFirebaseEvent('Container_update_app_state');
-                  FFAppState().update(() {
-                    FFAppState().valittuMuokattavaRutiini = null;
-                    FFAppState().valittuMuokattavaLiikeIndex = -1;
-                  });
-                },
-                child: Container(
-                  width: MediaQuery.of(context).size.width * 1.0,
-                  height: MediaQuery.of(context).size.height * 1.0,
-                  decoration: BoxDecoration(),
+          Builder(builder: (_) {
+            final child = Container(
+              width: MediaQuery.of(context).size.width * 1.0,
+              height: MediaQuery.of(context).size.height * 1.0,
+              decoration: BoxDecoration(),
+            );
+            if (FFAppState().valittuMuokattavaRutiini != null
+                ? (FFAppState().valittuMuokattavaLiikeIndex != null)
+                : false) {
+              return ClipRRect(
+                borderRadius: BorderRadius.circular(0.0),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(
+                    sigmaX: 3.0,
+                    sigmaY: 3.0,
+                  ),
+                  child: child,
                 ),
               );
-              if (FFAppState().valittuMuokattavaRutiini != null
-                  ? (FFAppState().valittuMuokattavaLiikeIndex != null)
-                  : false) {
-                return ClipRRect(
-                  borderRadius: BorderRadius.circular(0.0),
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(
-                      sigmaX: 3.0,
-                      sigmaY: 3.0,
-                    ),
-                    child: child,
-                  ),
-                );
-              }
-              return child;
-            }),
-          ).animateOnPageLoad(animationsMap['blurOnPageLoadAnimation']!),
+            }
+            return child;
+          }).animateOnPageLoad(animationsMap['blurOnPageLoadAnimation']!),
         if (FFAppState().valittuMuokattavaRutiini != null
             ? (FFAppState().valittuMuokattavaLiikeIndex >= 0)
             : false)

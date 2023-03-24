@@ -67,7 +67,6 @@ class _SarjaToistotTextfieldWidgetState
         Duration(milliseconds: 300),
         () => setState(() {}),
       ),
-      autofocus: true,
       obscureText: false,
       decoration: InputDecoration(
         hintText: FFLocalizations.of(context).getText(
@@ -106,10 +105,7 @@ class _SarjaToistotTextfieldWidgetState
           borderRadius: BorderRadius.circular(8.0),
         ),
       ),
-      style: FlutterFlowTheme.of(context).subtitle2.override(
-            fontFamily: 'Roboto',
-            fontSize: 20.0,
-          ),
+      style: FlutterFlowTheme.of(context).title3,
       textAlign: TextAlign.center,
       keyboardType: TextInputType.number,
       validator: _model.textControllerValidator.asValidator(context),

@@ -273,76 +273,20 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                           value: _model.switchValue ??= false,
                           onChanged: (newValue) async {
                             setState(() => _model.switchValue = newValue!);
-                            if (newValue!) {
+
+                            if (!newValue!) {
                               logFirebaseEvent(
                                   'RUTIININ_SARJAT_TOISTOT_KESTO_MATKA_Swit');
-                              logFirebaseEvent('Switch_custom_action');
-                              await actions.myUpdateLiikeAtIndex(
-                                widget.liikeIndex!,
-                                widget.rutiini,
-                                widget.rutiini?.liikkeet
-                                    ?.toList()?[widget.liikeIndex]
-                                    ?.nimi,
-                                null,
-                                int.tryParse(_model.textController2.text),
-                                int.tryParse(_model.textController1.text),
-                                double.tryParse(_model.textController3.text),
-                                _model.switchValue,
-                                null,
-                                null,
-                                double.tryParse(_model.textController7.text),
-                                functions.toSeconds(
-                                    int.tryParse(_model.textController4.text),
-                                    int.tryParse(_model.textController5.text),
-                                    double.tryParse(
-                                        _model.textController6.text)),
-                              );
-                              if (_model.switchValue!) {
+                              if (!true) {
                                 logFirebaseEvent('Switch_widget_animation');
                                 if (animationsMap[
-                                        'wrapOnActionTriggerAnimation'] !=
+                                        'columnOnActionTriggerAnimation'] !=
                                     null) {
                                   await animationsMap[
-                                          'wrapOnActionTriggerAnimation']!
+                                          'columnOnActionTriggerAnimation']!
                                       .controller
                                       .forward(from: 0.0);
                                 }
-                                return;
-                              } else {
-                                return;
-                              }
-                            } else {
-                              logFirebaseEvent(
-                                  'RUTIININ_SARJAT_TOISTOT_KESTO_MATKA_Swit');
-                              logFirebaseEvent('Switch_custom_action');
-                              await actions.myUpdateLiikeAtIndex(
-                                widget.liikeIndex!,
-                                widget.rutiini,
-                                widget.rutiini?.liikkeet
-                                    ?.toList()?[widget.liikeIndex]
-                                    ?.nimi,
-                                null,
-                                int.tryParse(_model.textController2.text),
-                                int.tryParse(_model.textController1.text),
-                                double.tryParse(_model.textController3.text),
-                                _model.switchValue,
-                                null,
-                                null,
-                                double.tryParse(_model.textController7.text),
-                                functions.toSeconds(
-                                    int.tryParse(_model.textController4.text),
-                                    int.tryParse(_model.textController5.text),
-                                    double.tryParse(
-                                        _model.textController6.text)),
-                              );
-                              logFirebaseEvent('Switch_widget_animation');
-                              if (animationsMap[
-                                      'columnOnActionTriggerAnimation'] !=
-                                  null) {
-                                await animationsMap[
-                                        'columnOnActionTriggerAnimation']!
-                                    .controller
-                                    .forward(from: 0.0);
                               }
                             }
                           },
@@ -378,14 +322,12 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                 ],
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 12.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
-                      child: Wrap(
+                    if (!_model.switchValue!)
+                      Wrap(
                         spacing: 12.0,
                         runSpacing: 18.0,
                         alignment: WrapAlignment.center,
@@ -683,7 +625,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                 decoration: InputDecoration(
                                   labelText:
                                       FFLocalizations.of(context).getText(
-                                    'o3f0pnq1' /* Aloituspaino */,
+                                    'o3f0pnq1' /* Paino */,
                                   ),
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .bodyText2
@@ -762,7 +704,6 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                           .animateOnActionTrigger(
                             animationsMap['wrapOnActionTriggerAnimation']!,
                           ),
-                    ),
                     if (_model.switchValue ?? true)
                       Container(
                         decoration: BoxDecoration(),
@@ -770,16 +711,6 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 8.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  'g4w8isve' /* Tavoitekesto */,
-                                ),
-                                style: FlutterFlowTheme.of(context).bodyText1,
-                              ),
-                            ),
                             Wrap(
                               spacing: 12.0,
                               runSpacing: 14.0,
@@ -926,9 +857,6 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                         validator: _model
                                             .textController4Validator
                                             .asValidator(context),
-                                        inputFormatters: [
-                                          _model.textFieldMask4
-                                        ],
                                       ),
                                     ),
                                     Container(
@@ -1057,7 +985,8 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                             .textController5Validator
                                             .asValidator(context),
                                         inputFormatters: [
-                                          _model.textFieldMask5
+                                          FilteringTextInputFormatter.allow(
+                                              RegExp('[1-5][0-9]'))
                                         ],
                                       ),
                                     ),
@@ -1187,7 +1116,8 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                             .textController6Validator
                                             .asValidator(context),
                                         inputFormatters: [
-                                          _model.textFieldMask6
+                                          FilteringTextInputFormatter.allow(RegExp(
+                                              '^(?:[0-9]|[1-5][0-9])(?:\\.\\d{1,3})?\$'))
                                         ],
                                       ),
                                     ),
@@ -1369,8 +1299,8 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                     validator: _model.textController7Validator
                                         .asValidator(context),
                                     inputFormatters: [
-                                      FilteringTextInputFormatter.allow(
-                                          RegExp('/\\d{5}\\.\\d{3}/'))
+                                      FilteringTextInputFormatter.allow(RegExp(
+                                          '(-?)(0|([1-9][0-9]*))(\\\\.[0-9]+)?\$'))
                                     ],
                                   ),
                                 ),

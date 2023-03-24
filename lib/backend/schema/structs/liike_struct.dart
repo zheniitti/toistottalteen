@@ -25,8 +25,6 @@ abstract class LiikeStruct implements Built<LiikeStruct, LiikeStructBuilder> {
 
   bool? get tehty;
 
-  bool? get showComment;
-
   BuiltList<String>? get photos;
 
   double? get kestoSekunteina;
@@ -45,7 +43,6 @@ abstract class LiikeStruct implements Built<LiikeStruct, LiikeStructBuilder> {
     ..aloitusPainoKg = 0.0
     ..matkaMetri = 0.0
     ..tehty = false
-    ..showComment = false
     ..photos = ListBuilder()
     ..kestoSekunteina = 0.0
     ..isOtherExerciseType = false
@@ -64,7 +61,6 @@ LiikeStruct createLiikeStruct({
   double? aloitusPainoKg,
   double? matkaMetri,
   bool? tehty,
-  bool? showComment,
   double? kestoSekunteina,
   bool? isOtherExerciseType,
   Map<String, dynamic> fieldValues = const {},
@@ -82,7 +78,6 @@ LiikeStruct createLiikeStruct({
         ..aloitusPainoKg = aloitusPainoKg
         ..matkaMetri = matkaMetri
         ..tehty = tehty
-        ..showComment = showComment
         ..photos = null
         ..kestoSekunteina = kestoSekunteina
         ..isOtherExerciseType = isOtherExerciseType

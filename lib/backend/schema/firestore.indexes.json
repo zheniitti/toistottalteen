@@ -23,6 +23,10 @@
           "order": "ASCENDING"
         },
         {
+          "fieldPath": "loppu",
+          "order": "ASCENDING"
+        },
+        {
           "fieldPath": "docCreatedTime",
           "order": "DESCENDING"
         }

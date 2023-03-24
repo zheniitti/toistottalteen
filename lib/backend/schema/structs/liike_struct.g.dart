@@ -74,13 +74,6 @@ class _$LiikeStructSerializer implements StructuredSerializer<LiikeStruct> {
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
-    value = object.showComment;
-    if (value != null) {
-      result
-        ..add('showComment')
-        ..add(
-            serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
     value = object.photos;
     if (value != null) {
       result
@@ -151,10 +144,6 @@ class _$LiikeStructSerializer implements StructuredSerializer<LiikeStruct> {
           result.tehty = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
           break;
-        case 'showComment':
-          result.showComment = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool?;
-          break;
         case 'photos':
           result.photos.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
@@ -199,8 +188,6 @@ class _$LiikeStruct extends LiikeStruct {
   @override
   final bool? tehty;
   @override
-  final bool? showComment;
-  @override
   final BuiltList<String>? photos;
   @override
   final double? kestoSekunteina;
@@ -221,7 +208,6 @@ class _$LiikeStruct extends LiikeStruct {
       this.aloitusPainoKg,
       this.matkaMetri,
       this.tehty,
-      this.showComment,
       this.photos,
       this.kestoSekunteina,
       this.isOtherExerciseType,
@@ -251,7 +237,6 @@ class _$LiikeStruct extends LiikeStruct {
         aloitusPainoKg == other.aloitusPainoKg &&
         matkaMetri == other.matkaMetri &&
         tehty == other.tehty &&
-        showComment == other.showComment &&
         photos == other.photos &&
         kestoSekunteina == other.kestoSekunteina &&
         isOtherExerciseType == other.isOtherExerciseType &&
@@ -269,7 +254,6 @@ class _$LiikeStruct extends LiikeStruct {
     _$hash = $jc(_$hash, aloitusPainoKg.hashCode);
     _$hash = $jc(_$hash, matkaMetri.hashCode);
     _$hash = $jc(_$hash, tehty.hashCode);
-    _$hash = $jc(_$hash, showComment.hashCode);
     _$hash = $jc(_$hash, photos.hashCode);
     _$hash = $jc(_$hash, kestoSekunteina.hashCode);
     _$hash = $jc(_$hash, isOtherExerciseType.hashCode);
@@ -289,7 +273,6 @@ class _$LiikeStruct extends LiikeStruct {
           ..add('aloitusPainoKg', aloitusPainoKg)
           ..add('matkaMetri', matkaMetri)
           ..add('tehty', tehty)
-          ..add('showComment', showComment)
           ..add('photos', photos)
           ..add('kestoSekunteina', kestoSekunteina)
           ..add('isOtherExerciseType', isOtherExerciseType)
@@ -335,10 +318,6 @@ class LiikeStructBuilder implements Builder<LiikeStruct, LiikeStructBuilder> {
   bool? get tehty => _$this._tehty;
   set tehty(bool? tehty) => _$this._tehty = tehty;
 
-  bool? _showComment;
-  bool? get showComment => _$this._showComment;
-  set showComment(bool? showComment) => _$this._showComment = showComment;
-
   ListBuilder<String>? _photos;
   ListBuilder<String> get photos =>
       _$this._photos ??= new ListBuilder<String>();
@@ -374,7 +353,6 @@ class LiikeStructBuilder implements Builder<LiikeStruct, LiikeStructBuilder> {
       _aloitusPainoKg = $v.aloitusPainoKg;
       _matkaMetri = $v.matkaMetri;
       _tehty = $v.tehty;
-      _showComment = $v.showComment;
       _photos = $v.photos?.toBuilder();
       _kestoSekunteina = $v.kestoSekunteina;
       _isOtherExerciseType = $v.isOtherExerciseType;
@@ -411,7 +389,6 @@ class LiikeStructBuilder implements Builder<LiikeStruct, LiikeStructBuilder> {
               aloitusPainoKg: aloitusPainoKg,
               matkaMetri: matkaMetri,
               tehty: tehty,
-              showComment: showComment,
               photos: _photos?.build(),
               kestoSekunteina: kestoSekunteina,
               isOtherExerciseType: isOtherExerciseType,

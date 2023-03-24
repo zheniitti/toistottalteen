@@ -12,7 +12,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 
 class RutiininSarjatToistotKestoMatkaModel extends FlutterFlowModel {
@@ -31,15 +30,12 @@ class RutiininSarjatToistotKestoMatkaModel extends FlutterFlowModel {
   String? Function(BuildContext, String?)? textController3Validator;
   // State field(s) for TextField widget.
   TextEditingController? textController4;
-  final textFieldMask4 = MaskTextInputFormatter(mask: '###');
   String? Function(BuildContext, String?)? textController4Validator;
   // State field(s) for TextField widget.
   TextEditingController? textController5;
-  final textFieldMask5 = MaskTextInputFormatter(mask: '##');
   String? Function(BuildContext, String?)? textController5Validator;
   // State field(s) for TextField widget.
   TextEditingController? textController6;
-  final textFieldMask6 = MaskTextInputFormatter(mask: '##');
   String? Function(BuildContext, String?)? textController6Validator;
   // State field(s) for TextField widget.
   TextEditingController? textController7;

@@ -12,3 +12,5 @@ export 'my_update_sarja_at_index.dart' show myUpdateSarjaAtIndex;
 export 'my_update_treeni_rutiini_struct.dart' show myUpdateTreeniRutiiniStruct;
 export 'my_update_rutiinin_valitut_paivat.dart'
     show myUpdateRutiininValitutPaivat;
+export 'update_user_doc_treenirutiini_copy.dart'
+    show updateUserDocTreenirutiiniCopy;

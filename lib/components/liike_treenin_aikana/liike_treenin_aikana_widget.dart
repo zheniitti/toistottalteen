@@ -39,13 +39,25 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
   late LiikeTreeninAikanaModel _model;
 
   final animationsMap = {
-    'containerOnPageLoadAnimation': AnimationInfo(
+    'containerOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 300.ms,
           duration: 1200.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'containerOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
           begin: 0.0,
           end: 1.0,
         ),
@@ -117,7 +129,6 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                             20.0, 9.0, 20.0, 0.0),
                         child: TextFormField(
                           controller: _model.textController1,
-                          autofocus: true,
                           obscureText: false,
                           decoration: InputDecoration(
                             isDense: true,
@@ -174,7 +185,6 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                           style:
                               FlutterFlowTheme.of(context).subtitle1.override(
                                     fontFamily: 'Outfit',
-                                    fontWeight: FontWeight.w500,
                                     lineHeight: 1.0,
                                   ),
                           textAlign: TextAlign.center,
@@ -184,7 +194,7 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                               .asValidator(context),
                         ),
                       ),
-                      if (widget.liike!.showComment! ||
+                      if (!widget.liike!.tehty! ||
                           (widget.liike?.kommentti != null &&
                               widget.liike?.kommentti != ''))
                         Padding(
@@ -281,24 +291,6 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                     ],
                   ),
                 ),
-                if (false)
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      if (!widget.liike!.showComment! ||
-                          (widget.liike?.kommentti == null ||
-                              widget.liike?.kommentti == ''))
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 10.0, 0.0, 10.0),
-                          child: Icon(
-                            Icons.add_comment_rounded,
-                            color: FlutterFlowTheme.of(context).primaryColor,
-                            size: 24.0,
-                          ),
-                        ),
-                    ],
-                  ),
               ],
             ),
             Divider(
@@ -457,7 +449,8 @@ sarja */
                           ),
                         ],
                       ),
-                    );
+                    ).animateOnPageLoad(
+                        animationsMap['containerOnPageLoadAnimation2']!);
                   }),
                 );
               },
@@ -506,7 +499,7 @@ sarja */
                           child: Icon(
                             Icons.add_circle_outline_rounded,
                             color: Colors.black,
-                            size: 30.0,
+                            size: 24.0,
                           ),
                         ),
                         Text(
@@ -518,7 +511,7 @@ sarja */
                       ],
                     ),
                   ),
-                  if ((widget.liike!.sarjat!.toList().length > 0) && false)
+                  if ((widget.liike!.sarjat!.toList().length > 0) || false)
                     InkWell(
                       onTap: () async {
                         logFirebaseEvent(
@@ -586,6 +579,6 @@ sarja */
           ],
         ),
       ),
-    ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!);
+    ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation1']!);
   }
 }

@@ -103,6 +103,17 @@ class _SessioWidgetState extends State<SessioWidget>
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 6.0, 0.0, 0.0),
+                          child: Text(
+                            valueOrDefault<String>(
+                              widget.treeniSessio!.treeniRutiiniData.nimi,
+                              'Unnamed workout',
+                            ),
+                            style: FlutterFlowTheme.of(context).title3,
+                          ),
+                        ),
                         if (widget.treeniSessio != null)
                           Container(
                             width: double.infinity,
@@ -215,54 +226,46 @@ class _SessioWidgetState extends State<SessioWidget>
                                     ),
                                   ],
                                 ),
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    RichText(
-                                      text: TextSpan(
-                                        children: [
-                                          TextSpan(
-                                            text: FFLocalizations.of(context)
-                                                .getText(
-                                              'qfw31zro' /* Liikkeitä:
+                                Visibility(
+                                  visible: false,
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      RichText(
+                                        text: TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                'qfw31zro' /* Liikkeitä:
  */
-                                              ,
+                                                ,
+                                              ),
+                                              style: TextStyle(),
                                             ),
-                                            style: TextStyle(),
-                                          ),
-                                          TextSpan(
-                                            text: valueOrDefault<String>(
-                                              widget.treeniSessio!
-                                                  .treeniRutiiniData.liikkeet
-                                                  ?.toList()
-                                                  ?.length
-                                                  ?.toString(),
-                                              '0',
-                                            ),
-                                            style: TextStyle(),
-                                          )
-                                        ],
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            TextSpan(
+                                              text: valueOrDefault<String>(
+                                                widget.treeniSessio!
+                                                    .treeniRutiiniData.liikkeet
+                                                    ?.toList()
+                                                    ?.length
+                                                    ?.toString(),
+                                                '0',
+                                              ),
+                                              style: TextStyle(),
+                                            )
+                                          ],
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1,
+                                        ),
+                                        textAlign: TextAlign.center,
                                       ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),
                           ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 6.0, 0.0, 0.0),
-                          child: Text(
-                            valueOrDefault<String>(
-                              widget.treeniSessio!.treeniRutiiniData.nimi,
-                              'Unnamed workout',
-                            ),
-                            style: FlutterFlowTheme.of(context).title3,
-                          ),
-                        ),
                       ],
                     ),
                   ),
@@ -395,7 +398,6 @@ class _SessioWidgetState extends State<SessioWidget>
                                     widget.treeniSessio!.treeniRutiiniData,
                                     clearUnsetFields: false,
                                   ),
-                                  showComment: true,
                                 ),
                                 'docCreatedTime': FieldValue.serverTimestamp(),
                               };

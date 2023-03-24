@@ -47,8 +47,11 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [Color(0xFFACC2DF), Color(0xFFB1B1B1)],
-          stops: [0.0, 1.0],
+          colors: [
+            FlutterFlowTheme.of(context).primaryBackground,
+            Color(0xFFB1B1B1)
+          ],
+          stops: [1.0, 1.0],
           begin: AlignmentDirectional(0.0, -1.0),
           end: AlignmentDirectional(0, 1.0),
         ),
