@@ -278,10 +278,12 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                           true)
                                         Column(
                                           mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Wrap(
                                               spacing: 12.0,
-                                              runSpacing: 8.0,
+                                              runSpacing: 0.0,
                                               alignment: WrapAlignment.start,
                                               crossAxisAlignment:
                                                   WrapCrossAlignment.start,
@@ -296,11 +298,16 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                           .finishedEditing!
                                                       ? (valueOrDefault<bool>(
                                                             liikkeetItem
-                                                                    .matkaMetri! >
-                                                                0.0,
+                                                                    .kestoSekunteina !=
+                                                                null,
                                                             false,
                                                           ) &&
-                                                          true)
+                                                          (functions
+                                                                  .remainingHours(
+                                                                      liikkeetItem
+                                                                          .kestoSekunteina)
+                                                                  .toString() !=
+                                                              '0'))
                                                       : true,
                                                   child: RichText(
                                                     text: TextSpan(
@@ -337,7 +344,34 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                                     'Roboto',
                                                                 fontSize: 14.0,
                                                               ),
-                                                        ),
+                                                        )
+                                                      ],
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1,
+                                                    ),
+                                                  ),
+                                                ),
+                                                Visibility(
+                                                  visible: widget.rutiini!
+                                                          .finishedEditing!
+                                                      ? (valueOrDefault<bool>(
+                                                            liikkeetItem
+                                                                    .kestoSekunteina !=
+                                                                null,
+                                                            false,
+                                                          ) &&
+                                                          (functions
+                                                                  .remainingMinutes(
+                                                                      liikkeetItem
+                                                                          .kestoSekunteina)
+                                                                  .toString() !=
+                                                              '0'))
+                                                      : true,
+                                                  child: RichText(
+                                                    text: TextSpan(
+                                                      children: [
                                                         TextSpan(
                                                           text: functions
                                                               .remainingMinutes(
@@ -350,6 +384,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Roboto',
+                                                                fontSize: 14.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -359,12 +394,34 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                           text: FFLocalizations
                                                                   .of(context)
                                                               .getText(
-                                                            '2fwsecqs' /* minuuttia  */,
+                                                            'pa1hiz52' /*  minuuttia */,
                                                           ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
+                                                          style: TextStyle(),
+                                                        )
+                                                      ],
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .bodyText1,
-                                                        ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Visibility(
+                                                  visible: widget.rutiini!
+                                                          .finishedEditing!
+                                                      ? ((liikkeetItem
+                                                                  .kestoSekunteina !=
+                                                              null) &&
+                                                          (functions
+                                                                  .remainingSeconds(
+                                                                      liikkeetItem
+                                                                          .kestoSekunteina)
+                                                                  .toString() !=
+                                                              '0.0'))
+                                                      : true,
+                                                  child: RichText(
+                                                    text: TextSpan(
+                                                      children: [
                                                         TextSpan(
                                                           text: functions
                                                               .remainingSeconds(
@@ -377,6 +434,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Roboto',
+                                                                fontSize: 14.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -386,11 +444,64 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                           text: FFLocalizations
                                                                   .of(context)
                                                               .getText(
-                                                            'eru9zv8k' /*  sekuntia */,
+                                                            '8r7ks2w3' /*  sekuntia */,
+                                                          ),
+                                                          style: TextStyle(),
+                                                        )
+                                                      ],
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyText1,
+                                                    ),
+                                                  ),
+                                                ),
+                                                Visibility(
+                                                  visible: widget.rutiini!
+                                                          .finishedEditing!
+                                                      ? (valueOrDefault<bool>(
+                                                            liikkeetItem
+                                                                    .matkaMetri !=
+                                                                null,
+                                                            false,
+                                                          ) &&
+                                                          valueOrDefault<bool>(
+                                                            liikkeetItem
+                                                                    .matkaMetri! >
+                                                                0.0,
+                                                            false,
+                                                          ))
+                                                      : true,
+                                                  child: RichText(
+                                                    text: TextSpan(
+                                                      children: [
+                                                        TextSpan(
+                                                          text: formatNumber(
+                                                            liikkeetItem
+                                                                .matkaMetri!,
+                                                            formatType:
+                                                                FormatType
+                                                                    .compactLong,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1,
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                fontSize: 14.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                        ),
+                                                        TextSpan(
+                                                          text: FFLocalizations
+                                                                  .of(context)
+                                                              .getText(
+                                                            'ud5vyksn' /*  metriä */,
+                                                          ),
+                                                          style: TextStyle(),
                                                         )
                                                       ],
                                                       style:

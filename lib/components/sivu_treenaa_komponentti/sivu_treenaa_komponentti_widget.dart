@@ -349,10 +349,7 @@ class _SivuTreenaaKomponenttiWidgetState
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           isDense: true,
-                                          labelText: FFLocalizations.of(context)
-                                              .getText(
-                                            'm7j3x68g' /*  */,
-                                          ),
+                                          labelText: null,
                                           hintText: FFLocalizations.of(context)
                                               .getText(
                                             '8prjh7ks' /* Kommentti (vapaaehtoinen) */,

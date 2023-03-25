@@ -848,10 +848,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Treenin nimi',
       'en': 'Workout name',
     },
-    'm7j3x68g': {
-      'fi': '',
-      'en': '',
-    },
     '8prjh7ks': {
       'fi': 'Kommentti (vapaaehtoinen)',
       'en': 'Comment (optional)',
@@ -988,13 +984,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': ' tuntia ',
       'en': ' hours ',
     },
-    '2fwsecqs': {
-      'fi': 'minuuttia ',
-      'en': 'minutes ',
+    'pa1hiz52': {
+      'fi': ' minuuttia',
+      'en': ' minutes',
     },
-    'eru9zv8k': {
+    '8r7ks2w3': {
       'fi': ' sekuntia',
-      'en': ' seconds',
+      'en': ' secs',
+    },
+    'ud5vyksn': {
+      'fi': ' metriä',
+      'en': ' meters',
     },
   },
   // KeskenerainenTreeni_komponentti

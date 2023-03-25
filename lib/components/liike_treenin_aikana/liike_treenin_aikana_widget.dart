@@ -1135,7 +1135,7 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                                       text: TextSpan(
                                         children: [
                                           TextSpan(
-                                            text: sarjatIndex.toString(),
+                                            text: (sarjatIndex + 1).toString(),
                                             style: TextStyle(),
                                           ),
                                           TextSpan(

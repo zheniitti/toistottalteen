@@ -81,7 +81,10 @@ class _SarjaPainoTextfieldWidgetState extends State<SarjaPainoTextfieldWidget> {
           logFirebaseEvent('TextField_custom_action');
           _model.updatedLiike = await actions.myUpdateLiikeStruct(
             widget.sessioDoc!.treeniRutiiniData.liikkeet
-                ?.toList()?[widget.liikeIndex??-1],
+                ?.toList()?[valueOrDefault<int>(
+              widget.liikeIndex,
+              99999999999,
+            )],
             null,
             null,
             null,
