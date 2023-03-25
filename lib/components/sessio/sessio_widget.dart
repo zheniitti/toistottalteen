@@ -265,7 +265,7 @@ class _SessioWidgetState extends State<SessioWidget>
                   onTap: () async {
                     logFirebaseEvent('SESSIO_COMP_Icon_q579ijmn_ON_TAP');
                     logFirebaseEvent('Icon_bottom_sheet');
-                     showModalBottomSheet(
+                    showModalBottomSheet(
                       isScrollControlled: true,
                       backgroundColor: Colors.transparent,
                       barrierColor: Color(0x00000000),

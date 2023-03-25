@@ -1,6 +1,9 @@
+import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -63,7 +66,67 @@ class _SarjaPainoTextfieldWidgetState extends State<SarjaPainoTextfieldWidget> {
       onChanged: (_) => EasyDebounce.debounce(
         '_model.textController',
         Duration(milliseconds: 300),
-        () => setState(() {}),
+        () async {
+          logFirebaseEvent('SARJA_PAINO_TEXTFIELD_TextField_jryelkzo');
+          logFirebaseEvent('TextField_custom_action');
+          _model.updatedSarja = await actions.myUpdateSarja(
+            widget.sarja!,
+            true,
+            null,
+            null,
+            double.tryParse(_model.textController.text),
+            null,
+            null,
+          );
+          logFirebaseEvent('TextField_custom_action');
+          _model.updatedLiike = await actions.myUpdateLiikeStruct(
+            widget.sessioDoc!.treeniRutiiniData.liikkeet
+                ?.toList()?[widget.liikeIndex??-1],
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            false,
+            null,
+            widget.sarjaIndex,
+            _model.updatedSarja,
+          );
+          logFirebaseEvent('TextField_custom_action');
+          _model.updatedRutiini = await actions.myUpdateTreeniRutiiniStruct(
+            widget.sessioDoc!.treeniRutiiniData,
+            null,
+            null,
+            widget.sessioDoc!.treeniRutiiniData.liikkeet?.toList()?.toList(),
+            null,
+            null,
+            null,
+            false,
+            null,
+            null,
+            null,
+            null,
+            null,
+            widget.liikeIndex,
+            _model.updatedLiike,
+          );
+          logFirebaseEvent('TextField_backend_call');
+
+          final treeniSessiotUpdateData = createTreeniSessiotRecordData(
+            treeniRutiiniData: updateTreeniRutiiniStruct(
+              _model.updatedRutiini,
+              clearUnsetFields: false,
+            ),
+          );
+          await widget.sessioDoc!.reference.update(treeniSessiotUpdateData);
+
+          setState(() {});
+        },
       ),
       obscureText: false,
       decoration: InputDecoration(

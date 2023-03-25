@@ -8,6 +8,9 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+// Set your action name, define your arguments and return parameter,
+// and then add the boilerplate code using the button on the right!
+
 Future<LiikeStruct?> myUpdateLiikeStruct(
   LiikeStruct? liike,
   DateTime? createdTime,
@@ -39,7 +42,9 @@ Future<LiikeStruct?> myUpdateLiikeStruct(
     } else if (addNewSarja != null && addNewSarja) {
       toiminto = 'Lisää uusi sarja';
       sarjaList.add(newEmptySarja);
-    }else if (replaceSarjaAtIndex != null && replacingSarja != null && replaceSarjaAtIndex >= 0) {
+    } else if (replaceSarjaAtIndex != null &&
+        replacingSarja != null &&
+        replaceSarjaAtIndex >= 0) {
       toiminto = 'Korvaa sarja indeksissa $replaceSarjaAtIndex';
       sarjaList[replaceSarjaAtIndex] = replacingSarja;
     }
@@ -48,7 +53,8 @@ Future<LiikeStruct?> myUpdateLiikeStruct(
   }
 
   final updatedLiike = liike.toBuilder()
-    ..firestoreUtilData = FirestoreUtilData(clearUnsetFields: false, create: true)
+    ..firestoreUtilData =
+        FirestoreUtilData(clearUnsetFields: false, create: true)
     ..createdTime = createdTime ?? liike.createdTime
     ..nimi = nimi ?? liike.nimi
     ..kommentti = kommentti ?? liike.kommentti
@@ -64,30 +70,4 @@ Future<LiikeStruct?> myUpdateLiikeStruct(
   LiikeStruct updatedLiikeStruct = updatedLiike.build();
 
   return updatedLiikeStruct;
-}
-
-Future<SarjaStruct> myUpdateSarja(
-  SarjaStruct sarja,
-  bool createSarjaIfNull,
-  DateTime? createdTime,
-  double? painoKg,
-  int? toistoMaara,
-  double? kestoSekunteina,
-  double? matkaMetreina,
-) async {
-  if (sarja == null && createSarjaIfNull) {
-    sarja = createSarjaStruct(create: true, clearUnsetFields: false);
-  }
-
-  final updatedSarja = sarja.toBuilder()
-    ..firestoreUtilData = FirestoreUtilData(clearUnsetFields: false, create: true)
-    //..createdTime = createdTime ?? sarja.createdTime
-    //..modifiedTime = getCurrentTimestamp,
-    ..paino = painoKg ?? sarja.paino
-    ..toistoMaara = toistoMaara ?? sarja.toistoMaara
-    ..kestoSekunteina = kestoSekunteina ?? sarja.kestoSekunteina
-    ..matkaMetreina = matkaMetreina ?? sarja.matkaMetreina;
-
-  SarjaStruct updatedSarjaStruct = updatedSarja.build();
-  return updatedSarjaStruct;
 }

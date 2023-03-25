@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -177,6 +178,67 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                             EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 20.0, 0.0),
                         child: TextFormField(
                           controller: _model.textController1,
+                          onChanged: (_) => EasyDebounce.debounce(
+                            '_model.textController1',
+                            Duration(milliseconds: 1000),
+                            () async {
+                              logFirebaseEvent(
+                                  'LIIKE_TREENIN_AIKANA_TextField_fgw8ho34_');
+                              logFirebaseEvent('TextField_custom_action');
+                              _model.updatedLiike =
+                                  await actions.myUpdateLiikeStruct(
+                                widget.liike,
+                                null,
+                                _model.textController1.text,
+                                _model.textController2.text,
+                                null,
+                                _model.checkboxValue,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                false,
+                                null,
+                                null,
+                                null,
+                              );
+                              logFirebaseEvent('TextField_custom_action');
+                              _model.updatedRutiini =
+                                  await actions.myUpdateTreeniRutiiniStruct(
+                                widget.treeniSessio!.treeniRutiiniData,
+                                null,
+                                null,
+                                widget.treeniSessio!.treeniRutiiniData.liikkeet
+                                    ?.toList()
+                                    ?.toList(),
+                                null,
+                                null,
+                                null,
+                                false,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                widget.liikeIndexInList,
+                                _model.updatedLiike,
+                              );
+                              logFirebaseEvent('TextField_backend_call');
+
+                              final treeniSessiotUpdateData =
+                                  createTreeniSessiotRecordData(
+                                treeniRutiiniData: updateTreeniRutiiniStruct(
+                                  _model.updatedRutiini,
+                                  clearUnsetFields: false,
+                                ),
+                              );
+                              await widget.treeniSessio!.reference
+                                  .update(treeniSessiotUpdateData);
+
+                              setState(() {});
+                            },
+                          ),
                           obscureText: false,
                           decoration: InputDecoration(
                             isDense: true,
@@ -247,6 +309,67 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                               widget.liike?.kommentti != ''))
                         TextFormField(
                           controller: _model.textController2,
+                          onChanged: (_) => EasyDebounce.debounce(
+                            '_model.textController2',
+                            Duration(milliseconds: 500),
+                            () async {
+                              logFirebaseEvent(
+                                  'LIIKE_TREENIN_AIKANA_TextField_rwco0ti2_');
+                              logFirebaseEvent('TextField_custom_action');
+                              _model.updatedLiikeCopy =
+                                  await actions.myUpdateLiikeStruct(
+                                widget.liike,
+                                null,
+                                _model.textController1.text,
+                                _model.textController2.text,
+                                null,
+                                _model.checkboxValue,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                false,
+                                null,
+                                null,
+                                null,
+                              );
+                              logFirebaseEvent('TextField_custom_action');
+                              _model.updatedRutiiniCopy =
+                                  await actions.myUpdateTreeniRutiiniStruct(
+                                widget.treeniSessio!.treeniRutiiniData,
+                                null,
+                                null,
+                                widget.treeniSessio!.treeniRutiiniData.liikkeet
+                                    ?.toList()
+                                    ?.toList(),
+                                null,
+                                null,
+                                null,
+                                false,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                widget.liikeIndexInList,
+                                _model.updatedLiike,
+                              );
+                              logFirebaseEvent('TextField_backend_call');
+
+                              final treeniSessiotUpdateData =
+                                  createTreeniSessiotRecordData(
+                                treeniRutiiniData: updateTreeniRutiiniStruct(
+                                  _model.updatedRutiini,
+                                  clearUnsetFields: false,
+                                ),
+                              );
+                              await widget.treeniSessio!.reference
+                                  .update(treeniSessiotUpdateData);
+
+                              setState(() {});
+                            },
+                          ),
                           obscureText: false,
                           decoration: InputDecoration(
                             isDense: true,
@@ -355,7 +478,10 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          if (widget.liike?.isOtherExerciseType ?? true)
+                          if (valueOrDefault<bool>(
+                            widget.liike?.isOtherExerciseType,
+                            false,
+                          ))
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 8.0, 0.0, 0.0),
@@ -935,11 +1061,62 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                                         logFirebaseEvent(
                                             'LIIKE_TREENIN_AIKANA_Icon_5s381y0e_ON_TA');
                                         logFirebaseEvent('Icon_custom_action');
-                                        await actions.removeSessioSarjaAtIndex(
-                                          widget.treeniSessio,
-                                          widget.liikeIndexInList!,
+                                        _model.updatedLiikeCopy2 =
+                                            await actions.myUpdateLiikeStruct(
+                                          widget.liike,
+                                          null,
+                                          _model.textController1.text,
+                                          _model.textController2.text,
+                                          null,
+                                          _model.checkboxValue,
+                                          null,
+                                          null,
+                                          null,
+                                          null,
+                                          null,
+                                          false,
                                           sarjatIndex,
+                                          null,
+                                          null,
                                         );
+                                        logFirebaseEvent('Icon_custom_action');
+                                        _model.updatedRutiiniCopy2 =
+                                            await actions
+                                                .myUpdateTreeniRutiiniStruct(
+                                          widget
+                                              .treeniSessio!.treeniRutiiniData,
+                                          null,
+                                          null,
+                                          widget.treeniSessio!.treeniRutiiniData
+                                              .liikkeet
+                                              ?.toList()
+                                              ?.toList(),
+                                          null,
+                                          null,
+                                          null,
+                                          false,
+                                          null,
+                                          null,
+                                          null,
+                                          null,
+                                          null,
+                                          widget.liikeIndexInList,
+                                          _model.updatedLiike,
+                                        );
+                                        logFirebaseEvent('Icon_backend_call');
+
+                                        final treeniSessiotUpdateData =
+                                            createTreeniSessiotRecordData(
+                                          treeniRutiiniData:
+                                              updateTreeniRutiiniStruct(
+                                            _model.updatedRutiini,
+                                            clearUnsetFields: false,
+                                          ),
+                                        );
+                                        await widget.treeniSessio!.reference
+                                            .update(treeniSessiotUpdateData);
+
+                                        setState(() {});
                                       },
                                       child: Icon(
                                         Icons.remove_circle_rounded,
@@ -1000,35 +1177,65 @@ sarja */
               padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 8.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   InkWell(
                     onTap: () async {
                       logFirebaseEvent(
                           'LIIKE_TREENIN_AIKANA_Row_5f3q34g1_ON_TAP');
-                      logFirebaseEvent('Row_update_widget_state');
-                      setState(() {});
+                      logFirebaseEvent('Row_custom_action');
+                      _model.updatedLiikeFromAddSarjaButton =
+                          await actions.myUpdateLiikeStruct(
+                        widget.liike,
+                        null,
+                        _model.textController1.text,
+                        _model.textController2.text,
+                        false,
+                        false,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        true,
+                        null,
+                        null,
+                        null,
+                      );
+                      logFirebaseEvent('Row_custom_action');
+                      _model.updatedRutiiniAddSarjaButton =
+                          await actions.myUpdateTreeniRutiiniStruct(
+                        widget.treeniSessio!.treeniRutiiniData,
+                        null,
+                        null,
+                        widget.treeniSessio!.treeniRutiiniData.liikkeet
+                            ?.toList()
+                            ?.toList(),
+                        null,
+                        null,
+                        null,
+                        false,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        widget.liikeIndexInList,
+                        _model.updatedLiikeFromAddSarjaButton,
+                      );
                       logFirebaseEvent('Row_backend_call');
 
                       final treeniSessiotUpdateData =
                           createTreeniSessiotRecordData(
-                        treeniRutiiniData: createTreeniRutiiniStruct(
-                          fieldValues: {
-                            'liikkeet': FieldValue.arrayUnion([
-                              getLiikeFirestoreData(
-                                createLiikeStruct(
-                                  nimi: '',
-                                  clearUnsetFields: false,
-                                ),
-                                true,
-                              )
-                            ]),
-                          },
+                        treeniRutiiniData: updateTreeniRutiiniStruct(
+                          _model.updatedRutiiniAddSarjaButton,
                           clearUnsetFields: false,
                         ),
                       );
                       await widget.treeniSessio!.reference
                           .update(treeniSessiotUpdateData);
+
+                      setState(() {});
                     },
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -1057,29 +1264,59 @@ sarja */
                       onTap: () async {
                         logFirebaseEvent(
                             'LIIKE_TREENIN_AIKANA_Row_55r3gb8v_ON_TAP');
-                        logFirebaseEvent('Row_update_widget_state');
-                        setState(() {});
+                        logFirebaseEvent('Row_custom_action');
+                        _model.updatedLiikeFromTehtyCheckBox =
+                            await actions.myUpdateLiikeStruct(
+                          widget.liike,
+                          null,
+                          _model.textController1.text,
+                          _model.textController2.text,
+                          null,
+                          _model.checkboxValue,
+                          null,
+                          null,
+                          null,
+                          null,
+                          null,
+                          false,
+                          null,
+                          null,
+                          null,
+                        );
+                        logFirebaseEvent('Row_custom_action');
+                        _model.updatedRutiiniTehtyCheckBox =
+                            await actions.myUpdateTreeniRutiiniStruct(
+                          widget.treeniSessio!.treeniRutiiniData,
+                          null,
+                          null,
+                          widget.treeniSessio!.treeniRutiiniData.liikkeet
+                              ?.toList()
+                              ?.toList(),
+                          null,
+                          null,
+                          null,
+                          false,
+                          null,
+                          null,
+                          null,
+                          null,
+                          null,
+                          widget.liikeIndexInList,
+                          _model.updatedLiikeFromTehtyCheckBox,
+                        );
                         logFirebaseEvent('Row_backend_call');
 
-                        final treeniSessiotUpdateData = 
+                        final treeniSessiotUpdateData =
                             createTreeniSessiotRecordData(
-                          treeniRutiiniData: createTreeniRutiiniStruct(
-                            fieldValues: {
-                              'liikkeet': FieldValue.arrayUnion([
-                                getLiikeFirestoreData(
-                                  createLiikeStruct(
-                                    nimi: '',
-                                    clearUnsetFields: false,
-                                  ),
-                                  true,
-                                )
-                              ]),
-                            },
+                          treeniRutiiniData: updateTreeniRutiiniStruct(
+                            _model.updatedRutiiniTehtyCheckBox,
                             clearUnsetFields: false,
                           ),
                         );
                         await widget.treeniSessio!.reference
                             .update(treeniSessiotUpdateData);
+
+                        setState(() {});
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.min,

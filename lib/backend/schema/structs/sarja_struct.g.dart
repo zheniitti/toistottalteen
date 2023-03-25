@@ -50,6 +50,20 @@ class _$SarjaStructSerializer implements StructuredSerializer<SarjaStruct> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(double)));
     }
+    value = object.createdTime;
+    if (value != null) {
+      result
+        ..add('createdTime')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.modifiedTime;
+    if (value != null) {
+      result
+        ..add('modifiedTime')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
     return result;
   }
 
@@ -80,6 +94,14 @@ class _$SarjaStructSerializer implements StructuredSerializer<SarjaStruct> {
           result.kestoSekunteina = serializers.deserialize(value,
               specifiedType: const FullType(double)) as double?;
           break;
+        case 'createdTime':
+          result.createdTime = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'modifiedTime':
+          result.modifiedTime = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
         case 'firestoreUtilData':
           result.firestoreUtilData = serializers.deserialize(value,
                   specifiedType: const FullType(FirestoreUtilData))!
@@ -102,6 +124,10 @@ class _$SarjaStruct extends SarjaStruct {
   @override
   final double? kestoSekunteina;
   @override
+  final DateTime? createdTime;
+  @override
+  final DateTime? modifiedTime;
+  @override
   final FirestoreUtilData firestoreUtilData;
 
   factory _$SarjaStruct([void Function(SarjaStructBuilder)? updates]) =>
@@ -112,6 +138,8 @@ class _$SarjaStruct extends SarjaStruct {
       this.paino,
       this.matkaMetreina,
       this.kestoSekunteina,
+      this.createdTime,
+      this.modifiedTime,
       required this.firestoreUtilData})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -133,6 +161,8 @@ class _$SarjaStruct extends SarjaStruct {
         paino == other.paino &&
         matkaMetreina == other.matkaMetreina &&
         kestoSekunteina == other.kestoSekunteina &&
+        createdTime == other.createdTime &&
+        modifiedTime == other.modifiedTime &&
         firestoreUtilData == other.firestoreUtilData;
   }
 
@@ -143,6 +173,8 @@ class _$SarjaStruct extends SarjaStruct {
     _$hash = $jc(_$hash, paino.hashCode);
     _$hash = $jc(_$hash, matkaMetreina.hashCode);
     _$hash = $jc(_$hash, kestoSekunteina.hashCode);
+    _$hash = $jc(_$hash, createdTime.hashCode);
+    _$hash = $jc(_$hash, modifiedTime.hashCode);
     _$hash = $jc(_$hash, firestoreUtilData.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -155,6 +187,8 @@ class _$SarjaStruct extends SarjaStruct {
           ..add('paino', paino)
           ..add('matkaMetreina', matkaMetreina)
           ..add('kestoSekunteina', kestoSekunteina)
+          ..add('createdTime', createdTime)
+          ..add('modifiedTime', modifiedTime)
           ..add('firestoreUtilData', firestoreUtilData))
         .toString();
   }
@@ -181,6 +215,15 @@ class SarjaStructBuilder implements Builder<SarjaStruct, SarjaStructBuilder> {
   set kestoSekunteina(double? kestoSekunteina) =>
       _$this._kestoSekunteina = kestoSekunteina;
 
+  DateTime? _createdTime;
+  DateTime? get createdTime => _$this._createdTime;
+  set createdTime(DateTime? createdTime) => _$this._createdTime = createdTime;
+
+  DateTime? _modifiedTime;
+  DateTime? get modifiedTime => _$this._modifiedTime;
+  set modifiedTime(DateTime? modifiedTime) =>
+      _$this._modifiedTime = modifiedTime;
+
   FirestoreUtilData? _firestoreUtilData;
   FirestoreUtilData? get firestoreUtilData => _$this._firestoreUtilData;
   set firestoreUtilData(FirestoreUtilData? firestoreUtilData) =>
@@ -197,6 +240,8 @@ class SarjaStructBuilder implements Builder<SarjaStruct, SarjaStructBuilder> {
       _paino = $v.paino;
       _matkaMetreina = $v.matkaMetreina;
       _kestoSekunteina = $v.kestoSekunteina;
+      _createdTime = $v.createdTime;
+      _modifiedTime = $v.modifiedTime;
       _firestoreUtilData = $v.firestoreUtilData;
       _$v = null;
     }
@@ -224,6 +269,8 @@ class SarjaStructBuilder implements Builder<SarjaStruct, SarjaStructBuilder> {
             paino: paino,
             matkaMetreina: matkaMetreina,
             kestoSekunteina: kestoSekunteina,
+            createdTime: createdTime,
+            modifiedTime: modifiedTime,
             firestoreUtilData: BuiltValueNullFieldError.checkNotNull(
                 firestoreUtilData, r'SarjaStruct', 'firestoreUtilData'));
     replace(_$result);

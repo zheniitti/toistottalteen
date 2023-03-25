@@ -9,23 +9,32 @@ class FFLocalizations {
 
   final Locale locale;
 
-  static FFLocalizations of(BuildContext context) => Localizations.of<FFLocalizations>(context, FFLocalizations)!;
+  static FFLocalizations of(BuildContext context) =>
+      Localizations.of<FFLocalizations>(context, FFLocalizations)!;
 
   static List<String> languages() => ['fi', 'en'];
 
   static late SharedPreferences _prefs;
-  static Future initialize() async => _prefs = await SharedPreferences.getInstance();
-  static Future storeLocale(String locale) => _prefs.setString(_kLocaleStorageKey, locale);
+  static Future initialize() async =>
+      _prefs = await SharedPreferences.getInstance();
+  static Future storeLocale(String locale) =>
+      _prefs.setString(_kLocaleStorageKey, locale);
   static Locale? getStoredLocale() {
     final locale = _prefs.getString(_kLocaleStorageKey);
     return locale != null && locale.isNotEmpty ? createLocale(locale) : null;
   }
 
   String get languageCode => locale.toString();
-  String? get languageShortCode => _languagesWithShortCode.contains(locale.toString()) ? '${locale.toString()}_short' : null;
-  int get languageIndex => languages().contains(languageCode) ? languages().indexOf(languageCode) : 0;
+  String? get languageShortCode =>
+      _languagesWithShortCode.contains(locale.toString())
+          ? '${locale.toString()}_short'
+          : null;
+  int get languageIndex => languages().contains(languageCode)
+      ? languages().indexOf(languageCode)
+      : 0;
 
-  String getText(String key) => (kTranslationsMap[key] ?? {})[locale.toString()] ?? '';
+  String getText(String key) =>
+      (kTranslationsMap[key] ?? {})[locale.toString()] ?? '';
 
   String getVariableText({
     String? fiText = '',
@@ -74,12 +83,15 @@ class FFLocalizationsDelegate extends LocalizationsDelegate<FFLocalizations> {
   bool isSupported(Locale locale) {
     final language = locale.toString();
     return FFLocalizations.languages().contains(
-      language.endsWith('_') ? language.substring(0, language.length - 1) : language,
+      language.endsWith('_')
+          ? language.substring(0, language.length - 1)
+          : language,
     );
   }
 
   @override
-  Future<FFLocalizations> load(Locale locale) => SynchronousFuture<FFLocalizations>(FFLocalizations(locale));
+  Future<FFLocalizations> load(Locale locale) =>
+      SynchronousFuture<FFLocalizations>(FFLocalizations(locale));
 
   @override
   bool shouldReload(FFLocalizationsDelegate old) => false;
@@ -181,7 +193,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Save daily workouts',
     },
     'lpepy92t': {
-      'fi': 'Kirjaa muistiin treeniharjoitteet ja seuraa kehitystäsi. Vie treenamisesi seuraavalle tasolle!',
+      'fi':
+          'Kirjaa muistiin treeniharjoitteet ja seuraa kehitystäsi. Vie treenamisesi seuraavalle tasolle!',
       'en': 'Track your daily workout and watch your progress!',
     },
     'epmt554y': {
@@ -325,7 +338,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
     'lfc11480': {
-      'fi': 'Spotify is a proprietary Swedish audio streaming and media services provider ',
+      'fi':
+          'Spotify is a proprietary Swedish audio streaming and media services provider ',
       'en': '',
     },
     'ynzbt1fc': {
@@ -429,7 +443,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
     'az4f1r32': {
-      'fi': 'Keep track of all your purchases that you have made, want to trade books in? Go ahead and list them for exchange.',
+      'fi':
+          'Keep track of all your purchases that you have made, want to trade books in? Go ahead and list them for exchange.',
       'en': '',
     },
     'bglgstik': {
@@ -543,8 +558,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Back',
     },
     'cdee2yci': {
-      'fi': 'Lähetämme sinulle sähköpostin, jossa on linkki salasanan vaihtoon. Anna tiliisi yhdistetty sähköpostiosoite alle.',
-      'en': 'We will send you an email with a link to reset your password, please enter the email associated with your account below.',
+      'fi':
+          'Lähetämme sinulle sähköpostin, jossa on linkki salasanan vaihtoon. Anna tiliisi yhdistetty sähköpostiosoite alle.',
+      'en':
+          'We will send you an email with a link to reset your password, please enter the email associated with your account below.',
     },
     'lsgkuu2w': {
       'fi': 'Sähköpostiosoite',
@@ -570,8 +587,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Back',
     },
     '3a8m9btv': {
-      'fi': 'Olemme lähettäneet kuusinumeroisen koodin puhelinnumeroosi. Vahvista puhelinnumerosi kirjoittamalle saamsi koodi alle:',
-      'en': 'We have sent a six digit code to your phone number. Please verify your phone number by entering the code below:',
+      'fi':
+          'Olemme lähettäneet kuusinumeroisen koodin puhelinnumeroosi. Vahvista puhelinnumerosi kirjoittamalle saamsi koodi alle:',
+      'en':
+          'We have sent a six digit code to your phone number. Please verify your phone number by entering the code below:',
     },
     'vm1pinh3': {
       'fi': 'Tekstiviestivahvistuskoodi',
@@ -829,6 +848,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Treenin nimi',
       'en': 'Workout name',
     },
+    'm7j3x68g': {
+      'fi': '',
+      'en': '',
+    },
     '8prjh7ks': {
       'fi': 'Kommentti (vapaaehtoinen)',
       'en': 'Comment (optional)',
@@ -1075,7 +1098,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Permission needed for sending notifications',
     },
     '5x6hdd8r': {
-      'fi': 'Lupa käyttää kalenteria tarvitaan, jotta treenien lisääminen kalenteriin onnistuisi.',
+      'fi':
+          'Lupa käyttää kalenteria tarvitaan, jotta treenien lisääminen kalenteriin onnistuisi.',
       'en': 'Permission for calendar is need to add workouts to calendar',
     },
     '1u6cda3u': {
@@ -1103,8 +1127,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '💬 Enter SMS verification code',
     },
     'tsdpc6n6': {
-      'fi': 'Liian kauan viimeisimmästä sisäänkirjautumisesta. Kirjaudu uudelleen sisään ennen kuin poistat tilisi.',
-      'en': 'Too long since most recent sign in. Sign in again before deleting your account.',
+      'fi':
+          'Liian kauan viimeisimmästä sisäänkirjautumisesta. Kirjaudu uudelleen sisään ennen kuin poistat tilisi.',
+      'en':
+          'Too long since most recent sign in. Sign in again before deleting your account.',
     },
     'f38sf9gj': {
       'fi': '',

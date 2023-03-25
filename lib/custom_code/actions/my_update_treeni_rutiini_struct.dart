@@ -25,14 +25,18 @@ Future<TreeniRutiiniStruct?> myUpdateTreeniRutiiniStruct(
   int? replaceLiikeAtIndex,
   LiikeStruct? replacingLiike,
 ) async {
-  if (treeniRutiini == null) treeniRutiini = createTreeniRutiiniStruct(create: true, createdTime: getCurrentTimestamp);
+  if (treeniRutiini == null)
+    treeniRutiini = createTreeniRutiiniStruct(
+        create: true, createdTime: getCurrentTimestamp);
 
-  ListBuilder<LiikeStruct> liikeList = liikkeet != null ? ListBuilder<LiikeStruct>(liikkeet) : treeniRutiini.liikkeet.toBuilder();
+  ListBuilder<LiikeStruct> liikeList = liikkeet != null
+      ? ListBuilder<LiikeStruct>(liikkeet)
+      : treeniRutiini.liikkeet.toBuilder();
   liikeList.removeWhere((liike) => liike.createdTime == null);
-
   String toiminto = '';
   try {
-    LiikeStruct newEmptyLiike = await luoLiikeRutiinipohjalle(null, null, null, false, null, null, null, null);
+    LiikeStruct newEmptyLiike = await luoLiikeRutiinipohjalle(
+        null, null, null, false, null, null, null, null);
     if (removeLiikeAtIndex != null) {
       toiminto = 'Poista liike';
       liikeList.removeAt(removeLiikeAtIndex);
@@ -45,7 +49,9 @@ Future<TreeniRutiiniStruct?> myUpdateTreeniRutiiniStruct(
     } else if (addNewLiikeAtAboveThisIndex != null) {
       toiminto = 'Lisää uusi liike above this $addNewLiikeAtAboveThisIndex';
       liikeList.insert(addNewLiikeAtAboveThisIndex, newEmptyLiike);
-    } else if (replaceLiikeAtIndex != null && replacingLiike != null && replaceLiikeAtIndex >= 0) {
+    } else if (replaceLiikeAtIndex != null &&
+        replacingLiike != null &&
+        replaceLiikeAtIndex >= 0) {
       toiminto = 'Korvaa liike';
       liikeList[replaceLiikeAtIndex] = replacingLiike;
     }
@@ -54,12 +60,15 @@ Future<TreeniRutiiniStruct?> myUpdateTreeniRutiiniStruct(
   }
 
   final updatedTreeniRutiini = treeniRutiini.toBuilder()
-    ..firestoreUtilData = FirestoreUtilData(clearUnsetFields: false, create: true)
+    ..firestoreUtilData =
+        FirestoreUtilData(clearUnsetFields: false, create: true)
     ..createdTime = createdTime ?? treeniRutiini.createdTime
     ..nimi = nimi ?? treeniRutiini.nimi
     ..liikkeet = liikeList
     ..kommentti = kommentti ?? treeniRutiini.kommentti
-    ..valitutViikonPaivat = valitutViikonPaivat != null ? valitutViikonPaivat.toBuilder() : treeniRutiini.valitutViikonPaivat.toBuilder()
+    ..valitutViikonPaivat = valitutViikonPaivat != null
+        ? valitutViikonPaivat.toBuilder()
+        : treeniRutiini.valitutViikonPaivat.toBuilder()
     ..lastWorkoutTime = lastWorkoutTime ?? treeniRutiini.lastWorkoutTime
     ..isTreeniPohja = isTreeniPohja ?? treeniRutiini.isTreeniPohja
     ..finishedEditing = finishedEditing ?? treeniRutiini.finishedEditing;

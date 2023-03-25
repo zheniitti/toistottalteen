@@ -29,10 +29,13 @@ Future updateTreenisessiotRecord(
 
   final Map<String, Object?> sessiotUpdateData = {
     if (sessiotRecord?.userRef == null) 'userRef': currentUserReference,
-    if (sessiotRecord?.docCreatedTime == null) 'docCreatedTime': FieldValue.serverTimestamp(),
+    if (sessiotRecord?.docCreatedTime == null)
+      'docCreatedTime': FieldValue.serverTimestamp(),
     if (alku != null) 'alku': alku,
     if (loppu != null) 'loppu': loppu,
-    if (!(rutiini == null && sessiotRecord?.treeniRutiiniData == null)) 'treeniRutiiniData': getTreeniRutiiniFirestoreData(rutiini ?? sessiotRecord?.treeniRutiiniData, true),
+    if (!(rutiini == null && sessiotRecord?.treeniRutiiniData == null))
+      'treeniRutiiniData': getTreeniRutiiniFirestoreData(
+          rutiini ?? sessiotRecord?.treeniRutiiniData, true),
     if (isEditing != null) 'isEditing': isEditing,
     if (lastModifiedTime != null) 'lastModifiedTime': lastModifiedTime,
   };

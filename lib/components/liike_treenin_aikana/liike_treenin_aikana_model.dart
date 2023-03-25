@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -27,9 +28,17 @@ class LiikeTreeninAikanaModel extends FlutterFlowModel {
   // State field(s) for TextField widget.
   TextEditingController? textController1;
   String? Function(BuildContext, String?)? textController1Validator;
+  // Stores action output result for [Custom Action - myUpdateLiikeStruct] action in TextField widget.
+  LiikeStruct? updatedLiike;
+  // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in TextField widget.
+  TreeniRutiiniStruct? updatedRutiini;
   // State field(s) for TextField widget.
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
+  // Stores action output result for [Custom Action - myUpdateLiikeStruct] action in TextField widget.
+  LiikeStruct? updatedLiikeCopy;
+  // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in TextField widget.
+  TreeniRutiiniStruct? updatedRutiiniCopy;
   // State field(s) for TextField widget.
   TextEditingController? textController3;
   String? Function(BuildContext, String?)? textController3Validator;
@@ -42,6 +51,18 @@ class LiikeTreeninAikanaModel extends FlutterFlowModel {
   // State field(s) for TextField widget.
   TextEditingController? textController6;
   String? Function(BuildContext, String?)? textController6Validator;
+  // Stores action output result for [Custom Action - myUpdateLiikeStruct] action in Icon widget.
+  LiikeStruct? updatedLiikeCopy2;
+  // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in Icon widget.
+  TreeniRutiiniStruct? updatedRutiiniCopy2;
+  // Stores action output result for [Custom Action - myUpdateLiikeStruct] action in Row widget.
+  LiikeStruct? updatedLiikeFromAddSarjaButton;
+  // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in Row widget.
+  TreeniRutiiniStruct? updatedRutiiniAddSarjaButton;
+  // Stores action output result for [Custom Action - myUpdateLiikeStruct] action in Row widget.
+  LiikeStruct? updatedLiikeFromTehtyCheckBox;
+  // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in Row widget.
+  TreeniRutiiniStruct? updatedRutiiniTehtyCheckBox;
   // State field(s) for Checkbox widget.
   bool? checkboxValue;
 
