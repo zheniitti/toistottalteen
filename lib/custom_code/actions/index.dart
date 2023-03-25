@@ -1,6 +1,5 @@
 export 'platform_string.dart' show platformString;
 export 'luo_liike_rutiinipohjalle.dart' show luoLiikeRutiinipohjalle;
-export 'create_liike.dart' show createLiike;
 export 'create_sarja_list.dart' show createSarjaList;
 export 'remove_sessio_sarja_at_index.dart' show removeSessioSarjaAtIndex;
 export 'my_create_treeni_rutiini_struct.dart' show myCreateTreeniRutiiniStruct;
