@@ -187,8 +187,8 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                     logFirebaseEvent(
                                         'RUTIININ_LIIKKEET_Column_fzb56clx_ON_TAP');
                                     logFirebaseEvent('Column_custom_action');
-                                    _model.jsonRutiiniCopy =
-                                        await actions.rutiiniToFirestoreData(
+                                    _model.jsonRutiiniCopy = await actions
+                                        .rutiiniToJsonFirestoreData(
                                       widget.rutiini,
                                     );
                                     logFirebaseEvent('Column_update_app_state');

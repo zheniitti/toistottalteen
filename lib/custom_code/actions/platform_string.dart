@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 
 import 'dart:io';
 
-Future<String> getPlatformAsString() async {
+Future<String> platformString() async {
   // Add your function code here!
   return Platform.operatingSystem;
 }

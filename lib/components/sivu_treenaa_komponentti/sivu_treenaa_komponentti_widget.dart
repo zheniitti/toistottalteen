@@ -4,6 +4,7 @@ import '/components/liike_treenin_aikana/liike_treenin_aikana_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -72,6 +73,19 @@ class _SivuTreenaaKomponenttiWidgetState
         ),
       ],
     ),
+    'containerOnPageLoadAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 200.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
   };
 
   @override
@@ -116,17 +130,19 @@ class _SivuTreenaaKomponenttiWidgetState
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Visibility(
-      visible: widget.sessioDoc != null,
-      child: Container(
-        width: MediaQuery.of(context).size.width * 1.0,
-        height: MediaQuery.of(context).size.height * 1.0,
-        decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).primaryBackground,
-        ),
-        child: Stack(
-          alignment: AlignmentDirectional(0.0, -1.0),
-          children: [
+    return Container(
+      width: MediaQuery.of(context).size.width * 1.0,
+      height: MediaQuery.of(context).size.height * 1.0,
+      decoration: BoxDecoration(
+        color: FlutterFlowTheme.of(context).primaryBackground,
+      ),
+      child: Stack(
+        alignment: AlignmentDirectional(0.0, -1.0),
+        children: [
+          if (valueOrDefault<bool>(
+            widget.sessioDoc != null,
+            false,
+          ))
             SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -163,27 +179,51 @@ class _SivuTreenaaKomponenttiWidgetState
                                             _model.rutiininnimiController,
                                         onChanged: (_) => EasyDebounce.debounce(
                                           '_model.rutiininnimiController',
-                                          Duration(milliseconds: 2000),
-                                          () => setState(() {}),
-                                        ),
-                                        onFieldSubmitted: (_) async {
-                                          logFirebaseEvent(
-                                              'SIVU_TREENAA_KOMPONENTTI_rutiininnimi_ON');
-                                          logFirebaseEvent(
-                                              'rutiininnimi_backend_call');
-
-                                          final treeniSessiotUpdateData =
-                                              createTreeniSessiotRecordData(
-                                            treeniRutiiniData:
-                                                createTreeniRutiiniStruct(
-                                              nimi: _model
+                                          Duration(milliseconds: 1000),
+                                          () async {
+                                            logFirebaseEvent(
+                                                'SIVU_TREENAA_KOMPONENTTI_rutiininnimi_ON');
+                                            logFirebaseEvent(
+                                                'rutiininnimi_custom_action');
+                                            _model.updatedRutiini = await actions
+                                                .myUpdateTreeniRutiiniStruct(
+                                              widget
+                                                  .sessioDoc!.treeniRutiiniData,
+                                              null,
+                                              _model
                                                   .rutiininnimiController.text,
-                                              clearUnsetFields: false,
-                                            ),
-                                          );
-                                          await widget.sessioDoc!.reference
-                                              .update(treeniSessiotUpdateData);
-                                        },
+                                              widget.sessioDoc!
+                                                  .treeniRutiiniData.liikkeet
+                                                  ?.toList()
+                                                  ?.toList(),
+                                              _model.rutiiniKommenttiController
+                                                  .text,
+                                              null,
+                                              null,
+                                              false,
+                                              null,
+                                              null,
+                                              null,
+                                              null,
+                                              null,
+                                              null,
+                                              null,
+                                            );
+                                            logFirebaseEvent(
+                                                'rutiininnimi_custom_action');
+                                            await actions
+                                                .updateTreenisessiotRecord(
+                                              widget.sessioDoc,
+                                              null,
+                                              null,
+                                              _model.updatedRutiini,
+                                              null,
+                                              null,
+                                            );
+
+                                            setState(() {});
+                                          },
+                                        ),
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           isDense: true,
@@ -242,7 +282,7 @@ class _SivuTreenaaKomponenttiWidgetState
                                             _model.rutiiniKommenttiController,
                                         onChanged: (_) => EasyDebounce.debounce(
                                           '_model.rutiiniKommenttiController',
-                                          Duration(milliseconds: 2000),
+                                          Duration(milliseconds: 1000),
                                           () => setState(() {}),
                                         ),
                                         onFieldSubmitted: (_) async {
@@ -384,107 +424,222 @@ class _SivuTreenaaKomponenttiWidgetState
                 ],
               ),
             ),
-            if (!(isWeb
-                ? MediaQuery.of(context).viewInsets.bottom > 0
-                : _isKeyboardVisible))
-              Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
-                child: Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 108.0),
-                  child: InkWell(
-                    onTap: () async {
-                      logFirebaseEvent(
-                          'SIVU_TREENAA_KOMPONENTTI_Container_paini');
-                      logFirebaseEvent(
-                          'Container_painike_uusiLiike_custom_actio');
-                      _model.luotuTyhjaSarja = await actions.createSarjaList();
-                      logFirebaseEvent(
-                          'Container_painike_uusiLiike_custom_actio');
-                      _model.luotuLiike = await actions.createLiike(
-                        '',
-                        '',
-                        null,
-                        _model.luotuTyhjaSarja?.toList(),
-                      );
-                      logFirebaseEvent(
-                          'Container_painike_uusiLiike_backend_call');
+          if (!(isWeb
+              ? MediaQuery.of(context).viewInsets.bottom > 0
+              : _isKeyboardVisible))
+            Align(
+              alignment: AlignmentDirectional(0.0, 1.0),
+              child: Padding(
+                padding:
+                    EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 108.0),
+                child: InkWell(
+                  onTap: () async {
+                    logFirebaseEvent(
+                        'SIVU_TREENAA_KOMPONENTTI_Container_paini');
+                    logFirebaseEvent(
+                        'Container_painike_uusiLiike_custom_actio');
+                    _model.updatedRutiiniCopy =
+                        await actions.myUpdateTreeniRutiiniStruct(
+                      widget.sessioDoc!.treeniRutiiniData,
+                      null,
+                      _model.rutiininnimiController.text,
+                      widget.sessioDoc!.treeniRutiiniData.liikkeet
+                          ?.toList()
+                          ?.toList(),
+                      _model.rutiiniKommenttiController.text,
+                      null,
+                      null,
+                      false,
+                      null,
+                      true,
+                      null,
+                      null,
+                      null,
+                      null,
+                      null,
+                    );
+                    logFirebaseEvent(
+                        'Container_painike_uusiLiike_custom_actio');
+                    await actions.updateTreenisessiotRecord(
+                      widget.sessioDoc,
+                      null,
+                      null,
+                      _model.updatedRutiini,
+                      null,
+                      null,
+                    );
 
-                      final treeniSessiotUpdateData =
-                          createTreeniSessiotRecordData(
-                        treeniRutiiniData: createTreeniRutiiniStruct(
-                          fieldValues: {
-                            'liikkeet': FieldValue.arrayUnion([
-                              getLiikeFirestoreData(
-                                updateLiikeStruct(
-                                  _model.luotuLiike,
-                                  clearUnsetFields: false,
-                                ),
-                                true,
-                              )
-                            ]),
-                          },
-                          clearUnsetFields: false,
-                        ),
-                      );
-                      await widget.sessioDoc!.reference
-                          .update(treeniSessiotUpdateData);
-
-                      setState(() {});
-                    },
-                    child: Material(
-                      color: Colors.transparent,
-                      elevation: 2.0,
-                      shape: RoundedRectangleBorder(
+                    setState(() {});
+                  },
+                  child: Material(
+                    color: Colors.transparent,
+                    elevation: 2.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16.0),
+                    ),
+                    child: Container(
+                      width: 160.0,
+                      height: 50.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).primaryColor,
                         borderRadius: BorderRadius.circular(16.0),
                       ),
-                      child: Container(
-                        width: 160.0,
-                        height: 50.0,
-                        decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).primaryColor,
-                          borderRadius: BorderRadius.circular(16.0),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 8.0, 0.0),
-                              child: Icon(
-                                Icons.add_rounded,
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryColor,
-                                size: 30.0,
-                              ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 8.0, 0.0),
+                            child: Icon(
+                              Icons.add_rounded,
+                              color:
+                                  FlutterFlowTheme.of(context).secondaryColor,
+                              size: 30.0,
                             ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 8.0, 0.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  '44rq35vd' /* Lisää  liike */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .subtitle2
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryColor,
-                                    ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 8.0, 0.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                '44rq35vd' /* Lisää  liike */,
                               ),
+                              style: FlutterFlowTheme.of(context)
+                                  .subtitle2
+                                  .override(
+                                    fontFamily: 'Roboto',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryColor,
+                                  ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
-                  ).animateOnPageLoad(
-                      animationsMap['containerOnPageLoadAnimation2']!),
-                ),
+                  ),
+                ).animateOnPageLoad(
+                    animationsMap['containerOnPageLoadAnimation2']!),
               ),
-          ],
-        ),
+            ),
+          if (valueOrDefault<bool>(
+            widget.sessioDoc == null,
+            true,
+          ))
+            Container(
+              constraints: BoxConstraints(
+                maxWidth: 300.0,
+              ),
+              decoration: BoxDecoration(),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
+                    child: Text(
+                      FFLocalizations.of(context).getText(
+                        'hr61kg7a' /* Sinulla ei ole keskeneräistä t... */,
+                      ),
+                      textAlign: TextAlign.center,
+                      style: FlutterFlowTheme.of(context).subtitle1,
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 150.0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        logFirebaseEvent(
+                            'SIVU_TREENAA_KOMPONENTTI_Button_aloitaUu');
+                        logFirebaseEvent(
+                            'Button_aloitaUusiTreeni_backend_call');
+
+                        final treeniSessiotCreateData = {
+                          ...createTreeniSessiotRecordData(
+                            userRef: currentUserReference,
+                            isEditing: false,
+                            treeniRutiiniData: createTreeniRutiiniStruct(
+                              createdTime: getCurrentTimestamp,
+                              isTreeniPohja: false,
+                              finishedEditing: true,
+                              fieldValues: {
+                                'liikkeet': [
+                                  getLiikeFirestoreData(
+                                    createLiikeStruct(
+                                      tehty: false,
+                                      isOtherExerciseType: false,
+                                      fieldValues: {
+                                        'sarjat': [
+                                          getSarjaFirestoreData(
+                                            updateSarjaStruct(
+                                              null,
+                                              clearUnsetFields: false,
+                                            ),
+                                            true,
+                                          )
+                                        ],
+                                      },
+                                      clearUnsetFields: false,
+                                      create: true,
+                                    ),
+                                    true,
+                                  )
+                                ],
+                              },
+                              clearUnsetFields: false,
+                              create: true,
+                            ),
+                          ),
+                          'alku': FieldValue.serverTimestamp(),
+                          'docCreatedTime': FieldValue.serverTimestamp(),
+                        };
+                        var treeniSessiotRecordReference =
+                            TreeniSessiotRecord.collection.doc();
+                        await treeniSessiotRecordReference
+                            .set(treeniSessiotCreateData);
+                        _model.createdSessioDoc =
+                            TreeniSessiotRecord.getDocumentFromData(
+                                treeniSessiotCreateData,
+                                treeniSessiotRecordReference);
+
+                        setState(() {});
+                      },
+                      text: FFLocalizations.of(context).getText(
+                        'uz6rq23u' /* Aloita uusi treeni */,
+                      ),
+                      options: FFButtonOptions(
+                        width: 240.0,
+                        height: 70.0,
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).primaryColor,
+                        textStyle: FlutterFlowTheme.of(context)
+                            .subtitle1
+                            .override(
+                              fontFamily: 'Outfit',
+                              color:
+                                  FlutterFlowTheme.of(context).secondaryColor,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.w500,
+                            ),
+                        elevation: 1.0,
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ).animateOnPageLoad(
+                animationsMap['containerOnPageLoadAnimation3']!),
+        ],
       ),
     );
   }

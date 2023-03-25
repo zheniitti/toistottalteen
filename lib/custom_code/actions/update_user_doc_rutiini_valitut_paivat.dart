@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 
 import '../../auth/auth_util.dart';
 
-Future myUpdateRutiininValitutPaivat(
+Future updateUserDocRutiiniValitutPaivat(
   TreeniRutiiniStruct? rutiini,
   bool? toggleMa,
   bool? toggleTi,

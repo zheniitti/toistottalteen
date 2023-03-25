@@ -96,6 +96,13 @@ class _$LiikeStructSerializer implements StructuredSerializer<LiikeStruct> {
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.createdTime;
+    if (value != null) {
+      result
+        ..add('createdTime')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
     return result;
   }
 
@@ -158,6 +165,10 @@ class _$LiikeStructSerializer implements StructuredSerializer<LiikeStruct> {
           result.isOtherExerciseType = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
           break;
+        case 'createdTime':
+          result.createdTime = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
         case 'firestoreUtilData':
           result.firestoreUtilData = serializers.deserialize(value,
                   specifiedType: const FullType(FirestoreUtilData))!
@@ -194,6 +205,8 @@ class _$LiikeStruct extends LiikeStruct {
   @override
   final bool? isOtherExerciseType;
   @override
+  final DateTime? createdTime;
+  @override
   final FirestoreUtilData firestoreUtilData;
 
   factory _$LiikeStruct([void Function(LiikeStructBuilder)? updates]) =>
@@ -211,6 +224,7 @@ class _$LiikeStruct extends LiikeStruct {
       this.photos,
       this.kestoSekunteina,
       this.isOtherExerciseType,
+      this.createdTime,
       required this.firestoreUtilData})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(sarjat, r'LiikeStruct', 'sarjat');
@@ -240,6 +254,7 @@ class _$LiikeStruct extends LiikeStruct {
         photos == other.photos &&
         kestoSekunteina == other.kestoSekunteina &&
         isOtherExerciseType == other.isOtherExerciseType &&
+        createdTime == other.createdTime &&
         firestoreUtilData == other.firestoreUtilData;
   }
 
@@ -257,6 +272,7 @@ class _$LiikeStruct extends LiikeStruct {
     _$hash = $jc(_$hash, photos.hashCode);
     _$hash = $jc(_$hash, kestoSekunteina.hashCode);
     _$hash = $jc(_$hash, isOtherExerciseType.hashCode);
+    _$hash = $jc(_$hash, createdTime.hashCode);
     _$hash = $jc(_$hash, firestoreUtilData.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -276,6 +292,7 @@ class _$LiikeStruct extends LiikeStruct {
           ..add('photos', photos)
           ..add('kestoSekunteina', kestoSekunteina)
           ..add('isOtherExerciseType', isOtherExerciseType)
+          ..add('createdTime', createdTime)
           ..add('firestoreUtilData', firestoreUtilData))
         .toString();
   }
@@ -333,6 +350,10 @@ class LiikeStructBuilder implements Builder<LiikeStruct, LiikeStructBuilder> {
   set isOtherExerciseType(bool? isOtherExerciseType) =>
       _$this._isOtherExerciseType = isOtherExerciseType;
 
+  DateTime? _createdTime;
+  DateTime? get createdTime => _$this._createdTime;
+  set createdTime(DateTime? createdTime) => _$this._createdTime = createdTime;
+
   FirestoreUtilData? _firestoreUtilData;
   FirestoreUtilData? get firestoreUtilData => _$this._firestoreUtilData;
   set firestoreUtilData(FirestoreUtilData? firestoreUtilData) =>
@@ -356,6 +377,7 @@ class LiikeStructBuilder implements Builder<LiikeStruct, LiikeStructBuilder> {
       _photos = $v.photos?.toBuilder();
       _kestoSekunteina = $v.kestoSekunteina;
       _isOtherExerciseType = $v.isOtherExerciseType;
+      _createdTime = $v.createdTime;
       _firestoreUtilData = $v.firestoreUtilData;
       _$v = null;
     }
@@ -392,6 +414,7 @@ class LiikeStructBuilder implements Builder<LiikeStruct, LiikeStructBuilder> {
               photos: _photos?.build(),
               kestoSekunteina: kestoSekunteina,
               isOtherExerciseType: isOtherExerciseType,
+              createdTime: createdTime,
               firestoreUtilData: BuiltValueNullFieldError.checkNotNull(
                   firestoreUtilData, r'LiikeStruct', 'firestoreUtilData'));
     } catch (_) {

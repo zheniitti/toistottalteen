@@ -57,20 +57,6 @@ class _$TreeniRutiiniStructSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.widgetExpanded;
-    if (value != null) {
-      result
-        ..add('widgetExpanded')
-        ..add(
-            serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
-    value = object.lastWorkoutTime;
-    if (value != null) {
-      result
-        ..add('lastWorkoutTime')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(DateTime)));
-    }
     value = object.isTreeniPohja;
     if (value != null) {
       result
@@ -84,6 +70,13 @@ class _$TreeniRutiiniStructSerializer
         ..add('finishedEditing')
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.lastWorkoutTime;
+    if (value != null) {
+      result
+        ..add('lastWorkoutTime')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
     }
     return result;
   }
@@ -108,28 +101,15 @@ class _$TreeniRutiiniStructSerializer
           result.nimi = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'kommentti':
+          result.kommentti = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'liikkeet':
           result.liikkeet.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType(LiikeStruct)]))!
               as BuiltList<Object?>);
-          break;
-        case 'kommentti':
-          result.kommentti = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'valitutViikonPaivat':
-          result.valitutViikonPaivat.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ValitutViikonPaivatStruct))!
-              as ValitutViikonPaivatStruct);
-          break;
-        case 'widgetExpanded':
-          result.widgetExpanded = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool?;
-          break;
-        case 'lastWorkoutTime':
-          result.lastWorkoutTime = serializers.deserialize(value,
-              specifiedType: const FullType(DateTime)) as DateTime?;
           break;
         case 'isTreeniPohja':
           result.isTreeniPohja = serializers.deserialize(value,
@@ -138,6 +118,15 @@ class _$TreeniRutiiniStructSerializer
         case 'finishedEditing':
           result.finishedEditing = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'lastWorkoutTime':
+          result.lastWorkoutTime = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'valitutViikonPaivat':
+          result.valitutViikonPaivat.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ValitutViikonPaivatStruct))!
+              as ValitutViikonPaivatStruct);
           break;
         case 'firestoreUtilData':
           result.firestoreUtilData = serializers.deserialize(value,
@@ -157,19 +146,17 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
   @override
   final String? nimi;
   @override
-  final BuiltList<LiikeStruct> liikkeet;
-  @override
   final String? kommentti;
   @override
-  final ValitutViikonPaivatStruct valitutViikonPaivat;
-  @override
-  final bool? widgetExpanded;
-  @override
-  final DateTime? lastWorkoutTime;
+  final BuiltList<LiikeStruct> liikkeet;
   @override
   final bool? isTreeniPohja;
   @override
   final bool? finishedEditing;
+  @override
+  final DateTime? lastWorkoutTime;
+  @override
+  final ValitutViikonPaivatStruct valitutViikonPaivat;
   @override
   final FirestoreUtilData firestoreUtilData;
 
@@ -180,13 +167,12 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
   _$TreeniRutiiniStruct._(
       {this.createdTime,
       this.nimi,
-      required this.liikkeet,
       this.kommentti,
-      required this.valitutViikonPaivat,
-      this.widgetExpanded,
-      this.lastWorkoutTime,
+      required this.liikkeet,
       this.isTreeniPohja,
       this.finishedEditing,
+      this.lastWorkoutTime,
+      required this.valitutViikonPaivat,
       required this.firestoreUtilData})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -212,13 +198,12 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
     return other is TreeniRutiiniStruct &&
         createdTime == other.createdTime &&
         nimi == other.nimi &&
-        liikkeet == other.liikkeet &&
         kommentti == other.kommentti &&
-        valitutViikonPaivat == other.valitutViikonPaivat &&
-        widgetExpanded == other.widgetExpanded &&
-        lastWorkoutTime == other.lastWorkoutTime &&
+        liikkeet == other.liikkeet &&
         isTreeniPohja == other.isTreeniPohja &&
         finishedEditing == other.finishedEditing &&
+        lastWorkoutTime == other.lastWorkoutTime &&
+        valitutViikonPaivat == other.valitutViikonPaivat &&
         firestoreUtilData == other.firestoreUtilData;
   }
 
@@ -227,13 +212,12 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
     var _$hash = 0;
     _$hash = $jc(_$hash, createdTime.hashCode);
     _$hash = $jc(_$hash, nimi.hashCode);
-    _$hash = $jc(_$hash, liikkeet.hashCode);
     _$hash = $jc(_$hash, kommentti.hashCode);
-    _$hash = $jc(_$hash, valitutViikonPaivat.hashCode);
-    _$hash = $jc(_$hash, widgetExpanded.hashCode);
-    _$hash = $jc(_$hash, lastWorkoutTime.hashCode);
+    _$hash = $jc(_$hash, liikkeet.hashCode);
     _$hash = $jc(_$hash, isTreeniPohja.hashCode);
     _$hash = $jc(_$hash, finishedEditing.hashCode);
+    _$hash = $jc(_$hash, lastWorkoutTime.hashCode);
+    _$hash = $jc(_$hash, valitutViikonPaivat.hashCode);
     _$hash = $jc(_$hash, firestoreUtilData.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -244,13 +228,12 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
     return (newBuiltValueToStringHelper(r'TreeniRutiiniStruct')
           ..add('createdTime', createdTime)
           ..add('nimi', nimi)
-          ..add('liikkeet', liikkeet)
           ..add('kommentti', kommentti)
-          ..add('valitutViikonPaivat', valitutViikonPaivat)
-          ..add('widgetExpanded', widgetExpanded)
-          ..add('lastWorkoutTime', lastWorkoutTime)
+          ..add('liikkeet', liikkeet)
           ..add('isTreeniPohja', isTreeniPohja)
           ..add('finishedEditing', finishedEditing)
+          ..add('lastWorkoutTime', lastWorkoutTime)
+          ..add('valitutViikonPaivat', valitutViikonPaivat)
           ..add('firestoreUtilData', firestoreUtilData))
         .toString();
   }
@@ -268,32 +251,15 @@ class TreeniRutiiniStructBuilder
   String? get nimi => _$this._nimi;
   set nimi(String? nimi) => _$this._nimi = nimi;
 
+  String? _kommentti;
+  String? get kommentti => _$this._kommentti;
+  set kommentti(String? kommentti) => _$this._kommentti = kommentti;
+
   ListBuilder<LiikeStruct>? _liikkeet;
   ListBuilder<LiikeStruct> get liikkeet =>
       _$this._liikkeet ??= new ListBuilder<LiikeStruct>();
   set liikkeet(ListBuilder<LiikeStruct>? liikkeet) =>
       _$this._liikkeet = liikkeet;
-
-  String? _kommentti;
-  String? get kommentti => _$this._kommentti;
-  set kommentti(String? kommentti) => _$this._kommentti = kommentti;
-
-  ValitutViikonPaivatStructBuilder? _valitutViikonPaivat;
-  ValitutViikonPaivatStructBuilder get valitutViikonPaivat =>
-      _$this._valitutViikonPaivat ??= new ValitutViikonPaivatStructBuilder();
-  set valitutViikonPaivat(
-          ValitutViikonPaivatStructBuilder? valitutViikonPaivat) =>
-      _$this._valitutViikonPaivat = valitutViikonPaivat;
-
-  bool? _widgetExpanded;
-  bool? get widgetExpanded => _$this._widgetExpanded;
-  set widgetExpanded(bool? widgetExpanded) =>
-      _$this._widgetExpanded = widgetExpanded;
-
-  DateTime? _lastWorkoutTime;
-  DateTime? get lastWorkoutTime => _$this._lastWorkoutTime;
-  set lastWorkoutTime(DateTime? lastWorkoutTime) =>
-      _$this._lastWorkoutTime = lastWorkoutTime;
 
   bool? _isTreeniPohja;
   bool? get isTreeniPohja => _$this._isTreeniPohja;
@@ -304,6 +270,18 @@ class TreeniRutiiniStructBuilder
   bool? get finishedEditing => _$this._finishedEditing;
   set finishedEditing(bool? finishedEditing) =>
       _$this._finishedEditing = finishedEditing;
+
+  DateTime? _lastWorkoutTime;
+  DateTime? get lastWorkoutTime => _$this._lastWorkoutTime;
+  set lastWorkoutTime(DateTime? lastWorkoutTime) =>
+      _$this._lastWorkoutTime = lastWorkoutTime;
+
+  ValitutViikonPaivatStructBuilder? _valitutViikonPaivat;
+  ValitutViikonPaivatStructBuilder get valitutViikonPaivat =>
+      _$this._valitutViikonPaivat ??= new ValitutViikonPaivatStructBuilder();
+  set valitutViikonPaivat(
+          ValitutViikonPaivatStructBuilder? valitutViikonPaivat) =>
+      _$this._valitutViikonPaivat = valitutViikonPaivat;
 
   FirestoreUtilData? _firestoreUtilData;
   FirestoreUtilData? get firestoreUtilData => _$this._firestoreUtilData;
@@ -319,13 +297,12 @@ class TreeniRutiiniStructBuilder
     if ($v != null) {
       _createdTime = $v.createdTime;
       _nimi = $v.nimi;
-      _liikkeet = $v.liikkeet.toBuilder();
       _kommentti = $v.kommentti;
-      _valitutViikonPaivat = $v.valitutViikonPaivat.toBuilder();
-      _widgetExpanded = $v.widgetExpanded;
-      _lastWorkoutTime = $v.lastWorkoutTime;
+      _liikkeet = $v.liikkeet.toBuilder();
       _isTreeniPohja = $v.isTreeniPohja;
       _finishedEditing = $v.finishedEditing;
+      _lastWorkoutTime = $v.lastWorkoutTime;
+      _valitutViikonPaivat = $v.valitutViikonPaivat.toBuilder();
       _firestoreUtilData = $v.firestoreUtilData;
       _$v = null;
     }
@@ -353,13 +330,12 @@ class TreeniRutiiniStructBuilder
           new _$TreeniRutiiniStruct._(
               createdTime: createdTime,
               nimi: nimi,
-              liikkeet: liikkeet.build(),
               kommentti: kommentti,
-              valitutViikonPaivat: valitutViikonPaivat.build(),
-              widgetExpanded: widgetExpanded,
-              lastWorkoutTime: lastWorkoutTime,
+              liikkeet: liikkeet.build(),
               isTreeniPohja: isTreeniPohja,
               finishedEditing: finishedEditing,
+              lastWorkoutTime: lastWorkoutTime,
+              valitutViikonPaivat: valitutViikonPaivat.build(),
               firestoreUtilData: BuiltValueNullFieldError.checkNotNull(
                   firestoreUtilData,
                   r'TreeniRutiiniStruct',

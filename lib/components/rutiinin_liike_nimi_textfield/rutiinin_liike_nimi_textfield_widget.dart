@@ -65,7 +65,7 @@ class _RutiininLiikeNimiTextfieldWidgetState
         () async {
           logFirebaseEvent('RUTIININ_LIIKE_NIMI_TEXTFIELD_TextField_');
           logFirebaseEvent('TextField_custom_action');
-          await actions.myUpdateLiikeAtIndex(
+          await actions.updateUserDocLiikeAtIndex(
             widget.liikeIndex!,
             widget.rutiini,
             _model.textController.text,

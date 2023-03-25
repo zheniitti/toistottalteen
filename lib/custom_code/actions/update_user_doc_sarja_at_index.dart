@@ -10,19 +10,12 @@ import 'package:flutter/material.dart';
 
 import '../../auth/auth_util.dart';
 
-Future myUpdateLiikeAtIndex(
+Future updateUserDocSarjaAtIndex(
+  int sarjaIndex,
   int liikeIndex,
   TreeniRutiiniStruct? treeniRutiini,
-  String? liikeNimi,
-  String? liikeKommentti,
   int? toistoMaara,
-  int? sarjaMaara,
-  double? aloitusPainoKg,
-  bool? isOtherExerciseType,
-  bool? isTehty,
-  bool? showKommentti,
-  double? matkaMetreina,
-  double? kestoSekunteina,
+  double? painoKg,
 ) async {
   if (treeniRutiini == null || treeniRutiini.createdTime == null) return;
 
@@ -32,33 +25,21 @@ Future myUpdateLiikeAtIndex(
       getTreeniRutiiniListFirestoreData(
           currentUserDocument?.treeniRutiinit?.toList() ?? []);
   if (rutiinitListaFirestoreData.isEmpty) return;
-
   Map<String, dynamic> rutiiniFirestoreData =
       rutiinitListaFirestoreData[rutiiniIndex];
   List<LiikeStruct> liikkeet = treeniRutiini?.liikkeet?.toList() ?? [];
   Map<String, dynamic> liikeFirestoreData =
-      getLiikeFirestoreData(liikkeet[liikeIndex], true);
+      getLiikeFirestoreData(liikkeet[liikeIndex]);
+  List<SarjaStruct> sarjat =
+      treeniRutiini?.liikkeet?[liikeIndex]?.sarjat?.toList() ?? [];
+  Map<String, dynamic> sarjaFirestoreData =
+      getLiikeFirestoreData(liikkeet[liikeIndex]);
 
-  rutiiniFirestoreData['finishedEditing'] = false;
-  liikeFirestoreData['nimi'] = liikeNimi ?? liikeFirestoreData['nimi'];
-  liikeFirestoreData['kommentti'] =
-      liikeKommentti ?? liikeFirestoreData['kommentti'];
-  liikeFirestoreData['toistoMaara'] =
-      toistoMaara ?? liikeFirestoreData['toistoMaara'];
-  liikeFirestoreData['sarjaMaara'] =
-      sarjaMaara ?? liikeFirestoreData['sarjaMaara'];
-  liikeFirestoreData['aloitusPainoKg'] =
-      aloitusPainoKg ?? liikeFirestoreData['aloitusPainoKg'];
-  liikeFirestoreData['isOtherExerciseType'] =
-      isOtherExerciseType ?? liikeFirestoreData['isOtherExerciseType'];
-  liikeFirestoreData['tehty'] = isTehty ?? liikeFirestoreData['tehty'];
-  liikeFirestoreData['showKommentti'] =
-      showKommentti ?? liikeFirestoreData['showKommentti'];
-  liikeFirestoreData['matkaMetri'] =
-      matkaMetreina ?? liikeFirestoreData['matkaMetri'];
-  liikeFirestoreData['kestoSekunteina'] =
-      kestoSekunteina ?? liikeFirestoreData['kestoSekunteina'];
+  sarjaFirestoreData['toistoMaara'] =
+      toistoMaara ?? sarjaFirestoreData['toistoMaara'];
+  sarjaFirestoreData['painoKg'] = painoKg ?? sarjaFirestoreData['painoKg'];
 
+  liikeFirestoreData['sarjat'][sarjaIndex] = sarjaFirestoreData;
   rutiiniFirestoreData['liikkeet'][liikeIndex] = liikeFirestoreData;
   rutiinitListaFirestoreData[rutiiniIndex] = rutiiniFirestoreData;
   await currentUserReference!

@@ -31,6 +31,8 @@ abstract class LiikeStruct implements Built<LiikeStruct, LiikeStructBuilder> {
 
   bool? get isOtherExerciseType;
 
+  DateTime? get createdTime;
+
   /// Utility class for Firestore updates
   FirestoreUtilData get firestoreUtilData;
 
@@ -63,6 +65,7 @@ LiikeStruct createLiikeStruct({
   bool? tehty,
   double? kestoSekunteina,
   bool? isOtherExerciseType,
+  DateTime? createdTime,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -81,6 +84,7 @@ LiikeStruct createLiikeStruct({
         ..photos = null
         ..kestoSekunteina = kestoSekunteina
         ..isOtherExerciseType = isOtherExerciseType
+        ..createdTime = createdTime
         ..firestoreUtilData = FirestoreUtilData(
           clearUnsetFields: clearUnsetFields,
           create: create,

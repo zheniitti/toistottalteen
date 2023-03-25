@@ -17,7 +17,7 @@ import 'package:provider/provider.dart';
 class RutiininLiikkeetModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
-  // Stores action output result for [Custom Action - rutiiniToFirestoreData] action in Column widget.
+  // Stores action output result for [Custom Action - rutiiniToJsonFirestoreData] action in Column widget.
   dynamic? jsonRutiiniCopy;
 
   /// Initialization and disposal methods.

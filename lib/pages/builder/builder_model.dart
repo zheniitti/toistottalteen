@@ -25,6 +25,8 @@ class BuilderModel extends FlutterFlowModel {
   late SessioModel sessioModel;
   // Model for rutiininLiikkeet component.
   late RutiininLiikkeetModel rutiininLiikkeetModel;
+  // Stores action output result for [Backend Call - Create Document] action in Text widget.
+  TreeniSessiotRecord? asdt;
   // Stores action output result for [Backend Call - Create Document] action in Button_aloitaUusiTreeni widget.
   TreeniSessiotRecord? createdSessioDoc;
   // State field(s) for PageView widget.

@@ -354,7 +354,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                     logFirebaseEvent(
                                         'RUTIININ_SARJAT_TOISTOT_KESTO_MATKA_Text');
                                     logFirebaseEvent('TextField_custom_action');
-                                    await actions.myUpdateLiikeAtIndex(
+                                    await actions.updateUserDocLiikeAtIndex(
                                       widget.liikeIndex!,
                                       widget.rutiini,
                                       widget.rutiini?.liikkeet
@@ -474,7 +474,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                     logFirebaseEvent(
                                         'RUTIININ_SARJAT_TOISTOT_KESTO_MATKA_Text');
                                     logFirebaseEvent('TextField_custom_action');
-                                    await actions.myUpdateLiikeAtIndex(
+                                    await actions.updateUserDocLiikeAtIndex(
                                       widget.liikeIndex!,
                                       widget.rutiini,
                                       widget.rutiini?.liikkeet
@@ -594,7 +594,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                     logFirebaseEvent(
                                         'RUTIININ_SARJAT_TOISTOT_KESTO_MATKA_Text');
                                     logFirebaseEvent('TextField_custom_action');
-                                    await actions.myUpdateLiikeAtIndex(
+                                    await actions.updateUserDocLiikeAtIndex(
                                       widget.liikeIndex!,
                                       widget.rutiini,
                                       widget.rutiini?.liikkeet
@@ -748,7 +748,8 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                 'RUTIININ_SARJAT_TOISTOT_KESTO_MATKA_Text');
                                             logFirebaseEvent(
                                                 'TextField_custom_action');
-                                            await actions.myUpdateLiikeAtIndex(
+                                            await actions
+                                                .updateUserDocLiikeAtIndex(
                                               widget.liikeIndex!,
                                               widget.rutiini,
                                               widget.rutiini?.liikkeet
@@ -875,7 +876,8 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                 'RUTIININ_SARJAT_TOISTOT_KESTO_MATKA_Text');
                                             logFirebaseEvent(
                                                 'TextField_custom_action');
-                                            await actions.myUpdateLiikeAtIndex(
+                                            await actions
+                                                .updateUserDocLiikeAtIndex(
                                               widget.liikeIndex!,
                                               widget.rutiini,
                                               widget.rutiini?.liikkeet
@@ -1006,7 +1008,8 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                 'RUTIININ_SARJAT_TOISTOT_KESTO_MATKA_Text');
                                             logFirebaseEvent(
                                                 'TextField_custom_action');
-                                            await actions.myUpdateLiikeAtIndex(
+                                            await actions
+                                                .updateUserDocLiikeAtIndex(
                                               widget.liikeIndex!,
                                               widget.rutiini,
                                               widget.rutiini?.liikkeet
@@ -1139,7 +1142,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                             'RUTIININ_SARJAT_TOISTOT_KESTO_MATKA_Text');
                                         logFirebaseEvent(
                                             'TextField_custom_action');
-                                        await actions.myUpdateLiikeAtIndex(
+                                        await actions.updateUserDocLiikeAtIndex(
                                           widget.liikeIndex!,
                                           widget.rutiini,
                                           widget.rutiini?.liikkeet
@@ -1172,7 +1175,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                           'RUTIININ_SARJAT_TOISTOT_KESTO_MATKA_Text');
                                       logFirebaseEvent(
                                           'TextField_custom_action');
-                                      await actions.myUpdateLiikeAtIndex(
+                                      await actions.updateUserDocLiikeAtIndex(
                                         widget.liikeIndex!,
                                         widget.rutiini,
                                         widget.rutiini?.liikkeet
@@ -1353,7 +1356,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                               .forward(from: 0.0);
                         }
                         logFirebaseEvent('Button_custom_action');
-                        await actions.myUpdateLiikeAtIndex(
+                        await actions.updateUserDocLiikeAtIndex(
                           widget.liikeIndex!,
                           widget.rutiini,
                           widget.rutiini?.liikkeet

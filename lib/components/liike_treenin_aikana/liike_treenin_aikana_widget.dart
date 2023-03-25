@@ -44,8 +44,8 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
       effects: [
         FadeEffect(
           curve: Curves.easeInOut,
-          delay: 300.ms,
-          duration: 1200.ms,
+          delay: 200.ms,
+          duration: 800.ms,
           begin: 0.0,
           end: 1.0,
         ),
@@ -125,8 +125,8 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            20.0, 9.0, 20.0, 0.0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 9.0, 20.0, 0.0),
                         child: TextFormField(
                           controller: _model.textController1,
                           obscureText: false,
@@ -187,7 +187,7 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                                     fontFamily: 'Outfit',
                                     lineHeight: 1.0,
                                   ),
-                          textAlign: TextAlign.center,
+                          textAlign: TextAlign.start,
                           maxLines: 5,
                           minLines: 1,
                           validator: _model.textController1Validator
@@ -197,78 +197,75 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                       if (!widget.liike!.tehty! ||
                           (widget.liike?.kommentti != null &&
                               widget.liike?.kommentti != ''))
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 4.0, 0.0, 0.0),
-                          child: TextFormField(
-                            controller: _model.textController2,
-                            obscureText: false,
-                            decoration: InputDecoration(
-                              isDense: true,
-                              hintText: FFLocalizations.of(context).getText(
-                                'l7w663ju' /* Kommentti (vapaaehtoinen) */,
-                              ),
-                              hintStyle: FlutterFlowTheme.of(context)
-                                  .bodyText2
-                                  .override(
-                                    fontFamily: 'Roboto',
-                                    fontSize: 14.0,
-                                    lineHeight: 1.0,
-                                  ),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0x00000000),
-                                  width: 1.0,
-                                ),
-                                borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(4.0),
-                                  topRight: Radius.circular(4.0),
-                                ),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0x00000000),
-                                  width: 1.0,
-                                ),
-                                borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(4.0),
-                                  topRight: Radius.circular(4.0),
-                                ),
-                              ),
-                              errorBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0x00000000),
-                                  width: 1.0,
-                                ),
-                                borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(4.0),
-                                  topRight: Radius.circular(4.0),
-                                ),
-                              ),
-                              focusedErrorBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0x00000000),
-                                  width: 1.0,
-                                ),
-                                borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(4.0),
-                                  topRight: Radius.circular(4.0),
-                                ),
-                              ),
+                        TextFormField(
+                          controller: _model.textController2,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            isDense: true,
+                            hintText: FFLocalizations.of(context).getText(
+                              'l7w663ju' /* Kommentti (vapaaehtoinen) */,
                             ),
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
+                            hintStyle:
+                                FlutterFlowTheme.of(context).bodyText2.override(
                                       fontFamily: 'Roboto',
                                       fontSize: 14.0,
-                                      fontWeight: FontWeight.normal,
                                       lineHeight: 1.0,
                                     ),
-                            textAlign: TextAlign.start,
-                            maxLines: 20,
-                            minLines: 1,
-                            validator: _model.textController2Validator
-                                .asValidator(context),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1.0,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1.0,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            errorBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1.0,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            focusedErrorBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1.0,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 2.0, 0.0, 2.0),
                           ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Roboto',
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.normal,
+                                    lineHeight: 1.0,
+                                  ),
+                          textAlign: TextAlign.start,
+                          maxLines: 20,
+                          minLines: 1,
+                          validator: _model.textController2Validator
+                              .asValidator(context),
                         ),
                     ],
                   ),

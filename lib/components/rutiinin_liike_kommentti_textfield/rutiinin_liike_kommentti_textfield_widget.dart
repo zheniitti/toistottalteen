@@ -66,7 +66,7 @@ class _RutiininLiikeKommenttiTextfieldWidgetState
         () async {
           logFirebaseEvent('RUTIININ_LIIKE_KOMMENTTI_TEXTFIELD_TextF');
           logFirebaseEvent('TextField_custom_action');
-          await actions.myUpdateLiikeAtIndex(
+          await actions.updateUserDocLiikeAtIndex(
             widget.liikeIndex!,
             widget.rutiini,
             null,

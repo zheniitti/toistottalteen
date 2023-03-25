@@ -295,8 +295,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                           // getPlatform
                                           logFirebaseEvent('Text_getPlatform');
                                           _model.platformStringCopy =
-                                              await actions
-                                                  .getPlatformAsString();
+                                              await actions.platformString();
                                           // updateUsersRecord
                                           logFirebaseEvent(
                                               'Text_updateUsersRecord');

@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-Future<dynamic> rutiiniToFirestoreData(
+Future<dynamic> rutiiniToJsonFirestoreData(
     TreeniRutiiniStruct? rutiiniDataStruct) async {
   if (rutiiniDataStruct == null) {
     return null;

@@ -4,6 +4,7 @@ import '/components/liike_treenin_aikana/liike_treenin_aikana_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -22,13 +23,15 @@ class SivuTreenaaKomponenttiModel extends FlutterFlowModel {
   // State field(s) for rutiininnimi widget.
   TextEditingController? rutiininnimiController;
   String? Function(BuildContext, String?)? rutiininnimiControllerValidator;
+  // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in rutiininnimi widget.
+  TreeniRutiiniStruct? updatedRutiini;
   // State field(s) for rutiiniKommentti widget.
   TextEditingController? rutiiniKommenttiController;
   String? Function(BuildContext, String?)? rutiiniKommenttiControllerValidator;
-  // Stores action output result for [Custom Action - createSarjaList] action in Container_painike_uusiLiike widget.
-  List<SarjaStruct>? luotuTyhjaSarja;
-  // Stores action output result for [Custom Action - createLiike] action in Container_painike_uusiLiike widget.
-  LiikeStruct? luotuLiike;
+  // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in Container_painike_uusiLiike widget.
+  TreeniRutiiniStruct? updatedRutiiniCopy;
+  // Stores action output result for [Backend Call - Create Document] action in Button_aloitaUusiTreeni widget.
+  TreeniSessiotRecord? createdSessioDoc;
 
   /// Initialization and disposal methods.
 

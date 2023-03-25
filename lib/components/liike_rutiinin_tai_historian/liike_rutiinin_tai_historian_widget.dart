@@ -58,13 +58,13 @@ class _LiikeRutiininTaiHistorianWidgetState
         borderRadius: BorderRadius.circular(8.0),
       ),
       child: Row(
-        mainAxisSize: MainAxisSize.max,
+        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             child: Column(
-              mainAxisSize: MainAxisSize.max,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Align(
                   alignment: AlignmentDirectional(-1.0, 0.0),

@@ -19,7 +19,7 @@ class GetStartedSivuModel extends FlutterFlowModel {
 
   // Model for ToistotTalteenText component.
   late ToistotTalteenTextModel toistotTalteenTextModel;
-  // Stores action output result for [Custom Action - getPlatformAsString] action in Text widget.
+  // Stores action output result for [Custom Action - platformString] action in Text widget.
   String? platformStringCopy;
 
   /// Initialization and disposal methods.

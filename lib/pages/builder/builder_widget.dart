@@ -211,12 +211,58 @@ class _BuilderWidgetState extends State<BuilderWidget> {
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
-                  child: Text(
-                    valueOrDefault<String>(
-                      FFLocalizations.of(context).languageCode,
-                      'ast',
+                  child: InkWell(
+                    onTap: () async {
+                      logFirebaseEvent('BUILDER_PAGE_Text_sfpf9cms_ON_TAP');
+                      logFirebaseEvent('Text_backend_call');
+
+                      final treeniSessiotCreateData =
+                          createTreeniSessiotRecordData(
+                        treeniRutiiniData: createTreeniRutiiniStruct(
+                          fieldValues: {
+                            'liikkeet': [
+                              getLiikeFirestoreData(
+                                createLiikeStruct(
+                                  nimi: 'ekaliike',
+                                  clearUnsetFields: false,
+                                  create: true,
+                                ),
+                                true,
+                              )
+                            ],
+                          },
+                          clearUnsetFields: false,
+                          create: true,
+                        ),
+                      );
+                      var treeniSessiotRecordReference =
+                          TreeniSessiotRecord.collection.doc();
+                      await treeniSessiotRecordReference
+                          .set(treeniSessiotCreateData);
+                      _model.asdt = TreeniSessiotRecord.getDocumentFromData(
+                          treeniSessiotCreateData,
+                          treeniSessiotRecordReference);
+                      logFirebaseEvent('Text_backend_call');
+
+                      final treeniSessiotUpdateData =
+                          createTreeniSessiotRecordData(
+                        treeniRutiiniData: updateTreeniRutiiniStruct(
+                          _model.asdt!.treeniRutiiniData,
+                          clearUnsetFields: false,
+                        ),
+                      );
+                      await _model.createdSessioDoc!.reference
+                          .update(treeniSessiotUpdateData);
+
+                      setState(() {});
+                    },
+                    child: Text(
+                      valueOrDefault<String>(
+                        FFLocalizations.of(context).languageCode,
+                        'ast',
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyText1,
                     ),
-                    style: FlutterFlowTheme.of(context).bodyText1,
                   ),
                 ),
               ),

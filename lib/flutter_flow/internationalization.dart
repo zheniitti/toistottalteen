@@ -828,6 +828,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Lisää  liike',
       'en': 'New exercise',
     },
+    'hr61kg7a': {
+      'fi': 'Sinulla ei ole keskeneräistä treeniä',
+      'en': 'You don\'t have unfinished workouts',
+    },
+    'uz6rq23u': {
+      'fi': 'Aloita uusi treeni',
+      'en': 'Start a new workout',
+    },
   },
   // rutiini
   {
@@ -1129,6 +1137,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
     'pkjl6rgd': {
+      'fi': '',
+      'en': '',
+    },
+    'djvqv52f': {
       'fi': '',
       'en': '',
     },
