@@ -10,35 +10,24 @@ import 'package:flutter/material.dart';
 
 import '../../auth/auth_util.dart';
 
-Future updateTreenisessiotRecord(
-  TreeniSessiotRecord? sessiotRecord,
+Future updateSessiotRecordFromRef(
+  DocumentReference? sessioRef,
   DateTime? alku,
   DateTime? loppu,
   TreeniRutiiniStruct? rutiini,
   bool? isEditing,
   DateTime? lastModifiedTime,
-  bool? createRecordIfNull,
 ) async {
-  var sessioRef = sessiotRecord?.reference;
-  if (sessioRef == null && createRecordIfNull != null && createRecordIfNull) {
-    sessioRef = TreeniSessiotRecord.collection.doc();
-  }
-  if (sessioRef == null) {
-    return;
-  }
+  if (sessioRef == null) return;
 
   final Map<String, Object?> sessiotUpdateData = {
-    if (sessiotRecord?.userRef == null) 'userRef': currentUserReference,
-    if (sessiotRecord?.docCreatedTime == null) 'docCreatedTime': FieldValue.serverTimestamp(),
     if (alku != null) 'alku': alku,
     if (loppu != null) 'loppu': loppu,
-    if (!(rutiini == null && sessiotRecord?.treeniRutiiniData == null)) 'treeniRutiiniData': getTreeniRutiiniFirestoreData(rutiini ?? sessiotRecord?.treeniRutiiniData, true),
+    if (rutiini == null)
+      'treeniRutiiniData': getTreeniRutiiniFirestoreData(rutiini, true),
     if (isEditing != null) 'isEditing': isEditing,
     if (lastModifiedTime != null) 'lastModifiedTime': lastModifiedTime,
   };
 
-  if (sessiotRecord != null)
-    await sessioRef.update(sessiotUpdateData);
-  else
-    await sessioRef.set(sessiotUpdateData);
+  await sessioRef.update(sessiotUpdateData);
 }

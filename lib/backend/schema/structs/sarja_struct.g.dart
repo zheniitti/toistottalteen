@@ -36,6 +36,20 @@ class _$SarjaStructSerializer implements StructuredSerializer<SarjaStruct> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(double)));
     }
+    value = object.matkaMetreina;
+    if (value != null) {
+      result
+        ..add('matkaMetreina')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(double)));
+    }
+    value = object.kestoSekunteina;
+    if (value != null) {
+      result
+        ..add('kestoSekunteina')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(double)));
+    }
     return result;
   }
 
@@ -58,6 +72,14 @@ class _$SarjaStructSerializer implements StructuredSerializer<SarjaStruct> {
           result.paino = serializers.deserialize(value,
               specifiedType: const FullType(double)) as double?;
           break;
+        case 'matkaMetreina':
+          result.matkaMetreina = serializers.deserialize(value,
+              specifiedType: const FullType(double)) as double?;
+          break;
+        case 'kestoSekunteina':
+          result.kestoSekunteina = serializers.deserialize(value,
+              specifiedType: const FullType(double)) as double?;
+          break;
         case 'firestoreUtilData':
           result.firestoreUtilData = serializers.deserialize(value,
                   specifiedType: const FullType(FirestoreUtilData))!
@@ -76,13 +98,21 @@ class _$SarjaStruct extends SarjaStruct {
   @override
   final double? paino;
   @override
+  final double? matkaMetreina;
+  @override
+  final double? kestoSekunteina;
+  @override
   final FirestoreUtilData firestoreUtilData;
 
   factory _$SarjaStruct([void Function(SarjaStructBuilder)? updates]) =>
       (new SarjaStructBuilder()..update(updates))._build();
 
   _$SarjaStruct._(
-      {this.toistoMaara, this.paino, required this.firestoreUtilData})
+      {this.toistoMaara,
+      this.paino,
+      this.matkaMetreina,
+      this.kestoSekunteina,
+      required this.firestoreUtilData})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         firestoreUtilData, r'SarjaStruct', 'firestoreUtilData');
@@ -101,6 +131,8 @@ class _$SarjaStruct extends SarjaStruct {
     return other is SarjaStruct &&
         toistoMaara == other.toistoMaara &&
         paino == other.paino &&
+        matkaMetreina == other.matkaMetreina &&
+        kestoSekunteina == other.kestoSekunteina &&
         firestoreUtilData == other.firestoreUtilData;
   }
 
@@ -109,6 +141,8 @@ class _$SarjaStruct extends SarjaStruct {
     var _$hash = 0;
     _$hash = $jc(_$hash, toistoMaara.hashCode);
     _$hash = $jc(_$hash, paino.hashCode);
+    _$hash = $jc(_$hash, matkaMetreina.hashCode);
+    _$hash = $jc(_$hash, kestoSekunteina.hashCode);
     _$hash = $jc(_$hash, firestoreUtilData.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -119,6 +153,8 @@ class _$SarjaStruct extends SarjaStruct {
     return (newBuiltValueToStringHelper(r'SarjaStruct')
           ..add('toistoMaara', toistoMaara)
           ..add('paino', paino)
+          ..add('matkaMetreina', matkaMetreina)
+          ..add('kestoSekunteina', kestoSekunteina)
           ..add('firestoreUtilData', firestoreUtilData))
         .toString();
   }
@@ -135,6 +171,16 @@ class SarjaStructBuilder implements Builder<SarjaStruct, SarjaStructBuilder> {
   double? get paino => _$this._paino;
   set paino(double? paino) => _$this._paino = paino;
 
+  double? _matkaMetreina;
+  double? get matkaMetreina => _$this._matkaMetreina;
+  set matkaMetreina(double? matkaMetreina) =>
+      _$this._matkaMetreina = matkaMetreina;
+
+  double? _kestoSekunteina;
+  double? get kestoSekunteina => _$this._kestoSekunteina;
+  set kestoSekunteina(double? kestoSekunteina) =>
+      _$this._kestoSekunteina = kestoSekunteina;
+
   FirestoreUtilData? _firestoreUtilData;
   FirestoreUtilData? get firestoreUtilData => _$this._firestoreUtilData;
   set firestoreUtilData(FirestoreUtilData? firestoreUtilData) =>
@@ -149,6 +195,8 @@ class SarjaStructBuilder implements Builder<SarjaStruct, SarjaStructBuilder> {
     if ($v != null) {
       _toistoMaara = $v.toistoMaara;
       _paino = $v.paino;
+      _matkaMetreina = $v.matkaMetreina;
+      _kestoSekunteina = $v.kestoSekunteina;
       _firestoreUtilData = $v.firestoreUtilData;
       _$v = null;
     }
@@ -174,6 +222,8 @@ class SarjaStructBuilder implements Builder<SarjaStruct, SarjaStructBuilder> {
         new _$SarjaStruct._(
             toistoMaara: toistoMaara,
             paino: paino,
+            matkaMetreina: matkaMetreina,
+            kestoSekunteina: kestoSekunteina,
             firestoreUtilData: BuiltValueNullFieldError.checkNotNull(
                 firestoreUtilData, r'SarjaStruct', 'firestoreUtilData'));
     replace(_$result);

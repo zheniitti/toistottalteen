@@ -30,6 +30,9 @@ class SivuTreenaaKomponenttiModel extends FlutterFlowModel {
   String? Function(BuildContext, String?)? rutiiniKommenttiControllerValidator;
   // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in rutiiniKommentti widget.
   TreeniRutiiniStruct? updatedRutiiniFromKommenttiField;
+  // Models for liike_treeninAikana dynamic component.
+  late FlutterFlowDynamicModels<LiikeTreeninAikanaModel>
+      liikeTreeninAikanaModels;
   // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in Container_painike_uusiLiike widget.
   TreeniRutiiniStruct? updatedRutiiniFromLisaaLiike;
   // Stores action output result for [Backend Call - Create Document] action in Button_aloitaUusiTreeni widget.
@@ -37,11 +40,15 @@ class SivuTreenaaKomponenttiModel extends FlutterFlowModel {
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    liikeTreeninAikanaModels =
+        FlutterFlowDynamicModels(() => LiikeTreeninAikanaModel());
+  }
 
   void dispose() {
     rutiininnimiController?.dispose();
     rutiiniKommenttiController?.dispose();
+    liikeTreeninAikanaModels.dispose();
   }
 
   /// Additional helper methods are added here.

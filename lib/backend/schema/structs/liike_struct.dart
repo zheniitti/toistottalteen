@@ -1,7 +1,5 @@
 import 'dart:async';
 
-import 'package:toistot_talteen/flutter_flow/flutter_flow_util.dart';
-
 import '../index.dart';
 import '../serializers.dart';
 import 'package:built_value/built_value.dart';
@@ -86,7 +84,7 @@ LiikeStruct createLiikeStruct({
         ..photos = null
         ..kestoSekunteina = kestoSekunteina
         ..isOtherExerciseType = isOtherExerciseType
-        ..createdTime = createdTime ?? getCurrentTimestamp // <- Älä muuta tätä
+        ..createdTime = createdTime
         ..firestoreUtilData = FirestoreUtilData(
           clearUnsetFields: clearUnsetFields,
           create: create,
