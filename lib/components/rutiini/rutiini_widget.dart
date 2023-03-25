@@ -1434,24 +1434,40 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                           ...createTreeniSessiotRecordData(
                                             userRef: currentUserReference,
                                             isEditing: false,
-                                            treeniRutiiniData:
-                                                updateTreeniRutiiniStruct(
-                                              widget.rutiini,
-                                              clearUnsetFields: false,
-                                            ),
                                           ),
                                           'docCreatedTime':
                                               FieldValue.serverTimestamp(),
                                           'alku': FieldValue.serverTimestamp(),
                                         };
-                                        await TreeniSessiotRecord.collection
-                                            .doc()
+                                        var treeniSessiotRecordReference =
+                                            TreeniSessiotRecord.collection
+                                                .doc();
+                                        await treeniSessiotRecordReference
                                             .set(treeniSessiotCreateData);
+                                        _model.createdSessioFromTreenaaButton =
+                                            TreeniSessiotRecord
+                                                .getDocumentFromData(
+                                                    treeniSessiotCreateData,
+                                                    treeniSessiotRecordReference);
+                                        logFirebaseEvent(
+                                            'Button_custom_action');
+                                        await actions
+                                            .updateSessiotRecordFromRef(
+                                          _model.createdSessioFromTreenaaButton!
+                                              .reference,
+                                          null,
+                                          null,
+                                          widget.rutiini,
+                                          true,
+                                          null,
+                                        );
                                         logFirebaseEvent(
                                             'Button_update_app_state');
-                                        FFAppState().update(() {
+                                        _model.updatePage(() {
                                           FFAppState().navBarIndex = 1;
                                         });
+
+                                        setState(() {});
                                       },
                                       text: FFLocalizations.of(context).getText(
                                         '5o4nggqe' /* Treenaa nyt */,
