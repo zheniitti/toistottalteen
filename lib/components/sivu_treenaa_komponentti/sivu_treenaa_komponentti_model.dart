@@ -23,11 +23,15 @@ class SivuTreenaaKomponenttiModel extends FlutterFlowModel {
   // State field(s) for rutiininnimi widget.
   TextEditingController? rutiininnimiController;
   String? Function(BuildContext, String?)? rutiininnimiControllerValidator;
+  // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in rutiininnimi widget.
+  TreeniRutiiniStruct? updatedRutiiniFromNimiField;
   // State field(s) for rutiiniKommentti widget.
   TextEditingController? rutiiniKommenttiController;
   String? Function(BuildContext, String?)? rutiiniKommenttiControllerValidator;
+  // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in rutiiniKommentti widget.
+  TreeniRutiiniStruct? updatedRutiiniFromKommenttiField;
   // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in Container_painike_uusiLiike widget.
-  TreeniRutiiniStruct? updatedRutiini;
+  TreeniRutiiniStruct? updatedRutiiniFromLisaaLiike;
   // Stores action output result for [Backend Call - Create Document] action in Button_aloitaUusiTreeni widget.
   TreeniSessiotRecord? createdSessioDoc;
 

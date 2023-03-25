@@ -16,6 +16,7 @@ import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'sivu_treenaa_komponentti_model.dart';
 export 'sivu_treenaa_komponentti_model.dart';
 
@@ -48,8 +49,8 @@ class _SivuTreenaaKomponenttiWidgetState
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 1200.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: 0,
+          end: 1,
         ),
       ],
     ),
@@ -61,15 +62,15 @@ class _SivuTreenaaKomponenttiWidgetState
           curve: Curves.elasticOut,
           delay: 1500.ms,
           duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: 0,
+          end: 1,
         ),
         ScaleEffect(
           curve: Curves.elasticOut,
           delay: 1500.ms,
           duration: 800.ms,
           begin: 0.7,
-          end: 1.0,
+          end: 1,
         ),
       ],
     ),
@@ -81,8 +82,8 @@ class _SivuTreenaaKomponenttiWidgetState
           curve: Curves.easeInOut,
           delay: 200.ms,
           duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: 0,
+          end: 1,
         ),
       ],
     ),
@@ -131,13 +132,13 @@ class _SivuTreenaaKomponenttiWidgetState
     context.watch<FFAppState>();
 
     return Container(
-      width: MediaQuery.of(context).size.width * 1.0,
-      height: MediaQuery.of(context).size.height * 1.0,
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height * 1,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).primaryBackground,
       ),
       child: Stack(
-        alignment: AlignmentDirectional(0.0, -1.0),
+        alignment: AlignmentDirectional(0, -1),
         children: [
           if (valueOrDefault<bool>(
             widget.sessioDoc != null,
@@ -148,29 +149,27 @@ class _SivuTreenaaKomponenttiWidgetState
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 240.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 240),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 20.0, 0.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                           child: Container(
                             width: double.infinity,
                             constraints: BoxConstraints(
-                              maxWidth: 640.0,
+                              maxWidth: 640,
                             ),
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              borderRadius: BorderRadius.circular(12.0),
+                              borderRadius: BorderRadius.circular(12),
                             ),
                             child: Stack(
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      4.0, 4.0, 4.0, 4.0),
+                                      4, 4, 4, 4),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -184,21 +183,49 @@ class _SivuTreenaaKomponenttiWidgetState
                                             logFirebaseEvent(
                                                 'SIVU_TREENAA_KOMPONENTTI_rutiininnimi_ON');
                                             logFirebaseEvent(
+                                                'rutiininnimi_custom_action');
+                                            _model.updatedRutiiniFromNimiField =
+                                                await actions
+                                                    .myUpdateTreeniRutiiniStruct(
+                                              widget
+                                                  .sessioDoc!.treeniRutiiniData,
+                                              null,
+                                              _model
+                                                  .rutiininnimiController.text,
+                                              widget.sessioDoc!
+                                                  .treeniRutiiniData.liikkeet
+                                                  ?.toList()
+                                                  ?.toList(),
+                                              _model.rutiiniKommenttiController
+                                                  .text,
+                                              null,
+                                              null,
+                                              false,
+                                              true,
+                                              null,
+                                              null,
+                                              null,
+                                              null,
+                                              null,
+                                              null,
+                                            );
+                                            logFirebaseEvent(
                                                 'rutiininnimi_backend_call');
 
                                             final treeniSessiotUpdateData =
                                                 createTreeniSessiotRecordData(
                                               treeniRutiiniData:
-                                                  createTreeniRutiiniStruct(
-                                                nimi: _model
-                                                    .rutiininnimiController
-                                                    .text,
+                                                  updateTreeniRutiiniStruct(
+                                                _model
+                                                    .updatedRutiiniFromNimiField,
                                                 clearUnsetFields: false,
                                               ),
                                             );
                                             await widget.sessioDoc!.reference
                                                 .update(
                                                     treeniSessiotUpdateData);
+
+                                            setState(() {});
                                           },
                                         ),
                                         obscureText: false,
@@ -214,39 +241,39 @@ class _SivuTreenaaKomponenttiWidgetState
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1.0,
+                                              width: 1,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8),
                                           ),
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1.0,
+                                              width: 1,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8),
                                           ),
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1.0,
+                                              width: 1,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8),
                                           ),
                                           focusedErrorBorder:
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1.0,
+                                              width: 1,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8),
                                           ),
                                           contentPadding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 4.0, 0.0, 4.0),
+                                                  0, 4, 0, 4),
                                         ),
                                         style:
                                             FlutterFlowTheme.of(context).title3,
@@ -267,21 +294,49 @@ class _SivuTreenaaKomponenttiWidgetState
                                             logFirebaseEvent(
                                                 'SIVU_TREENAA_KOMPONENTTI_rutiiniKommentt');
                                             logFirebaseEvent(
+                                                'rutiiniKommentti_custom_action');
+                                            _model.updatedRutiiniFromKommenttiField =
+                                                await actions
+                                                    .myUpdateTreeniRutiiniStruct(
+                                              widget
+                                                  .sessioDoc!.treeniRutiiniData,
+                                              null,
+                                              _model
+                                                  .rutiininnimiController.text,
+                                              widget.sessioDoc!
+                                                  .treeniRutiiniData.liikkeet
+                                                  ?.toList()
+                                                  ?.toList(),
+                                              _model.rutiiniKommenttiController
+                                                  .text,
+                                              null,
+                                              null,
+                                              false,
+                                              true,
+                                              null,
+                                              null,
+                                              null,
+                                              null,
+                                              null,
+                                              null,
+                                            );
+                                            logFirebaseEvent(
                                                 'rutiiniKommentti_backend_call');
 
                                             final treeniSessiotUpdateData =
                                                 createTreeniSessiotRecordData(
                                               treeniRutiiniData:
-                                                  createTreeniRutiiniStruct(
-                                                kommentti: _model
-                                                    .rutiiniKommenttiController
-                                                    .text,
+                                                  updateTreeniRutiiniStruct(
+                                                _model
+                                                    .updatedRutiiniFromKommenttiField,
                                                 clearUnsetFields: false,
                                               ),
                                             );
                                             await widget.sessioDoc!.reference
                                                 .update(
                                                     treeniSessiotUpdateData);
+
+                                            setState(() {});
                                           },
                                         ),
                                         obscureText: false,
@@ -301,50 +356,49 @@ class _SivuTreenaaKomponenttiWidgetState
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1.0,
+                                              width: 1,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8),
                                           ),
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1.0,
+                                              width: 1,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8),
                                           ),
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1.0,
+                                              width: 1,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8),
                                           ),
                                           focusedErrorBorder:
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1.0,
+                                              width: 1,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(8),
                                           ),
                                           contentPadding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 2.0, 0.0, 2.0),
+                                                  0, 2, 0, 2),
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .subtitle2
                                             .override(
                                               fontFamily: 'Roboto',
-                                              fontSize: 14.0,
+                                              fontSize: 14,
                                               fontWeight: FontWeight.normal,
                                             ),
                                         textAlign: TextAlign.center,
                                         maxLines: null,
-                                        minLines: 1,
                                         validator: _model
                                             .rutiiniKommenttiControllerValidator
                                             .asValidator(context),
@@ -355,12 +409,12 @@ class _SivuTreenaaKomponenttiWidgetState
                                 if (false)
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 10.0, 0.0, 10.0),
+                                        10, 10, 0, 10),
                                     child: Icon(
                                       Icons.add_comment_rounded,
                                       color: FlutterFlowTheme.of(context)
                                           .primaryColor,
-                                      size: 24.0,
+                                      size: 24,
                                     ),
                                   ),
                               ],
@@ -369,8 +423,7 @@ class _SivuTreenaaKomponenttiWidgetState
                               animationsMap['containerOnPageLoadAnimation1']!),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              6.0, 0.0, 6.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(6, 0, 6, 0),
                           child: Builder(
                             builder: (context) {
                               final rutiininLiikkeet = widget
@@ -387,7 +440,7 @@ class _SivuTreenaaKomponenttiWidgetState
                                       rutiininLiikkeet[rutiininLiikkeetIndex];
                                   return Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 12.0, 0.0, 0.0),
+                                        0, 12, 0, 0),
                                     child: LiikeTreeninAikanaWidget(
                                       key: Key(
                                           'Keyjkz_${rutiininLiikkeetIndex}_of_${rutiininLiikkeet.length}'),
@@ -411,17 +464,16 @@ class _SivuTreenaaKomponenttiWidgetState
               ? MediaQuery.of(context).viewInsets.bottom > 0
               : _isKeyboardVisible))
             Align(
-              alignment: AlignmentDirectional(0.0, 1.0),
+              alignment: AlignmentDirectional(0, 1),
               child: Padding(
-                padding:
-                    EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 108.0),
+                padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 108),
                 child: InkWell(
                   onTap: () async {
                     logFirebaseEvent(
                         'SIVU_TREENAA_KOMPONENTTI_Container_paini');
                     logFirebaseEvent(
                         'Container_painike_uusiLiike_custom_actio');
-                    _model.updatedRutiini =
+                    _model.updatedRutiiniFromLisaaLiike =
                         await actions.myUpdateTreeniRutiiniStruct(
                       widget.sessioDoc!.treeniRutiiniData,
                       null,
@@ -447,7 +499,7 @@ class _SivuTreenaaKomponenttiWidgetState
                       widget.sessioDoc,
                       null,
                       null,
-                      _model.updatedRutiini,
+                      _model.updatedRutiiniFromLisaaLiike,
                       null,
                       null,
                     );
@@ -456,34 +508,32 @@ class _SivuTreenaaKomponenttiWidgetState
                   },
                   child: Material(
                     color: Colors.transparent,
-                    elevation: 2.0,
+                    elevation: 2,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16.0),
+                      borderRadius: BorderRadius.circular(16),
                     ),
                     child: Container(
-                      width: 160.0,
-                      height: 50.0,
+                      width: 160,
+                      height: 50,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primaryColor,
-                        borderRadius: BorderRadius.circular(16.0),
+                        borderRadius: BorderRadius.circular(16),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 8.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
                             child: Icon(
                               Icons.add_rounded,
                               color:
                                   FlutterFlowTheme.of(context).secondaryColor,
-                              size: 30.0,
+                              size: 30,
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 8.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 '44rq35vd' /* Lisää  liike */,
@@ -511,7 +561,7 @@ class _SivuTreenaaKomponenttiWidgetState
           ))
             Container(
               constraints: BoxConstraints(
-                maxWidth: 300.0,
+                maxWidth: 300,
               ),
               decoration: BoxDecoration(),
               child: Column(
@@ -519,8 +569,7 @@ class _SivuTreenaaKomponenttiWidgetState
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 30),
                     child: Text(
                       FFLocalizations.of(context).getText(
                         'hr61kg7a' /* Sinulla ei ole keskeneräistä t... */,
@@ -530,8 +579,7 @@ class _SivuTreenaaKomponenttiWidgetState
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 150.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 150),
                     child: FFButtonWidget(
                       onPressed: () async {
                         logFirebaseEvent(
@@ -593,12 +641,10 @@ class _SivuTreenaaKomponenttiWidgetState
                         'uz6rq23u' /* Aloita uusi treeni */,
                       ),
                       options: FFButtonOptions(
-                        width: 240.0,
-                        height: 70.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        width: 240,
+                        height: 70,
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                        iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                         color: FlutterFlowTheme.of(context).primaryColor,
                         textStyle: FlutterFlowTheme.of(context)
                             .subtitle1
@@ -606,15 +652,15 @@ class _SivuTreenaaKomponenttiWidgetState
                               fontFamily: 'Outfit',
                               color:
                                   FlutterFlowTheme.of(context).secondaryColor,
-                              fontSize: 20.0,
+                              fontSize: 20,
                               fontWeight: FontWeight.w500,
                             ),
-                        elevation: 1.0,
+                        elevation: 1,
                         borderSide: BorderSide(
                           color: Colors.transparent,
-                          width: 1.0,
+                          width: 1,
                         ),
-                        borderRadius: BorderRadius.circular(16.0),
+                        borderRadius: BorderRadius.circular(16),
                       ),
                     ),
                   ),
