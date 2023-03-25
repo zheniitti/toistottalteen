@@ -27,6 +27,8 @@ Future<LiikeStruct> luoLiikeRutiinipohjalle(
     kestoSekunteina: kestoSekunteina ?? 0.0,
     sarjaMaara: sarjaMaara ?? 0,
     toistoMaara: toistoMaara ?? 0,
+    create: true,
+    clearUnsetFields: false,
   );
   return liike;
 }

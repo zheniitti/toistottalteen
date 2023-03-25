@@ -16,5 +16,7 @@ Future<TreeniRutiiniStruct> myCreateTreeniRutiiniStruct() async {
       fieldValues: {
         'liikkeet': getLiikeListFirestoreData([createLiikeStruct()])
       },
-      finishedEditing: true);
+      finishedEditing: true,
+      clearUnsetFields: false,
+      create: true);
 }

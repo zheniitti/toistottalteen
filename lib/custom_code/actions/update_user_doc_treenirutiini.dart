@@ -169,7 +169,6 @@ Future updateUserDocTreenirutiini(
   }
 
   try {
-    //rutiinitLista[rutiiniIndex] = treeniRutiini!;
     rutiiniListaFirestoreData[rutiiniIndex] = rutiiniFirestoreData;
     await currentUserReference!
         .update({'treeniRutiinit': rutiiniListaFirestoreData});

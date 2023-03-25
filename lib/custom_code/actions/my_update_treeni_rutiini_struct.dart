@@ -18,24 +18,53 @@ Future<TreeniRutiiniStruct?> myUpdateTreeniRutiiniStruct(
   DateTime? lastWorkoutTime,
   bool? isTreeniPohja,
   bool? finishedEditing,
-  dynamic fieldValues,
+  bool? addNewLiike,
+  int? removeLiikeAtIndex,
+  int? addNewLiikeAtBelowThisIndex,
+  int? addNewLiikeAtAboveThisIndex,
+  int? replaceLiikeAtIndex,
+  LiikeStruct? replacingLiike,
 ) async {
-  if (treeniRutiini == null) return null;
-  treeniRutiini.rebuild((b) => b
+  if (treeniRutiini == null) treeniRutiini = createTreeniRutiiniStruct(create: true, createdTime: getCurrentTimestamp);
+
+  ListBuilder<LiikeStruct> liikeList = liikkeet != null ? ListBuilder<LiikeStruct>(liikkeet) : treeniRutiini.liikkeet.toBuilder();
+  String toiminto = 'Lisää uusi liike';
+  try {
+    LiikeStruct newEmptyLiike = await luoLiikeRutiinipohjalle(null, null, null, false, null, null, null, null);
+    if (removeLiikeAtIndex != null) {
+      toiminto = 'Poista liike';
+      liikeList.removeAt(removeLiikeAtIndex);
+    } else if (addNewLiike != null && addNewLiike) {
+      toiminto = 'Lisää uusi liike';
+      liikeList.add(newEmptyLiike);
+    } else if (addNewLiikeAtBelowThisIndex != null) {
+      toiminto = 'Lisää uusi liike below this $addNewLiikeAtBelowThisIndex';
+      liikeList.insert(addNewLiikeAtBelowThisIndex + 1, newEmptyLiike);
+    } else if (addNewLiikeAtAboveThisIndex != null) {
+      toiminto = 'Lisää uusi liike above this $addNewLiikeAtAboveThisIndex';
+      liikeList.insert(addNewLiikeAtAboveThisIndex, newEmptyLiike);
+    } else if (replaceLiikeAtIndex != null && replacingLiike != null && replaceLiikeAtIndex >= 0) {
+      toiminto = 'Korvaa liike';
+      liikeList[replaceLiikeAtIndex] = replacingLiike;
+    }
+  } on Exception catch (e) {
+    print('Error: Liikkeen $toiminto epäonnistui: $e');
+  }
+
+  final updatedTreeniRutiini = treeniRutiini.toBuilder()
+    ..firestoreUtilData = FirestoreUtilData(clearUnsetFields: false, create: true)
     ..createdTime = createdTime ?? treeniRutiini.createdTime
     ..nimi = nimi ?? treeniRutiini.nimi
-    ..liikkeet =
-        (liikkeet ?? treeniRutiini.liikkeet) as ListBuilder<LiikeStruct>?
+    ..liikkeet = liikeList
     ..kommentti = kommentti ?? treeniRutiini.kommentti
-    ..valitutViikonPaivat
-        .replace(valitutViikonPaivat ?? treeniRutiini.valitutViikonPaivat)
-    //..widgetExpanded = widgetExpanded ?? treeniRutiini.widgetExpanded
+    ..valitutViikonPaivat = valitutViikonPaivat != null ? valitutViikonPaivat.toBuilder() : treeniRutiini.valitutViikonPaivat.toBuilder()
     ..lastWorkoutTime = lastWorkoutTime ?? treeniRutiini.lastWorkoutTime
     ..isTreeniPohja = isTreeniPohja ?? treeniRutiini.isTreeniPohja
-    ..finishedEditing = finishedEditing ?? treeniRutiini.finishedEditing);
-  //..modifiedTimes.replace(modifiedTimes ?? treeniRutiini.modifiedTimes)
-  //..firestoreUtilData =
-  //  firestoreUtilData ?? treeniRutiini.firestoreUtilData);
+    ..finishedEditing = finishedEditing ?? treeniRutiini.finishedEditing;
 
-  return treeniRutiini;
+  TreeniRutiiniStruct updatedRutiiniStruct = updatedTreeniRutiini.build();
+
+  return updatedRutiiniStruct;
 }
+
+
