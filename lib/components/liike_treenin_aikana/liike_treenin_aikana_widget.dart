@@ -1061,7 +1061,7 @@ sarja */
                         setState(() {});
                         logFirebaseEvent('Row_backend_call');
 
-                        final treeniSessiotUpdateData =
+                        final treeniSessiotUpdateData = 
                             createTreeniSessiotRecordData(
                           treeniRutiiniData: createTreeniRutiiniStruct(
                             fieldValues: {
