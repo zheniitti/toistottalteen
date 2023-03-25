@@ -19,6 +19,7 @@ Future<LiikeStruct> luoLiikeRutiinipohjalle(
   int? toistoMaara,
 ) async {
   LiikeStruct liike = createLiikeStruct(
+    createdTime: getCurrentTimestamp,
     nimi: nimi,
     kommentti: kommentti,
     aloitusPainoKg: aloitusPainoKg ?? 0.0,
