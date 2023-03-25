@@ -184,44 +184,21 @@ class _SivuTreenaaKomponenttiWidgetState
                                             logFirebaseEvent(
                                                 'SIVU_TREENAA_KOMPONENTTI_rutiininnimi_ON');
                                             logFirebaseEvent(
-                                                'rutiininnimi_custom_action');
-                                            _model.updatedRutiini = await actions
-                                                .myUpdateTreeniRutiiniStruct(
-                                              widget
-                                                  .sessioDoc!.treeniRutiiniData,
-                                              null,
-                                              _model
-                                                  .rutiininnimiController.text,
-                                              widget.sessioDoc!
-                                                  .treeniRutiiniData.liikkeet
-                                                  ?.toList()
-                                                  ?.toList(),
-                                              _model.rutiiniKommenttiController
-                                                  .text,
-                                              null,
-                                              null,
-                                              false,
-                                              null,
-                                              null,
-                                              null,
-                                              null,
-                                              null,
-                                              null,
-                                              null,
-                                            );
-                                            logFirebaseEvent(
-                                                'rutiininnimi_custom_action');
-                                            await actions
-                                                .updateTreenisessiotRecord(
-                                              widget.sessioDoc,
-                                              null,
-                                              null,
-                                              _model.updatedRutiini,
-                                              null,
-                                              null,
-                                            );
+                                                'rutiininnimi_backend_call');
 
-                                            setState(() {});
+                                            final treeniSessiotUpdateData =
+                                                createTreeniSessiotRecordData(
+                                              treeniRutiiniData:
+                                                  createTreeniRutiiniStruct(
+                                                nimi: _model
+                                                    .rutiininnimiController
+                                                    .text,
+                                                clearUnsetFields: false,
+                                              ),
+                                            );
+                                            await widget.sessioDoc!.reference
+                                                .update(
+                                                    treeniSessiotUpdateData);
                                           },
                                         ),
                                         obscureText: false,
@@ -267,6 +244,9 @@ class _SivuTreenaaKomponenttiWidgetState
                                             borderRadius:
                                                 BorderRadius.circular(8.0),
                                           ),
+                                          contentPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 4.0, 0.0, 4.0),
                                         ),
                                         style:
                                             FlutterFlowTheme.of(context).title3,
@@ -283,27 +263,27 @@ class _SivuTreenaaKomponenttiWidgetState
                                         onChanged: (_) => EasyDebounce.debounce(
                                           '_model.rutiiniKommenttiController',
                                           Duration(milliseconds: 1000),
-                                          () => setState(() {}),
-                                        ),
-                                        onFieldSubmitted: (_) async {
-                                          logFirebaseEvent(
-                                              'SIVU_TREENAA_KOMPONENTTI_rutiiniKommentt');
-                                          logFirebaseEvent(
-                                              'rutiiniKommentti_backend_call');
+                                          () async {
+                                            logFirebaseEvent(
+                                                'SIVU_TREENAA_KOMPONENTTI_rutiiniKommentt');
+                                            logFirebaseEvent(
+                                                'rutiiniKommentti_backend_call');
 
-                                          final treeniSessiotUpdateData =
-                                              createTreeniSessiotRecordData(
-                                            treeniRutiiniData:
-                                                createTreeniRutiiniStruct(
-                                              kommentti: _model
-                                                  .rutiiniKommenttiController
-                                                  .text,
-                                              clearUnsetFields: false,
-                                            ),
-                                          );
-                                          await widget.sessioDoc!.reference
-                                              .update(treeniSessiotUpdateData);
-                                        },
+                                            final treeniSessiotUpdateData =
+                                                createTreeniSessiotRecordData(
+                                              treeniRutiiniData:
+                                                  createTreeniRutiiniStruct(
+                                                kommentti: _model
+                                                    .rutiiniKommenttiController
+                                                    .text,
+                                                clearUnsetFields: false,
+                                              ),
+                                            );
+                                            await widget.sessioDoc!.reference
+                                                .update(
+                                                    treeniSessiotUpdateData);
+                                          },
+                                        ),
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           isDense: true,
@@ -351,6 +331,9 @@ class _SivuTreenaaKomponenttiWidgetState
                                             borderRadius:
                                                 BorderRadius.circular(8.0),
                                           ),
+                                          contentPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 2.0, 0.0, 2.0),
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .subtitle2
@@ -438,7 +421,7 @@ class _SivuTreenaaKomponenttiWidgetState
                         'SIVU_TREENAA_KOMPONENTTI_Container_paini');
                     logFirebaseEvent(
                         'Container_painike_uusiLiike_custom_actio');
-                    _model.updatedRutiiniCopy =
+                    _model.updatedRutiini =
                         await actions.myUpdateTreeniRutiiniStruct(
                       widget.sessioDoc!.treeniRutiiniData,
                       null,

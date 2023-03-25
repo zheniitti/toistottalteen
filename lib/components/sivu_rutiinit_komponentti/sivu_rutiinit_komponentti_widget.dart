@@ -17,7 +17,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-
 import 'sivu_rutiinit_komponentti_model.dart';
 export 'sivu_rutiinit_komponentti_model.dart';
 
@@ -30,10 +29,12 @@ class SivuRutiinitKomponenttiWidget extends StatefulWidget {
   final TreeniSessiotRecord? latestSessio;
 
   @override
-  _SivuRutiinitKomponenttiWidgetState createState() => _SivuRutiinitKomponenttiWidgetState();
+  _SivuRutiinitKomponenttiWidgetState createState() =>
+      _SivuRutiinitKomponenttiWidgetState();
 }
 
-class _SivuRutiinitKomponenttiWidgetState extends State<SivuRutiinitKomponenttiWidget> with TickerProviderStateMixin {
+class _SivuRutiinitKomponenttiWidgetState
+    extends State<SivuRutiinitKomponenttiWidget> with TickerProviderStateMixin {
   late SivuRutiinitKomponenttiModel _model;
 
   final animationsMap = {
@@ -45,8 +46,8 @@ class _SivuRutiinitKomponenttiWidgetState extends State<SivuRutiinitKomponenttiW
           curve: Curves.easeInOut,
           delay: 100.ms,
           duration: 400.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -57,15 +58,15 @@ class _SivuRutiinitKomponenttiWidgetState extends State<SivuRutiinitKomponenttiW
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -97,7 +98,7 @@ class _SivuRutiinitKomponenttiWidgetState extends State<SivuRutiinitKomponenttiW
     context.watch<FFAppState>();
 
     return Stack(
-      alignment: AlignmentDirectional(0, 0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       children: [
         Container(
           width: double.infinity,
@@ -111,26 +112,29 @@ class _SivuRutiinitKomponenttiWidgetState extends State<SivuRutiinitKomponenttiW
               children: [
                 Container(
                   constraints: BoxConstraints(
-                    maxWidth: 600,
+                    maxWidth: 600.0,
                   ),
                   decoration: BoxDecoration(),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 50.0, 0.0, 0.0),
                           child: SingleChildScrollView(
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(0, 0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 40),
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 40.0),
                                     child: wrapWithModel(
                                       model: _model.buttonLuoRutiiniModel,
                                       updateCallback: () => setState(() {}),
@@ -140,41 +144,65 @@ class _SivuRutiinitKomponenttiWidgetState extends State<SivuRutiinitKomponenttiW
                                 ),
                                 if (false)
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 30),
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 30.0),
                                     child: Container(
-                                      width: MediaQuery.of(context).size.width * 0.8,
-                                      height: 70,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.8,
+                                      height: 70.0,
                                       decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                                        borderRadius: BorderRadius.circular(8),
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
                                       child: AuthUserStreamWidget(
-                                        builder: (context) => FlutterFlowDropDown<String>(
-                                          controller: _model.dropDownController ??= FormFieldController<String>(null),
-                                          options: functions.mapRutiiniNimet((currentUserDocument?.treeniRutiinit?.toList() ?? []).toList()).toList(),
-                                          onChanged: (val) => setState(() => _model.dropDownValue = val),
-                                          width: 180,
-                                          height: 50,
-                                          textStyle: FlutterFlowTheme.of(context).subtitle2,
-                                          hintText: FFLocalizations.of(context).getText(
+                                        builder: (context) =>
+                                            FlutterFlowDropDown<String>(
+                                          controller: _model
+                                                  .dropDownController ??=
+                                              FormFieldController<String>(null),
+                                          options: functions
+                                              .mapRutiiniNimet(
+                                                  (currentUserDocument
+                                                              ?.treeniRutiinit
+                                                              ?.toList() ??
+                                                          [])
+                                                      .toList())
+                                              .toList(),
+                                          onChanged: (val) => setState(
+                                              () => _model.dropDownValue = val),
+                                          width: 180.0,
+                                          height: 50.0,
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .subtitle2,
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
                                             '68nw3eu6' /* Valitse treenirutiini */,
                                           ),
-                                          elevation: 2,
+                                          elevation: 2.0,
                                           borderColor: Colors.transparent,
-                                          borderWidth: 0,
-                                          borderRadius: 0,
-                                          margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
+                                          borderWidth: 0.0,
+                                          borderRadius: 0.0,
+                                          margin:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 4.0, 12.0, 4.0),
                                           hidesUnderline: true,
                                           isSearchable: false,
                                         ),
                                       ),
                                     ),
                                   ),
-                                if ((currentUserDocument?.treeniRutiinit?.toList() ?? []).length == 0)
+                                if ((currentUserDocument?.treeniRutiinit
+                                                ?.toList() ??
+                                            [])
+                                        .length ==
+                                    0)
                                   AuthUserStreamWidget(
                                     builder: (context) => Container(
-                                      width: 100,
-                                      height: 250,
+                                      width: 100.0,
+                                      height: 250.0,
                                       decoration: BoxDecoration(),
                                     ),
                                   ),
@@ -182,9 +210,12 @@ class _SivuRutiinitKomponenttiWidgetState extends State<SivuRutiinitKomponenttiW
                             ),
                           ),
                         ),
-                        if ((widget.latestSessio != null) && (widget.latestSessio!.loppu == null) && (widget.latestSessio!.alku != null))
+                        if ((widget.latestSessio != null) &&
+                            (widget.latestSessio!.loppu == null) &&
+                            (widget.latestSessio!.alku != null))
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 30),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 30.0),
                             child: wrapWithModel(
                               model: _model.keskenerainenTreeniKomponenttiModel,
                               updateCallback: () => setState(() {}),
@@ -194,11 +225,21 @@ class _SivuRutiinitKomponenttiWidgetState extends State<SivuRutiinitKomponenttiW
                             ),
                           ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 200),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 200.0),
                           child: AuthUserStreamWidget(
                             builder: (context) => Builder(
                               builder: (context) {
-                                final rutiinit = functions.filterRutiiniList((currentUserDocument?.treeniRutiinit?.toList() ?? []).toList(), FFAppState().searchbarText, FFAppState().navBarIndex, false).toList();
+                                final rutiinit = functions
+                                    .filterRutiiniList(
+                                        (currentUserDocument?.treeniRutiinit
+                                                    ?.toList() ??
+                                                [])
+                                            .toList(),
+                                        FFAppState().searchbarText,
+                                        FFAppState().navBarIndex,
+                                        false)
+                                    .toList();
                                 return ListView.builder(
                                   padding: EdgeInsets.zero,
                                   reverse: true,
@@ -207,9 +248,11 @@ class _SivuRutiinitKomponenttiWidgetState extends State<SivuRutiinitKomponenttiW
                                   scrollDirection: Axis.vertical,
                                   itemCount: rutiinit.length,
                                   itemBuilder: (context, rutiinitIndex) {
-                                    final rutiinitItem = rutiinit[rutiinitIndex];
+                                    final rutiinitItem =
+                                        rutiinit[rutiinitIndex];
                                     return Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 20.0),
                                       child: wrapWithModel(
                                         model: _model.rutiiniModels.getModel(
                                           rutiinitItem.createdTime!.toString(),
@@ -221,8 +264,12 @@ class _SivuRutiinitKomponenttiWidgetState extends State<SivuRutiinitKomponenttiW
                                             'Keyppk_${rutiinitItem.createdTime!.toString()}',
                                           ),
                                           rutiini: rutiinitItem,
-                                          hasUnfinishedWorkout: (widget.latestSessio != null) && (widget.latestSessio!.loppu == null),
-                                          pageStateSelectedRutiini: _model.pageStateValittuRutiini,
+                                          hasUnfinishedWorkout:
+                                              (widget.latestSessio != null) &&
+                                                  (widget.latestSessio!.loppu ==
+                                                      null),
+                                          pageStateSelectedRutiini:
+                                              _model.pageStateValittuRutiini,
                                           rutiiniListIndex: rutiinitIndex,
                                         ),
                                       ),
@@ -241,20 +288,24 @@ class _SivuRutiinitKomponenttiWidgetState extends State<SivuRutiinitKomponenttiW
             ),
           ),
         ),
-        if (FFAppState().valittuMuokattavaRutiini != null ? (FFAppState().valittuMuokattavaLiikeIndex >= 0) : false)
+        if (FFAppState().valittuMuokattavaRutiini != null
+            ? (FFAppState().valittuMuokattavaLiikeIndex >= 0)
+            : false)
           Builder(builder: (_) {
             final child = Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 1,
+              width: MediaQuery.of(context).size.width * 1.0,
+              height: MediaQuery.of(context).size.height * 1.0,
               decoration: BoxDecoration(),
             );
-            if (FFAppState().valittuMuokattavaRutiini != null ? (FFAppState().valittuMuokattavaLiikeIndex != null) : false) {
+            if (FFAppState().valittuMuokattavaRutiini != null
+                ? (FFAppState().valittuMuokattavaLiikeIndex != null)
+                : false) {
               return ClipRRect(
-                borderRadius: BorderRadius.circular(0),
+                borderRadius: BorderRadius.circular(0.0),
                 child: BackdropFilter(
                   filter: ImageFilter.blur(
-                    sigmaX: 3,
-                    sigmaY: 3,
+                    sigmaX: 3.0,
+                    sigmaY: 3.0,
                   ),
                   child: child,
                 ),
@@ -262,22 +313,27 @@ class _SivuRutiinitKomponenttiWidgetState extends State<SivuRutiinitKomponenttiW
             }
             return child;
           }).animateOnPageLoad(animationsMap['blurOnPageLoadAnimation']!),
-        if (FFAppState().valittuMuokattavaRutiini != null ? (FFAppState().valittuMuokattavaLiikeIndex >= 0) : false)
+        if (FFAppState().valittuMuokattavaRutiini != null
+            ? (FFAppState().valittuMuokattavaLiikeIndex >= 0)
+            : false)
           SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 120),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 120.0),
                   child: wrapWithModel(
                     model: _model.rutiininSarjatToistotKestoMatkaModel,
                     updateCallback: () => setState(() {}),
                     child: RutiininSarjatToistotKestoMatkaWidget(
                       liikeIndex: FFAppState().valittuMuokattavaLiikeIndex,
-                      rutiini: functions.jsonToRutiini(FFAppState().valittuMuokattavaRutiini),
+                      rutiini: functions
+                          .jsonToRutiini(FFAppState().valittuMuokattavaRutiini),
                     ),
-                  ).animateOnPageLoad(animationsMap['rutiininSarjatToistotKestoMatkaOnPageLoadAnimation']!),
+                  ).animateOnPageLoad(animationsMap[
+                      'rutiininSarjatToistotKestoMatkaOnPageLoadAnimation']!),
                 ),
               ],
             ),

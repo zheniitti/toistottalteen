@@ -159,6 +159,14 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
         ),
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryColor,
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 5.0,
+              color: Color(0x33000000),
+              offset: Offset(0.0, 5.0),
+              spreadRadius: 2.0,
+            )
+          ],
           borderRadius: BorderRadius.circular(12.0),
         ),
         child: Padding(

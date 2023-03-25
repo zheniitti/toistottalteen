@@ -12,7 +12,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'rutiinin_sarjat_toistot_kesto_matka_model.dart';
 export 'rutiinin_sarjat_toistot_kesto_matka_model.dart';
