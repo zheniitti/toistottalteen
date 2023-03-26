@@ -1,5 +1,7 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/bottom_sheet_liike/bottom_sheet_liike_widget.dart';
+import '/components/other_type_liike_fields_widget.dart';
 import '/components/sarja_paino_textfield/sarja_paino_textfield_widget.dart';
 import '/components/sarja_toistot_textfield/sarja_toistot_textfield_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -12,7 +14,6 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -39,18 +40,9 @@ class LiikeTreeninAikanaModel extends FlutterFlowModel {
   LiikeStruct? updatedLiikeCopy;
   // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in TextField widget.
   TreeniRutiiniStruct? updatedRutiiniCopy;
-  // State field(s) for TextField widget.
-  TextEditingController? textController3;
-  String? Function(BuildContext, String?)? textController3Validator;
-  // State field(s) for TextField widget.
-  TextEditingController? textController4;
-  String? Function(BuildContext, String?)? textController4Validator;
-  // State field(s) for TextField widget.
-  TextEditingController? textController5;
-  String? Function(BuildContext, String?)? textController5Validator;
-  // State field(s) for TextField widget.
-  TextEditingController? textController6;
-  String? Function(BuildContext, String?)? textController6Validator;
+  // Models for otherTypeLiikeFields dynamic component.
+  late FlutterFlowDynamicModels<OtherTypeLiikeFieldsModel>
+      otherTypeLiikeFieldsModels;
   // Stores action output result for [Custom Action - myUpdateLiikeStruct] action in Icon widget.
   LiikeStruct? updatedLiikeCopy2;
   // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in Icon widget.
@@ -63,20 +55,18 @@ class LiikeTreeninAikanaModel extends FlutterFlowModel {
   LiikeStruct? updatedLiikeFromTehtyCheckBox;
   // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in Row widget.
   TreeniRutiiniStruct? updatedRutiiniTehtyCheckBox;
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue;
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    otherTypeLiikeFieldsModels =
+        FlutterFlowDynamicModels(() => OtherTypeLiikeFieldsModel());
+  }
 
   void dispose() {
     textController1?.dispose();
     textController2?.dispose();
-    textController3?.dispose();
-    textController4?.dispose();
-    textController5?.dispose();
-    textController6?.dispose();
+    otherTypeLiikeFieldsModels.dispose();
   }
 
   /// Additional helper methods are added here.

@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -209,6 +210,12 @@ class _SivuTreenaaKomponenttiWidgetState
                                               null,
                                               null,
                                               null,
+                                              null,
+                                              functions
+                                                  .emptyJsonList()
+                                                  ?.toList(),
+                                              false,
+                                              false,
                                             );
                                             logFirebaseEvent(
                                                 'rutiininnimi_backend_call');
@@ -302,7 +309,7 @@ class _SivuTreenaaKomponenttiWidgetState
                                                 'SIVU_TREENAA_KOMPONENTTI_rutiiniKommentt');
                                             logFirebaseEvent(
                                                 'rutiiniKommentti_custom_action');
-                                            _model.updatedRutiiniFromKommenttiField =
+                                            _model.updatedRutiiniFromNimiFieldCopy =
                                                 await actions
                                                     .myUpdateTreeniRutiiniStruct(
                                               widget
@@ -326,6 +333,12 @@ class _SivuTreenaaKomponenttiWidgetState
                                               null,
                                               null,
                                               null,
+                                              null,
+                                              functions
+                                                  .emptyJsonList()
+                                                  ?.toList(),
+                                              false,
+                                              false,
                                             );
                                             logFirebaseEvent(
                                                 'rutiiniKommentti_backend_call');
@@ -335,7 +348,7 @@ class _SivuTreenaaKomponenttiWidgetState
                                               treeniRutiiniData:
                                                   updateTreeniRutiiniStruct(
                                                 _model
-                                                    .updatedRutiiniFromKommenttiField,
+                                                    .updatedRutiiniFromNimiField,
                                                 clearUnsetFields: false,
                                               ),
                                             );
@@ -515,6 +528,10 @@ class _SivuTreenaaKomponenttiWidgetState
                       null,
                       null,
                       null,
+                      null,
+                      functions.emptyJsonList()?.toList(),
+                      false,
+                      false,
                     );
                     logFirebaseEvent(
                         'Container_painike_uusiLiike_custom_actio');

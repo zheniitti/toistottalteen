@@ -1,14 +1,11 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/rutiinin_liikkeet/rutiinin_liikkeet_widget.dart';
-import '/components/sessio/sessio_widget.dart';
 import '/flutter_flow/flutter_flow_ad_banner.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart'
-    as smooth_page_indicator;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/gestures.dart';
@@ -95,13 +92,6 @@ class _BuilderWidgetState extends State<BuilderWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              wrapWithModel(
-                model: _model.sessioModel,
-                updateCallback: () => setState(() {}),
-                child: SessioWidget(
-                  treeniSessio: null,
-                ),
-              ),
               FlutterFlowAdBanner(
                 width: MediaQuery.of(context).size.width * 1.0,
                 height: 60.0,
@@ -380,73 +370,9 @@ class _BuilderWidgetState extends State<BuilderWidget> {
                     ),
                   ),
                 ),
-              Expanded(
-                child: Container(
-                  width: double.infinity,
-                  height: 500.0,
-                  child: Stack(
-                    children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 50.0),
-                        child: PageView(
-                          controller: _model.pageViewController ??=
-                              PageController(initialPage: 0),
-                          scrollDirection: Axis.horizontal,
-                          children: [
-                            Image.network(
-                              'https://picsum.photos/seed/535/600',
-                              width: 100.0,
-                              height: 100.0,
-                              fit: BoxFit.cover,
-                            ),
-                            Image.network(
-                              'https://picsum.photos/seed/146/600',
-                              width: 100.0,
-                              height: 100.0,
-                              fit: BoxFit.cover,
-                            ),
-                            Image.network(
-                              'https://picsum.photos/seed/611/600',
-                              width: 100.0,
-                              height: 100.0,
-                              fit: BoxFit.cover,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Align(
-                        alignment: AlignmentDirectional(0.0, 1.0),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 10.0),
-                          child: smooth_page_indicator.SmoothPageIndicator(
-                            controller: _model.pageViewController ??=
-                                PageController(initialPage: 0),
-                            count: 3,
-                            axisDirection: Axis.horizontal,
-                            onDotClicked: (i) {
-                              _model.pageViewController!.animateToPage(
-                                i,
-                                duration: Duration(milliseconds: 500),
-                                curve: Curves.ease,
-                              );
-                            },
-                            effect: smooth_page_indicator.ExpandingDotsEffect(
-                              expansionFactor: 2.0,
-                              spacing: 8.0,
-                              radius: 16.0,
-                              dotWidth: 16.0,
-                              dotHeight: 16.0,
-                              dotColor: Color(0xFF9E9E9E),
-                              activeDotColor: Color(0xFF3F51B5),
-                              paintStyle: PaintingStyle.fill,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+              Container(
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
               ),
             ],

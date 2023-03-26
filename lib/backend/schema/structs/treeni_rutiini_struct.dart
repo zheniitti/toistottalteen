@@ -27,6 +27,8 @@ abstract class TreeniRutiiniStruct
 
   ValitutViikonPaivatStruct get valitutViikonPaivat;
 
+  DateTime? get modifiedTime;
+
   /// Utility class for Firestore updates
   FirestoreUtilData get firestoreUtilData;
 
@@ -53,6 +55,7 @@ TreeniRutiiniStruct createTreeniRutiiniStruct({
   bool? finishedEditing,
   DateTime? lastWorkoutTime,
   ValitutViikonPaivatStruct? valitutViikonPaivat,
+  DateTime? modifiedTime,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -69,6 +72,7 @@ TreeniRutiiniStruct createTreeniRutiiniStruct({
         ..lastWorkoutTime = lastWorkoutTime
         ..valitutViikonPaivat = valitutViikonPaivat?.toBuilder() ??
             ValitutViikonPaivatStructBuilder()
+        ..modifiedTime = modifiedTime
         ..firestoreUtilData = FirestoreUtilData(
           clearUnsetFields: clearUnsetFields,
           create: create,

@@ -24,6 +24,10 @@ Future<TreeniRutiiniStruct?> myUpdateTreeniRutiiniStruct(
   int? addNewLiikeAtAboveThisIndex,
   int? replaceLiikeAtIndex,
   LiikeStruct? replacingLiike,
+  int? currentLiikeIndex,
+  List<dynamic>? copiedLiikes,
+  bool? pasteToAbove,
+  bool? pasteToBelow,
 ) async {
   if (treeniRutiini == null)
     treeniRutiini = createTreeniRutiiniStruct(
@@ -54,9 +58,22 @@ Future<TreeniRutiiniStruct?> myUpdateTreeniRutiiniStruct(
         replaceLiikeAtIndex >= 0) {
       toiminto = 'Korvaa liike';
       liikeList[replaceLiikeAtIndex] = replacingLiike;
+    } else if (currentLiikeIndex != null && copiedLiikes != null) {
+      toiminto = 'Liitä liike';
+      final List<LiikeStruct?> copiedLiikesList = copiedLiikes
+          .map<LiikeStruct?>((liike) =>
+              serializers.deserializeWith(LiikeStruct.serializer, liike))
+          .toList();
+      if (pasteToAbove != null && pasteToAbove) {
+        liikeList.insertAll(
+            currentLiikeIndex, copiedLiikesList as Iterable<LiikeStruct>);
+      } else if (pasteToBelow != null && pasteToBelow) {
+        liikeList.insertAll(
+            currentLiikeIndex + 1, copiedLiikesList as Iterable<LiikeStruct>);
+      }
     }
   } on Exception catch (e) {
-    print('Error: Liikkeen $toiminto epäonnistui: $e');
+    print('Error: $toiminto epäonnistui: $e');
   }
 
   final updatedTreeniRutiini = treeniRutiini.toBuilder()

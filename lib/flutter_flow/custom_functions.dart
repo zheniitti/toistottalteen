@@ -133,9 +133,10 @@ String durationFromStartEnd(
   DateTime? end,
   String? langCode,
 ) {
-  if (start == null || end == null) {
+  if (start == null) {
     return '';
   }
+  end = end ?? DateTime.now();
   final Duration duration = end.difference(start);
   final int hours = duration.inHours;
   final int minutes = duration.inMinutes % 60;
@@ -298,4 +299,60 @@ String durationFromSeconds(
   String result =
       '$hours hours, $minutes minutes, ${remainingSeconds.toStringAsFixed(2)} seconds';
   return result;
+}
+
+String? kestoString(
+  double? sekunnit,
+  String? langCode,
+) {
+  // convert sekunnit to days, hours, minutes and seconds and return as string
+  if (sekunnit == null) {
+    return null;
+  }
+  int days = sekunnit ~/ 86400;
+  int hours = (sekunnit % 86400) ~/ 3600;
+  int minutes = ((sekunnit % 86400) % 3600) ~/ 60;
+  double seconds = ((sekunnit % 86400) % 3600) % 60;
+  String daysStr = (days == 0) ? '' : '$days days ';
+  String hoursStr = (hours == 0) ? '' : '$hours hours ';
+  String minutesStr = (minutes == 0) ? '' : '$minutes minutes ';
+  String secondsStr = (seconds == 0) ? '' : '$seconds seconds';
+
+  return '$daysStr$hoursStr$minutesStr$secondsStr';
+}
+
+double? lisaaSekunnit(
+  DateTime? alku,
+  DateTime? loppu,
+  double? sekunnit,
+) {
+  // calculate seconds between alku and loppu and add to sekunnit. Return the sum
+  if (alku == null || loppu == null) {
+    return sekunnit;
+  }
+  if (sekunnit == null) sekunnit = 0;
+  return sekunnit + loppu.difference(alku).inSeconds.toDouble();
+}
+
+dynamic liikeToLiikeJsonList(
+  LiikeStruct? liike,
+  List<LiikeStruct>? manyLiikes,
+) {
+  if (liike == null && manyLiikes == null) {
+    return [];
+  }
+  if (liike != null) {
+    return [getLiikeFirestoreData(liike, true)];
+  }
+  if (manyLiikes != null) {
+    return getLiikeListFirestoreData(manyLiikes);
+  }
+}
+
+List<LiikeStruct>? nullLiikeList() {
+  return null;
+}
+
+List<dynamic> emptyJsonList() {
+  return [];
 }

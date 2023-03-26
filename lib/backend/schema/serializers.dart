@@ -23,6 +23,7 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   TreeniRutiiniStruct,
   ValitutViikonPaivatStruct,
   SarjaStruct,
+  LiikeTilastoStruct,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())

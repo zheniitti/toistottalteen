@@ -282,7 +282,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                               CrossAxisAlignment.start,
                                           children: [
                                             Wrap(
-                                              spacing: 12.0,
+                                              spacing: 6.0,
                                               runSpacing: 0.0,
                                               alignment: WrapAlignment.start,
                                               crossAxisAlignment:
@@ -481,7 +481,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                                 .matkaMetri!,
                                                             formatType:
                                                                 FormatType
-                                                                    .compactLong,
+                                                                    .compact,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -499,7 +499,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                           text: FFLocalizations
                                                                   .of(context)
                                                               .getText(
-                                                            'ud5vyksn' /*  metriä */,
+                                                            'ud5vyksn' /*  m */,
                                                           ),
                                                           style: TextStyle(),
                                                         )

@@ -400,8 +400,8 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
           decoration: BoxDecoration(
             color: valueOrDefault<Color>(
               !widget.rutiini!.finishedEditing!
-                  ? Color(0xFFCACADB)
-                  : FlutterFlowTheme.of(context).secondaryBackground,
+                  ? FlutterFlowTheme.of(context).activeWidgetBackground
+                  : FlutterFlowTheme.of(context).inactiveWidgetBackground,
               FlutterFlowTheme.of(context).secondaryBackground,
             ),
             borderRadius: BorderRadius.circular(22.0),

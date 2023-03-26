@@ -52,6 +52,20 @@ Future<LiikeStruct?> myUpdateLiikeStruct(
     print('Error: $toiminto epäonnistui: $e');
   }
 
+// jos liikkeen tyyppi vaihtuu, nollataan tietyt kentät
+  if (isOtherExerciseType != null &&
+      liike.isOtherExerciseType != null &&
+      isOtherExerciseType != liike.isOtherExerciseType) {
+    if (isOtherExerciseType) {
+      sarjaMaara = 0;
+      toistoMaara = 0;
+      aloitusPainoKg = 0;
+    } else {
+      matkaMetreina = 0;
+      kestoSekunteina = 0;
+    }
+  }
+
   final updatedLiike = liike.toBuilder()
     ..firestoreUtilData =
         FirestoreUtilData(clearUnsetFields: false, create: true)

@@ -115,6 +115,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Please select...',
       'en': '',
     },
+    '5hw4ug1p': {
+      'fi': 'treenia yhteens',
+      'en': ' total workouts',
+    },
     '2ebrd02h': {
       'fi': 'Home',
       'en': '',
@@ -131,8 +135,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
     'ouj3p8pa': {
-      'fi': 'Lopeta treeni',
-      'en': 'Finish workout',
+      'fi': 'Lopeta',
+      'en': 'Finish',
     },
     'd9b3r5r8': {
       'fi': 'Aikaa kulunut:',
@@ -687,38 +691,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Kommentti (vapaaehtoinen)',
       'en': 'Commment (Optional)',
     },
-    'hoyni067': {
-      'fi': 'Tunnit',
-      'en': 'Hours',
-    },
-    'okhith2m': {
-      'fi': '0',
-      'en': '0',
-    },
-    'ptrnfksh': {
-      'fi': 'Minuutit',
-      'en': 'Minutes',
-    },
-    'g89ptor6': {
-      'fi': '0',
-      'en': '0',
-    },
-    'qs7ytc7o': {
-      'fi': 'Sekunnit',
-      'en': 'Secs',
-    },
-    'fmcdlglk': {
-      'fi': '0',
-      'en': '0',
-    },
-    'dl2outh6': {
-      'fi': 'matka (metreinä)',
-      'en': 'distance (meters)',
-    },
-    '6d0b86sz': {
-      'fi': '0.0',
-      'en': '0.0',
-    },
     'u1j0c71n': {
       'fi': 'Toistot',
       'en': 'Reps',
@@ -993,8 +965,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': ' secs',
     },
     'ud5vyksn': {
-      'fi': ' metriä',
-      'en': ' meters',
+      'fi': ' m',
+      'en': 'm',
     },
   },
   // KeskenerainenTreeni_komponentti
@@ -1004,8 +976,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'You have an unfinished workout',
     },
     'j7w2zxkt': {
-      'fi': 'Aloitettu: ',
-      'en': 'Started: ',
+      'fi': 'Aloitettu ',
+      'en': 'Started ',
     },
     's3c8dkfv': {
       'fi': 'Lopeta treeni',
@@ -1089,6 +1061,64 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'tgyswa0r': {
       'fi': 'Valmis',
       'en': 'Ready',
+    },
+  },
+  // otherTypeLiikeFields
+  {
+    'qzi0xoig': {
+      'fi': 'Tunnit',
+      'en': 'Hours',
+    },
+    '0ry7n4gd': {
+      'fi': '0',
+      'en': '0',
+    },
+    'qc0cirns': {
+      'fi': 'Minuutit',
+      'en': 'Minutes',
+    },
+    'olh9qolp': {
+      'fi': '0',
+      'en': '0',
+    },
+    'zcwbr62z': {
+      'fi': 'Sekunnit',
+      'en': 'Secs',
+    },
+    'm6zgwhps': {
+      'fi': '0',
+      'en': '0',
+    },
+    'emfp4ohz': {
+      'fi': 'matka (metreinä)',
+      'en': 'distance (meters)',
+    },
+    'tnb4m9hm': {
+      'fi': '0.0',
+      'en': '0.0',
+    },
+  },
+  // bottomSheet_liike
+  {
+    '9s0xqn9g': {
+      'fi': 'Kopioi liike',
+      'en': 'Copy excercise',
+    },
+    '1ejk01eg': {
+      'fi': 'Liitä yläpuolelle',
+      'en': 'Paste above',
+    },
+    'n87lfy7j': {
+      'fi': 'Liitä alapuolelle',
+      'en': 'Paste below',
+    },
+    'c8ldb00c': {
+      'fi': 'Poista liike',
+      'en': 'Remove excercise',
+    },
+    'ha2mfouu': {
+      'fi': '(Paina pitkään)',
+      'en': '(Long press)',
     },
   },
   // Miscellaneous

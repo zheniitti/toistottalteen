@@ -189,7 +189,7 @@ class _KeskenerainenTreeniKomponenttiWidgetState
                             children: [
                               TextSpan(
                                 text: FFLocalizations.of(context).getText(
-                                  'j7w2zxkt' /* Aloitettu:  */,
+                                  'j7w2zxkt' /* Aloitettu  */,
                                 ),
                                 style: TextStyle(),
                               ),
@@ -214,10 +214,18 @@ class _KeskenerainenTreeniKomponenttiWidgetState
                   flex: 1,
                   child: Align(
                     alignment: AlignmentDirectional(1.0, -1.0),
-                    child: Icon(
-                      Icons.delete_rounded,
-                      color: FlutterFlowTheme.of(context).deleteRed,
-                      size: 24.0,
+                    child: InkWell(
+                      onTap: () async {
+                        logFirebaseEvent(
+                            'KESKENERAINEN_TREENI_KOMPONENTTI_Icon_6u');
+                        logFirebaseEvent('Icon_backend_call');
+                        await widget.sessio!.reference.delete();
+                      },
+                      child: Icon(
+                        Icons.delete_rounded,
+                        color: FlutterFlowTheme.of(context).deleteRed,
+                        size: 24.0,
+                      ),
                     ).animateOnPageLoad(
                         animationsMap['iconOnPageLoadAnimation']!),
                   ),

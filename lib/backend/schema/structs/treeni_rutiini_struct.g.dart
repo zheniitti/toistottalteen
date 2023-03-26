@@ -78,6 +78,13 @@ class _$TreeniRutiiniStructSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(DateTime)));
     }
+    value = object.modifiedTime;
+    if (value != null) {
+      result
+        ..add('modifiedTime')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
     return result;
   }
 
@@ -128,6 +135,10 @@ class _$TreeniRutiiniStructSerializer
                   specifiedType: const FullType(ValitutViikonPaivatStruct))!
               as ValitutViikonPaivatStruct);
           break;
+        case 'modifiedTime':
+          result.modifiedTime = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
         case 'firestoreUtilData':
           result.firestoreUtilData = serializers.deserialize(value,
                   specifiedType: const FullType(FirestoreUtilData))!
@@ -158,6 +169,8 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
   @override
   final ValitutViikonPaivatStruct valitutViikonPaivat;
   @override
+  final DateTime? modifiedTime;
+  @override
   final FirestoreUtilData firestoreUtilData;
 
   factory _$TreeniRutiiniStruct(
@@ -173,6 +186,7 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
       this.finishedEditing,
       this.lastWorkoutTime,
       required this.valitutViikonPaivat,
+      this.modifiedTime,
       required this.firestoreUtilData})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -204,6 +218,7 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
         finishedEditing == other.finishedEditing &&
         lastWorkoutTime == other.lastWorkoutTime &&
         valitutViikonPaivat == other.valitutViikonPaivat &&
+        modifiedTime == other.modifiedTime &&
         firestoreUtilData == other.firestoreUtilData;
   }
 
@@ -218,6 +233,7 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
     _$hash = $jc(_$hash, finishedEditing.hashCode);
     _$hash = $jc(_$hash, lastWorkoutTime.hashCode);
     _$hash = $jc(_$hash, valitutViikonPaivat.hashCode);
+    _$hash = $jc(_$hash, modifiedTime.hashCode);
     _$hash = $jc(_$hash, firestoreUtilData.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -234,6 +250,7 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
           ..add('finishedEditing', finishedEditing)
           ..add('lastWorkoutTime', lastWorkoutTime)
           ..add('valitutViikonPaivat', valitutViikonPaivat)
+          ..add('modifiedTime', modifiedTime)
           ..add('firestoreUtilData', firestoreUtilData))
         .toString();
   }
@@ -283,6 +300,11 @@ class TreeniRutiiniStructBuilder
           ValitutViikonPaivatStructBuilder? valitutViikonPaivat) =>
       _$this._valitutViikonPaivat = valitutViikonPaivat;
 
+  DateTime? _modifiedTime;
+  DateTime? get modifiedTime => _$this._modifiedTime;
+  set modifiedTime(DateTime? modifiedTime) =>
+      _$this._modifiedTime = modifiedTime;
+
   FirestoreUtilData? _firestoreUtilData;
   FirestoreUtilData? get firestoreUtilData => _$this._firestoreUtilData;
   set firestoreUtilData(FirestoreUtilData? firestoreUtilData) =>
@@ -303,6 +325,7 @@ class TreeniRutiiniStructBuilder
       _finishedEditing = $v.finishedEditing;
       _lastWorkoutTime = $v.lastWorkoutTime;
       _valitutViikonPaivat = $v.valitutViikonPaivat.toBuilder();
+      _modifiedTime = $v.modifiedTime;
       _firestoreUtilData = $v.firestoreUtilData;
       _$v = null;
     }
@@ -336,6 +359,7 @@ class TreeniRutiiniStructBuilder
               finishedEditing: finishedEditing,
               lastWorkoutTime: lastWorkoutTime,
               valitutViikonPaivat: valitutViikonPaivat.build(),
+              modifiedTime: modifiedTime,
               firestoreUtilData: BuiltValueNullFieldError.checkNotNull(
                   firestoreUtilData,
                   r'TreeniRutiiniStruct',

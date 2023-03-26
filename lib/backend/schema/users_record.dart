@@ -51,6 +51,10 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
 
   bool? get isWeightUnitKg;
 
+  double? get treeniKestoYhteensaSekunteina;
+
+  int? get treeniaYhteensa;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -72,7 +76,9 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
     ..laRutiinit = ListBuilder()
     ..suRutiinit = ListBuilder()
     ..selectedRutiiniToWorkout = TreeniRutiiniStructBuilder()
-    ..isWeightUnitKg = false;
+    ..isWeightUnitKg = false
+    ..treeniKestoYhteensaSekunteina = 0.0
+    ..treeniaYhteensa = 0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('users');
@@ -107,6 +113,8 @@ Map<String, dynamic> createUsersRecordData({
   DocumentReference? refSessioToEdit,
   TreeniRutiiniStruct? selectedRutiiniToWorkout,
   bool? isWeightUnitKg,
+  double? treeniKestoYhteensaSekunteina,
+  int? treeniaYhteensa,
 }) {
   final firestoreData = serializers.toFirestore(
     UsersRecord.serializer,
@@ -130,7 +138,9 @@ Map<String, dynamic> createUsersRecordData({
         ..suRutiinit = null
         ..refSessioToEdit = refSessioToEdit
         ..selectedRutiiniToWorkout = TreeniRutiiniStructBuilder()
-        ..isWeightUnitKg = isWeightUnitKg,
+        ..isWeightUnitKg = isWeightUnitKg
+        ..treeniKestoYhteensaSekunteina = treeniKestoYhteensaSekunteina
+        ..treeniaYhteensa = treeniaYhteensa,
     ),
   );
 

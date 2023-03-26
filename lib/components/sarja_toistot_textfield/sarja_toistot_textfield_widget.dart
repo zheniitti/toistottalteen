@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -47,8 +48,7 @@ class _SarjaToistotTextfieldWidgetState
     super.initState();
     _model = createModel(context, () => SarjaToistotTextfieldModel());
 
-    _model.textController ??=
-        TextEditingController(text: widget.sarja?.toistoMaara?.toString());
+    _model.textController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -83,7 +83,10 @@ class _SarjaToistotTextfieldWidgetState
           logFirebaseEvent('TextField_custom_action');
           _model.updatedLiike = await actions.myUpdateLiikeStruct(
             widget.sessioDoc!.treeniRutiiniData.liikkeet
-                ?.toList()?[widget.liikeIndex??-1],
+                ?.toList()?[valueOrDefault<int>(
+              widget.liikeIndex,
+              9999999999,
+            )],
             null,
             null,
             null,
@@ -116,6 +119,10 @@ class _SarjaToistotTextfieldWidgetState
             null,
             widget.liikeIndex,
             _model.updatedLiike,
+            null,
+            functions.emptyJsonList()?.toList(),
+            false,
+            false,
           );
           logFirebaseEvent('TextField_backend_call');
 
@@ -132,6 +139,7 @@ class _SarjaToistotTextfieldWidgetState
       ),
       obscureText: false,
       decoration: InputDecoration(
+        isDense: true,
         hintText: FFLocalizations.of(context).getText(
           'yylnuo9q' /* 0 */,
         ),

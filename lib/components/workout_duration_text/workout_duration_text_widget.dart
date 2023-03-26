@@ -107,6 +107,7 @@ class _WorkoutDurationTextWidgetState extends State<WorkoutDurationTextWidget> {
                     style: FlutterFlowTheme.of(context).subtitle2.override(
                           fontFamily: 'Roboto',
                           color: FlutterFlowTheme.of(context).secondaryColor,
+                          fontWeight: FontWeight.normal,
                         ),
                   )
                 ],

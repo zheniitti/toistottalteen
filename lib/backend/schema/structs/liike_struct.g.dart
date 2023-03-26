@@ -103,6 +103,13 @@ class _$LiikeStructSerializer implements StructuredSerializer<LiikeStruct> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(DateTime)));
     }
+    value = object.modifiedTime;
+    if (value != null) {
+      result
+        ..add('modifiedTime')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
     return result;
   }
 
@@ -169,6 +176,10 @@ class _$LiikeStructSerializer implements StructuredSerializer<LiikeStruct> {
           result.createdTime = serializers.deserialize(value,
               specifiedType: const FullType(DateTime)) as DateTime?;
           break;
+        case 'modifiedTime':
+          result.modifiedTime = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
         case 'firestoreUtilData':
           result.firestoreUtilData = serializers.deserialize(value,
                   specifiedType: const FullType(FirestoreUtilData))!
@@ -207,6 +218,8 @@ class _$LiikeStruct extends LiikeStruct {
   @override
   final DateTime? createdTime;
   @override
+  final DateTime? modifiedTime;
+  @override
   final FirestoreUtilData firestoreUtilData;
 
   factory _$LiikeStruct([void Function(LiikeStructBuilder)? updates]) =>
@@ -225,6 +238,7 @@ class _$LiikeStruct extends LiikeStruct {
       this.kestoSekunteina,
       this.isOtherExerciseType,
       this.createdTime,
+      this.modifiedTime,
       required this.firestoreUtilData})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(sarjat, r'LiikeStruct', 'sarjat');
@@ -255,6 +269,7 @@ class _$LiikeStruct extends LiikeStruct {
         kestoSekunteina == other.kestoSekunteina &&
         isOtherExerciseType == other.isOtherExerciseType &&
         createdTime == other.createdTime &&
+        modifiedTime == other.modifiedTime &&
         firestoreUtilData == other.firestoreUtilData;
   }
 
@@ -273,6 +288,7 @@ class _$LiikeStruct extends LiikeStruct {
     _$hash = $jc(_$hash, kestoSekunteina.hashCode);
     _$hash = $jc(_$hash, isOtherExerciseType.hashCode);
     _$hash = $jc(_$hash, createdTime.hashCode);
+    _$hash = $jc(_$hash, modifiedTime.hashCode);
     _$hash = $jc(_$hash, firestoreUtilData.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -293,6 +309,7 @@ class _$LiikeStruct extends LiikeStruct {
           ..add('kestoSekunteina', kestoSekunteina)
           ..add('isOtherExerciseType', isOtherExerciseType)
           ..add('createdTime', createdTime)
+          ..add('modifiedTime', modifiedTime)
           ..add('firestoreUtilData', firestoreUtilData))
         .toString();
   }
@@ -354,6 +371,11 @@ class LiikeStructBuilder implements Builder<LiikeStruct, LiikeStructBuilder> {
   DateTime? get createdTime => _$this._createdTime;
   set createdTime(DateTime? createdTime) => _$this._createdTime = createdTime;
 
+  DateTime? _modifiedTime;
+  DateTime? get modifiedTime => _$this._modifiedTime;
+  set modifiedTime(DateTime? modifiedTime) =>
+      _$this._modifiedTime = modifiedTime;
+
   FirestoreUtilData? _firestoreUtilData;
   FirestoreUtilData? get firestoreUtilData => _$this._firestoreUtilData;
   set firestoreUtilData(FirestoreUtilData? firestoreUtilData) =>
@@ -378,6 +400,7 @@ class LiikeStructBuilder implements Builder<LiikeStruct, LiikeStructBuilder> {
       _kestoSekunteina = $v.kestoSekunteina;
       _isOtherExerciseType = $v.isOtherExerciseType;
       _createdTime = $v.createdTime;
+      _modifiedTime = $v.modifiedTime;
       _firestoreUtilData = $v.firestoreUtilData;
       _$v = null;
     }
@@ -415,6 +438,7 @@ class LiikeStructBuilder implements Builder<LiikeStruct, LiikeStructBuilder> {
               kestoSekunteina: kestoSekunteina,
               isOtherExerciseType: isOtherExerciseType,
               createdTime: createdTime,
+              modifiedTime: modifiedTime,
               firestoreUtilData: BuiltValueNullFieldError.checkNotNull(
                   firestoreUtilData, r'LiikeStruct', 'firestoreUtilData'));
     } catch (_) {

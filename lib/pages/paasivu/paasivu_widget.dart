@@ -37,7 +37,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
-
+  var hasIconTriggered2 = false;
   final animationsMap = {
     'navigationBarOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
@@ -51,7 +51,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
         ),
       ],
     ),
-    'iconOnActionTriggerAnimation': AnimationInfo(
+    'iconOnActionTriggerAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
       applyInitialState: true,
       effects: [
@@ -114,6 +114,26 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
           duration: 600.ms,
           begin: 0.0,
           end: 1.0,
+        ),
+      ],
+    ),
+    'iconOnActionTriggerAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onActionTrigger,
+      applyInitialState: false,
+      effects: [
+        FadeEffect(
+          curve: Curves.elasticOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 1.0,
+          end: 0.0,
+        ),
+        ScaleEffect(
+          curve: Curves.elasticOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 1.0,
+          end: 0.0,
         ),
       ],
     ),
@@ -678,14 +698,14 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                           logFirebaseEvent(
                                               'Icon_drawer_widget_animation');
                                           if (animationsMap[
-                                                  'iconOnActionTriggerAnimation'] !=
+                                                  'iconOnActionTriggerAnimation1'] !=
                                               null) {
                                             animationsMap[
-                                                    'iconOnActionTriggerAnimation']!
+                                                    'iconOnActionTriggerAnimation1']!
                                                 .controller
                                                 .forward(from: 0.0)
                                                 .whenComplete(animationsMap[
-                                                        'iconOnActionTriggerAnimation']!
+                                                        'iconOnActionTriggerAnimation1']!
                                                     .controller
                                                     .reverse);
                                           }
@@ -698,7 +718,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                         ),
                                       ).animateOnActionTrigger(
                                         animationsMap[
-                                            'iconOnActionTriggerAnimation']!,
+                                            'iconOnActionTriggerAnimation1']!,
                                       ),
                                     ),
                                   ),
@@ -1148,6 +1168,21 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                               logFirebaseEvent(
                                                   'PAASIVU_PAGE_Row_lopetaTreeni_ON_TAP');
                                               logFirebaseEvent(
+                                                  'Row_lopetaTreeni_widget_animation');
+                                              if (animationsMap[
+                                                      'iconOnActionTriggerAnimation2'] !=
+                                                  null) {
+                                                setState(() =>
+                                                    hasIconTriggered2 = true);
+                                                SchedulerBinding.instance
+                                                    .addPostFrameCallback(
+                                                        (_) async => animationsMap[
+                                                                'iconOnActionTriggerAnimation2']!
+                                                            .controller
+                                                            .forward(
+                                                                from: 0.0));
+                                              }
+                                              logFirebaseEvent(
                                                   'Row_lopetaTreeni_backend_call');
 
                                               final treeniSessiotUpdateData = {
@@ -1158,6 +1193,24 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                   .reference
                                                   .update(
                                                       treeniSessiotUpdateData);
+                                              logFirebaseEvent(
+                                                  'Row_lopetaTreeni_backend_call');
+
+                                              final usersUpdateData =
+                                                  createUsersRecordData(
+                                                treeniKestoYhteensaSekunteina:
+                                                    functions.lisaaSekunnit(
+                                                        containerQueryLatestSessioTreeniSessiotRecord!
+                                                            .alku,
+                                                        containerQueryLatestSessioTreeniSessiotRecord!
+                                                            .loppu,
+                                                        valueOrDefault(
+                                                            currentUserDocument
+                                                                ?.treeniKestoYhteensaSekunteina,
+                                                            0.0)),
+                                              );
+                                              await currentUserReference!
+                                                  .update(usersUpdateData);
                                             },
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1183,7 +1236,11 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                     context)
                                                                 .deleteRed,
                                                         size: 30.0,
-                                                      ),
+                                                      ).animateOnActionTrigger(
+                                                          animationsMap[
+                                                              'iconOnActionTriggerAnimation2']!,
+                                                          hasBeenTriggered:
+                                                              hasIconTriggered2),
                                                       if (false)
                                                         Padding(
                                                           padding:
@@ -1197,7 +1254,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              'ouj3p8pa' /* Lopeta treeni */,
+                                                              'ouj3p8pa' /* Lopeta */,
                                                             ),
                                                             textAlign: TextAlign
                                                                 .center,

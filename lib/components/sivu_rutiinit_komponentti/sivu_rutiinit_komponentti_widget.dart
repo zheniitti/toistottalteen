@@ -292,10 +292,36 @@ class _SivuRutiinitKomponenttiWidgetState
             ? (FFAppState().valittuMuokattavaLiikeIndex >= 0)
             : false)
           Builder(builder: (_) {
-            final child = Container(
-              width: MediaQuery.of(context).size.width * 1.0,
-              height: MediaQuery.of(context).size.height * 1.0,
-              decoration: BoxDecoration(),
+            final child = InkWell(
+              onTap: () async {
+                logFirebaseEvent('SIVU_RUTIINIT_KOMPONENTTI_Container_alug');
+                logFirebaseEvent('Container_update_app_state');
+                FFAppState().update(() {
+                  FFAppState().valittuMuokattavaRutiini = null;
+                  FFAppState().valittuMuokattavaLiikeIndex = -1;
+                });
+              },
+              child: Container(
+                width: MediaQuery.of(context).size.width * 1.0,
+                height: MediaQuery.of(context).size.height * 1.0,
+                decoration: BoxDecoration(),
+                alignment: AlignmentDirectional(0.0, 0.0),
+                child: Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 120.0),
+                  child: wrapWithModel(
+                    model: _model.rutiininSarjatToistotKestoMatkaModel,
+                    updateCallback: () => setState(() {}),
+                    updateOnChange: true,
+                    child: RutiininSarjatToistotKestoMatkaWidget(
+                      liikeIndex: FFAppState().valittuMuokattavaLiikeIndex,
+                      rutiini: functions
+                          .jsonToRutiini(FFAppState().valittuMuokattavaRutiini),
+                    ),
+                  ).animateOnPageLoad(animationsMap[
+                      'rutiininSarjatToistotKestoMatkaOnPageLoadAnimation']!),
+                ),
+              ),
             );
             if (FFAppState().valittuMuokattavaRutiini != null
                 ? (FFAppState().valittuMuokattavaLiikeIndex != null)
@@ -320,22 +346,7 @@ class _SivuRutiinitKomponenttiWidgetState
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 120.0),
-                  child: wrapWithModel(
-                    model: _model.rutiininSarjatToistotKestoMatkaModel,
-                    updateCallback: () => setState(() {}),
-                    child: RutiininSarjatToistotKestoMatkaWidget(
-                      liikeIndex: FFAppState().valittuMuokattavaLiikeIndex,
-                      rutiini: functions
-                          .jsonToRutiini(FFAppState().valittuMuokattavaRutiini),
-                    ),
-                  ).animateOnPageLoad(animationsMap[
-                      'rutiininSarjatToistotKestoMatkaOnPageLoadAnimation']!),
-                ),
-              ],
+              children: [],
             ),
           ),
       ],

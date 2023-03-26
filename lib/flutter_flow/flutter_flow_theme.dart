@@ -41,6 +41,8 @@ abstract class FlutterFlowTheme {
 
   late Color hintColor;
   late Color deleteRed;
+  late Color inactiveWidgetBackground;
+  late Color activeWidgetBackground;
 
   String get title1Family => typography.title1Family;
   TextStyle get title1 => typography.title1;
@@ -72,6 +74,8 @@ class LightModeTheme extends FlutterFlowTheme {
 
   late Color hintColor = Color(0xFFA7A7A7);
   late Color deleteRed = Color(0xFFFF3500);
+  late Color inactiveWidgetBackground = Color(0xFFCACADB);
+  late Color activeWidgetBackground = Color(0xFFF4F4F4);
 }
 
 abstract class Typography {
@@ -159,6 +163,8 @@ class DarkModeTheme extends FlutterFlowTheme {
 
   late Color hintColor = Color(0xFF0E9CA8);
   late Color deleteRed = Color(0xFFFF3500);
+  late Color inactiveWidgetBackground = Color(0xFFCA01F7);
+  late Color activeWidgetBackground = Color(0xFFDCFE4D);
 }
 
 extension TextStyleHelper on TextStyle {

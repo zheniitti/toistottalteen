@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -45,8 +46,7 @@ class _SarjaPainoTextfieldWidgetState extends State<SarjaPainoTextfieldWidget> {
     super.initState();
     _model = createModel(context, () => SarjaPainoTextfieldModel());
 
-    _model.textController ??=
-        TextEditingController(text: widget.sarja?.paino?.toString());
+    _model.textController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -117,6 +117,10 @@ class _SarjaPainoTextfieldWidgetState extends State<SarjaPainoTextfieldWidget> {
             null,
             widget.liikeIndex,
             _model.updatedLiike,
+            null,
+            functions.emptyJsonList()?.toList(),
+            false,
+            false,
           );
           logFirebaseEvent('TextField_backend_call');
 
@@ -133,6 +137,7 @@ class _SarjaPainoTextfieldWidgetState extends State<SarjaPainoTextfieldWidget> {
       ),
       obscureText: false,
       decoration: InputDecoration(
+        isDense: true,
         hintText: FFLocalizations.of(context).getText(
           'vd95k1b9' /* 0 */,
         ),

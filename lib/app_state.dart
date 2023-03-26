@@ -551,6 +551,24 @@ class FFAppState extends ChangeNotifier {
   void deleteOnCreationUserReference() {
     secureStorage.delete(key: 'ff_onCreationUserReference');
   }
+
+  List<dynamic> _kopioidutLiikkeet = [];
+  List<dynamic> get kopioidutLiikkeet => _kopioidutLiikkeet;
+  set kopioidutLiikkeet(List<dynamic> _value) {
+    _kopioidutLiikkeet = _value;
+  }
+
+  void addToKopioidutLiikkeet(dynamic _value) {
+    _kopioidutLiikkeet.add(_value);
+  }
+
+  void removeFromKopioidutLiikkeet(dynamic _value) {
+    _kopioidutLiikkeet.remove(_value);
+  }
+
+  void removeAtIndexFromKopioidutLiikkeet(int _index) {
+    _kopioidutLiikkeet.removeAt(_index);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
