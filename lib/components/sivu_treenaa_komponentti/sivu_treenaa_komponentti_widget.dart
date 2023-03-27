@@ -495,9 +495,14 @@ class _SivuTreenaaKomponenttiWidgetState
                 ],
               ),
             ),
-          if (!(isWeb
-              ? MediaQuery.of(context).viewInsets.bottom > 0
-              : _isKeyboardVisible))
+          if (valueOrDefault<bool>(
+            widget.sessioDoc != null,
+            true,
+          )
+              ? !(isWeb
+                  ? MediaQuery.of(context).viewInsets.bottom > 0
+                  : _isKeyboardVisible)
+              : false)
             Align(
               alignment: AlignmentDirectional(0.0, 1.0),
               child: Padding(
@@ -646,6 +651,7 @@ class _SivuTreenaaKomponenttiWidgetState
                                     createLiikeStruct(
                                       tehty: false,
                                       isOtherExerciseType: false,
+                                      createdTime: getCurrentTimestamp,
                                       fieldValues: {
                                         'sarjat': [
                                           getSarjaFirestoreData(

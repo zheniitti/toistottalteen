@@ -74,7 +74,9 @@ class _ButtonLuoRutiiniWidgetState extends State<ButtonLuoRutiiniWidget>
         logFirebaseEvent('BUTTON_LUO_RUTIINI_LISÄÄ_TREENIPOHJA_BTN');
         if (true) {
           logFirebaseEvent('Button_custom_action');
-          _model.createdRutiini = await actions.myCreateTreeniRutiiniStruct();
+          _model.createdRutiini = await actions.myCreateTreeniRutiiniStruct(
+            false,
+          );
           logFirebaseEvent('Button_backend_call');
 
           final usersUpdateData = {

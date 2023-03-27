@@ -1,12 +1,12 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/components/heatmap_calendar/heatmap_calendar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'tilastot_sivu_model.dart';
@@ -104,110 +104,167 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
                       alignment: AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            10.0, 10.0, 10.0, 10.0),
-                        child: StreamBuilder<List<TreeniSessiotRecord>>(
-                          stream: queryTreeniSessiotRecord(
-                            queryBuilder: (treeniSessiotRecord) =>
-                                treeniSessiotRecord
-                                    .where('userRef',
-                                        isEqualTo: currentUserReference)
-                                    .orderBy('treeniRutiiniData.nimi'),
-                            singleRecord: true,
-                          ),
-                          builder: (context, snapshot) {
-                            // Customize what your widget looks like when it's loading.
-                            if (!snapshot.hasData) {
-                              return Center(
-                                child: SizedBox(
-                                  width: 50.0,
-                                  height: 50.0,
-                                  child: SpinKitCircle(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
-                                    size: 50.0,
-                                  ),
-                                ),
-                              );
-                            }
-                            List<TreeniSessiotRecord>
-                                dropDownTreeniSessiotRecordList =
-                                snapshot.data!;
-                            // Return an empty Container when the item does not exist.
-                            if (snapshot.data!.isEmpty) {
-                              return Container();
-                            }
-                            final dropDownTreeniSessiotRecord =
-                                dropDownTreeniSessiotRecordList.isNotEmpty
-                                    ? dropDownTreeniSessiotRecordList.first
-                                    : null;
-                            return FlutterFlowDropDown<String>(
-                              controller: _model.dropDownController ??=
-                                  FormFieldController<String>(null),
-                              options: <String>[],
-                              onChanged: (val) =>
-                                  setState(() => _model.dropDownValue = val),
-                              width: 180.0,
-                              height: 50.0,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Roboto',
-                                    color: Colors.black,
-                                  ),
-                              hintText: FFLocalizations.of(context).getText(
-                                '3w46zho5' /* Please select... */,
-                              ),
-                              fillColor: Colors.white,
-                              elevation: 2.0,
-                              borderColor: Colors.transparent,
-                              borderWidth: 0.0,
-                              borderRadius: 0.0,
-                              margin: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 4.0, 12.0, 4.0),
-                              hidesUnderline: true,
-                              isSearchable: false,
-                            );
-                          },
+                            20.0, 20.0, 20.0, 20.0),
+                        child: wrapWithModel(
+                          model: _model.heatmapCalendarModel,
+                          updateCallback: () => setState(() {}),
+                          child: HeatmapCalendarWidget(),
                         ),
                       ),
                     ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        AuthUserStreamWidget(
-                          builder: (context) => Text(
-                            valueOrDefault<String>(
-                              functions.kestoString(
-                                  valueOrDefault(
-                                      currentUserDocument
-                                          ?.treeniKestoYhteensaSekunteina,
-                                      0.0),
-                                  FFLocalizations.of(context).languageCode),
-                              '0',
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          20.0, 10.0, 20.0, 10.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.9,
+                            height: 50.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 4.0,
+                                  color: Color(0x33000000),
+                                  offset: Offset(0.0, 2.0),
+                                )
+                              ],
                             ),
-                            style: FlutterFlowTheme.of(context).bodyText1,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 0.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      'q476nu6x' /* Treenattu aika:  */,
+                                    ),
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyText1,
+                                  ),
+                                  AuthUserStreamWidget(
+                                    builder: (context) => Text(
+                                      valueOrDefault<String>(
+                                        functions.kestoString(
+                                            valueOrDefault(
+                                                currentUserDocument
+                                                    ?.treeniKestoYhteensaSekunteina,
+                                                0.0),
+                                            FFLocalizations.of(context)
+                                                .languageCode),
+                                        '0',
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        AuthUserStreamWidget(
-                          builder: (context) => Text(
-                            valueOrDefault(
-                                    currentUserDocument?.treeniaYhteensa, 0)
-                                .toString(),
-                            style: FlutterFlowTheme.of(context).bodyText1,
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          20.0, 10.0, 20.0, 10.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.9,
+                            height: 50.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 4.0,
+                                  color: Color(0x33000000),
+                                  offset: Offset(0.0, 2.0),
+                                )
+                              ],
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 0.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      '5hw4ug1p' /* Treenejä yhteensä:  */,
+                                    ),
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyText1,
+                                  ),
+                                  AuthUserStreamWidget(
+                                    builder: (context) => Text(
+                                      valueOrDefault(
+                                              currentUserDocument
+                                                  ?.treeniaYhteensa,
+                                              0)
+                                          .toString(),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
-                        ),
-                        Text(
-                          FFLocalizations.of(context).getText(
-                            '5hw4ug1p' /* treenia yhteens */,
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          20.0, 10.0, 20.0, 10.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Container(
+                            width: 100.0,
+                            height: 100.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                            child: Visibility(
+                              visible: valueOrDefault(
+                                      currentUserDocument?.treeniaYhteensa,
+                                      0) >=
+                                  10,
+                              child: AuthUserStreamWidget(
+                                builder: (context) => FaIcon(
+                                  FontAwesomeIcons.trophy,
+                                  color: Colors.black,
+                                  size: 24.0,
+                                ),
+                              ),
+                            ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodyText1,
-                        ),
-                      ],
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          20.0, 10.0, 20.0, 10.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Container(
+                            width: 100.0,
+                            height: 100.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),

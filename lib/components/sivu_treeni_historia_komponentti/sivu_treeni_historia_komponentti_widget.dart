@@ -1,4 +1,3 @@
-import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/button_aloita_treenaaminen/button_aloita_treenaaminen_widget.dart';
 import '/components/button_luo_rutiini/button_luo_rutiini_widget.dart';
@@ -55,163 +54,136 @@ class _SivuTreeniHistoriaKomponenttiWidgetState
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return StreamBuilder<List<TreeniSessiotRecord>>(
-      stream: queryTreeniSessiotRecord(
-        queryBuilder: (treeniSessiotRecord) => treeniSessiotRecord
-            .where('userRef', isEqualTo: currentUserReference)
-            .orderBy('alku'),
-        limit: 1,
+    return Container(
+      width: double.infinity,
+      height: double.infinity,
+      decoration: BoxDecoration(
+        color: FlutterFlowTheme.of(context).primaryBackground,
       ),
-      builder: (context, snapshot) {
-        // Customize what your widget looks like when it's loading.
-        if (!snapshot.hasData) {
-          return Center(
-            child: SizedBox(
-              width: 50.0,
-              height: 50.0,
-              child: SpinKitCircle(
-                color: FlutterFlowTheme.of(context).primaryColor,
-                size: 50.0,
-              ),
-            ),
-          );
-        }
-        List<TreeniSessiotRecord> containerTreeniSessiotRecordList =
-            snapshot.data!;
-        return Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).primaryBackground,
-          ),
-          child: Align(
-            alignment: AlignmentDirectional(0.0, 1.0),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
-                    child: FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
-                      },
-                      text: FFLocalizations.of(context).getText(
-                        'i315lsnw' /* Lisää treeni */,
+      child: Align(
+        alignment: AlignmentDirectional(0.0, 1.0),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              if (false)
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
+                  child: FFButtonWidget(
+                    onPressed: () {
+                      print('Button pressed ...');
+                    },
+                    text: FFLocalizations.of(context).getText(
+                      'i315lsnw' /* Lisää treeni */,
+                    ),
+                    options: FFButtonOptions(
+                      width: 240.0,
+                      height: 70.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).primaryColor,
+                      textStyle: FlutterFlowTheme.of(context)
+                          .subtitle1
+                          .override(
+                            fontFamily: 'Outfit',
+                            color: FlutterFlowTheme.of(context).secondaryColor,
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                      elevation: 1.0,
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1.0,
                       ),
-                      options: FFButtonOptions(
-                        width: 240.0,
-                        height: 70.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primaryColor,
-                        textStyle: FlutterFlowTheme.of(context)
-                            .subtitle1
-                            .override(
-                              fontFamily: 'Outfit',
-                              color:
-                                  FlutterFlowTheme.of(context).secondaryColor,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                        elevation: 1.0,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(16.0),
-                      ),
+                      borderRadius: BorderRadius.circular(16.0),
                     ),
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 20.0, 16.0, 150.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        if (containerTreeniSessiotRecordList.length == 0)
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Container(
-                              constraints: BoxConstraints(
-                                maxWidth: 400.0,
-                              ),
-                              decoration: BoxDecoration(),
-                              child: Align(
-                                alignment: AlignmentDirectional(0.0, 1.0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 80.0, 0.0, 200.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            22.0, 0.0, 22.0, 0.0),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'uur18ydl' /* Tämä sivu on tyhjä koska sinul... */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1,
-                                        ),
+                ),
+              Padding(
+                padding:
+                    EdgeInsetsDirectional.fromSTEB(16.0, 20.0, 16.0, 150.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    if (false)
+                      Align(
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        child: Container(
+                          constraints: BoxConstraints(
+                            maxWidth: 400.0,
+                          ),
+                          decoration: BoxDecoration(),
+                          child: Align(
+                            alignment: AlignmentDirectional(0.0, 1.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 80.0, 0.0, 200.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        22.0, 0.0, 22.0, 0.0),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        'uur18ydl' /* Tämä sivu on tyhjä koska sinul... */,
                                       ),
-                                      if (false)
-                                        Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 20.0, 0.0, 0.0),
-                                              child: wrapWithModel(
-                                                model: _model
-                                                    .buttonLuoRutiiniModel,
-                                                updateCallback: () =>
-                                                    setState(() {}),
-                                                child: ButtonLuoRutiiniWidget(),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 20.0, 0.0, 0.0),
-                                              child: wrapWithModel(
-                                                model: _model
-                                                    .buttonAloitaTreenaaminenModel,
-                                                updateCallback: () =>
-                                                    setState(() {}),
-                                                child:
-                                                    ButtonAloitaTreenaaminenWidget(),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                    ],
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1,
+                                    ),
                                   ),
-                                ),
+                                  if (false)
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 20.0, 0.0, 0.0),
+                                          child: wrapWithModel(
+                                            model: _model.buttonLuoRutiiniModel,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: ButtonLuoRutiiniWidget(),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 20.0, 0.0, 0.0),
+                                          child: wrapWithModel(
+                                            model: _model
+                                                .buttonAloitaTreenaaminenModel,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child:
+                                                ButtonAloitaTreenaaminenWidget(),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                ],
                               ),
                             ),
                           ),
-                        wrapWithModel(
-                          model: _model.sessioChunkListaModel,
-                          updateCallback: () => setState(() {}),
-                          child: SessioChunkListaWidget(),
                         ),
-                      ],
+                      ),
+                    wrapWithModel(
+                      model: _model.sessioChunkListaModel,
+                      updateCallback: () => setState(() {}),
+                      child: SessioChunkListaWidget(),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
+            ],
           ),
-        );
-      },
+        ),
+      ),
     );
   }
 }

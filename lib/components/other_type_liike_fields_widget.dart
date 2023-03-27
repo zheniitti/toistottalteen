@@ -120,329 +120,319 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Visibility(
-      visible: valueOrDefault<bool>(
-        widget.liike?.isOtherExerciseType,
-        false,
-      ),
-      child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-        child: Container(
-          decoration: BoxDecoration(),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Wrap(
-                spacing: 12.0,
-                runSpacing: 14.0,
-                alignment: WrapAlignment.center,
-                crossAxisAlignment: WrapCrossAlignment.start,
-                direction: Axis.horizontal,
-                runAlignment: WrapAlignment.start,
-                verticalDirection: VerticalDirection.down,
-                clipBehavior: Clip.none,
-                children: [
-                  Wrap(
-                    spacing: 12.0,
-                    runSpacing: 8.0,
-                    alignment: WrapAlignment.center,
-                    crossAxisAlignment: WrapCrossAlignment.start,
-                    direction: Axis.horizontal,
-                    runAlignment: WrapAlignment.start,
-                    verticalDirection: VerticalDirection.down,
-                    clipBehavior: Clip.none,
-                    children: [
-                      Container(
-                        width: 100.0,
-                        height: 50.0,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12.0),
-                        ),
-                        child: TextFormField(
-                          controller: _model.textController1,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            isDense: true,
-                            labelText: FFLocalizations.of(context).getText(
-                              'qzi0xoig' /* Tunnit */,
-                            ),
-                            labelStyle:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Roboto',
-                                      fontSize: 20.0,
-                                    ),
-                            hintText: FFLocalizations.of(context).getText(
-                              '0ry7n4gd' /* 0 */,
-                            ),
-                            hintStyle:
-                                FlutterFlowTheme.of(context).bodyText2.override(
-                                      fontFamily: 'Roboto',
-                                      fontSize: 20.0,
-                                    ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(18.0),
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(18.0),
-                            ),
-                            errorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).deleteRed,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(18.0),
-                            ),
-                            focusedErrorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).deleteRed,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(18.0),
-                            ),
-                          ),
-                          style: FlutterFlowTheme.of(context).title2.override(
-                                fontFamily: 'Outfit',
-                                fontSize: 20.0,
-                              ),
-                          textAlign: TextAlign.center,
-                          keyboardType: TextInputType.number,
-                          validator: _model.textController1Validator
-                              .asValidator(context),
-                        ),
+    return Padding(
+      padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+      child: Container(
+        decoration: BoxDecoration(),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Wrap(
+              spacing: 12.0,
+              runSpacing: 14.0,
+              alignment: WrapAlignment.center,
+              crossAxisAlignment: WrapCrossAlignment.start,
+              direction: Axis.horizontal,
+              runAlignment: WrapAlignment.start,
+              verticalDirection: VerticalDirection.down,
+              clipBehavior: Clip.none,
+              children: [
+                Wrap(
+                  spacing: 12.0,
+                  runSpacing: 8.0,
+                  alignment: WrapAlignment.center,
+                  crossAxisAlignment: WrapCrossAlignment.start,
+                  direction: Axis.horizontal,
+                  runAlignment: WrapAlignment.start,
+                  verticalDirection: VerticalDirection.down,
+                  clipBehavior: Clip.none,
+                  children: [
+                    Container(
+                      width: 100.0,
+                      height: 50.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12.0),
                       ),
-                      Container(
-                        width: 100.0,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12.0),
-                        ),
-                        child: TextFormField(
-                          controller: _model.textController2,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            isDense: true,
-                            labelText: FFLocalizations.of(context).getText(
-                              'qc0cirns' /* Minuutit */,
-                            ),
-                            labelStyle:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Roboto',
-                                      fontSize: 20.0,
-                                    ),
-                            hintText: FFLocalizations.of(context).getText(
-                              'olh9qolp' /* 0 */,
-                            ),
-                            hintStyle:
-                                FlutterFlowTheme.of(context).bodyText2.override(
-                                      fontFamily: 'Roboto',
-                                      fontSize: 20.0,
-                                    ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(18.0),
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(18.0),
-                            ),
-                            errorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).deleteRed,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(18.0),
-                            ),
-                            focusedErrorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).deleteRed,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(18.0),
-                            ),
+                      child: TextFormField(
+                        controller: _model.textController1,
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          isDense: true,
+                          labelText: FFLocalizations.of(context).getText(
+                            'qzi0xoig' /* Tunnit */,
                           ),
-                          style: FlutterFlowTheme.of(context).title2.override(
-                                fontFamily: 'Outfit',
-                                fontSize: 20.0,
-                              ),
-                          textAlign: TextAlign.center,
-                          keyboardType: TextInputType.number,
-                          validator: _model.textController2Validator
-                              .asValidator(context),
-                          inputFormatters: [
-                            FilteringTextInputFormatter.allow(
-                                RegExp('[1-5][0-9]'))
-                          ],
-                        ),
-                      ),
-                      Container(
-                        width: 100.0,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12.0),
-                        ),
-                        child: TextFormField(
-                          controller: _model.textController3,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            isDense: true,
-                            labelText: FFLocalizations.of(context).getText(
-                              'zcwbr62z' /* Sekunnit */,
-                            ),
-                            labelStyle:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Roboto',
-                                      fontSize: 20.0,
-                                    ),
-                            hintText: FFLocalizations.of(context).getText(
-                              'm6zgwhps' /* 0 */,
-                            ),
-                            hintStyle:
-                                FlutterFlowTheme.of(context).bodyText2.override(
-                                      fontFamily: 'Roboto',
-                                      fontSize: 20.0,
-                                    ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(18.0),
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(18.0),
-                            ),
-                            errorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).deleteRed,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(18.0),
-                            ),
-                            focusedErrorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).deleteRed,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(18.0),
-                            ),
+                          labelStyle:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Roboto',
+                                    fontSize: 14.0,
+                                  ),
+                          hintText: FFLocalizations.of(context).getText(
+                            '0ry7n4gd' /* 0 */,
                           ),
-                          style: FlutterFlowTheme.of(context).title2.override(
-                                fontFamily: 'Outfit',
-                                fontSize: 20.0,
-                              ),
-                          textAlign: TextAlign.center,
-                          keyboardType: TextInputType.number,
-                          validator: _model.textController3Validator
-                              .asValidator(context),
-                          inputFormatters: [
-                            FilteringTextInputFormatter.allow(RegExp(
-                                '^(?:[0-9]|[1-5][0-9])(?:\\.\\d{1,3})?\$'))
-                          ],
+                          hintStyle:
+                              FlutterFlowTheme.of(context).bodyText2.override(
+                                    fontFamily: 'Roboto',
+                                    fontSize: 20.0,
+                                  ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0x00000000),
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).primaryColor,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                          errorBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).deleteRed,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                          focusedErrorBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).deleteRed,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    width: 334.0,
-                    constraints: BoxConstraints(
-                      maxWidth: 330.0,
-                    ),
-                    decoration: BoxDecoration(),
-                    child: TextFormField(
-                      controller: _model.textController4,
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        isDense: true,
-                        labelText: FFLocalizations.of(context).getText(
-                          'emfp4ohz' /* matka (metreinä) */,
-                        ),
-                        labelStyle: FlutterFlowTheme.of(context)
-                            .bodyText2
-                            .override(
-                              fontFamily: 'Roboto',
-                              color: FlutterFlowTheme.of(context).primaryText,
+                        style: FlutterFlowTheme.of(context).title2.override(
+                              fontFamily: 'Outfit',
                               fontSize: 20.0,
                             ),
-                        hintText: FFLocalizations.of(context).getText(
-                          'tnb4m9hm' /* 0.0 */,
-                        ),
-                        hintStyle:
-                            FlutterFlowTheme.of(context).bodyText2.override(
-                                  fontFamily: 'Roboto',
-                                  fontSize: 20.0,
-                                ),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0x00000000),
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(18.0),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).primaryColor,
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(18.0),
-                        ),
-                        errorBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).deleteRed,
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(18.0),
-                        ),
-                        focusedErrorBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).deleteRed,
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(18.0),
-                        ),
+                        textAlign: TextAlign.center,
+                        keyboardType: TextInputType.number,
+                        validator: _model.textController1Validator
+                            .asValidator(context),
                       ),
-                      style: FlutterFlowTheme.of(context).title2.override(
-                            fontFamily: 'Outfit',
-                            fontSize: 20.0,
-                          ),
-                      textAlign: TextAlign.center,
-                      keyboardType: TextInputType.number,
-                      validator:
-                          _model.textController4Validator.asValidator(context),
-                      inputFormatters: [
-                        FilteringTextInputFormatter.allow(
-                            RegExp('(-?)(0|([1-9][0-9]*))(\\\\.[0-9]+)?\$'))
-                      ],
                     ),
+                    Container(
+                      width: 100.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      child: TextFormField(
+                        controller: _model.textController2,
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          isDense: true,
+                          labelText: FFLocalizations.of(context).getText(
+                            'qc0cirns' /* Minuutit */,
+                          ),
+                          labelStyle:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Roboto',
+                                    fontSize: 14.0,
+                                  ),
+                          hintText: FFLocalizations.of(context).getText(
+                            'olh9qolp' /* 0 */,
+                          ),
+                          hintStyle:
+                              FlutterFlowTheme.of(context).bodyText2.override(
+                                    fontFamily: 'Roboto',
+                                    fontSize: 20.0,
+                                  ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0x00000000),
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).primaryColor,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                          errorBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).deleteRed,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                          focusedErrorBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).deleteRed,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                        ),
+                        style: FlutterFlowTheme.of(context).title2.override(
+                              fontFamily: 'Outfit',
+                              fontSize: 20.0,
+                            ),
+                        textAlign: TextAlign.center,
+                        keyboardType: TextInputType.number,
+                        validator: _model.textController2Validator
+                            .asValidator(context),
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(
+                              RegExp('[1-5][0-9]'))
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: 100.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      child: TextFormField(
+                        controller: _model.textController3,
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          isDense: true,
+                          labelText: FFLocalizations.of(context).getText(
+                            'zcwbr62z' /* Sekunnit */,
+                          ),
+                          labelStyle:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Roboto',
+                                    fontSize: 14.0,
+                                  ),
+                          hintText: FFLocalizations.of(context).getText(
+                            'm6zgwhps' /* 0 */,
+                          ),
+                          hintStyle:
+                              FlutterFlowTheme.of(context).bodyText2.override(
+                                    fontFamily: 'Roboto',
+                                    fontSize: 20.0,
+                                  ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0x00000000),
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).primaryColor,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                          errorBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).deleteRed,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                          focusedErrorBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: FlutterFlowTheme.of(context).deleteRed,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                        ),
+                        style: FlutterFlowTheme.of(context).title2.override(
+                              fontFamily: 'Outfit',
+                              fontSize: 20.0,
+                            ),
+                        textAlign: TextAlign.center,
+                        keyboardType: TextInputType.number,
+                        validator: _model.textController3Validator
+                            .asValidator(context),
+                        inputFormatters: [
+                          FilteringTextInputFormatter.allow(
+                              RegExp('^(?:[0-9]|[1-5][0-9])(?:\\.\\d{1,3})?\$'))
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  width: 334.0,
+                  constraints: BoxConstraints(
+                    maxWidth: 330.0,
                   ),
-                ],
-              ),
-            ],
-          )
-              .animateOnPageLoad(animationsMap['columnOnPageLoadAnimation']!)
-              .animateOnActionTrigger(
-                animationsMap['columnOnActionTriggerAnimation']!,
-              ),
-        ),
+                  decoration: BoxDecoration(),
+                  child: TextFormField(
+                    controller: _model.textController4,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      isDense: true,
+                      labelText: FFLocalizations.of(context).getText(
+                        'emfp4ohz' /* matka (metreinä) */,
+                      ),
+                      labelStyle:
+                          FlutterFlowTheme.of(context).bodyText2.override(
+                                fontFamily: 'Roboto',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontSize: 20.0,
+                              ),
+                      hintText: FFLocalizations.of(context).getText(
+                        'tnb4m9hm' /* 0.0 */,
+                      ),
+                      hintStyle:
+                          FlutterFlowTheme.of(context).bodyText2.override(
+                                fontFamily: 'Roboto',
+                                fontSize: 20.0,
+                              ),
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(18.0),
+                      ),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).primaryColor,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(18.0),
+                      ),
+                      errorBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).deleteRed,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(18.0),
+                      ),
+                      focusedErrorBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).deleteRed,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(18.0),
+                      ),
+                    ),
+                    style: FlutterFlowTheme.of(context).title2.override(
+                          fontFamily: 'Outfit',
+                          fontSize: 20.0,
+                        ),
+                    textAlign: TextAlign.center,
+                    keyboardType: TextInputType.number,
+                    validator:
+                        _model.textController4Validator.asValidator(context),
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(
+                          RegExp('(-?)(0|([1-9][0-9]*))(\\\\.[0-9]+)?\$'))
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ],
+        )
+            .animateOnPageLoad(animationsMap['columnOnPageLoadAnimation']!)
+            .animateOnActionTrigger(
+              animationsMap['columnOnActionTriggerAnimation']!,
+            ),
       ),
     );
   }

@@ -35,7 +35,8 @@ Future<LiikeStruct?> myUpdateLiikeStruct(
 
   String toiminto = '';
   try {
-    SarjaStruct newEmptySarja = createSarjaStruct(create: true);
+    SarjaStruct newEmptySarja =
+        createSarjaStruct(create: true, createdTime: getCurrentTimestamp);
     if (removeSarjaAtIndex != null) {
       toiminto = 'Poista sarja indeksissa $removeSarjaAtIndex';
       sarjaList.removeAt(removeSarjaAtIndex);

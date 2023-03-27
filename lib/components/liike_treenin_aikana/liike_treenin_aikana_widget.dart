@@ -475,20 +475,24 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          wrapWithModel(
-                            model: _model.otherTypeLiikeFieldsModels.getModel(
-                              sarjatItem.createdTime!.toString(),
-                              sarjatIndex,
-                            ),
-                            updateCallback: () => setState(() {}),
-                            child: OtherTypeLiikeFieldsWidget(
-                              key: Key(
-                                'Keyth6_${sarjatItem.createdTime!.toString()}',
+                          if (valueOrDefault<bool>(
+                            widget.liike?.isOtherExerciseType,
+                            false,
+                          ))
+                            wrapWithModel(
+                              model: _model.otherTypeLiikeFieldsModels.getModel(
+                                sarjatItem.createdTime!.toString(),
+                                sarjatIndex,
                               ),
-                              liike: widget.liike,
-                              sarja: sarjatItem,
+                              updateCallback: () => setState(() {}),
+                              child: OtherTypeLiikeFieldsWidget(
+                                key: Key(
+                                  'Keyth6_${sarjatItem.createdTime!.toString()}',
+                                ),
+                                liike: widget.liike,
+                                sarja: sarjatItem,
+                              ),
                             ),
-                          ),
                           if (!widget.liike!.isOtherExerciseType!)
                             Stack(
                               alignment: AlignmentDirectional(0.0, -1.0),

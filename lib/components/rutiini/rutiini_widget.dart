@@ -334,17 +334,17 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
       trigger: AnimationTrigger.onPageLoad,
       applyInitialState: true,
       effects: [
-        VisibilityEffect(duration: 3000.ms),
+        VisibilityEffect(duration: 2000.ms),
         FadeEffect(
           curve: Curves.elasticOut,
-          delay: 3000.ms,
+          delay: 2000.ms,
           duration: 900.ms,
           begin: 0.0,
           end: 1.0,
         ),
         ScaleEffect(
           curve: Curves.elasticOut,
-          delay: 3000.ms,
+          delay: 2000.ms,
           duration: 900.ms,
           begin: 0.9,
           end: 1.0,

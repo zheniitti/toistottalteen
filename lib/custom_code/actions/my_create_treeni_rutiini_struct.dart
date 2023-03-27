@@ -8,7 +8,8 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-Future<TreeniRutiiniStruct> myCreateTreeniRutiiniStruct() async {
+Future<TreeniRutiiniStruct> myCreateTreeniRutiiniStruct(
+    bool? finishedEditing) async {
   // Add your function code here!
   return createTreeniRutiiniStruct(
       isTreeniPohja: true,
@@ -16,7 +17,7 @@ Future<TreeniRutiiniStruct> myCreateTreeniRutiiniStruct() async {
       fieldValues: {
         'liikkeet': getLiikeListFirestoreData([createLiikeStruct()])
       },
-      finishedEditing: true,
+      finishedEditing: finishedEditing ?? true,
       clearUnsetFields: false,
       create: true);
 }

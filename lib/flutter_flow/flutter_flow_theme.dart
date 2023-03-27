@@ -75,7 +75,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color hintColor = Color(0xFFA7A7A7);
   late Color deleteRed = Color(0xFFFF3500);
   late Color inactiveWidgetBackground = Color(0xFFCACADB);
-  late Color activeWidgetBackground = Color(0xFFF4F4F4);
+  late Color activeWidgetBackground = Color(0xFFFFFFFF);
 }
 
 abstract class Typography {

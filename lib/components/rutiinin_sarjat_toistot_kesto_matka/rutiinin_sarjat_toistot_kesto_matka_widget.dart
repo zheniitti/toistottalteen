@@ -738,7 +738,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                               Container(
                                 decoration: BoxDecoration(),
                                 child: Column(
-                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Wrap(

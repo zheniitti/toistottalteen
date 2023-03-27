@@ -111,13 +111,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Analytiikka',
       'en': '',
     },
-    '3w46zho5': {
-      'fi': 'Please select...',
-      'en': '',
+    'q476nu6x': {
+      'fi': 'Treenattu aika: ',
+      'en': 'Time trained:',
     },
     '5hw4ug1p': {
-      'fi': 'treenia yhteens',
-      'en': ' total workouts',
+      'fi': 'Treenejä yhteensä: ',
+      'en': 'Total workouts:',
     },
     '2ebrd02h': {
       'fi': 'Home',
