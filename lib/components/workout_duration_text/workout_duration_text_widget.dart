@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -19,8 +21,7 @@ class WorkoutDurationTextWidget extends StatefulWidget {
   final TreeniSessiotRecord? sessioDoc;
 
   @override
-  _WorkoutDurationTextWidgetState createState() =>
-      _WorkoutDurationTextWidgetState();
+  _WorkoutDurationTextWidgetState createState() => _WorkoutDurationTextWidgetState();
 }
 
 class _WorkoutDurationTextWidgetState extends State<WorkoutDurationTextWidget> {
@@ -37,7 +38,11 @@ class _WorkoutDurationTextWidgetState extends State<WorkoutDurationTextWidget> {
     super.initState();
     _model = createModel(context, () => WorkoutDurationTextModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    // Älä poista
+    Timer.periodic(Duration(seconds: 1), (timer) {
+      if (mounted)
+      setState(() {});
+    });
   }
 
   @override
@@ -70,10 +75,7 @@ class _WorkoutDurationTextWidgetState extends State<WorkoutDurationTextWidget> {
                         ),
                   ),
                   TextSpan(
-                    text: functions.durationFromStartEnd(
-                        widget.sessioDoc!.alku,
-                        widget.sessioDoc!.loppu,
-                        FFLocalizations.of(context).languageCode),
+                    text: functions.durationFromStartEnd(widget.sessioDoc!.alku, widget.sessioDoc!.loppu, FFLocalizations.of(context).languageCode),
                     style: FlutterFlowTheme.of(context).subtitle2.override(
                           fontFamily: 'Roboto',
                           color: FlutterFlowTheme.of(context).secondaryColor,

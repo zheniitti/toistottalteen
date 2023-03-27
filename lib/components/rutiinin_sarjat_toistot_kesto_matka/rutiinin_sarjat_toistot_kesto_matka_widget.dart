@@ -328,7 +328,12 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                   style: FlutterFlowTheme.of(context).subtitle2,
                                 ),
                                 Switch(
-                                  value: _model.switchValue ??= false,
+                                  value: _model.switchValue ??= functions
+                                      .jsonToRutiini(
+                                          FFAppState().valittuMuokattavaRutiini)
+                                      .liikkeet!
+                                      .toList()[widget.liikeIndex!]
+                                      .isOtherExerciseType!,
                                   onChanged: (newValue) async {
                                     setState(
                                         () => _model.switchValue = newValue!);
@@ -1322,9 +1327,6 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                       .controller
                                       .forward(from: 0.0);
                                 }
-                                logFirebaseEvent(
-                                    'Button_close_dialog,_drawer,_etc');
-                                Navigator.pop(context);
                                 logFirebaseEvent('Button_custom_action');
                                 await actions.updateUserDocLiikeAtIndex(
                                   widget.liikeIndex!,

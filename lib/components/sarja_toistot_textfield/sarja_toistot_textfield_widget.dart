@@ -48,7 +48,8 @@ class _SarjaToistotTextfieldWidgetState
     super.initState();
     _model = createModel(context, () => SarjaToistotTextfieldModel());
 
-    _model.textController ??= TextEditingController();
+    _model.textController ??=
+        TextEditingController(text: widget.sarja?.toistoMaara?.toString());
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

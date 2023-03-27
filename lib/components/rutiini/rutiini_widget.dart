@@ -587,9 +587,6 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                             onTap: () async {
                               logFirebaseEvent(
                                   'RUTIINI_COMP_Icon_208l4wig_ON_TAP');
-                              logFirebaseEvent(
-                                  'Icon_close_dialog,_drawer,_etc');
-                              Navigator.pop(context);
                               logFirebaseEvent('Icon_bottom_sheet');
                               showModalBottomSheet(
                                 isScrollControlled: true,
@@ -1404,9 +1401,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                       ),
                                     ),
                                     Visibility(
-                                      visible:
-                                          widget.rutiini?.finishedEditing ??
-                                              true,
+                                      visible: false,
                                       child: FFButtonWidget(
                                         onPressed: () async {
                                           logFirebaseEvent(
@@ -1637,7 +1632,6 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                       .forward(from: 0.0);
                 }
                 logFirebaseEvent('Row_lopetaMuokkaus_close_dialog,_drawer,');
-                Navigator.pop(context);
                 logFirebaseEvent('Row_lopetaMuokkaus_custom_action');
                 await actions.updateUserDocTreenirutiini(
                   widget.rutiini,

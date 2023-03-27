@@ -256,7 +256,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                       ),
                                                 ),
                                                 TextSpan(
-                                                  text: ' X ',
+                                                  text: ' x ',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .subtitle2

@@ -27,6 +27,46 @@ Future updateTreenisessiotRecord(
     return;
   }
 
+  TreeniRutiiniStruct? treeniRutiini =
+      rutiini ?? sessiotRecord?.treeniRutiiniData;
+  // fill sarjat for every liike
+  try {
+    if (treeniRutiini != null &&
+        treeniRutiini.liikkeet != null &&
+        treeniRutiini.liikkeet.isNotEmpty) {
+      ListBuilder<LiikeStruct> liikkeet = (treeniRutiini.liikkeet.toBuilder() ??
+          []) as ListBuilder<LiikeStruct>;
+      liikkeet.map((liike) {
+        if (liike.sarjaMaara != null &&
+                liike.sarjaMaara != 0 &&
+                liike.sarjat == null ||
+            liike.sarjat.isEmpty) {
+          ListBuilder<SarjaStruct> sarjatList = List.filled(
+                  liike.sarjaMaara ?? 0,
+                  createSarjaStruct(
+                      create: true,
+                      createdTime: getCurrentTimestamp,
+                      paino: liike.aloitusPainoKg ?? 0,
+                      toistoMaara: liike.toistoMaara ?? 0))
+              .toBuiltList()
+              .toBuilder();
+          LiikeStructBuilder liikeBuilder = liike.toBuilder()
+            ..sarjat = sarjatList as ListBuilder<SarjaStruct>;
+          liike = liikeBuilder.build();
+          return liike;
+        }
+        return liike;
+      });
+      treeniRutiini = treeniRutiini.rebuild(
+          (rut) => rut.liikkeet = liikkeet as ListBuilder<LiikeStruct>?);
+    }
+  } on Exception catch (e) {
+    print('Error: Fill sarjat for every liike: $e ');
+  }
+  // fill sarjat for every liike end
+  final rutiiniFirestoreData =
+      getTreeniRutiiniFirestoreData(treeniRutiini, true);
+
   final Map<String, Object?> sessiotUpdateData = {
     if (sessiotRecord?.userRef == null) 'userRef': currentUserReference,
     if (sessiotRecord?.docCreatedTime == null)
@@ -34,8 +74,7 @@ Future updateTreenisessiotRecord(
     if (alku != null) 'alku': alku,
     if (loppu != null) 'loppu': loppu,
     if (!(rutiini == null && sessiotRecord?.treeniRutiiniData == null))
-      'treeniRutiiniData': getTreeniRutiiniFirestoreData(
-          rutiini ?? sessiotRecord?.treeniRutiiniData, true),
+      'treeniRutiiniData': rutiiniFirestoreData,
     if (isEditing != null) 'isEditing': isEditing,
     if (lastModifiedTime != null) 'lastModifiedTime': lastModifiedTime,
   };

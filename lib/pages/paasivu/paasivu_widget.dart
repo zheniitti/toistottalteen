@@ -64,6 +64,27 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
         ),
       ],
     ),
+    'rowOnPageLoadAnimation1': AnimationInfo(
+      loop: true,
+      reverse: true,
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        ScaleEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 900.ms,
+          begin: 0.97,
+          end: 1.01,
+        ),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 900.ms,
+          begin: 0.6,
+          end: 1.0,
+        ),
+      ],
+    ),
     'textFieldOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
@@ -97,7 +118,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
         ),
       ],
     ),
-    'rowOnPageLoadAnimation': AnimationInfo(
+    'rowOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         VisibilityEffect(duration: 1200.ms),
@@ -875,7 +896,8 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                         ),
                                                       ],
                                                     ),
-                                                  ),
+                                                  ).animateOnPageLoad(animationsMap[
+                                                      'rowOnPageLoadAnimation1']!),
                                               ],
                                             ),
                                           if (FFAppState().navBarIndex != 1)
@@ -1334,7 +1356,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                 ],
                                               ),
                                             ).animateOnPageLoad(animationsMap[
-                                                'rowOnPageLoadAnimation']!),
+                                                'rowOnPageLoadAnimation2']!),
                                         ],
                                       ).animateOnPageLoad(animationsMap[
                                           'columnOnPageLoadAnimation1']!),
