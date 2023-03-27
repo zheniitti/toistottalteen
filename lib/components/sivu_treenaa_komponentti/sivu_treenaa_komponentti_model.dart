@@ -36,8 +36,6 @@ class SivuTreenaaKomponenttiModel extends FlutterFlowModel {
       liikeTreeninAikanaModels;
   // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in Container_painike_uusiLiike widget.
   TreeniRutiiniStruct? updatedRutiiniFromLisaaLiike;
-  // Stores action output result for [Backend Call - Create Document] action in Button_aloitaUusiTreeni widget.
-  TreeniSessiotRecord? createdSessioDoc;
 
   /// Initialization and disposal methods.
 

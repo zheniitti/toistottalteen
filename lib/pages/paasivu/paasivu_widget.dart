@@ -623,7 +623,11 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                       child: SivuRutiinitKomponenttiWidget(
                                         latestSessio:
                                             containerQueryLatestSessioTreeniSessiotRecordList
-                                                .first,
+                                                        .length >
+                                                    0
+                                                ? containerQueryLatestSessioTreeniSessiotRecordList
+                                                    .first
+                                                : null,
                                       ),
                                     ),
                                   if (FFAppState().navBarIndex == 2)
@@ -636,7 +640,11 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                           SivuTreeniHistoriaKomponenttiWidget(
                                         latestSessioStreamDoc:
                                             containerQueryLatestSessioTreeniSessiotRecordList
-                                                .first,
+                                                        .length >
+                                                    0
+                                                ? containerQueryLatestSessioTreeniSessiotRecordList
+                                                    .first
+                                                : null,
                                       ),
                                     ),
                                   if ((FFAppState().navBarIndex == 1) ||
@@ -648,7 +656,11 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                       child: SivuTreenaaKomponenttiWidget(
                                         sessioDoc:
                                             containerQueryLatestSessioTreeniSessiotRecordList
-                                                .first,
+                                                        .length >
+                                                    0
+                                                ? containerQueryLatestSessioTreeniSessiotRecordList
+                                                    .first
+                                                : null,
                                       ),
                                     ),
                                 ],
@@ -752,12 +764,13 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                             Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
-                                                if (valueOrDefault<bool>(
-                                                  containerQueryLatestSessioTreeniSessiotRecordList
-                                                          .first.alku !=
-                                                      null,
-                                                  false,
-                                                ))
+                                                if (containerQueryLatestSessioTreeniSessiotRecordList
+                                                            .length >
+                                                        0
+                                                    ? (containerQueryLatestSessioTreeniSessiotRecordList
+                                                            .first.alku !=
+                                                        null)
+                                                    : false)
                                                   wrapWithModel(
                                                     model: _model
                                                         .workoutDurationTextModel,
@@ -768,12 +781,20 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                         WorkoutDurationTextWidget(
                                                       sessioDoc:
                                                           containerQueryLatestSessioTreeniSessiotRecordList
-                                                              .first,
+                                                                      .length >
+                                                                  0
+                                                              ? containerQueryLatestSessioTreeniSessiotRecordList
+                                                                  .first
+                                                              : null,
                                                     ),
                                                   ),
                                                 if (containerQueryLatestSessioTreeniSessiotRecordList
-                                                        .first.alku !=
-                                                    null)
+                                                            .length >
+                                                        0
+                                                    ? (containerQueryLatestSessioTreeniSessiotRecordList
+                                                            .first.alku ==
+                                                        null)
+                                                    : false)
                                                   InkWell(
                                                     onTap: () async {
                                                       logFirebaseEvent(
@@ -1181,18 +1202,20 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                               ),
                                             ),
                                           if ((FFAppState().navBarIndex == 1) &&
-                                              valueOrDefault<bool>(
-                                                containerQueryLatestSessioTreeniSessiotRecordList
-                                                        .first.alku !=
-                                                    null,
-                                                false,
-                                              ) &&
-                                              valueOrDefault<bool>(
-                                                containerQueryLatestSessioTreeniSessiotRecordList
-                                                        .first.loppu ==
-                                                    null,
-                                                false,
-                                              ))
+                                              (containerQueryLatestSessioTreeniSessiotRecordList
+                                                          .length >
+                                                      0
+                                                  ? (containerQueryLatestSessioTreeniSessiotRecordList
+                                                          .first.alku !=
+                                                      null)
+                                                  : false) &&
+                                              (containerQueryLatestSessioTreeniSessiotRecordList
+                                                          .length >
+                                                      0
+                                                  ? (containerQueryLatestSessioTreeniSessiotRecordList
+                                                          .first.loppu ==
+                                                      null)
+                                                  : false))
                                             InkWell(
                                               onTap: () async {
                                                 logFirebaseEvent(

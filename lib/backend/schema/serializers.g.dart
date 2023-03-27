@@ -33,27 +33,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
               BuiltList, const [const FullType(TreeniRutiiniStruct)]),
           () => new ListBuilder<TreeniRutiiniStruct>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(DateTime)]),
-          () => new ListBuilder<DateTime>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(DateTime)]),
-          () => new ListBuilder<DateTime>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(DateTime)]),
-          () => new ListBuilder<DateTime>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(DateTime)]),
-          () => new ListBuilder<DateTime>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(DateTime)]),
-          () => new ListBuilder<DateTime>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(DateTime)]),
-          () => new ListBuilder<DateTime>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(DateTime)]),
-          () => new ListBuilder<DateTime>())
-      ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(TreeniRutiiniStruct)]),
           () => new ListBuilder<TreeniRutiiniStruct>())

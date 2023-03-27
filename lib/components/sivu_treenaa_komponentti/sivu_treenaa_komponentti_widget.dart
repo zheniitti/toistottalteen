@@ -635,6 +635,12 @@ class _SivuTreenaaKomponenttiWidgetState
                         logFirebaseEvent(
                             'SIVU_TREENAA_KOMPONENTTI_Button_aloitaUu');
                         logFirebaseEvent(
+                            'Button_aloitaUusiTreeni_clear_text_field');
+                        setState(() {
+                          _model.rutiininnimiController?.clear();
+                          _model.rutiiniKommenttiController?.clear();
+                        });
+                        logFirebaseEvent(
                             'Button_aloitaUusiTreeni_backend_call');
 
                         final treeniSessiotCreateData = {
@@ -677,19 +683,12 @@ class _SivuTreenaaKomponenttiWidgetState
                           'alku': FieldValue.serverTimestamp(),
                           'docCreatedTime': FieldValue.serverTimestamp(),
                         };
-                        var treeniSessiotRecordReference =
-                            TreeniSessiotRecord.collection.doc();
-                        await treeniSessiotRecordReference
+                        await TreeniSessiotRecord.collection
+                            .doc()
                             .set(treeniSessiotCreateData);
-                        _model.createdSessioDoc =
-                            TreeniSessiotRecord.getDocumentFromData(
-                                treeniSessiotCreateData,
-                                treeniSessiotRecordReference);
-
-                        setState(() {});
                       },
                       text: FFLocalizations.of(context).getText(
-                        'uz6rq23u' /* Aloita uusi treeni */,
+                        'uz6rq23u' /* Aloita tyhjä treeni */,
                       ),
                       options: FFButtonOptions(
                         width: 240.0,

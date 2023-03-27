@@ -90,65 +90,69 @@ class _BottomSheetRutiiniJaSessioWidgetState
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
-                child: Container(
-                  width: double.infinity,
-                  constraints: BoxConstraints(
-                    maxWidth: 300.0,
-                  ),
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                  child: InkWell(
-                    onTap: () async {
-                      logFirebaseEvent(
-                          'BOTTOM_SHEET_RUTIINI_JA_SESSIO_ListTile_');
-                      logFirebaseEvent('ListTile_close_dialog,_drawer,_etc');
-                      Navigator.pop(context);
-                      logFirebaseEvent('ListTile_show_snack_bar');
-                      ScaffoldMessenger.of(context).clearSnackBars();
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            FFLocalizations.of(context).getVariableText(
-                              fiText: '🙁 Tämä toiminto ei toimi vielä...',
-                              enText: '🙁This function doesn\'t work yet',
+              if (valueOrDefault<bool>(
+                widget.rutiiniData!.liikkeet!.toList().length > 0,
+                false,
+              ))
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                  child: Container(
+                    width: double.infinity,
+                    constraints: BoxConstraints(
+                      maxWidth: 300.0,
+                    ),
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    child: InkWell(
+                      onTap: () async {
+                        logFirebaseEvent(
+                            'BOTTOM_SHEET_RUTIINI_JA_SESSIO_ListTile_');
+                        logFirebaseEvent('ListTile_close_dialog,_drawer,_etc');
+                        Navigator.pop(context);
+                        logFirebaseEvent('ListTile_show_snack_bar');
+                        ScaffoldMessenger.of(context).clearSnackBars();
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              FFLocalizations.of(context).getVariableText(
+                                fiText: '🙁 Tämä toiminto ei toimi vielä...',
+                                enText: '🙁This function doesn\'t work yet',
+                              ),
+                              style: TextStyle(
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryColor,
+                              ),
                             ),
-                            style: TextStyle(
-                              color:
-                                  FlutterFlowTheme.of(context).secondaryColor,
-                            ),
+                            duration: Duration(milliseconds: 4000),
+                            backgroundColor: Color(0xFFE00000),
                           ),
-                          duration: Duration(milliseconds: 4000),
-                          backgroundColor: Color(0xFFE00000),
+                        );
+                      },
+                      child: ListTile(
+                        title: Text(
+                          FFLocalizations.of(context).getText(
+                            'elbafojn' /* Kopioi liikkeet */,
+                          ),
+                          textAlign: TextAlign.center,
+                          style: FlutterFlowTheme.of(context).title3,
                         ),
-                      );
-                    },
-                    child: ListTile(
-                      title: Text(
-                        FFLocalizations.of(context).getText(
-                          'elbafojn' /* Kopioi liikkeet */,
+                        trailing: Icon(
+                          Icons.content_copy_rounded,
+                          color: Color(0xFF303030),
+                          size: 30.0,
                         ),
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).title3,
-                      ),
-                      trailing: Icon(
-                        Icons.content_copy_rounded,
-                        color: Color(0xFF303030),
-                        size: 30.0,
-                      ),
-                      tileColor:
-                          FlutterFlowTheme.of(context).secondaryBackground,
-                      dense: false,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.0),
+                        tileColor:
+                            FlutterFlowTheme.of(context).secondaryBackground,
+                        dense: false,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                 child: Container(

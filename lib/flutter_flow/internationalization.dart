@@ -550,6 +550,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Puhelinnumero',
       'en': 'Phone number',
     },
+    'mffdiz61': {
+      'fi': '+358...',
+      'en': 'number starting with + sign',
+    },
     'djspg1ze': {
       'fi': 'Lähetä vahvistuskoodi',
       'en': 'Send SMS verifiation code',
@@ -833,8 +837,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'You don\'t have unfinished workouts',
     },
     'uz6rq23u': {
-      'fi': 'Aloita uusi treeni',
-      'en': 'Start a new workout',
+      'fi': 'Aloita tyhjä treeni',
+      'en': 'Start an empty workout',
     },
   },
   // rutiini
@@ -883,6 +887,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Treenipäivät ',
       'en': 'Workout days ',
     },
+    'zuph6hae': {
+      'fi': 'Muokkaa',
+      'en': 'Edit',
+    },
     'xvtlnaay': {
       'fi': 'Muokkaa',
       'en': 'Muokkaa',
@@ -918,14 +926,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'yylnuo9q': {
       'fi': '0',
-      'en': 'Repetitions',
+      'en': '0',
     },
   },
   // sarjaPainoTextfield
   {
     'vd95k1b9': {
       'fi': '0',
-      'en': 'Repetitions',
+      'en': '0',
     },
   },
   // sessioChunk
@@ -938,8 +946,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // workoutDurationText
   {
     '5hy3i3cg': {
-      'fi': 'Aikaa kulunut: ',
-      'en': 'Workout duration: ',
+      'fi': 'Kesto: ',
+      'en': 'Duration: ',
     },
   },
   // rutiininLiikkeet
@@ -965,7 +973,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': ' secs',
     },
     'ud5vyksn': {
-      'fi': ' m',
+      'fi': 'm',
       'en': 'm',
     },
   },
@@ -1047,7 +1055,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '0',
     },
     'djvuk9g5': {
-      'fi': 'Tavoite matka (metreinä)',
+      'fi': 'Tavoitematka (metreinä)',
       'en': 'Goal distance (meters)',
     },
     '1hygkonx': {
@@ -1059,8 +1067,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Reset',
     },
     'tgyswa0r': {
-      'fi': 'Valmis',
-      'en': 'Ready',
+      'fi': 'Tallenna',
+      'en': 'Save',
     },
   },
   // otherTypeLiikeFields

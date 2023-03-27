@@ -1,3 +1,4 @@
+import '/auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_language_selector.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -66,50 +67,54 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
-                  child: InkWell(
-                    onTap: () async {
-                      logFirebaseEvent('SIVUPALKKI_COMP_Row_48iupzve_ON_TAP');
-                      logFirebaseEvent('Row_close_dialog,_drawer,_etc');
-                      Navigator.pop(context);
-                      logFirebaseEvent('Row_navigate_to');
+                if (currentUserEmailVerified != true)
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                    child: AuthUserStreamWidget(
+                      builder: (context) => InkWell(
+                        onTap: () async {
+                          logFirebaseEvent(
+                              'SIVUPALKKI_COMP_Row_48iupzve_ON_TAP');
+                          logFirebaseEvent('Row_close_dialog,_drawer,_etc');
+                          Navigator.pop(context);
+                          logFirebaseEvent('Row_navigate_to');
 
-                      context.pushNamed(
-                        'kirjaudu_sivu',
-                        queryParams: {
-                          'initialIndex': serializeParam(
-                            1,
-                            ParamType.int,
-                          ),
-                        }.withoutNulls,
-                      );
-                    },
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 22.0, 0.0),
-                          child: Icon(
-                            Icons.person_rounded,
-                            color: Colors.black,
-                            size: 30.0,
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(-1.0, 0.0),
-                          child: Text(
-                            FFLocalizations.of(context).getText(
-                              'ku53fmbs' /* Luo tili tai kirjaudu */,
+                          context.pushNamed(
+                            'kirjaudu_sivu',
+                            queryParams: {
+                              'initialIndex': serializeParam(
+                                1,
+                                ParamType.int,
+                              ),
+                            }.withoutNulls,
+                          );
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 22.0, 0.0),
+                              child: Icon(
+                                Icons.person_rounded,
+                                color: Colors.black,
+                                size: 30.0,
+                              ),
                             ),
-                            style: FlutterFlowTheme.of(context).subtitle2,
-                          ),
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  'ku53fmbs' /* Luo tili tai kirjaudu */,
+                                ),
+                                style: FlutterFlowTheme.of(context).subtitle2,
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
-                ),
                 if (false)
                   Column(
                     mainAxisSize: MainAxisSize.max,
@@ -321,16 +326,13 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                             ),
                           ),
                           FlutterFlowLanguageSelector(
-                            width: 150.0,
+                            width: 160.0,
                             height: 40.0,
                             backgroundColor:
                                 FlutterFlowTheme.of(context).secondaryColor,
+                            borderColor: Colors.transparent,
                             borderRadius: 8.0,
-                            textStyle: TextStyle(
-                              color: FlutterFlowTheme.of(context).primaryColor,
-                              fontWeight: FontWeight.normal,
-                              fontSize: 13.0,
-                            ),
+                            textStyle: FlutterFlowTheme.of(context).bodyText1,
                             hideFlags: false,
                             flagSize: 24.0,
                             flagTextGap: 8.0,

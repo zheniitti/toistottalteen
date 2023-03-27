@@ -265,8 +265,12 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                     widget.rutiini!.liikkeet!
                                         .toList()[widget.liikeIndex!]
                                         .nimi!,
-                                    style:
-                                        FlutterFlowTheme.of(context).subtitle2,
+                                    style: FlutterFlowTheme.of(context)
+                                        .subtitle2
+                                        .override(
+                                          fontFamily: 'Roboto',
+                                          fontWeight: FontWeight.normal,
+                                        ),
                                   ),
                                 ),
                                 Align(
@@ -1163,7 +1167,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                               labelText:
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                'djvuk9g5' /* Tavoite matka (metreinä) */,
+                                                'djvuk9g5' /* Tavoitematka (metreinä) */,
                                               ),
                                               labelStyle:
                                                   FlutterFlowTheme.of(context)
@@ -1308,7 +1312,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                             FFButtonWidget(
                               onPressed: () async {
                                 logFirebaseEvent(
-                                    'RUTIININ_SARJAT_TOISTOT_KESTO_MATKA_VALM');
+                                    'RUTIININ_SARJAT_TOISTOT_KESTO_MATKA_TALL');
                                 logFirebaseEvent('Button_widget_animation');
                                 if (animationsMap[
                                         'containerOnActionTriggerAnimation'] !=
@@ -1318,6 +1322,9 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                       .controller
                                       .forward(from: 0.0);
                                 }
+                                logFirebaseEvent(
+                                    'Button_close_dialog,_drawer,_etc');
+                                Navigator.pop(context);
                                 logFirebaseEvent('Button_custom_action');
                                 await actions.updateUserDocLiikeAtIndex(
                                   widget.liikeIndex!,
@@ -1394,14 +1401,25 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                     0.0,
                                   ),
                                 );
+                                logFirebaseEvent('Button_clear_text_fields');
+                                setState(() {
+                                  _model.textFieldSarjojoaController?.clear();
+                                  _model.textFieldTOistojaController?.clear();
+                                  _model.textFieldPainoController?.clear();
+                                  _model.textFieldTunnitController?.clear();
+                                  _model.textFieldMinuutitController?.clear();
+                                  _model.textFieldSekunnitController?.clear();
+                                  _model.textFieldTavoiteMatkaController
+                                      ?.clear();
+                                });
                                 logFirebaseEvent('Button_update_app_state');
-                                FFAppState().update(() {
+                                _model.updatePage(() {
                                   FFAppState().valittuMuokattavaRutiini = null;
                                   FFAppState().valittuMuokattavaLiikeIndex = -1;
                                 });
                               },
                               text: FFLocalizations.of(context).getText(
-                                'tgyswa0r' /* Valmis */,
+                                'tgyswa0r' /* Tallenna */,
                               ),
                               options: FFButtonOptions(
                                 width: 130.0,

@@ -783,7 +783,6 @@ numero */
                                                                       FontWeight
                                                                           .normal,
                                                                 ),
-                                                            maxLines: null,
                                                             validator: _model
                                                                 .emailAddressLoginControllerValidator
                                                                 .asValidator(
@@ -1893,7 +1892,6 @@ numero */
                                                                     FontWeight
                                                                         .normal,
                                                               ),
-                                                      maxLines: null,
                                                       validator: _model
                                                           .emailAddressCreateAccControllerValidator
                                                           .asValidator(context),
@@ -2350,6 +2348,12 @@ numero */
                                                                       FontWeight
                                                                           .normal,
                                                                 ),
+                                                        hintText:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'mffdiz61' /* +358... */,
+                                                        ),
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -2448,7 +2452,6 @@ numero */
                                                                     FontWeight
                                                                         .normal,
                                                               ),
-                                                      maxLines: null,
                                                       validator: _model
                                                           .textfieldPhoneNumberController2Validator
                                                           .asValidator(context),

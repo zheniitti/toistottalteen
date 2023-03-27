@@ -271,6 +271,7 @@ class _SivuRutiinitKomponenttiWidgetState
                                           pageStateSelectedRutiini:
                                               _model.pageStateValittuRutiini,
                                           rutiiniListIndex: rutiinitIndex,
+                                          latestSessioDoc: widget.latestSessio,
                                         ),
                                       ),
                                     );

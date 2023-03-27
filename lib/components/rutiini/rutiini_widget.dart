@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/instant_timer.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
@@ -24,12 +25,14 @@ class RutiiniWidget extends StatefulWidget {
     this.hasUnfinishedWorkout,
     this.pageStateSelectedRutiini,
     this.rutiiniListIndex,
+    this.latestSessioDoc,
   }) : super(key: key);
 
   final TreeniRutiiniStruct? rutiini;
   final bool? hasUnfinishedWorkout;
   final TreeniRutiiniStruct? pageStateSelectedRutiini;
   final int? rutiiniListIndex;
+  final TreeniSessiotRecord? latestSessioDoc;
 
   @override
   _RutiiniWidgetState createState() => _RutiiniWidgetState();
@@ -584,6 +587,9 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                             onTap: () async {
                               logFirebaseEvent(
                                   'RUTIINI_COMP_Icon_208l4wig_ON_TAP');
+                              logFirebaseEvent(
+                                  'Icon_close_dialog,_drawer,_etc');
+                              Navigator.pop(context);
                               logFirebaseEvent('Icon_bottom_sheet');
                               showModalBottomSheet(
                                 isScrollControlled: true,
@@ -1324,7 +1330,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 4.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 4.0),
                         child: wrapWithModel(
                           model: _model.rutiininLiikkeetModel,
                           updateCallback: () => setState(() {}),
@@ -1357,6 +1363,46 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                   verticalDirection: VerticalDirection.down,
                                   clipBehavior: Clip.none,
                                   children: [
+                                    InkWell(
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'RUTIINI_COMP_Text_kgeu3lxi_ON_TAP');
+                                        logFirebaseEvent('Text_custom_action');
+                                        await actions
+                                            .updateUserDocTreenirutiini(
+                                          widget.rutiini,
+                                          null,
+                                          null,
+                                          false,
+                                          true,
+                                          null,
+                                          _model.textFieldNimiController.text,
+                                          _model.textFieldKommenttiController
+                                              .text,
+                                          widget.rutiini?.liikkeet
+                                              ?.toList()
+                                              ?.toList(),
+                                          null,
+                                          null,
+                                          null,
+                                          true,
+                                          false,
+                                          false,
+                                          false,
+                                        );
+                                      },
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          'zuph6hae' /* Muokkaa */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .subtitle2
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                      ),
+                                    ),
                                     Visibility(
                                       visible:
                                           widget.rutiini?.finishedEditing ??
@@ -1430,7 +1476,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                             'Button_custom_action');
                                         await actions.updateTreenisessiotRecord(
                                           null,
-                                          getCurrentTimestamp,
+                                          null,
                                           null,
                                           widget.rutiini,
                                           false,
@@ -1438,10 +1484,31 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                           true,
                                         );
                                         logFirebaseEvent(
-                                            'Button_update_app_state');
-                                        _model.updatePage(() {
-                                          FFAppState().navBarIndex = 1;
-                                        });
+                                            'Button_start_periodic_action');
+                                        _model.instantTimer =
+                                            InstantTimer.periodic(
+                                          duration: Duration(milliseconds: 100),
+                                          callback: (timer) async {
+                                            if (widget.latestSessioDoc != null
+                                                ? (widget.latestSessioDoc!
+                                                        .loppu ==
+                                                    null)
+                                                : false) {
+                                              logFirebaseEvent(
+                                                  'Button_update_app_state');
+                                              _model.updatePage(() {
+                                                FFAppState().navBarIndex = 1;
+                                              });
+                                              logFirebaseEvent(
+                                                  'Button_stop_periodic_action');
+                                              _model.instantTimer?.cancel();
+                                              return;
+                                            } else {
+                                              return;
+                                            }
+                                          },
+                                          startImmediately: true,
+                                        );
                                       },
                                       text: FFLocalizations.of(context).getText(
                                         '5o4nggqe' /* Treenaa nyt */,
@@ -1569,6 +1636,8 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                       .controller
                       .forward(from: 0.0);
                 }
+                logFirebaseEvent('Row_lopetaMuokkaus_close_dialog,_drawer,');
+                Navigator.pop(context);
                 logFirebaseEvent('Row_lopetaMuokkaus_custom_action');
                 await actions.updateUserDocTreenirutiini(
                   widget.rutiini,
