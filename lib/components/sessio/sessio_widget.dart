@@ -375,7 +375,7 @@ class _SessioWidgetState extends State<SessioWidget>
                                 'SESSIO_COMP_Button_uudestaan_ON_TAP');
                             logFirebaseEvent('Button_uudestaan_backend_call');
 
-                            final treeniSessiotCreateData = {
+                           /*  final treeniSessiotCreateData = {
                               ...createTreeniSessiotRecordData(
                                 userRef: currentUserReference,
                                 isEditing: false,
@@ -407,7 +407,7 @@ class _SessioWidgetState extends State<SessioWidget>
                               FFAppState().navBarIndex = 1;
                             });
 
-                            setState(() {});
+                            setState(() {}); */
                           },
                           text: FFLocalizations.of(context).getText(
                             'h16b2vng' /* Treenaa uudestaan */,
