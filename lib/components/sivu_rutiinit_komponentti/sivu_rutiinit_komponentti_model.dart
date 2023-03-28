@@ -3,17 +3,12 @@ import '/backend/backend.dart';
 import '/components/button_luo_rutiini/button_luo_rutiini_widget.dart';
 import '/components/keskenerainen_treeni_komponentti/keskenerainen_treeni_komponentti_widget.dart';
 import '/components/rutiini/rutiini_widget.dart';
-import '/components/rutiinin_sarjat_toistot_kesto_matka/rutiinin_sarjat_toistot_kesto_matka_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -38,9 +33,6 @@ class SivuRutiinitKomponenttiModel extends FlutterFlowModel {
   late KeskenerainenTreeniKomponenttiModel keskenerainenTreeniKomponenttiModel;
   // Models for rutiini dynamic component.
   late FlutterFlowDynamicModels<RutiiniModel> rutiiniModels;
-  // Model for rutiininSarjatToistotKestoMatka component.
-  late RutiininSarjatToistotKestoMatkaModel
-      rutiininSarjatToistotKestoMatkaModel;
 
   /// Initialization and disposal methods.
 
@@ -49,15 +41,12 @@ class SivuRutiinitKomponenttiModel extends FlutterFlowModel {
     keskenerainenTreeniKomponenttiModel =
         createModel(context, () => KeskenerainenTreeniKomponenttiModel());
     rutiiniModels = FlutterFlowDynamicModels(() => RutiiniModel());
-    rutiininSarjatToistotKestoMatkaModel =
-        createModel(context, () => RutiininSarjatToistotKestoMatkaModel());
   }
 
   void dispose() {
     buttonLuoRutiiniModel.dispose();
     keskenerainenTreeniKomponenttiModel.dispose();
     rutiiniModels.dispose();
-    rutiininSarjatToistotKestoMatkaModel.dispose();
   }
 
   /// Additional helper methods are added here.

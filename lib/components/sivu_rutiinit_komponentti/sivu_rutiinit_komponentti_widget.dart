@@ -3,17 +3,12 @@ import '/backend/backend.dart';
 import '/components/button_luo_rutiini/button_luo_rutiini_widget.dart';
 import '/components/keskenerainen_treeni_komponentti/keskenerainen_treeni_komponentti_widget.dart';
 import '/components/rutiini/rutiini_widget.dart';
-import '/components/rutiinin_sarjat_toistot_kesto_matka/rutiinin_sarjat_toistot_kesto_matka_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -34,43 +29,8 @@ class SivuRutiinitKomponenttiWidget extends StatefulWidget {
 }
 
 class _SivuRutiinitKomponenttiWidgetState
-    extends State<SivuRutiinitKomponenttiWidget> with TickerProviderStateMixin {
+    extends State<SivuRutiinitKomponenttiWidget> {
   late SivuRutiinitKomponenttiModel _model;
-
-  final animationsMap = {
-    'blurOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 100.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 100.ms,
-          duration: 400.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'rutiininSarjatToistotKestoMatkaOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        ScaleEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-  };
 
   @override
   void setState(VoidCallback callback) {
@@ -289,52 +249,6 @@ class _SivuRutiinitKomponenttiWidgetState
             ),
           ),
         ),
-        if (FFAppState().valittuMuokattavaRutiini != null
-            ? (FFAppState().valittuMuokattavaLiikeIndex >= 0)
-            : false)
-          Builder(builder: (_) {
-            final child = InkWell(
-              onTap: () async {
-                logFirebaseEvent('SIVU_RUTIINIT_KOMPONENTTI_Container_alug');
-                logFirebaseEvent('Container_update_app_state');
-                FFAppState().update(() {
-                  FFAppState().valittuMuokattavaRutiini = null;
-                  FFAppState().valittuMuokattavaLiikeIndex = -1;
-                });
-              },
-              child: Container(
-                width: MediaQuery.of(context).size.width * 1.0,
-                decoration: BoxDecoration(),
-                alignment: AlignmentDirectional(0.0, 0.0),
-                child: wrapWithModel(
-                  model: _model.rutiininSarjatToistotKestoMatkaModel,
-                  updateCallback: () => setState(() {}),
-                  updateOnChange: true,
-                  child: RutiininSarjatToistotKestoMatkaWidget(
-                    liikeIndex: FFAppState().valittuMuokattavaLiikeIndex,
-                    rutiini: functions
-                        .jsonToRutiini(FFAppState().valittuMuokattavaRutiini),
-                  ),
-                ).animateOnPageLoad(animationsMap[
-                    'rutiininSarjatToistotKestoMatkaOnPageLoadAnimation']!),
-              ),
-            );
-            if (FFAppState().valittuMuokattavaRutiini != null
-                ? (FFAppState().valittuMuokattavaLiikeIndex != null)
-                : false) {
-              return ClipRRect(
-                borderRadius: BorderRadius.circular(0.0),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(
-                    sigmaX: 3.0,
-                    sigmaY: 3.0,
-                  ),
-                  child: child,
-                ),
-              );
-            }
-            return child;
-          }).animateOnPageLoad(animationsMap['blurOnPageLoadAnimation']!),
         if (FFAppState().valittuMuokattavaRutiini != null
             ? (FFAppState().valittuMuokattavaLiikeIndex >= 0)
             : false)
