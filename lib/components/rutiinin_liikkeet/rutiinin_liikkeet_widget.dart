@@ -1,6 +1,7 @@
 import '/backend/backend.dart';
 import '/components/rutiinin_liike_kommentti_textfield/rutiinin_liike_kommentti_textfield_widget.dart';
 import '/components/rutiinin_liike_nimi_textfield/rutiinin_liike_nimi_textfield_widget.dart';
+import '/components/rutiinin_sarjat_toistot_kesto_matka/rutiinin_sarjat_toistot_kesto_matka_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -190,20 +191,45 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                     onTap: () async {
                                       logFirebaseEvent(
                                           'RUTIININ_LIIKKEET_Column_fzb56clx_ON_TAP');
-                                      logFirebaseEvent('Column_custom_action');
-                                      _model.jsonRutiiniCopy = await actions
-                                          .rutiiniToJsonFirestoreData(
-                                        widget.rutiini,
-                                      );
-                                      logFirebaseEvent(
-                                          'Column_update_app_state');
-                                      FFAppState().update(() {
-                                        FFAppState()
-                                                .valittuMuokattavaLiikeIndex =
-                                            liikkeetIndex;
-                                        FFAppState().valittuMuokattavaRutiini =
-                                            _model.jsonRutiiniCopy!;
-                                      });
+                                      if (false) {
+                                        logFirebaseEvent(
+                                            'Column_custom_action');
+                                        _model.jsonRutiiniCopy = await actions
+                                            .rutiiniToJsonFirestoreData(
+                                          widget.rutiini,
+                                        );
+                                        logFirebaseEvent(
+                                            'Column_update_app_state');
+                                        FFAppState().update(() {
+                                          FFAppState()
+                                                  .valittuMuokattavaLiikeIndex =
+                                              liikkeetIndex;
+                                          FFAppState()
+                                                  .valittuMuokattavaRutiini =
+                                              _model.jsonRutiiniCopy!;
+                                        });
+                                      } else {
+                                        logFirebaseEvent('Column_bottom_sheet');
+                                        showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          enableDrag: false,
+                                          context: context,
+                                          builder: (context) {
+                                            return Padding(
+                                              padding: MediaQuery.of(context)
+                                                  .viewInsets,
+                                              child: Container(
+                                                height: double.infinity,
+                                                child:
+                                                    RutiininSarjatToistotKestoMatkaWidget(
+                                                  rutiini: widget.rutiini,
+                                                  liikeIndex: liikkeetIndex,
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => setState(() {}));
+                                      }
 
                                       setState(() {});
                                     },

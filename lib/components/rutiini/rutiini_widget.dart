@@ -1631,7 +1631,6 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                       .controller
                       .forward(from: 0.0);
                 }
-                logFirebaseEvent('Row_lopetaMuokkaus_close_dialog,_drawer,');
                 logFirebaseEvent('Row_lopetaMuokkaus_custom_action');
                 await actions.updateUserDocTreenirutiini(
                   widget.rutiini,

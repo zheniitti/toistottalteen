@@ -46,7 +46,8 @@ class _SarjaPainoTextfieldWidgetState extends State<SarjaPainoTextfieldWidget> {
     super.initState();
     _model = createModel(context, () => SarjaPainoTextfieldModel());
 
-    _model.textController ??= TextEditingController();
+    _model.textController ??=
+        TextEditingController(text: widget.sarja?.paino?.toString());
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 

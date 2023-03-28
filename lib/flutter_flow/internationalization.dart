@@ -998,75 +998,75 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // rutiininSarjatToistotKestoMatka
   {
-    'bc5re53k': {
+    'uldbvwai': {
       'fi': 'Saliliike',
       'en': 'Gym exercise',
     },
-    'puhl6gls': {
+    'ij0w6eqz': {
       'fi': 'Muu liike',
       'en': 'Other',
     },
-    'jjypk83p': {
+    'gvvprt6x': {
       'fi': 'Sarjoja',
       'en': 'Sets',
     },
-    'qq0ca3om': {
+    'yjs84ujo': {
       'fi': '0',
       'en': '0',
     },
-    'lguwu79m': {
+    'dhzfkcwc': {
       'fi': 'Toistoja',
       'en': 'Reps',
     },
-    'i4zrk6hf': {
+    'jxc1vh6s': {
       'fi': '0',
       'en': '0',
     },
-    'o3f0pnq1': {
+    'odm165t6': {
       'fi': 'Paino',
       'en': 'Weigth',
     },
-    '7x1niggu': {
+    'shv30dhh': {
       'fi': '0',
       'en': '0',
     },
-    'c41dh2o7': {
+    'nz790l15': {
       'fi': 'Tunnit',
       'en': 'Hours',
     },
-    '0buphc96': {
+    'lxvwsp6b': {
       'fi': '0',
       'en': '0',
     },
-    'igqi4xj9': {
+    'vjqtyunu': {
       'fi': 'Minuutit',
       'en': 'Minutes',
     },
-    'ijhiym6x': {
+    '5il8gfi6': {
       'fi': '0',
       'en': '0',
     },
-    'ujvljcrd': {
+    'oeeapx3v': {
       'fi': 'Sekunnit',
       'en': 'Secs',
     },
-    'wjt4ylbn': {
+    'rny4ijb3': {
       'fi': '0',
       'en': '0',
     },
-    'djvuk9g5': {
+    '9nrrllh6': {
       'fi': 'Tavoitematka (metreinä)',
       'en': 'Goal distance (meters)',
     },
-    '1hygkonx': {
+    '9yecgbpi': {
       'fi': '0 m',
       'en': '0 m',
     },
-    '8brnuzhc': {
+    'i7qdvfiw': {
       'fi': 'Tyhjennä',
       'en': 'Reset',
     },
-    'tgyswa0r': {
+    'l3dlilme': {
       'fi': 'Tallenna',
       'en': 'Save',
     },

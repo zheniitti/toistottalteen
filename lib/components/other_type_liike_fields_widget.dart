@@ -372,7 +372,7 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                           FlutterFlowTheme.of(context).bodyText2.override(
                                 fontFamily: 'Roboto',
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                fontSize: 20.0,
+                                fontSize: 14.0,
                               ),
                       hintText: FFLocalizations.of(context).getText(
                         'tnb4m9hm' /* 0.0 */,

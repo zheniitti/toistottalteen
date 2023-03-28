@@ -67,7 +67,26 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
         ),
       ],
     ),
-    'iconOnPageLoadAnimation': AnimationInfo(
+    'iconOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.elasticOut,
+          delay: 1000.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        ScaleEffect(
+          curve: Curves.elasticOut,
+          delay: 1000.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'iconOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
@@ -645,7 +664,7 @@ sarja */
                             alignment: AlignmentDirectional(1.0, 0.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 10.0, 10.0),
+                                  10.0, 20.0, 10.0, 10.0),
                               child: InkWell(
                                 onTap: () async {
                                   logFirebaseEvent(
@@ -715,7 +734,8 @@ sarja */
                                   color: Color(0xFFFF0000),
                                   size: 24.0,
                                 ),
-                              ),
+                              ).animateOnPageLoad(
+                                  animationsMap['iconOnPageLoadAnimation1']!),
                             ),
                           ),
                       ],
@@ -897,7 +917,7 @@ sarja */
                                 color: Colors.black,
                                 size: 24.0,
                               ).animateOnPageLoad(
-                                  animationsMap['iconOnPageLoadAnimation']!),
+                                  animationsMap['iconOnPageLoadAnimation2']!),
                             ),
                           ),
                         ],
