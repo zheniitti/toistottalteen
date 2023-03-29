@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "869597166249-7eh20qshmcekdr926cc4v4jsnt7eesnb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fi.toistotTalteen",
+            "certificate_hash": "91a0c6d1f3d87459966d26d4d5ac4f119380efd4"
+          }
+        },
+        {
           "client_id": "869597166249-vraeqo4qobqjuovk7rr4nueqcq507hcv.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -22,7 +30,7 @@
           }
         },
         {
-          "client_id": "869597166249-5kmcrudaeqou2ejlje89b3qigs0cpp1c.apps.googleusercontent.com",
+          "client_id": "869597166249-docskqtbi9igv4om6ham1n1kgef7800r.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
