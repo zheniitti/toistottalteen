@@ -2,6 +2,7 @@ import '/components/sessio_chunk_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -51,13 +52,34 @@ class _SessioChunkListaWidgetState extends State<SessioChunkListaWidget> {
           mainAxisSize: MainAxisSize.max,
           children: List.generate(chunkList.length, (chunkListIndex) {
             final chunkListItem = chunkList[chunkListIndex];
-            return SessioChunkWidget(
-              key: Key('Key6w8_${chunkListIndex}_of_${chunkList.length}'),
-              indexInList: chunkListIndex,
-              previousLastDateTime: chunkListIndex == 0
-                  ? getCurrentTimestamp
-                  : FFAppState().sessioChunkListLastItemDateTime[
-                      functions.addNumberTo(-1, chunkListIndex)],
+            return wrapWithModel(
+              model: _model.sessioChuncModels.getModel(
+                random_data.randomString(
+                  5,
+                  0,
+                  true,
+                  false,
+                  false,
+                ),
+                chunkListIndex,
+              ),
+              updateCallback: () => setState(() {}),
+              child: SessioChunkWidget(
+                key: Key(
+                  'Key6w8_${random_data.randomString(
+                    5,
+                    0,
+                    true,
+                    false,
+                    false,
+                  )}',
+                ),
+                indexInList: chunkListIndex,
+                previousLastDateTime: chunkListIndex == 0
+                    ? getCurrentTimestamp
+                    : FFAppState().sessioChunkListLastItemDateTime[
+                        functions.addNumberTo(-1, chunkListIndex)],
+              ),
             );
           }),
         );

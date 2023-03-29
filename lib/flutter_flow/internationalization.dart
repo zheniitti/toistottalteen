@@ -206,6 +206,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Create account or login',
     },
     'rwzc4awh': {
+      'fi': 'tai',
+      'en': 'or',
+    },
+    'ywa91ouh': {
       'fi': 'Jatka ilman kirjautumista',
       'en': 'Continue without login',
     },
@@ -816,18 +820,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // sivu_treenaa_komponentti
   {
-    'ofm9lu9p': {
-      'fi': '',
-      'en': '',
-    },
-    'a54f48mf': {
-      'fi': 'Treenin nimi',
-      'en': 'Workout name',
-    },
-    '8prjh7ks': {
-      'fi': 'Kommentti (vapaaehtoinen)',
-      'en': 'Comment (optional)',
-    },
     '44rq35vd': {
       'fi': 'Lisää  liike',
       'en': 'New exercise',
@@ -957,8 +949,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': ' sets',
     },
     '5aat8tgq': {
-      'fi': ' toistoa',
-      'en': ' reps',
+      'fi': ' toistoa  ',
+      'en': ' reps  ',
     },
     'kyunprgy': {
       'fi': ' tuntia ',
@@ -1108,6 +1100,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // bottomSheet_liike
   {
+    'omr6g5ov': {
+      'fi': 'Saliliike',
+      'en': 'Gym exercise',
+    },
+    'k0xw8zra': {
+      'fi': 'Muu liike',
+      'en': 'Other',
+    },
     '9s0xqn9g': {
       'fi': 'Kopioi liike',
       'en': 'Copy excercise',
@@ -1127,6 +1127,21 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'ha2mfouu': {
       'fi': '(Paina pitkään)',
       'en': '(Long press)',
+    },
+  },
+  // nameAndCommentFieldsOfSessio
+  {
+    'hccf15of': {
+      'fi': '',
+      'en': '',
+    },
+    'pah0obna': {
+      'fi': 'Treenin nimi',
+      'en': 'Workout name',
+    },
+    'b5n4twdx': {
+      'fi': 'Kommentti (vapaaehtoinen)',
+      'en': 'Comment (optional)',
     },
   },
   // Miscellaneous

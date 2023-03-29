@@ -115,6 +115,13 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         ..add('treeniaYhteensa')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.isAnonymous;
+    if (value != null) {
+      result
+        ..add('isAnonymous')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -198,6 +205,10 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
           result.treeniaYhteensa = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
+        case 'isAnonymous':
+          result.isAnonymous = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -241,6 +252,8 @@ class _$UsersRecord extends UsersRecord {
   @override
   final int? treeniaYhteensa;
   @override
+  final bool? isAnonymous;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$UsersRecord([void Function(UsersRecordBuilder)? updates]) =>
@@ -261,6 +274,7 @@ class _$UsersRecord extends UsersRecord {
       this.isWeightUnitKg,
       this.treeniKestoYhteensaSekunteina,
       this.treeniaYhteensa,
+      this.isAnonymous,
       this.ffRef})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -292,6 +306,7 @@ class _$UsersRecord extends UsersRecord {
         isWeightUnitKg == other.isWeightUnitKg &&
         treeniKestoYhteensaSekunteina == other.treeniKestoYhteensaSekunteina &&
         treeniaYhteensa == other.treeniaYhteensa &&
+        isAnonymous == other.isAnonymous &&
         ffRef == other.ffRef;
   }
 
@@ -312,6 +327,7 @@ class _$UsersRecord extends UsersRecord {
     _$hash = $jc(_$hash, isWeightUnitKg.hashCode);
     _$hash = $jc(_$hash, treeniKestoYhteensaSekunteina.hashCode);
     _$hash = $jc(_$hash, treeniaYhteensa.hashCode);
+    _$hash = $jc(_$hash, isAnonymous.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -334,6 +350,7 @@ class _$UsersRecord extends UsersRecord {
           ..add('isWeightUnitKg', isWeightUnitKg)
           ..add('treeniKestoYhteensaSekunteina', treeniKestoYhteensaSekunteina)
           ..add('treeniaYhteensa', treeniaYhteensa)
+          ..add('isAnonymous', isAnonymous)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -408,6 +425,10 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   set treeniaYhteensa(int? treeniaYhteensa) =>
       _$this._treeniaYhteensa = treeniaYhteensa;
 
+  bool? _isAnonymous;
+  bool? get isAnonymous => _$this._isAnonymous;
+  set isAnonymous(bool? isAnonymous) => _$this._isAnonymous = isAnonymous;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -433,6 +454,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _isWeightUnitKg = $v.isWeightUnitKg;
       _treeniKestoYhteensaSekunteina = $v.treeniKestoYhteensaSekunteina;
       _treeniaYhteensa = $v.treeniaYhteensa;
+      _isAnonymous = $v.isAnonymous;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -472,6 +494,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
               isWeightUnitKg: isWeightUnitKg,
               treeniKestoYhteensaSekunteina: treeniKestoYhteensaSekunteina,
               treeniaYhteensa: treeniaYhteensa,
+              isAnonymous: isAnonymous,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;

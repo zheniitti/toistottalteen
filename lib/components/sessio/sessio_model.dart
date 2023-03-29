@@ -1,4 +1,3 @@
-import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/bottom_sheet_rutiini_ja_sessio/bottom_sheet_rutiini_ja_sessio_widget.dart';
 import '/components/rutiinin_liikkeet/rutiinin_liikkeet_widget.dart';
@@ -6,9 +5,9 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/instant_timer.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -22,10 +21,7 @@ class SessioModel extends FlutterFlowModel {
 
   // Model for rutiininLiikkeet component.
   late RutiininLiikkeetModel rutiininLiikkeetModel;
-  // Stores action output result for [Backend Call - Create Document] action in Button_uudestaan widget.
-  TreeniSessiotRecord? newSessioWithRutiini;
-  // Stores action output result for [Custom Action - rutiiniToJsonFirestoreData] action in Button_uudestaan widget.
-  dynamic? rutiiniJson;
+  InstantTimer? instantTimer;
 
   /// Initialization and disposal methods.
 
@@ -35,6 +31,7 @@ class SessioModel extends FlutterFlowModel {
 
   void dispose() {
     rutiininLiikkeetModel.dispose();
+    instantTimer?.cancel();
   }
 
   /// Additional helper methods are added here.

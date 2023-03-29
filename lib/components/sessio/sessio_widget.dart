@@ -1,4 +1,3 @@
-import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/bottom_sheet_rutiini_ja_sessio/bottom_sheet_rutiini_ja_sessio_widget.dart';
 import '/components/rutiinin_liikkeet/rutiinin_liikkeet_widget.dart';
@@ -6,9 +5,9 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/instant_timer.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -104,7 +103,7 @@ class _SessioWidgetState extends State<SessioWidget>
                           widget.treeniSessio!.treeniRutiiniData.nimi,
                           'Unnamed workout',
                         ),
-                        style: FlutterFlowTheme.of(context).title3,
+                        style: FlutterFlowTheme.of(context).subtitle2,
                       ),
                       if (widget.treeniSessio != null)
                         Container(
@@ -119,7 +118,7 @@ class _SessioWidgetState extends State<SessioWidget>
                             alignment: WrapAlignment.spaceAround,
                             crossAxisAlignment: WrapCrossAlignment.start,
                             direction: Axis.horizontal,
-                            runAlignment: WrapAlignment.center,
+                            runAlignment: WrapAlignment.start,
                             verticalDirection: VerticalDirection.down,
                             clipBehavior: Clip.none,
                             children: [
@@ -180,7 +179,7 @@ class _SessioWidgetState extends State<SessioWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1,
                                     ),
-                                    textAlign: TextAlign.center,
+                                    textAlign: TextAlign.start,
                                   ),
                                 ],
                               ),
@@ -211,7 +210,7 @@ class _SessioWidgetState extends State<SessioWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1,
                                     ),
-                                    textAlign: TextAlign.center,
+                                    textAlign: TextAlign.start,
                                   ),
                                 ],
                               ),
@@ -373,41 +372,39 @@ class _SessioWidgetState extends State<SessioWidget>
                           onPressed: () async {
                             logFirebaseEvent(
                                 'SESSIO_COMP_Button_uudestaan_ON_TAP');
-                            logFirebaseEvent('Button_uudestaan_backend_call');
-
-                           /*  final treeniSessiotCreateData = {
-                              ...createTreeniSessiotRecordData(
-                                userRef: currentUserReference,
-                                isEditing: false,
-                                treeniRutiiniData: updateTreeniRutiiniStruct(
-                                  widget.treeniSessio!.treeniRutiiniData,
-                                  clearUnsetFields: false,
-                                ),
-                              ),
-                              'docCreatedTime': FieldValue.serverTimestamp(),
-                            };
-                            var treeniSessiotRecordReference =
-                                TreeniSessiotRecord.collection.doc();
-                            await treeniSessiotRecordReference
-                                .set(treeniSessiotCreateData);
-                            _model.newSessioWithRutiini =
-                                TreeniSessiotRecord.getDocumentFromData(
-                                    treeniSessiotCreateData,
-                                    treeniSessiotRecordReference);
                             logFirebaseEvent('Button_uudestaan_custom_action');
-                            _model.rutiiniJson =
-                                await actions.rutiiniToJsonFirestoreData(
+                            await actions.updateTreenisessiotRecord(
+                              null,
+                              null,
+                              null,
                               widget.treeniSessio!.treeniRutiiniData,
+                              false,
+                              null,
+                              true,
                             );
                             logFirebaseEvent(
-                                'Button_uudestaan_update_app_state');
-                            FFAppState().update(() {
-                              FFAppState().valittuTreenattavaTreeniRutiini =
-                                  _model.rutiiniJson!;
-                              FFAppState().navBarIndex = 1;
-                            });
-
-                            setState(() {}); */
+                                'Button_uudestaan_start_periodic_action');
+                            _model.instantTimer = InstantTimer.periodic(
+                              duration: Duration(milliseconds: 100),
+                              callback: (timer) async {
+                                if (widget.treeniSessio != null
+                                    ? (widget.treeniSessio!.loppu == null)
+                                    : false) {
+                                  logFirebaseEvent(
+                                      'Button_uudestaan_update_app_state');
+                                  _model.updatePage(() {
+                                    FFAppState().navBarIndex = 1;
+                                  });
+                                  logFirebaseEvent(
+                                      'Button_uudestaan_stop_periodic_action');
+                                  null?.cancel();
+                                  return;
+                                } else {
+                                  return;
+                                }
+                              },
+                              startImmediately: true,
+                            );
                           },
                           text: FFLocalizations.of(context).getText(
                             'h16b2vng' /* Treenaa uudestaan */,

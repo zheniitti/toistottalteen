@@ -13,10 +13,20 @@ import 'package:provider/provider.dart';
 class BottomSheetLiikeModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
+  // State field(s) for Switch widget.
+  bool? switchValue;
+  // Stores action output result for [Custom Action - myUpdateLiikeStruct] action in Switch widget.
+  LiikeStruct? updatedLiikeFromSwitchOn;
+  // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in Switch widget.
+  TreeniRutiiniStruct? updatedRutiiniFromSwichOn;
+  // Stores action output result for [Custom Action - myUpdateLiikeStruct] action in Switch widget.
+  LiikeStruct? updatedLiikeFromSwitchOff;
+  // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in Switch widget.
+  TreeniRutiiniStruct? updatedRutiiniFromSwichOff;
   // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in ListTile widget.
-  TreeniRutiiniStruct? updatedRutiiniCopy;
-  // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in Container widget.
-  TreeniRutiiniStruct? updatedRutiiniCopyCopy;
+  TreeniRutiiniStruct? updatedRutiiniFromPasteAbove;
+  // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in ListTile widget.
+  TreeniRutiiniStruct? updatedRutiiniFromPasteBelow;
   // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in ListTile widget.
   TreeniRutiiniStruct? updatedRutiini;
 

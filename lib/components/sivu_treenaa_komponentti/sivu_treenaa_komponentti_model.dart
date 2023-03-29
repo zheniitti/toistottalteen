@@ -1,6 +1,7 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/liike_treenin_aikana/liike_treenin_aikana_widget.dart';
+import '/components/name_and_comment_fields_of_sessio_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -9,7 +10,6 @@ import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -21,16 +21,8 @@ import 'package:provider/provider.dart';
 class SivuTreenaaKomponenttiModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
-  // State field(s) for rutiininnimi widget.
-  TextEditingController? rutiininnimiController;
-  String? Function(BuildContext, String?)? rutiininnimiControllerValidator;
-  // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in rutiininnimi widget.
-  TreeniRutiiniStruct? updatedRutiiniFromNimiField;
-  // State field(s) for rutiiniKommentti widget.
-  TextEditingController? rutiiniKommenttiController;
-  String? Function(BuildContext, String?)? rutiiniKommenttiControllerValidator;
-  // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in rutiiniKommentti widget.
-  TreeniRutiiniStruct? updatedRutiiniFromNimiFieldCopy;
+  // Model for nameAndCommentFieldsOfSessio component.
+  late NameAndCommentFieldsOfSessioModel nameAndCommentFieldsOfSessioModel;
   // Models for liike_treeninAikana dynamic component.
   late FlutterFlowDynamicModels<LiikeTreeninAikanaModel>
       liikeTreeninAikanaModels;
@@ -40,13 +32,14 @@ class SivuTreenaaKomponenttiModel extends FlutterFlowModel {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
+    nameAndCommentFieldsOfSessioModel =
+        createModel(context, () => NameAndCommentFieldsOfSessioModel());
     liikeTreeninAikanaModels =
         FlutterFlowDynamicModels(() => LiikeTreeninAikanaModel());
   }
 
   void dispose() {
-    rutiininnimiController?.dispose();
-    rutiiniKommenttiController?.dispose();
+    nameAndCommentFieldsOfSessioModel.dispose();
     liikeTreeninAikanaModels.dispose();
   }
 

@@ -79,6 +79,18 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
         ),
       ],
     ),
+    'textOnPageLoadAnimation4': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 900.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
   };
 
   @override
@@ -265,7 +277,8 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                             .subtitle1
                                             .override(
                                               fontFamily: 'Outfit',
-                                              fontSize: 22.0,
+                                              fontSize: 20.0,
+                                              fontWeight: FontWeight.w500,
                                             ),
                                         elevation: 3.0,
                                         borderSide: BorderSide(
@@ -327,7 +340,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                         },
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'rwzc4awh' /* Jatka ilman kirjautumista */,
+                                            'rwzc4awh' /* tai */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .subtitle1
@@ -335,11 +348,78 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                                 fontFamily: 'Outfit',
                                                 color: Color(0xFFDADADA),
                                                 fontSize: 20.0,
-                                                fontWeight: FontWeight.w500,
+                                                fontWeight: FontWeight.normal,
                                               ),
                                         ),
                                       ).animateOnPageLoad(animationsMap[
                                           'textOnPageLoadAnimation3']!),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 18.0, 0.0, 0.0),
+                                      child: InkWell(
+                                        onTap: () async {
+                                          logFirebaseEvent(
+                                              'GET_STARTED_SIVU_Text_d5n9au0z_ON_TAP');
+                                          logFirebaseEvent('Text_auth');
+                                          GoRouter.of(context)
+                                              .prepareAuthEvent();
+                                          final user =
+                                              await signInAnonymously(context);
+                                          if (user == null) {
+                                            return;
+                                          }
+                                          // getPlatform
+                                          logFirebaseEvent('Text_getPlatform');
+                                          _model.platformStringCopy =
+                                              await actions.platformString();
+                                          // updateUsersRecord
+                                          logFirebaseEvent(
+                                              'Text_updateUsersRecord');
+
+                                          final usersUpdateData = {
+                                            ...createUsersRecordData(
+                                              appLangCode:
+                                                  FFLocalizations.of(context)
+                                                      .languageCode,
+                                              uid: currentUserUid,
+                                              isAnonymous: true,
+                                            ),
+                                            'created_time':
+                                                FieldValue.serverTimestamp(),
+                                            'treeniRutiinit':
+                                                getTreeniRutiiniListFirestoreData(
+                                              columnEsimerkkiDataRecord!
+                                                  .esimerkkiRutiinit!
+                                                  .toList(),
+                                            ),
+                                          };
+                                          await currentUserReference!
+                                              .update(usersUpdateData);
+                                          logFirebaseEvent('Text_navigate_to');
+
+                                          context.goNamedAuth(
+                                              'paasivu', mounted);
+
+                                          setState(() {});
+                                        },
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'ywa91ouh' /* Jatka ilman kirjautumista */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .subtitle1
+                                              .override(
+                                                fontFamily: 'Outfit',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryColor,
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                        ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'textOnPageLoadAnimation4']!),
                                     ),
                                   ],
                                 ),

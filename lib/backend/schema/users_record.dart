@@ -41,6 +41,8 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
 
   int? get treeniaYhteensa;
 
+  bool? get isAnonymous;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -57,7 +59,8 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
     ..selectedRutiiniToWorkout = TreeniRutiiniStructBuilder()
     ..isWeightUnitKg = false
     ..treeniKestoYhteensaSekunteina = 0.0
-    ..treeniaYhteensa = 0;
+    ..treeniaYhteensa = 0
+    ..isAnonymous = false;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('users');
@@ -94,6 +97,7 @@ Map<String, dynamic> createUsersRecordData({
   bool? isWeightUnitKg,
   double? treeniKestoYhteensaSekunteina,
   int? treeniaYhteensa,
+  bool? isAnonymous,
 }) {
   final firestoreData = serializers.toFirestore(
     UsersRecord.serializer,
@@ -112,7 +116,8 @@ Map<String, dynamic> createUsersRecordData({
         ..selectedRutiiniToWorkout = TreeniRutiiniStructBuilder()
         ..isWeightUnitKg = isWeightUnitKg
         ..treeniKestoYhteensaSekunteina = treeniKestoYhteensaSekunteina
-        ..treeniaYhteensa = treeniaYhteensa,
+        ..treeniaYhteensa = treeniaYhteensa
+        ..isAnonymous = isAnonymous,
     ),
   );
 

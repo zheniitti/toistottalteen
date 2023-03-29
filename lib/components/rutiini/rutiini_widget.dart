@@ -95,7 +95,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
         ),
       ],
     ),
-    'columnOnPageLoadAnimation': AnimationInfo(
+    'textFieldOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         ScaleEffect(
@@ -614,123 +614,116 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                         ),
                       ],
                     ),
-                    if (widget.rutiini?.nimi != null &&
+                  ],
+                ),
+                Container(
+                  height: 200.0,
+                  child: Visibility(
+                    visible: widget.rutiini?.nimi != null &&
                             widget.rutiini?.nimi != ''
                         ? !widget.rutiini!.finishedEditing!
-                        : false)
-                      Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 0.0, 8.0, 0.0),
-                            child: TextFormField(
-                              controller: _model.textFieldKommenttiController,
-                              onChanged: (_) => EasyDebounce.debounce(
-                                '_model.textFieldKommenttiController',
-                                Duration(milliseconds: 300),
-                                () async {
-                                  logFirebaseEvent(
-                                      'RUTIINI_TextField_kommentti_ON_TEXTFIELD');
-                                  logFirebaseEvent(
-                                      'TextField_kommentti_custom_action');
-                                  await actions.updateUserDocTreenirutiini(
-                                    widget.rutiini,
-                                    null,
-                                    null,
-                                    false,
-                                    null,
-                                    null,
-                                    _model.textFieldNimiController.text,
-                                    null,
-                                    widget.rutiini?.liikkeet
-                                        ?.toList()
-                                        ?.toList(),
-                                    null,
-                                    null,
-                                    null,
-                                    null,
-                                    false,
-                                    false,
-                                    false,
-                                  );
-                                },
-                              ),
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                isDense: true,
-                                hintText: FFLocalizations.of(context).getText(
-                                  'kiyozfj3' /* Treenipohjan kommentti 💬 */,
-                                ),
-                                hintStyle: FlutterFlowTheme.of(context)
-                                    .bodyText2
-                                    .override(
-                                      fontFamily: 'Roboto',
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                errorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                focusedErrorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                    4.0, 4.0, 4.0, 4.0),
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
+                        : false,
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                      child: TextFormField(
+                        controller: _model.textFieldKommenttiController,
+                        onChanged: (_) => EasyDebounce.debounce(
+                          '_model.textFieldKommenttiController',
+                          Duration(milliseconds: 300),
+                          () async {
+                            logFirebaseEvent(
+                                'RUTIINI_TextField_kommentti_ON_TEXTFIELD');
+                            logFirebaseEvent(
+                                'TextField_kommentti_custom_action');
+                            await actions.updateUserDocTreenirutiini(
+                              widget.rutiini,
+                              null,
+                              null,
+                              false,
+                              null,
+                              null,
+                              _model.textFieldNimiController.text,
+                              null,
+                              widget.rutiini?.liikkeet?.toList()?.toList(),
+                              null,
+                              null,
+                              null,
+                              null,
+                              false,
+                              false,
+                              false,
+                            );
+                          },
+                        ),
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          isDense: true,
+                          hintText: FFLocalizations.of(context).getText(
+                            'kiyozfj3' /* Treenipohjan kommentti 💬 */,
+                          ),
+                          hintStyle:
+                              FlutterFlowTheme.of(context).bodyText2.override(
                                     fontFamily: 'Roboto',
                                     fontSize: 14.0,
+                                    fontWeight: FontWeight.w300,
                                   ),
-                              textAlign: TextAlign.center,
-                              maxLines: 5,
-                              minLines: 1,
-                              validator: _model
-                                  .textFieldKommenttiControllerValidator
-                                  .asValidator(context),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0x00000000),
+                              width: 1.0,
+                            ),
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(4.0),
+                              topRight: Radius.circular(4.0),
                             ),
                           ),
-                        ],
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0x00000000),
+                              width: 1.0,
+                            ),
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(4.0),
+                              topRight: Radius.circular(4.0),
+                            ),
+                          ),
+                          errorBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0x00000000),
+                              width: 1.0,
+                            ),
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(4.0),
+                              topRight: Radius.circular(4.0),
+                            ),
+                          ),
+                          focusedErrorBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0x00000000),
+                              width: 1.0,
+                            ),
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(4.0),
+                              topRight: Radius.circular(4.0),
+                            ),
+                          ),
+                          contentPadding: EdgeInsetsDirectional.fromSTEB(
+                              4.0, 4.0, 4.0, 4.0),
+                        ),
+                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Roboto',
+                              fontSize: 14.0,
+                            ),
+                        textAlign: TextAlign.center,
+                        maxLines: 5,
+                        minLines: 1,
+                        validator: _model.textFieldKommenttiControllerValidator
+                            .asValidator(context),
                       ).animateOnPageLoad(
-                          animationsMap['columnOnPageLoadAnimation']!),
-                  ],
+                          animationsMap['textFieldOnPageLoadAnimation']!),
+                    ),
+                  ),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 6.0),
@@ -1327,7 +1320,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 4.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                         child: wrapWithModel(
                           model: _model.rutiininLiikkeetModel,
                           updateCallback: () => setState(() {}),
