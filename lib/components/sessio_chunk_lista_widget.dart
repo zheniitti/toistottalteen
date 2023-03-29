@@ -2,7 +2,6 @@ import '/components/sessio_chunk_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -49,30 +48,18 @@ class _SessioChunkListaWidgetState extends State<SessioChunkListaWidget> {
       builder: (context) {
         final chunkList = FFAppState().sessioChunkListLastItemDateTime.toList();
         return Column(
-          mainAxisSize: MainAxisSize.max,
+          mainAxisSize: MainAxisSize.min,
           children: List.generate(chunkList.length, (chunkListIndex) {
             final chunkListItem = chunkList[chunkListIndex];
             return wrapWithModel(
               model: _model.sessioChuncModels.getModel(
-                random_data.randomString(
-                  5,
-                  5,
-                  true,
-                  false,
-                  false,
-                ),
+                chunkListIndex.toString(),
                 chunkListIndex,
               ),
               updateCallback: () => setState(() {}),
               child: SessioChunkWidget(
                 key: Key(
-                  'Key6w8_${random_data.randomString(
-                    5,
-                    5,
-                    true,
-                    false,
-                    false,
-                  )}',
+                  'Key6w8_${chunkListIndex.toString()}',
                 ),
                 indexInList: chunkListIndex,
                 previousLastDateTime: chunkListIndex == 0

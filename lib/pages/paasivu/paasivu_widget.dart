@@ -1001,7 +1001,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                           EasyDebounce.debounce(
                                                         '_model.textFieldSeachBarController',
                                                         Duration(
-                                                            milliseconds: 500),
+                                                            milliseconds: 1000),
                                                         () async {
                                                           logFirebaseEvent(
                                                               'PAASIVU_TextField_seachBar_ON_TEXTFIELD_');

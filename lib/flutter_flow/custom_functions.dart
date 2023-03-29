@@ -81,8 +81,7 @@ TreeniRutiiniStruct? getTreeniRutiiniByName(
 
 List<String> mapRutiiniNimet(List<TreeniRutiiniStruct>? treeniRutiinit) {
   if (treeniRutiinit == null || treeniRutiinit.isEmpty) return [];
-  return treeniRutiinit.toList().map((rutiini) => rutiini.nimi).toList()
-      as List<String>;
+  return treeniRutiinit.toList().map((rutiini) => rutiini?.nimi ?? '').toList();
 }
 
 ValitutViikonPaivatStruct updatedValitutViikonPaivat(
@@ -120,9 +119,10 @@ List<TreeniRutiiniStruct> filterRutiiniList(
 ) {
   final list = rutiiList.toList();
   if (navbarIndex == 0 && seachbarString != null && seachbarString.isNotEmpty) {
-    list.toList().retainWhere((element) => seachbarString
-        .toLowerCase()
-        .contains((element.nimi ?? '').toLowerCase()));
+    list.toList().retainWhere((rut) =>
+        rut.nimi!.toLowerCase().contains(seachbarString.toLowerCase()) ||
+        rut.kommentti!.toLowerCase().contains(seachbarString.toLowerCase()));
+    //list.sort((a, b) => stringSimilarity(b.nimi, seachbarString).compareTo(stringSimilarity(a.nimi, seachbarString)));
   }
   if (reverseList != null && reverseList) list.reversed.toList();
   return list;
@@ -355,4 +355,29 @@ List<LiikeStruct>? nullLiikeList() {
 
 List<dynamic> emptyJsonList() {
   return [];
+}
+
+List<TreeniSessiotRecord> filterSessioList(
+  List<TreeniSessiotRecord>? sessioList,
+  String? searchbarString,
+  int navbarIndex,
+) {
+  if (searchbarString == null || searchbarString.isEmpty)
+    return sessioList ?? [];
+
+  var list = sessioList?.toList() ?? [];
+  if (sessioList == null || sessioList.isEmpty) return [];
+  if (navbarIndex == 2 &&
+      searchbarString != null &&
+      searchbarString.isNotEmpty) {
+    list = sessioList.toList()
+      ..retainWhere((sessio) =>
+          sessio.treeniRutiiniData.nimi!
+              .toLowerCase()
+              .contains(searchbarString.toLowerCase()) ||
+          sessio.treeniRutiiniData.kommentti!
+              .toLowerCase()
+              .contains(searchbarString.toLowerCase()));
+  }
+  return list;
 }

@@ -85,7 +85,12 @@ class _SessioChunkWidgetState extends State<SessioChunkWidget> {
             children: [
               Builder(
                 builder: (context) {
-                  final sessio = containerTreeniSessiotRecordList.toList();
+                  final sessio = functions
+                      .filterSessioList(
+                          containerTreeniSessiotRecordList.toList(),
+                          FFAppState().searchbarText,
+                          FFAppState().navBarIndex)
+                      .toList();
                   return Column(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.end,

@@ -80,8 +80,12 @@ class _SessioWidgetState extends State<SessioWidget>
         maxWidth: 500.0,
       ),
       decoration: BoxDecoration(
-        color: FlutterFlowTheme.of(context).secondaryBackground,
-        borderRadius: BorderRadius.circular(8.0),
+        color: (widget.treeniSessio!.alku == null) ||
+                (widget.treeniSessio!.loppu == null) ||
+                widget.treeniSessio!.isEditing!
+            ? FlutterFlowTheme.of(context).activeWidgetBackground
+            : FlutterFlowTheme.of(context).inactiveWidgetBackground,
+        borderRadius: BorderRadius.circular(22.0),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -108,14 +112,11 @@ class _SessioWidgetState extends State<SessioWidget>
                       if (widget.treeniSessio != null)
                         Container(
                           width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                          ),
+                          decoration: BoxDecoration(),
                           child: Wrap(
                             spacing: 8.0,
                             runSpacing: 8.0,
-                            alignment: WrapAlignment.spaceAround,
+                            alignment: WrapAlignment.start,
                             crossAxisAlignment: WrapCrossAlignment.start,
                             direction: Axis.horizontal,
                             runAlignment: WrapAlignment.start,
@@ -130,7 +131,7 @@ class _SessioWidgetState extends State<SessioWidget>
                                       children: [
                                         TextSpan(
                                           text: dateTimeFormat(
-                                            'yMd',
+                                            'MMMEd',
                                             widget.treeniSessio!.alku!,
                                             locale: FFLocalizations.of(context)
                                                 .languageCode,
@@ -147,11 +148,15 @@ class _SessioWidgetState extends State<SessioWidget>
                                           style: TextStyle(),
                                         ),
                                         TextSpan(
-                                          text: dateTimeFormat(
-                                            'Hm',
-                                            widget.treeniSessio!.alku!,
-                                            locale: FFLocalizations.of(context)
-                                                .languageCode,
+                                          text: valueOrDefault<String>(
+                                            dateTimeFormat(
+                                              'Hm',
+                                              widget.treeniSessio!.alku,
+                                              locale:
+                                                  FFLocalizations.of(context)
+                                                      .languageCode,
+                                            ),
+                                            'Ei aloitettu',
                                           ),
                                           style: TextStyle(),
                                         ),
@@ -306,9 +311,7 @@ class _SessioWidgetState extends State<SessioWidget>
                   ),
                 ),
                 Container(
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                  ),
+                  decoration: BoxDecoration(),
                   child: wrapWithModel(
                     model: _model.rutiininLiikkeetModel,
                     updateCallback: () => setState(() {}),
@@ -322,9 +325,7 @@ class _SessioWidgetState extends State<SessioWidget>
                 ),
                 Container(
                   width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                  ),
+                  decoration: BoxDecoration(),
                   child: Visibility(
                     visible: true,
                     child: Wrap(

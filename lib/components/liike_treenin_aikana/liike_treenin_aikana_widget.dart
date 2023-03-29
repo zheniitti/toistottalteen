@@ -34,10 +34,12 @@ class LiikeTreeninAikanaWidget extends StatefulWidget {
   final int? liikeIndexInList;
 
   @override
-  _LiikeTreeninAikanaWidgetState createState() => _LiikeTreeninAikanaWidgetState();
+  _LiikeTreeninAikanaWidgetState createState() =>
+      _LiikeTreeninAikanaWidgetState();
 }
 
-class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> with TickerProviderStateMixin {
+class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
+    with TickerProviderStateMixin {
   late LiikeTreeninAikanaModel _model;
 
   final animationsMap = {
@@ -110,7 +112,8 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> wit
     _model = createModel(context, () => LiikeTreeninAikanaModel());
 
     _model.textController1 ??= TextEditingController(text: widget.liike?.nimi);
-    _model.textController2 ??= TextEditingController(text: widget.liike?.kommentti);
+    _model.textController2 ??=
+        TextEditingController(text: widget.liike?.kommentti);
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -138,7 +141,9 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> wit
           maxWidth: 600.0,
         ),
         decoration: BoxDecoration(
-          color: widget.liike!.tehty! ? FlutterFlowTheme.of(context).inactiveWidgetBackground : FlutterFlowTheme.of(context).activeWidgetBackground,
+          color: widget.liike!.tehty!
+              ? FlutterFlowTheme.of(context).inactiveWidgetBackground
+              : FlutterFlowTheme.of(context).activeWidgetBackground,
           borderRadius: BorderRadius.circular(12.0),
           border: Border.all(
             color: Color(0xFF797979),
@@ -157,16 +162,19 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> wit
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 20.0, 0.0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 20.0, 0.0),
                         child: TextFormField(
                           controller: _model.textController1,
                           onChanged: (_) => EasyDebounce.debounce(
                             '_model.textController1',
                             Duration(milliseconds: 1000),
                             () async {
-                              logFirebaseEvent('LIIKE_TREENIN_AIKANA_TextField_fgw8ho34_');
+                              logFirebaseEvent(
+                                  'LIIKE_TREENIN_AIKANA_TextField_fgw8ho34_');
                               logFirebaseEvent('TextField_custom_action');
-                              _model.updatedLiike = await actions.myUpdateLiikeStruct(
+                              _model.updatedLiike =
+                                  await actions.myUpdateLiikeStruct(
                                 widget.liike,
                                 null,
                                 _model.textController1.text,
@@ -184,11 +192,14 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> wit
                                 null,
                               );
                               logFirebaseEvent('TextField_custom_action');
-                              _model.updatedRutiini = await actions.myUpdateTreeniRutiiniStruct(
+                              _model.updatedRutiini =
+                                  await actions.myUpdateTreeniRutiiniStruct(
                                 widget.treeniSessio!.treeniRutiiniData,
                                 null,
                                 null,
-                                widget.treeniSessio!.treeniRutiiniData.liikkeet?.toList()?.toList(),
+                                widget.treeniSessio!.treeniRutiiniData.liikkeet
+                                    ?.toList()
+                                    ?.toList(),
                                 null,
                                 null,
                                 null,
@@ -207,13 +218,15 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> wit
                               );
                               logFirebaseEvent('TextField_backend_call');
 
-                              final treeniSessiotUpdateData = createTreeniSessiotRecordData(
+                              final treeniSessiotUpdateData =
+                                  createTreeniSessiotRecordData(
                                 treeniRutiiniData: updateTreeniRutiiniStruct(
                                   _model.updatedRutiini,
                                   clearUnsetFields: false,
                                 ),
                               );
-                              await widget.treeniSessio!.reference.update(treeniSessiotUpdateData);
+                              await widget.treeniSessio!.reference
+                                  .update(treeniSessiotUpdateData);
 
                               setState(() {});
                             },
@@ -224,11 +237,12 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> wit
                             hintText: FFLocalizations.of(context).getText(
                               '29oo50bm' /* Liikkeen nimi */,
                             ),
-                            hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
-                                  fontFamily: 'Roboto',
-                                  fontSize: 18.0,
-                                  lineHeight: 1.0,
-                                ),
+                            hintStyle:
+                                FlutterFlowTheme.of(context).bodyText2.override(
+                                      fontFamily: 'Roboto',
+                                      fontSize: 18.0,
+                                      lineHeight: 1.0,
+                                    ),
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
@@ -269,28 +283,35 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> wit
                                 topRight: Radius.circular(4.0),
                               ),
                             ),
-                            contentPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
+                            contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 2.0),
                           ),
-                          style: FlutterFlowTheme.of(context).subtitle1.override(
-                                fontFamily: 'Outfit',
-                                lineHeight: 1.0,
-                              ),
+                          style:
+                              FlutterFlowTheme.of(context).subtitle1.override(
+                                    fontFamily: 'Outfit',
+                                    lineHeight: 1.0,
+                                  ),
                           textAlign: TextAlign.start,
                           maxLines: 5,
                           minLines: 1,
-                          validator: _model.textController1Validator.asValidator(context),
+                          validator: _model.textController1Validator
+                              .asValidator(context),
                         ),
                       ),
-                      if (!widget.liike!.tehty! || (widget.liike?.kommentti != null && widget.liike?.kommentti != ''))
+                      if (!widget.liike!.tehty! ||
+                          (widget.liike?.kommentti != null &&
+                              widget.liike?.kommentti != ''))
                         TextFormField(
                           controller: _model.textController2,
                           onChanged: (_) => EasyDebounce.debounce(
                             '_model.textController2',
                             Duration(milliseconds: 500),
                             () async {
-                              logFirebaseEvent('LIIKE_TREENIN_AIKANA_TextField_rwco0ti2_');
+                              logFirebaseEvent(
+                                  'LIIKE_TREENIN_AIKANA_TextField_rwco0ti2_');
                               logFirebaseEvent('TextField_custom_action');
-                              _model.updatedLiikeCopy = await actions.myUpdateLiikeStruct(
+                              _model.updatedLiikeCopy =
+                                  await actions.myUpdateLiikeStruct(
                                 widget.liike,
                                 null,
                                 _model.textController1.text,
@@ -308,11 +329,14 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> wit
                                 null,
                               );
                               logFirebaseEvent('TextField_custom_action');
-                              _model.updatedRutiiniCopy = await actions.myUpdateTreeniRutiiniStruct(
+                              _model.updatedRutiiniCopy =
+                                  await actions.myUpdateTreeniRutiiniStruct(
                                 widget.treeniSessio!.treeniRutiiniData,
                                 null,
                                 null,
-                                widget.treeniSessio!.treeniRutiiniData.liikkeet?.toList()?.toList(),
+                                widget.treeniSessio!.treeniRutiiniData.liikkeet
+                                    ?.toList()
+                                    ?.toList(),
                                 null,
                                 null,
                                 null,
@@ -331,13 +355,15 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> wit
                               );
                               logFirebaseEvent('TextField_backend_call');
 
-                              final treeniSessiotUpdateData = createTreeniSessiotRecordData(
+                              final treeniSessiotUpdateData =
+                                  createTreeniSessiotRecordData(
                                 treeniRutiiniData: updateTreeniRutiiniStruct(
                                   _model.updatedRutiini,
                                   clearUnsetFields: false,
                                 ),
                               );
-                              await widget.treeniSessio!.reference.update(treeniSessiotUpdateData);
+                              await widget.treeniSessio!.reference
+                                  .update(treeniSessiotUpdateData);
 
                               setState(() {});
                             },
@@ -348,11 +374,12 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> wit
                             hintText: FFLocalizations.of(context).getText(
                               'l7w663ju' /* Kommentti (vapaaehtoinen) */,
                             ),
-                            hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
-                                  fontFamily: 'Roboto',
-                                  fontSize: 14.0,
-                                  lineHeight: 1.0,
-                                ),
+                            hintStyle:
+                                FlutterFlowTheme.of(context).bodyText2.override(
+                                      fontFamily: 'Roboto',
+                                      fontSize: 14.0,
+                                      lineHeight: 1.0,
+                                    ),
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
@@ -393,18 +420,21 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> wit
                                 topRight: Radius.circular(4.0),
                               ),
                             ),
-                            contentPadding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 2.0),
+                            contentPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 2.0, 0.0, 2.0),
                           ),
-                          style: FlutterFlowTheme.of(context).bodyText1.override(
-                                fontFamily: 'Roboto',
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.normal,
-                                lineHeight: 1.0,
-                              ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Roboto',
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.normal,
+                                    lineHeight: 1.0,
+                                  ),
                           textAlign: TextAlign.start,
                           maxLines: 20,
                           minLines: 1,
-                          validator: _model.textController2Validator.asValidator(context),
+                          validator: _model.textController2Validator
+                              .asValidator(context),
                         ),
                     ],
                   ),
@@ -416,13 +446,14 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> wit
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            10.0, 10.0, 10.0, 10.0),
                         child: InkWell(
                           onTap: () async {
-                            logFirebaseEvent('LIIKE_TREENIN_AIKANA_Icon_more_ON_TAP');
+                            logFirebaseEvent(
+                                'LIIKE_TREENIN_AIKANA_Icon_more_ON_TAP');
                             logFirebaseEvent('Icon_more_bottom_sheet');
                             showModalBottomSheet(
-                              backgroundColor: Colors.transparent,
                               isScrollControlled: true,
                               context: context,
                               builder: (context) {
@@ -462,7 +493,8 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> wit
                     return Stack(
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 2.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 2.0, 0.0, 2.0),
                           child: Container(
                             decoration: BoxDecoration(),
                             child: Column(
@@ -473,7 +505,8 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> wit
                                   false,
                                 ))
                                   wrapWithModel(
-                                    model: _model.otherTypeLiikeFieldsModels.getModel(
+                                    model: _model.otherTypeLiikeFieldsModels
+                                        .getModel(
                                       sarjatItem.createdTime!.toString(),
                                       sarjatIndex,
                                     ),
@@ -497,34 +530,46 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> wit
                                         spacing: 0.0,
                                         runSpacing: 0.0,
                                         alignment: WrapAlignment.end,
-                                        crossAxisAlignment: WrapCrossAlignment.center,
+                                        crossAxisAlignment:
+                                            WrapCrossAlignment.center,
                                         direction: Axis.horizontal,
                                         runAlignment: WrapAlignment.center,
-                                        verticalDirection: VerticalDirection.down,
+                                        verticalDirection:
+                                            VerticalDirection.down,
                                         clipBehavior: Clip.none,
                                         children: [
                                           Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Text(
-                                                FFLocalizations.of(context).getText(
+                                                FFLocalizations.of(context)
+                                                    .getText(
                                                   'u1j0c71n' /* Toistot */,
                                                 ),
-                                                style: FlutterFlowTheme.of(context).bodyText2.override(
-                                                      fontFamily: 'Roboto',
-                                                      color: FlutterFlowTheme.of(context).primaryColor,
-                                                      fontSize: 12.0,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText2
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryColor,
+                                                          fontSize: 12.0,
+                                                        ),
                                               ),
                                               Container(
                                                 width: 130.0,
                                                 decoration: BoxDecoration(),
-                                                child: SarjaToistotTextfieldWidget(
-                                                  key: Key('Keyfrz_${sarjatIndex}_of_${sarjat.length}'),
+                                                child:
+                                                    SarjaToistotTextfieldWidget(
+                                                  key: Key(
+                                                      'Keyfrz_${sarjatIndex}_of_${sarjat.length}'),
                                                   sarjaIndex: sarjatIndex,
-                                                  liikeIndex: widget.liikeIndexInList,
+                                                  liikeIndex:
+                                                      widget.liikeIndexInList,
                                                   sarja: sarjatItem,
-                                                  sessioDoc: widget.treeniSessio,
+                                                  sessioDoc:
+                                                      widget.treeniSessio,
                                                 ),
                                               ),
                                             ],
@@ -533,23 +578,31 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> wit
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Text(
-                                                FFLocalizations.of(context).getText(
+                                                FFLocalizations.of(context)
+                                                    .getText(
                                                   '1zpp3lp9' /* Paino (kg) */,
                                                 ),
-                                                style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                      fontFamily: 'Roboto',
-                                                      fontSize: 12.0,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          fontSize: 12.0,
+                                                        ),
                                               ),
                                               Container(
                                                 width: 130.0,
                                                 decoration: BoxDecoration(),
-                                                child: SarjaPainoTextfieldWidget(
-                                                  key: Key('Key3ik_${sarjatIndex}_of_${sarjat.length}'),
+                                                child:
+                                                    SarjaPainoTextfieldWidget(
+                                                  key: Key(
+                                                      'Key3ik_${sarjatIndex}_of_${sarjat.length}'),
                                                   sarjaIndex: sarjatIndex,
-                                                  liikeIndex: widget.liikeIndexInList,
+                                                  liikeIndex:
+                                                      widget.liikeIndexInList,
                                                   sarja: sarjatItem,
-                                                  sessioDoc: widget.treeniSessio,
+                                                  sessioDoc:
+                                                      widget.treeniSessio,
                                                 ),
                                               ),
                                             ],
@@ -557,18 +610,24 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget> wit
                                         ],
                                       ),
                                       Align(
-                                        alignment: AlignmentDirectional(-1.0, -1.0),
+                                        alignment:
+                                            AlignmentDirectional(-1.0, -1.0),
                                         child: Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 0.0, 0.0, 0.0),
                                           child: RichText(
                                             text: TextSpan(
                                               children: [
                                                 TextSpan(
-                                                  text: (sarjatIndex + 1).toString(),
+                                                  text: (sarjatIndex + 1)
+                                                      .toString(),
                                                   style: TextStyle(),
                                                 ),
                                                 TextSpan(
-                                                  text: FFLocalizations.of(context).getText(
+                                                  text: FFLocalizations.of(
+                                                          context)
+                                                      .getText(
                                                     'hcx7u96d' /* .
 sarja */
                                                     ,
@@ -576,10 +635,13 @@ sarja */
                                                   style: TextStyle(),
                                                 )
                                               ],
-                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                    fontFamily: 'Roboto',
-                                                    fontSize: 12.0,
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        fontSize: 12.0,
+                                                      ),
                                             ),
                                             textAlign: TextAlign.center,
                                             maxLines: 2,
@@ -594,18 +656,22 @@ sarja */
                                 ),
                               ],
                             ),
-                          ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation2']!),
+                          ).animateOnPageLoad(
+                              animationsMap['containerOnPageLoadAnimation2']!),
                         ),
                         if (!widget.liike!.tehty!)
                           Align(
                             alignment: AlignmentDirectional(1.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 10.0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 20.0, 10.0, 10.0),
                               child: InkWell(
                                 onTap: () async {
-                                  logFirebaseEvent('LIIKE_TREENIN_AIKANA_Icon_gtpbedov_ON_TA');
+                                  logFirebaseEvent(
+                                      'LIIKE_TREENIN_AIKANA_Icon_gtpbedov_ON_TA');
                                   logFirebaseEvent('Icon_custom_action');
-                                  _model.updatedLiikeCopy2 = await actions.myUpdateLiikeStruct(
+                                  _model.updatedLiikeCopy2 =
+                                      await actions.myUpdateLiikeStruct(
                                     widget.liike,
                                     null,
                                     _model.textController1.text,
@@ -623,11 +689,15 @@ sarja */
                                     null,
                                   );
                                   logFirebaseEvent('Icon_custom_action');
-                                  _model.updatedRutiiniCopy2 = await actions.myUpdateTreeniRutiiniStruct(
+                                  _model.updatedRutiiniCopy2 =
+                                      await actions.myUpdateTreeniRutiiniStruct(
                                     widget.treeniSessio!.treeniRutiiniData,
                                     null,
                                     null,
-                                    widget.treeniSessio!.treeniRutiiniData.liikkeet?.toList()?.toList(),
+                                    widget.treeniSessio!.treeniRutiiniData
+                                        .liikkeet
+                                        ?.toList()
+                                        ?.toList(),
                                     null,
                                     null,
                                     null,
@@ -646,13 +716,16 @@ sarja */
                                   );
                                   logFirebaseEvent('Icon_backend_call');
 
-                                  final treeniSessiotUpdateData = createTreeniSessiotRecordData(
-                                    treeniRutiiniData: updateTreeniRutiiniStruct(
+                                  final treeniSessiotUpdateData =
+                                      createTreeniSessiotRecordData(
+                                    treeniRutiiniData:
+                                        updateTreeniRutiiniStruct(
                                       _model.updatedRutiiniCopy2,
                                       clearUnsetFields: false,
                                     ),
                                   );
-                                  await widget.treeniSessio!.reference.update(treeniSessiotUpdateData);
+                                  await widget.treeniSessio!.reference
+                                      .update(treeniSessiotUpdateData);
 
                                   setState(() {});
                                 },
@@ -661,7 +734,8 @@ sarja */
                                   color: Color(0xFFFF0000),
                                   size: 24.0,
                                 ),
-                              ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation1']!),
+                              ).animateOnPageLoad(
+                                  animationsMap['iconOnPageLoadAnimation1']!),
                             ),
                           ),
                       ],
@@ -678,9 +752,11 @@ sarja */
                 children: [
                   InkWell(
                     onTap: () async {
-                      logFirebaseEvent('LIIKE_TREENIN_AIKANA_Row_5f3q34g1_ON_TAP');
+                      logFirebaseEvent(
+                          'LIIKE_TREENIN_AIKANA_Row_5f3q34g1_ON_TAP');
                       logFirebaseEvent('Row_custom_action');
-                      _model.updatedLiikeFromAddSarjaButton = await actions.myUpdateLiikeStruct(
+                      _model.updatedLiikeFromAddSarjaButton =
+                          await actions.myUpdateLiikeStruct(
                         widget.liike,
                         null,
                         _model.textController1.text,
@@ -698,11 +774,14 @@ sarja */
                         null,
                       );
                       logFirebaseEvent('Row_custom_action');
-                      _model.updatedRutiiniAddSarjaButton = await actions.myUpdateTreeniRutiiniStruct(
+                      _model.updatedRutiiniAddSarjaButton =
+                          await actions.myUpdateTreeniRutiiniStruct(
                         widget.treeniSessio!.treeniRutiiniData,
                         null,
                         null,
-                        widget.treeniSessio!.treeniRutiiniData.liikkeet?.toList()?.toList(),
+                        widget.treeniSessio!.treeniRutiiniData.liikkeet
+                            ?.toList()
+                            ?.toList(),
                         null,
                         null,
                         null,
@@ -721,13 +800,15 @@ sarja */
                       );
                       logFirebaseEvent('Row_backend_call');
 
-                      final treeniSessiotUpdateData = createTreeniSessiotRecordData(
+                      final treeniSessiotUpdateData =
+                          createTreeniSessiotRecordData(
                         treeniRutiiniData: updateTreeniRutiiniStruct(
                           _model.updatedRutiiniAddSarjaButton,
                           clearUnsetFields: false,
                         ),
                       );
-                      await widget.treeniSessio!.reference.update(treeniSessiotUpdateData);
+                      await widget.treeniSessio!.reference
+                          .update(treeniSessiotUpdateData);
 
                       setState(() {});
                     },
@@ -736,7 +817,8 @@ sarja */
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              4.0, 0.0, 4.0, 0.0),
                           child: Icon(
                             Icons.add_circle_outline_rounded,
                             color: Colors.black,
@@ -755,9 +837,11 @@ sarja */
                   if ((widget.liike!.sarjat!.toList().length > 0) || false)
                     InkWell(
                       onTap: () async {
-                        logFirebaseEvent('LIIKE_TREENIN_AIKANA_Row_55r3gb8v_ON_TAP');
+                        logFirebaseEvent(
+                            'LIIKE_TREENIN_AIKANA_Row_55r3gb8v_ON_TAP');
                         logFirebaseEvent('Row_custom_action');
-                        _model.updatedLiikeFromTehtyCheckBox = await actions.myUpdateLiikeStruct(
+                        _model.updatedLiikeFromTehtyCheckBox =
+                            await actions.myUpdateLiikeStruct(
                           widget.liike,
                           null,
                           _model.textController1.text,
@@ -775,11 +859,14 @@ sarja */
                           null,
                         );
                         logFirebaseEvent('Row_custom_action');
-                        _model.updatedRutiiniTehtyCheckBox = await actions.myUpdateTreeniRutiiniStruct(
+                        _model.updatedRutiiniTehtyCheckBox =
+                            await actions.myUpdateTreeniRutiiniStruct(
                           widget.treeniSessio!.treeniRutiiniData,
                           null,
                           null,
-                          widget.treeniSessio!.treeniRutiiniData.liikkeet?.toList()?.toList(),
+                          widget.treeniSessio!.treeniRutiiniData.liikkeet
+                              ?.toList()
+                              ?.toList(),
                           null,
                           null,
                           null,
@@ -798,13 +885,15 @@ sarja */
                         );
                         logFirebaseEvent('Row_backend_call');
 
-                        final treeniSessiotUpdateData = createTreeniSessiotRecordData(
+                        final treeniSessiotUpdateData =
+                            createTreeniSessiotRecordData(
                           treeniRutiiniData: updateTreeniRutiiniStruct(
                             _model.updatedRutiiniTehtyCheckBox,
                             clearUnsetFields: false,
                           ),
                         );
-                        await widget.treeniSessio!.reference.update(treeniSessiotUpdateData);
+                        await widget.treeniSessio!.reference
+                            .update(treeniSessiotUpdateData);
 
                         setState(() {});
                       },
@@ -827,7 +916,8 @@ sarja */
                                 Icons.done_rounded,
                                 color: Colors.black,
                                 size: 24.0,
-                              ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation2']!),
+                              ).animateOnPageLoad(
+                                  animationsMap['iconOnPageLoadAnimation2']!),
                             ),
                           ),
                         ],

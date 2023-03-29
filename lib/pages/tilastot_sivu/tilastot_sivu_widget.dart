@@ -226,24 +226,27 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Container(
-                            width: 100.0,
+                            width: MediaQuery.of(context).size.width * 0.9,
                             height: 100.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                             ),
-                            child: Visibility(
-                              visible: valueOrDefault(
-                                      currentUserDocument?.treeniaYhteensa,
-                                      0) >=
-                                  10,
-                              child: AuthUserStreamWidget(
-                                builder: (context) => FaIcon(
-                                  FontAwesomeIcons.trophy,
-                                  color: Colors.black,
-                                  size: 24.0,
-                                ),
-                              ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                if (valueOrDefault(
+                                        currentUserDocument?.treeniaYhteensa,
+                                        0) >=
+                                    10)
+                                  AuthUserStreamWidget(
+                                    builder: (context) => FaIcon(
+                                      FontAwesomeIcons.trophy,
+                                      color: Colors.black,
+                                      size: 24.0,
+                                    ),
+                                  ),
+                              ],
                             ),
                           ),
                         ],
