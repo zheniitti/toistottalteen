@@ -1,7 +1,6 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/rutiinin_liikkeet/rutiinin_liikkeet_widget.dart';
-import '/flutter_flow/flutter_flow_ad_banner.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -10,7 +9,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -93,13 +91,6 @@ class _BuilderWidgetState extends State<BuilderWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                FlutterFlowAdBanner(
-                  width: MediaQuery.of(context).size.width * 1.0,
-                  height: 60.0,
-                  showsTestAd: true,
-                  iOSAdUnitID: 'ca-app-pub-6667798289242281/3798313004',
-                  androidAdUnitID: 'ca-app-pub-6667798289242281/8613432088',
-                ),
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
@@ -256,45 +247,6 @@ class _BuilderWidgetState extends State<BuilderWidget> {
                         style: FlutterFlowTheme.of(context).bodyText1,
                       ),
                     ),
-                  ),
-                ),
-                Slidable(
-                  endActionPane: ActionPane(
-                    motion: const ScrollMotion(),
-                    extentRatio: 0.25,
-                    children: [
-                      SlidableAction(
-                        label: FFLocalizations.of(context).getText(
-                          'iteexpth' /* Share */,
-                        ),
-                        backgroundColor: Colors.blue,
-                        icon: Icons.share,
-                        onPressed: (_) {
-                          print('SlidableActionWidget pressed ...');
-                        },
-                      ),
-                    ],
-                  ),
-                  child: ListTile(
-                    title: Text(
-                      FFLocalizations.of(context).getText(
-                        'e23nbbkk' /* Lorem ipsum dolor... */,
-                      ),
-                      style: FlutterFlowTheme.of(context).title3,
-                    ),
-                    subtitle: Text(
-                      FFLocalizations.of(context).getText(
-                        'tmmnmqze' /* Lorem ipsum dolor... */,
-                      ),
-                      style: FlutterFlowTheme.of(context).subtitle2,
-                    ),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios,
-                      color: Color(0xFF303030),
-                      size: 20.0,
-                    ),
-                    tileColor: Color(0xFFF5F5F5),
-                    dense: false,
                   ),
                 ),
                 if (null ?? true)

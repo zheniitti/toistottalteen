@@ -296,6 +296,40 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                     ),
                   ),
                 ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                  child: InkWell(
+                    onTap: () async {
+                      logFirebaseEvent('SIVUPALKKI_COMP_Row_rnd97pam_ON_TAP');
+                      logFirebaseEvent('Row_navigate_to');
+
+                      context.pushNamed('subrictionPage');
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 22.0, 0.0),
+                          child: Icon(
+                            Icons.auto_awesome,
+                            color: Colors.black,
+                            size: 30.0,
+                          ),
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional(-1.0, 0.0),
+                          child: Text(
+                            FFLocalizations.of(context).getText(
+                              'uvhkl89u' /* Premiumjäsenyys */,
+                            ),
+                            style: FlutterFlowTheme.of(context).subtitle2,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

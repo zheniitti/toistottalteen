@@ -149,7 +149,7 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                   clipBehavior: Clip.none,
                   children: [
                     Container(
-                      width: 100.0,
+                      width: 70.0,
                       height: 50.0,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12.0),
@@ -215,7 +215,7 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                       ),
                     ),
                     Container(
-                      width: 100.0,
+                      width: 70.0,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12.0),
                       ),
@@ -284,7 +284,7 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                       ),
                     ),
                     Container(
-                      width: 100.0,
+                      width: 70.0,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12.0),
                       ),
@@ -355,7 +355,7 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                   ],
                 ),
                 Container(
-                  width: 334.0,
+                  width: 220.0,
                   constraints: BoxConstraints(
                     maxWidth: 330.0,
                   ),

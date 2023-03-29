@@ -6,12 +6,14 @@ import '/components/sivu_treenaa_komponentti/sivu_treenaa_komponentti_widget.dar
 import '/components/sivu_treeni_historia_komponentti/sivu_treeni_historia_komponentti_widget.dart';
 import '/components/sivupalkki/sivupalkki_widget.dart';
 import '/components/workout_duration_text/workout_duration_text_widget.dart';
+import '/flutter_flow/flutter_flow_ad_banner.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/revenue_cat_util.dart' as revenue_cat;
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
@@ -622,70 +624,103 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                   return Container(
                     decoration: BoxDecoration(),
                     child: Container(
-                      width: double.infinity,
-                      height: double.infinity,
+                      width: MediaQuery.of(context).size.width * 1.0,
+                      height: MediaQuery.of(context).size.height * 1.0,
                       child: Stack(
                         children: [
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 60.0, 0.0, 0.0),
-                            child: Container(
-                              width: double.infinity,
-                              height: double.infinity,
-                              decoration: BoxDecoration(),
-                              child: Stack(
-                                children: [
-                                  if (FFAppState().navBarIndex == 0)
-                                    wrapWithModel(
-                                      model:
-                                          _model.sivuRutiinitKomponenttiModel,
-                                      updateCallback: () => setState(() {}),
-                                      updateOnChange: true,
-                                      child: SivuRutiinitKomponenttiWidget(
-                                        latestSessio:
-                                            containerQueryLatestSessioTreeniSessiotRecordList
-                                                        .length >
-                                                    0
-                                                ? containerQueryLatestSessioTreeniSessiotRecordList
-                                                    .first
-                                                : null,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                if (revenue_cat.activeEntitlementIds.length ==
+                                    0)
+                                  Container(
+                                    constraints: BoxConstraints(
+                                      maxWidth: 600.0,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(8.0),
+                                        bottomRight: Radius.circular(8.0),
+                                        topLeft: Radius.circular(0.0),
+                                        topRight: Radius.circular(0.0),
                                       ),
                                     ),
-                                  if (FFAppState().navBarIndex == 2)
-                                    wrapWithModel(
-                                      model: _model
-                                          .sivuTreeniHistoriaKomponenttiModel,
-                                      updateCallback: () => setState(() {}),
-                                      updateOnChange: true,
-                                      child:
-                                          SivuTreeniHistoriaKomponenttiWidget(
-                                        latestSessioStreamDoc:
-                                            containerQueryLatestSessioTreeniSessiotRecordList
-                                                        .length >
-                                                    0
-                                                ? containerQueryLatestSessioTreeniSessiotRecordList
-                                                    .first
-                                                : null,
-                                      ),
+                                    child: FlutterFlowAdBanner(
+                                      width: MediaQuery.of(context).size.width *
+                                          1.0,
+                                      height: 60.0,
+                                      showsTestAd: true,
+                                      iOSAdUnitID:
+                                          'ca-app-pub-6667798289242281/3798313004',
+                                      androidAdUnitID:
+                                          'ca-app-pub-6667798289242281/8613432088',
                                     ),
-                                  if ((FFAppState().navBarIndex == 1) ||
-                                      FFAppState().showTreenaaTaiLuoRutiiniSivu)
-                                    wrapWithModel(
-                                      model: _model.sivuTreenaaOmponenttiModel,
-                                      updateCallback: () => setState(() {}),
-                                      updateOnChange: true,
-                                      child: SivuTreenaaKomponenttiWidget(
-                                        sessioDoc:
-                                            containerQueryLatestSessioTreeniSessiotRecordList
-                                                        .length >
-                                                    0
-                                                ? containerQueryLatestSessioTreeniSessiotRecordList
-                                                    .first
-                                                : null,
-                                      ),
-                                    ),
-                                ],
-                              ),
+                                  ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 1.0,
+                                  height:
+                                      MediaQuery.of(context).size.height * 1.0,
+                                  child: Stack(
+                                    children: [
+                                      if (FFAppState().navBarIndex == 0)
+                                        wrapWithModel(
+                                          model: _model
+                                              .sivuRutiinitKomponenttiModel,
+                                          updateCallback: () => setState(() {}),
+                                          updateOnChange: true,
+                                          child: SivuRutiinitKomponenttiWidget(
+                                            latestSessio:
+                                                containerQueryLatestSessioTreeniSessiotRecordList
+                                                            .length >
+                                                        0
+                                                    ? containerQueryLatestSessioTreeniSessiotRecordList
+                                                        .first
+                                                    : null,
+                                          ),
+                                        ),
+                                      if (FFAppState().navBarIndex == 2)
+                                        wrapWithModel(
+                                          model: _model
+                                              .sivuTreeniHistoriaKomponenttiModel,
+                                          updateCallback: () => setState(() {}),
+                                          updateOnChange: true,
+                                          child:
+                                              SivuTreeniHistoriaKomponenttiWidget(
+                                            latestSessioStreamDoc:
+                                                containerQueryLatestSessioTreeniSessiotRecordList
+                                                            .length >
+                                                        0
+                                                    ? containerQueryLatestSessioTreeniSessiotRecordList
+                                                        .first
+                                                    : null,
+                                          ),
+                                        ),
+                                      if ((FFAppState().navBarIndex == 1) ||
+                                          FFAppState()
+                                              .showTreenaaTaiLuoRutiiniSivu)
+                                        wrapWithModel(
+                                          model:
+                                              _model.sivuTreenaaOmponenttiModel,
+                                          updateCallback: () => setState(() {}),
+                                          updateOnChange: true,
+                                          child: SivuTreenaaKomponenttiWidget(
+                                            sessioDoc:
+                                                containerQueryLatestSessioTreeniSessiotRecordList
+                                                            .length >
+                                                        0
+                                                    ? containerQueryLatestSessioTreeniSessiotRecordList
+                                                        .first
+                                                    : null,
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           Align(
@@ -1274,19 +1309,12 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                 logFirebaseEvent(
                                                     'Row_lopetaTreeni_backend_call');
 
-                                                final usersUpdateData =
-                                                    createUsersRecordData(
-                                                  treeniKestoYhteensaSekunteina:
-                                                      functions.lisaaSekunnit(
-                                                          containerQueryLatestSessioTreeniSessiotRecordList
-                                                              .first.alku,
-                                                          containerQueryLatestSessioTreeniSessiotRecordList
-                                                              .first.loppu,
-                                                          valueOrDefault(
-                                                              currentUserDocument
-                                                                  ?.treeniKestoYhteensaSekunteina,
-                                                              0.0)),
-                                                );
+                                                final usersUpdateData = {
+                                                  'treeniKestoYhteensaSekunteina':
+                                                      FieldValue.increment(1.0),
+                                                  'treeniaYhteensa':
+                                                      FieldValue.increment(1),
+                                                };
                                                 await currentUserReference!
                                                     .update(usersUpdateData);
                                               },

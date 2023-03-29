@@ -88,9 +88,9 @@ Future<TreeniRutiiniStruct?> myUpdateTreeniRutiiniStruct(
     ..firestoreUtilData =
         FirestoreUtilData(clearUnsetFields: false, create: true)
     ..createdTime = createdTime ?? treeniRutiini.createdTime
-    ..nimi = nimi ?? treeniRutiini.nimi
+    ..nimi = nimi?.trim() ?? treeniRutiini.nimi?.trim()
     ..liikkeet = liikeList
-    ..kommentti = kommentti ?? treeniRutiini.kommentti
+    ..kommentti = kommentti?.trim() ?? treeniRutiini.kommentti?.trim()
     ..valitutViikonPaivat = valitutViikonPaivat != null
         ? valitutViikonPaivat.toBuilder()
         : treeniRutiini.valitutViikonPaivat.toBuilder()

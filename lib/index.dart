@@ -20,3 +20,4 @@ export '/pages/forgot_password_page/forgot_password_page_widget.dart'
     show ForgotPasswordPageWidget;
 export '/pages/verify_phone_nuber_page/verify_phone_nuber_page_widget.dart'
     show VerifyPhoneNuberPageWidget;
+export '/subriction_page/subriction_page_widget.dart' show SubrictionPageWidget;

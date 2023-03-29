@@ -122,8 +122,22 @@ class _SivuTreenaaKomponenttiWidgetState
       child: Stack(
         alignment: AlignmentDirectional(0.0, -1.0),
         children: [
-          if (valueOrDefault<bool>(
-            widget.sessioDoc != null,
+          if (!valueOrDefault<bool>(
+            valueOrDefault<bool>(
+                  widget.sessioDoc == null,
+                  true,
+                ) ||
+                valueOrDefault<bool>(
+                  valueOrDefault<bool>(
+                        widget.sessioDoc!.alku != null,
+                        false,
+                      ) &&
+                      valueOrDefault<bool>(
+                        widget.sessioDoc!.loppu != null,
+                        false,
+                      ),
+                  false,
+                ),
             false,
           ))
             SingleChildScrollView(
@@ -315,116 +329,135 @@ class _SivuTreenaaKomponenttiWidgetState
               ),
             ),
           if (valueOrDefault<bool>(
-            widget.sessioDoc == null,
+            valueOrDefault<bool>(
+                  widget.sessioDoc == null,
+                  true,
+                ) ||
+                valueOrDefault<bool>(
+                  valueOrDefault<bool>(
+                        widget.sessioDoc!.alku != null,
+                        false,
+                      ) &&
+                      valueOrDefault<bool>(
+                        widget.sessioDoc!.loppu != null,
+                        false,
+                      ),
+                  false,
+                ),
             true,
           ))
-            Container(
-              constraints: BoxConstraints(
-                maxWidth: 300.0,
-              ),
-              decoration: BoxDecoration(),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
-                    child: Text(
-                      FFLocalizations.of(context).getText(
-                        'hr61kg7a' /* Sinulla ei ole keskeneräistä t... */,
-                      ),
-                      textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).subtitle1,
-                    ),
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  constraints: BoxConstraints(
+                    maxWidth: 300.0,
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 150.0),
-                    child: FFButtonWidget(
-                      onPressed: () async {
-                        logFirebaseEvent(
-                            'SIVU_TREENAA_KOMPONENTTI_Button_aloitaUu');
-                        logFirebaseEvent(
-                            'Button_aloitaUusiTreeni_backend_call');
-
-                        final treeniSessiotCreateData = {
-                          ...createTreeniSessiotRecordData(
-                            userRef: currentUserReference,
-                            isEditing: false,
-                            treeniRutiiniData: createTreeniRutiiniStruct(
-                              createdTime: getCurrentTimestamp,
-                              isTreeniPohja: false,
-                              finishedEditing: true,
-                              fieldValues: {
-                                'liikkeet': [
-                                  getLiikeFirestoreData(
-                                    createLiikeStruct(
-                                      tehty: false,
-                                      isOtherExerciseType: false,
-                                      createdTime: getCurrentTimestamp,
-                                      fieldValues: {
-                                        'sarjat': [
-                                          getSarjaFirestoreData(
-                                            updateSarjaStruct(
-                                              null,
-                                              clearUnsetFields: false,
-                                            ),
-                                            true,
-                                          )
-                                        ],
-                                      },
-                                      clearUnsetFields: false,
-                                      create: true,
-                                    ),
-                                    true,
-                                  )
-                                ],
-                              },
-                              clearUnsetFields: false,
-                              create: true,
-                            ),
-                          ),
-                          'alku': FieldValue.serverTimestamp(),
-                          'docCreatedTime': FieldValue.serverTimestamp(),
-                        };
-                        await TreeniSessiotRecord.collection
-                            .doc()
-                            .set(treeniSessiotCreateData);
-                      },
-                      text: FFLocalizations.of(context).getText(
-                        'uz6rq23u' /* Aloita tyhjä treeni */,
-                      ),
-                      options: FFButtonOptions(
-                        width: 240.0,
-                        height: 70.0,
+                  decoration: BoxDecoration(),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primaryColor,
-                        textStyle: FlutterFlowTheme.of(context)
-                            .subtitle1
-                            .override(
-                              fontFamily: 'Outfit',
-                              color:
-                                  FlutterFlowTheme.of(context).secondaryColor,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                        elevation: 1.0,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
+                        child: Text(
+                          FFLocalizations.of(context).getText(
+                            'hr61kg7a' /* Sinulla ei ole keskeneräistä t... */,
+                          ),
+                          textAlign: TextAlign.center,
+                          style: FlutterFlowTheme.of(context).subtitle1,
                         ),
-                        borderRadius: BorderRadius.circular(16.0),
                       ),
-                    ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 0.0, 0.0, 150.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            logFirebaseEvent(
+                                'SIVU_TREENAA_KOMPONENTTI_Button_aloitaUu');
+                            logFirebaseEvent(
+                                'Button_aloitaUusiTreeni_backend_call');
+
+                            final treeniSessiotCreateData = {
+                              ...createTreeniSessiotRecordData(
+                                userRef: currentUserReference,
+                                isEditing: false,
+                                treeniRutiiniData: createTreeniRutiiniStruct(
+                                  createdTime: getCurrentTimestamp,
+                                  isTreeniPohja: false,
+                                  finishedEditing: true,
+                                  fieldValues: {
+                                    'liikkeet': [
+                                      getLiikeFirestoreData(
+                                        createLiikeStruct(
+                                          tehty: false,
+                                          isOtherExerciseType: false,
+                                          createdTime: getCurrentTimestamp,
+                                          fieldValues: {
+                                            'sarjat': [
+                                              getSarjaFirestoreData(
+                                                updateSarjaStruct(
+                                                  null,
+                                                  clearUnsetFields: false,
+                                                ),
+                                                true,
+                                              )
+                                            ],
+                                          },
+                                          clearUnsetFields: false,
+                                          create: true,
+                                        ),
+                                        true,
+                                      )
+                                    ],
+                                  },
+                                  clearUnsetFields: false,
+                                  create: true,
+                                ),
+                              ),
+                              'alku': FieldValue.serverTimestamp(),
+                              'docCreatedTime': FieldValue.serverTimestamp(),
+                            };
+                            await TreeniSessiotRecord.collection
+                                .doc()
+                                .set(treeniSessiotCreateData);
+                          },
+                          text: FFLocalizations.of(context).getText(
+                            'uz6rq23u' /* Aloita tyhjä treeni */,
+                          ),
+                          options: FFButtonOptions(
+                            width: 240.0,
+                            height: 70.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                            textStyle:
+                                FlutterFlowTheme.of(context).subtitle1.override(
+                                      fontFamily: 'Outfit',
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryColor,
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                            elevation: 1.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(16.0),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            ).animateOnPageLoad(
-                animationsMap['containerOnPageLoadAnimation2']!),
+                ).animateOnPageLoad(
+                    animationsMap['containerOnPageLoadAnimation2']!),
+              ],
+            ),
         ],
       ),
     );

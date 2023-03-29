@@ -170,6 +170,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'verifyPhoneNuber_page',
               path: 'verifyPhoneNuberPage',
               builder: (context, params) => VerifyPhoneNuberPageWidget(),
+            ),
+            FFRoute(
+              name: 'subrictionPage',
+              path: 'subrictionPage',
+              requireAuth: true,
+              builder: (context, params) => SubrictionPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

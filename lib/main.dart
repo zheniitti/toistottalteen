@@ -27,14 +27,16 @@ void main() async {
 
   final appState = FFAppState(); // Initialize FFAppState
   await revenue_cat.initialize(
-    "fakeKeyAppstore",
-    "fakeKeyPlayStore",
+    "appl_GzpKTGpzjMfzDDETPzlLeJXZTdj",
+    "goog_iATpxJUGjUuMReuBybBWVZsABVZ",
+    debugLogEnabled: true,
     loadDataAfterLaunch: true,
   );
 
   if (!kIsWeb) {
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   }
+  await initializeFirebaseRemoteConfig();
 
   runApp(ChangeNotifierProvider(
     create: (context) => appState,

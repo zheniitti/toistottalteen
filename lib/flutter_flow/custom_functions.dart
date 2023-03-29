@@ -381,3 +381,11 @@ List<TreeniSessiotRecord> filterSessioList(
   }
   return list;
 }
+
+double doubleDurationInSecondsFromStarAndEnd(
+  DateTime? start,
+  DateTime? end,
+) {
+  if (start == null || end == null) return 0;
+  return end.difference(start).inSeconds.toDouble();
+}

@@ -72,8 +72,8 @@ Future<LiikeStruct?> myUpdateLiikeStruct(
     ..firestoreUtilData =
         FirestoreUtilData(clearUnsetFields: false, create: true)
     ..createdTime = createdTime ?? liike.createdTime
-    ..nimi = nimi ?? liike.nimi
-    ..kommentti = kommentti ?? liike.kommentti
+    ..nimi = nimi?.trim() ?? liike.nimi?.trim()
+    ..kommentti = kommentti?.trim() ?? liike.kommentti?.trim()
     ..isOtherExerciseType = isOtherExerciseType ?? liike.isOtherExerciseType
     ..tehty = tehty ?? liike.tehty
     ..matkaMetri = matkaMetreina ?? liike.matkaMetri

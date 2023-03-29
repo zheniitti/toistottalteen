@@ -1,7 +1,10 @@
+import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -233,6 +236,16 @@ class _BottomSheetRutiiniJaSessioWidgetState
                     logFirebaseEvent(
                         'BOTTOM_SHEET_RUTIINI_JA_SESSIO_ListTile_');
                     if (widget.treeniSessioDoc != null) {
+                      logFirebaseEvent('ListTile_backend_call');
+
+                      final usersUpdateData = {
+                        'treeniKestoYhteensaSekunteina': FieldValue.increment(
+                            -(functions.doubleDurationInSecondsFromStarAndEnd(
+                                widget.treeniSessioDoc!.alku,
+                                widget.treeniSessioDoc!.loppu))),
+                        'treeniaYhteensa': FieldValue.increment(-(1)),
+                      };
+                      await currentUserReference!.update(usersUpdateData);
                       logFirebaseEvent('ListTile_backend_call');
                       await widget.treeniSessioDoc!.reference.delete();
                     } else {

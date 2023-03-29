@@ -10,6 +10,9 @@ key.properties
 .history
 .svn/
 
+#app related
+#lib\components\workout_duration_text\workout_duration_text_widget.dart
+
 # IntelliJ related
 *.iml
 *.ipr

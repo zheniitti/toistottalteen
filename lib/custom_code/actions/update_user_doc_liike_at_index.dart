@@ -40,9 +40,10 @@ Future updateUserDocLiikeAtIndex(
       getLiikeFirestoreData(liikkeet[liikeIndex], true);
 
   rutiiniFirestoreData['finishedEditing'] = false;
-  liikeFirestoreData['nimi'] = liikeNimi ?? liikeFirestoreData['nimi'];
+  liikeFirestoreData['nimi'] =
+      liikeNimi?.trim() ?? liikeFirestoreData['nimi'].trim();
   liikeFirestoreData['kommentti'] =
-      liikeKommentti ?? liikeFirestoreData['kommentti'];
+      liikeKommentti?.trim() ?? liikeFirestoreData['kommentti']?.trim();
   liikeFirestoreData['toistoMaara'] =
       toistoMaara ?? liikeFirestoreData['toistoMaara'];
   liikeFirestoreData['sarjaMaara'] =
@@ -52,8 +53,6 @@ Future updateUserDocLiikeAtIndex(
   liikeFirestoreData['isOtherExerciseType'] =
       isOtherExerciseType ?? liikeFirestoreData['isOtherExerciseType'];
   liikeFirestoreData['tehty'] = isTehty ?? liikeFirestoreData['tehty'];
-  liikeFirestoreData['showKommentti'] =
-      showKommentti ?? liikeFirestoreData['showKommentti'];
   liikeFirestoreData['matkaMetri'] =
       matkaMetreina ?? liikeFirestoreData['matkaMetri'];
   liikeFirestoreData['kestoSekunteina'] =

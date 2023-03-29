@@ -384,18 +384,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': '30 min sitten dsltkphklp',
       'en': '',
     },
-    'iteexpth': {
-      'fi': 'Share',
-      'en': '',
-    },
-    'e23nbbkk': {
-      'fi': 'Lorem ipsum dolor...',
-      'en': '',
-    },
-    'tmmnmqze': {
-      'fi': 'Lorem ipsum dolor...',
-      'en': '',
-    },
     'u76vj92f': {
       'fi': 'Aloita uusi treeni',
       'en': 'Start a new workout',
@@ -621,6 +609,71 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
+  // subrictionPage
+  {
+    'hwgol8rz': {
+      'fi': 'Sinun jäsenyytesi',
+      'en': 'Your subscription',
+    },
+    'br2c5t9e': {
+      'fi': 'Basic käyttäjä',
+      'en': 'Basic',
+    },
+    'ddywiwkf': {
+      'fi': 'Ilmainen',
+      'en': 'No cost',
+    },
+    '3p7287li': {
+      'fi': 'Sisältää mainokset ja muut rajoitukset',
+      'en': 'Contains ads and other limits',
+    },
+    '2zf8p5oc': {
+      'fi': 'Muut tarjoukset',
+      'en': 'Other offers',
+    },
+    '5vook0a2': {
+      'fi': 'Kuukausittain Premium-jäsenyys',
+      'en': 'Monthly Premium',
+    },
+    'dtagbld2': {
+      'fi': 'Ei mainoksia, ei muita rajoituksia',
+      'en': 'Gain unlimited access to all the content we have to offer! ',
+    },
+    'x8bvpqai': {
+      'fi': 'Vuosittainen Premium-jäsenyys',
+      'en': 'Annual Premium subsription',
+    },
+    'bzi4a8ik': {
+      'fi': 'Ei mainoksia + ei muita rajoituksia',
+      'en':
+          'No ads and Gain unlimited access to all the content we have to offer! ',
+    },
+    'uolqmsaw': {
+      'fi': 'Elinikäinen premium jäsenyys',
+      'en': 'Lifetime premium',
+    },
+    'rkeo8bcf': {
+      'fi': 'Ei mainoksia + ei muita rajoituksia',
+      'en':
+          'No ads and Gain unlimited access to all the content we have to offer! ',
+    },
+    'gf6voqtu': {
+      'fi': 'Maksa kerran ja nauti premiumjäsenyydestä koko loppuelämäsi',
+      'en': 'Pay once and enjoy premium features for the rest of your life',
+    },
+    '9v7axq1b': {
+      'fi': 'Jatka',
+      'en': 'Continue',
+    },
+    'wpjuhtau': {
+      'fi': 'Subscription / Payment',
+      'en': '',
+    },
+    'ragyctx6': {
+      'fi': 'Home',
+      'en': '',
+    },
+  },
   // ToistotTalteenText
   {
     'ezf7x56w': {
@@ -741,6 +794,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'e4qtfwaz': {
       'fi': 'Treenitilastot',
       'en': 'Workout Statistics',
+    },
+    'uvhkl89u': {
+      'fi': 'Premiumjäsenyys',
+      'en': 'Premium subscription',
     },
     'gax7p69h': {
       'fi': 'Language',
