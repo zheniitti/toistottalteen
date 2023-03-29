@@ -25,7 +25,7 @@ abstract class TreeniSessiotRecord
 
   bool? get isEditing;
 
-  DateTime? get lastModifiedTime;
+  DateTime? get modifiedTime;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
@@ -65,7 +65,7 @@ Map<String, dynamic> createTreeniSessiotRecordData({
   TreeniRutiiniStruct? treeniRutiiniData,
   DateTime? docCreatedTime,
   bool? isEditing,
-  DateTime? lastModifiedTime,
+  DateTime? modifiedTime,
 }) {
   final firestoreData = serializers.toFirestore(
     TreeniSessiotRecord.serializer,
@@ -78,7 +78,7 @@ Map<String, dynamic> createTreeniSessiotRecordData({
         ..docCreatedTime = docCreatedTime
         ..photos = null
         ..isEditing = isEditing
-        ..lastModifiedTime = lastModifiedTime,
+        ..modifiedTime = modifiedTime,
     ),
   );
 

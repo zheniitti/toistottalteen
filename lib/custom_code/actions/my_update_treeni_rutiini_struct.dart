@@ -60,16 +60,24 @@ Future<TreeniRutiiniStruct?> myUpdateTreeniRutiiniStruct(
       liikeList[replaceLiikeAtIndex] = replacingLiike;
     } else if (currentLiikeIndex != null && copiedLiikes != null) {
       toiminto = 'Liitä liike';
-      final List<LiikeStruct?> copiedLiikesList = copiedLiikes
-          .map<LiikeStruct?>((liike) =>
-              serializers.deserializeWith(LiikeStruct.serializer, liike))
-          .toList();
+      final Iterable<LiikeStruct> copiedLiikesList =
+          copiedLiikes.map<LiikeStruct>(
+        (liikeMap) {
+          LiikeStruct? liikeStruct;
+          try {
+            liikeStruct =
+                serializers.deserializeWith(LiikeStruct.serializer, liikeMap);
+          } on Exception catch (e) {
+            print('Error: $toiminto epäonnistui: $e');
+          }
+          return liikeStruct ??
+              createLiikeStruct(createdTime: getCurrentTimestamp, create: true);
+        },
+      ).toList();
       if (pasteToAbove != null && pasteToAbove) {
-        liikeList.insertAll(
-            currentLiikeIndex, copiedLiikesList as Iterable<LiikeStruct>);
+        liikeList.insertAll(currentLiikeIndex, copiedLiikesList);
       } else if (pasteToBelow != null && pasteToBelow) {
-        liikeList.insertAll(
-            currentLiikeIndex + 1, copiedLiikesList as Iterable<LiikeStruct>);
+        liikeList.insertAll(currentLiikeIndex + 1, copiedLiikesList);
       }
     }
   } on Exception catch (e) {
@@ -86,7 +94,6 @@ Future<TreeniRutiiniStruct?> myUpdateTreeniRutiiniStruct(
     ..valitutViikonPaivat = valitutViikonPaivat != null
         ? valitutViikonPaivat.toBuilder()
         : treeniRutiini.valitutViikonPaivat.toBuilder()
-    ..lastWorkoutTime = lastWorkoutTime ?? treeniRutiini.lastWorkoutTime
     ..isTreeniPohja = isTreeniPohja ?? treeniRutiini.isTreeniPohja
     ..finishedEditing = finishedEditing ?? treeniRutiini.finishedEditing;
 

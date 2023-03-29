@@ -58,6 +58,7 @@ Future updateUserDocLiikeAtIndex(
       matkaMetreina ?? liikeFirestoreData['matkaMetri'];
   liikeFirestoreData['kestoSekunteina'] =
       kestoSekunteina ?? liikeFirestoreData['kestoSekunteina'];
+  liikeFirestoreData['modifiedTime'] = getCurrentTimestamp;
 
   rutiiniFirestoreData['liikkeet'][liikeIndex] = liikeFirestoreData;
   rutiinitListaFirestoreData[rutiiniIndex] = rutiiniFirestoreData;

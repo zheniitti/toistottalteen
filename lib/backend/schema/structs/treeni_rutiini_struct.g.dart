@@ -71,13 +71,6 @@ class _$TreeniRutiiniStructSerializer
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
-    value = object.lastWorkoutTime;
-    if (value != null) {
-      result
-        ..add('lastWorkoutTime')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(DateTime)));
-    }
     value = object.modifiedTime;
     if (value != null) {
       result
@@ -126,10 +119,6 @@ class _$TreeniRutiiniStructSerializer
           result.finishedEditing = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
           break;
-        case 'lastWorkoutTime':
-          result.lastWorkoutTime = serializers.deserialize(value,
-              specifiedType: const FullType(DateTime)) as DateTime?;
-          break;
         case 'valitutViikonPaivat':
           result.valitutViikonPaivat.replace(serializers.deserialize(value,
                   specifiedType: const FullType(ValitutViikonPaivatStruct))!
@@ -165,8 +154,6 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
   @override
   final bool? finishedEditing;
   @override
-  final DateTime? lastWorkoutTime;
-  @override
   final ValitutViikonPaivatStruct valitutViikonPaivat;
   @override
   final DateTime? modifiedTime;
@@ -184,7 +171,6 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
       required this.liikkeet,
       this.isTreeniPohja,
       this.finishedEditing,
-      this.lastWorkoutTime,
       required this.valitutViikonPaivat,
       this.modifiedTime,
       required this.firestoreUtilData})
@@ -216,7 +202,6 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
         liikkeet == other.liikkeet &&
         isTreeniPohja == other.isTreeniPohja &&
         finishedEditing == other.finishedEditing &&
-        lastWorkoutTime == other.lastWorkoutTime &&
         valitutViikonPaivat == other.valitutViikonPaivat &&
         modifiedTime == other.modifiedTime &&
         firestoreUtilData == other.firestoreUtilData;
@@ -231,7 +216,6 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
     _$hash = $jc(_$hash, liikkeet.hashCode);
     _$hash = $jc(_$hash, isTreeniPohja.hashCode);
     _$hash = $jc(_$hash, finishedEditing.hashCode);
-    _$hash = $jc(_$hash, lastWorkoutTime.hashCode);
     _$hash = $jc(_$hash, valitutViikonPaivat.hashCode);
     _$hash = $jc(_$hash, modifiedTime.hashCode);
     _$hash = $jc(_$hash, firestoreUtilData.hashCode);
@@ -248,7 +232,6 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
           ..add('liikkeet', liikkeet)
           ..add('isTreeniPohja', isTreeniPohja)
           ..add('finishedEditing', finishedEditing)
-          ..add('lastWorkoutTime', lastWorkoutTime)
           ..add('valitutViikonPaivat', valitutViikonPaivat)
           ..add('modifiedTime', modifiedTime)
           ..add('firestoreUtilData', firestoreUtilData))
@@ -288,11 +271,6 @@ class TreeniRutiiniStructBuilder
   set finishedEditing(bool? finishedEditing) =>
       _$this._finishedEditing = finishedEditing;
 
-  DateTime? _lastWorkoutTime;
-  DateTime? get lastWorkoutTime => _$this._lastWorkoutTime;
-  set lastWorkoutTime(DateTime? lastWorkoutTime) =>
-      _$this._lastWorkoutTime = lastWorkoutTime;
-
   ValitutViikonPaivatStructBuilder? _valitutViikonPaivat;
   ValitutViikonPaivatStructBuilder get valitutViikonPaivat =>
       _$this._valitutViikonPaivat ??= new ValitutViikonPaivatStructBuilder();
@@ -323,7 +301,6 @@ class TreeniRutiiniStructBuilder
       _liikkeet = $v.liikkeet.toBuilder();
       _isTreeniPohja = $v.isTreeniPohja;
       _finishedEditing = $v.finishedEditing;
-      _lastWorkoutTime = $v.lastWorkoutTime;
       _valitutViikonPaivat = $v.valitutViikonPaivat.toBuilder();
       _modifiedTime = $v.modifiedTime;
       _firestoreUtilData = $v.firestoreUtilData;
@@ -357,7 +334,6 @@ class TreeniRutiiniStructBuilder
               liikkeet: liikkeet.build(),
               isTreeniPohja: isTreeniPohja,
               finishedEditing: finishedEditing,
-              lastWorkoutTime: lastWorkoutTime,
               valitutViikonPaivat: valitutViikonPaivat.build(),
               modifiedTime: modifiedTime,
               firestoreUtilData: BuiltValueNullFieldError.checkNotNull(

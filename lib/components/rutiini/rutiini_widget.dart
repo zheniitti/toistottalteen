@@ -617,7 +617,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                   ],
                 ),
                 Container(
-                  height: 200.0,
+                  decoration: BoxDecoration(),
                   child: Visibility(
                     visible: widget.rutiini?.nimi != null &&
                             widget.rutiini?.nimi != ''

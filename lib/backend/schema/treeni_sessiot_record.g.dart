@@ -73,10 +73,10 @@ class _$TreeniSessiotRecordSerializer
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
-    value = object.lastModifiedTime;
+    value = object.modifiedTime;
     if (value != null) {
       result
-        ..add('lastModifiedTime')
+        ..add('modifiedTime')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(DateTime)));
     }
@@ -136,8 +136,8 @@ class _$TreeniSessiotRecordSerializer
           result.isEditing = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
           break;
-        case 'lastModifiedTime':
-          result.lastModifiedTime = serializers.deserialize(value,
+        case 'modifiedTime':
+          result.modifiedTime = serializers.deserialize(value,
               specifiedType: const FullType(DateTime)) as DateTime?;
           break;
         case 'Document__Reference__Field':
@@ -169,7 +169,7 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
   @override
   final bool? isEditing;
   @override
-  final DateTime? lastModifiedTime;
+  final DateTime? modifiedTime;
   @override
   final DocumentReference<Object?>? ffRef;
 
@@ -185,7 +185,7 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
       this.docCreatedTime,
       this.photos,
       this.isEditing,
-      this.lastModifiedTime,
+      this.modifiedTime,
       this.ffRef})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -212,7 +212,7 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
         docCreatedTime == other.docCreatedTime &&
         photos == other.photos &&
         isEditing == other.isEditing &&
-        lastModifiedTime == other.lastModifiedTime &&
+        modifiedTime == other.modifiedTime &&
         ffRef == other.ffRef;
   }
 
@@ -226,7 +226,7 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
     _$hash = $jc(_$hash, docCreatedTime.hashCode);
     _$hash = $jc(_$hash, photos.hashCode);
     _$hash = $jc(_$hash, isEditing.hashCode);
-    _$hash = $jc(_$hash, lastModifiedTime.hashCode);
+    _$hash = $jc(_$hash, modifiedTime.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -242,7 +242,7 @@ class _$TreeniSessiotRecord extends TreeniSessiotRecord {
           ..add('docCreatedTime', docCreatedTime)
           ..add('photos', photos)
           ..add('isEditing', isEditing)
-          ..add('lastModifiedTime', lastModifiedTime)
+          ..add('modifiedTime', modifiedTime)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -284,10 +284,10 @@ class TreeniSessiotRecordBuilder
   bool? get isEditing => _$this._isEditing;
   set isEditing(bool? isEditing) => _$this._isEditing = isEditing;
 
-  DateTime? _lastModifiedTime;
-  DateTime? get lastModifiedTime => _$this._lastModifiedTime;
-  set lastModifiedTime(DateTime? lastModifiedTime) =>
-      _$this._lastModifiedTime = lastModifiedTime;
+  DateTime? _modifiedTime;
+  DateTime? get modifiedTime => _$this._modifiedTime;
+  set modifiedTime(DateTime? modifiedTime) =>
+      _$this._modifiedTime = modifiedTime;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
@@ -307,7 +307,7 @@ class TreeniSessiotRecordBuilder
       _docCreatedTime = $v.docCreatedTime;
       _photos = $v.photos?.toBuilder();
       _isEditing = $v.isEditing;
-      _lastModifiedTime = $v.lastModifiedTime;
+      _modifiedTime = $v.modifiedTime;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -340,7 +340,7 @@ class TreeniSessiotRecordBuilder
               docCreatedTime: docCreatedTime,
               photos: _photos?.build(),
               isEditing: isEditing,
-              lastModifiedTime: lastModifiedTime,
+              modifiedTime: modifiedTime,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;

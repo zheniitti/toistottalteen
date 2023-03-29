@@ -76,7 +76,7 @@ Future updateTreenisessiotRecord(
     if (!(rutiini == null && sessiotRecord?.treeniRutiiniData == null))
       'treeniRutiiniData': rutiiniFirestoreData,
     if (isEditing != null) 'isEditing': isEditing,
-    if (lastModifiedTime != null) 'lastModifiedTime': lastModifiedTime,
+    'modifiedTime': lastModifiedTime,
   };
 
   if (sessiotRecord != null)

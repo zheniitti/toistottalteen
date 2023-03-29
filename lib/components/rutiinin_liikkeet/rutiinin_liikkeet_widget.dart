@@ -192,50 +192,33 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                     verticalDirection: VerticalDirection.down,
                                     clipBehavior: Clip.none,
                                     children: [
-                                      Container(
-                                        width: 300.0,
-                                        constraints: BoxConstraints(
-                                          maxWidth: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.6,
-                                        ),
-                                        decoration: BoxDecoration(),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 20.0, 0.0),
-                                          child: wrapWithModel(
-                                            model: _model
-                                                .rutiininLiikeNimiTextfieldModels
-                                                .getModel(
-                                              random_data.randomString(
-                                                10,
-                                                10,
-                                                true,
-                                                false,
-                                                false,
-                                              ),
-                                              liikkeetIndex,
-                                            ),
-                                            updateCallback: () =>
-                                                setState(() {}),
-                                            child:
-                                                RutiininLiikeNimiTextfieldWidget(
-                                              key: Key(
-                                                'Key8jh_${random_data.randomString(
-                                                  10,
-                                                  10,
-                                                  true,
-                                                  false,
-                                                  false,
-                                                )}',
-                                              ),
-                                              liikeIndex: liikkeetIndex,
-                                              rutiini: widget.rutiini,
-                                              liike: liikkeetItem,
-                                            ),
+                                      wrapWithModel(
+                                        model: _model
+                                            .rutiininLiikeNimiTextfieldModels
+                                            .getModel(
+                                          random_data.randomString(
+                                            10,
+                                            10,
+                                            true,
+                                            false,
+                                            false,
                                           ),
+                                          liikkeetIndex,
+                                        ),
+                                        updateCallback: () => setState(() {}),
+                                        child: RutiininLiikeNimiTextfieldWidget(
+                                          key: Key(
+                                            'Key8jh_${random_data.randomString(
+                                              10,
+                                              10,
+                                              true,
+                                              false,
+                                              false,
+                                            )}',
+                                          ),
+                                          liikeIndex: liikkeetIndex,
+                                          rutiini: widget.rutiini,
+                                          liike: liikkeetItem,
                                         ),
                                       ),
                                       InkWell(

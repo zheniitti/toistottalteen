@@ -68,6 +68,7 @@ Future<LiikeStruct?> myUpdateLiikeStruct(
   }
 
   final updatedLiike = liike.toBuilder()
+    ..modifiedTime = getCurrentTimestamp
     ..firestoreUtilData =
         FirestoreUtilData(clearUnsetFields: false, create: true)
     ..createdTime = createdTime ?? liike.createdTime

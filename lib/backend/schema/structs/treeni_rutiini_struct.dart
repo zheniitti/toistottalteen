@@ -23,8 +23,6 @@ abstract class TreeniRutiiniStruct
 
   bool? get finishedEditing;
 
-  DateTime? get lastWorkoutTime;
-
   ValitutViikonPaivatStruct get valitutViikonPaivat;
 
   DateTime? get modifiedTime;
@@ -53,7 +51,6 @@ TreeniRutiiniStruct createTreeniRutiiniStruct({
   String? kommentti,
   bool? isTreeniPohja,
   bool? finishedEditing,
-  DateTime? lastWorkoutTime,
   ValitutViikonPaivatStruct? valitutViikonPaivat,
   DateTime? modifiedTime,
   Map<String, dynamic> fieldValues = const {},
@@ -69,7 +66,6 @@ TreeniRutiiniStruct createTreeniRutiiniStruct({
         ..liikkeet = null
         ..isTreeniPohja = isTreeniPohja
         ..finishedEditing = finishedEditing
-        ..lastWorkoutTime = lastWorkoutTime
         ..valitutViikonPaivat = valitutViikonPaivat?.toBuilder() ??
             ValitutViikonPaivatStructBuilder()
         ..modifiedTime = modifiedTime

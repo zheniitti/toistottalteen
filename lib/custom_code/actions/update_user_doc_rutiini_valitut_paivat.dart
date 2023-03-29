@@ -42,7 +42,8 @@ Future updateUserDocRutiiniValitutPaivat(
     valitutViikonPaivat['la'] = toggleLa ?? !valitutViikonPaivat['la'];
     valitutViikonPaivat['su'] = toggleSu ?? !valitutViikonPaivat['su'];
 
-    rutiiniFirestoreData['valitutPaivat'] = valitutViikonPaivat;
+    rutiiniFirestoreData['valitutPaivat'] = valitutViikonPaivat
+      ..['modifiedTime'] = getCurrentTimestamp;
     rutiinitListaFirestoreData[rutiiniIndex] = rutiiniFirestoreData;
     await currentUserReference!
         .update({'treeniRutiinit': rutiinitListaFirestoreData});
