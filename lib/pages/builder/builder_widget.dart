@@ -53,7 +53,7 @@ class _BuilderWidgetState extends State<BuilderWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+        backgroundColor: FlutterFlowTheme.of(context).primary,
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -75,9 +75,9 @@ class _BuilderWidgetState extends State<BuilderWidget> {
           FFLocalizations.of(context).getText(
             'v1rlq3l4' /* Rakennellaan ja kokeillaan eri... */,
           ),
-          style: FlutterFlowTheme.of(context).bodyText1.override(
+          style: FlutterFlowTheme.of(context).bodyMedium.override(
                 fontFamily: 'Roboto',
-                color: FlutterFlowTheme.of(context).secondaryColor,
+                color: FlutterFlowTheme.of(context).secondary,
               ),
         ),
         actions: [],
@@ -116,7 +116,7 @@ class _BuilderWidgetState extends State<BuilderWidget> {
                               FFLocalizations.of(context).getText(
                                 'v217xhtu' /* Ylävartalotreeni */,
                               ),
-                              style: FlutterFlowTheme.of(context).subtitle2,
+                              style: FlutterFlowTheme.of(context).titleSmall,
                             ),
                             RichText(
                               text: TextSpan(
@@ -134,7 +134,7 @@ class _BuilderWidgetState extends State<BuilderWidget> {
                                     style: TextStyle(),
                                   )
                                 ],
-                                style: FlutterFlowTheme.of(context).bodyText1,
+                                style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
                           ],
@@ -244,7 +244,7 @@ class _BuilderWidgetState extends State<BuilderWidget> {
                           FFLocalizations.of(context).languageCode,
                           'ast',
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1,
+                        style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ),
                   ),
@@ -308,16 +308,14 @@ class _BuilderWidgetState extends State<BuilderWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).tertiaryColor,
-                        textStyle: FlutterFlowTheme.of(context)
-                            .subtitle1
-                            .override(
-                              fontFamily: 'Outfit',
-                              color:
-                                  FlutterFlowTheme.of(context).secondaryColor,
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.w500,
-                            ),
+                        color: FlutterFlowTheme.of(context).tertiary,
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleMedium.override(
+                                  fontFamily: 'Outfit',
+                                  color: FlutterFlowTheme.of(context).secondary,
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
                         elevation: 1.0,
                         borderSide: BorderSide(
                           color: Colors.transparent,

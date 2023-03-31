@@ -287,7 +287,7 @@ class _SivuTreenaaKomponenttiWidgetState
                       width: 160.0,
                       height: 50.0,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).primaryColor,
+                        color: FlutterFlowTheme.of(context).primary,
                         borderRadius: BorderRadius.circular(16.0),
                       ),
                       child: Row(
@@ -299,8 +299,7 @@ class _SivuTreenaaKomponenttiWidgetState
                                 0.0, 0.0, 8.0, 0.0),
                             child: Icon(
                               Icons.add_rounded,
-                              color:
-                                  FlutterFlowTheme.of(context).secondaryColor,
+                              color: FlutterFlowTheme.of(context).secondary,
                               size: 30.0,
                             ),
                           ),
@@ -312,11 +311,11 @@ class _SivuTreenaaKomponenttiWidgetState
                                 '44rq35vd' /* Lisää  liike */,
                               ),
                               style: FlutterFlowTheme.of(context)
-                                  .subtitle2
+                                  .titleSmall
                                   .override(
                                     fontFamily: 'Roboto',
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryColor,
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
                                   ),
                             ),
                           ),
@@ -367,7 +366,7 @@ class _SivuTreenaaKomponenttiWidgetState
                             'hr61kg7a' /* Sinulla ei ole keskeneräistä t... */,
                           ),
                           textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context).subtitle1,
+                          style: FlutterFlowTheme.of(context).titleMedium,
                         ),
                       ),
                       Padding(
@@ -434,15 +433,15 @@ class _SivuTreenaaKomponenttiWidgetState
                                 0.0, 0.0, 0.0, 0.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primaryColor,
-                            textStyle:
-                                FlutterFlowTheme.of(context).subtitle1.override(
-                                      fontFamily: 'Outfit',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryColor,
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .override(
+                                  fontFamily: 'Outfit',
+                                  color: FlutterFlowTheme.of(context).secondary,
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
                             elevation: 1.0,
                             borderSide: BorderSide(
                               color: Colors.transparent,

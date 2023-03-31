@@ -238,7 +238,7 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                               '29oo50bm' /* Liikkeen nimi */,
                             ),
                             hintStyle:
-                                FlutterFlowTheme.of(context).bodyText2.override(
+                                FlutterFlowTheme.of(context).bodySmall.override(
                                       fontFamily: 'Roboto',
                                       fontSize: 18.0,
                                       lineHeight: 1.0,
@@ -287,7 +287,7 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                                 0.0, 0.0, 0.0, 2.0),
                           ),
                           style:
-                              FlutterFlowTheme.of(context).subtitle1.override(
+                              FlutterFlowTheme.of(context).titleMedium.override(
                                     fontFamily: 'Outfit',
                                     lineHeight: 1.0,
                                   ),
@@ -379,7 +379,7 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                                 'l7w663ju' /* Kommentti (vapaaehtoinen) */,
                               ),
                               hintStyle: FlutterFlowTheme.of(context)
-                                  .bodyText2
+                                  .bodySmall
                                   .override(
                                     fontFamily: 'Roboto',
                                     fontSize: 14.0,
@@ -428,13 +428,14 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                               contentPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 2.0, 0.0, 2.0),
                             ),
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Roboto',
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.normal,
-                                      lineHeight: 1.0,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Roboto',
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.normal,
+                                  lineHeight: 1.0,
+                                ),
                             textAlign: TextAlign.start,
                             maxLines: 20,
                             minLines: 1,
@@ -461,6 +462,7 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                             logFirebaseEvent('Icon_more_bottom_sheet');
                             showModalBottomSheet(
                               isScrollControlled: true,
+                              backgroundColor: Color(0x00FFFFFF),
                               context: context,
                               builder: (context) {
                                 return Padding(
@@ -475,7 +477,7 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                           },
                           child: Icon(
                             Icons.more_vert_rounded,
-                            color: FlutterFlowTheme.of(context).primaryColor,
+                            color: FlutterFlowTheme.of(context).primary,
                             size: 24.0,
                           ),
                         ),
@@ -531,7 +533,7 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                                             sarja: sarjatItem,
                                           ),
                                         ),
-                                      if (valueOrDefault<bool>(
+                                      if (!valueOrDefault<bool>(
                                         widget.liike?.isOtherExerciseType,
                                         true,
                                       ))
@@ -557,13 +559,13 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText2
+                                                      .bodySmall
                                                       .override(
                                                         fontFamily: 'Roboto',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primaryColor,
+                                                                .primary,
                                                         fontSize: 12.0,
                                                       ),
                                                 ),
@@ -594,7 +596,7 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily: 'Roboto',
                                                         fontSize: 12.0,
@@ -647,7 +649,7 @@ sarja */
                                               ],
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily: 'Roboto',
                                                         fontSize: 12.0,
@@ -840,7 +842,7 @@ sarja */
                           FFLocalizations.of(context).getText(
                             'dxvry4te' /* Lisää sarja */,
                           ),
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ],
                     ),
@@ -915,7 +917,7 @@ sarja */
                           FFLocalizations.of(context).getText(
                             'rrk6y01u' /* Tehty */,
                           ),
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                         Container(
                           width: 30.0,

@@ -47,7 +47,7 @@ class _ActionsToCopyWidgetState extends State<ActionsToCopyWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+        backgroundColor: FlutterFlowTheme.of(context).primary,
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
@@ -69,7 +69,7 @@ class _ActionsToCopyWidgetState extends State<ActionsToCopyWidget> {
           FFLocalizations.of(context).getText(
             '0r18smyh' /* Page Title */,
           ),
-          style: FlutterFlowTheme.of(context).title2.override(
+          style: FlutterFlowTheme.of(context).headlineMedium.override(
                 fontFamily: 'Outfit',
                 color: Colors.white,
                 fontSize: 22.0,
@@ -114,8 +114,7 @@ class _ActionsToCopyWidgetState extends State<ActionsToCopyWidget> {
                                   enText: '🙁This function doesn\'t work yet',
                                 ),
                                 style: TextStyle(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryColor,
+                                  color: FlutterFlowTheme.of(context).secondary,
                                 ),
                               ),
                               duration: Duration(milliseconds: 4000),
@@ -129,14 +128,14 @@ class _ActionsToCopyWidgetState extends State<ActionsToCopyWidget> {
 🙁 tämä toiminto ... */
                             ,
                           ),
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ),
                       Text(
                         FFLocalizations.of(context).getText(
                           '2f5jkjle' /* updateRutiini nimi */,
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1,
+                        style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ],
                   ),

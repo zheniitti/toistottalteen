@@ -88,7 +88,7 @@ class _RutiininLiikeKommenttiTextfieldWidgetState
         hintText: FFLocalizations.of(context).getText(
           'jc8zfh0n' /* Kommentti 💬 */,
         ),
-        hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
+        hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
               fontFamily: 'Roboto',
               fontSize: 14.0,
               fontWeight: FontWeight.w300,
@@ -135,7 +135,7 @@ class _RutiininLiikeKommenttiTextfieldWidgetState
         ),
         contentPadding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 2.0),
       ),
-      style: FlutterFlowTheme.of(context).bodyText1.override(
+      style: FlutterFlowTheme.of(context).bodyMedium.override(
             fontFamily: 'Roboto',
             fontWeight: FontWeight.w300,
           ),

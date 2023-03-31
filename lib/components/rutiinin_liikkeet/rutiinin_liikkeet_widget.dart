@@ -247,6 +247,8 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                 'Column_sarjatToistotMuut_bottom_sheet');
                                             showModalBottomSheet(
                                               isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
                                               enableDrag: false,
                                               context: context,
                                               builder: (context) {
@@ -297,7 +299,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                           .toString(),
                                                       style: FlutterFlowTheme
                                                               .of(context)
-                                                          .bodyText1
+                                                          .bodyMedium
                                                           .override(
                                                             fontFamily:
                                                                 'Roboto',
@@ -314,7 +316,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                       ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
-                                                          .bodyText1
+                                                          .bodyMedium
                                                           .override(
                                                             fontFamily:
                                                                 'Roboto',
@@ -328,7 +330,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .subtitle2
+                                                              .titleSmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Roboto',
@@ -341,7 +343,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                           .toString(),
                                                       style: FlutterFlowTheme
                                                               .of(context)
-                                                          .bodyText1
+                                                          .bodyMedium
                                                           .override(
                                                             fontFamily:
                                                                 'Roboto',
@@ -357,7 +359,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                       ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
-                                                          .bodyText1
+                                                          .bodyMedium
                                                           .override(
                                                             fontFamily:
                                                                 'Roboto',
@@ -371,7 +373,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                           .toString(),
                                                       style: FlutterFlowTheme
                                                               .of(context)
-                                                          .bodyText1
+                                                          .bodyMedium
                                                           .override(
                                                             fontFamily:
                                                                 'Roboto',
@@ -386,7 +388,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                   ],
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1,
+                                                      .bodyMedium,
                                                 ),
                                               ),
                                             if (liikkeetItem
@@ -447,7 +449,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                                       .toString(),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Roboto',
@@ -465,7 +467,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Roboto',
@@ -478,7 +480,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                               ],
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText1,
+                                                                  .bodyMedium,
                                                             ),
                                                           ),
                                                         ),
@@ -518,7 +520,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                                       .toString(),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Roboto',
@@ -536,7 +538,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Roboto',
@@ -547,7 +549,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                               ],
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText1,
+                                                                  .bodyMedium,
                                                             ),
                                                           ),
                                                         ),
@@ -583,7 +585,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                                       .toString(),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Roboto',
@@ -609,7 +611,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                               ],
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText1,
+                                                                  .bodyMedium,
                                                             ),
                                                           ),
                                                         ),
@@ -646,7 +648,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Roboto',
@@ -669,7 +671,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                             ],
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Roboto',

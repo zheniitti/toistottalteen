@@ -171,7 +171,7 @@ class _ChooseModeWidgetState extends State<ChooseModeWidget>
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primaryColor,
+                                                        .primary,
                                                 boxShadow: [
                                                   BoxShadow(
                                                     blurRadius: 4.0,
@@ -323,13 +323,14 @@ class _ChooseModeWidgetState extends State<ChooseModeWidget>
                                   0.0, 0.0, 0.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                               textStyle: TextStyle(
                                 fontFamily: 'Satoshi',
                                 color: Color(0xFFF6F6F6),
                                 fontWeight: FontWeight.w500,
                                 fontSize: 22.0,
                               ),
+                              elevation: 2.0,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,

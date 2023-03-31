@@ -55,9 +55,9 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60.0),
         child: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+          backgroundColor: FlutterFlowTheme.of(context).primary,
           iconTheme:
-              IconThemeData(color: FlutterFlowTheme.of(context).secondaryColor),
+              IconThemeData(color: FlutterFlowTheme.of(context).secondary),
           automaticallyImplyLeading: true,
           title: Column(
             mainAxisSize: MainAxisSize.max,
@@ -72,9 +72,9 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                     FFLocalizations.of(context).getText(
                       'bqg6mosw' /* Takaisin */,
                     ),
-                    style: FlutterFlowTheme.of(context).subtitle2.override(
+                    style: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Roboto',
-                          color: FlutterFlowTheme.of(context).secondaryColor,
+                          color: FlutterFlowTheme.of(context).secondary,
                         ),
                   ),
                 ),
@@ -102,7 +102,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                       FFLocalizations.of(context).getText(
                         'cdee2yci' /* Lähetämme sinulle sähköpostin,... */,
                       ),
-                      style: FlutterFlowTheme.of(context).bodyText2.override(
+                      style: FlutterFlowTheme.of(context).bodySmall.override(
                             fontFamily: 'Outfit',
                             color: Color(0xFF57636C),
                             fontSize: 14.0,
@@ -137,7 +137,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                   labelText: FFLocalizations.of(context).getText(
                     'lsgkuu2w' /* Sähköpostiosoite */,
                   ),
-                  labelStyle: FlutterFlowTheme.of(context).bodyText2.override(
+                  labelStyle: FlutterFlowTheme.of(context).bodySmall.override(
                         fontFamily: 'Outfit',
                         color: Color(0xFF57636C),
                         fontSize: 14.0,
@@ -146,7 +146,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                   hintText: FFLocalizations.of(context).getText(
                     'skvsfyrg' /*  */,
                   ),
-                  hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                  hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Lexend Deca',
                         color: Color(0xFF57636C),
                         fontSize: 14.0,
@@ -185,7 +185,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                   contentPadding:
                       EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 20.0, 24.0),
                 ),
-                style: FlutterFlowTheme.of(context).bodyText1.override(
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Outfit',
                       color: Color(0xFF0F1113),
                       fontSize: 14.0,
@@ -212,7 +212,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: Color(0xFF0F1113),
-                textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                       fontFamily: 'Outfit',
                       color: Colors.white,
                       fontSize: 16.0,

@@ -116,7 +116,7 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
 
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+      backgroundColor: FlutterFlowTheme.of(context).primary,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
@@ -234,13 +234,14 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
                                             EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                         textStyle: TextStyle(
                                           fontFamily: 'Satoshi',
                                           color: Color(0xFFF6F6F6),
                                           fontWeight: FontWeight.w500,
                                           fontSize: 19.0,
                                         ),
+                                        elevation: 2.0,
                                         borderSide: BorderSide(
                                           color: Colors.transparent,
                                           width: 1.0,

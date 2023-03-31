@@ -389,3 +389,8 @@ double doubleDurationInSecondsFromStarAndEnd(
   if (start == null || end == null) return 0;
   return end.difference(start).inSeconds.toDouble();
 }
+
+double? allDurationInSecondsFromSessioDocs(
+    List<TreeniSessiotRecord>? sessioDocs) {
+  return 0.0;
+}

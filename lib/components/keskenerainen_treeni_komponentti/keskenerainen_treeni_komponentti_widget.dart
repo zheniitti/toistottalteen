@@ -153,7 +153,7 @@ class _KeskenerainenTreeniKomponenttiWidgetState
                       FFLocalizations.of(context).getText(
                         'tghu42c9' /* Sinulla on keskeneräinen treen... */,
                       ),
-                      style: FlutterFlowTheme.of(context).title3,
+                      style: FlutterFlowTheme.of(context).headlineSmall,
                     ),
                   ),
                 ],
@@ -182,7 +182,7 @@ class _KeskenerainenTreeniKomponenttiWidgetState
                       children: [
                         Text(
                           widget.sessio!.treeniRutiiniData.nimi!,
-                          style: FlutterFlowTheme.of(context).subtitle2,
+                          style: FlutterFlowTheme.of(context).titleSmall,
                         ),
                         RichText(
                           text: TextSpan(
@@ -203,7 +203,7 @@ class _KeskenerainenTreeniKomponenttiWidgetState
                                 style: TextStyle(),
                               )
                             ],
-                            style: FlutterFlowTheme.of(context).bodyText1,
+                            style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
                       ],
@@ -268,12 +268,13 @@ class _KeskenerainenTreeniKomponenttiWidgetState
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primaryColor,
+                        color: FlutterFlowTheme.of(context).primary,
                         textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
+                            FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Roboto',
                                   color: Colors.white,
                                 ),
+                        elevation: 2.0,
                         borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1.0,
@@ -300,12 +301,13 @@ class _KeskenerainenTreeniKomponenttiWidgetState
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).tertiaryColor,
+                        color: FlutterFlowTheme.of(context).tertiary,
                         textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
+                            FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Roboto',
                                   color: Colors.white,
                                 ),
+                        elevation: 2.0,
                         borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1.0,

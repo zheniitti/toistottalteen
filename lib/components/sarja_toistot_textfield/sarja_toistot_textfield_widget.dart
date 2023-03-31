@@ -144,7 +144,7 @@ class _SarjaToistotTextfieldWidgetState
         hintText: FFLocalizations.of(context).getText(
           'yylnuo9q' /* 0 */,
         ),
-        hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
+        hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
               fontFamily: 'Roboto',
               fontSize: 20.0,
             ),
@@ -157,7 +157,7 @@ class _SarjaToistotTextfieldWidgetState
         ),
         focusedBorder: UnderlineInputBorder(
           borderSide: BorderSide(
-            color: FlutterFlowTheme.of(context).primaryColor,
+            color: FlutterFlowTheme.of(context).primary,
             width: 1.0,
           ),
           borderRadius: BorderRadius.circular(8.0),
@@ -177,7 +177,7 @@ class _SarjaToistotTextfieldWidgetState
           borderRadius: BorderRadius.circular(8.0),
         ),
       ),
-      style: FlutterFlowTheme.of(context).title3,
+      style: FlutterFlowTheme.of(context).headlineSmall,
       textAlign: TextAlign.center,
       keyboardType: TextInputType.number,
       validator: _model.textControllerValidator.asValidator(context),

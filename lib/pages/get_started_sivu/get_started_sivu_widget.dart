@@ -102,7 +102,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
         parameters: {'screen_name': 'getStarted_sivu'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('GET_STARTED_SIVU_getStarted_sivu_ON_LOAD');
+      logFirebaseEvent('GET_STARTED_SIVU_getStarted_sivu_ON_INIT');
       logFirebaseEvent('getStarted_sivu_set_dark_mode_settings');
       setDarkModeSetting(context, ThemeMode.light);
     });
@@ -157,7 +157,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                             width: 50.0,
                             height: 50.0,
                             child: SpinKitCircle(
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                               size: 50.0,
                             ),
                           ),
@@ -274,7 +274,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                         textStyle: FlutterFlowTheme.of(context)
-                                            .subtitle1
+                                            .titleMedium
                                             .override(
                                               fontFamily: 'Outfit',
                                               fontSize: 20.0,
@@ -343,7 +343,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                             'rwzc4awh' /* tai */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .subtitle1
+                                              .titleMedium
                                               .override(
                                                 fontFamily: 'Outfit',
                                                 color: Color(0xFFDADADA),
@@ -408,12 +408,12 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                             'ywa91ouh' /* Jatka ilman kirjautumista */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .subtitle1
+                                              .titleMedium
                                               .override(
                                                 fontFamily: 'Outfit',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryColor,
+                                                        .secondary,
                                                 fontSize: 20.0,
                                                 fontWeight: FontWeight.w500,
                                               ),

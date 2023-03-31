@@ -203,7 +203,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'paasivu'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('PAASIVU_PAGE_paasivu_ON_PAGE_LOAD');
+      logFirebaseEvent('PAASIVU_PAGE_paasivu_ON_INIT_STATE');
       logFirebaseEvent('paasivu_set_dark_mode_settings');
       setDarkModeSetting(context, ThemeMode.light);
       logFirebaseEvent('paasivu_update_app_state');
@@ -250,7 +250,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
               width: 40.0,
               height: 40.0,
               child: CircularProgressIndicator(
-                color: FlutterFlowTheme.of(context).primaryColor,
+                color: FlutterFlowTheme.of(context).primary,
               ),
             ),
           );
@@ -268,7 +268,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
               onPressed: () {
                 print('FloatingActionButton pressed ...');
               },
-              backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+              backgroundColor: FlutterFlowTheme.of(context).primary,
               icon: Icon(
                 Icons.add,
               ),
@@ -277,9 +277,9 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                 FFLocalizations.of(context).getText(
                   't1qezc6y' /* Luo treenirutiini */,
                 ),
-                style: FlutterFlowTheme.of(context).bodyText1.override(
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Roboto',
-                      color: FlutterFlowTheme.of(context).secondaryColor,
+                      color: FlutterFlowTheme.of(context).secondary,
                     ),
               ),
             ),
@@ -294,7 +294,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
           ),
           appBar: false
               ? AppBar(
-                  backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+                  backgroundColor: FlutterFlowTheme.of(context).primary,
                   automaticallyImplyLeading: true,
                   title: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -317,11 +317,11 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                     'd9b3r5r8' /* Aikaa kulunut: */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
-                                      .subtitle1
+                                      .titleMedium
                                       .override(
                                         fontFamily: 'Outfit',
                                         color: FlutterFlowTheme.of(context)
-                                            .secondaryColor,
+                                            .secondary,
                                       ),
                                 ),
                                 Padding(
@@ -343,11 +343,11 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                     },
                                     textAlign: TextAlign.start,
                                     style: FlutterFlowTheme.of(context)
-                                        .subtitle2
+                                        .titleSmall
                                         .override(
                                           fontFamily: 'Roboto',
                                           color: FlutterFlowTheme.of(context)
-                                              .secondaryColor,
+                                              .secondary,
                                         ),
                                   ),
                                 ),
@@ -367,8 +367,8 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                 children: [
                                   Icon(
                                     Icons.not_started_rounded,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryColor,
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
                                     size: 30.0,
                                   ),
                                   Padding(
@@ -388,12 +388,12 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                               'hwbly3hr' /* Aloita ajanotto */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyText1
+                                                .bodyMedium
                                                 .override(
                                                   fontFamily: 'Roboto',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .secondaryColor,
+                                                      .secondary,
                                                   fontSize: 14.0,
                                                 ),
                                           ),
@@ -440,7 +440,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                               }(),
                             ),
                             hintStyle:
-                                FlutterFlowTheme.of(context).bodyText2.override(
+                                FlutterFlowTheme.of(context).bodySmall.override(
                                       fontFamily: 'Roboto',
                                       color: Color(0x81FFFFFF),
                                       fontSize: 16.0,
@@ -477,8 +477,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                 13.0, 13.0, 13.0, 13.0),
                             prefixIcon: Icon(
                               Icons.search_rounded,
-                              color:
-                                  FlutterFlowTheme.of(context).secondaryColor,
+                              color: FlutterFlowTheme.of(context).secondary,
                               size: 24.0,
                             ),
                             suffixIcon: _model.textController2!.text.isNotEmpty
@@ -493,7 +492,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                   null &&
                                               FFAppState().searchbarText != ''
                                           ? FlutterFlowTheme.of(context)
-                                              .secondaryColor
+                                              .secondary
                                           : Colors.transparent,
                                       size: 24.0,
                                     ),
@@ -501,11 +500,10 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                 : null,
                           ),
                           style: FlutterFlowTheme.of(context)
-                              .subtitle2
+                              .titleSmall
                               .override(
                                 fontFamily: 'Roboto',
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryColor,
+                                color: FlutterFlowTheme.of(context).secondary,
                                 fontWeight: FontWeight.normal,
                               ),
                           validator: _model.textController2Validator
@@ -550,8 +548,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                               children: [
                                 Icon(
                                   Icons.stop_circle_rounded,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryColor,
+                                  color: FlutterFlowTheme.of(context).secondary,
                                   size: 30.0,
                                 ),
                                 Padding(
@@ -569,12 +566,12 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                             'wbg0l8iz' /* Lopeta treeni */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily: 'Roboto',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryColor,
+                                                        .secondary,
                                                 fontSize: 12.0,
                                               ),
                                         ),
@@ -612,7 +609,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                         width: 50.0,
                         height: 50.0,
                         child: SpinKitCircle(
-                          color: FlutterFlowTheme.of(context).primaryColor,
+                          color: FlutterFlowTheme.of(context).primary,
                           size: 50.0,
                         ),
                       ),
@@ -639,6 +636,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                   Container(
                                     constraints: BoxConstraints(
                                       maxWidth: 600.0,
+                                      maxHeight: 60.0,
                                     ),
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(
@@ -660,64 +658,84 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                     ),
                                   ),
                                 Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 1.0,
                                   height:
-                                      MediaQuery.of(context).size.height * 1.0,
-                                  child: Stack(
-                                    children: [
-                                      if (FFAppState().navBarIndex == 0)
-                                        wrapWithModel(
-                                          model: _model
-                                              .sivuRutiinitKomponenttiModel,
-                                          updateCallback: () => setState(() {}),
-                                          updateOnChange: true,
-                                          child: SivuRutiinitKomponenttiWidget(
-                                            latestSessio:
-                                                containerQueryLatestSessioTreeniSessiotRecordList
-                                                            .length >
-                                                        0
-                                                    ? containerQueryLatestSessioTreeniSessiotRecordList
-                                                        .first
-                                                    : null,
+                                      revenue_cat.activeEntitlementIds.length ==
+                                              0
+                                          ? (MediaQuery.of(context)
+                                                  .size
+                                                  .height -
+                                              60 -
+                                              50)
+                                          : (MediaQuery.of(context)
+                                                  .size
+                                                  .height -
+                                              60),
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: Container(
+                                    width:
+                                        MediaQuery.of(context).size.width * 1.0,
+                                    child: Stack(
+                                      children: [
+                                        if (FFAppState().navBarIndex == 0)
+                                          wrapWithModel(
+                                            model: _model
+                                                .sivuRutiinitKomponenttiModel,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            updateOnChange: true,
+                                            child:
+                                                SivuRutiinitKomponenttiWidget(
+                                              latestSessio:
+                                                  containerQueryLatestSessioTreeniSessiotRecordList
+                                                              .length >
+                                                          0
+                                                      ? containerQueryLatestSessioTreeniSessiotRecordList
+                                                          .first
+                                                      : null,
+                                            ),
                                           ),
-                                        ),
-                                      if (FFAppState().navBarIndex == 2)
-                                        wrapWithModel(
-                                          model: _model
-                                              .sivuTreeniHistoriaKomponenttiModel,
-                                          updateCallback: () => setState(() {}),
-                                          updateOnChange: true,
-                                          child:
-                                              SivuTreeniHistoriaKomponenttiWidget(
-                                            latestSessioStreamDoc:
-                                                containerQueryLatestSessioTreeniSessiotRecordList
-                                                            .length >
-                                                        0
-                                                    ? containerQueryLatestSessioTreeniSessiotRecordList
-                                                        .first
-                                                    : null,
+                                        if (FFAppState().navBarIndex == 2)
+                                          wrapWithModel(
+                                            model: _model
+                                                .sivuTreeniHistoriaKomponenttiModel,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            updateOnChange: true,
+                                            child:
+                                                SivuTreeniHistoriaKomponenttiWidget(
+                                              latestSessioStreamDoc:
+                                                  containerQueryLatestSessioTreeniSessiotRecordList
+                                                              .length >
+                                                          0
+                                                      ? containerQueryLatestSessioTreeniSessiotRecordList
+                                                          .first
+                                                      : null,
+                                            ),
                                           ),
-                                        ),
-                                      if ((FFAppState().navBarIndex == 1) ||
-                                          FFAppState()
-                                              .showTreenaaTaiLuoRutiiniSivu)
-                                        wrapWithModel(
-                                          model:
-                                              _model.sivuTreenaaOmponenttiModel,
-                                          updateCallback: () => setState(() {}),
-                                          updateOnChange: true,
-                                          child: SivuTreenaaKomponenttiWidget(
-                                            sessioDoc:
-                                                containerQueryLatestSessioTreeniSessiotRecordList
-                                                            .length >
-                                                        0
-                                                    ? containerQueryLatestSessioTreeniSessiotRecordList
-                                                        .first
-                                                    : null,
+                                        if ((FFAppState().navBarIndex == 1) ||
+                                            FFAppState()
+                                                .showTreenaaTaiLuoRutiiniSivu)
+                                          wrapWithModel(
+                                            model: _model
+                                                .sivuTreenaaOmponenttiModel,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            updateOnChange: true,
+                                            child: SivuTreenaaKomponenttiWidget(
+                                              sessioDoc:
+                                                  containerQueryLatestSessioTreeniSessiotRecordList
+                                                              .length >
+                                                          0
+                                                      ? containerQueryLatestSessioTreeniSessiotRecordList
+                                                          .first
+                                                      : null,
+                                            ),
                                           ),
-                                        ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ],
@@ -743,8 +761,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                               width: double.infinity,
                               height: 60.0,
                               decoration: BoxDecoration(
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                color: FlutterFlowTheme.of(context).primary,
                                 boxShadow: [
                                   BoxShadow(
                                     blurRadius: 4.0,
@@ -790,7 +807,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                           child: Icon(
                                             Icons.menu_rounded,
                                             color: FlutterFlowTheme.of(context)
-                                                .secondaryColor,
+                                                .secondary,
                                             size: 28.0,
                                           ),
                                         ).animateOnActionTrigger(
@@ -880,7 +897,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                               .not_started_rounded,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .secondaryColor,
+                                                              .secondary,
                                                           size: 30.0,
                                                         ),
                                                         Padding(
@@ -915,12 +932,12 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Roboto',
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .secondaryColor,
+                                                                            .secondary,
                                                                         fontSize:
                                                                             14.0,
                                                                       ),
@@ -983,13 +1000,13 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                       textStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .subtitle2
+                                                              .titleSmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Roboto',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .secondaryColor,
+                                                                    .secondary,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -1000,7 +1017,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                       optionBackgroundColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryColor,
+                                                              .primary,
                                                       optionHighlightColor:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1089,7 +1106,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText2
+                                                                .bodySmall
                                                                 .override(
                                                                   fontFamily:
                                                                       'Roboto',
@@ -1161,7 +1178,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                           Icons.search_rounded,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .secondaryColor,
+                                                              .secondary,
                                                           size: 24.0,
                                                         ),
                                                         suffixIcon: _model
@@ -1196,7 +1213,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                               ''
                                                                       ? FlutterFlowTheme.of(
                                                                               context)
-                                                                          .secondaryColor
+                                                                          .secondary
                                                                       : Colors
                                                                           .transparent,
                                                                   size: 24.0,
@@ -1207,13 +1224,13 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .subtitle2
+                                                              .titleSmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Roboto',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .secondaryColor,
+                                                                    .secondary,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -1366,13 +1383,13 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                       .center,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText1
+                                                                  .bodyMedium
                                                                   .override(
                                                                     fontFamily:
                                                                         'Roboto',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .secondaryColor,
+                                                                        .secondary,
                                                                     fontSize:
                                                                         12.0,
                                                                   ),

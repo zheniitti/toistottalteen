@@ -79,7 +79,7 @@ class _LiikkeetListaWidgetState extends State<LiikkeetListaWidget> {
                                 child: Text(
                               liikkeetItem.nimi!,
                               textAlign: TextAlign.start,
-                              style: FlutterFlowTheme.of(context).subtitle2,
+                              style: FlutterFlowTheme.of(context).titleSmall,
                             )),
                           ),
                           if (liikkeetItem.kommentti != null &&
@@ -88,7 +88,7 @@ class _LiikkeetListaWidgetState extends State<LiikkeetListaWidget> {
                               alignment: AlignmentDirectional(-1.0, 0.0),
                               child: Text(
                                 liikkeetItem.kommentti!,
-                                style: FlutterFlowTheme.of(context).bodyText1,
+                                style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
                         ],
@@ -103,7 +103,7 @@ class _LiikkeetListaWidgetState extends State<LiikkeetListaWidget> {
                               FFLocalizations.of(context).languageCode),
                           ' - ',
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1,
+                        style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ),
                   ],

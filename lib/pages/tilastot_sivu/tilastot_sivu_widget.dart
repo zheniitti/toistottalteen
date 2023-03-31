@@ -47,51 +47,51 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryColor,
-        automaticallyImplyLeading: true,
-        title: Text(
-          FFLocalizations.of(context).getText(
-            'jxhd0x84' /* Analytiikka */,
-          ),
-          style: FlutterFlowTheme.of(context).bodyText1.override(
-                fontFamily: 'Roboto',
-                color: Color(0xFFDADADA),
-              ),
-        ),
-        actions: [],
-        centerTitle: true,
-        elevation: 4.0,
+    return StreamBuilder<List<TreeniSessiotRecord>>(
+      stream: queryTreeniSessiotRecord(
+        queryBuilder: (treeniSessiotRecord) => treeniSessiotRecord
+            .where('userRef', isEqualTo: currentUserReference)
+            .orderBy('alku', descending: true),
       ),
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-          child: StreamBuilder<List<TreeniSessiotRecord>>(
-            stream: queryTreeniSessiotRecord(
-              queryBuilder: (treeniSessiotRecord) => treeniSessiotRecord
-                  .where('userRef', isEqualTo: currentUserReference)
-                  .orderBy('alku', descending: true),
+      builder: (context, snapshot) {
+        // Customize what your widget looks like when it's loading.
+        if (!snapshot.hasData) {
+          return Center(
+            child: SizedBox(
+              width: 50.0,
+              height: 50.0,
+              child: SpinKitCircle(
+                color: FlutterFlowTheme.of(context).primary,
+                size: 50.0,
+              ),
             ),
-            builder: (context, snapshot) {
-              // Customize what your widget looks like when it's loading.
-              if (!snapshot.hasData) {
-                return Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: SpinKitCircle(
-                      color: FlutterFlowTheme.of(context).primaryColor,
-                      size: 50.0,
-                    ),
+          );
+        }
+        List<TreeniSessiotRecord> tilastotSivuTreeniSessiotRecordList =
+            snapshot.data!;
+        return Scaffold(
+          key: scaffoldKey,
+          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          appBar: AppBar(
+            backgroundColor: FlutterFlowTheme.of(context).primary,
+            automaticallyImplyLeading: true,
+            title: Text(
+              FFLocalizations.of(context).getText(
+                'jxhd0x84' /* Analytiikka */,
+              ),
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Roboto',
+                    color: Color(0xFFDADADA),
                   ),
-                );
-              }
-              List<TreeniSessiotRecord> containerTreeniSessiotRecordList =
-                  snapshot.data!;
-              return Container(
+            ),
+            actions: [],
+            centerTitle: true,
+            elevation: 4.0,
+          ),
+          body: SafeArea(
+            child: GestureDetector(
+              onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+              child: Container(
                 width: MediaQuery.of(context).size.width * 1.0,
                 height: MediaQuery.of(context).size.height * 1.0,
                 decoration: BoxDecoration(
@@ -143,7 +143,7 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
                                       'q476nu6x' /* Treenattu aika:  */,
                                     ),
                                     style:
-                                        FlutterFlowTheme.of(context).bodyText1,
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                   ),
                                   AuthUserStreamWidget(
                                     builder: (context) => Text(
@@ -158,7 +158,7 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
                                         '0',
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
+                                          .bodyMedium,
                                     ),
                                   ),
                                 ],
@@ -199,7 +199,7 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
                                       '5hw4ug1p' /* Treenejä yhteensä:  */,
                                     ),
                                     style:
-                                        FlutterFlowTheme.of(context).bodyText1,
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                   ),
                                   AuthUserStreamWidget(
                                     builder: (context) => Text(
@@ -209,7 +209,7 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
                                               0)
                                           .toString(),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
+                                          .bodyMedium,
                                     ),
                                   ),
                                 ],
@@ -265,17 +265,38 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                             ),
+                            child: Text(
+                              tilastotSivuTreeniSessiotRecordList.length
+                                  .toString(),
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                          ),
+                          Container(
+                            width: 100.0,
+                            height: 100.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                            child: Text(
+                              functions
+                                  .allDurationInSecondsFromSessioDocs(
+                                      tilastotSivuTreeniSessiotRecordList
+                                          .toList())
+                                  .toString(),
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
                           ),
                         ],
                       ),
                     ),
                   ],
                 ),
-              );
-            },
+              ),
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

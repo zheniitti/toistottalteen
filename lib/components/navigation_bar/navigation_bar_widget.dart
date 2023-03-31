@@ -158,7 +158,7 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
           maxHeight: 200.0,
         ),
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).primaryColor,
+          color: FlutterFlowTheme.of(context).primary,
           boxShadow: [
             BoxShadow(
               blurRadius: 5.0,
@@ -198,7 +198,7 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
                   width: 100.0,
                   decoration: BoxDecoration(
                     color: FFAppState().navBarIndex == 0
-                        ? FlutterFlowTheme.of(context).tertiaryColor
+                        ? FlutterFlowTheme.of(context).tertiary
                         : Color(0x00000000),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
@@ -208,7 +208,7 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
                     children: [
                       Icon(
                         Icons.featured_play_list_rounded,
-                        color: FlutterFlowTheme.of(context).secondaryColor,
+                        color: FlutterFlowTheme.of(context).secondary,
                         size: 36.0,
                       ),
                       RichText(
@@ -220,12 +220,11 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
                                 enText: 'Routines',
                               ),
                               style: TextStyle(
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryColor,
+                                color: FlutterFlowTheme.of(context).secondary,
                               ),
                             )
                           ],
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ),
                     ],
@@ -257,7 +256,7 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
                   width: 100.0,
                   decoration: BoxDecoration(
                     color: FFAppState().navBarIndex == 1
-                        ? FlutterFlowTheme.of(context).tertiaryColor
+                        ? FlutterFlowTheme.of(context).tertiary
                         : Color(0x00000000),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
@@ -267,7 +266,7 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
                     children: [
                       Icon(
                         Icons.accessibility_new_rounded,
-                        color: FlutterFlowTheme.of(context).secondaryColor,
+                        color: FlutterFlowTheme.of(context).secondary,
                         size: 36.0,
                       ),
                       RichText(
@@ -279,12 +278,11 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
                                 enText: 'Workout',
                               ),
                               style: TextStyle(
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryColor,
+                                color: FlutterFlowTheme.of(context).secondary,
                               ),
                             )
                           ],
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ),
                     ],
@@ -316,7 +314,7 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
                   width: 100.0,
                   decoration: BoxDecoration(
                     color: FFAppState().navBarIndex == 2
-                        ? FlutterFlowTheme.of(context).tertiaryColor
+                        ? FlutterFlowTheme.of(context).tertiary
                         : Color(0x00000000),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
@@ -326,7 +324,7 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
                     children: [
                       Icon(
                         Icons.history_toggle_off_rounded,
-                        color: FlutterFlowTheme.of(context).secondaryColor,
+                        color: FlutterFlowTheme.of(context).secondary,
                         size: 36.0,
                       ),
                       RichText(
@@ -338,12 +336,11 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
                                 enText: 'Workouts',
                               ),
                               style: TextStyle(
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryColor,
+                                color: FlutterFlowTheme.of(context).secondary,
                               ),
                             )
                           ],
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ),
                     ],
@@ -377,7 +374,7 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
                     width: 100.0,
                     decoration: BoxDecoration(
                       color: FFAppState().navBarIndex == 3
-                          ? FlutterFlowTheme.of(context).tertiaryColor
+                          ? FlutterFlowTheme.of(context).tertiary
                           : Color(0x00000000),
                       borderRadius: BorderRadius.circular(8.0),
                     ),
@@ -387,7 +384,7 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
                       children: [
                         Icon(
                           Icons.bar_chart_rounded,
-                          color: FlutterFlowTheme.of(context).secondaryColor,
+                          color: FlutterFlowTheme.of(context).secondary,
                           size: 40.0,
                         ),
                         RichText(
@@ -400,12 +397,11 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
                                   enText: 'Statistics',
                                 ),
                                 style: TextStyle(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryColor,
+                                  color: FlutterFlowTheme.of(context).secondary,
                                 ),
                               )
                             ],
-                            style: FlutterFlowTheme.of(context).bodyText1,
+                            style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
                       ],

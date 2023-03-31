@@ -44,7 +44,7 @@ class _HeatmapCalendarWidgetState extends State<HeatmapCalendarWidget> {
     context.watch<FFAppState>();
 
     return FlutterFlowCalendar(
-      color: FlutterFlowTheme.of(context).primaryColor,
+      color: FlutterFlowTheme.of(context).primary,
       weekFormat: false,
       weekStartsMonday: true,
       onChange: (DateTimeRange? newSelectedDate) {

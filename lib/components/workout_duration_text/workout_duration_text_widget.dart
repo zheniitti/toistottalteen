@@ -64,9 +64,9 @@ class _WorkoutDurationTextWidgetState extends State<WorkoutDurationTextWidget> {
                     text: FFLocalizations.of(context).getText(
                       '5hy3i3cg' /* Kesto:  */,
                     ),
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Roboto',
-                          color: FlutterFlowTheme.of(context).secondaryColor,
+                          color: FlutterFlowTheme.of(context).secondary,
                         ),
                   ),
                   TextSpan(
@@ -74,14 +74,14 @@ class _WorkoutDurationTextWidgetState extends State<WorkoutDurationTextWidget> {
                         widget.sessioDoc!.alku,
                         widget.sessioDoc!.loppu,
                         FFLocalizations.of(context).languageCode),
-                    style: FlutterFlowTheme.of(context).subtitle2.override(
+                    style: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Roboto',
-                          color: FlutterFlowTheme.of(context).secondaryColor,
+                          color: FlutterFlowTheme.of(context).secondary,
                           fontWeight: FontWeight.normal,
                         ),
                   )
                 ],
-                style: FlutterFlowTheme.of(context).bodyText1,
+                style: FlutterFlowTheme.of(context).bodyMedium,
               ),
             ),
           ],

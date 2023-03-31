@@ -107,7 +107,7 @@ class _SessioWidgetState extends State<SessioWidget>
                           widget.treeniSessio!.treeniRutiiniData.nimi,
                           'Unnamed workout',
                         ),
-                        style: FlutterFlowTheme.of(context).subtitle2,
+                        style: FlutterFlowTheme.of(context).titleSmall,
                       ),
                       if (widget.treeniSessio != null)
                         Container(
@@ -182,7 +182,7 @@ class _SessioWidgetState extends State<SessioWidget>
                                         )
                                       ],
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
+                                          .bodyMedium,
                                     ),
                                     textAlign: TextAlign.start,
                                   ),
@@ -213,7 +213,7 @@ class _SessioWidgetState extends State<SessioWidget>
                                         )
                                       ],
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
+                                          .bodyMedium,
                                     ),
                                     textAlign: TextAlign.start,
                                   ),
@@ -249,7 +249,7 @@ class _SessioWidgetState extends State<SessioWidget>
                                           )
                                         ],
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
                                       ),
                                       textAlign: TextAlign.center,
                                     ),
@@ -307,7 +307,7 @@ class _SessioWidgetState extends State<SessioWidget>
                   child: Text(
                     widget.treeniSessio!.treeniRutiiniData.kommentti!,
                     textAlign: TextAlign.start,
-                    style: FlutterFlowTheme.of(context).bodyText1,
+                    style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
                 Container(
@@ -354,13 +354,14 @@ class _SessioWidgetState extends State<SessioWidget>
                                   0.0, 0.0, 0.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
+                                  .titleSmall
                                   .override(
                                     fontFamily: 'Roboto',
                                     color: Colors.white,
                                   ),
+                              elevation: 2.0,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
@@ -417,12 +418,14 @@ class _SessioWidgetState extends State<SessioWidget>
                                 0.0, 0.0, 0.0, 0.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).tertiaryColor,
-                            textStyle:
-                                FlutterFlowTheme.of(context).subtitle2.override(
-                                      fontFamily: 'Roboto',
-                                      color: Colors.white,
-                                    ),
+                            color: FlutterFlowTheme.of(context).tertiary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Roboto',
+                                  color: Colors.white,
+                                ),
+                            elevation: 2.0,
                             borderSide: BorderSide(
                               color: Colors.transparent,
                               width: 1.0,

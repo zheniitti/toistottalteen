@@ -84,15 +84,14 @@ class _SivuTreeniHistoriaKomponenttiWidgetState
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).primaryColor,
-                      textStyle: FlutterFlowTheme.of(context)
-                          .subtitle1
-                          .override(
-                            fontFamily: 'Outfit',
-                            color: FlutterFlowTheme.of(context).secondaryColor,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.w500,
-                          ),
+                      color: FlutterFlowTheme.of(context).primary,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleMedium.override(
+                                fontFamily: 'Outfit',
+                                color: FlutterFlowTheme.of(context).secondary,
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.w500,
+                              ),
                       elevation: 1.0,
                       borderSide: BorderSide(
                         color: Colors.transparent,
@@ -133,7 +132,7 @@ class _SivuTreeniHistoriaKomponenttiWidgetState
                                         'uur18ydl' /* Tämä sivu on tyhjä koska sinul... */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
+                                          .bodyMedium,
                                     ),
                                   ),
                                   if (false)

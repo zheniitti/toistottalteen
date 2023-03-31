@@ -107,7 +107,7 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                 FFLocalizations.of(context).getText(
                                   'ku53fmbs' /* Luo tili tai kirjaudu */,
                                 ),
-                                style: FlutterFlowTheme.of(context).subtitle2,
+                                style: FlutterFlowTheme.of(context).titleSmall,
                               ),
                             ),
                           ],
@@ -165,7 +165,7 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                       'tmzzbmg6' /* Treenirutiinit */,
                                     ),
                                     style:
-                                        FlutterFlowTheme.of(context).subtitle2,
+                                        FlutterFlowTheme.of(context).titleSmall,
                                   ),
                                 ),
                               ),
@@ -220,11 +220,11 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                             't717139a' /*   (käynnissä) */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1,
+                                              .bodyMedium,
                                         )
                                       ],
                                       style: FlutterFlowTheme.of(context)
-                                          .subtitle2,
+                                          .titleSmall,
                                     ),
                                   ),
                                 ),
@@ -254,7 +254,7 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                 FFLocalizations.of(context).getText(
                                   'kmmmsdb7' /* Treenihistoria */,
                                 ),
-                                style: FlutterFlowTheme.of(context).subtitle2,
+                                style: FlutterFlowTheme.of(context).titleSmall,
                               ),
                             ),
                           ],
@@ -289,7 +289,7 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                             FFLocalizations.of(context).getText(
                               'e4qtfwaz' /* Treenitilastot */,
                             ),
-                            style: FlutterFlowTheme.of(context).subtitle2,
+                            style: FlutterFlowTheme.of(context).titleSmall,
                           ),
                         ),
                       ],
@@ -323,7 +323,7 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                             FFLocalizations.of(context).getText(
                               'uvhkl89u' /* Premiumjäsenyys */,
                             ),
-                            style: FlutterFlowTheme.of(context).subtitle2,
+                            style: FlutterFlowTheme.of(context).titleSmall,
                           ),
                         ),
                       ],
@@ -355,7 +355,7 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                 FFLocalizations.of(context).getText(
                                   'gax7p69h' /* Language */,
                                 ),
-                                style: FlutterFlowTheme.of(context).subtitle2,
+                                style: FlutterFlowTheme.of(context).titleSmall,
                               ),
                             ),
                           ),
@@ -363,10 +363,10 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                             width: 160.0,
                             height: 40.0,
                             backgroundColor:
-                                FlutterFlowTheme.of(context).secondaryColor,
+                                FlutterFlowTheme.of(context).secondary,
                             borderColor: Colors.transparent,
                             borderRadius: 8.0,
-                            textStyle: FlutterFlowTheme.of(context).bodyText1,
+                            textStyle: FlutterFlowTheme.of(context).bodyMedium,
                             hideFlags: false,
                             flagSize: 24.0,
                             flagTextGap: 8.0,
@@ -398,7 +398,7 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                               FFLocalizations.of(context).getText(
                                 'sh3jbjpm' /* Tumma teema */,
                               ),
-                              style: FlutterFlowTheme.of(context).subtitle2,
+                              style: FlutterFlowTheme.of(context).titleSmall,
                             ),
                           ),
                           Switch.adaptive(
@@ -421,16 +421,24 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                     FFLocalizations.of(context).getText(
                       'ny2fhrqk' /* Lähetä palaute */,
                     ),
-                    style: FlutterFlowTheme.of(context).bodyText1,
+                    style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
                 Align(
                   alignment: AlignmentDirectional(-1.0, 0.0),
-                  child: Text(
-                    FFLocalizations.of(context).getText(
-                      '2ttiy67c' /* Tietosuoja ja käyttöehdot */,
+                  child: InkWell(
+                    onTap: () async {
+                      logFirebaseEvent('SIVUPALKKI_COMP_Text_4b9wzens_ON_TAP');
+                      logFirebaseEvent('Text_launch_u_r_l');
+                      await launchURL(
+                          'https://sites.google.com/view/toistottalteen-privacypolicy');
+                    },
+                    child: Text(
+                      FFLocalizations.of(context).getText(
+                        '2ttiy67c' /* Tietosuoja ja käyttöehdot */,
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
-                    style: FlutterFlowTheme.of(context).bodyText1,
                   ),
                 ),
               ],

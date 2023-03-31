@@ -163,7 +163,7 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                             'qzi0xoig' /* Tunnit */,
                           ),
                           labelStyle:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Roboto',
                                     fontSize: 14.0,
                                   ),
@@ -171,7 +171,7 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                             '0ry7n4gd' /* 0 */,
                           ),
                           hintStyle:
-                              FlutterFlowTheme.of(context).bodyText2.override(
+                              FlutterFlowTheme.of(context).bodySmall.override(
                                     fontFamily: 'Roboto',
                                     fontSize: 20.0,
                                   ),
@@ -184,7 +184,7 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                           ),
                           focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                               width: 1.0,
                             ),
                             borderRadius: BorderRadius.circular(18.0),
@@ -204,7 +204,9 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                             borderRadius: BorderRadius.circular(18.0),
                           ),
                         ),
-                        style: FlutterFlowTheme.of(context).title2.override(
+                        style: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .override(
                               fontFamily: 'Outfit',
                               fontSize: 20.0,
                             ),
@@ -228,7 +230,7 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                             'qc0cirns' /* Minuutit */,
                           ),
                           labelStyle:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Roboto',
                                     fontSize: 14.0,
                                   ),
@@ -236,7 +238,7 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                             'olh9qolp' /* 0 */,
                           ),
                           hintStyle:
-                              FlutterFlowTheme.of(context).bodyText2.override(
+                              FlutterFlowTheme.of(context).bodySmall.override(
                                     fontFamily: 'Roboto',
                                     fontSize: 20.0,
                                   ),
@@ -249,7 +251,7 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                           ),
                           focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                               width: 1.0,
                             ),
                             borderRadius: BorderRadius.circular(18.0),
@@ -269,7 +271,9 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                             borderRadius: BorderRadius.circular(18.0),
                           ),
                         ),
-                        style: FlutterFlowTheme.of(context).title2.override(
+                        style: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .override(
                               fontFamily: 'Outfit',
                               fontSize: 20.0,
                             ),
@@ -297,7 +301,7 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                             'zcwbr62z' /* Sekunnit */,
                           ),
                           labelStyle:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Roboto',
                                     fontSize: 14.0,
                                   ),
@@ -305,7 +309,7 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                             'm6zgwhps' /* 0 */,
                           ),
                           hintStyle:
-                              FlutterFlowTheme.of(context).bodyText2.override(
+                              FlutterFlowTheme.of(context).bodySmall.override(
                                     fontFamily: 'Roboto',
                                     fontSize: 20.0,
                                   ),
@@ -318,7 +322,7 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                           ),
                           focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                               width: 1.0,
                             ),
                             borderRadius: BorderRadius.circular(18.0),
@@ -338,7 +342,9 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                             borderRadius: BorderRadius.circular(18.0),
                           ),
                         ),
-                        style: FlutterFlowTheme.of(context).title2.override(
+                        style: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .override(
                               fontFamily: 'Outfit',
                               fontSize: 20.0,
                             ),
@@ -369,7 +375,7 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                         'emfp4ohz' /* matka (metreinä) */,
                       ),
                       labelStyle:
-                          FlutterFlowTheme.of(context).bodyText2.override(
+                          FlutterFlowTheme.of(context).bodySmall.override(
                                 fontFamily: 'Roboto',
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 fontSize: 14.0,
@@ -378,7 +384,7 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                         'tnb4m9hm' /* 0.0 */,
                       ),
                       hintStyle:
-                          FlutterFlowTheme.of(context).bodyText2.override(
+                          FlutterFlowTheme.of(context).bodySmall.override(
                                 fontFamily: 'Roboto',
                                 fontSize: 20.0,
                               ),
@@ -391,7 +397,7 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                       ),
                       focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).primaryColor,
+                          color: FlutterFlowTheme.of(context).primary,
                           width: 1.0,
                         ),
                         borderRadius: BorderRadius.circular(18.0),
@@ -411,7 +417,7 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                         borderRadius: BorderRadius.circular(18.0),
                       ),
                     ),
-                    style: FlutterFlowTheme.of(context).title2.override(
+                    style: FlutterFlowTheme.of(context).headlineMedium.override(
                           fontFamily: 'Outfit',
                           fontSize: 20.0,
                         ),

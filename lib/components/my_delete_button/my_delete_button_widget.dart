@@ -66,7 +66,7 @@ class _MyDeleteButtonWidgetState extends State<MyDeleteButtonWidget> {
               FFLocalizations.of(context).getText(
                 '8t3o2ple' /* Poista */,
               ),
-              style: FlutterFlowTheme.of(context).subtitle2,
+              style: FlutterFlowTheme.of(context).titleSmall,
             ),
           ],
         ),

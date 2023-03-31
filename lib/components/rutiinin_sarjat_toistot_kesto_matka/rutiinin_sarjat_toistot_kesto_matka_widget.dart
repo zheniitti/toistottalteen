@@ -291,7 +291,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                               .toList()[widget.liikeIndex!]
                                               .nimi!,
                                           style: FlutterFlowTheme.of(context)
-                                              .subtitle2
+                                              .titleSmall
                                               .override(
                                                 fontFamily: 'Roboto',
                                                 fontWeight: FontWeight.normal,
@@ -356,7 +356,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                           'uldbvwai' /* Saliliike */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .subtitle2,
+                                            .titleSmall,
                                       ),
                                       Switch(
                                         value: _model.switchValue ??= widget
@@ -414,10 +414,10 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                         },
                                         activeColor:
                                             FlutterFlowTheme.of(context)
-                                                .primaryColor,
+                                                .primary,
                                         inactiveThumbColor:
                                             FlutterFlowTheme.of(context)
-                                                .primaryColor,
+                                                .primary,
                                       ),
                                       Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -427,7 +427,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                               'ij0w6eqz' /* Muu liike */,
                                             ),
                                             style: FlutterFlowTheme.of(context)
-                                                .subtitle2,
+                                                .titleSmall,
                                           ),
                                         ],
                                       ),
@@ -485,7 +485,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                 ),
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText2
+                                                        .bodySmall
                                                         .override(
                                                           fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
@@ -500,7 +500,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                 ),
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText2
+                                                        .bodySmall
                                                         .override(
                                                           fontFamily: 'Roboto',
                                                           fontSize: 20.0,
@@ -522,7 +522,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                   borderSide: BorderSide(
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryColor,
+                                                        .primary,
                                                     width: 1.0,
                                                   ),
                                                   borderRadius:
@@ -559,7 +559,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .title2
+                                                      .headlineMedium
                                                       .override(
                                                         fontFamily: 'Outfit',
                                                         fontSize: 20.0,
@@ -598,7 +598,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                 ),
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText2
+                                                        .bodySmall
                                                         .override(
                                                           fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
@@ -613,7 +613,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                 ),
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText2
+                                                        .bodySmall
                                                         .override(
                                                           fontFamily: 'Roboto',
                                                           fontSize: 20.0,
@@ -635,7 +635,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                   borderSide: BorderSide(
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryColor,
+                                                        .primary,
                                                     width: 1.0,
                                                   ),
                                                   borderRadius:
@@ -672,7 +672,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .title2
+                                                      .headlineMedium
                                                       .override(
                                                         fontFamily: 'Outfit',
                                                         fontSize: 20.0,
@@ -711,7 +711,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                 ),
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText2
+                                                        .bodySmall
                                                         .override(
                                                           fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
@@ -726,7 +726,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                 ),
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText2
+                                                        .bodySmall
                                                         .override(
                                                           fontFamily: 'Roboto',
                                                           fontSize: 20.0,
@@ -748,7 +748,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                   borderSide: BorderSide(
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryColor,
+                                                        .primary,
                                                     width: 1.0,
                                                   ),
                                                   borderRadius:
@@ -785,7 +785,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .title2
+                                                      .headlineMedium
                                                       .override(
                                                         fontFamily: 'Outfit',
                                                         fontSize: 20.0,
@@ -868,7 +868,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Roboto',
@@ -884,7 +884,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText2
+                                                                .bodySmall
                                                                 .override(
                                                                   fontFamily:
                                                                       'Roboto',
@@ -911,7 +911,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                               BorderSide(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .primaryColor,
+                                                                .primary,
                                                             width: 1.0,
                                                           ),
                                                           borderRadius:
@@ -958,7 +958,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .title2
+                                                              .headlineMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Outfit',
@@ -1001,7 +1001,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Roboto',
@@ -1017,7 +1017,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText2
+                                                                .bodySmall
                                                                 .override(
                                                                   fontFamily:
                                                                       'Roboto',
@@ -1044,7 +1044,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                               BorderSide(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .primaryColor,
+                                                                .primary,
                                                             width: 1.0,
                                                           ),
                                                           borderRadius:
@@ -1091,7 +1091,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .title2
+                                                              .headlineMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Outfit',
@@ -1186,7 +1186,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Roboto',
@@ -1202,7 +1202,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText2
+                                                                .bodySmall
                                                                 .override(
                                                                   fontFamily:
                                                                       'Roboto',
@@ -1229,7 +1229,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                               BorderSide(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .primaryColor,
+                                                                .primary,
                                                             width: 1.0,
                                                           ),
                                                           borderRadius:
@@ -1276,7 +1276,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .title2
+                                                              .headlineMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Outfit',
@@ -1318,7 +1318,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                     ),
                                                     labelStyle: FlutterFlowTheme
                                                             .of(context)
-                                                        .bodyText2
+                                                        .bodySmall
                                                         .override(
                                                           fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
@@ -1334,7 +1334,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                     ),
                                                     hintStyle: FlutterFlowTheme
                                                             .of(context)
-                                                        .bodyText2
+                                                        .bodySmall
                                                         .override(
                                                           fontFamily: 'Roboto',
                                                           fontSize: 20.0,
@@ -1358,7 +1358,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primaryColor,
+                                                                .primary,
                                                         width: 1.0,
                                                       ),
                                                       borderRadius:
@@ -1398,7 +1398,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .title2
+                                                      .headlineMedium
                                                       .override(
                                                         fontFamily: 'Outfit',
                                                         fontSize: 20.0,
@@ -1473,7 +1473,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                           'i7qdvfiw' /* Tyhjennä */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .subtitle2,
+                                            .titleSmall,
                                       ),
                                     ),
                                   ),
@@ -1605,14 +1605,15 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                       iconPadding:
                                           EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                       textStyle: FlutterFlowTheme.of(context)
-                                          .subtitle2
+                                          .titleSmall
                                           .override(
                                             fontFamily: 'Roboto',
                                             color: Colors.white,
                                           ),
+                                      elevation: 2.0,
                                       borderSide: BorderSide(
                                         color: Colors.transparent,
                                         width: 1.0,

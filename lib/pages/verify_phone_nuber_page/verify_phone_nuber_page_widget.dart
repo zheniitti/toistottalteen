@@ -52,9 +52,9 @@ class _VerifyPhoneNuberPageWidgetState
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60.0),
         child: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+          backgroundColor: FlutterFlowTheme.of(context).primary,
           iconTheme:
-              IconThemeData(color: FlutterFlowTheme.of(context).secondaryColor),
+              IconThemeData(color: FlutterFlowTheme.of(context).secondary),
           automaticallyImplyLeading: true,
           title: Column(
             mainAxisSize: MainAxisSize.max,
@@ -69,9 +69,9 @@ class _VerifyPhoneNuberPageWidgetState
                     FFLocalizations.of(context).getText(
                       'js4yep2h' /* Takaisin */,
                     ),
-                    style: FlutterFlowTheme.of(context).subtitle2.override(
+                    style: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Roboto',
-                          color: FlutterFlowTheme.of(context).secondaryColor,
+                          color: FlutterFlowTheme.of(context).secondary,
                         ),
                   ),
                 ),
@@ -99,7 +99,7 @@ class _VerifyPhoneNuberPageWidgetState
                       FFLocalizations.of(context).getText(
                         '3a8m9btv' /* Olemme lähettäneet kuusinumero... */,
                       ),
-                      style: FlutterFlowTheme.of(context).bodyText2.override(
+                      style: FlutterFlowTheme.of(context).bodySmall.override(
                             fontFamily: 'Outfit',
                             color: Color(0xFF57636C),
                             fontSize: 14.0,
@@ -134,7 +134,7 @@ class _VerifyPhoneNuberPageWidgetState
                   labelText: FFLocalizations.of(context).getText(
                     'vm1pinh3' /* Tekstiviestivahvistuskoodi */,
                   ),
-                  labelStyle: FlutterFlowTheme.of(context).bodyText2.override(
+                  labelStyle: FlutterFlowTheme.of(context).bodySmall.override(
                         fontFamily: 'Outfit',
                         color: Color(0xFF57636C),
                         fontSize: 14.0,
@@ -143,7 +143,7 @@ class _VerifyPhoneNuberPageWidgetState
                   hintText: FFLocalizations.of(context).getText(
                     '93j0gyve' /*  */,
                   ),
-                  hintStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                  hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Lexend Deca',
                         color: Color(0xFF57636C),
                         fontSize: 14.0,
@@ -182,7 +182,7 @@ class _VerifyPhoneNuberPageWidgetState
                   contentPadding:
                       EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 20.0, 24.0),
                 ),
-                style: FlutterFlowTheme.of(context).bodyText1.override(
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Outfit',
                       color: Color(0xFF0F1113),
                       fontSize: 14.0,
@@ -233,7 +233,7 @@ class _VerifyPhoneNuberPageWidgetState
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: Color(0xFF0F1113),
-                textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                       fontFamily: 'Outfit',
                       color: Colors.white,
                       fontSize: 16.0,

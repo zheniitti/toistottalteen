@@ -35,10 +35,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(TreeniRutiiniStruct)]),
-          () => new ListBuilder<TreeniRutiiniStruct>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(LiikeStruct)]),
-          () => new ListBuilder<LiikeStruct>()))
+          () => new ListBuilder<TreeniRutiiniStruct>()))
     .build();
 
 // ignore_for_file: deprecated_member_use_from_same_package,type=lint

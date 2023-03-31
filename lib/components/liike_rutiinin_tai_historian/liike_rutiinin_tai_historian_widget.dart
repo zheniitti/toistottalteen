@@ -72,7 +72,7 @@ class _LiikeRutiininTaiHistorianWidgetState
                       child: Text(
                     widget.liike!.nimi!,
                     textAlign: TextAlign.start,
-                    style: FlutterFlowTheme.of(context).subtitle2,
+                    style: FlutterFlowTheme.of(context).titleSmall,
                   )),
                 ),
                 if (widget.liike?.kommentti != null &&
@@ -81,7 +81,7 @@ class _LiikeRutiininTaiHistorianWidgetState
                     alignment: AlignmentDirectional(-1.0, 0.0),
                     child: Text(
                       widget.liike!.kommentti!,
-                      style: FlutterFlowTheme.of(context).bodyText1,
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ),
               ],
@@ -95,7 +95,7 @@ class _LiikeRutiininTaiHistorianWidgetState
                     widget.liike, FFLocalizations.of(context).languageCode),
                 ' - ',
               ),
-              style: FlutterFlowTheme.of(context).bodyText1,
+              style: FlutterFlowTheme.of(context).bodyMedium,
             ),
           ),
         ],

@@ -70,7 +70,7 @@ class _SessioChunkWidgetState extends State<SessioChunkWidget> {
               width: 50.0,
               height: 50.0,
               child: SpinKitCircle(
-                color: FlutterFlowTheme.of(context).primaryColor,
+                color: FlutterFlowTheme.of(context).primary,
                 size: 50.0,
               ),
             ),
@@ -140,7 +140,7 @@ class _SessioChunkWidgetState extends State<SessioChunkWidget> {
                       FFLocalizations.of(context).getText(
                         '5smr29rj' /* Näytä lisää */,
                       ),
-                      style: FlutterFlowTheme.of(context).title3,
+                      style: FlutterFlowTheme.of(context).headlineSmall,
                     ),
                   ),
                 ),

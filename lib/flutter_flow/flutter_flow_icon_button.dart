@@ -11,6 +11,9 @@ class FlutterFlowIconButton extends StatefulWidget {
     this.buttonSize,
     this.fillColor,
     this.disabledColor,
+    this.disabledIconColor,
+    this.hoverColor,
+    this.hoverIconColor,
     this.onPressed,
     this.showLoadingIndicator = false,
   }) : super(key: key);
@@ -20,6 +23,9 @@ class FlutterFlowIconButton extends StatefulWidget {
   final double? buttonSize;
   final Color? fillColor;
   final Color? disabledColor;
+  final Color? disabledIconColor;
+  final Color? hoverColor;
+  final Color? hoverIconColor;
   final Color? borderColor;
   final double? borderWidth;
   final bool showLoadingIndicator;
@@ -33,16 +39,25 @@ class _FlutterFlowIconButtonState extends State<FlutterFlowIconButton> {
   bool loading = false;
   late double? iconSize;
   late Color? iconColor;
+  late Widget effectiveIcon;
 
   @override
   void initState() {
     final isFontAwesome = widget.icon is FaIcon;
     if (isFontAwesome) {
-      final icon = widget.icon as FaIcon;
+      FaIcon icon = widget.icon as FaIcon;
+      effectiveIcon = FaIcon(
+        icon.icon,
+        size: icon.size,
+      );
       iconSize = icon.size;
       iconColor = icon.color;
     } else {
-      final icon = widget.icon as Icon;
+      Icon icon = widget.icon as Icon;
+      effectiveIcon = Icon(
+        icon.icon,
+        size: icon.size,
+      );
       iconSize = icon.size;
       iconColor = icon.color;
     }
@@ -51,41 +66,69 @@ class _FlutterFlowIconButtonState extends State<FlutterFlowIconButton> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      borderRadius: widget.borderRadius != null
-          ? BorderRadius.circular(widget.borderRadius!)
-          : null,
-      color: Colors.transparent,
-      clipBehavior: Clip.antiAlias,
-      child: Ink(
-        width: widget.buttonSize,
-        height: widget.buttonSize,
-        decoration: BoxDecoration(
-          color: widget.onPressed != null
-              ? widget.fillColor
-              : widget.disabledColor,
-          border: Border.all(
-            color: widget.borderColor ?? Colors.transparent,
-            width: widget.borderWidth ?? 0,
-          ),
-          borderRadius: widget.borderRadius != null
-              ? BorderRadius.circular(widget.borderRadius!)
-              : null,
-        ),
-        child: (widget.showLoadingIndicator && loading)
-            ? Center(
-                child: Container(
-                  width: iconSize,
-                  height: iconSize,
-                  child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                      iconColor ?? Colors.white,
-                    ),
+    ButtonStyle style = ButtonStyle(
+      shape: MaterialStateProperty.resolveWith<OutlinedBorder>(
+        (states) {
+          return RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(widget.borderRadius ?? 0),
+            side: BorderSide(
+              color: widget.borderColor ?? Colors.transparent,
+              width: widget.borderWidth ?? 0,
+            ),
+          );
+        },
+      ),
+      iconColor: MaterialStateProperty.resolveWith<Color?>(
+        (states) {
+          if (states.contains(MaterialState.disabled) &&
+              widget.disabledIconColor != null) {
+            return widget.disabledIconColor;
+          }
+          if (states.contains(MaterialState.hovered) &&
+              widget.hoverIconColor != null) {
+            return widget.hoverIconColor;
+          }
+          return iconColor;
+        },
+      ),
+      backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+        (states) {
+          if (states.contains(MaterialState.disabled) &&
+              widget.disabledColor != null) {
+            return widget.disabledColor;
+          }
+          if (states.contains(MaterialState.hovered) &&
+              widget.hoverColor != null) {
+            return widget.hoverColor;
+          }
+
+          return widget.fillColor;
+        },
+      ),
+    );
+
+    return SizedBox(
+      width: widget.buttonSize,
+      height: widget.buttonSize,
+      child: (widget.showLoadingIndicator && loading)
+          ? Center(
+              child: Container(
+                width: iconSize,
+                height: iconSize,
+                color: widget.onPressed != null
+                    ? widget.fillColor
+                    : widget.disabledColor,
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    iconColor ?? Colors.white,
                   ),
                 ),
-              )
-            : IconButton(
-                icon: widget.icon,
+              ),
+            )
+          : Theme(
+              data: Theme.of(context).copyWith(useMaterial3: true),
+              child: IconButton(
+                icon: effectiveIcon,
                 onPressed: widget.onPressed == null
                     ? null
                     : () async {
@@ -102,8 +145,9 @@ class _FlutterFlowIconButtonState extends State<FlutterFlowIconButton> {
                         }
                       },
                 splashRadius: widget.buttonSize,
+                style: style,
               ),
-      ),
+            ),
     );
   }
 }

@@ -124,8 +124,7 @@ class _BottomSheetRutiiniJaSessioWidgetState
                                 enText: '🙁This function doesn\'t work yet',
                               ),
                               style: TextStyle(
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryColor,
+                                color: FlutterFlowTheme.of(context).secondary,
                               ),
                             ),
                             duration: Duration(milliseconds: 4000),
@@ -139,7 +138,7 @@ class _BottomSheetRutiiniJaSessioWidgetState
                             'elbafojn' /* Kopioi liikkeet */,
                           ),
                           textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context).title3,
+                          style: FlutterFlowTheme.of(context).headlineSmall,
                         ),
                         trailing: Icon(
                           Icons.content_copy_rounded,
@@ -205,7 +204,7 @@ class _BottomSheetRutiiniJaSessioWidgetState
                           'e0l254zt' /* Muokkaa */,
                         ),
                         textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).title3,
+                        style: FlutterFlowTheme.of(context).headlineSmall,
                       ),
                       trailing: Icon(
                         Icons.edit_rounded,
@@ -279,17 +278,18 @@ class _BottomSheetRutiiniJaSessioWidgetState
                         'esn5dhxf' /* Poista pysyvästi */,
                       ),
                       textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).title3.override(
-                            fontFamily: 'Outfit',
-                            color: Color(0xFFE00000),
-                          ),
+                      style:
+                          FlutterFlowTheme.of(context).headlineSmall.override(
+                                fontFamily: 'Outfit',
+                                color: Color(0xFFE00000),
+                              ),
                     ),
                     subtitle: Text(
                       FFLocalizations.of(context).getText(
                         '2a9bmoed' /* (Paina pitkään) */,
                       ),
                       textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).bodyText1,
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                     trailing: Icon(
                       Icons.delete,

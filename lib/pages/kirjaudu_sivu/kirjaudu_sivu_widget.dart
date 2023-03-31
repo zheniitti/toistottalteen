@@ -185,7 +185,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                               isScrollable: true,
                               labelColor: Colors.white,
                               labelStyle: FlutterFlowTheme.of(context)
-                                  .subtitle1
+                                  .titleMedium
                                   .override(
                                     fontFamily: 'Outfit',
                                     color: Color(0xFF0F1113),
@@ -253,7 +253,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                                       .center,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .subtitle2
+                                                                  .titleSmall
                                                                   .override(
                                                                     fontFamily:
                                                                         'Outfit',
@@ -386,12 +386,12 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Roboto',
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .secondaryColor,
+                                                                            .secondary,
                                                                       ),
                                                                 ),
                                                               ),
@@ -498,12 +498,12 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyText1
+                                                                        .bodyMedium
                                                                         .override(
                                                                           fontFamily:
                                                                               'Roboto',
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).secondaryColor,
+                                                                              FlutterFlowTheme.of(context).secondary,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -584,12 +584,12 @@ posti */
                                                                           .center,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Roboto',
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .secondaryColor,
+                                                                            .secondary,
                                                                       ),
                                                                 ),
                                                               ),
@@ -667,12 +667,12 @@ numero */
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Roboto',
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .secondaryColor,
+                                                                            .secondary,
                                                                       ),
                                                                 ),
                                                               ),
@@ -714,7 +714,7 @@ numero */
                                                             labelStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Lexend Deca',
@@ -729,7 +729,7 @@ numero */
                                                             hintStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Lexend Deca',
@@ -806,7 +806,7 @@ numero */
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .subtitle2
+                                                              .titleSmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Outfit',
@@ -847,7 +847,7 @@ numero */
                                                             labelStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Lexend Deca',
@@ -862,7 +862,7 @@ numero */
                                                             hintStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText1
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Lexend Deca',
@@ -961,7 +961,7 @@ numero */
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .subtitle2
+                                                              .titleSmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Outfit',
@@ -1059,11 +1059,11 @@ numero */
                                                                         0.0),
                                                             color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .tertiaryColor,
+                                                                .tertiary,
                                                             textStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .subtitle2
+                                                                    .titleSmall
                                                                     .override(
                                                                       fontFamily:
                                                                           'Lexend Deca',
@@ -1146,7 +1146,7 @@ numero */
                                                             textStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .subtitle1
+                                                                    .titleMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Outfit',
@@ -1204,7 +1204,7 @@ numero */
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Lexend Deca',
@@ -1219,7 +1219,7 @@ numero */
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Lexend Deca',
@@ -1303,7 +1303,7 @@ numero */
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .subtitle2
+                                                              .titleSmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Outfit',
@@ -1394,11 +1394,11 @@ numero */
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .tertiaryColor,
+                                                                .tertiary,
                                                         textStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .subtitle2
+                                                                .titleSmall
                                                                 .override(
                                                                   fontFamily:
                                                                       'Lexend Deca',
@@ -1456,7 +1456,7 @@ numero */
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .subtitle2
+                                                              .titleSmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Outfit',
@@ -1555,13 +1555,13 @@ numero */
                                                               TextAlign.center,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Roboto',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .secondaryColor,
+                                                                    .secondary,
                                                               ),
                                                         ),
                                                       ),
@@ -1643,13 +1643,13 @@ numero */
                                                                 .center,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Roboto',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .secondaryColor,
+                                                                      .secondary,
                                                                 ),
                                                           ),
                                                         ),
@@ -1743,13 +1743,13 @@ posti */
                                                               TextAlign.center,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Roboto',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .secondaryColor,
+                                                                    .secondary,
                                                               ),
                                                         ),
                                                       ),
@@ -1821,13 +1821,13 @@ numero */
                                                               TextAlign.center,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Roboto',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .secondaryColor,
+                                                                    .secondary,
                                                               ),
                                                         ),
                                                       ),
@@ -1863,7 +1863,7 @@ numero */
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .subtitle2
+                                                                .titleSmall
                                                                 .override(
                                                                   fontFamily:
                                                                       'Outfit',
@@ -1878,7 +1878,7 @@ numero */
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Lexend Deca',
@@ -1955,7 +1955,7 @@ numero */
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Lexend Deca',
@@ -1992,7 +1992,7 @@ numero */
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .subtitle2
+                                                                .titleSmall
                                                                 .override(
                                                                   fontFamily:
                                                                       'Outfit',
@@ -2007,7 +2007,7 @@ numero */
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Lexend Deca',
@@ -2105,7 +2105,7 @@ numero */
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Lexend Deca',
@@ -2142,7 +2142,7 @@ numero */
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .subtitle2
+                                                                .titleSmall
                                                                 .override(
                                                                   fontFamily:
                                                                       'Outfit',
@@ -2157,7 +2157,7 @@ numero */
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Lexend Deca',
@@ -2255,7 +2255,7 @@ numero */
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Lexend Deca',
@@ -2368,11 +2368,11 @@ numero */
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .tertiaryColor,
+                                                                .tertiary,
                                                         textStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .subtitle2
+                                                                .titleSmall
                                                                 .override(
                                                                   fontFamily:
                                                                       'Lexend Deca',
@@ -2430,7 +2430,7 @@ numero */
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Lexend Deca',
@@ -2451,7 +2451,7 @@ numero */
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Lexend Deca',
@@ -2535,7 +2535,7 @@ numero */
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .subtitle2
+                                                              .titleSmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Outfit',
@@ -2625,11 +2625,11 @@ numero */
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .tertiaryColor,
+                                                                .tertiary,
                                                         textStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .subtitle2
+                                                                .titleSmall
                                                                 .override(
                                                                   fontFamily:
                                                                       'Lexend Deca',

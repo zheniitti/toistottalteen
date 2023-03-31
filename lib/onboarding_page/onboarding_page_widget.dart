@@ -126,7 +126,7 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                             ),
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .title1
+                                                .displaySmall
                                                 .override(
                                                   fontFamily: 'Outfit',
                                                   color: Color(0xFF0F1113),
@@ -151,7 +151,7 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                             ),
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .subtitle2
+                                                .titleSmall
                                                 .override(
                                                   fontFamily: 'Outfit',
                                                   color: FlutterFlowTheme.of(
@@ -205,7 +205,7 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                             ),
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .title1
+                                                .displaySmall
                                                 .override(
                                                   fontFamily: 'Outfit',
                                                   color: Color(0xFF0F1113),
@@ -230,7 +230,7 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                             ),
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .subtitle2
+                                                .titleSmall
                                                 .override(
                                                   fontFamily: 'Outfit',
                                                   color: FlutterFlowTheme.of(
@@ -284,7 +284,7 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                             ),
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .title1
+                                                .displaySmall
                                                 .override(
                                                   fontFamily: 'Outfit',
                                                   color: Color(0xFF0F1113),
@@ -309,7 +309,7 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                             ),
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
-                                                .subtitle2
+                                                .titleSmall
                                                 .override(
                                                   fontFamily: 'Outfit',
                                                   color: FlutterFlowTheme.of(
@@ -398,7 +398,7 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: Color(0xFFF1F4F8),
                       textStyle:
-                          FlutterFlowTheme.of(context).subtitle1.override(
+                          FlutterFlowTheme.of(context).titleMedium.override(
                                 fontFamily: 'Lexend Deca',
                                 color: Color(0xFF0F1113),
                                 fontSize: 18.0,

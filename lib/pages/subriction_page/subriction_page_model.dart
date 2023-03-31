@@ -16,6 +16,8 @@ class SubrictionPageModel extends FlutterFlowModel {
 
   // State field(s) for CheckboxListTile widget.
   bool? checkboxListTileValue1;
+  // Stores action output result for [RevenueCat - Purchase] action in Container widget.
+  bool? didPurchase;
   // State field(s) for CheckboxListTile widget.
   bool? checkboxListTileValue2;
   // State field(s) for CheckboxListTile widget.

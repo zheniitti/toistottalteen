@@ -96,7 +96,7 @@ sarja */
                             style: TextStyle(),
                           )
                         ],
-                        style: FlutterFlowTheme.of(context).bodyText1,
+                        style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                       textAlign: TextAlign.center,
                       maxLines: 2,
@@ -109,9 +109,9 @@ sarja */
                         FFLocalizations.of(context).getText(
                           'sgoh1uqn' /* Toistot */,
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText2.override(
+                        style: FlutterFlowTheme.of(context).bodySmall.override(
                               fontFamily: 'Roboto',
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                               fontSize: 12.0,
                             ),
                       ),
@@ -132,7 +132,7 @@ sarja */
                               '4lw9eht6' /* 0 */,
                             ),
                             hintStyle:
-                                FlutterFlowTheme.of(context).bodyText2.override(
+                                FlutterFlowTheme.of(context).bodySmall.override(
                                       fontFamily: 'Roboto',
                                       fontSize: 20.0,
                                     ),
@@ -145,8 +145,7 @@ sarja */
                             ),
                             focusedBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                color: FlutterFlowTheme.of(context).primary,
                                 width: 1.0,
                               ),
                               borderRadius: BorderRadius.circular(8.0),
@@ -167,7 +166,7 @@ sarja */
                             ),
                           ),
                           style:
-                              FlutterFlowTheme.of(context).subtitle2.override(
+                              FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Roboto',
                                     fontSize: 20.0,
                                   ),
@@ -187,7 +186,7 @@ sarja */
                         FFLocalizations.of(context).getText(
                           'vmoelc5t' /* Paino (kg) */,
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Roboto',
                               fontSize: 12.0,
                             ),
@@ -209,7 +208,7 @@ sarja */
                               'e8e42meb' /* 0 */,
                             ),
                             hintStyle:
-                                FlutterFlowTheme.of(context).bodyText2.override(
+                                FlutterFlowTheme.of(context).bodySmall.override(
                                       fontFamily: 'Roboto',
                                       fontSize: 20.0,
                                     ),
@@ -222,8 +221,7 @@ sarja */
                             ),
                             focusedBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                color: FlutterFlowTheme.of(context).primary,
                                 width: 1.0,
                               ),
                               borderRadius: BorderRadius.circular(8.0),
@@ -243,7 +241,7 @@ sarja */
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).title3,
+                          style: FlutterFlowTheme.of(context).headlineSmall,
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
                           validator: _model.textController2Validator

@@ -150,10 +150,11 @@ class _NameAndCommentFieldsOfSessioWidgetState
                     hintText: FFLocalizations.of(context).getText(
                       'pah0obna' /* Treenin nimi */,
                     ),
-                    hintStyle: FlutterFlowTheme.of(context).subtitle1.override(
-                          fontFamily: 'Outfit',
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                        ),
+                    hintStyle:
+                        FlutterFlowTheme.of(context).titleMedium.override(
+                              fontFamily: 'Outfit',
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                            ),
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(
                         color: Color(0x00000000),
@@ -185,7 +186,7 @@ class _NameAndCommentFieldsOfSessioWidgetState
                     contentPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 4.0),
                   ),
-                  style: FlutterFlowTheme.of(context).title3,
+                  style: FlutterFlowTheme.of(context).headlineSmall,
                   textAlign: TextAlign.center,
                   maxLines: null,
                   minLines: 1,
@@ -247,7 +248,7 @@ class _NameAndCommentFieldsOfSessioWidgetState
                     hintText: FFLocalizations.of(context).getText(
                       'b5n4twdx' /* Kommentti (vapaaehtoinen) */,
                     ),
-                    hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                    hintStyle: FlutterFlowTheme.of(context).bodySmall,
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(
                         color: Color(0x00000000),
@@ -279,7 +280,7 @@ class _NameAndCommentFieldsOfSessioWidgetState
                     contentPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 2.0),
                   ),
-                  style: FlutterFlowTheme.of(context).subtitle2.override(
+                  style: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Roboto',
                         fontSize: 14.0,
                         fontWeight: FontWeight.normal,
@@ -297,7 +298,7 @@ class _NameAndCommentFieldsOfSessioWidgetState
               padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 10.0),
               child: Icon(
                 Icons.add_comment_rounded,
-                color: FlutterFlowTheme.of(context).primaryColor,
+                color: FlutterFlowTheme.of(context).primary,
                 size: 24.0,
               ),
             ),

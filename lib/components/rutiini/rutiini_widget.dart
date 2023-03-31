@@ -464,7 +464,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                       ),
                                       textAlign: TextAlign.center,
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Roboto',
                                             fontSize: 20.0,
@@ -518,7 +518,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                   'yi3kozht' /* Treenipohjan nimi */,
                                 ),
                                 hintStyle: FlutterFlowTheme.of(context)
-                                    .bodyText2
+                                    .bodySmall
                                     .override(
                                       fontFamily: 'Roboto',
                                       fontSize: 18.0,
@@ -566,7 +566,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                 ),
                               ),
                               style: FlutterFlowTheme.of(context)
-                                  .subtitle2
+                                  .titleSmall
                                   .override(
                                     fontFamily: 'Roboto',
                                     fontSize: 18.0,
@@ -663,7 +663,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                             'kiyozfj3' /* Treenipohjan kommentti 💬 */,
                           ),
                           hintStyle:
-                              FlutterFlowTheme.of(context).bodyText2.override(
+                              FlutterFlowTheme.of(context).bodySmall.override(
                                     fontFamily: 'Roboto',
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.w300,
@@ -711,7 +711,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                           contentPadding: EdgeInsetsDirectional.fromSTEB(
                               4.0, 4.0, 4.0, 4.0),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Roboto',
                               fontSize: 14.0,
                             ),
@@ -794,19 +794,18 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: widget.rutiini!.valitutViikonPaivat!.ma!
-                                    ? FlutterFlowTheme.of(context).primaryColor
-                                    : FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
+                                    ? FlutterFlowTheme.of(context).secondary
+                                    : Color(0x9AFFFFFF),
                                 textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
+                                    .titleSmall
                                     .override(
                                       fontFamily: 'Roboto',
                                       color: widget
                                               .rutiini!.valitutViikonPaivat!.ma!
                                           ? FlutterFlowTheme.of(context)
-                                              .secondaryColor
+                                              .secondary
                                           : FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .primary,
                                     ),
                                 elevation: 1.0,
                                 borderSide: BorderSide(
@@ -869,19 +868,19 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: widget.rutiini!.valitutViikonPaivat!.ti!
-                                    ? FlutterFlowTheme.of(context).primaryColor
+                                    ? FlutterFlowTheme.of(context).primary
                                     : FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                 textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
+                                    .titleSmall
                                     .override(
                                       fontFamily: 'Roboto',
                                       color: widget
                                               .rutiini!.valitutViikonPaivat!.ti!
                                           ? FlutterFlowTheme.of(context)
-                                              .secondaryColor
+                                              .secondary
                                           : FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .primary,
                                     ),
                                 elevation: 1.0,
                                 borderSide: BorderSide(
@@ -944,19 +943,19 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: widget.rutiini!.valitutViikonPaivat!.ke!
-                                    ? FlutterFlowTheme.of(context).primaryColor
+                                    ? FlutterFlowTheme.of(context).primary
                                     : FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                 textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
+                                    .titleSmall
                                     .override(
                                       fontFamily: 'Roboto',
                                       color: widget
                                               .rutiini!.valitutViikonPaivat!.ke!
                                           ? FlutterFlowTheme.of(context)
-                                              .secondaryColor
+                                              .secondary
                                           : FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .primary,
                                     ),
                                 elevation: 1.0,
                                 borderSide: BorderSide(
@@ -1019,19 +1018,19 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: widget.rutiini!.valitutViikonPaivat!.to!
-                                    ? FlutterFlowTheme.of(context).primaryColor
+                                    ? FlutterFlowTheme.of(context).primary
                                     : FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                 textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
+                                    .titleSmall
                                     .override(
                                       fontFamily: 'Roboto',
                                       color: widget
                                               .rutiini!.valitutViikonPaivat!.to!
                                           ? FlutterFlowTheme.of(context)
-                                              .secondaryColor
+                                              .secondary
                                           : FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .primary,
                                     ),
                                 elevation: 1.0,
                                 borderSide: BorderSide(
@@ -1094,19 +1093,19 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: widget.rutiini!.valitutViikonPaivat!.pe!
-                                    ? FlutterFlowTheme.of(context).primaryColor
+                                    ? FlutterFlowTheme.of(context).primary
                                     : FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                 textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
+                                    .titleSmall
                                     .override(
                                       fontFamily: 'Roboto',
                                       color: widget
                                               .rutiini!.valitutViikonPaivat!.pe!
                                           ? FlutterFlowTheme.of(context)
-                                              .secondaryColor
+                                              .secondary
                                           : FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .primary,
                                     ),
                                 elevation: 1.0,
                                 borderSide: BorderSide(
@@ -1169,19 +1168,19 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: widget.rutiini!.valitutViikonPaivat!.la!
-                                    ? FlutterFlowTheme.of(context).primaryColor
+                                    ? FlutterFlowTheme.of(context).primary
                                     : FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                 textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
+                                    .titleSmall
                                     .override(
                                       fontFamily: 'Roboto',
                                       color: widget
                                               .rutiini!.valitutViikonPaivat!.la!
                                           ? FlutterFlowTheme.of(context)
-                                              .secondaryColor
+                                              .secondary
                                           : FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .primary,
                                     ),
                                 elevation: 1.0,
                                 borderSide: BorderSide(
@@ -1245,19 +1244,19 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: widget.rutiini!.valitutViikonPaivat!.su!
-                                    ? FlutterFlowTheme.of(context).primaryColor
+                                    ? FlutterFlowTheme.of(context).primary
                                     : FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                 textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
+                                    .titleSmall
                                     .override(
                                       fontFamily: 'Roboto',
                                       color: widget
                                               .rutiini!.valitutViikonPaivat!.su!
                                           ? FlutterFlowTheme.of(context)
-                                              .secondaryColor
+                                              .secondary
                                           : FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .primary,
                                     ),
                                 elevation: 1.0,
                                 borderSide: BorderSide(
@@ -1284,7 +1283,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                           'qqp0ddb4' /* Treenipäivät  */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
                                       ),
                                     ),
                                   ),
@@ -1300,7 +1299,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                             FFLocalizations.of(context)
                                                 .languageCode)!,
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
                                       ),
                                     ),
                                   ),
@@ -1386,7 +1385,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                           'zuph6hae' /* Muokkaa */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .subtitle2
+                                            .titleSmall
                                             .override(
                                               fontFamily: 'Roboto',
                                               fontWeight: FontWeight.w500,
@@ -1438,14 +1437,15 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .primary,
                                           textStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .subtitle2
+                                                  .titleSmall
                                                   .override(
                                                     fontFamily: 'Roboto',
                                                     color: Colors.white,
                                                   ),
+                                          elevation: 2.0,
                                           borderSide: BorderSide(
                                             color: Colors.transparent,
                                             width: 1.0,
@@ -1510,13 +1510,14 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                             EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
-                                            .tertiaryColor,
+                                            .tertiary,
                                         textStyle: FlutterFlowTheme.of(context)
-                                            .subtitle2
+                                            .titleSmall
                                             .override(
                                               fontFamily: 'Roboto',
                                               color: Colors.white,
                                             ),
+                                        elevation: 2.0,
                                         borderSide: BorderSide(
                                           color: Colors.transparent,
                                           width: 1.0,
@@ -1589,7 +1590,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                           'm9mgmk0g' /* Lisää harjoitusliike */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .subtitle2,
+                                            .titleSmall,
                                       ),
                                     ),
                                   ],
@@ -1653,7 +1654,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                     FFLocalizations.of(context).getText(
                       's66i837o' /* Lopeta muokkaus */,
                     ),
-                    style: FlutterFlowTheme.of(context).subtitle2,
+                    style: FlutterFlowTheme.of(context).titleSmall,
                   ),
                 ],
               ),

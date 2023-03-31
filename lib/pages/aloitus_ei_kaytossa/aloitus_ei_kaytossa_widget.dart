@@ -58,7 +58,7 @@ class _AloitusEiKaytossaWidgetState extends State<AloitusEiKaytossaWidget> {
             onPressed: () {
               print('FloatingActionButton pressed ...');
             },
-            backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+            backgroundColor: FlutterFlowTheme.of(context).primary,
             icon: Icon(
               Icons.add,
             ),
@@ -67,9 +67,9 @@ class _AloitusEiKaytossaWidgetState extends State<AloitusEiKaytossaWidget> {
               FFLocalizations.of(context).getText(
                 'rmgg2g5f' /* Luo rutiini */,
               ),
-              style: FlutterFlowTheme.of(context).bodyText1.override(
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Roboto',
-                    color: FlutterFlowTheme.of(context).secondaryColor,
+                    color: FlutterFlowTheme.of(context).secondary,
                     fontSize: 16.0,
                   ),
             ),
@@ -84,13 +84,13 @@ class _AloitusEiKaytossaWidgetState extends State<AloitusEiKaytossaWidget> {
           ),
         ),
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+          backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: true,
           title: Text(
             FFLocalizations.of(context).getText(
               'ogtztobw' /* Päänäkymä */,
             ),
-            style: FlutterFlowTheme.of(context).subtitle2.override(
+            style: FlutterFlowTheme.of(context).titleSmall.override(
                   fontFamily: 'Outfit',
                   color: FlutterFlowTheme.of(context).primaryBackground,
                 ),
@@ -137,7 +137,7 @@ class _AloitusEiKaytossaWidgetState extends State<AloitusEiKaytossaWidget> {
                                         'sexpp0z3' /* Heatmap */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
+                                          .bodyMedium,
                                     ),
                                   ),
                                 ),
@@ -188,7 +188,7 @@ class _AloitusEiKaytossaWidgetState extends State<AloitusEiKaytossaWidget> {
                                             height: 50.0,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .subtitle2,
+                                                    .titleSmall,
                                             hintText:
                                                 FFLocalizations.of(context)
                                                     .getText(

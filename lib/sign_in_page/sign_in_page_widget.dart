@@ -290,7 +290,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget>
                           'sgy4rh97' /*  Click Here */,
                         ),
                         style: TextStyle(
-                          color: FlutterFlowTheme.of(context).secondaryColor,
+                          color: FlutterFlowTheme.of(context).secondary,
                           fontWeight: FontWeight.w300,
                           fontSize: 12.0,
                         ),
@@ -469,13 +469,14 @@ class _SignInPageWidgetState extends State<SignInPageWidget>
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).primaryColor,
+                      color: FlutterFlowTheme.of(context).primary,
                       textStyle: TextStyle(
                         fontFamily: 'Satoshi',
                         color: Color(0xFFF6F6F6),
                         fontWeight: FontWeight.w500,
                         fontSize: 22.0,
                       ),
+                      elevation: 2.0,
                       borderSide: BorderSide(
                         color: Colors.transparent,
                         width: 1.0,
@@ -519,7 +520,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget>
                             'vk0cbvch' /* Or */,
                           ),
                           style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                              FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Roboto',
                                     color: Color(0xFFDCDCDC),
                                     fontSize: 12.0,

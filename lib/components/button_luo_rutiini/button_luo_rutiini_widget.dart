@@ -110,10 +110,10 @@ class _ButtonLuoRutiiniWidgetState extends State<ButtonLuoRutiiniWidget>
         height: 70.0,
         padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
         iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-        color: FlutterFlowTheme.of(context).primaryColor,
-        textStyle: FlutterFlowTheme.of(context).subtitle1.override(
+        color: FlutterFlowTheme.of(context).primary,
+        textStyle: FlutterFlowTheme.of(context).titleMedium.override(
               fontFamily: 'Outfit',
-              color: FlutterFlowTheme.of(context).secondaryColor,
+              color: FlutterFlowTheme.of(context).secondary,
               fontSize: 20.0,
               fontWeight: FontWeight.w500,
             ),

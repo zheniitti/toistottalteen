@@ -90,7 +90,7 @@ class _RutiininLiikeNimiTextfieldWidgetState
         hintText: FFLocalizations.of(context).getText(
           '6g69qd7e' /* Treenilikkeen nimi */,
         ),
-        hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
+        hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
               fontFamily: 'Roboto',
               fontSize: 16.0,
               fontWeight: FontWeight.w300,
@@ -137,7 +137,7 @@ class _RutiininLiikeNimiTextfieldWidgetState
         ),
         contentPadding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 2.0),
       ),
-      style: FlutterFlowTheme.of(context).subtitle2.override(
+      style: FlutterFlowTheme.of(context).titleSmall.override(
             fontFamily: 'Roboto',
             fontWeight: FontWeight.normal,
           ),

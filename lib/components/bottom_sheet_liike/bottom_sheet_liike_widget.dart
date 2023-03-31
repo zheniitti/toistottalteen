@@ -246,10 +246,9 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
                                 setState(() {});
                               }
                             },
-                            activeColor:
-                                FlutterFlowTheme.of(context).primaryColor,
+                            activeColor: FlutterFlowTheme.of(context).primary,
                             inactiveThumbColor:
-                                FlutterFlowTheme.of(context).primaryColor,
+                                FlutterFlowTheme.of(context).primary,
                           ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
@@ -258,7 +257,7 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
                                 FFLocalizations.of(context).getText(
                                   'k0xw8zra' /* Muu liike */,
                                 ),
-                                style: FlutterFlowTheme.of(context).subtitle2,
+                                style: FlutterFlowTheme.of(context).titleSmall,
                               ),
                             ],
                           ),
@@ -309,7 +308,7 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
                           '9s0xqn9g' /* Kopioi liike */,
                         ),
                         textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).title3,
+                        style: FlutterFlowTheme.of(context).headlineSmall,
                       ),
                       trailing: Icon(
                         Icons.content_copy_rounded,
@@ -397,7 +396,7 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
                                 '1ejk01eg' /* Liitä yläpuolelle */,
                               ),
                               textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context).title3,
+                              style: FlutterFlowTheme.of(context).headlineSmall,
                             ),
                             trailing: Icon(
                               Icons.arrow_drop_up_rounded,
@@ -481,7 +480,7 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
                                 'n87lfy7j' /* Liitä alapuolelle */,
                               ),
                               textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context).title3,
+                              style: FlutterFlowTheme.of(context).headlineSmall,
                             ),
                             trailing: Icon(
                               Icons.arrow_drop_down_rounded,
@@ -562,17 +561,18 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
                         'c8ldb00c' /* Poista liike */,
                       ),
                       textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).title3.override(
-                            fontFamily: 'Outfit',
-                            color: Color(0xFFE00000),
-                          ),
+                      style:
+                          FlutterFlowTheme.of(context).headlineSmall.override(
+                                fontFamily: 'Outfit',
+                                color: Color(0xFFE00000),
+                              ),
                     ),
                     subtitle: Text(
                       FFLocalizations.of(context).getText(
                         'ha2mfouu' /* (Paina pitkään) */,
                       ),
                       textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).bodyText1,
+                      style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                     trailing: Icon(
                       Icons.delete,
