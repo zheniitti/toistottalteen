@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'index.dart'; // Imports other custom actions
+
 Future<TreeniRutiiniStruct?> myUpdateTreeniRutiiniStruct(
   TreeniRutiiniStruct? treeniRutiini,
   DateTime? createdTime,
@@ -70,7 +72,24 @@ Future<TreeniRutiiniStruct?> myUpdateTreeniRutiiniStruct(
           } on Exception catch (e) {
             print('Error: $toiminto epäonnistui: $e');
           }
-          return liikeStruct ??
+
+          //päivitetään sarjan createdTime ja modifiedTime
+          ListBuilder<SarjaStruct>? sarjatListbuilder =
+              liikeStruct?.sarjat?.toBuilder()
+                ?..map((sar) {
+                  final sarbuilder = sar.toBuilder()
+                    ..createdTime = getCurrentTimestamp
+                    ..modifiedTime = getCurrentTimestamp;
+                  return sarbuilder.build();
+                });
+
+          LiikeStructBuilder? liikeStructBuilder = liikeStruct?.toBuilder()
+            ?..firestoreUtilData =
+                FirestoreUtilData(clearUnsetFields: false, create: true)
+            ..sarjat = sarjatListbuilder
+            ..createdTime = getCurrentTimestamp
+            ..modifiedTime = getCurrentTimestamp;
+          return liikeStructBuilder?.build() ??
               createLiikeStruct(createdTime: getCurrentTimestamp, create: true);
         },
       ).toList();

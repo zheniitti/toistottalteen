@@ -1,5 +1,6 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/ad_banner_padding_widget.dart';
 import '/components/liike_treenin_aikana/liike_treenin_aikana_widget.dart';
 import '/components/name_and_comment_fields_of_sessio_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -114,8 +115,6 @@ class _SivuTreenaaKomponenttiWidgetState
     context.watch<FFAppState>();
 
     return Container(
-      width: MediaQuery.of(context).size.width * 1.0,
-      height: MediaQuery.of(context).size.height * 1.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).primaryBackground,
       ),
@@ -144,6 +143,11 @@ class _SivuTreenaaKomponenttiWidgetState
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
+                  wrapWithModel(
+                    model: _model.adBannerPaddingModel,
+                    updateCallback: () => setState(() {}),
+                    child: AdBannerPaddingWidget(),
+                  ),
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 240.0),
@@ -397,9 +401,11 @@ class _SivuTreenaaKomponenttiWidgetState
                                           fieldValues: {
                                             'sarjat': [
                                               getSarjaFirestoreData(
-                                                updateSarjaStruct(
-                                                  null,
+                                                createSarjaStruct(
+                                                  createdTime:
+                                                      getCurrentTimestamp,
                                                   clearUnsetFields: false,
+                                                  create: true,
                                                 ),
                                                 true,
                                               )

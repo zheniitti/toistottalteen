@@ -1,5 +1,6 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/ad_banner_padding_widget.dart';
 import '/components/button_luo_rutiini/button_luo_rutiini_widget.dart';
 import '/components/keskenerainen_treeni_komponentti/keskenerainen_treeni_komponentti_widget.dart';
 import '/components/rutiini/rutiini_widget.dart';
@@ -24,6 +25,8 @@ class SivuRutiinitKomponenttiModel extends FlutterFlowModel {
 
   ///  State fields for stateful widgets in this component.
 
+  // Model for AdBannerPadding component.
+  late AdBannerPaddingModel adBannerPaddingModel;
   // Model for button_luoRutiini component.
   late ButtonLuoRutiiniModel buttonLuoRutiiniModel;
   // State field(s) for DropDown widget.
@@ -37,6 +40,7 @@ class SivuRutiinitKomponenttiModel extends FlutterFlowModel {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
+    adBannerPaddingModel = createModel(context, () => AdBannerPaddingModel());
     buttonLuoRutiiniModel = createModel(context, () => ButtonLuoRutiiniModel());
     keskenerainenTreeniKomponenttiModel =
         createModel(context, () => KeskenerainenTreeniKomponenttiModel());
@@ -44,6 +48,7 @@ class SivuRutiinitKomponenttiModel extends FlutterFlowModel {
   }
 
   void dispose() {
+    adBannerPaddingModel.dispose();
     buttonLuoRutiiniModel.dispose();
     keskenerainenTreeniKomponenttiModel.dispose();
     rutiiniModels.dispose();

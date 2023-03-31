@@ -504,7 +504,7 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                         children: [
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 2.0, 0.0, 2.0),
+                                0.0, 0.0, 0.0, 2.0),
                             child: Container(
                               decoration: BoxDecoration(),
                               child: Column(
@@ -537,89 +537,93 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                                         widget.liike?.isOtherExerciseType,
                                         true,
                                       ))
-                                        Wrap(
-                                          spacing: 0.0,
-                                          runSpacing: 0.0,
-                                          alignment: WrapAlignment.end,
-                                          crossAxisAlignment:
-                                              WrapCrossAlignment.center,
-                                          direction: Axis.horizontal,
-                                          runAlignment: WrapAlignment.center,
-                                          verticalDirection:
-                                              VerticalDirection.down,
-                                          clipBehavior: Clip.none,
-                                          children: [
-                                            Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'u1j0c71n' /* Toistot */,
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 2.0, 0.0, 0.0),
+                                          child: Wrap(
+                                            spacing: 0.0,
+                                            runSpacing: 0.0,
+                                            alignment: WrapAlignment.end,
+                                            crossAxisAlignment:
+                                                WrapCrossAlignment.center,
+                                            direction: Axis.horizontal,
+                                            runAlignment: WrapAlignment.center,
+                                            verticalDirection:
+                                                VerticalDirection.down,
+                                            clipBehavior: Clip.none,
+                                            children: [
+                                              Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'u1j0c71n' /* Toistot */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          fontSize: 12.0,
+                                                        ),
                                                   ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodySmall
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                        fontSize: 12.0,
-                                                      ),
-                                                ),
-                                                Container(
-                                                  width: 130.0,
-                                                  decoration: BoxDecoration(),
-                                                  child:
-                                                      SarjaToistotTextfieldWidget(
-                                                    key: Key(
-                                                        'Keyfrz_${sarjatIndex}_of_${sarjat.length}'),
-                                                    sarjaIndex: sarjatIndex,
-                                                    liikeIndex:
-                                                        widget.liikeIndexInList,
-                                                    sarja: sarjatItem,
-                                                    sessioDoc:
-                                                        widget.treeniSessio,
+                                                  Container(
+                                                    width: 130.0,
+                                                    decoration: BoxDecoration(),
+                                                    child:
+                                                        SarjaToistotTextfieldWidget(
+                                                      key: Key(
+                                                          'Keyfrz_${sarjatIndex}_of_${sarjat.length}'),
+                                                      sarjaIndex: sarjatIndex,
+                                                      liikeIndex: widget
+                                                          .liikeIndexInList,
+                                                      sarja: sarjatItem,
+                                                      sessioDoc:
+                                                          widget.treeniSessio,
+                                                    ),
                                                   ),
-                                                ),
-                                              ],
-                                            ),
-                                            Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    '1zpp3lp9' /* Paino (kg) */,
+                                                ],
+                                              ),
+                                              Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      '1zpp3lp9' /* Paino (kg) */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          fontSize: 12.0,
+                                                        ),
                                                   ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        fontSize: 12.0,
-                                                      ),
-                                                ),
-                                                Container(
-                                                  width: 130.0,
-                                                  decoration: BoxDecoration(),
-                                                  child:
-                                                      SarjaPainoTextfieldWidget(
-                                                    key: Key(
-                                                        'Key3ik_${sarjatIndex}_of_${sarjat.length}'),
-                                                    sarjaIndex: sarjatIndex,
-                                                    liikeIndex:
-                                                        widget.liikeIndexInList,
-                                                    sarja: sarjatItem,
-                                                    sessioDoc:
-                                                        widget.treeniSessio,
+                                                  Container(
+                                                    width: 130.0,
+                                                    decoration: BoxDecoration(),
+                                                    child:
+                                                        SarjaPainoTextfieldWidget(
+                                                      key: Key(
+                                                          'Key3ik_${sarjatIndex}_of_${sarjat.length}'),
+                                                      sarjaIndex: sarjatIndex,
+                                                      liikeIndex: widget
+                                                          .liikeIndexInList,
+                                                      sarja: sarjatItem,
+                                                      sessioDoc:
+                                                          widget.treeniSessio,
+                                                    ),
                                                   ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
+                                                ],
+                                              ),
+                                            ],
+                                          ),
                                         ),
                                       Align(
                                         alignment:

@@ -1,5 +1,6 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/ad_banner_padding_widget.dart';
 import '/components/liike_treenin_aikana/liike_treenin_aikana_widget.dart';
 import '/components/name_and_comment_fields_of_sessio_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -21,6 +22,8 @@ import 'package:provider/provider.dart';
 class SivuTreenaaKomponenttiModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
+  // Model for AdBannerPadding component.
+  late AdBannerPaddingModel adBannerPaddingModel;
   // Model for nameAndCommentFieldsOfSessio component.
   late NameAndCommentFieldsOfSessioModel nameAndCommentFieldsOfSessioModel;
   // Models for liike_treeninAikana dynamic component.
@@ -32,6 +35,7 @@ class SivuTreenaaKomponenttiModel extends FlutterFlowModel {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
+    adBannerPaddingModel = createModel(context, () => AdBannerPaddingModel());
     nameAndCommentFieldsOfSessioModel =
         createModel(context, () => NameAndCommentFieldsOfSessioModel());
     liikeTreeninAikanaModels =
@@ -39,6 +43,7 @@ class SivuTreenaaKomponenttiModel extends FlutterFlowModel {
   }
 
   void dispose() {
+    adBannerPaddingModel.dispose();
     nameAndCommentFieldsOfSessioModel.dispose();
     liikeTreeninAikanaModels.dispose();
   }

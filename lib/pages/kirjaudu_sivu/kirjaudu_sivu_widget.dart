@@ -2280,47 +2280,51 @@ numero */
                                                       onPressed: () async {
                                                         logFirebaseEvent(
                                                             'KIRJAUDU_SIVU_PAGE_LUO_TILI_BTN_ON_TAP');
-                                                        logFirebaseEvent(
-                                                            'Button_auth');
-                                                        GoRouter.of(context)
-                                                            .prepareAuthEvent();
-                                                        if (_model
-                                                                .passwordCreateAccController
-                                                                .text !=
-                                                            _model
-                                                                .passwordConfirmCreateAccController
-                                                                .text) {
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .showSnackBar(
-                                                            SnackBar(
-                                                              content: Text(
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .getText(
-                                                                  'r9kev20w' /* 🙅 Salasanat eivät täsmää */,
+                                                        if (valueOrDefault<
+                                                                bool>(
+                                                            currentUserDocument
+                                                                ?.isAnonymous,
+                                                            false)) {
+                                                          logFirebaseEvent(
+                                                              'Button_auth');
+                                                          GoRouter.of(context)
+                                                              .prepareAuthEvent();
+                                                          if (_model
+                                                                  .passwordCreateAccController
+                                                                  .text !=
+                                                              _model
+                                                                  .passwordConfirmCreateAccController
+                                                                  .text) {
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .showSnackBar(
+                                                              SnackBar(
+                                                                content: Text(
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    'r9kev20w' /* 🙅 Salasanat eivät täsmää */,
+                                                                  ),
                                                                 ),
                                                               ),
-                                                            ),
+                                                            );
+                                                            return;
+                                                          }
+
+                                                          final user =
+                                                              await createAccountWithEmail(
+                                                            context,
+                                                            _model
+                                                                .emailAddressCreateAccController
+                                                                .text,
+                                                            _model
+                                                                .passwordCreateAccController
+                                                                .text,
                                                           );
-                                                          return;
-                                                        }
+                                                          if (user == null) {
+                                                            return;
+                                                          }
 
-                                                        final user =
-                                                            await createAccountWithEmail(
-                                                          context,
-                                                          _model
-                                                              .emailAddressCreateAccController
-                                                              .text,
-                                                          _model
-                                                              .passwordCreateAccController
-                                                              .text,
-                                                        );
-                                                        if (user == null) {
-                                                          return;
-                                                        }
-
-                                                        if (loggedIn) {
                                                           logFirebaseEvent(
                                                               'Button_backend_call');
 

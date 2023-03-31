@@ -138,18 +138,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Lopeta',
       'en': 'Finish',
     },
-    'd9b3r5r8': {
-      'fi': 'Aikaa kulunut:',
-      'en': 'Duration: ',
-    },
-    'hwbly3hr': {
-      'fi': 'Aloita ajanotto',
-      'en': 'Finish workout',
-    },
-    'wbg0l8iz': {
-      'fi': 'Lopeta treeni',
-      'en': 'Finish workout',
-    },
     't1qezc6y': {
       'fi': 'Luo treenirutiini',
       'en': 'Create new routine',
@@ -683,29 +671,29 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // sessio
   {
-    '7mlsyz8f': {
+    '5jsli42l': {
       'fi': '\n',
       'en': '\n',
     },
-    '5fe6fdq5': {
+    'w3ztekll': {
       'fi': ' - ',
       'en': ' - ',
     },
-    '7yngkmsu': {
+    'ydiiiguc': {
       'fi': 'Kesto:\n',
       'en': 'Duration:\n',
     },
-    'qfw31zro': {
+    'y6vzjpet': {
       'fi': 'Liikkeitä:\n',
       'en': 'Exercises:\n',
     },
-    'zg2n2e21': {
+    '40odsxq6': {
       'fi': 'Muokkaa',
       'en': 'Edit',
     },
-    'h16b2vng': {
+    'hmew5d0m': {
       'fi': 'Treenaa uudestaan',
-      'en': 'Workout again now',
+      'en': 'Workout again',
     },
   },
   // MyDeleteButton

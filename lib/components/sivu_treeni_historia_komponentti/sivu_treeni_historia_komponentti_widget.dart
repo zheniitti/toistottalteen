@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/ad_banner_padding_widget.dart';
 import '/components/button_aloita_treenaaminen/button_aloita_treenaaminen_widget.dart';
 import '/components/button_luo_rutiini/button_luo_rutiini_widget.dart';
 import '/components/sessio_chunk_lista_widget.dart';
@@ -55,8 +56,6 @@ class _SivuTreeniHistoriaKomponenttiWidgetState
     context.watch<FFAppState>();
 
     return Container(
-      width: double.infinity,
-      height: double.infinity,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).primaryBackground,
       ),
@@ -67,6 +66,11 @@ class _SivuTreeniHistoriaKomponenttiWidgetState
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
+              wrapWithModel(
+                model: _model.adBannerPaddingModel,
+                updateCallback: () => setState(() {}),
+                child: AdBannerPaddingWidget(),
+              ),
               if (false)
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),

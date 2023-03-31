@@ -24,7 +24,7 @@ Future<SarjaStruct> myUpdateSarja(
   final updatedSarja = sarja.toBuilder()
     ..firestoreUtilData =
         FirestoreUtilData(clearUnsetFields: false, create: true)
-    //..createdTime = createdTime ?? sarja.createdTime
+    ..createdTime = createdTime ?? sarja.createdTime ?? getCurrentTimestamp
     ..modifiedTime = getCurrentTimestamp
     ..paino = painoKg ?? sarja.paino
     ..toistoMaara = toistoMaara ?? sarja.toistoMaara

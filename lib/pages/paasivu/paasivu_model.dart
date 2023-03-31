@@ -10,11 +10,9 @@ import '/flutter_flow/flutter_flow_ad_banner.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/revenue_cat_util.dart' as revenue_cat;
-import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -46,14 +44,6 @@ class PaasivuModel extends FlutterFlowModel {
   TextEditingController? textFieldSeachBarController;
   String? textFieldSeachBarSelectedOption;
   String? Function(BuildContext, String?)? textFieldSeachBarControllerValidator;
-  // State field(s) for Timer widget.
-  int timerMilliseconds = 0;
-  String timerValue = StopWatchTimer.getDisplayTime(0, milliSecond: false);
-  StopWatchTimer timerController = StopWatchTimer(mode: StopWatchMode.countUp);
-
-  // State field(s) for TextField widget.
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
   // Model for sivupalkki component.
   late SivupalkkiModel sivupalkkiModel;
 
@@ -78,8 +68,6 @@ class PaasivuModel extends FlutterFlowModel {
     sivuTreenaaOmponenttiModel.dispose();
     navigationBarModel.dispose();
     workoutDurationTextModel.dispose();
-    timerController.dispose();
-    textController2?.dispose();
     sivupalkkiModel.dispose();
   }
 
