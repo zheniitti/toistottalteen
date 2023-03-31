@@ -35,13 +35,31 @@ Future<LiikeStruct?> myUpdateLiikeStruct(
 
   String toiminto = '';
   try {
-    SarjaStruct newEmptySarja =
-        createSarjaStruct(create: true, createdTime: getCurrentTimestamp);
     if (removeSarjaAtIndex != null) {
       toiminto = 'Poista sarja indeksissa $removeSarjaAtIndex';
       sarjaList.removeAt(removeSarjaAtIndex);
     } else if (addNewSarja != null && addNewSarja) {
       toiminto = 'Lisää uusi sarja';
+      SarjaStruct newEmptySarja;
+      if (sarjaList.isNotEmpty) {
+        final int? previousSarjaSets = sarjaList?.last?.toistoMaara;
+        final double? previousSarjaWeight = sarjaList?.last?.paino;
+        final double? previousSarjaDurationInSeconds =
+            sarjaList?.last?.kestoSekunteina;
+        final double? previousSarjaDistanceInMeters =
+            sarjaList?.last?.matkaMetreina;
+        newEmptySarja = createSarjaStruct(
+            create: true,
+            createdTime: getCurrentTimestamp,
+            toistoMaara: previousSarjaSets,
+            paino: previousSarjaWeight,
+            kestoSekunteina: previousSarjaDurationInSeconds,
+            matkaMetreina: previousSarjaDistanceInMeters);
+      } else {
+        newEmptySarja =
+            createSarjaStruct(create: true, createdTime: getCurrentTimestamp);
+      }
+
       sarjaList.add(newEmptySarja);
     } else if (replaceSarjaAtIndex != null &&
         replacingSarja != null &&
@@ -54,9 +72,7 @@ Future<LiikeStruct?> myUpdateLiikeStruct(
   }
 
 // jos liikkeen tyyppi vaihtuu, nollataan tietyt kentät
-  if (isOtherExerciseType != null &&
-      liike.isOtherExerciseType != null &&
-      isOtherExerciseType != liike.isOtherExerciseType) {
+  if (isOtherExerciseType != null) {
     if (isOtherExerciseType) {
       sarjaMaara = 0;
       toistoMaara = 0;

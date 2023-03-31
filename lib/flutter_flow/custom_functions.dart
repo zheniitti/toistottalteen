@@ -207,8 +207,8 @@ TreeniRutiiniStruct jsonToRutiini(dynamic json) {
   return createTreeniRutiiniStruct();
 }
 
-double remainingSeconds(double? seconds) {
-  if (seconds == null) return 0;
+double? remainingSeconds(double? seconds) {
+  if (seconds == null) return null;
   double remainingSeconds = seconds % 60;
   return remainingSeconds;
 }
@@ -233,8 +233,8 @@ ValitutViikonPaivatStruct myCreateValitutViikonPaivat(
   );
 }
 
-int remainingMinutes(double? seconds) {
-  if (seconds == null) return 0;
+int? remainingMinutes(double? seconds) {
+  if (seconds == null) return null;
 
   int minutes = ((seconds % 3600) ~/ 60).toInt();
   return minutes;
@@ -282,8 +282,8 @@ double toSeconds(
   return totalSeconds;
 }
 
-int remainingHours(double? seconds) {
-  if (seconds == null) return 0;
+int? remainingHours(double? seconds) {
+  if (seconds == null) return null;
   return (seconds / 3600).floor();
 }
 

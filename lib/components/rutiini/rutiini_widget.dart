@@ -57,7 +57,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
         ),
       ],
     ),
-    'containerOnActionTriggerAnimation1': AnimationInfo(
+    'containerOnActionTriggerAnimation': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
       applyInitialState: true,
       effects: [
@@ -254,20 +254,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
         ),
       ],
     ),
-    'buttonOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 220.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 220.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'buttonOnPageLoadAnimation2': AnimationInfo(
+    'buttonOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
@@ -276,19 +263,6 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
           duration: 600.ms,
           begin: 0.0,
           end: 1.0,
-        ),
-      ],
-    ),
-    'containerOnActionTriggerAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onActionTrigger,
-      applyInitialState: true,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 500.ms,
-          begin: 1.0,
-          end: 0.0,
         ),
       ],
     ),
@@ -1328,211 +1302,76 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                           ),
                         ),
                       ),
+                      Divider(
+                        thickness: 1.0,
+                      ),
                       if (widget.rutiini!.finishedEditing! &&
                           (widget.rutiini!.liikkeet!.toList().length > 0))
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 6.0, 0.0, 6.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Divider(
-                                thickness: 1.0,
-                              ),
-                              Container(
-                                width: double.infinity,
-                                decoration: BoxDecoration(),
-                                child: Wrap(
-                                  spacing: 30.0,
-                                  runSpacing: 12.0,
-                                  alignment: WrapAlignment.center,
-                                  crossAxisAlignment: WrapCrossAlignment.center,
-                                  direction: Axis.horizontal,
-                                  runAlignment: WrapAlignment.center,
-                                  verticalDirection: VerticalDirection.down,
-                                  clipBehavior: Clip.none,
-                                  children: [
-                                    InkWell(
-                                      onTap: () async {
-                                        logFirebaseEvent(
-                                            'RUTIINI_COMP_Text_kgeu3lxi_ON_TAP');
-                                        logFirebaseEvent('Text_custom_action');
-                                        await actions
-                                            .updateUserDocTreenirutiini(
-                                          widget.rutiini,
-                                          null,
-                                          null,
-                                          false,
-                                          true,
-                                          null,
-                                          _model.textFieldNimiController.text,
-                                          _model.textFieldKommenttiController
-                                              .text,
-                                          widget.rutiini?.liikkeet
-                                              ?.toList()
-                                              ?.toList(),
-                                          null,
-                                          null,
-                                          null,
-                                          true,
-                                          false,
-                                          false,
-                                          false,
-                                        );
-                                      },
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'zuph6hae' /* Muokkaa */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Roboto',
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                      ),
-                                    ),
-                                    Visibility(
-                                      visible: false,
-                                      child: FFButtonWidget(
-                                        onPressed: () async {
-                                          logFirebaseEvent(
-                                              'RUTIINI_COMP_Button_muokkaa_ON_TAP');
-                                          logFirebaseEvent(
-                                              'Button_muokkaa_custom_action');
-                                          await actions
-                                              .updateUserDocTreenirutiini(
-                                            widget.rutiini,
-                                            null,
-                                            null,
-                                            false,
-                                            true,
-                                            null,
-                                            _model.textFieldNimiController.text,
-                                            _model.textFieldKommenttiController
-                                                .text,
-                                            widget.rutiini?.liikkeet
-                                                ?.toList()
-                                                ?.toList(),
-                                            null,
-                                            null,
-                                            null,
-                                            true,
-                                            false,
-                                            false,
-                                            false,
-                                          );
-                                        },
-                                        text:
-                                            FFLocalizations.of(context).getText(
-                                          'xvtlnaay' /* Muokkaa */,
-                                        ),
-                                        options: FFButtonOptions(
-                                          width: 130.0,
-                                          height: 40.0,
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmall
-                                                  .override(
-                                                    fontFamily: 'Roboto',
-                                                    color: Colors.white,
-                                                  ),
-                                          elevation: 2.0,
-                                          borderSide: BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
-                                        ),
-                                      ).animateOnPageLoad(animationsMap[
-                                          'buttonOnPageLoadAnimation1']!),
-                                    ),
-                                    FFButtonWidget(
-                                      onPressed: () async {
-                                        logFirebaseEvent(
-                                            'RUTIINI_COMP_TREENAA_NYT_BTN_ON_TAP');
-                                        logFirebaseEvent(
-                                            'Button_custom_action');
-                                        await actions.updateTreenisessiotRecord(
-                                          null,
-                                          null,
-                                          null,
-                                          widget.rutiini,
-                                          false,
-                                          null,
-                                          true,
-                                        );
-                                        logFirebaseEvent(
-                                            'Button_start_periodic_action');
-                                        _model.instantTimer =
-                                            InstantTimer.periodic(
-                                          duration: Duration(milliseconds: 100),
-                                          callback: (timer) async {
-                                            if (widget.latestSessioDoc != null
-                                                ? (widget.latestSessioDoc!
-                                                        .loppu ==
-                                                    null)
-                                                : false) {
-                                              logFirebaseEvent(
-                                                  'Button_update_app_state');
-                                              _model.updatePage(() {
-                                                FFAppState().navBarIndex = 1;
-                                              });
-                                              logFirebaseEvent(
-                                                  'Button_stop_periodic_action');
-                                              _model.instantTimer?.cancel();
-                                              return;
-                                            } else {
-                                              return;
-                                            }
-                                          },
-                                          startImmediately: true,
-                                        );
-                                      },
-                                      text: FFLocalizations.of(context).getText(
-                                        '5o4nggqe' /* Treenaa nyt */,
-                                      ),
-                                      options: FFButtonOptions(
-                                        width: 130.0,
-                                        height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 0.0),
-                                        iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .tertiary,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Roboto',
-                                              color: Colors.white,
-                                            ),
-                                        elevation: 2.0,
-                                        borderSide: BorderSide(
-                                          color: Colors.transparent,
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(12.0),
-                                      ),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'buttonOnPageLoadAnimation2']!),
-                                  ],
-                                ),
-                              ),
-                            ],
+                        FFButtonWidget(
+                          onPressed: () async {
+                            logFirebaseEvent(
+                                'RUTIINI_COMP_Button_startWorkout_ON_TAP');
+                            logFirebaseEvent(
+                                'Button_startWorkout_custom_action');
+                            await actions.updateTreenisessiotRecord(
+                              null,
+                              null,
+                              null,
+                              widget.rutiini,
+                              false,
+                              null,
+                              true,
+                            );
+                            logFirebaseEvent(
+                                'Button_startWorkout_start_periodic_actio');
+                            _model.instantTimer = InstantTimer.periodic(
+                              duration: Duration(milliseconds: 100),
+                              callback: (timer) async {
+                                if (widget.latestSessioDoc != null
+                                    ? (widget.latestSessioDoc!.loppu == null)
+                                    : false) {
+                                  logFirebaseEvent(
+                                      'Button_startWorkout_update_app_state');
+                                  _model.updatePage(() {
+                                    FFAppState().navBarIndex = 1;
+                                  });
+                                  logFirebaseEvent(
+                                      'Button_startWorkout_stop_periodic_action');
+                                  _model.instantTimer?.cancel();
+                                  return;
+                                } else {
+                                  return;
+                                }
+                              },
+                              startImmediately: true,
+                            );
+                          },
+                          text: FFLocalizations.of(context).getText(
+                            '5o4nggqe' /* Treenaa nyt */,
                           ),
-                        ),
+                          options: FFButtonOptions(
+                            width: double.infinity,
+                            height: 40.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).tertiary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Roboto',
+                                  color: Colors.white,
+                                ),
+                            elevation: 2.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                        ).animateOnPageLoad(
+                            animationsMap['buttonOnPageLoadAnimation']!),
                       if (!(widget.rutiini!.finishedEditing! &&
                           (widget.rutiini!.liikkeet!.toList().length > 0)))
                         Container(
@@ -1541,7 +1380,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                           decoration: BoxDecoration(),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               InkWell(
                                 onTap: () async {
@@ -1597,10 +1436,66 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                 ),
                               ).animateOnPageLoad(
                                   animationsMap['rowOnPageLoadAnimation1']!),
+                              if (!widget.rutiini!.finishedEditing!)
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      4.0, 8.0, 4.0, 8.0),
+                                  child: InkWell(
+                                    onTap: () async {
+                                      logFirebaseEvent(
+                                          'RUTIINI_COMP_Row_lopetaMuokkaus_ON_TAP');
+                                      logFirebaseEvent(
+                                          'Row_lopetaMuokkaus_custom_action');
+                                      await actions.updateUserDocTreenirutiini(
+                                        widget.rutiini,
+                                        null,
+                                        null,
+                                        true,
+                                        true,
+                                        null,
+                                        _model.textFieldNimiController.text,
+                                        _model
+                                            .textFieldKommenttiController.text,
+                                        widget.rutiini?.liikkeet
+                                            ?.toList()
+                                            ?.toList(),
+                                        null,
+                                        null,
+                                        null,
+                                        _model.textFieldKommenttiController
+                                                    .text !=
+                                                null &&
+                                            _model.textFieldKommenttiController
+                                                    .text !=
+                                                '',
+                                        true,
+                                        false,
+                                        true,
+                                      );
+                                    },
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            '1qnpeziw' /* Lopeta muokkaus */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .titleSmall,
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                      .animateOnPageLoad(animationsMap[
+                                          'rowOnPageLoadAnimation2']!)
+                                      .animateOnActionTrigger(
+                                        animationsMap[
+                                            'rowOnActionTriggerAnimation']!,
+                                      ),
+                                ),
                             ],
                           ),
-                        ).animateOnActionTrigger(
-                          animationsMap['containerOnActionTriggerAnimation2']!,
                         ),
                     ],
                   ),
@@ -1611,59 +1506,8 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
         )
             .animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!)
             .animateOnActionTrigger(
-              animationsMap['containerOnActionTriggerAnimation1']!,
+              animationsMap['containerOnActionTriggerAnimation']!,
             ),
-        if (!widget.rutiini!.finishedEditing!)
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(4.0, 8.0, 22.0, 8.0),
-            child: InkWell(
-              onTap: () async {
-                logFirebaseEvent('RUTIINI_COMP_Row_lopetaMuokkaus_ON_TAP');
-                logFirebaseEvent('Row_lopetaMuokkaus_widget_animation');
-                if (animationsMap['rowOnActionTriggerAnimation'] != null) {
-                  animationsMap['rowOnActionTriggerAnimation']!
-                      .controller
-                      .forward(from: 0.0);
-                }
-                logFirebaseEvent('Row_lopetaMuokkaus_custom_action');
-                await actions.updateUserDocTreenirutiini(
-                  widget.rutiini,
-                  null,
-                  null,
-                  true,
-                  true,
-                  null,
-                  _model.textFieldNimiController.text,
-                  _model.textFieldKommenttiController.text,
-                  widget.rutiini?.liikkeet?.toList()?.toList(),
-                  null,
-                  null,
-                  null,
-                  _model.textFieldKommenttiController.text != null &&
-                      _model.textFieldKommenttiController.text != '',
-                  true,
-                  false,
-                  true,
-                );
-              },
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    FFLocalizations.of(context).getText(
-                      's66i837o' /* Lopeta muokkaus */,
-                    ),
-                    style: FlutterFlowTheme.of(context).titleSmall,
-                  ),
-                ],
-              ),
-            )
-                .animateOnPageLoad(animationsMap['rowOnPageLoadAnimation2']!)
-                .animateOnActionTrigger(
-                  animationsMap['rowOnActionTriggerAnimation']!,
-                ),
-          ),
       ],
     );
   }

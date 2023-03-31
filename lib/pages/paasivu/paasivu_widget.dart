@@ -460,9 +460,14 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                     if (containerQueryLatestSessioTreeniSessiotRecordList
                                                                 .length >
                                                             0
-                                                        ? (containerQueryLatestSessioTreeniSessiotRecordList
-                                                                .first.alku !=
-                                                            null)
+                                                        ? ((containerQueryLatestSessioTreeniSessiotRecordList
+                                                                    .first
+                                                                    .alku !=
+                                                                null) &&
+                                                            (containerQueryLatestSessioTreeniSessiotRecordList
+                                                                    .first
+                                                                    .loppu ==
+                                                                null))
                                                         : false)
                                                       wrapWithModel(
                                                         model: _model

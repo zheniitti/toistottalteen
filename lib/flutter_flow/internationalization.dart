@@ -787,10 +787,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Premiumjäsenyys',
       'en': 'Premium subscription',
     },
-    'gax7p69h': {
-      'fi': 'Language',
-      'en': 'Kieli',
-    },
     'sh3jbjpm': {
       'fi': 'Tumma teema',
       'en': 'Dark mode',
@@ -924,14 +920,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Treenipäivät ',
       'en': 'Workout days ',
     },
-    'zuph6hae': {
-      'fi': 'Muokkaa',
-      'en': 'Edit',
-    },
-    'xvtlnaay': {
-      'fi': 'Muokkaa',
-      'en': 'Muokkaa',
-    },
     '5o4nggqe': {
       'fi': 'Treenaa nyt',
       'en': 'Start now',
@@ -940,7 +928,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Lisää harjoitusliike',
       'en': 'Add an exercise',
     },
-    's66i837o': {
+    '1qnpeziw': {
       'fi': 'Lopeta muokkaus',
       'en': 'Finish editing',
     },
@@ -1114,10 +1102,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Tunnit',
       'en': 'Hours',
     },
-    'qzi0xoig': {
-      'fi': '',
-      'en': '',
-    },
     '0ry7n4gd': {
       'fi': '0',
       'en': '0',
@@ -1125,10 +1109,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'hul5vo4m': {
       'fi': 'Minuutit',
       'en': 'minutes',
-    },
-    'qc0cirns': {
-      'fi': '',
-      'en': '',
     },
     'olh9qolp': {
       'fi': '0',
@@ -1138,10 +1118,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'sekunnit',
       'en': 'seconds',
     },
-    'zcwbr62z': {
-      'fi': '',
-      'en': '',
-    },
     'm6zgwhps': {
       'fi': '0',
       'en': '0',
@@ -1149,10 +1125,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'f6lmo02d': {
       'fi': 'Matka (metreinä)',
       'en': 'Distance (in meters)',
-    },
-    'emfp4ohz': {
-      'fi': '',
-      'en': '',
     },
     'tnb4m9hm': {
       'fi': '0.0',

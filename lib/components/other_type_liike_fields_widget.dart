@@ -1,8 +1,12 @@
+import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -18,10 +22,16 @@ class OtherTypeLiikeFieldsWidget extends StatefulWidget {
     Key? key,
     this.liike,
     this.sarja,
+    this.liikeIndex,
+    this.sarjaIndex,
+    this.sessioDoc,
   }) : super(key: key);
 
   final LiikeStruct? liike;
   final SarjaStruct? sarja;
+  final int? liikeIndex;
+  final int? sarjaIndex;
+  final TreeniSessiotRecord? sessioDoc;
 
   @override
   _OtherTypeLiikeFieldsWidgetState createState() =>
@@ -165,12 +175,89 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                         ),
                         child: TextFormField(
                           controller: _model.textController1,
+                          onChanged: (_) => EasyDebounce.debounce(
+                            '_model.textController1',
+                            Duration(milliseconds: 2000),
+                            () async {
+                              logFirebaseEvent(
+                                  'OTHER_TYPE_LIIKE_FIELDS_TextField_rq7bvn');
+                              logFirebaseEvent('TextField_custom_action');
+                              _model.updatedSarja = await actions.myUpdateSarja(
+                                widget.sarja!,
+                                true,
+                                null,
+                                null,
+                                null,
+                                functions.toSeconds(
+                                    int.tryParse(_model.textController1.text),
+                                    int.tryParse(_model.textController2.text),
+                                    double.tryParse(
+                                        _model.textController3.text)),
+                                double.tryParse(_model.textController4.text),
+                              );
+                              logFirebaseEvent('TextField_custom_action');
+                              _model.updatedLiike =
+                                  await actions.myUpdateLiikeStruct(
+                                widget.liike,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                false,
+                                null,
+                                widget.sarjaIndex,
+                                _model.updatedSarja,
+                              );
+                              logFirebaseEvent('TextField_custom_action');
+                              _model.updatedRutiini =
+                                  await actions.myUpdateTreeniRutiiniStruct(
+                                widget.sessioDoc!.treeniRutiiniData,
+                                null,
+                                null,
+                                widget.sessioDoc!.treeniRutiiniData.liikkeet
+                                    ?.toList()
+                                    ?.toList(),
+                                null,
+                                null,
+                                null,
+                                false,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                widget.liikeIndex,
+                                _model.updatedLiike,
+                                null,
+                                functions.emptyJsonList()?.toList(),
+                                false,
+                                false,
+                              );
+                              logFirebaseEvent('TextField_backend_call');
+
+                              final treeniSessiotUpdateData =
+                                  createTreeniSessiotRecordData(
+                                treeniRutiiniData: updateTreeniRutiiniStruct(
+                                  _model.updatedRutiini,
+                                  clearUnsetFields: false,
+                                ),
+                              );
+                              await widget.sessioDoc!.reference
+                                  .update(treeniSessiotUpdateData);
+
+                              setState(() {});
+                            },
+                          ),
                           obscureText: false,
                           decoration: InputDecoration(
                             isDense: true,
-                            labelText: FFLocalizations.of(context).getText(
-                              'qzi0xoig' /*  */,
-                            ),
+                            labelText: null,
                             labelStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -213,12 +300,16 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                               ),
                               borderRadius: BorderRadius.circular(18.0),
                             ),
+                            filled: true,
+                            fillColor: FlutterFlowTheme.of(context)
+                                .inactiveWidgetBackground,
                           ),
                           style: FlutterFlowTheme.of(context)
                               .headlineMedium
                               .override(
                                 fontFamily: 'Outfit',
                                 fontSize: 20.0,
+                                fontWeight: FontWeight.w500,
                               ),
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -247,12 +338,90 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                         ),
                         child: TextFormField(
                           controller: _model.textController2,
+                          onChanged: (_) => EasyDebounce.debounce(
+                            '_model.textController2',
+                            Duration(milliseconds: 2000),
+                            () async {
+                              logFirebaseEvent(
+                                  'OTHER_TYPE_LIIKE_FIELDS_TextField_jqi8oa');
+                              logFirebaseEvent('TextField_custom_action');
+                              _model.updatedSarjaCopy =
+                                  await actions.myUpdateSarja(
+                                widget.sarja!,
+                                true,
+                                null,
+                                null,
+                                null,
+                                functions.toSeconds(
+                                    int.tryParse(_model.textController1.text),
+                                    int.tryParse(_model.textController2.text),
+                                    double.tryParse(
+                                        _model.textController3.text)),
+                                double.tryParse(_model.textController4.text),
+                              );
+                              logFirebaseEvent('TextField_custom_action');
+                              _model.updatedLiikeCopy =
+                                  await actions.myUpdateLiikeStruct(
+                                widget.liike,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                false,
+                                null,
+                                widget.sarjaIndex,
+                                _model.updatedSarja,
+                              );
+                              logFirebaseEvent('TextField_custom_action');
+                              _model.updatedRutiiniCopy =
+                                  await actions.myUpdateTreeniRutiiniStruct(
+                                widget.sessioDoc!.treeniRutiiniData,
+                                null,
+                                null,
+                                widget.sessioDoc!.treeniRutiiniData.liikkeet
+                                    ?.toList()
+                                    ?.toList(),
+                                null,
+                                null,
+                                null,
+                                false,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                widget.liikeIndex,
+                                _model.updatedLiike,
+                                null,
+                                functions.emptyJsonList()?.toList(),
+                                false,
+                                false,
+                              );
+                              logFirebaseEvent('TextField_backend_call');
+
+                              final treeniSessiotUpdateData =
+                                  createTreeniSessiotRecordData(
+                                treeniRutiiniData: updateTreeniRutiiniStruct(
+                                  _model.updatedRutiini,
+                                  clearUnsetFields: false,
+                                ),
+                              );
+                              await widget.sessioDoc!.reference
+                                  .update(treeniSessiotUpdateData);
+
+                              setState(() {});
+                            },
+                          ),
                           obscureText: false,
                           decoration: InputDecoration(
                             isDense: true,
-                            labelText: FFLocalizations.of(context).getText(
-                              'qc0cirns' /*  */,
-                            ),
+                            labelText: null,
                             labelStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -295,12 +464,16 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                               ),
                               borderRadius: BorderRadius.circular(18.0),
                             ),
+                            filled: true,
+                            fillColor: FlutterFlowTheme.of(context)
+                                .inactiveWidgetBackground,
                           ),
                           style: FlutterFlowTheme.of(context)
                               .headlineMedium
                               .override(
                                 fontFamily: 'Outfit',
                                 fontSize: 20.0,
+                                fontWeight: FontWeight.w500,
                               ),
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -329,18 +502,90 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                         ),
                         child: TextFormField(
                           controller: _model.textController3,
+                          onChanged: (_) => EasyDebounce.debounce(
+                            '_model.textController3',
+                            Duration(milliseconds: 2000),
+                            () async {
+                              logFirebaseEvent(
+                                  'OTHER_TYPE_LIIKE_FIELDS_TextField_yddv3z');
+                              logFirebaseEvent('TextField_custom_action');
+                              _model.updatedSarjaCopy2 =
+                                  await actions.myUpdateSarja(
+                                widget.sarja!,
+                                true,
+                                null,
+                                null,
+                                null,
+                                functions.toSeconds(
+                                    int.tryParse(_model.textController1.text),
+                                    int.tryParse(_model.textController2.text),
+                                    double.tryParse(
+                                        _model.textController3.text)),
+                                double.tryParse(_model.textController4.text),
+                              );
+                              logFirebaseEvent('TextField_custom_action');
+                              _model.updatedLiikeCopy2 =
+                                  await actions.myUpdateLiikeStruct(
+                                widget.liike,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                false,
+                                null,
+                                widget.sarjaIndex,
+                                _model.updatedSarja,
+                              );
+                              logFirebaseEvent('TextField_custom_action');
+                              _model.updatedRutiiniCopy2 =
+                                  await actions.myUpdateTreeniRutiiniStruct(
+                                widget.sessioDoc!.treeniRutiiniData,
+                                null,
+                                null,
+                                widget.sessioDoc!.treeniRutiiniData.liikkeet
+                                    ?.toList()
+                                    ?.toList(),
+                                null,
+                                null,
+                                null,
+                                false,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                widget.liikeIndex,
+                                _model.updatedLiike,
+                                null,
+                                functions.emptyJsonList()?.toList(),
+                                false,
+                                false,
+                              );
+                              logFirebaseEvent('TextField_backend_call');
+
+                              final treeniSessiotUpdateData =
+                                  createTreeniSessiotRecordData(
+                                treeniRutiiniData: updateTreeniRutiiniStruct(
+                                  _model.updatedRutiini,
+                                  clearUnsetFields: false,
+                                ),
+                              );
+                              await widget.sessioDoc!.reference
+                                  .update(treeniSessiotUpdateData);
+
+                              setState(() {});
+                            },
+                          ),
                           obscureText: false,
                           decoration: InputDecoration(
                             isDense: true,
-                            labelText: FFLocalizations.of(context).getText(
-                              'zcwbr62z' /*  */,
-                            ),
-                            labelStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Roboto',
-                                  fontSize: 14.0,
-                                ),
+                            labelText: null,
                             hintText: FFLocalizations.of(context).getText(
                               'm6zgwhps' /* 0 */,
                             ),
@@ -377,12 +622,16 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                               ),
                               borderRadius: BorderRadius.circular(18.0),
                             ),
+                            filled: true,
+                            fillColor: FlutterFlowTheme.of(context)
+                                .inactiveWidgetBackground,
                           ),
                           style: FlutterFlowTheme.of(context)
                               .headlineMedium
                               .override(
                                 fontFamily: 'Outfit',
                                 fontSize: 20.0,
+                                fontWeight: FontWeight.w500,
                               ),
                           textAlign: TextAlign.center,
                           keyboardType: TextInputType.number,
@@ -415,19 +664,89 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                     decoration: BoxDecoration(),
                     child: TextFormField(
                       controller: _model.textController4,
+                      onChanged: (_) => EasyDebounce.debounce(
+                        '_model.textController4',
+                        Duration(milliseconds: 2000),
+                        () async {
+                          logFirebaseEvent(
+                              'OTHER_TYPE_LIIKE_FIELDS_TextField_kzqfzx');
+                          logFirebaseEvent('TextField_custom_action');
+                          _model.updatedSarjaCopy3 =
+                              await actions.myUpdateSarja(
+                            widget.sarja!,
+                            true,
+                            null,
+                            null,
+                            null,
+                            functions.toSeconds(
+                                int.tryParse(_model.textController1.text),
+                                int.tryParse(_model.textController2.text),
+                                double.tryParse(_model.textController3.text)),
+                            double.tryParse(_model.textController4.text),
+                          );
+                          logFirebaseEvent('TextField_custom_action');
+                          _model.updatedLiikeCopy3 =
+                              await actions.myUpdateLiikeStruct(
+                            widget.liike,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            false,
+                            null,
+                            widget.sarjaIndex,
+                            _model.updatedSarja,
+                          );
+                          logFirebaseEvent('TextField_custom_action');
+                          _model.updatedRutiiniCopy3 =
+                              await actions.myUpdateTreeniRutiiniStruct(
+                            widget.sessioDoc!.treeniRutiiniData,
+                            null,
+                            null,
+                            widget.sessioDoc!.treeniRutiiniData.liikkeet
+                                ?.toList()
+                                ?.toList(),
+                            null,
+                            null,
+                            null,
+                            false,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            widget.liikeIndex,
+                            _model.updatedLiike,
+                            null,
+                            functions.emptyJsonList()?.toList(),
+                            false,
+                            false,
+                          );
+                          logFirebaseEvent('TextField_backend_call');
+
+                          final treeniSessiotUpdateData =
+                              createTreeniSessiotRecordData(
+                            treeniRutiiniData: updateTreeniRutiiniStruct(
+                              _model.updatedRutiini,
+                              clearUnsetFields: false,
+                            ),
+                          );
+                          await widget.sessioDoc!.reference
+                              .update(treeniSessiotUpdateData);
+
+                          setState(() {});
+                        },
+                      ),
                       obscureText: false,
                       decoration: InputDecoration(
                         isDense: true,
-                        labelText: FFLocalizations.of(context).getText(
-                          'emfp4ohz' /*  */,
-                        ),
-                        labelStyle: FlutterFlowTheme.of(context)
-                            .bodySmall
-                            .override(
-                              fontFamily: 'Roboto',
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              fontSize: 14.0,
-                            ),
+                        labelText: null,
                         hintText: FFLocalizations.of(context).getText(
                           'tnb4m9hm' /* 0.0 */,
                         ),
@@ -464,6 +783,9 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                           ),
                           borderRadius: BorderRadius.circular(18.0),
                         ),
+                        filled: true,
+                        fillColor: FlutterFlowTheme.of(context)
+                            .inactiveWidgetBackground,
                       ),
                       style:
                           FlutterFlowTheme.of(context).headlineMedium.override(
@@ -475,8 +797,7 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                       validator:
                           _model.textController4Validator.asValidator(context),
                       inputFormatters: [
-                        FilteringTextInputFormatter.allow(
-                            RegExp('(-?)(0|([1-9][0-9]*))(\\\\.[0-9]+)?\$'))
+                        FilteringTextInputFormatter.allow(RegExp('[0-9]'))
                       ],
                     ),
                   ),

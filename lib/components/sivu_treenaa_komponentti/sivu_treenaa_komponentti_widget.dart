@@ -45,17 +45,17 @@ class _SivuTreenaaKomponenttiWidgetState
     'containerOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        VisibilityEffect(duration: 1500.ms),
+        VisibilityEffect(duration: 1000.ms),
         FadeEffect(
           curve: Curves.elasticOut,
-          delay: 1500.ms,
+          delay: 1000.ms,
           duration: 800.ms,
           begin: 0.0,
           end: 1.0,
         ),
         ScaleEffect(
           curve: Curves.elasticOut,
-          delay: 1500.ms,
+          delay: 1000.ms,
           duration: 800.ms,
           begin: 0.7,
           end: 1.0,
@@ -151,7 +151,7 @@ class _SivuTreenaaKomponenttiWidgetState
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 22.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -232,7 +232,7 @@ class _SivuTreenaaKomponenttiWidgetState
                       alignment: AlignmentDirectional(0.0, 1.0),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            20.0, 20.0, 20.0, 240.0),
+                            20.0, 0.0, 20.0, 240.0),
                         child: InkWell(
                           onTap: () async {
                             logFirebaseEvent(
@@ -303,7 +303,7 @@ class _SivuTreenaaKomponenttiWidgetState
                                       Icons.add_rounded,
                                       color: FlutterFlowTheme.of(context)
                                           .secondary,
-                                      size: 30.0,
+                                      size: 24.0,
                                     ),
                                   ),
                                   Padding(

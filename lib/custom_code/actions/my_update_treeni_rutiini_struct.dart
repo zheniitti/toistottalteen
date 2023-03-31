@@ -31,13 +31,18 @@ Future<TreeniRutiiniStruct?> myUpdateTreeniRutiiniStruct(
   bool? pasteToAbove,
   bool? pasteToBelow,
 ) async {
-  if (treeniRutiini == null) treeniRutiini = createTreeniRutiiniStruct(create: true, createdTime: getCurrentTimestamp);
+  if (treeniRutiini == null)
+    treeniRutiini = createTreeniRutiiniStruct(
+        create: true, createdTime: getCurrentTimestamp);
 
-  ListBuilder<LiikeStruct> liikeList = liikkeet != null ? ListBuilder<LiikeStruct>(liikkeet) : treeniRutiini.liikkeet.toBuilder();
+  ListBuilder<LiikeStruct> liikeList = liikkeet != null
+      ? ListBuilder<LiikeStruct>(liikkeet)
+      : treeniRutiini.liikkeet.toBuilder();
   liikeList.removeWhere((liike) => liike.createdTime == null);
   String toiminto = '';
   try {
-    LiikeStruct newEmptyLiike = await luoLiikeRutiinipohjalle(null, null, null, false, null, null, null, null);
+    LiikeStruct newEmptyLiike = await luoLiikeRutiinipohjalle(
+        null, null, null, false, null, null, null, null);
     if (removeLiikeAtIndex != null) {
       toiminto = 'Poista liike';
       liikeList.removeAt(removeLiikeAtIndex);
@@ -50,36 +55,43 @@ Future<TreeniRutiiniStruct?> myUpdateTreeniRutiiniStruct(
     } else if (addNewLiikeAtAboveThisIndex != null) {
       toiminto = 'Lisää uusi liike above this $addNewLiikeAtAboveThisIndex';
       liikeList.insert(addNewLiikeAtAboveThisIndex, newEmptyLiike);
-    } else if (replaceLiikeAtIndex != null && replacingLiike != null && replaceLiikeAtIndex >= 0) {
+    } else if (replaceLiikeAtIndex != null &&
+        replacingLiike != null &&
+        replaceLiikeAtIndex >= 0) {
       toiminto = 'Korvaa liike';
       liikeList[replaceLiikeAtIndex] = replacingLiike;
     } else if (currentLiikeIndex != null && copiedLiikes != null) {
       toiminto = 'Liitä liike';
-      final Iterable<LiikeStruct> copiedLiikesList = copiedLiikes.map<LiikeStruct>(
+      final Iterable<LiikeStruct> copiedLiikesList =
+          copiedLiikes.map<LiikeStruct>(
         (liikeMap) {
           LiikeStruct? liikeStruct;
           try {
-            liikeStruct = serializers.deserializeWith(LiikeStruct.serializer, liikeMap);
+            liikeStruct =
+                serializers.deserializeWith(LiikeStruct.serializer, liikeMap);
           } on Exception catch (e) {
             print('Error: $toiminto epäonnistui: $e');
           }
 
           //päivitetään sarjan createdTime ja modifiedTime
-          ListBuilder<SarjaStruct>? sarjatListbuilder = liikeStruct?.sarjat?.toBuilder()
-            ?..map((sar) {
-              final sarbuilder = sar.toBuilder()
-                ..createdTime = getCurrentTimestamp
-                ..modifiedTime = getCurrentTimestamp;
-              return sarbuilder.build();
-            });
+          ListBuilder<SarjaStruct>? sarjatListbuilder =
+              liikeStruct?.sarjat?.toBuilder()
+                ?..map((sar) {
+                  final sarbuilder = sar.toBuilder()
+                    ..createdTime = getCurrentTimestamp
+                    ..modifiedTime = getCurrentTimestamp;
+                  return sarbuilder.build();
+                });
 
           LiikeStructBuilder? liikeStructBuilder = liikeStruct?.toBuilder()
-            ?..firestoreUtilData = FirestoreUtilData(clearUnsetFields: false, create: true)
-            ..tehty = false
+            ?..firestoreUtilData =
+                FirestoreUtilData(clearUnsetFields: false, create: true)
             ..sarjat = sarjatListbuilder
+            ..tehty = false
             ..createdTime = getCurrentTimestamp
             ..modifiedTime = getCurrentTimestamp;
-          return liikeStructBuilder?.build() ?? createLiikeStruct(createdTime: getCurrentTimestamp, create: true);
+          return liikeStructBuilder?.build() ??
+              createLiikeStruct(createdTime: getCurrentTimestamp, create: true);
         },
       ).toList();
       if (pasteToAbove != null && pasteToAbove) {
@@ -93,12 +105,15 @@ Future<TreeniRutiiniStruct?> myUpdateTreeniRutiiniStruct(
   }
 
   final updatedTreeniRutiini = treeniRutiini.toBuilder()
-    ..firestoreUtilData = FirestoreUtilData(clearUnsetFields: false, create: true)
+    ..firestoreUtilData =
+        FirestoreUtilData(clearUnsetFields: false, create: true)
     ..createdTime = createdTime ?? treeniRutiini.createdTime
     ..nimi = nimi?.trim() ?? treeniRutiini.nimi?.trim()
     ..liikkeet = liikeList
     ..kommentti = kommentti?.trim() ?? treeniRutiini.kommentti?.trim()
-    ..valitutViikonPaivat = valitutViikonPaivat != null ? valitutViikonPaivat.toBuilder() : treeniRutiini.valitutViikonPaivat.toBuilder()
+    ..valitutViikonPaivat = valitutViikonPaivat != null
+        ? valitutViikonPaivat.toBuilder()
+        : treeniRutiini.valitutViikonPaivat.toBuilder()
     ..isTreeniPohja = isTreeniPohja ?? treeniRutiini.isTreeniPohja
     ..finishedEditing = finishedEditing ?? treeniRutiini.finishedEditing;
 

@@ -510,38 +510,44 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Stack(
-                                    alignment: AlignmentDirectional(0.0, -1.0),
-                                    children: [
-                                      if (valueOrDefault<bool>(
-                                        widget.liike?.isOtherExerciseType,
-                                        false,
-                                      ))
-                                        wrapWithModel(
-                                          model: _model
-                                              .otherTypeLiikeFieldsModels
-                                              .getModel(
-                                            sarjatItem.createdTime!.toString(),
-                                            sarjatIndex,
-                                          ),
-                                          updateCallback: () => setState(() {}),
-                                          child: OtherTypeLiikeFieldsWidget(
-                                            key: Key(
-                                              'Key5x4_${sarjatItem.createdTime!.toString()}',
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 3.0, 0.0, 3.0),
+                                    child: Stack(
+                                      alignment:
+                                          AlignmentDirectional(0.0, -1.0),
+                                      children: [
+                                        if (valueOrDefault<bool>(
+                                          widget.liike?.isOtherExerciseType,
+                                          false,
+                                        ))
+                                          wrapWithModel(
+                                            model: _model
+                                                .otherTypeLiikeFieldsModels
+                                                .getModel(
+                                              sarjatItem.createdTime!
+                                                  .toString(),
+                                              sarjatIndex,
                                             ),
-                                            liike: widget.liike,
-                                            sarja: sarjatItem,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: OtherTypeLiikeFieldsWidget(
+                                              key: Key(
+                                                'Key5x4_${sarjatItem.createdTime!.toString()}',
+                                              ),
+                                              liike: widget.liike,
+                                              sarja: sarjatItem,
+                                              liikeIndex:
+                                                  widget.liikeIndexInList,
+                                              sarjaIndex: sarjatIndex,
+                                              sessioDoc: widget.treeniSessio,
+                                            ),
                                           ),
-                                        ),
-                                      if (!valueOrDefault<bool>(
-                                        widget.liike?.isOtherExerciseType,
-                                        true,
-                                      ))
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 2.0, 0.0, 0.0),
-                                          child: Wrap(
+                                        if (!valueOrDefault<bool>(
+                                          widget.liike?.isOtherExerciseType,
+                                          true,
+                                        ))
+                                          Wrap(
                                             spacing: 0.0,
                                             runSpacing: 0.0,
                                             alignment: WrapAlignment.end,
@@ -624,47 +630,47 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                                               ),
                                             ],
                                           ),
-                                        ),
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(-1.0, -1.0),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 0.0, 0.0),
-                                          child: RichText(
-                                            text: TextSpan(
-                                              children: [
-                                                TextSpan(
-                                                  text: (sarjatIndex + 1)
-                                                      .toString(),
-                                                  style: TextStyle(),
-                                                ),
-                                                TextSpan(
-                                                  text: FFLocalizations.of(
-                                                          context)
-                                                      .getText(
-                                                    'hcx7u96d' /* .
-sarja */
-                                                    ,
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(-1.0, -1.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 0.0, 0.0),
+                                            child: RichText(
+                                              text: TextSpan(
+                                                children: [
+                                                  TextSpan(
+                                                    text: (sarjatIndex + 1)
+                                                        .toString(),
+                                                    style: TextStyle(),
                                                   ),
-                                                  style: TextStyle(),
-                                                )
-                                              ],
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        fontSize: 12.0,
-                                                      ),
+                                                  TextSpan(
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'hcx7u96d' /* .
+sarja */
+                                                      ,
+                                                    ),
+                                                    style: TextStyle(),
+                                                  )
+                                                ],
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          fontSize: 12.0,
+                                                        ),
+                                              ),
+                                              textAlign: TextAlign.center,
+                                              maxLines: 2,
                                             ),
-                                            textAlign: TextAlign.center,
-                                            maxLines: 2,
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                   Divider(
                                     height: 1.0,
@@ -680,7 +686,7 @@ sarja */
                               alignment: AlignmentDirectional(1.0, 0.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 20.0, 10.0, 10.0),
+                                    10.0, 12.0, 10.0, 10.0),
                                 child: InkWell(
                                   onTap: () async {
                                     logFirebaseEvent(
@@ -926,14 +932,22 @@ sarja */
                         Container(
                           width: 30.0,
                           decoration: BoxDecoration(),
-                          child: Visibility(
-                            visible: widget.liike?.tehty ?? true,
-                            child: Icon(
-                              Icons.done_rounded,
-                              color: Colors.black,
-                              size: 24.0,
-                            ).animateOnPageLoad(
-                                animationsMap['iconOnPageLoadAnimation2']!),
+                          child: Stack(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            children: [
+                              if (widget.liike?.tehty ?? true)
+                                Icon(
+                                  Icons.done_rounded,
+                                  color: Colors.black,
+                                  size: 20.0,
+                                ).animateOnPageLoad(
+                                    animationsMap['iconOnPageLoadAnimation2']!),
+                              Icon(
+                                Icons.check_box_outline_blank_rounded,
+                                color: Colors.black,
+                                size: 24.0,
+                              ),
+                            ],
                           ),
                         ),
                       ],

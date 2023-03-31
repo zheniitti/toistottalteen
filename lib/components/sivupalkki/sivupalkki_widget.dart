@@ -341,42 +341,19 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 6.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            child: Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  'gax7p69h' /* Language */,
-                                ),
-                                style: FlutterFlowTheme.of(context).titleSmall,
-                              ),
-                            ),
-                          ),
-                          FlutterFlowLanguageSelector(
-                            width: 160.0,
-                            height: 40.0,
-                            backgroundColor:
-                                FlutterFlowTheme.of(context).secondary,
-                            borderColor: Colors.transparent,
-                            borderRadius: 8.0,
-                            textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                            hideFlags: false,
-                            flagSize: 24.0,
-                            flagTextGap: 8.0,
-                            currentLanguage:
-                                FFLocalizations.of(context).languageCode,
-                            languages: FFLocalizations.languages(),
-                            onChanged: (lang) => setAppLanguage(context, lang),
-                          ),
-                        ],
-                      ),
+                    FlutterFlowLanguageSelector(
+                      width: MediaQuery.of(context).size.width * 1.0,
+                      height: 40.0,
+                      backgroundColor: FlutterFlowTheme.of(context).secondary,
+                      borderColor: Colors.transparent,
+                      borderRadius: 8.0,
+                      textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                      hideFlags: false,
+                      flagSize: 24.0,
+                      flagTextGap: 8.0,
+                      currentLanguage: FFLocalizations.of(context).languageCode,
+                      languages: FFLocalizations.languages(),
+                      onChanged: (lang) => setAppLanguage(context, lang),
                     ),
                     Divider(
                       thickness: 1.0,

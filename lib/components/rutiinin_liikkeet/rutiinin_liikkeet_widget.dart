@@ -35,7 +35,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
   late RutiininLiikkeetModel _model;
 
   final animationsMap = {
-    'iconOnPageLoadAnimation': AnimationInfo(
+    'iconOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       applyInitialState: true,
       effects: [
@@ -56,7 +56,48 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
         ),
       ],
     ),
-    'iconOnActionTriggerAnimation': AnimationInfo(
+    'iconOnActionTriggerAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onActionTrigger,
+      applyInitialState: true,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 400.ms,
+          begin: 1.0,
+          end: 0.0,
+        ),
+        ScaleEffect(
+          curve: Curves.elasticOut,
+          delay: 0.ms,
+          duration: 400.ms,
+          begin: 1.0,
+          end: 0.0,
+        ),
+      ],
+    ),
+    'iconOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      applyInitialState: true,
+      effects: [
+        VisibilityEffect(duration: 1000.ms),
+        FadeEffect(
+          curve: Curves.elasticOut,
+          delay: 1000.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        ScaleEffect(
+          curve: Curves.elasticOut,
+          delay: 1000.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'iconOnActionTriggerAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
       applyInitialState: true,
       effects: [
@@ -123,46 +164,97 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  if (!widget.rutiini!.finishedEditing!)
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 8.0, 4.0),
-                      child: InkWell(
-                        onTap: () async {
-                          logFirebaseEvent(
-                              'RUTIININ_LIIKKEET_Icon_deleteLiike_ON_TA');
-                          logFirebaseEvent('Icon_deleteLiike_custom_action');
-                          await actions.updateUserDocTreenirutiini(
-                            widget.rutiini,
-                            null,
-                            null,
-                            false,
-                            true,
-                            liikkeetIndex,
-                            null,
-                            null,
-                            widget.rutiini?.liikkeet?.toList()?.toList(),
-                            null,
-                            null,
-                            null,
-                            null,
-                            true,
-                            false,
-                            false,
-                          );
-                        },
-                        child: Icon(
-                          Icons.remove_circle_rounded,
-                          color: FlutterFlowTheme.of(context).deleteRed,
-                          size: 24.0,
+                  Stack(
+                    children: [
+                      if (!widget.rutiini!.finishedEditing!)
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 4.0, 8.0, 4.0),
+                          child: InkWell(
+                            onTap: () async {
+                              logFirebaseEvent(
+                                  'RUTIININ_LIIKKEET_Icon_deleteLiike_ON_TA');
+                              logFirebaseEvent(
+                                  'Icon_deleteLiike_custom_action');
+                              await actions.updateUserDocTreenirutiini(
+                                widget.rutiini,
+                                null,
+                                null,
+                                false,
+                                true,
+                                liikkeetIndex,
+                                null,
+                                null,
+                                widget.rutiini?.liikkeet?.toList()?.toList(),
+                                null,
+                                null,
+                                null,
+                                null,
+                                true,
+                                false,
+                                false,
+                              );
+                            },
+                            child: Icon(
+                              Icons.remove_circle_rounded,
+                              color: FlutterFlowTheme.of(context).deleteRed,
+                              size: 24.0,
+                            ),
+                          )
+                              .animateOnPageLoad(
+                                  animationsMap['iconOnPageLoadAnimation1']!)
+                              .animateOnActionTrigger(
+                                animationsMap['iconOnActionTriggerAnimation1']!,
+                              ),
                         ),
-                      )
-                          .animateOnPageLoad(
-                              animationsMap['iconOnPageLoadAnimation']!)
-                          .animateOnActionTrigger(
-                            animationsMap['iconOnActionTriggerAnimation']!,
-                          ),
-                    ),
+                      if (widget.rutiini?.finishedEditing ?? true)
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 4.0, 8.0, 4.0),
+                          child: InkWell(
+                            onTap: () async {
+                              logFirebaseEvent(
+                                  'RUTIININ_LIIKKEET_Icon_copyLiike_ON_TAP');
+                              logFirebaseEvent(
+                                  'Icon_copyLiike_update_app_state');
+                              FFAppState().kopioidutLiikkeet = functions
+                                  .liikeToLiikeJsonList(liikkeetItem,
+                                      functions.nullLiikeList()?.toList())!
+                                  .toList();
+                              logFirebaseEvent('Icon_copyLiike_show_snack_bar');
+                              ScaffoldMessenger.of(context).clearSnackBars();
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    FFLocalizations.of(context).getVariableText(
+                                      fiText: 'Liike kopioitu',
+                                      enText: 'Excersice copied',
+                                    ),
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                                  ),
+                                  duration: Duration(milliseconds: 3000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).secondary,
+                                ),
+                              );
+                            },
+                            child: Icon(
+                              Icons.content_copy_rounded,
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 24.0,
+                            ),
+                          )
+                              .animateOnPageLoad(
+                                  animationsMap['iconOnPageLoadAnimation2']!)
+                              .animateOnActionTrigger(
+                                animationsMap['iconOnActionTriggerAnimation2']!,
+                              ),
+                        ),
+                    ],
+                  ),
                   Expanded(
                     child: Padding(
                       padding:

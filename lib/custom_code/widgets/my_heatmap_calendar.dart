@@ -30,6 +30,8 @@ class MyHeatmapCalendar extends StatefulWidget {
 class _MyHeatmapCalendarState extends State<MyHeatmapCalendar> {
   @override
   Widget build(BuildContext context) {
-    return HeatMapCalendar(colorsets: {},);
+    return HeatMapCalendar(
+      colorsets: {},
+    );
   }
 }
