@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
-import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -284,34 +283,12 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                     verticalDirection: VerticalDirection.down,
                                     clipBehavior: Clip.none,
                                     children: [
-                                      wrapWithModel(
-                                        model: _model
-                                            .rutiininLiikeNimiTextfieldModels
-                                            .getModel(
-                                          random_data.randomString(
-                                            10,
-                                            10,
-                                            true,
-                                            false,
-                                            false,
-                                          ),
-                                          liikkeetIndex,
-                                        ),
-                                        updateCallback: () => setState(() {}),
-                                        child: RutiininLiikeNimiTextfieldWidget(
-                                          key: Key(
-                                            'Key8jh_${random_data.randomString(
-                                              10,
-                                              10,
-                                              true,
-                                              false,
-                                              false,
-                                            )}',
-                                          ),
-                                          liikeIndex: liikkeetIndex,
-                                          rutiini: widget.rutiini,
-                                          liike: liikkeetItem,
-                                        ),
+                                      RutiininLiikeNimiTextfieldWidget(
+                                        key: Key(
+                                            'Key8jh_${liikkeetIndex}_of_${liikkeet.length}'),
+                                        liikeIndex: liikkeetIndex,
+                                        rutiini: widget.rutiini,
+                                        liike: liikkeetItem,
                                       ),
                                       InkWell(
                                         onTap: () async {

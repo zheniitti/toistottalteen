@@ -306,16 +306,6 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                             logFirebaseEvent(
                                                 'RUTIININ_SARJAT_TOISTOT_KESTO_MATKA_Icon');
                                             logFirebaseEvent(
-                                                'Icon_widget_animation');
-                                            if (animationsMap[
-                                                    'containerOnActionTriggerAnimation'] !=
-                                                null) {
-                                              animationsMap[
-                                                      'containerOnActionTriggerAnimation']!
-                                                  .controller
-                                                  .forward(from: 0.0);
-                                            }
-                                            logFirebaseEvent(
                                                 'Icon_bottom_sheet');
                                             Navigator.pop(context);
                                             logFirebaseEvent(
@@ -1481,16 +1471,6 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                     onPressed: () async {
                                       logFirebaseEvent(
                                           'RUTIININ_SARJAT_TOISTOT_KESTO_MATKA_TALL');
-                                      logFirebaseEvent(
-                                          'Button_widget_animation');
-                                      if (animationsMap[
-                                              'containerOnActionTriggerAnimation'] !=
-                                          null) {
-                                        animationsMap[
-                                                'containerOnActionTriggerAnimation']!
-                                            .controller
-                                            .forward(from: 0.0);
-                                      }
                                       logFirebaseEvent('Button_bottom_sheet');
                                       Navigator.pop(context);
                                       logFirebaseEvent('Button_custom_action');

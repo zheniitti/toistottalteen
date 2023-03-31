@@ -21,7 +21,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-
 import 'paasivu_model.dart';
 export 'paasivu_model.dart';
 
@@ -47,8 +46,8 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(0, 100),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 100.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -60,7 +59,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 300.ms,
-          begin: 0,
+          begin: 0.0,
           end: 0.5,
         ),
       ],
@@ -82,7 +81,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
           delay: 0.ms,
           duration: 900.ms,
           begin: 0.6,
-          end: 1,
+          end: 1.0,
         ),
       ],
     ),
@@ -94,15 +93,15 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 800.ms,
-          begin: Offset(0, -100),
-          end: Offset(0, 0),
+          begin: Offset(0.0, -100.0),
+          end: Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 800.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -114,8 +113,8 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
           curve: Curves.easeInOut,
           delay: 2000.ms,
           duration: 800.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -127,15 +126,15 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
           curve: Curves.easeInOut,
           delay: 800.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 800.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -191,8 +190,8 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
         if (!snapshot.hasData) {
           return Center(
             child: SizedBox(
-              width: 40,
-              height: 40,
+              width: 40.0,
+              height: 40.0,
               child: CircularProgressIndicator(
                 color: FlutterFlowTheme.of(context).primary,
               ),
@@ -216,7 +215,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
               icon: Icon(
                 Icons.add,
               ),
-              elevation: 8,
+              elevation: 8.0,
               label: Text(
                 FFLocalizations.of(context).getText(
                   't1qezc6y' /* Luo treenirutiini */,
@@ -229,7 +228,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
             ),
           ),
           drawer: Drawer(
-            elevation: 16,
+            elevation: 16.0,
             child: wrapWithModel(
               model: _model.sivupalkkiModel,
               updateCallback: () => setState(() {}),
@@ -252,11 +251,11 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                   if (!snapshot.hasData) {
                     return Center(
                       child: SizedBox(
-                        width: 50,
-                        height: 50,
+                        width: 50.0,
+                        height: 50.0,
                         child: SpinKitCircle(
                           color: FlutterFlowTheme.of(context).primary,
-                          size: 50,
+                          size: 50.0,
                         ),
                       ),
                     );
@@ -267,20 +266,20 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                   return Container(
                     decoration: BoxDecoration(),
                     child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height * 1,
+                      width: MediaQuery.of(context).size.width * 1.0,
+                      height: MediaQuery.of(context).size.height * 1.0,
                       child: Stack(
                         children: [
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 60, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 60.0, 0.0, 0.0),
                             child: Container(
-                              width: MediaQuery.of(context).size.width,
+                              width: MediaQuery.of(context).size.width * 1.0,
                               child: Stack(
                                 children: [
                                   if (FFAppState().navBarIndex == 0)
                                     Align(
-                                      alignment: AlignmentDirectional(0, 0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: wrapWithModel(
                                         model:
                                             _model.sivuRutiinitKomponenttiModel,
@@ -335,10 +334,10 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0, 1),
+                            alignment: AlignmentDirectional(0.0, 1.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  16, 14, 16, 14),
+                                  16.0, 14.0, 16.0, 14.0),
                               child: wrapWithModel(
                                 model: _model.navigationBarModel,
                                 updateCallback: () => setState(() {}),
@@ -352,17 +351,17 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                             children: [
                               Material(
                                 color: Colors.transparent,
-                                elevation: 1,
+                                elevation: 1.0,
                                 child: Container(
                                   width: double.infinity,
-                                  height: 60,
+                                  height: 60.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context).primary,
                                     boxShadow: [
                                       BoxShadow(
-                                        blurRadius: 4,
+                                        blurRadius: 4.0,
                                         color: Color(0x33000000),
-                                        offset: Offset(0, 2),
+                                        offset: Offset(0.0, 2.0),
                                       )
                                     ],
                                   ),
@@ -373,11 +372,11 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                         flex: 1,
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(-1, 0),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12, 0, 0, 0),
+                                                    12.0, 0.0, 0.0, 0.0),
                                             child: InkWell(
                                               onTap: () async {
                                                 logFirebaseEvent(
@@ -406,7 +405,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
-                                                size: 28,
+                                                size: 28.0,
                                               ),
                                             ).animateOnActionTrigger(
                                               animationsMap[
@@ -418,20 +417,13 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                       Expanded(
                                         flex: 4,
                                         child: Align(
-                                          alignment: AlignmentDirectional(0, 0),
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: [
-                                              if (FFAppState().navBarIndex == 0)
-                                                Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [],
-                                                ),
                                               if (FFAppState().navBarIndex == 1)
                                                 Column(
                                                   mainAxisSize:
@@ -502,16 +494,16 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .secondary,
-                                                              size: 30,
+                                                              size: 30.0,
                                                             ),
                                                             Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0,
-                                                                          0,
-                                                                          16,
-                                                                          0),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          16.0,
+                                                                          0.0),
                                                               child: Column(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -523,10 +515,10 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            2,
-                                                                            0,
-                                                                            0,
-                                                                            0),
+                                                                            2.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
                                                                     child: Text(
                                                                       FFLocalizations.of(
                                                                               context)
@@ -542,7 +534,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondary,
                                                                             fontSize:
-                                                                                14,
+                                                                                14.0,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -560,7 +552,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0, 0),
+                                                          0.0, 0.0),
                                                   child: AuthUserStreamWidget(
                                                     builder: (context) =>
                                                         Autocomplete<String>(
@@ -623,7 +615,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                   ),
                                                           textHighlightStyle:
                                                               TextStyle(),
-                                                          elevation: 4,
+                                                          elevation: 4.0,
                                                           optionBackgroundColor:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -632,7 +624,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .secondaryText,
-                                                          maxHeight: 300,
+                                                          maxHeight: 300.0,
                                                         );
                                                       },
                                                       onSelected:
@@ -724,7 +716,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                       color: Color(
                                                                           0x81FFFFFF),
                                                                       fontSize:
-                                                                          16,
+                                                                          16.0,
                                                                     ),
                                                             enabledBorder:
                                                                 UnderlineInputBorder(
@@ -732,12 +724,12 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                   BorderSide(
                                                                 color: Color(
                                                                     0x00000000),
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8),
+                                                                          8.0),
                                                             ),
                                                             focusedBorder:
                                                                 UnderlineInputBorder(
@@ -745,12 +737,12 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                   BorderSide(
                                                                 color: Color(
                                                                     0x00000000),
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8),
+                                                                          8.0),
                                                             ),
                                                             errorBorder:
                                                                 UnderlineInputBorder(
@@ -758,12 +750,12 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                   BorderSide(
                                                                 color: Color(
                                                                     0x00000000),
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8),
+                                                                          8.0),
                                                             ),
                                                             focusedErrorBorder:
                                                                 UnderlineInputBorder(
@@ -771,27 +763,27 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                   BorderSide(
                                                                 color: Color(
                                                                     0x00000000),
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8),
+                                                                          8.0),
                                                             ),
                                                             contentPadding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        13,
-                                                                        13,
-                                                                        13,
-                                                                        13),
+                                                                        13.0,
+                                                                        13.0,
+                                                                        13.0,
+                                                                        13.0),
                                                             prefixIcon: Icon(
                                                               Icons
                                                                   .search_rounded,
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .secondary,
-                                                              size: 24,
+                                                              size: 24.0,
                                                             ),
                                                             suffixIcon: _model
                                                                     .textFieldSeachBarController!
@@ -826,7 +818,8 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                               .secondary
                                                                           : Colors
                                                                               .transparent,
-                                                                      size: 24,
+                                                                      size:
+                                                                          24.0,
                                                                     ),
                                                                   )
                                                                 : null,
@@ -865,7 +858,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0, 0, 4, 0),
+                                                    0.0, 0.0, 4.0, 0.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.min,
                                               mainAxisAlignment:
@@ -873,8 +866,8 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                               children: [
                                                 if (valueOrDefault<bool>(
                                                       containerQueryLatestSessioTreeniSessiotRecordList
-                                                              .first !=
-                                                          null,
+                                                              .length >
+                                                          0,
                                                       false,
                                                     ) &&
                                                     valueOrDefault<bool>(
@@ -892,12 +885,15 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            1, 0),
+                                                            1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 0, 22, 0),
+                                                                  0.0,
+                                                                  0.0,
+                                                                  22.0,
+                                                                  0.0),
                                                       child: InkWell(
                                                         onTap: () async {
                                                           logFirebaseEvent(
@@ -913,7 +909,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .deleteRed,
-                                                          size: 28,
+                                                          size: 28.0,
                                                         ),
                                                       ),
                                                     ),
@@ -996,16 +992,16 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .deleteRed,
-                                                                size: 30,
+                                                                size: 30.0,
                                                               ),
                                                               if (false)
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          2,
-                                                                          0,
-                                                                          0,
-                                                                          0),
+                                                                          2.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
                                                                   child: Text(
                                                                     FFLocalizations.of(
                                                                             context)
@@ -1024,7 +1020,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondary,
                                                                           fontSize:
-                                                                              12,
+                                                                              12.0,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -1047,16 +1043,16 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                               if (revenue_cat.activeEntitlementIds.length == 0)
                                 Container(
                                   constraints: BoxConstraints(
-                                    maxWidth: 600,
-                                    maxHeight: 60,
+                                    maxWidth: 600.0,
+                                    maxHeight: 60.0,
                                   ),
                                   decoration: BoxDecoration(
                                     color: Colors.transparent,
                                     borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(8),
-                                      bottomRight: Radius.circular(8),
-                                      topLeft: Radius.circular(0),
-                                      topRight: Radius.circular(0),
+                                      bottomLeft: Radius.circular(8.0),
+                                      bottomRight: Radius.circular(8.0),
+                                      topLeft: Radius.circular(0.0),
+                                      topRight: Radius.circular(0.0),
                                     ),
                                   ),
                                   child: FlutterFlowAdBanner(

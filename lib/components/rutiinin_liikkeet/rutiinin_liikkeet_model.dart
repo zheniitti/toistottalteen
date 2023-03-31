@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
-import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -19,22 +18,14 @@ import 'package:provider/provider.dart';
 class RutiininLiikkeetModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
-  // Models for rutiininLiikeNimiTextfield dynamic component.
-  late FlutterFlowDynamicModels<RutiininLiikeNimiTextfieldModel>
-      rutiininLiikeNimiTextfieldModels;
   // Stores action output result for [Custom Action - rutiiniToJsonFirestoreData] action in Column_sarjatToistotMuut widget.
   dynamic? jsonRutiiniCopy;
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {
-    rutiininLiikeNimiTextfieldModels =
-        FlutterFlowDynamicModels(() => RutiininLiikeNimiTextfieldModel());
-  }
+  void initState(BuildContext context) {}
 
-  void dispose() {
-    rutiininLiikeNimiTextfieldModels.dispose();
-  }
+  void dispose() {}
 
   /// Additional helper methods are added here.
 
