@@ -21,6 +21,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'paasivu_model.dart';
 export 'paasivu_model.dart';
 
@@ -37,7 +38,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
-  var hasIconTriggered2 = false;
+
   final animationsMap = {
     'navigationBarOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
@@ -46,12 +47,12 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(0.0, 100.0),
-          end: Offset(0.0, 0.0),
+          begin: Offset(0, 100),
+          end: Offset(0, 0),
         ),
       ],
     ),
-    'iconOnActionTriggerAnimation1': AnimationInfo(
+    'iconOnActionTriggerAnimation': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
       applyInitialState: true,
       effects: [
@@ -59,7 +60,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 300.ms,
-          begin: 0.0,
+          begin: 0,
           end: 0.5,
         ),
       ],
@@ -81,7 +82,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
           delay: 0.ms,
           duration: 900.ms,
           begin: 0.6,
-          end: 1.0,
+          end: 1,
         ),
       ],
     ),
@@ -93,15 +94,15 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 800.ms,
-          begin: Offset(0.0, -100.0),
-          end: Offset(0.0, 0.0),
+          begin: Offset(0, -100),
+          end: Offset(0, 0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: 0,
+          end: 1,
         ),
       ],
     ),
@@ -113,8 +114,8 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
           curve: Curves.easeInOut,
           delay: 2000.ms,
           duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: 0,
+          end: 1,
         ),
       ],
     ),
@@ -126,35 +127,15 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
           curve: Curves.easeInOut,
           delay: 800.ms,
           duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: 0,
+          end: 1,
         ),
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 800.ms,
           duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnActionTriggerAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onActionTrigger,
-      applyInitialState: false,
-      effects: [
-        FadeEffect(
-          curve: Curves.elasticOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 1.0,
-          end: 0.0,
-        ),
-        ScaleEffect(
-          curve: Curves.elasticOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 1.0,
-          end: 0.0,
+          begin: 0,
+          end: 1,
         ),
       ],
     ),
@@ -210,8 +191,8 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
         if (!snapshot.hasData) {
           return Center(
             child: SizedBox(
-              width: 40.0,
-              height: 40.0,
+              width: 40,
+              height: 40,
               child: CircularProgressIndicator(
                 color: FlutterFlowTheme.of(context).primary,
               ),
@@ -235,7 +216,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
               icon: Icon(
                 Icons.add,
               ),
-              elevation: 8.0,
+              elevation: 8,
               label: Text(
                 FFLocalizations.of(context).getText(
                   't1qezc6y' /* Luo treenirutiini */,
@@ -248,7 +229,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
             ),
           ),
           drawer: Drawer(
-            elevation: 16.0,
+            elevation: 16,
             child: wrapWithModel(
               model: _model.sivupalkkiModel,
               updateCallback: () => setState(() {}),
@@ -271,11 +252,11 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                   if (!snapshot.hasData) {
                     return Center(
                       child: SizedBox(
-                        width: 50.0,
-                        height: 50.0,
+                        width: 50,
+                        height: 50,
                         child: SpinKitCircle(
                           color: FlutterFlowTheme.of(context).primary,
-                          size: 50.0,
+                          size: 50,
                         ),
                       ),
                     );
@@ -286,20 +267,20 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                   return Container(
                     decoration: BoxDecoration(),
                     child: Container(
-                      width: MediaQuery.of(context).size.width * 1.0,
-                      height: MediaQuery.of(context).size.height * 1.0,
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height * 1,
                       child: Stack(
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 60.0, 0.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 60, 0, 0),
                             child: Container(
-                              width: MediaQuery.of(context).size.width * 1.0,
+                              width: MediaQuery.of(context).size.width,
                               child: Stack(
                                 children: [
                                   if (FFAppState().navBarIndex == 0)
                                     Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0, 0),
                                       child: wrapWithModel(
                                         model:
                                             _model.sivuRutiinitKomponenttiModel,
@@ -354,10 +335,10 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.0, 1.0),
+                            alignment: AlignmentDirectional(0, 1),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 14.0, 16.0, 14.0),
+                                  16, 14, 16, 14),
                               child: wrapWithModel(
                                 model: _model.navigationBarModel,
                                 updateCallback: () => setState(() {}),
@@ -371,17 +352,17 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                             children: [
                               Material(
                                 color: Colors.transparent,
-                                elevation: 1.0,
+                                elevation: 1,
                                 child: Container(
                                   width: double.infinity,
-                                  height: 60.0,
+                                  height: 60,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context).primary,
                                     boxShadow: [
                                       BoxShadow(
-                                        blurRadius: 4.0,
+                                        blurRadius: 4,
                                         color: Color(0x33000000),
-                                        offset: Offset(0.0, 2.0),
+                                        offset: Offset(0, 2),
                                       )
                                     ],
                                   ),
@@ -392,11 +373,11 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                         flex: 1,
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(-1.0, 0.0),
+                                              AlignmentDirectional(-1, 0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 0.0, 0.0, 0.0),
+                                                    12, 0, 0, 0),
                                             child: InkWell(
                                               onTap: () async {
                                                 logFirebaseEvent(
@@ -408,14 +389,14 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                 logFirebaseEvent(
                                                     'Icon_drawer_widget_animation');
                                                 if (animationsMap[
-                                                        'iconOnActionTriggerAnimation1'] !=
+                                                        'iconOnActionTriggerAnimation'] !=
                                                     null) {
                                                   animationsMap[
-                                                          'iconOnActionTriggerAnimation1']!
+                                                          'iconOnActionTriggerAnimation']!
                                                       .controller
                                                       .forward(from: 0.0)
                                                       .whenComplete(animationsMap[
-                                                              'iconOnActionTriggerAnimation1']!
+                                                              'iconOnActionTriggerAnimation']!
                                                           .controller
                                                           .reverse);
                                                 }
@@ -425,11 +406,11 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
-                                                size: 28.0,
+                                                size: 28,
                                               ),
                                             ).animateOnActionTrigger(
                                               animationsMap[
-                                                  'iconOnActionTriggerAnimation1']!,
+                                                  'iconOnActionTriggerAnimation']!,
                                             ),
                                           ),
                                         ),
@@ -437,8 +418,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                       Expanded(
                                         flex: 4,
                                         child: Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                          alignment: AlignmentDirectional(0, 0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -522,16 +502,16 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .secondary,
-                                                              size: 30.0,
+                                                              size: 30,
                                                             ),
                                                             Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          16.0,
-                                                                          0.0),
+                                                                          0,
+                                                                          0,
+                                                                          16,
+                                                                          0),
                                                               child: Column(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -543,10 +523,10 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            2.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                            2,
+                                                                            0,
+                                                                            0,
+                                                                            0),
                                                                     child: Text(
                                                                       FFLocalizations.of(
                                                                               context)
@@ -562,7 +542,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondary,
                                                                             fontSize:
-                                                                                14.0,
+                                                                                14,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -580,7 +560,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                          0, 0),
                                                   child: AuthUserStreamWidget(
                                                     builder: (context) =>
                                                         Autocomplete<String>(
@@ -643,7 +623,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                   ),
                                                           textHighlightStyle:
                                                               TextStyle(),
-                                                          elevation: 4.0,
+                                                          elevation: 4,
                                                           optionBackgroundColor:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -652,7 +632,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .secondaryText,
-                                                          maxHeight: 300.0,
+                                                          maxHeight: 300,
                                                         );
                                                       },
                                                       onSelected:
@@ -744,7 +724,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                       color: Color(
                                                                           0x81FFFFFF),
                                                                       fontSize:
-                                                                          16.0,
+                                                                          16,
                                                                     ),
                                                             enabledBorder:
                                                                 UnderlineInputBorder(
@@ -752,12 +732,12 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                   BorderSide(
                                                                 color: Color(
                                                                     0x00000000),
-                                                                width: 1.0,
+                                                                width: 1,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8.0),
+                                                                          8),
                                                             ),
                                                             focusedBorder:
                                                                 UnderlineInputBorder(
@@ -765,12 +745,12 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                   BorderSide(
                                                                 color: Color(
                                                                     0x00000000),
-                                                                width: 1.0,
+                                                                width: 1,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8.0),
+                                                                          8),
                                                             ),
                                                             errorBorder:
                                                                 UnderlineInputBorder(
@@ -778,12 +758,12 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                   BorderSide(
                                                                 color: Color(
                                                                     0x00000000),
-                                                                width: 1.0,
+                                                                width: 1,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8.0),
+                                                                          8),
                                                             ),
                                                             focusedErrorBorder:
                                                                 UnderlineInputBorder(
@@ -791,27 +771,27 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                   BorderSide(
                                                                 color: Color(
                                                                     0x00000000),
-                                                                width: 1.0,
+                                                                width: 1,
                                                               ),
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8.0),
+                                                                          8),
                                                             ),
                                                             contentPadding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        13.0,
-                                                                        13.0,
-                                                                        13.0,
-                                                                        13.0),
+                                                                        13,
+                                                                        13,
+                                                                        13,
+                                                                        13),
                                                             prefixIcon: Icon(
                                                               Icons
                                                                   .search_rounded,
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .secondary,
-                                                              size: 24.0,
+                                                              size: 24,
                                                             ),
                                                             suffixIcon: _model
                                                                     .textFieldSeachBarController!
@@ -846,8 +826,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                               .secondary
                                                                           : Colors
                                                                               .transparent,
-                                                                      size:
-                                                                          24.0,
+                                                                      size: 24,
                                                                     ),
                                                                   )
                                                                 : null,
@@ -886,7 +865,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 4.0, 0.0),
+                                                    0, 0, 4, 0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.min,
                                               mainAxisAlignment:
@@ -913,15 +892,12 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            1.0, 0.0),
+                                                            1, 0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  22.0,
-                                                                  0.0),
+                                                                  0, 0, 22, 0),
                                                       child: InkWell(
                                                         onTap: () async {
                                                           logFirebaseEvent(
@@ -937,77 +913,37 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .deleteRed,
-                                                          size: 28.0,
+                                                          size: 28,
                                                         ),
                                                       ),
                                                     ),
                                                   ),
-                                                if ((FFAppState().navBarIndex ==
-                                                        1) &&
-                                                    (containerQueryLatestSessioTreeniSessiotRecordList
-                                                                .length >
-                                                            0
-                                                        ? (containerQueryLatestSessioTreeniSessiotRecordList
-                                                                .first.alku !=
-                                                            null)
-                                                        : false) &&
-                                                    (containerQueryLatestSessioTreeniSessiotRecordList
-                                                                .length >
-                                                            0
-                                                        ? (containerQueryLatestSessioTreeniSessiotRecordList
-                                                                .first.loppu ==
-                                                            null)
-                                                        : false) &&
-                                                    !valueOrDefault<bool>(
-                                                      valueOrDefault<bool>(
-                                                            containerQueryLatestSessioTreeniSessiotRecordList
-                                                                    .first ==
-                                                                null,
-                                                            true,
-                                                          ) ||
-                                                          valueOrDefault<bool>(
+                                                if (containerQueryLatestSessioTreeniSessiotRecordList
+                                                            .length >
+                                                        0
+                                                    ? valueOrDefault<bool>(
+                                                        valueOrDefault<bool>(
+                                                              containerQueryLatestSessioTreeniSessiotRecordList
+                                                                      .first
+                                                                      .alku !=
+                                                                  null,
+                                                              false,
+                                                            ) &&
                                                             valueOrDefault<
-                                                                    bool>(
-                                                                  containerQueryLatestSessioTreeniSessiotRecordList
-                                                                          .first
-                                                                          .alku !=
-                                                                      null,
-                                                                  false,
-                                                                ) &&
-                                                                valueOrDefault<
-                                                                    bool>(
-                                                                  containerQueryLatestSessioTreeniSessiotRecordList
-                                                                          .first
-                                                                          .loppu !=
-                                                                      null,
-                                                                  false,
-                                                                ),
-                                                            false,
-                                                          ),
-                                                      true,
-                                                    ))
+                                                                bool>(
+                                                              containerQueryLatestSessioTreeniSessiotRecordList
+                                                                      .first
+                                                                      .loppu ==
+                                                                  null,
+                                                              true,
+                                                            ),
+                                                        false,
+                                                      )
+                                                    : false)
                                                   InkWell(
                                                     onTap: () async {
                                                       logFirebaseEvent(
                                                           'PAASIVU_PAGE_Row_lopetaTreeni_ON_TAP');
-                                                      logFirebaseEvent(
-                                                          'Row_lopetaTreeni_widget_animation');
-                                                      if (animationsMap[
-                                                              'iconOnActionTriggerAnimation2'] !=
-                                                          null) {
-                                                        setState(() =>
-                                                            hasIconTriggered2 =
-                                                                true);
-                                                        SchedulerBinding
-                                                            .instance
-                                                            .addPostFrameCallback(
-                                                                (_) async => animationsMap[
-                                                                        'iconOnActionTriggerAnimation2']!
-                                                                    .controller
-                                                                    .forward(
-                                                                        from:
-                                                                            0.0));
-                                                      }
                                                       logFirebaseEvent(
                                                           'Row_lopetaTreeni_backend_call');
 
@@ -1060,20 +996,16 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .deleteRed,
-                                                                size: 30.0,
-                                                              ).animateOnActionTrigger(
-                                                                  animationsMap[
-                                                                      'iconOnActionTriggerAnimation2']!,
-                                                                  hasBeenTriggered:
-                                                                      hasIconTriggered2),
+                                                                size: 30,
+                                                              ),
                                                               if (false)
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          2.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                          2,
+                                                                          0,
+                                                                          0,
+                                                                          0),
                                                                   child: Text(
                                                                     FFLocalizations.of(
                                                                             context)
@@ -1092,7 +1024,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondary,
                                                                           fontSize:
-                                                                              12.0,
+                                                                              12,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -1115,16 +1047,16 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                               if (revenue_cat.activeEntitlementIds.length == 0)
                                 Container(
                                   constraints: BoxConstraints(
-                                    maxWidth: 600.0,
-                                    maxHeight: 60.0,
+                                    maxWidth: 600,
+                                    maxHeight: 60,
                                   ),
                                   decoration: BoxDecoration(
                                     color: Colors.transparent,
                                     borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(8.0),
-                                      bottomRight: Radius.circular(8.0),
-                                      topLeft: Radius.circular(0.0),
-                                      topRight: Radius.circular(0.0),
+                                      bottomLeft: Radius.circular(8),
+                                      bottomRight: Radius.circular(8),
+                                      topLeft: Radius.circular(0),
+                                      topRight: Radius.circular(0),
                                     ),
                                   ),
                                   child: FlutterFlowAdBanner(

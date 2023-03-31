@@ -30,12 +30,10 @@ class SivuTreenaaKomponenttiWidget extends StatefulWidget {
   final TreeniSessiotRecord? sessioDoc;
 
   @override
-  _SivuTreenaaKomponenttiWidgetState createState() =>
-      _SivuTreenaaKomponenttiWidgetState();
+  _SivuTreenaaKomponenttiWidgetState createState() => _SivuTreenaaKomponenttiWidgetState();
 }
 
-class _SivuTreenaaKomponenttiWidgetState
-    extends State<SivuTreenaaKomponenttiWidget> with TickerProviderStateMixin {
+class _SivuTreenaaKomponenttiWidgetState extends State<SivuTreenaaKomponenttiWidget> with TickerProviderStateMixin {
   late SivuTreenaaKomponenttiModel _model;
 
   late StreamSubscription<bool> _keyboardVisibilitySubscription;
@@ -89,8 +87,7 @@ class _SivuTreenaaKomponenttiWidgetState
     _model = createModel(context, () => SivuTreenaaKomponenttiModel());
 
     if (!isWeb) {
-      _keyboardVisibilitySubscription =
-          KeyboardVisibilityController().onChange.listen((bool visible) {
+      _keyboardVisibilitySubscription = KeyboardVisibilityController().onChange.listen((bool visible) {
         setState(() {
           _isKeyboardVisible = visible;
         });
@@ -150,14 +147,12 @@ class _SivuTreenaaKomponenttiWidgetState
                     child: AdBannerPaddingWidget(),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 22.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 22.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 20.0, 0.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                           child: wrapWithModel(
                             model: _model.nameAndCommentFieldsOfSessioModel,
                             updateCallback: () => setState(() {}),
@@ -168,35 +163,25 @@ class _SivuTreenaaKomponenttiWidgetState
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              6.0, 0.0, 6.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 6.0, 0.0),
                           child: Builder(
                             builder: (context) {
-                              final rutiininLiikkeet = widget
-                                      .sessioDoc!.treeniRutiiniData.liikkeet
-                                      ?.toList()
-                                      ?.toList() ??
-                                  [];
+                              final rutiininLiikkeet = widget.sessioDoc!.treeniRutiiniData.liikkeet?.toList()?.toList() ?? [];
                               return Column(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: List.generate(rutiininLiikkeet.length,
-                                    (rutiininLiikkeetIndex) {
-                                  final rutiininLiikkeetItem =
-                                      rutiininLiikkeet[rutiininLiikkeetIndex];
+                                children: List.generate(rutiininLiikkeet.length, (rutiininLiikkeetIndex) {
+                                  final rutiininLiikkeetItem = rutiininLiikkeet[rutiininLiikkeetIndex];
                                   return Visibility(
                                     visible: valueOrDefault<bool>(
                                       rutiininLiikkeetItem.createdTime != null,
                                       false,
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 12.0, 0.0, 0.0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                                       child: wrapWithModel(
-                                        model: _model.liikeTreeninAikanaModels
-                                            .getModel(
-                                          rutiininLiikkeetItem.createdTime!
-                                              .toString(),
+                                        model: _model.liikeTreeninAikanaModels.getModel(
+                                          rutiininLiikkeetItem.createdTime!.toString(),
                                           rutiininLiikkeetIndex,
                                         ),
                                         updateCallback: () => setState(() {}),
@@ -205,8 +190,7 @@ class _SivuTreenaaKomponenttiWidgetState
                                             'Keyjkz_${rutiininLiikkeetItem.createdTime!.toString()}',
                                           ),
                                           liike: rutiininLiikkeetItem,
-                                          liikeIndexInList:
-                                              rutiininLiikkeetIndex,
+                                          liikeIndexInList: rutiininLiikkeetIndex,
                                           treeniSessio: widget.sessioDoc,
                                         ),
                                       ),
@@ -224,32 +208,22 @@ class _SivuTreenaaKomponenttiWidgetState
                     widget.sessioDoc != null,
                     true,
                   )
-                      ? !(isWeb
-                          ? MediaQuery.of(context).viewInsets.bottom > 0
-                          : _isKeyboardVisible)
+                      ? !(isWeb ? MediaQuery.of(context).viewInsets.bottom > 0 : _isKeyboardVisible)
                       : false)
                     Align(
                       alignment: AlignmentDirectional(0.0, 1.0),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            20.0, 0.0, 20.0, 240.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 240.0),
                         child: InkWell(
                           onTap: () async {
-                            logFirebaseEvent(
-                                'SIVU_TREENAA_KOMPONENTTI_Container_paini');
-                            logFirebaseEvent(
-                                'Container_painike_uusiLiike_custom_actio');
-                            _model.updatedRutiiniFromLisaaLiike =
-                                await actions.myUpdateTreeniRutiiniStruct(
+                            logFirebaseEvent('SIVU_TREENAA_KOMPONENTTI_Container_paini');
+                            logFirebaseEvent('Container_painike_uusiLiike_custom_actio');
+                            _model.updatedRutiiniFromLisaaLiike = await actions.myUpdateTreeniRutiiniStruct(
                               widget.sessioDoc!.treeniRutiiniData,
                               null,
-                              _model.nameAndCommentFieldsOfSessioModel
-                                  .rutiininnimiController.text,
-                              widget.sessioDoc!.treeniRutiiniData.liikkeet
-                                  ?.toList()
-                                  ?.toList(),
-                              _model.nameAndCommentFieldsOfSessioModel
-                                  .rutiiniKommenttiController.text,
+                              _model.nameAndCommentFieldsOfSessioModel.rutiininnimiController.text,
+                              widget.sessioDoc!.treeniRutiiniData.liikkeet?.toList()?.toList(),
+                              _model.nameAndCommentFieldsOfSessioModel.rutiiniKommenttiController.text,
                               null,
                               null,
                               false,
@@ -265,8 +239,7 @@ class _SivuTreenaaKomponenttiWidgetState
                               false,
                               false,
                             );
-                            logFirebaseEvent(
-                                'Container_painike_uusiLiike_custom_actio');
+                            logFirebaseEvent('Container_painike_uusiLiike_custom_actio');
                             await actions.updateTreenisessiotRecord(
                               widget.sessioDoc,
                               null,
@@ -297,28 +270,22 @@ class _SivuTreenaaKomponenttiWidgetState
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 8.0, 0.0),
+                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                     child: Icon(
                                       Icons.add_rounded,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
+                                      color: FlutterFlowTheme.of(context).secondary,
                                       size: 24.0,
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 8.0, 0.0),
+                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         'k8l5bzfl' /* Lisää  liike */,
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
+                                      style: FlutterFlowTheme.of(context).titleSmall.override(
                                             fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondary,
+                                            color: FlutterFlowTheme.of(context).secondary,
                                           ),
                                     ),
                                   ),
@@ -326,8 +293,7 @@ class _SivuTreenaaKomponenttiWidgetState
                               ),
                             ),
                           ),
-                        ).animateOnPageLoad(
-                            animationsMap['containerOnPageLoadAnimation1']!),
+                        ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation1']!),
                       ),
                     ),
                 ],
@@ -369,8 +335,7 @@ class _SivuTreenaaKomponenttiWidgetState
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 30.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 'hr61kg7a' /* Sinulla ei ole keskeneräistä t... */,
@@ -380,21 +345,17 @@ class _SivuTreenaaKomponenttiWidgetState
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 150.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 150.0),
                             child: FFButtonWidget(
                               onPressed: () async {
-                                logFirebaseEvent(
-                                    'SIVU_TREENAA_KOMPONENTTI_Button_aloitaUu');
-                                logFirebaseEvent(
-                                    'Button_aloitaUusiTreeni_backend_call');
+                                logFirebaseEvent('SIVU_TREENAA_KOMPONENTTI_Button_aloitaUu');
+                                logFirebaseEvent('Button_aloitaUusiTreeni_backend_call');
 
                                 final treeniSessiotCreateData = {
                                   ...createTreeniSessiotRecordData(
                                     userRef: currentUserReference,
                                     isEditing: false,
-                                    treeniRutiiniData:
-                                        createTreeniRutiiniStruct(
+                                    treeniRutiiniData: createTreeniRutiiniStruct(
                                       createdTime: getCurrentTimestamp,
                                       isTreeniPohja: false,
                                       finishedEditing: true,
@@ -409,8 +370,7 @@ class _SivuTreenaaKomponenttiWidgetState
                                                 'sarjat': [
                                                   getSarjaFirestoreData(
                                                     createSarjaStruct(
-                                                      createdTime:
-                                                          getCurrentTimestamp,
+                                                      createdTime: getCurrentTimestamp,
                                                       clearUnsetFields: false,
                                                       create: true,
                                                     ),
@@ -430,12 +390,9 @@ class _SivuTreenaaKomponenttiWidgetState
                                     ),
                                   ),
                                   'alku': FieldValue.serverTimestamp(),
-                                  'docCreatedTime':
-                                      FieldValue.serverTimestamp(),
+                                  'docCreatedTime': FieldValue.serverTimestamp(),
                                 };
-                                await TreeniSessiotRecord.collection
-                                    .doc()
-                                    .set(treeniSessiotCreateData);
+                                await TreeniSessiotRecord.collection.doc().set(treeniSessiotCreateData);
                               },
                               text: FFLocalizations.of(context).getText(
                                 'uz6rq23u' /* Aloita tyhjä treeni */,
@@ -443,17 +400,12 @@ class _SivuTreenaaKomponenttiWidgetState
                               options: FFButtonOptions(
                                 width: 240.0,
                                 height: 70.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
+                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleMedium
-                                    .override(
+                                textStyle: FlutterFlowTheme.of(context).titleMedium.override(
                                       fontFamily: 'Outfit',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
+                                      color: FlutterFlowTheme.of(context).secondary,
                                       fontSize: 20.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -468,8 +420,7 @@ class _SivuTreenaaKomponenttiWidgetState
                           ),
                         ],
                       ),
-                    ).animateOnPageLoad(
-                        animationsMap['containerOnPageLoadAnimation2']!),
+                    ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation2']!),
                   ],
                 ),
               ],
