@@ -865,7 +865,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // sivu_treenaa_komponentti
   {
-    '44rq35vd': {
+    'k8l5bzfl': {
       'fi': 'Lisää  liike',
       'en': 'New exercise',
     },
@@ -1110,33 +1110,49 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // otherTypeLiikeFields
   {
-    'qzi0xoig': {
+    '45p8jvgv': {
       'fi': 'Tunnit',
       'en': 'Hours',
+    },
+    'qzi0xoig': {
+      'fi': '',
+      'en': '',
     },
     '0ry7n4gd': {
       'fi': '0',
       'en': '0',
     },
-    'qc0cirns': {
+    'hul5vo4m': {
       'fi': 'Minuutit',
-      'en': 'Minutes',
+      'en': 'minutes',
+    },
+    'qc0cirns': {
+      'fi': '',
+      'en': '',
     },
     'olh9qolp': {
       'fi': '0',
       'en': '0',
     },
+    'e4mivh1l': {
+      'fi': 'sekunnit',
+      'en': 'seconds',
+    },
     'zcwbr62z': {
-      'fi': 'Sekunnit',
-      'en': 'Secs',
+      'fi': '',
+      'en': '',
     },
     'm6zgwhps': {
       'fi': '0',
       'en': '0',
     },
+    'f6lmo02d': {
+      'fi': 'Matka (metreinä)',
+      'en': 'Distance (in meters)',
+    },
     'emfp4ohz': {
-      'fi': 'matka (metreinä)',
-      'en': 'distance (meters)',
+      'fi': '',
+      'en': '',
     },
     'tnb4m9hm': {
       'fi': '0.0',

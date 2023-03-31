@@ -207,7 +207,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                             ),
                                             style: TextStyle(
                                               fontFamily: 'Satoshi',
-                                              color: Color(0xFFDADADA),
+                                              color: Color(0xFFD1D1E2),
                                               fontWeight: FontWeight.w500,
                                               fontSize: 25.0,
                                             ),
@@ -229,7 +229,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
                                               fontFamily: 'Satoshi',
-                                              color: Color(0xFF797979),
+                                              color: Color(0xFFD1D1E2),
                                               fontWeight: FontWeight.w300,
                                               fontSize: 17.0,
                                             ),
@@ -373,29 +373,51 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                           logFirebaseEvent('Text_getPlatform');
                                           _model.platformString =
                                               await actions.platformString();
-                                          // updateUsersRecord
-                                          logFirebaseEvent(
-                                              'Text_updateUsersRecord');
+                                          if (columnEsimerkkiDataRecord !=
+                                              null) {
+                                            // updateUsersRecord
+                                            logFirebaseEvent(
+                                                'Text_updateUsersRecord');
 
-                                          final usersUpdateData = {
-                                            ...createUsersRecordData(
-                                              appLangCode:
-                                                  FFLocalizations.of(context)
-                                                      .languageCode,
-                                              uid: currentUserUid,
-                                              isAnonymous: true,
-                                            ),
-                                            'created_time':
-                                                FieldValue.serverTimestamp(),
-                                            'treeniRutiinit':
-                                                getTreeniRutiiniListFirestoreData(
-                                              columnEsimerkkiDataRecord!
-                                                  .esimerkkiRutiinit!
-                                                  .toList(),
-                                            ),
-                                          };
-                                          await currentUserReference!
-                                              .update(usersUpdateData);
+                                            final usersUpdateData1 = {
+                                              ...createUsersRecordData(
+                                                appLangCode:
+                                                    FFLocalizations.of(context)
+                                                        .languageCode,
+                                                uid: currentUserUid,
+                                                isAnonymous: true,
+                                              ),
+                                              'created_time':
+                                                  FieldValue.serverTimestamp(),
+                                              'treeniRutiinit':
+                                                  getTreeniRutiiniListFirestoreData(
+                                                columnEsimerkkiDataRecord!
+                                                    .esimerkkiRutiinit!
+                                                    .toList(),
+                                              ),
+                                            };
+                                            await currentUserReference!
+                                                .update(usersUpdateData1);
+                                          } else {
+                                            // updateUsersRecord
+                                            logFirebaseEvent(
+                                                'Text_updateUsersRecord');
+
+                                            final usersUpdateData2 = {
+                                              ...createUsersRecordData(
+                                                appLangCode:
+                                                    FFLocalizations.of(context)
+                                                        .languageCode,
+                                                uid: currentUserUid,
+                                                isAnonymous: true,
+                                              ),
+                                              'created_time':
+                                                  FieldValue.serverTimestamp(),
+                                            };
+                                            await currentUserReference!
+                                                .update(usersUpdateData2);
+                                          }
+
                                           logFirebaseEvent('Text_navigate_to');
 
                                           context.goNamedAuth(

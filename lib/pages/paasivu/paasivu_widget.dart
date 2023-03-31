@@ -875,200 +875,234 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                           ),
                                         ),
                                       ),
-                                      Expanded(
-                                        flex: 1,
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 4.0, 0.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.min,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              if (FFAppState().navBarIndex != 1)
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          1.0, 0.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                12.0, 0.0),
-                                                    child: Icon(
-                                                      Icons.help_rounded,
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .primaryBackground,
-                                                      size: 28.0,
-                                                    ),
-                                                  ),
-                                                ),
-                                              if ((FFAppState().navBarIndex ==
-                                                      1) &&
-                                                  (containerQueryLatestSessioTreeniSessiotRecordList
-                                                              .length >
-                                                          0
-                                                      ? (containerQueryLatestSessioTreeniSessiotRecordList
-                                                              .first.alku !=
-                                                          null)
-                                                      : false) &&
-                                                  (containerQueryLatestSessioTreeniSessiotRecordList
-                                                              .length >
-                                                          0
-                                                      ? (containerQueryLatestSessioTreeniSessiotRecordList
-                                                              .first.loppu ==
-                                                          null)
-                                                      : false) &&
-                                                  !valueOrDefault<bool>(
+                                      if (FFAppState().navBarIndex == 1)
+                                        Expanded(
+                                          flex: 1,
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 4.0, 0.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                if (valueOrDefault<bool>(
+                                                      containerQueryLatestSessioTreeniSessiotRecordList
+                                                              .first !=
+                                                          null,
+                                                      false,
+                                                    ) &&
                                                     valueOrDefault<bool>(
-                                                          containerQueryLatestSessioTreeniSessiotRecordList
-                                                                  .first ==
-                                                              null,
-                                                          true,
-                                                        ) ||
-                                                        valueOrDefault<bool>(
-                                                          valueOrDefault<bool>(
-                                                                containerQueryLatestSessioTreeniSessiotRecordList
-                                                                        .first
-                                                                        .alku !=
-                                                                    null,
-                                                                false,
-                                                              ) &&
-                                                              valueOrDefault<
-                                                                  bool>(
-                                                                containerQueryLatestSessioTreeniSessiotRecordList
-                                                                        .first
-                                                                        .loppu !=
-                                                                    null,
-                                                                false,
-                                                              ),
-                                                          false,
-                                                        ),
-                                                    true,
-                                                  ))
-                                                InkWell(
-                                                  onTap: () async {
-                                                    logFirebaseEvent(
-                                                        'PAASIVU_PAGE_Row_lopetaTreeni_ON_TAP');
-                                                    logFirebaseEvent(
-                                                        'Row_lopetaTreeni_widget_animation');
-                                                    if (animationsMap[
-                                                            'iconOnActionTriggerAnimation2'] !=
-                                                        null) {
-                                                      setState(() =>
-                                                          hasIconTriggered2 =
-                                                              true);
-                                                      SchedulerBinding.instance
-                                                          .addPostFrameCallback(
-                                                              (_) async => animationsMap[
-                                                                      'iconOnActionTriggerAnimation2']!
-                                                                  .controller
-                                                                  .forward(
-                                                                      from:
-                                                                          0.0));
-                                                    }
-                                                    logFirebaseEvent(
-                                                        'Row_lopetaTreeni_backend_call');
-
-                                                    final treeniSessiotUpdateData =
-                                                        {
-                                                      'loppu': FieldValue
-                                                          .serverTimestamp(),
-                                                    };
-                                                    await containerQueryLatestSessioTreeniSessiotRecordList
-                                                        .first.reference
-                                                        .update(
-                                                            treeniSessiotUpdateData);
-                                                    logFirebaseEvent(
-                                                        'Row_lopetaTreeni_backend_call');
-
-                                                    final usersUpdateData = {
-                                                      'treeniKestoYhteensaSekunteina':
-                                                          FieldValue.increment(
-                                                              1.0),
-                                                      'treeniaYhteensa':
-                                                          FieldValue.increment(
-                                                              1),
-                                                    };
-                                                    await currentUserReference!
-                                                        .update(
-                                                            usersUpdateData);
-                                                  },
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Expanded(
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            Icon(
-                                                              Icons
-                                                                  .stop_circle_rounded,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .deleteRed,
-                                                              size: 30.0,
-                                                            ).animateOnActionTrigger(
-                                                                animationsMap[
-                                                                    'iconOnActionTriggerAnimation2']!,
-                                                                hasBeenTriggered:
-                                                                    hasIconTriggered2),
-                                                            if (false)
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            2.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  FFLocalizations.of(
-                                                                          context)
-                                                                      .getText(
-                                                                    'ouj3p8pa' /* Lopeta */,
-                                                                  ),
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .center,
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Roboto',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondary,
-                                                                        fontSize:
-                                                                            12.0,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                          ],
+                                                      containerQueryLatestSessioTreeniSessiotRecordList
+                                                              .first.alku ==
+                                                          null,
+                                                      false,
+                                                    ) &&
+                                                    valueOrDefault<bool>(
+                                                      containerQueryLatestSessioTreeniSessiotRecordList
+                                                              .first.loppu ==
+                                                          null,
+                                                      false,
+                                                    ))
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            1.0, 0.0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  22.0,
+                                                                  0.0),
+                                                      child: InkWell(
+                                                        onTap: () async {
+                                                          logFirebaseEvent(
+                                                              'PAASIVU_PAGE_Icon_ofdgz8ab_ON_TAP');
+                                                          logFirebaseEvent(
+                                                              'Icon_backend_call');
+                                                          await containerQueryLatestSessioTreeniSessiotRecordList
+                                                              .first.reference
+                                                              .delete();
+                                                        },
+                                                        child: Icon(
+                                                          Icons.delete_rounded,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .deleteRed,
+                                                          size: 28.0,
                                                         ),
                                                       ),
-                                                    ],
+                                                    ),
                                                   ),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'rowOnPageLoadAnimation2']!),
-                                            ],
-                                          ).animateOnPageLoad(animationsMap[
-                                              'columnOnPageLoadAnimation']!),
+                                                if ((FFAppState().navBarIndex ==
+                                                        1) &&
+                                                    (containerQueryLatestSessioTreeniSessiotRecordList
+                                                                .length >
+                                                            0
+                                                        ? (containerQueryLatestSessioTreeniSessiotRecordList
+                                                                .first.alku !=
+                                                            null)
+                                                        : false) &&
+                                                    (containerQueryLatestSessioTreeniSessiotRecordList
+                                                                .length >
+                                                            0
+                                                        ? (containerQueryLatestSessioTreeniSessiotRecordList
+                                                                .first.loppu ==
+                                                            null)
+                                                        : false) &&
+                                                    !valueOrDefault<bool>(
+                                                      valueOrDefault<bool>(
+                                                            containerQueryLatestSessioTreeniSessiotRecordList
+                                                                    .first ==
+                                                                null,
+                                                            true,
+                                                          ) ||
+                                                          valueOrDefault<bool>(
+                                                            valueOrDefault<
+                                                                    bool>(
+                                                                  containerQueryLatestSessioTreeniSessiotRecordList
+                                                                          .first
+                                                                          .alku !=
+                                                                      null,
+                                                                  false,
+                                                                ) &&
+                                                                valueOrDefault<
+                                                                    bool>(
+                                                                  containerQueryLatestSessioTreeniSessiotRecordList
+                                                                          .first
+                                                                          .loppu !=
+                                                                      null,
+                                                                  false,
+                                                                ),
+                                                            false,
+                                                          ),
+                                                      true,
+                                                    ))
+                                                  InkWell(
+                                                    onTap: () async {
+                                                      logFirebaseEvent(
+                                                          'PAASIVU_PAGE_Row_lopetaTreeni_ON_TAP');
+                                                      logFirebaseEvent(
+                                                          'Row_lopetaTreeni_widget_animation');
+                                                      if (animationsMap[
+                                                              'iconOnActionTriggerAnimation2'] !=
+                                                          null) {
+                                                        setState(() =>
+                                                            hasIconTriggered2 =
+                                                                true);
+                                                        SchedulerBinding
+                                                            .instance
+                                                            .addPostFrameCallback(
+                                                                (_) async => animationsMap[
+                                                                        'iconOnActionTriggerAnimation2']!
+                                                                    .controller
+                                                                    .forward(
+                                                                        from:
+                                                                            0.0));
+                                                      }
+                                                      logFirebaseEvent(
+                                                          'Row_lopetaTreeni_backend_call');
+
+                                                      final treeniSessiotUpdateData =
+                                                          {
+                                                        'loppu': FieldValue
+                                                            .serverTimestamp(),
+                                                      };
+                                                      await containerQueryLatestSessioTreeniSessiotRecordList
+                                                          .first.reference
+                                                          .update(
+                                                              treeniSessiotUpdateData);
+                                                      logFirebaseEvent(
+                                                          'Row_lopetaTreeni_backend_call');
+
+                                                      final usersUpdateData = {
+                                                        'treeniKestoYhteensaSekunteina':
+                                                            FieldValue
+                                                                .increment(1.0),
+                                                        'treeniaYhteensa':
+                                                            FieldValue
+                                                                .increment(1),
+                                                      };
+                                                      await currentUserReference!
+                                                          .update(
+                                                              usersUpdateData);
+                                                    },
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Expanded(
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .center,
+                                                            children: [
+                                                              Icon(
+                                                                Icons
+                                                                    .stop_circle_rounded,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .deleteRed,
+                                                                size: 30.0,
+                                                              ).animateOnActionTrigger(
+                                                                  animationsMap[
+                                                                      'iconOnActionTriggerAnimation2']!,
+                                                                  hasBeenTriggered:
+                                                                      hasIconTriggered2),
+                                                              if (false)
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          2.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      'ouj3p8pa' /* Lopeta */,
+                                                                    ),
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .center,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Roboto',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondary,
+                                                                          fontSize:
+                                                                              12.0,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ).animateOnPageLoad(animationsMap[
+                                                      'rowOnPageLoadAnimation2']!),
+                                              ],
+                                            ).animateOnPageLoad(animationsMap[
+                                                'columnOnPageLoadAnimation']!),
+                                          ),
                                         ),
-                                      ),
                                     ],
                                   ),
                                 ),
@@ -1080,6 +1114,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                     maxHeight: 60.0,
                                   ),
                                   decoration: BoxDecoration(
+                                    color: Colors.transparent,
                                     borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(8.0),
                                       bottomRight: Radius.circular(8.0),
