@@ -439,7 +439,7 @@ class _SivuTreenaaKomponenttiWidgetState
                                     .set(treeniSessiotCreateData);
                               },
                               text: FFLocalizations.of(context).getText(
-                                'uz6rq23u' /* Aloita tyhjä treeni */,
+                                'uz6rq23u' /* Aloita uusi treeni */,
                               ),
                               options: FFButtonOptions(
                                 width: 240.0,

@@ -146,29 +146,31 @@ class _SarjaToistotTextfieldWidgetState
             color: Color(0x00000000),
             width: 1.0,
           ),
-          borderRadius: BorderRadius.circular(8.0),
+          borderRadius: BorderRadius.circular(14.0),
         ),
         focusedBorder: UnderlineInputBorder(
           borderSide: BorderSide(
             color: FlutterFlowTheme.of(context).primary,
             width: 1.0,
           ),
-          borderRadius: BorderRadius.circular(8.0),
+          borderRadius: BorderRadius.circular(14.0),
         ),
         errorBorder: UnderlineInputBorder(
           borderSide: BorderSide(
             color: Color(0x00000000),
             width: 1.0,
           ),
-          borderRadius: BorderRadius.circular(8.0),
+          borderRadius: BorderRadius.circular(14.0),
         ),
         focusedErrorBorder: UnderlineInputBorder(
           borderSide: BorderSide(
             color: Color(0x00000000),
             width: 1.0,
           ),
-          borderRadius: BorderRadius.circular(8.0),
+          borderRadius: BorderRadius.circular(14.0),
         ),
+        filled: true,
+        fillColor: FlutterFlowTheme.of(context).inactiveWidgetBackground,
       ),
       style: FlutterFlowTheme.of(context).headlineSmall,
       textAlign: TextAlign.center,

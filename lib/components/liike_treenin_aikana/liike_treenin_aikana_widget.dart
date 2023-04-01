@@ -548,8 +548,8 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                                           true,
                                         ))
                                           Wrap(
-                                            spacing: 0.0,
-                                            runSpacing: 0.0,
+                                            spacing: 8.0,
+                                            runSpacing: 4.0,
                                             alignment: WrapAlignment.end,
                                             crossAxisAlignment:
                                                 WrapCrossAlignment.center,
@@ -579,7 +579,7 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                                                         ),
                                                   ),
                                                   Container(
-                                                    width: 130.0,
+                                                    width: 100.0,
                                                     decoration: BoxDecoration(),
                                                     child:
                                                         SarjaToistotTextfieldWidget(
@@ -612,7 +612,7 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                                                         ),
                                                   ),
                                                   Container(
-                                                    width: 130.0,
+                                                    width: 100.0,
                                                     decoration: BoxDecoration(),
                                                     child:
                                                         SarjaPainoTextfieldWidget(

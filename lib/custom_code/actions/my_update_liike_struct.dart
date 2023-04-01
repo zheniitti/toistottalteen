@@ -42,7 +42,7 @@ Future<LiikeStruct?> myUpdateLiikeStruct(
       toiminto = 'Lisää uusi sarja';
       SarjaStruct newEmptySarja;
       if (sarjaList.isNotEmpty) {
-        final int? previousSarjaReps = sarjaList?.last?.toistoMaara;
+        final int? previousSarjaSets = sarjaList?.last?.toistoMaara;
         final double? previousSarjaWeight = sarjaList?.last?.paino;
         final double? previousSarjaDurationInSeconds =
             sarjaList?.last?.kestoSekunteina;
@@ -51,7 +51,7 @@ Future<LiikeStruct?> myUpdateLiikeStruct(
         newEmptySarja = createSarjaStruct(
             create: true,
             createdTime: getCurrentTimestamp,
-            toistoMaara: previousSarjaReps,
+            toistoMaara: previousSarjaSets,
             paino: previousSarjaWeight,
             kestoSekunteina: previousSarjaDurationInSeconds,
             matkaMetreina: previousSarjaDistanceInMeters);

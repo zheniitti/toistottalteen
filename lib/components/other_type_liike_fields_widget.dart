@@ -252,11 +252,6 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                             hintText: functions
                                 .remainingHours(widget.sarja?.kestoSekunteina)
                                 .toString(),
-                            hintStyle:
-                                FlutterFlowTheme.of(context).bodySmall.override(
-                                      fontFamily: 'Roboto',
-                                      fontSize: 20.0,
-                                    ),
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
@@ -416,11 +411,6 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                             hintText: functions
                                 .remainingMinutes(widget.sarja?.kestoSekunteina)
                                 .toString(),
-                            hintStyle:
-                                FlutterFlowTheme.of(context).bodySmall.override(
-                                      fontFamily: 'Roboto',
-                                      fontSize: 20.0,
-                                    ),
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
@@ -574,11 +564,6 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                             hintText: functions
                                 .remainingSeconds(widget.sarja?.kestoSekunteina)
                                 .toString(),
-                            hintStyle:
-                                FlutterFlowTheme.of(context).bodySmall.override(
-                                      fontFamily: 'Roboto',
-                                      fontSize: 20.0,
-                                    ),
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
@@ -733,11 +718,6 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                         isDense: true,
                         labelText: null,
                         hintText: widget.sarja?.matkaMetreina?.toString(),
-                        hintStyle:
-                            FlutterFlowTheme.of(context).bodySmall.override(
-                                  fontFamily: 'Roboto',
-                                  fontSize: 20.0,
-                                ),
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),

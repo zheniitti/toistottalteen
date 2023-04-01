@@ -61,6 +61,13 @@ class _NameAndCommentFieldsOfSessioWidgetState
     super.initState();
     _model = createModel(context, () => NameAndCommentFieldsOfSessioModel());
 
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('NAME_AND_COMMENT_FIELDS_OF_SESSIO_nameAn');
+      logFirebaseEvent('nameAndCommentFieldsOfSessio_update_widg');
+      _model.sessioDoc = widget.sessioDoc;
+    });
+
     _model.rutiininnimiController ??=
         TextEditingController(text: widget.sessioDoc!.treeniRutiiniData.nimi);
     _model.rutiiniKommenttiController ??= TextEditingController(
