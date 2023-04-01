@@ -595,8 +595,8 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                   child: Visibility(
                     visible: widget.rutiini?.nimi != null &&
                             widget.rutiini?.nimi != ''
-                        ? !widget.rutiini!.finishedEditing!
-                        : false,
+                        ? true
+                        : !widget.rutiini!.finishedEditing!,
                     child: Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
@@ -1320,6 +1320,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                               widget.rutiini,
                               false,
                               null,
+                              true,
                               true,
                             );
                             logFirebaseEvent(

@@ -48,8 +48,7 @@ class _SarjaToistotTextfieldWidgetState
     super.initState();
     _model = createModel(context, () => SarjaToistotTextfieldModel());
 
-    _model.textController ??=
-        TextEditingController(text: widget.sarja?.toistoMaara?.toString());
+    _model.textController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -141,13 +140,7 @@ class _SarjaToistotTextfieldWidgetState
       obscureText: false,
       decoration: InputDecoration(
         isDense: true,
-        hintText: FFLocalizations.of(context).getText(
-          'yylnuo9q' /* 0 */,
-        ),
-        hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
-              fontFamily: 'Roboto',
-              fontSize: 20.0,
-            ),
+        hintText: widget.sarja?.toistoMaara?.toString(),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(
             color: Color(0x00000000),

@@ -107,7 +107,7 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
                             FFLocalizations.of(context).getText(
                               'omr6g5ov' /* Saliliike */,
                             ),
-                            style: FlutterFlowTheme.of(context).subtitle2,
+                            style: FlutterFlowTheme.of(context).titleSmall,
                           ),
                           Switch(
                             value: _model.switchValue ??= widget

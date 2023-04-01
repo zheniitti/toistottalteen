@@ -139,13 +139,7 @@ class _SarjaPainoTextfieldWidgetState extends State<SarjaPainoTextfieldWidget> {
       obscureText: false,
       decoration: InputDecoration(
         isDense: true,
-        hintText: FFLocalizations.of(context).getText(
-          'vd95k1b9' /* 0 */,
-        ),
-        hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
-              fontFamily: 'Roboto',
-              fontSize: 20.0,
-            ),
+        hintText: widget.sarja?.paino?.toString(),
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(
             color: Color(0x00000000),

@@ -947,20 +947,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Comment 💬',
     },
   },
-  // sarjaToistotTextfield
-  {
-    'yylnuo9q': {
-      'fi': '0',
-      'en': '0',
-    },
-  },
-  // sarjaPainoTextfield
-  {
-    'vd95k1b9': {
-      'fi': '0',
-      'en': '0',
-    },
-  },
   // sessioChunk
   {
     '5smr29rj': {

@@ -420,7 +420,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
 
                                           logFirebaseEvent('Text_navigate_to');
 
-                                          context.goNamedAuth(
+                                          context.pushNamedAuth(
                                               'paasivu', mounted);
 
                                           setState(() {});

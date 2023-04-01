@@ -94,7 +94,7 @@ class _SivuRutiinitKomponenttiWidgetState
                               alignment: AlignmentDirectional(0.0, 0.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 40.0),
+                                    0.0, 0.0, 0.0, 30.0),
                                 child: wrapWithModel(
                                   model: _model.buttonLuoRutiiniModel,
                                   updateCallback: () => setState(() {}),
@@ -170,7 +170,7 @@ class _SivuRutiinitKomponenttiWidgetState
                         (widget.latestSessio!.alku != null))
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                         child: wrapWithModel(
                           model: _model.keskenerainenTreeniKomponenttiModel,
                           updateCallback: () => setState(() {}),

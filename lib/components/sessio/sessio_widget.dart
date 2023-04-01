@@ -377,6 +377,7 @@ class _SessioWidgetState extends State<SessioWidget>
                                 false,
                                 null,
                                 true,
+                                null,
                               );
                               logFirebaseEvent(
                                   'Button_uudestaan_start_periodic_action');
