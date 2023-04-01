@@ -96,19 +96,10 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
     super.initState();
     _model = createModel(context, () => OtherTypeLiikeFieldsModel());
 
-    _model.textController1 ??= TextEditingController(
-        text:
-            functions.remainingHours(widget.sarja?.kestoSekunteina).toString());
-    _model.textController2 ??= TextEditingController(
-        text: functions
-            .remainingMinutes(widget.sarja?.kestoSekunteina)
-            .toString());
-    _model.textController3 ??= TextEditingController(
-        text: functions
-            .remainingSeconds(widget.sarja?.kestoSekunteina)
-            .toString());
-    _model.textController4 ??=
-        TextEditingController(text: widget.sarja?.matkaMetreina?.toString());
+    _model.textController1 ??= TextEditingController();
+    _model.textController2 ??= TextEditingController();
+    _model.textController3 ??= TextEditingController();
+    _model.textController4 ??= TextEditingController();
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -258,15 +249,9 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                           decoration: InputDecoration(
                             isDense: true,
                             labelText: null,
-                            labelStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Roboto',
-                                  fontSize: 14.0,
-                                ),
-                            hintText: FFLocalizations.of(context).getText(
-                              '0ry7n4gd' /* 0 */,
-                            ),
+                            hintText: functions
+                                .remainingHours(widget.sarja?.kestoSekunteina)
+                                .toString(),
                             hintStyle:
                                 FlutterFlowTheme.of(context).bodySmall.override(
                                       fontFamily: 'Roboto',
@@ -428,9 +413,9 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                                   fontFamily: 'Roboto',
                                   fontSize: 14.0,
                                 ),
-                            hintText: FFLocalizations.of(context).getText(
-                              'olh9qolp' /* 0 */,
-                            ),
+                            hintText: functions
+                                .remainingMinutes(widget.sarja?.kestoSekunteina)
+                                .toString(),
                             hintStyle:
                                 FlutterFlowTheme.of(context).bodySmall.override(
                                       fontFamily: 'Roboto',
@@ -586,9 +571,9 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                           decoration: InputDecoration(
                             isDense: true,
                             labelText: null,
-                            hintText: FFLocalizations.of(context).getText(
-                              'm6zgwhps' /* 0 */,
-                            ),
+                            hintText: functions
+                                .remainingSeconds(widget.sarja?.kestoSekunteina)
+                                .toString(),
                             hintStyle:
                                 FlutterFlowTheme.of(context).bodySmall.override(
                                       fontFamily: 'Roboto',
@@ -747,9 +732,7 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                       decoration: InputDecoration(
                         isDense: true,
                         labelText: null,
-                        hintText: FFLocalizations.of(context).getText(
-                          'tnb4m9hm' /* 0.0 */,
-                        ),
+                        hintText: widget.sarja?.matkaMetreina?.toString(),
                         hintStyle:
                             FlutterFlowTheme.of(context).bodySmall.override(
                                   fontFamily: 'Roboto',

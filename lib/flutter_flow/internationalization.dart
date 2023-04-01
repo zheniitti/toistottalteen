@@ -1088,33 +1088,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Tunnit',
       'en': 'Hours',
     },
-    '0ry7n4gd': {
-      'fi': '0',
-      'en': '0',
-    },
     'hul5vo4m': {
       'fi': 'Minuutit',
       'en': 'minutes',
-    },
-    'olh9qolp': {
-      'fi': '0',
-      'en': '0',
     },
     'e4mivh1l': {
       'fi': 'sekunnit',
       'en': 'seconds',
     },
-    'm6zgwhps': {
-      'fi': '0',
-      'en': '0',
-    },
     'f6lmo02d': {
       'fi': 'Matka (metreinä)',
       'en': 'Distance (in meters)',
-    },
-    'tnb4m9hm': {
-      'fi': '0.0',
-      'en': '0.0',
     },
   },
   // bottomSheet_liike
