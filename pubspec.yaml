@@ -101,6 +101,7 @@ dependencies:
   cupertino_icons: ^1.0.0
   firebase_remote_config: ^3.0.7
   flutter_heatmap_calendar: ^1.0.5
+  fl_chart: ^0.61.0
 
 dev_dependencies:
   build_runner: 2.3.3

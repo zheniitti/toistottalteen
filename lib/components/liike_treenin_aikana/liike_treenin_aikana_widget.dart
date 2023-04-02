@@ -300,7 +300,8 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                       ),
                       if (!widget.liike!.tehty! ||
                           (widget.liike?.kommentti != null &&
-                              widget.liike?.kommentti != ''))
+                              widget.liike?.kommentti != '') ||
+                          true)
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 2.0),
@@ -326,7 +327,7 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                                   null,
                                   null,
                                   null,
-                                  false,
+                                  null,
                                   null,
                                   null,
                                   null,
@@ -354,8 +355,8 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                                   _model.updatedLiike,
                                   null,
                                   FFAppState().kopioidutLiikkeet.toList(),
-                                  false,
-                                  false,
+                                  null,
+                                  null,
                                 );
                                 logFirebaseEvent('TextField_backend_call');
 

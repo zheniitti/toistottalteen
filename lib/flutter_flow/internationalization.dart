@@ -111,6 +111,22 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Analytiikka',
       'en': '',
     },
+    '5t42a84e': {
+      'fi': '[Some hint text...]',
+      'en': '',
+    },
+    'aci3rt7y': {
+      'fi': 'Option 1',
+      'en': '',
+    },
+    '20hktw0m': {
+      'fi': 'Toistot',
+      'en': '',
+    },
+    'efq3ksuo': {
+      'fi': 'Painot',
+      'en': '',
+    },
     'q476nu6x': {
       'fi': 'Treenattu aika: ',
       'en': 'Time trained:',
@@ -813,6 +829,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '68nw3eu6': {
       'fi': 'Valitse treenirutiini',
       'en': 'Select routine',
+    },
+    'fl9eccts': {
+      'fi': 'Hakutulokset hakusnalla ',
+      'en': 'Search result for ',
     },
   },
   // sivu_treeniHistoria_komponentti

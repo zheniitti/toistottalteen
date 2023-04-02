@@ -1,15 +1,17 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-
 import 'bottom_sheet_liike_model.dart';
 export 'bottom_sheet_liike_model.dart';
 
@@ -27,8 +29,26 @@ class BottomSheetLiikeWidget extends StatefulWidget {
   _BottomSheetLiikeWidgetState createState() => _BottomSheetLiikeWidgetState();
 }
 
-class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
+class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget>
+    with TickerProviderStateMixin {
   late BottomSheetLiikeModel _model;
+
+  final animationsMap = {
+    'columnOnActionTriggerAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onActionTrigger,
+      applyInitialState: true,
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+  };
 
   @override
   void setState(VoidCallback callback) {
@@ -40,6 +60,13 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BottomSheetLiikeModel());
+
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -57,48 +84,49 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
 
     return Material(
       color: Colors.transparent,
-      elevation: 1,
+      elevation: 1.0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(0),
-          bottomRight: Radius.circular(0),
-          topLeft: Radius.circular(22),
-          topRight: Radius.circular(22),
+          bottomLeft: Radius.circular(0.0),
+          bottomRight: Radius.circular(0.0),
+          topLeft: Radius.circular(22.0),
+          topRight: Radius.circular(22.0),
         ),
       ),
       child: Container(
         width: double.infinity,
         constraints: BoxConstraints(
-          maxHeight: 500,
+          maxHeight: 500.0,
         ),
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
           boxShadow: [
             BoxShadow(
-              blurRadius: 4,
+              blurRadius: 4.0,
               color: Color(0x33000000),
-              offset: Offset(0, -3),
+              offset: Offset(0.0, -3.0),
             )
           ],
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(0),
-            bottomRight: Radius.circular(0),
-            topLeft: Radius.circular(22),
-            topRight: Radius.circular(22),
+            bottomLeft: Radius.circular(0.0),
+            bottomRight: Radius.circular(0.0),
+            topLeft: Radius.circular(22.0),
+            topRight: Radius.circular(22.0),
           ),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(8, 16, 8, 20),
+          padding: EdgeInsetsDirectional.fromSTEB(8.0, 16.0, 8.0, 20.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                 child: Stack(
-                  alignment: AlignmentDirectional(1, 0),
+                  alignment: AlignmentDirectional(1.0, 0.0),
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(30, 0, 30, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -110,11 +138,15 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
                             style: FlutterFlowTheme.of(context).titleSmall,
                           ),
                           Switch(
-                            value: _model.switchValue ??= widget.sessioDoc!.treeniRutiiniData.liikkeet!.toList()[widget.liikeIndex!].isOtherExerciseType!,
+                            value: _model.switchValue ??= widget
+                                .sessioDoc!.treeniRutiiniData.liikkeet!
+                                .toList()[widget.liikeIndex!]
+                                .isOtherExerciseType!,
                             onChanged: (newValue) async {
                               setState(() => _model.switchValue = newValue!);
                               if (newValue!) {
-                                logFirebaseEvent('BOTTOM_SHEET_LIIKE_Switch_kp457o54_ON_TO');
+                                logFirebaseEvent(
+                                    'BOTTOM_SHEET_LIIKE_Switch_kp457o54_ON_TO');
                                 if (widget.sessioDoc != null) {
                                   logFirebaseEvent('Switch_custom_action');
                                   _model.updatedLiikeFromSwitchOn = await actions.myUpdateLiikeStruct(
@@ -135,11 +167,14 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
                                     null,
                                   );
                                   logFirebaseEvent('Switch_custom_action');
-                                  _model.updatedRutiiniFromSwichOn = await actions.myUpdateTreeniRutiiniStruct(
+                                  _model.updatedRutiiniFromSwichOn =
+                                      await actions.myUpdateTreeniRutiiniStruct(
                                     widget.sessioDoc!.treeniRutiiniData,
                                     null,
                                     null,
-                                    widget.sessioDoc!.treeniRutiiniData.liikkeet?.toList()?.toList(),
+                                    widget.sessioDoc!.treeniRutiiniData.liikkeet
+                                        ?.toList()
+                                        ?.toList(),
                                     null,
                                     null,
                                     null,
@@ -158,18 +193,22 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
                                   );
                                   logFirebaseEvent('Switch_backend_call');
 
-                                  final treeniSessiotUpdateData = createTreeniSessiotRecordData(
-                                    treeniRutiiniData: updateTreeniRutiiniStruct(
+                                  final treeniSessiotUpdateData =
+                                      createTreeniSessiotRecordData(
+                                    treeniRutiiniData:
+                                        updateTreeniRutiiniStruct(
                                       _model.updatedRutiiniFromSwichOn,
                                       clearUnsetFields: false,
                                     ),
                                   );
-                                  await widget.sessioDoc!.reference.update(treeniSessiotUpdateData);
+                                  await widget.sessioDoc!.reference
+                                      .update(treeniSessiotUpdateData);
                                 }
 
                                 setState(() {});
                               } else {
-                                logFirebaseEvent('BOTTOM_SHEET_LIIKE_Switch_kp457o54_ON_TO');
+                                logFirebaseEvent(
+                                    'BOTTOM_SHEET_LIIKE_Switch_kp457o54_ON_TO');
                                 if (widget.sessioDoc != null) {
                                   logFirebaseEvent('Switch_custom_action');
                                   _model.updatedLiikeFromSwitchOff = await actions.myUpdateLiikeStruct(
@@ -190,11 +229,14 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
                                     null,
                                   );
                                   logFirebaseEvent('Switch_custom_action');
-                                  _model.updatedRutiiniFromSwichOff = await actions.myUpdateTreeniRutiiniStruct(
+                                  _model.updatedRutiiniFromSwichOff =
+                                      await actions.myUpdateTreeniRutiiniStruct(
                                     widget.sessioDoc!.treeniRutiiniData,
                                     null,
                                     null,
-                                    widget.sessioDoc!.treeniRutiiniData.liikkeet?.toList()?.toList(),
+                                    widget.sessioDoc!.treeniRutiiniData.liikkeet
+                                        ?.toList()
+                                        ?.toList(),
                                     null,
                                     null,
                                     null,
@@ -213,20 +255,24 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
                                   );
                                   logFirebaseEvent('Switch_backend_call');
 
-                                  final treeniSessiotUpdateData = createTreeniSessiotRecordData(
-                                    treeniRutiiniData: updateTreeniRutiiniStruct(
+                                  final treeniSessiotUpdateData =
+                                      createTreeniSessiotRecordData(
+                                    treeniRutiiniData:
+                                        updateTreeniRutiiniStruct(
                                       _model.updatedRutiiniFromSwichOff,
                                       clearUnsetFields: false,
                                     ),
                                   );
-                                  await widget.sessioDoc!.reference.update(treeniSessiotUpdateData);
+                                  await widget.sessioDoc!.reference
+                                      .update(treeniSessiotUpdateData);
                                 }
 
                                 setState(() {});
                               }
                             },
                             activeColor: FlutterFlowTheme.of(context).primary,
-                            inactiveThumbColor: FlutterFlowTheme.of(context).primary,
+                            inactiveThumbColor:
+                                FlutterFlowTheme.of(context).primary,
                           ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
@@ -244,34 +290,43 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
                     ),
                     if (false)
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                         child: Icon(
                           Icons.help_outline_rounded,
                           color: Colors.black,
-                          size: 24,
+                          size: 24.0,
                         ),
                       ),
                   ],
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                 child: Container(
                   width: double.infinity,
                   constraints: BoxConstraints(
-                    maxWidth: 300,
+                    maxWidth: 300.0,
                   ),
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
                   child: InkWell(
                     onTap: () async {
-                      logFirebaseEvent('BOTTOM_SHEET_LIIKE_ListTile_qnrl7udd_ON_');
+                      logFirebaseEvent(
+                          'BOTTOM_SHEET_LIIKE_ListTile_qnrl7udd_ON_');
                       logFirebaseEvent('ListTile_update_app_state');
                       setState(() {
                         FFAppState().kopioidutLiikkeet = functions.liikeToLiikeJsonList(widget.sessioDoc!.treeniRutiiniData.liikkeet?.toList()?[widget.liikeIndex ?? -1], functions.nullLiikeList()?.toList())!.toList();
                       });
+                      logFirebaseEvent('ListTile_widget_animation');
+                      if (animationsMap['columnOnActionTriggerAnimation'] !=
+                          null) {
+                        animationsMap['columnOnActionTriggerAnimation']!
+                            .controller
+                            .forward(from: 0.0);
+                      }
                     },
                     child: ListTile(
                       title: Text(
@@ -284,12 +339,13 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
                       trailing: Icon(
                         Icons.content_copy_rounded,
                         color: Color(0xFF303030),
-                        size: 30,
+                        size: 30.0,
                       ),
-                      tileColor: FlutterFlowTheme.of(context).secondaryBackground,
+                      tileColor:
+                          FlutterFlowTheme.of(context).secondaryBackground,
                       dense: false,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(12.0),
                       ),
                     ),
                   ),
@@ -300,28 +356,35 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                       child: Container(
                         width: double.infinity,
                         constraints: BoxConstraints(
-                          maxWidth: 300,
+                          maxWidth: 300.0,
                         ),
                         decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.circular(12),
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(12.0),
                         ),
                         child: InkWell(
                           onTap: () async {
-                            logFirebaseEvent('BOTTOM_SHEET_LIIKE_ListTile_7lcrp35l_ON_');
-                            logFirebaseEvent('ListTile_close_dialog,_drawer,_etc');
+                            logFirebaseEvent(
+                                'BOTTOM_SHEET_LIIKE_ListTile_7lcrp35l_ON_');
+                            logFirebaseEvent(
+                                'ListTile_close_dialog,_drawer,_etc');
                             Navigator.pop(context);
                             if (widget.sessioDoc != null) {
                               logFirebaseEvent('ListTile_custom_action');
-                              _model.updatedRutiiniFromPasteAbove = await actions.myUpdateTreeniRutiiniStruct(
+                              _model.updatedRutiiniFromPasteAbove =
+                                  await actions.myUpdateTreeniRutiiniStruct(
                                 widget.sessioDoc!.treeniRutiiniData,
                                 null,
                                 null,
-                                widget.sessioDoc!.treeniRutiiniData.liikkeet?.toList()?.toList(),
+                                widget.sessioDoc!.treeniRutiiniData.liikkeet
+                                    ?.toList()
+                                    ?.toList(),
                                 null,
                                 null,
                                 null,
@@ -340,13 +403,15 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
                               );
                               logFirebaseEvent('ListTile_backend_call');
 
-                              final treeniSessiotUpdateData = createTreeniSessiotRecordData(
+                              final treeniSessiotUpdateData =
+                                  createTreeniSessiotRecordData(
                                 treeniRutiiniData: updateTreeniRutiiniStruct(
                                   _model.updatedRutiiniFromPasteAbove,
                                   clearUnsetFields: false,
                                 ),
                               );
-                              await widget.sessioDoc!.reference.update(treeniSessiotUpdateData);
+                              await widget.sessioDoc!.reference
+                                  .update(treeniSessiotUpdateData);
                             }
 
                             setState(() {});
@@ -362,40 +427,48 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
                             trailing: Icon(
                               Icons.arrow_drop_up_rounded,
                               color: Color(0xFF303030),
-                              size: 30,
+                              size: 30.0,
                             ),
-                            tileColor: FlutterFlowTheme.of(context).secondaryBackground,
+                            tileColor: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
                             dense: false,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
+                              borderRadius: BorderRadius.circular(12.0),
                             ),
                           ),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                       child: Container(
                         width: double.infinity,
                         constraints: BoxConstraints(
-                          maxWidth: 300,
+                          maxWidth: 300.0,
                         ),
                         decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.circular(12),
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(12.0),
                         ),
                         child: InkWell(
                           onTap: () async {
-                            logFirebaseEvent('BOTTOM_SHEET_LIIKE_ListTile_3bpj5b6l_ON_');
-                            logFirebaseEvent('ListTile_close_dialog,_drawer,_etc');
+                            logFirebaseEvent(
+                                'BOTTOM_SHEET_LIIKE_ListTile_3bpj5b6l_ON_');
+                            logFirebaseEvent(
+                                'ListTile_close_dialog,_drawer,_etc');
                             Navigator.pop(context);
                             if (widget.sessioDoc != null) {
                               logFirebaseEvent('ListTile_custom_action');
-                              _model.updatedRutiiniFromPasteBelow = await actions.myUpdateTreeniRutiiniStruct(
+                              _model.updatedRutiiniFromPasteBelow =
+                                  await actions.myUpdateTreeniRutiiniStruct(
                                 widget.sessioDoc!.treeniRutiiniData,
                                 null,
                                 null,
-                                widget.sessioDoc!.treeniRutiiniData.liikkeet?.toList()?.toList(),
+                                widget.sessioDoc!.treeniRutiiniData.liikkeet
+                                    ?.toList()
+                                    ?.toList(),
                                 null,
                                 null,
                                 null,
@@ -414,13 +487,15 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
                               );
                               logFirebaseEvent('ListTile_backend_call');
 
-                              final treeniSessiotUpdateData = createTreeniSessiotRecordData(
+                              final treeniSessiotUpdateData =
+                                  createTreeniSessiotRecordData(
                                 treeniRutiiniData: updateTreeniRutiiniStruct(
                                   _model.updatedRutiiniFromPasteBelow,
                                   clearUnsetFields: false,
                                 ),
                               );
-                              await widget.sessioDoc!.reference.update(treeniSessiotUpdateData);
+                              await widget.sessioDoc!.reference
+                                  .update(treeniSessiotUpdateData);
                             }
 
                             setState(() {});
@@ -436,40 +511,47 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
                             trailing: Icon(
                               Icons.arrow_drop_down_rounded,
                               color: Color(0xFF303030),
-                              size: 30,
+                              size: 30.0,
                             ),
-                            tileColor: FlutterFlowTheme.of(context).secondaryBackground,
+                            tileColor: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
                             dense: false,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
+                              borderRadius: BorderRadius.circular(12.0),
                             ),
                           ),
                         ),
                       ),
                     ),
                   ],
+                ).animateOnActionTrigger(
+                  animationsMap['columnOnActionTriggerAnimation']!,
                 ),
               Container(
                 width: double.infinity,
                 constraints: BoxConstraints(
-                  maxWidth: 300,
+                  maxWidth: 300.0,
                 ),
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(12.0),
                 ),
                 child: InkWell(
                   onLongPress: () async {
-                    logFirebaseEvent('BOTTOM_SHEET_LIIKE_ListTile_uaqv3mkg_ON_');
+                    logFirebaseEvent(
+                        'BOTTOM_SHEET_LIIKE_ListTile_uaqv3mkg_ON_');
                     logFirebaseEvent('ListTile_close_dialog,_drawer,_etc');
                     Navigator.pop(context);
                     if (widget.sessioDoc != null) {
                       logFirebaseEvent('ListTile_custom_action');
-                      _model.updatedRutiini = await actions.myUpdateTreeniRutiiniStruct(
+                      _model.updatedRutiini =
+                          await actions.myUpdateTreeniRutiiniStruct(
                         widget.sessioDoc!.treeniRutiiniData,
                         null,
                         null,
-                        widget.sessioDoc!.treeniRutiiniData.liikkeet?.toList()?.toList(),
+                        widget.sessioDoc!.treeniRutiiniData.liikkeet
+                            ?.toList()
+                            ?.toList(),
                         null,
                         null,
                         null,
@@ -488,13 +570,15 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
                       );
                       logFirebaseEvent('ListTile_backend_call');
 
-                      final treeniSessiotUpdateData = createTreeniSessiotRecordData(
+                      final treeniSessiotUpdateData =
+                          createTreeniSessiotRecordData(
                         treeniRutiiniData: updateTreeniRutiiniStruct(
                           _model.updatedRutiini,
                           clearUnsetFields: false,
                         ),
                       );
-                      await widget.sessioDoc!.reference.update(treeniSessiotUpdateData);
+                      await widget.sessioDoc!.reference
+                          .update(treeniSessiotUpdateData);
                     }
 
                     setState(() {});
@@ -505,10 +589,11 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
                         'c8ldb00c' /* Poista liike */,
                       ),
                       textAlign: TextAlign.center,
-                      style: FlutterFlowTheme.of(context).headlineSmall.override(
-                            fontFamily: 'Outfit',
-                            color: Color(0xFFE00000),
-                          ),
+                      style:
+                          FlutterFlowTheme.of(context).headlineSmall.override(
+                                fontFamily: 'Outfit',
+                                color: Color(0xFFE00000),
+                              ),
                     ),
                     subtitle: Text(
                       FFLocalizations.of(context).getText(
@@ -520,12 +605,12 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget> {
                     trailing: Icon(
                       Icons.delete,
                       color: Color(0xFF303030),
-                      size: 30,
+                      size: 30.0,
                     ),
                     tileColor: FlutterFlowTheme.of(context).secondaryBackground,
                     dense: false,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(12.0),
                     ),
                   ),
                 ),

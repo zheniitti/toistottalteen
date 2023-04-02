@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -176,6 +177,33 @@ class _SivuRutiinitKomponenttiWidgetState
                           updateCallback: () => setState(() {}),
                           child: KeskenerainenTreeniKomponenttiWidget(
                             sessio: widget.latestSessio,
+                          ),
+                        ),
+                      ),
+                    if ((FFAppState().navBarIndex == 0) &&
+                        valueOrDefault<bool>(
+                          FFAppState().searchbarText != null &&
+                              FFAppState().searchbarText != '',
+                          false,
+                        ))
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                        child: RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: FFLocalizations.of(context).getText(
+                                  'fl9eccts' /* Hakutulokset hakusnalla  */,
+                                ),
+                                style: TextStyle(),
+                              ),
+                              TextSpan(
+                                text: FFAppState().searchbarText,
+                                style: FlutterFlowTheme.of(context).labelLarge,
+                              )
+                            ],
+                            style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
                       ),

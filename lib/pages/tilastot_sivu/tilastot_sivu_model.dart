@@ -1,6 +1,7 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/heatmap_calendar/heatmap_calendar_widget.dart';
+import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
+import '/flutter_flow/flutter_flow_charts.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -11,20 +12,23 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class TilastotSivuModel extends FlutterFlowModel {
+  ///  Local state fields for this page.
+
+  LiikeStruct? valiituLiike;
+
   ///  State fields for stateful widgets in this page.
 
-  // Model for heatmap_calendar component.
-  late HeatmapCalendarModel heatmapCalendarModel;
+  // State field(s) for TextField widget.
+  final textFieldKey = GlobalKey();
+  TextEditingController? textController;
+  String? textFieldSelectedOption;
+  String? Function(BuildContext, String?)? textControllerValidator;
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {
-    heatmapCalendarModel = createModel(context, () => HeatmapCalendarModel());
-  }
+  void initState(BuildContext context) {}
 
-  void dispose() {
-    heatmapCalendarModel.dispose();
-  }
+  void dispose() {}
 
   /// Additional helper methods are added here.
 

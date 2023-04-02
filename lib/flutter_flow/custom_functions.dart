@@ -72,10 +72,7 @@ TreeniRutiiniStruct? getTreeniRutiiniByName(
   List<TreeniRutiiniStruct>? rutiinitList,
   String? name,
 ) {
-  if (rutiinitList == null ||
-      rutiinitList.isEmpty ||
-      name == null ||
-      name.isEmpty) return null;
+  if (rutiinitList == null || rutiinitList.isEmpty || name == null || name.isEmpty) return null;
   return rutiinitList.firstWhere((rutiini) => rutiini.nimi == name);
 }
 
@@ -97,16 +94,15 @@ ValitutViikonPaivatStruct updatedValitutViikonPaivat(
   if (valitutViikonPaivat == null) {
     return createValitutViikonPaivatStruct();
   }
-  ValitutViikonPaivatStruct valitutViikonPaivatStruct =
-      createValitutViikonPaivatStruct(
-          ma: mon ?? valitutViikonPaivat.ma ?? false,
-          ti: tue ?? valitutViikonPaivat.ti ?? false,
-          ke: wed ?? valitutViikonPaivat.ke ?? false,
-          to: thu ?? valitutViikonPaivat.to ?? false,
-          pe: fri ?? valitutViikonPaivat.pe ?? false,
-          la: sat ?? valitutViikonPaivat.la ?? false,
-          su: sun ?? valitutViikonPaivat.su ?? false,
-          clearUnsetFields: false);
+  ValitutViikonPaivatStruct valitutViikonPaivatStruct = createValitutViikonPaivatStruct(
+      ma: mon ?? valitutViikonPaivat.ma ?? false,
+      ti: tue ?? valitutViikonPaivat.ti ?? false,
+      ke: wed ?? valitutViikonPaivat.ke ?? false,
+      to: thu ?? valitutViikonPaivat.to ?? false,
+      pe: fri ?? valitutViikonPaivat.pe ?? false,
+      la: sat ?? valitutViikonPaivat.la ?? false,
+      su: sun ?? valitutViikonPaivat.su ?? false,
+      clearUnsetFields: false);
 
   return valitutViikonPaivatStruct;
 }
@@ -117,15 +113,13 @@ List<TreeniRutiiniStruct> filterRutiiniList(
   int? navbarIndex,
   bool? reverseList,
 ) {
-  final list = rutiiList.toList();
+  List<TreeniRutiiniStruct> list = rutiiList.toList();
   if (navbarIndex == 0 && seachbarString != null && seachbarString.isNotEmpty) {
-    list.toList().retainWhere((rut) =>
-        rut.nimi!.toLowerCase().contains(seachbarString.toLowerCase()) ||
-        rut.kommentti!.toLowerCase().contains(seachbarString.toLowerCase()));
+    list.retainWhere((rut) => rut.nimi!.toLowerCase().contains(seachbarString.toLowerCase()) || rut.kommentti!.toLowerCase().contains(seachbarString.toLowerCase()));
     //list.sort((a, b) => stringSimilarity(b.nimi, seachbarString).compareTo(stringSimilarity(a.nimi, seachbarString)));
   }
   if (reverseList != null && reverseList) list.reversed.toList();
-  return list;
+  return list ?? [] as List<TreeniRutiiniStruct>;
 }
 
 String durationFromStartEnd(
@@ -157,8 +151,7 @@ double stringSimilarity(
   string2 = string2.toLowerCase();
 
   // Calculate the length of the longer string
-  int maxLength =
-      string1.length > string2.length ? string1.length : string2.length;
+  int maxLength = string1.length > string2.length ? string1.length : string2.length;
 
   // Initialize variables for counting matches and differences
   int matches = 0;
@@ -277,8 +270,7 @@ double toSeconds(
   int? minutes,
   double? seconds,
 ) {
-  final double totalSeconds =
-      ((hours ?? 0) * 3600) + ((minutes ?? 0) * 60) + (seconds ?? 0);
+  final double totalSeconds = ((hours ?? 0) * 3600) + ((minutes ?? 0) * 60) + (seconds ?? 0);
   return totalSeconds;
 }
 
@@ -296,8 +288,7 @@ String durationFromSeconds(
   int minutes = ((seconds % 3600) ~/ 60).toInt();
   double remainingSeconds = seconds % 60;
 
-  String result =
-      '$hours hours, $minutes minutes, ${remainingSeconds.toStringAsFixed(2)} seconds';
+  String result = '$hours hours, $minutes minutes, ${remainingSeconds.toStringAsFixed(2)} seconds';
   return result;
 }
 
@@ -362,22 +353,12 @@ List<TreeniSessiotRecord> filterSessioList(
   String? searchbarString,
   int navbarIndex,
 ) {
-  if (searchbarString == null || searchbarString.isEmpty)
-    return sessioList ?? [];
+  if (searchbarString == null || searchbarString.isEmpty) return sessioList ?? [];
 
   var list = sessioList?.toList() ?? [];
   if (sessioList == null || sessioList.isEmpty) return [];
-  if (navbarIndex == 2 &&
-      searchbarString != null &&
-      searchbarString.isNotEmpty) {
-    list = sessioList.toList()
-      ..retainWhere((sessio) =>
-          sessio.treeniRutiiniData.nimi!
-              .toLowerCase()
-              .contains(searchbarString.toLowerCase()) ||
-          sessio.treeniRutiiniData.kommentti!
-              .toLowerCase()
-              .contains(searchbarString.toLowerCase()));
+  if (navbarIndex == 2 && searchbarString != null && searchbarString.isNotEmpty) {
+    list = sessioList.toList()..retainWhere((sessio) => sessio.treeniRutiiniData.nimi!.toLowerCase().contains(searchbarString.toLowerCase()) || sessio.treeniRutiiniData.kommentti!.toLowerCase().contains(searchbarString.toLowerCase()));
   }
   return list;
 }
@@ -390,7 +371,47 @@ double doubleDurationInSecondsFromStarAndEnd(
   return end.difference(start).inSeconds.toDouble();
 }
 
-double? allDurationInSecondsFromSessioDocs(
-    List<TreeniSessiotRecord>? sessioDocs) {
+double? allDurationInSecondsFromSessioDocs(List<TreeniSessiotRecord>? sessioDocs) {
   return 0.0;
+}
+
+List<LiikeStruct> liikkeetFromSessioDocsList(
+  List<TreeniSessiotRecord>? sessioDocs,
+  LiikeStruct? liike,
+) {
+  // get from treeniSessiot and treeniRutiiniData and find all liike from every treeniSessio document
+  List<LiikeStruct> liikkeet = [];
+  List<String> liikeNimet = [];
+  if (sessioDocs != null) {
+    for (TreeniSessiotRecord sessioDoc in sessioDocs) {
+      if (sessioDoc.treeniRutiiniData != null) {
+        TreeniRutiiniStruct rutiiniData = sessioDoc.treeniRutiiniData;
+        if (rutiiniData?.liikkeet != null && rutiiniData.liikkeet.isNotEmpty) {
+          for (LiikeStruct liike in rutiiniData.liikkeet) {
+            if (liike != null && liike?.nimi != null && liike.nimi!.isNotEmpty) {
+              if (!liikeNimet.contains(liike.nimi)) {
+                liikkeet.add(liike);
+                liikeNimet.add(liike.nimi!);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  return liikkeet;
+}
+
+List<LiikeStruct>? allLiikkeetFromSessioDocs(List<TreeniSessiotRecord>? sessioDocs) {
+  // get all unique liike from sessioDocs
+  if (sessioDocs == null) return null;
+  final List<LiikeStruct> liikeList = <LiikeStruct>[];
+  for (TreeniSessiotRecord sessioDoc in sessioDocs) {
+    for (LiikeStruct liike in sessioDoc.treeniRutiiniData.liikkeet) {
+      if (!liikeList.contains(liike)) {
+        liikeList.add(liike);
+      }
+    }
+  }
+  return liikeList;
 }
