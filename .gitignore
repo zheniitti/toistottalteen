@@ -12,6 +12,7 @@ key.properties
 
 #app related
 #lib\components\workout_duration_text\workout_duration_text_widget.dart
+android\app\build.gradle
 
 # IntelliJ related
 *.iml
