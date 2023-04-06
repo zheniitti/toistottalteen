@@ -7,6 +7,9 @@ Future initializeFirebaseRemoteConfig() async {
   ));
   await FirebaseRemoteConfig.instance.setDefaults(const {
     'showAdBanner_android': true,
+    'privacyPolicyUrl': '',
+    'showAdBanner_ios': true,
+    'showAdBanner_web': true,
   });
   await FirebaseRemoteConfig.instance.fetchAndActivate();
 }

@@ -1,6 +1,6 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/ad_banner_padding_widget.dart';
+import '/components/ad_banner_padding/ad_banner_padding_widget.dart';
 import '/components/button_luo_rutiini/button_luo_rutiini_widget.dart';
 import '/components/keskenerainen_treeni_komponentti/keskenerainen_treeni_komponentti_widget.dart';
 import '/components/rutiini/rutiini_widget.dart';
@@ -180,33 +180,39 @@ class _SivuRutiinitKomponenttiWidgetState
                           ),
                         ),
                       ),
-                    if ((FFAppState().navBarIndex == 0) &&
-                        valueOrDefault<bool>(
-                          FFAppState().searchbarText != null &&
-                              FFAppState().searchbarText != '',
-                          false,
-                        ))
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                        child: RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: FFLocalizations.of(context).getText(
-                                  'fl9eccts' /* Hakutulokset hakusnalla  */,
-                                ),
-                                style: TextStyle(),
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        if ((FFAppState().navBarIndex == 0) &&
+                            valueOrDefault<bool>(
+                              FFAppState().searchbarText != null &&
+                                  FFAppState().searchbarText != '',
+                              false,
+                            ))
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 8.0),
+                            child: RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: FFLocalizations.of(context).getText(
+                                      'fl9eccts' /* Hakutulokset hakusanalla  */,
+                                    ),
+                                    style: TextStyle(),
+                                  ),
+                                  TextSpan(
+                                    text: FFAppState().searchbarText,
+                                    style:
+                                        FlutterFlowTheme.of(context).labelLarge,
+                                  )
+                                ],
+                                style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
-                              TextSpan(
-                                text: FFAppState().searchbarText,
-                                style: FlutterFlowTheme.of(context).labelLarge,
-                              )
-                            ],
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
                           ),
-                        ),
-                      ),
+                      ],
+                    ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 200.0),

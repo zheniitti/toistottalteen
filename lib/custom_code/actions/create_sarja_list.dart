@@ -12,6 +12,8 @@ Future<List<SarjaStruct>> createSarjaList() async {
   // Add your function code here!
   return [
     createSarjaStruct(
-        create: true, createdTime: getCurrentTimestamp, done: false)
+      create: true,
+      createdTime: getCurrentTimestamp,
+    )
   ];
 }

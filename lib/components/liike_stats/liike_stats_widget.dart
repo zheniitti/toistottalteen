@@ -73,86 +73,83 @@ class _LiikeStatsWidgetState extends State<LiikeStatsWidget> {
             width: double.infinity,
             child: Stack(
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
-                  child: PageView(
-                    controller: _model.pageViewController ??=
-                        PageController(initialPage: 0),
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Text(
-                            FFLocalizations.of(context).getText(
-                              'dyrq0frb' /* Painon  ja toiston korrelaatio */,
-                            ),
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                PageView(
+                  controller: _model.pageViewController ??=
+                      PageController(initialPage: 0),
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Text(
+                          FFLocalizations.of(context).getText(
+                            'dyrq0frb' /* Painon  ja toiston korrelaatio */,
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                15.0, 15.0, 15.0, 15.0),
-                            child: Container(
-                              width: double.infinity,
-                              height: 266.0,
-                              child: FlutterFlowLineChart(
-                                data: [
-                                  FFLineChartData(
-                                    xData: _model.weightNumbersList,
-                                    yData: _model.repsNumbersList,
-                                    settings: LineChartBarData(
-                                      color: Color(0xFFD354E3),
-                                      barWidth: 1.0,
-                                      isCurved: true,
-                                      preventCurveOverShooting: true,
-                                    ),
-                                  )
-                                ],
-                                chartStylingInfo: ChartStylingInfo(
-                                  backgroundColor: Color(0x00FFFFFF),
-                                  showGrid: true,
-                                  showBorder: false,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              15.0, 15.0, 15.0, 15.0),
+                          child: Container(
+                            width: double.infinity,
+                            height: 266.0,
+                            child: FlutterFlowLineChart(
+                              data: [
+                                FFLineChartData(
+                                  xData: _model.weightNumbersList,
+                                  yData: _model.repsNumbersList,
+                                  settings: LineChartBarData(
+                                    color: Color(0xFFD354E3),
+                                    barWidth: 1.0,
+                                    isCurved: true,
+                                    preventCurveOverShooting: true,
+                                  ),
+                                )
+                              ],
+                              chartStylingInfo: ChartStylingInfo(
+                                backgroundColor: Color(0x00FFFFFF),
+                                showGrid: true,
+                                showBorder: false,
+                              ),
+                              axisBounds: AxisBounds(),
+                              xAxisLabelInfo: AxisLabelInfo(
+                                title: FFLocalizations.of(context).getText(
+                                  '4ku6t0l0' /* Paino */,
                                 ),
-                                axisBounds: AxisBounds(),
-                                xAxisLabelInfo: AxisLabelInfo(
-                                  title: FFLocalizations.of(context).getText(
-                                    '4ku6t0l0' /* Paino */,
-                                  ),
-                                  titleTextStyle: TextStyle(
-                                    fontSize: 14.0,
-                                  ),
-                                  showLabels: true,
-                                  labelInterval: 10.0,
+                                titleTextStyle: TextStyle(
+                                  fontSize: 14.0,
                                 ),
-                                yAxisLabelInfo: AxisLabelInfo(
-                                  title: FFLocalizations.of(context).getText(
-                                    'vrypgu4p' /* Toistot */,
-                                  ),
-                                  titleTextStyle: TextStyle(
-                                    fontSize: 14.0,
-                                  ),
-                                  showLabels: true,
-                                  labelInterval: 10.0,
+                                showLabels: true,
+                                labelInterval: 10.0,
+                              ),
+                              yAxisLabelInfo: AxisLabelInfo(
+                                title: FFLocalizations.of(context).getText(
+                                  'vrypgu4p' /* Toistot */,
                                 ),
+                                titleTextStyle: TextStyle(
+                                  fontSize: 14.0,
+                                ),
+                                showLabels: true,
+                                labelInterval: 10.0,
                               ),
                             ),
                           ),
-                        ],
-                      ),
-                      Image.network(
-                        'https://picsum.photos/seed/557/600',
-                        width: 100.0,
-                        height: 100.0,
-                        fit: BoxFit.cover,
-                      ),
-                      Image.network(
-                        'https://picsum.photos/seed/886/600',
-                        width: 100.0,
-                        height: 100.0,
-                        fit: BoxFit.cover,
-                      ),
-                    ],
-                  ),
+                        ),
+                      ],
+                    ),
+                    Image.network(
+                      'https://picsum.photos/seed/557/600',
+                      width: 100.0,
+                      height: 100.0,
+                      fit: BoxFit.cover,
+                    ),
+                    Image.network(
+                      'https://picsum.photos/seed/886/600',
+                      width: 100.0,
+                      height: 100.0,
+                      fit: BoxFit.cover,
+                    ),
+                  ],
                 ),
                 Align(
                   alignment: AlignmentDirectional(0.0, 1.0),
@@ -321,6 +318,8 @@ class _LiikeStatsWidgetState extends State<LiikeStatsWidget> {
                       topRight: Radius.circular(4.0),
                     ),
                   ),
+                  filled: true,
+                  fillColor: FlutterFlowTheme.of(context).secondaryBackground,
                   suffixIcon: _model.textController!.text.isNotEmpty
                       ? InkWell(
                           onTap: () async {

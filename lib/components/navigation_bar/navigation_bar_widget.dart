@@ -9,12 +9,19 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'navigation_bar_model.dart';
 export 'navigation_bar_model.dart';
 
 class NavigationBarWidget extends StatefulWidget {
-  const NavigationBarWidget({Key? key}) : super(key: key);
+  const NavigationBarWidget({
+    Key? key,
+    bool? workoutInProgress,
+  })  : this.workoutInProgress = workoutInProgress ?? false,
+        super(key: key);
+
+  final bool workoutInProgress;
 
   @override
   _NavigationBarWidgetState createState() => _NavigationBarWidgetState();
@@ -264,10 +271,13 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Icon(
-                        Icons.accessibility_new_rounded,
-                        color: FlutterFlowTheme.of(context).secondary,
-                        size: 36.0,
+                      Lottie.network(
+                        'https://assets8.lottiefiles.com/packages/lf20_ixy19tfg.json',
+                        width: 60.0,
+                        height: 40.0,
+                        fit: BoxFit.cover,
+                        frameRate: FrameRate(60.0),
+                        animate: widget.workoutInProgress,
                       ),
                       RichText(
                         text: TextSpan(

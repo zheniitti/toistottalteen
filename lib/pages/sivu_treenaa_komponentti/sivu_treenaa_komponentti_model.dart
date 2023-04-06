@@ -1,8 +1,8 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/ad_banner_padding_widget.dart';
+import '/components/ad_banner_padding/ad_banner_padding_widget.dart';
 import '/components/liike_treenin_aikana/liike_treenin_aikana_widget.dart';
-import '/components/name_and_comment_fields_of_sessio_widget.dart';
+import '/components/name_and_comment_fields_of_sessio/name_and_comment_fields_of_sessio_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';

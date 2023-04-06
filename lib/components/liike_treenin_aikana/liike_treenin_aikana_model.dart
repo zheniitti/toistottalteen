@@ -1,7 +1,7 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/bottom_sheet_liike/bottom_sheet_liike_widget.dart';
-import '/components/other_type_liike_fields_widget.dart';
+import '/components/other_type_liike_fields/other_type_liike_fields_widget.dart';
 import '/components/sarja_paino_textfield/sarja_paino_textfield_widget.dart';
 import '/components/sarja_toistot_textfield/sarja_toistot_textfield_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -47,6 +47,12 @@ class LiikeTreeninAikanaModel extends FlutterFlowModel {
   LiikeStruct? updatedLiikeCopy2;
   // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in Icon widget.
   TreeniRutiiniStruct? updatedRutiiniCopy2;
+  // Stores action output result for [Custom Action - myUpdateSarja] action in Row widget.
+  SarjaStruct? updatedSarja;
+  // Stores action output result for [Custom Action - myUpdateLiikeStruct] action in Row widget.
+  LiikeStruct? updatedLiikeCopy3;
+  // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in Row widget.
+  TreeniRutiiniStruct? updatedRutiiniCopy3;
   // Stores action output result for [Custom Action - myUpdateLiikeStruct] action in Row widget.
   LiikeStruct? updatedLiikeFromAddSarjaButton;
   // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in Row widget.

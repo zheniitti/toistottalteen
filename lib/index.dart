@@ -5,16 +5,18 @@ export '/pages/aloitus_ei_kaytossa/aloitus_ei_kaytossa_widget.dart'
     show AloitusEiKaytossaWidget;
 export '/pages/get_started_sivu/get_started_sivu_widget.dart'
     show GetStartedSivuWidget;
-export '/register_page/register_page_widget.dart' show RegisterPageWidget;
-export '/not_in_use/choose_mode/choose_mode_widget.dart' show ChooseModeWidget;
-export '/sign_in_page/sign_in_page_widget.dart' show SignInPageWidget;
-export '/register_or_sign_in_page/register_or_sign_in_page_widget.dart'
+export '/not_in_use/register_page/register_page_widget.dart'
+    show RegisterPageWidget;
+export '/components/choose_mode/choose_mode_widget.dart' show ChooseModeWidget;
+export '/not_in_use/sign_in_page/sign_in_page_widget.dart'
+    show SignInPageWidget;
+export '/not_in_use/register_or_sign_in_page/register_or_sign_in_page_widget.dart'
     show RegisterOrSignInPageWidget;
 export '/pages/tietosuoja_ja_yksityisyys/tietosuoja_ja_yksityisyys_widget.dart'
     show TietosuojaJaYksityisyysWidget;
 export '/pages/builder/builder_widget.dart' show BuilderWidget;
-export '/actions_to_copy/actions_to_copy_widget.dart' show ActionsToCopyWidget;
-export '/onboarding_page/onboarding_page_widget.dart' show OnboardingPageWidget;
+export '/not_in_use/onboarding_page/onboarding_page_widget.dart'
+    show OnboardingPageWidget;
 export '/pages/kirjaudu_sivu/kirjaudu_sivu_widget.dart' show KirjauduSivuWidget;
 export '/pages/forgot_password_page/forgot_password_page_widget.dart'
     show ForgotPasswordPageWidget;

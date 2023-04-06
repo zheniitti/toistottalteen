@@ -1,6 +1,7 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
@@ -22,7 +23,9 @@ class NameAndCommentFieldsOfSessioModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for rutiininnimi widget.
+  final rutiininnimiKey = GlobalKey();
   TextEditingController? rutiininnimiController;
+  String? rutiininnimiSelectedOption;
   String? Function(BuildContext, String?)? rutiininnimiControllerValidator;
   // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in rutiininnimi widget.
   TreeniRutiiniStruct? updatedRutiiniFromNimiField;
@@ -37,7 +40,6 @@ class NameAndCommentFieldsOfSessioModel extends FlutterFlowModel {
   void initState(BuildContext context) {}
 
   void dispose() {
-    rutiininnimiController?.dispose();
     rutiiniKommenttiController?.dispose();
   }
 

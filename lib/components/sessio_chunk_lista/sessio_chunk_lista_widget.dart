@@ -1,4 +1,4 @@
-import '/components/sessio_chunk_widget.dart';
+import '/components/sessio_chunk/sessio_chunk_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
