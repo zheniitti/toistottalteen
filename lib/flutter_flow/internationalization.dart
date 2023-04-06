@@ -1131,7 +1131,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Treenin nimi',
       'en': 'Workout name',
     },
-    'g8hbrvua': {
+    '72vlyetp': {
       'fi': 'Option 1',
       'en': '',
     },

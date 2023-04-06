@@ -712,6 +712,7 @@ sarja */
                                                     null,
                                                     null,
                                                     sarjatItem.doneDatetime != null ? null : getCurrentTimestamp,
+                                                    sarjatItem.doneDatetime == null ? false : true,
                                                   );
                                                   logFirebaseEvent('Row_custom_action');
                                                   _model.updatedLiikeCopy3 = await actions.myUpdateLiikeStruct(

@@ -216,8 +216,6 @@ class SarjaStructBuilder implements Builder<SarjaStruct, SarjaStructBuilder> {
 
   int? _toistoMaara;
   int? get toistoMaara => _$this._toistoMaara;
-
-  set doneDatetime(DateTime? doneDatetime) {}
   set toistoMaara(int? toistoMaara) => _$this._toistoMaara = toistoMaara;
 
   double? _paino;
@@ -245,7 +243,8 @@ class SarjaStructBuilder implements Builder<SarjaStruct, SarjaStructBuilder> {
 
   DateTime? _doneDatetime;
   DateTime? get doneDatetime => _$this._doneDatetime;
-  set done(DateTime? _doneDatetime) => _$this._doneDatetime = _doneDatetime;
+  set doneDatetime(DateTime? doneDatetime) =>
+      _$this._doneDatetime = doneDatetime;
 
   FirestoreUtilData? _firestoreUtilData;
   FirestoreUtilData? get firestoreUtilData => _$this._firestoreUtilData;
