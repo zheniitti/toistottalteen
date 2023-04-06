@@ -470,7 +470,7 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                                   padding: MediaQuery.of(context).viewInsets,
                                   child: BottomSheetLiikeWidget(
                                     sessioDoc: widget.treeniSessio,
-                                    liikeIndex: widget.liikeIndexInList,
+                                    liikeIndex: widget.liikeIndexInList ?? 99999999999,
                                   ),
                                 );
                               },

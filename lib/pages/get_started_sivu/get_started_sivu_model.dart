@@ -15,13 +15,17 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class GetStartedSivuModel extends FlutterFlowModel {
+  ///  Local state fields for this page.
+
+  bool pressedAnonymousLogin = false;
+
   ///  State fields for stateful widgets in this page.
 
   // Model for ToistotTalteenText component.
   late ToistotTalteenTextModel toistotTalteenTextModel;
   // Stores action output result for [Custom Action - platformString] action in Text widget.
   String? platformStringCopy;
-  // Stores action output result for [Custom Action - platformString] action in Text widget.
+  // Stores action output result for [Custom Action - platformString] action in Button widget.
   String? platformString;
 
   /// Initialization and disposal methods.

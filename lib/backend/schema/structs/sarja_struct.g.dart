@@ -64,6 +64,13 @@ class _$SarjaStructSerializer implements StructuredSerializer<SarjaStruct> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(DateTime)));
     }
+    value = object.done;
+    if (value != null) {
+      result
+        ..add('done')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
@@ -102,6 +109,10 @@ class _$SarjaStructSerializer implements StructuredSerializer<SarjaStruct> {
           result.modifiedTime = serializers.deserialize(value,
               specifiedType: const FullType(DateTime)) as DateTime?;
           break;
+        case 'done':
+          result.done = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
         case 'firestoreUtilData':
           result.firestoreUtilData = serializers.deserialize(value,
                   specifiedType: const FullType(FirestoreUtilData))!
@@ -128,6 +139,8 @@ class _$SarjaStruct extends SarjaStruct {
   @override
   final DateTime? modifiedTime;
   @override
+  final bool? done;
+  @override
   final FirestoreUtilData firestoreUtilData;
 
   factory _$SarjaStruct([void Function(SarjaStructBuilder)? updates]) =>
@@ -140,6 +153,7 @@ class _$SarjaStruct extends SarjaStruct {
       this.kestoSekunteina,
       this.createdTime,
       this.modifiedTime,
+      this.done,
       required this.firestoreUtilData})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -163,6 +177,7 @@ class _$SarjaStruct extends SarjaStruct {
         kestoSekunteina == other.kestoSekunteina &&
         createdTime == other.createdTime &&
         modifiedTime == other.modifiedTime &&
+        done == other.done &&
         firestoreUtilData == other.firestoreUtilData;
   }
 
@@ -175,6 +190,7 @@ class _$SarjaStruct extends SarjaStruct {
     _$hash = $jc(_$hash, kestoSekunteina.hashCode);
     _$hash = $jc(_$hash, createdTime.hashCode);
     _$hash = $jc(_$hash, modifiedTime.hashCode);
+    _$hash = $jc(_$hash, done.hashCode);
     _$hash = $jc(_$hash, firestoreUtilData.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -189,6 +205,7 @@ class _$SarjaStruct extends SarjaStruct {
           ..add('kestoSekunteina', kestoSekunteina)
           ..add('createdTime', createdTime)
           ..add('modifiedTime', modifiedTime)
+          ..add('done', done)
           ..add('firestoreUtilData', firestoreUtilData))
         .toString();
   }
@@ -224,6 +241,10 @@ class SarjaStructBuilder implements Builder<SarjaStruct, SarjaStructBuilder> {
   set modifiedTime(DateTime? modifiedTime) =>
       _$this._modifiedTime = modifiedTime;
 
+  bool? _done;
+  bool? get done => _$this._done;
+  set done(bool? done) => _$this._done = done;
+
   FirestoreUtilData? _firestoreUtilData;
   FirestoreUtilData? get firestoreUtilData => _$this._firestoreUtilData;
   set firestoreUtilData(FirestoreUtilData? firestoreUtilData) =>
@@ -242,6 +263,7 @@ class SarjaStructBuilder implements Builder<SarjaStruct, SarjaStructBuilder> {
       _kestoSekunteina = $v.kestoSekunteina;
       _createdTime = $v.createdTime;
       _modifiedTime = $v.modifiedTime;
+      _done = $v.done;
       _firestoreUtilData = $v.firestoreUtilData;
       _$v = null;
     }
@@ -271,6 +293,7 @@ class SarjaStructBuilder implements Builder<SarjaStruct, SarjaStructBuilder> {
             kestoSekunteina: kestoSekunteina,
             createdTime: createdTime,
             modifiedTime: modifiedTime,
+            done: done,
             firestoreUtilData: BuiltValueNullFieldError.checkNotNull(
                 firestoreUtilData, r'SarjaStruct', 'firestoreUtilData'));
     replace(_$result);

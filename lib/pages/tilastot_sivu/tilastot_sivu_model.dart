@@ -1,7 +1,6 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
-import '/flutter_flow/flutter_flow_charts.dart';
+import '/components/liike_stats_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -14,21 +13,28 @@ import 'package:provider/provider.dart';
 class TilastotSivuModel extends FlutterFlowModel {
   ///  Local state fields for this page.
 
-  LiikeStruct? valiituLiike;
+  List<String> allLiikeNames = [];
+  void addToAllLiikeNames(String item) => allLiikeNames.add(item);
+  void removeFromAllLiikeNames(String item) => allLiikeNames.remove(item);
+  void removeAtIndexFromAllLiikeNames(int index) =>
+      allLiikeNames.removeAt(index);
+
+  LiikeStruct? selectedLiike;
 
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for TextField widget.
-  final textFieldKey = GlobalKey();
-  TextEditingController? textController;
-  String? textFieldSelectedOption;
-  String? Function(BuildContext, String?)? textControllerValidator;
+  // Model for LiikeStats component.
+  late LiikeStatsModel liikeStatsModel;
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    liikeStatsModel = createModel(context, () => LiikeStatsModel());
+  }
 
-  void dispose() {}
+  void dispose() {
+    liikeStatsModel.dispose();
+  }
 
   /// Additional helper methods are added here.
 

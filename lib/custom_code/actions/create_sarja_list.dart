@@ -10,5 +10,8 @@ import 'package:flutter/material.dart';
 
 Future<List<SarjaStruct>> createSarjaList() async {
   // Add your function code here!
-  return [createSarjaStruct(create: true, createdTime: getCurrentTimestamp)];
+  return [
+    createSarjaStruct(
+        create: true, createdTime: getCurrentTimestamp, done: false)
+  ];
 }

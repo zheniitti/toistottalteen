@@ -354,7 +354,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                 elevation: 1.0,
                                 child: Container(
                                   width: double.infinity,
-                                  height: 60.0,
+                                  height: 54.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context).primary,
                                     boxShadow: [

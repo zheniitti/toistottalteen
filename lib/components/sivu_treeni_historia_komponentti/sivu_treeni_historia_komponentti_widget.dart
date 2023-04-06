@@ -1,7 +1,5 @@
 import '/backend/backend.dart';
 import '/components/ad_banner_padding_widget.dart';
-import '/components/button_aloita_treenaaminen/button_aloita_treenaaminen_widget.dart';
-import '/components/button_luo_rutiini/button_luo_rutiini_widget.dart';
 import '/components/sessio_chunk_lista_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -111,70 +109,6 @@ class _SivuTreeniHistoriaKomponenttiWidgetState
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    if (false)
-                      Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
-                        child: Container(
-                          constraints: BoxConstraints(
-                            maxWidth: 400.0,
-                          ),
-                          decoration: BoxDecoration(),
-                          child: Align(
-                            alignment: AlignmentDirectional(0.0, 1.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 80.0, 0.0, 200.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        22.0, 0.0, 22.0, 0.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'uur18ydl' /* Tämä sivu on tyhjä koska sinul... */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
-                                    ),
-                                  ),
-                                  if (false)
-                                    Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 20.0, 0.0, 0.0),
-                                          child: wrapWithModel(
-                                            model: _model.buttonLuoRutiiniModel,
-                                            updateCallback: () =>
-                                                setState(() {}),
-                                            child: ButtonLuoRutiiniWidget(),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 20.0, 0.0, 0.0),
-                                          child: wrapWithModel(
-                                            model: _model
-                                                .buttonAloitaTreenaaminenModel,
-                                            updateCallback: () =>
-                                                setState(() {}),
-                                            child:
-                                                ButtonAloitaTreenaaminenWidget(),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
                     wrapWithModel(
                       model: _model.sessioChunkListaModel,
                       updateCallback: () => setState(() {}),

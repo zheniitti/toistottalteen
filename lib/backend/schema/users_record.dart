@@ -43,6 +43,8 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
 
   bool? get isAnonymous;
 
+  BuiltList<String>? get liikeNames;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -60,7 +62,8 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
     ..isWeightUnitKg = false
     ..treeniKestoYhteensaSekunteina = 0.0
     ..treeniaYhteensa = 0
-    ..isAnonymous = false;
+    ..isAnonymous = false
+    ..liikeNames = ListBuilder();
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('users');
@@ -117,7 +120,8 @@ Map<String, dynamic> createUsersRecordData({
         ..isWeightUnitKg = isWeightUnitKg
         ..treeniKestoYhteensaSekunteina = treeniKestoYhteensaSekunteina
         ..treeniaYhteensa = treeniaYhteensa
-        ..isAnonymous = isAnonymous,
+        ..isAnonymous = isAnonymous
+        ..liikeNames = null,
     ),
   );
 

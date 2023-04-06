@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'flutter_flow/request_manager.dart';
 import 'backend/backend.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:csv/csv.dart';
@@ -569,6 +570,23 @@ class FFAppState extends ChangeNotifier {
   void removeAtIndexFromKopioidutLiikkeet(int _index) {
     _kopioidutLiikkeet.removeAt(_index);
   }
+
+  final _startedWorkoutSessionsManager =
+      StreamRequestManager<List<TreeniSessiotRecord>>();
+  Stream<List<TreeniSessiotRecord>> startedWorkoutSessions({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Stream<List<TreeniSessiotRecord>> Function() requestFn,
+  }) =>
+      _startedWorkoutSessionsManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearStartedWorkoutSessionsCache() =>
+      _startedWorkoutSessionsManager.clear();
+  void clearStartedWorkoutSessionsCacheKey(String? uniqueKey) =>
+      _startedWorkoutSessionsManager.clearRequest(uniqueKey);
 }
 
 LatLng? _latLngFromString(String? val) {

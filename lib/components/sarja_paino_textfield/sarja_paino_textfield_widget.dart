@@ -77,6 +77,7 @@ class _SarjaPainoTextfieldWidgetState extends State<SarjaPainoTextfieldWidget> {
             double.tryParse(_model.textController.text),
             null,
             null,
+            null,
           );
           logFirebaseEvent('TextField_custom_action');
           _model.updatedLiike = await actions.myUpdateLiikeStruct(

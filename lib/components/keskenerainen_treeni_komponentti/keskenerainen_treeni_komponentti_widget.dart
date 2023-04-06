@@ -195,7 +195,7 @@ class _KeskenerainenTreeniKomponenttiWidgetState
                               ),
                               TextSpan(
                                 text: dateTimeFormat(
-                                  'relative',
+                                  'd/M H:mm',
                                   widget.sessio!.alku!,
                                   locale:
                                       FFLocalizations.of(context).languageCode,

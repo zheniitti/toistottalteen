@@ -166,58 +166,115 @@ class _BottomSheetRutiiniJaSessioWidgetState
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                     borderRadius: BorderRadius.circular(12.0),
                   ),
-                  child: InkWell(
-                    onTap: () async {
-                      logFirebaseEvent(
-                          'BOTTOM_SHEET_RUTIINI_JA_SESSIO_ListTile_');
-                      if (widget.treeniSessioDoc != null) {
-                        logFirebaseEvent('ListTile_backend_call');
-                        await widget.treeniSessioDoc!.reference.delete();
-                      } else {
-                        logFirebaseEvent('ListTile_custom_action');
-                        await actions.updateUserDocTreenirutiini(
-                          widget.rutiiniData,
-                          null,
-                          null,
-                          false,
-                          null,
-                          null,
-                          null,
-                          null,
-                          widget.rutiiniData?.liikkeet?.toList()?.toList(),
-                          null,
-                          null,
-                          null,
-                          true,
-                          true,
-                          null,
-                          false,
-                        );
-                      }
-
-                      logFirebaseEvent('ListTile_close_dialog,_drawer,_etc');
-                      Navigator.pop(context);
-                    },
-                    child: ListTile(
-                      title: Text(
-                        FFLocalizations.of(context).getText(
-                          'e0l254zt' /* Muokkaa */,
+                  child: Stack(
+                    children: [
+                      if (widget.rutiiniData?.finishedEditing ?? true)
+                        InkWell(
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'BOTTOM_SHEET_RUTIINI_JA_SESSIO_ListTile_');
+                            if (!(widget.treeniSessioDoc != null)) {
+                              logFirebaseEvent('ListTile_custom_action');
+                              await actions.updateUserDocTreenirutiini(
+                                widget.rutiiniData,
+                                null,
+                                null,
+                                false,
+                                null,
+                                null,
+                                null,
+                                null,
+                                widget.rutiiniData?.liikkeet
+                                    ?.toList()
+                                    ?.toList(),
+                                null,
+                                null,
+                                null,
+                                true,
+                                null,
+                                null,
+                                false,
+                              );
+                            }
+                            logFirebaseEvent(
+                                'ListTile_close_dialog,_drawer,_etc');
+                            Navigator.pop(context);
+                          },
+                          child: ListTile(
+                            title: Text(
+                              FFLocalizations.of(context).getText(
+                                'e0l254zt' /* Muokkaa */,
+                              ),
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context).headlineSmall,
+                            ),
+                            trailing: Icon(
+                              Icons.edit_rounded,
+                              color: Color(0xFF303030),
+                              size: 30.0,
+                            ),
+                            tileColor: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            dense: false,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12.0),
+                            ),
+                          ),
                         ),
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).headlineSmall,
-                      ),
-                      trailing: Icon(
-                        Icons.edit_rounded,
-                        color: Color(0xFF303030),
-                        size: 30.0,
-                      ),
-                      tileColor:
-                          FlutterFlowTheme.of(context).secondaryBackground,
-                      dense: false,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                    ),
+                      if (!widget.rutiiniData!.finishedEditing!)
+                        InkWell(
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'BOTTOM_SHEET_RUTIINI_JA_SESSIO_ListTile_');
+                            if (!(widget.treeniSessioDoc != null)) {
+                              logFirebaseEvent('ListTile_custom_action');
+                              await actions.updateUserDocTreenirutiini(
+                                widget.rutiiniData,
+                                null,
+                                null,
+                                true,
+                                null,
+                                null,
+                                null,
+                                null,
+                                widget.rutiiniData?.liikkeet
+                                    ?.toList()
+                                    ?.toList(),
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                true,
+                              );
+                            }
+                            logFirebaseEvent(
+                                'ListTile_close_dialog,_drawer,_etc');
+                            Navigator.pop(context);
+                          },
+                          child: ListTile(
+                            title: Text(
+                              FFLocalizations.of(context).getText(
+                                '0i5m3pzx' /* Lopeta muokkaus */,
+                              ),
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context).headlineSmall,
+                            ),
+                            trailing: Icon(
+                              Icons.edit_rounded,
+                              color: Color(0xFF303030),
+                              size: 30.0,
+                            ),
+                            tileColor: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            dense: false,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12.0),
+                            ),
+                          ),
+                        ),
+                    ],
                   ),
                 ),
               ),

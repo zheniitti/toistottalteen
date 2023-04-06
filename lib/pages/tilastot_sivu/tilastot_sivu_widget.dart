@@ -1,7 +1,6 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
-import '/flutter_flow/flutter_flow_charts.dart';
+import '/components/liike_stats_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -33,7 +32,6 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'tilastot_sivu'});
-    _model.textController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -50,10 +48,13 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
     context.watch<FFAppState>();
 
     return StreamBuilder<List<TreeniSessiotRecord>>(
-      stream: queryTreeniSessiotRecord(
-        queryBuilder: (treeniSessiotRecord) => treeniSessiotRecord
-            .where('userRef', isEqualTo: currentUserReference)
-            .orderBy('alku', descending: true),
+      stream: FFAppState().startedWorkoutSessions(
+        requestFn: () => queryTreeniSessiotRecord(
+          queryBuilder: (treeniSessiotRecord) => treeniSessiotRecord
+              .where('userRef', isEqualTo: currentUserReference)
+              .where('alku', isNotEqualTo: null)
+              .orderBy('alku', descending: true),
+        ),
       ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
@@ -105,160 +106,16 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
                     Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Autocomplete<String>(
-                          initialValue: TextEditingValue(),
-                          optionsBuilder: (textEditingValue) {
-                            if (textEditingValue.text == '') {
-                              return const Iterable<String>.empty();
-                            }
-                            return functions
-                                .allLiikkeetFromSessioDocs(
-                                    tilastotSivuTreeniSessiotRecordList
-                                        .toList())!
-                                .map((e) => e.nimi)
-                                .withoutNulls
-                                .toList()
-                                .toList()
-                                .where((option) {
-                              final lowercaseOption = option.toLowerCase();
-                              return lowercaseOption.contains(
-                                  textEditingValue.text.toLowerCase());
-                            });
-                          },
-                          optionsViewBuilder: (context, onSelected, options) {
-                            return AutocompleteOptionsList(
-                              textFieldKey: _model.textFieldKey,
-                              textController: _model.textController!,
-                              options: options.toList(),
-                              onSelected: onSelected,
-                              textStyle:
-                                  FlutterFlowTheme.of(context).bodyMedium,
-                              textHighlightStyle: TextStyle(),
-                              elevation: 4.0,
-                              optionBackgroundColor:
-                                  FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                              optionHighlightColor: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              maxHeight: 200.0,
-                            );
-                          },
-                          onSelected: (String selection) {
-                            setState(() =>
-                                _model.textFieldSelectedOption = selection);
-                            FocusScope.of(context).unfocus();
-                          },
-                          fieldViewBuilder: (
-                            context,
-                            textEditingController,
-                            focusNode,
-                            onEditingComplete,
-                          ) {
-                            _model.textController = textEditingController;
-                            return TextFormField(
-                              key: _model.textFieldKey,
-                              controller: textEditingController,
-                              focusNode: focusNode,
-                              onEditingComplete: onEditingComplete,
-                              autofocus: true,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                hintText: FFLocalizations.of(context).getText(
-                                  '5t42a84e' /* [Some hint text...] */,
-                                ),
-                                hintStyle:
-                                    FlutterFlowTheme.of(context).bodySmall,
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                errorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                focusedErrorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                              ),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                              validator: _model.textControllerValidator
-                                  .asValidator(context),
-                            );
-                          },
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 15.0, 15.0, 15.0),
-                          child: Container(
-                            width: 300.0,
-                            height: 300.0,
-                            child: FlutterFlowLineChart(
-                              data: [
-                                FFLineChartData(
-                                  xData: [],
-                                  yData: [],
-                                  settings: LineChartBarData(
-                                    color: Color(0xFFD354E3),
-                                    barWidth: 1.0,
-                                    isCurved: true,
-                                    preventCurveOverShooting: true,
-                                  ),
-                                )
-                              ],
-                              chartStylingInfo: ChartStylingInfo(
-                                backgroundColor: Colors.white,
-                                showBorder: false,
-                              ),
-                              axisBounds: AxisBounds(),
-                              xAxisLabelInfo: AxisLabelInfo(
-                                title: FFLocalizations.of(context).getText(
-                                  '20hktw0m' /* Toistot */,
-                                ),
-                                titleTextStyle: TextStyle(
-                                  fontSize: 14.0,
-                                ),
-                                showLabels: true,
-                                labelInterval: 10.0,
-                              ),
-                              yAxisLabelInfo: AxisLabelInfo(
-                                title: FFLocalizations.of(context).getText(
-                                  'efq3ksuo' /* Painot */,
-                                ),
-                                titleTextStyle: TextStyle(
-                                  fontSize: 14.0,
-                                ),
-                                showLabels: true,
-                                labelInterval: 10.0,
-                              ),
+                        Container(
+                          width: MediaQuery.of(context).size.width * 1.0,
+                          height: 400.0,
+                          decoration: BoxDecoration(),
+                          child: wrapWithModel(
+                            model: _model.liikeStatsModel,
+                            updateCallback: () => setState(() {}),
+                            child: LiikeStatsWidget(
+                              sessioDocs:
+                                  tilastotSivuTreeniSessiotRecordList.toList(),
                             ),
                           ),
                         ),

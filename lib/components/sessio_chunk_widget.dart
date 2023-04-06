@@ -83,6 +83,18 @@ class _SessioChunkWidgetState extends State<SessioChunkWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              if (widget.indexInList == 0
+                  ? (containerTreeniSessiotRecordList.length == 0)
+                  : false)
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(22.0, 0.0, 22.0, 0.0),
+                  child: Text(
+                    FFLocalizations.of(context).getText(
+                      'ynavrwwp' /* Tämä sivu on tyhjä koska sinul... */,
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  ),
+                ),
               Builder(
                 builder: (context) {
                   final sessio = functions

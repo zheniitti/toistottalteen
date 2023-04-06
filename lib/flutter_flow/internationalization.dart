@@ -111,22 +111,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Analytiikka',
       'en': '',
     },
-    '5t42a84e': {
-      'fi': '[Some hint text...]',
-      'en': '',
-    },
-    'aci3rt7y': {
-      'fi': 'Option 1',
-      'en': '',
-    },
-    '20hktw0m': {
-      'fi': 'Toistot',
-      'en': '',
-    },
-    'efq3ksuo': {
-      'fi': 'Painot',
-      'en': '',
-    },
     'q476nu6x': {
       'fi': 'Treenattu aika: ',
       'en': 'Time trained:',
@@ -213,7 +197,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'tai',
       'en': 'or',
     },
-    'ywa91ouh': {
+    'm7gpe2ik': {
       'fi': 'Jatka ilman kirjautumista',
       'en': 'Continue without login',
     },
@@ -841,10 +825,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Lisää treeni',
       'en': 'Add workout',
     },
-    'uur18ydl': {
-      'fi': 'Tämä sivu on tyhjä koska sinulla ei ole vielä tehtyjä treenejä',
-      'en': 'This page is empty because you don\'t have finished workouts yet',
-    },
   },
   // bottomSheet_rutiiniJaSessio
   {
@@ -855,6 +835,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'e0l254zt': {
       'fi': 'Muokkaa',
       'en': 'Edit',
+    },
+    '0i5m3pzx': {
+      'fi': 'Lopeta muokkaus',
+      'en': 'Finish editing',
     },
     'esn5dhxf': {
       'fi': 'Poista pysyvästi',
@@ -875,8 +859,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // button_luoRutiini
   {
     '3myg55ek': {
-      'fi': 'Lisää treenipohja',
-      'en': 'Add an routine',
+      'fi': 'Luo treenipohja',
+      'en': 'Create an routine',
     },
   },
   // sivu_treenaa_komponentti
@@ -896,10 +880,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // rutiini
   {
-    'a7t1o69i': {
-      'fi': '💬',
-      'en': '💬',
-    },
     'yi3kozht': {
       'fi': 'Treenipohjan nimi',
       'en': 'Routine name',
@@ -969,6 +949,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // sessioChunk
   {
+    'ynavrwwp': {
+      'fi': 'Tämä sivu on tyhjä koska sinulla ei ole vielä tehtyjä treenejä',
+      'en': 'This page is empty because you don\'t have finished workouts yet',
+    },
     '5smr29rj': {
       'fi': 'Näytä lisää',
       'en': 'Show more',
@@ -1165,6 +1149,29 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'b5n4twdx': {
       'fi': 'Kommentti (vapaaehtoinen)',
       'en': 'Comment (optional)',
+    },
+  },
+  // LiikeStats
+  {
+    'dyrq0frb': {
+      'fi': 'Painon  ja toiston korrelaatio',
+      'en': 'Correlation of weight and reps',
+    },
+    '4ku6t0l0': {
+      'fi': 'Paino',
+      'en': 'Weight',
+    },
+    'vrypgu4p': {
+      'fi': 'Toistot',
+      'en': 'Reps',
+    },
+    'h9i7gu0b': {
+      'fi': 'Liikkeen nimi',
+      'en': 'Exercise name',
+    },
+    '9fivvb5b': {
+      'fi': 'Option 1',
+      'en': '',
     },
   },
   // Miscellaneous

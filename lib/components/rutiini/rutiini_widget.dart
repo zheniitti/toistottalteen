@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'rutiini_model.dart';
@@ -67,19 +68,6 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
           duration: 600.ms,
           begin: 1.0,
           end: 0.7,
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: 0.0,
-          end: 1.0,
         ),
       ],
     ),
@@ -396,59 +384,15 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        if (false)
-                          Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              if ((widget.rutiini?.kommentti == null ||
-                                      widget.rutiini?.kommentti == '') &&
-                                  widget.rutiini!.finishedEditing!)
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      6.0, 8.0, 0.0, 0.0),
-                                  child: InkWell(
-                                    onTap: () async {
-                                      logFirebaseEvent(
-                                          'RUTIINI_COMP_Text_ivf90nsb_ON_TAP');
-                                      logFirebaseEvent('Text_custom_action');
-                                      await actions.updateUserDocTreenirutiini(
-                                        widget.rutiini,
-                                        null,
-                                        null,
-                                        false,
-                                        null,
-                                        null,
-                                        null,
-                                        null,
-                                        widget.rutiini?.liikkeet
-                                            ?.toList()
-                                            ?.toList(),
-                                        null,
-                                        null,
-                                        null,
-                                        true,
-                                        true,
-                                        false,
-                                        false,
-                                      );
-                                    },
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'a7t1o69i' /* 💬 */,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            fontSize: 20.0,
-                                          ),
-                                    ),
-                                  ).animateOnPageLoad(animationsMap[
-                                      'textOnPageLoadAnimation']!),
-                                ),
-                            ],
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              4.0, 8.0, 0.0, 0.0),
+                          child: FaIcon(
+                            FontAwesomeIcons.edit,
+                            color: Colors.black,
+                            size: 24.0,
                           ),
+                        ),
                         Expanded(
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -690,7 +634,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                               fontSize: 14.0,
                             ),
                         textAlign: TextAlign.center,
-                        maxLines: 5,
+                        maxLines: null,
                         minLines: 1,
                         validator: _model.textFieldKommenttiControllerValidator
                             .asValidator(context),
