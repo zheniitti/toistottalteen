@@ -19,11 +19,11 @@ class BottomSheetLiikeWidget extends StatefulWidget {
   const BottomSheetLiikeWidget({
     Key? key,
     this.sessioDoc,
-    this.liikeIndex,
+    required this.liikeIndex,
   }) : super(key: key);
 
   final TreeniSessiotRecord? sessioDoc;
-  final int? liikeIndex;
+  final int liikeIndex;
 
   @override
   _BottomSheetLiikeWidgetState createState() => _BottomSheetLiikeWidgetState();
@@ -34,9 +34,8 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget>
   late BottomSheetLiikeModel _model;
 
   final animationsMap = {
-    'columnOnActionTriggerAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onActionTrigger,
-      applyInitialState: true,
+    'columnOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
       effects: [
         VisibilityEffect(duration: 1.ms),
         FadeEffect(
@@ -60,13 +59,6 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => BottomSheetLiikeModel());
-
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -149,8 +141,10 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget>
                                     'BOTTOM_SHEET_LIIKE_Switch_kp457o54_ON_TO');
                                 if (widget.sessioDoc != null) {
                                   logFirebaseEvent('Switch_custom_action');
-                                  _model.updatedLiikeFromSwitchOn = await actions.myUpdateLiikeStruct(
-                                    widget.sessioDoc!.treeniRutiiniData.liikkeet?.toList()?[widget.liikeIndex ?? -1],
+                                  _model.updatedLiikeFromSwitchOn =
+                                      await actions.myUpdateLiikeStruct(
+                                    widget.sessioDoc!.treeniRutiiniData.liikkeet
+                                        ?.toList()?[widget.liikeIndex],
                                     null,
                                     null,
                                     null,
@@ -211,8 +205,10 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget>
                                     'BOTTOM_SHEET_LIIKE_Switch_kp457o54_ON_TO');
                                 if (widget.sessioDoc != null) {
                                   logFirebaseEvent('Switch_custom_action');
-                                  _model.updatedLiikeFromSwitchOff = await actions.myUpdateLiikeStruct(
-                                    widget.sessioDoc!.treeniRutiiniData.liikkeet?.toList()?[widget.liikeIndex ?? -1],
+                                  _model.updatedLiikeFromSwitchOff =
+                                      await actions.myUpdateLiikeStruct(
+                                    widget.sessioDoc!.treeniRutiiniData.liikkeet
+                                        ?.toList()?[widget.liikeIndex],
                                     null,
                                     null,
                                     null,
@@ -318,15 +314,13 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget>
                           'BOTTOM_SHEET_LIIKE_ListTile_qnrl7udd_ON_');
                       logFirebaseEvent('ListTile_update_app_state');
                       setState(() {
-                        FFAppState().kopioidutLiikkeet = functions.liikeToLiikeJsonList(widget.sessioDoc!.treeniRutiiniData.liikkeet?.toList()?[widget.liikeIndex ?? -1], functions.nullLiikeList()?.toList())!.toList();
+                        FFAppState().kopioidutLiikkeet = functions
+                            .liikeToLiikeJsonList(
+                                widget.sessioDoc!.treeniRutiiniData.liikkeet
+                                    ?.toList()?[widget.liikeIndex],
+                                functions.nullLiikeList()?.toList())!
+                            .toList();
                       });
-                      logFirebaseEvent('ListTile_widget_animation');
-                      if (animationsMap['columnOnActionTriggerAnimation'] !=
-                          null) {
-                        animationsMap['columnOnActionTriggerAnimation']!
-                            .controller
-                            .forward(from: 0.0);
-                      }
                     },
                     child: ListTile(
                       title: Text(
@@ -524,9 +518,8 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget>
                       ),
                     ),
                   ],
-                ).animateOnActionTrigger(
-                  animationsMap['columnOnActionTriggerAnimation']!,
-                ),
+                ).animateOnPageLoad(
+                    animationsMap['columnOnPageLoadAnimation']!),
               Container(
                 width: double.infinity,
                 constraints: BoxConstraints(
