@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -46,7 +47,7 @@ class _LiikeStatsWidgetState extends State<LiikeStatsWidget> {
       logFirebaseEvent('LiikeStats_update_widget_state');
       _model.liikeNamesList = functions
           .allLiikeNamesFromSessioDocs(widget.sessioDocs?.toList())
-         ;
+          .toList();
     });
 
     _model.textController ??= TextEditingController();
@@ -70,11 +71,10 @@ class _LiikeStatsWidgetState extends State<LiikeStatsWidget> {
         Expanded(
           child: Container(
             width: double.infinity,
-            height: 400.0,
             child: Stack(
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 50.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                   child: PageView(
                     controller: _model.pageViewController ??=
                         PageController(initialPage: 0),
@@ -94,7 +94,7 @@ class _LiikeStatsWidgetState extends State<LiikeStatsWidget> {
                                 15.0, 15.0, 15.0, 15.0),
                             child: Container(
                               width: double.infinity,
-                              height: 300.0,
+                              height: 266.0,
                               child: FlutterFlowLineChart(
                                 data: [
                                   FFLineChartData(
@@ -109,7 +109,8 @@ class _LiikeStatsWidgetState extends State<LiikeStatsWidget> {
                                   )
                                 ],
                                 chartStylingInfo: ChartStylingInfo(
-                                  backgroundColor: Colors.white,
+                                  backgroundColor: Color(0x00FFFFFF),
+                                  showGrid: true,
                                   showBorder: false,
                                 ),
                                 axisBounds: AxisBounds(),
@@ -175,7 +176,7 @@ class _LiikeStatsWidgetState extends State<LiikeStatsWidget> {
                         spacing: 8.0,
                         radius: 16.0,
                         dotWidth: 16.0,
-                        dotHeight: 16.0,
+                        dotHeight: 8.0,
                         dotColor: FlutterFlowTheme.of(context).accent2,
                         activeDotColor: FlutterFlowTheme.of(context).primary,
                         paintStyle: PaintingStyle.fill,
@@ -233,6 +234,29 @@ class _LiikeStatsWidgetState extends State<LiikeStatsWidget> {
                 controller: textEditingController,
                 focusNode: focusNode,
                 onEditingComplete: onEditingComplete,
+                onChanged: (_) => EasyDebounce.debounce(
+                  '_model.textController',
+                  Duration(milliseconds: 800),
+                  () async {
+                    logFirebaseEvent(
+                        'LIIKE_STATS_TextField_hrnsfk7v_ON_TEXTFI');
+                    logFirebaseEvent('TextField_update_widget_state');
+                    setState(() {
+                      _model.weightNumbersList = getJsonField(
+                        functions.singleLiikeStats(_model.textController.text,
+                            widget.sessioDocs?.toList()),
+                        r'''$.weight_numberList''',
+                      )!
+                          .toList();
+                      _model.repsNumbersList = getJsonField(
+                        functions.singleLiikeStats(_model.textController.text,
+                            widget.sessioDocs?.toList()),
+                        r'''$.reps_numberList''',
+                      )!
+                          .toList();
+                    });
+                  },
+                ),
                 onFieldSubmitted: (_) async {
                   logFirebaseEvent('LIIKE_STATS_TextField_hrnsfk7v_ON_TEXTFI');
                   logFirebaseEvent('TextField_update_widget_state');
@@ -259,7 +283,7 @@ class _LiikeStatsWidgetState extends State<LiikeStatsWidget> {
                   hintStyle: FlutterFlowTheme.of(context).bodySmall,
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
-                      color: Color(0x00000000),
+                      color: FlutterFlowTheme.of(context).secondaryText,
                       width: 1.0,
                     ),
                     borderRadius: const BorderRadius.only(
@@ -297,6 +321,37 @@ class _LiikeStatsWidgetState extends State<LiikeStatsWidget> {
                       topRight: Radius.circular(4.0),
                     ),
                   ),
+                  suffixIcon: _model.textController!.text.isNotEmpty
+                      ? InkWell(
+                          onTap: () async {
+                            _model.textController?.clear();
+                            logFirebaseEvent(
+                                'LIIKE_STATS_TextField_hrnsfk7v_ON_TEXTFI');
+                            logFirebaseEvent('TextField_update_widget_state');
+                            setState(() {
+                              _model.weightNumbersList = getJsonField(
+                                functions.singleLiikeStats(
+                                    _model.textController.text,
+                                    widget.sessioDocs?.toList()),
+                                r'''$.weight_numberList''',
+                              )!
+                                  .toList();
+                              _model.repsNumbersList = getJsonField(
+                                functions.singleLiikeStats(
+                                    _model.textController.text,
+                                    widget.sessioDocs?.toList()),
+                                r'''$.reps_numberList''',
+                              )!
+                                  .toList();
+                            });
+                            setState(() {});
+                          },
+                          child: Icon(
+                            Icons.clear,
+                            size: 24.0,
+                          ),
+                        )
+                      : null,
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium,
                 validator: _model.textControllerValidator.asValidator(context),

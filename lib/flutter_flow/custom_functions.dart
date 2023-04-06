@@ -431,7 +431,7 @@ List<String> allLiikeNamesFromSessioDocs(
   final List<String> liikeList = <String>[];
   for (TreeniSessiotRecord sessioDoc in sessioDocs) {
     for (LiikeStruct liike in sessioDoc.treeniRutiiniData.liikkeet) {
-      if (!(liike.nimi ?? '').isNotEmpty && !liikeList.contains(liike.nimi)) {
+      if ((liike.nimi ?? '').isNotEmpty && !liikeList.contains(liike.nimi)) {
         liikeList.add(liike.nimi!);
       }
     }
@@ -446,8 +446,8 @@ dynamic singleLiikeStats(
   Map<String, dynamic> map = {
     'liikeName': liikeName,
     'sessioDocs': sessioDocs,
-    'weight_numberList': [],
-    'reps_numberList': [],
+    'weight_numberList': <int>[],
+    'reps_numberList': <int>[],
   };
   if (liikeName == null || sessioDocs == null) return map;
   map['liikeName'] = liikeName;
@@ -464,7 +464,7 @@ dynamic singleLiikeStats(
                   sarja.paino != null &&
                   sarja.paino! > 0) {
                 map['reps_numberList'].add(sarja.toistoMaara);
-                map['weight_numberList'].add(sarja.paino);
+                map['weight_numberList'].add(sarja.paino?.round() ?? 0);
               }
             }
           }

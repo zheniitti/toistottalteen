@@ -94,31 +94,32 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
           body: SafeArea(
             child: GestureDetector(
               onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-              child: Container(
-                width: MediaQuery.of(context).size.width * 1.0,
-                height: MediaQuery.of(context).size.height * 1.0,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                ),
+              child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width * 1.0,
-                          height: 400.0,
-                          decoration: BoxDecoration(),
-                          child: wrapWithModel(
-                            model: _model.liikeStatsModel,
-                            updateCallback: () => setState(() {}),
-                            child: LiikeStatsWidget(
-                              sessioDocs:
-                                  tilastotSivuTreeniSessiotRecordList.toList(),
+                        if (tilastotSivuTreeniSessiotRecordList.length > 0)
+                          Container(
+                            width: MediaQuery.of(context).size.width * 1.0,
+                            height: 400.0,
+                            decoration: BoxDecoration(),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 20.0, 0.0, 0.0),
+                              child: wrapWithModel(
+                                model: _model.liikeStatsModel,
+                                updateCallback: () => setState(() {}),
+                                child: LiikeStatsWidget(
+                                  sessioDocs:
+                                      tilastotSivuTreeniSessiotRecordList
+                                          .toList(),
+                                ),
+                              ),
                             ),
                           ),
-                        ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 10.0, 20.0, 10.0),
