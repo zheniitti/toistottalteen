@@ -21,7 +21,7 @@ abstract class SarjaStruct implements Built<SarjaStruct, SarjaStructBuilder> {
 
   DateTime? get modifiedTime;
 
-  bool? get done;
+  DateTime? get doneDatetime;
 
   /// Utility class for Firestore updates
   FirestoreUtilData get firestoreUtilData;
@@ -31,7 +31,6 @@ abstract class SarjaStruct implements Built<SarjaStruct, SarjaStructBuilder> {
     ..paino = 0.0
     ..matkaMetreina = 0.0
     ..kestoSekunteina = 0.0
-    ..done = false
     ..firestoreUtilData = FirestoreUtilData();
 
   SarjaStruct._();
@@ -46,7 +45,7 @@ SarjaStruct createSarjaStruct({
   double? kestoSekunteina,
   DateTime? createdTime,
   DateTime? modifiedTime,
-  bool? done,
+  DateTime? doneDatetime,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -60,7 +59,7 @@ SarjaStruct createSarjaStruct({
         ..kestoSekunteina = kestoSekunteina
         ..createdTime = createdTime
         ..modifiedTime = modifiedTime
-        ..done = done
+        ..doneDatetime = doneDatetime
         ..firestoreUtilData = FirestoreUtilData(
           clearUnsetFields: clearUnsetFields,
           create: create,

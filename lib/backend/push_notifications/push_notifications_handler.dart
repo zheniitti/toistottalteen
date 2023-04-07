@@ -119,7 +119,6 @@ final parametersBuilderMap =
   'registerOrSignInPage': ParameterData.none(),
   'tietosuojaJaYksityisyys': ParameterData.none(),
   'builder': ParameterData.none(),
-  'actionsToCopy': ParameterData.none(),
   'onboarding_page': ParameterData.none(),
   'kirjaudu_sivu': (data) async => ParameterData(
         allParams: {

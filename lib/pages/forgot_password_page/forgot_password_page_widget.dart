@@ -86,147 +86,168 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget> {
           elevation: 0.0,
         ),
       ),
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20.0, 4.0, 20.0, 8.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
-                    child: Text(
-                      FFLocalizations.of(context).getText(
-                        'cdee2yci' /* Lähetämme sinulle sähköpostin,... */,
+      body: SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(20.0, 4.0, 20.0, 8.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
+                      child: Text(
+                        FFLocalizations.of(context).getText(
+                          'cdee2yci' /* Lähetämme sinulle sähköpostin,... */,
+                        ),
+                        style: FlutterFlowTheme.of(context).bodySmall.override(
+                              fontFamily: 'Outfit',
+                              color: Color(0xFF57636C),
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.normal,
+                            ),
                       ),
-                      style: FlutterFlowTheme.of(context).bodySmall.override(
-                            fontFamily: 'Outfit',
-                            color: Color(0xFF57636C),
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.normal,
-                          ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 24.0, 0.0),
-            child: Container(
-              width: double.infinity,
-              height: 60.0,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    blurRadius: 5.0,
-                    color: Color(0x4D101213),
-                    offset: Offset(0.0, 2.0),
-                  )
                 ],
-                borderRadius: BorderRadius.circular(8.0),
               ),
-              child: TextFormField(
-                controller: _model.emailAddressController,
-                obscureText: false,
-                decoration: InputDecoration(
-                  labelText: FFLocalizations.of(context).getText(
-                    'lsgkuu2w' /* Sähköpostiosoite */,
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 24.0, 0.0),
+              child: Container(
+                width: double.infinity,
+                height: 60.0,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 5.0,
+                      color: Color(0x4D101213),
+                      offset: Offset(0.0, 2.0),
+                    )
+                  ],
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: TextFormField(
+                  controller: _model.emailAddressController,
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    labelText: FFLocalizations.of(context).getText(
+                      'lsgkuu2w' /* Sähköpostiosoite */,
+                    ),
+                    labelStyle: FlutterFlowTheme.of(context).bodySmall.override(
+                          fontFamily: 'Outfit',
+                          color: Color(0xFF57636C),
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.normal,
+                        ),
+                    hintText: FFLocalizations.of(context).getText(
+                      'skvsfyrg' /*  */,
+                    ),
+                    hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Lexend Deca',
+                          color: Color(0xFF57636C),
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.normal,
+                        ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color(0x00000000),
+                        width: 0.0,
+                      ),
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color(0x00000000),
+                        width: 0.0,
+                      ),
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color(0x00000000),
+                        width: 0.0,
+                      ),
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color(0x00000000),
+                        width: 0.0,
+                      ),
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    filled: true,
+                    fillColor: Colors.white,
+                    contentPadding:
+                        EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 20.0, 24.0),
                   ),
-                  labelStyle: FlutterFlowTheme.of(context).bodySmall.override(
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Outfit',
-                        color: Color(0xFF57636C),
+                        color: Color(0xFF0F1113),
                         fontSize: 14.0,
                         fontWeight: FontWeight.normal,
                       ),
-                  hintText: FFLocalizations.of(context).getText(
-                    'skvsfyrg' /*  */,
-                  ),
-                  hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Lexend Deca',
-                        color: Color(0xFF57636C),
-                        fontSize: 14.0,
+                  maxLines: null,
+                  validator: _model.emailAddressControllerValidator
+                      .asValidator(context),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+              child: FFButtonWidget(
+                onPressed: () async {
+                  logFirebaseEvent('FORGOT_PASSWORD_Button-Login_ON_TAP');
+                  logFirebaseEvent('Button-Login_auth');
+                  if (_model.emailAddressController.text.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          FFLocalizations.of(context).getText(
+                            'lhbjyw2o' /* ❗Sähköposti on pakollinen! */,
+                          ),
+                        ),
+                      ),
+                    );
+                    return;
+                  }
+                  await resetPassword(
+                    email: _model.emailAddressController.text,
+                    context: context,
+                  );
+                },
+                text: FFLocalizations.of(context).getText(
+                  'ltxhjq54' /* Lähetä linkki */,
+                ),
+                options: FFButtonOptions(
+                  width: 270.0,
+                  height: 50.0,
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  iconPadding:
+                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  color: Color(0xFF0F1113),
+                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                        fontFamily: 'Outfit',
+                        color: Colors.white,
+                        fontSize: 16.0,
                         fontWeight: FontWeight.normal,
                       ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0x00000000),
-                      width: 0.0,
-                    ),
-                    borderRadius: BorderRadius.circular(12.0),
+                  elevation: 3.0,
+                  borderSide: BorderSide(
+                    color: Colors.transparent,
+                    width: 1.0,
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0x00000000),
-                      width: 0.0,
-                    ),
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                  errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0x00000000),
-                      width: 0.0,
-                    ),
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                  focusedErrorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0x00000000),
-                      width: 0.0,
-                    ),
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
-                  contentPadding:
-                      EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 20.0, 24.0),
-                ),
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Outfit',
-                      color: Color(0xFF0F1113),
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.normal,
-                    ),
-                maxLines: null,
-                validator:
-                    _model.emailAddressControllerValidator.asValidator(context),
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
-            child: FFButtonWidget(
-              onPressed: () {
-                print('Button-Login pressed ...');
-              },
-              text: FFLocalizations.of(context).getText(
-                'ltxhjq54' /* Lähetä linkki */,
-              ),
-              options: FFButtonOptions(
-                width: 270.0,
-                height: 50.0,
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                color: Color(0xFF0F1113),
-                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                      fontFamily: 'Outfit',
-                      color: Colors.white,
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.normal,
-                    ),
-                elevation: 3.0,
-                borderSide: BorderSide(
-                  color: Colors.transparent,
-                  width: 1.0,
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -385,25 +385,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
-  // actionsToCopy
-  {
-    'dgt4ezk1': {
-      'fi': 'showSnackbar\n🙁 tämä toiminto ei toimi vielä...',
-      'en': '',
-    },
-    '2f5jkjle': {
-      'fi': 'updateRutiini nimi',
-      'en': '',
-    },
-    '0r18smyh': {
-      'fi': 'Page Title',
-      'en': '',
-    },
-    'hsdzc6hf': {
-      'fi': 'Home',
-      'en': '',
-    },
-  },
   // onboarding_page
   {
     '7vvg4989': {
@@ -752,6 +733,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': '.\nsarja',
       'en': '.\nset',
     },
+    '8zdi9oyj': {
+      'fi': 'Tehty',
+      'en': 'Done',
+    },
     'dxvry4te': {
       'fi': 'Lisää sarja',
       'en': 'Add a set',
@@ -815,7 +800,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Select routine',
     },
     'fl9eccts': {
-      'fi': 'Hakutulokset hakusnalla ',
+      'fi': 'Hakutulokset hakusanalla ',
       'en': 'Search result for ',
     },
   },
@@ -1145,6 +1130,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'pah0obna': {
       'fi': 'Treenin nimi',
       'en': 'Workout name',
+    },
+    '72vlyetp': {
+      'fi': 'Option 1',
+      'en': '',
     },
     'b5n4twdx': {
       'fi': 'Kommentti (vapaaehtoinen)',

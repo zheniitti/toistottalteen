@@ -49,7 +49,7 @@ class _AdBannerPaddingWidgetState extends State<AdBannerPaddingWidget> {
         width: 100.0,
         height: 60.0,
         decoration: BoxDecoration(
-          color: Color(0x1614181B),
+          color: Colors.transparent,
         ),
       ),
     );

@@ -80,6 +80,7 @@ class _SarjaToistotTextfieldWidgetState
             null,
             null,
             null,
+            false,
           );
           logFirebaseEvent('TextField_custom_action');
           _model.updatedLiike = await actions.myUpdateLiikeStruct(

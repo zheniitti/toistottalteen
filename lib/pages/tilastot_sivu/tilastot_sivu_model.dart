@@ -1,6 +1,6 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/liike_stats_widget.dart';
+import '/components/liike_stats/liike_stats_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;

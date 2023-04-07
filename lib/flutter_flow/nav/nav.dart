@@ -140,12 +140,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => BuilderWidget(),
             ),
             FFRoute(
-              name: 'actionsToCopy',
-              path: 'actionsToCopy',
-              requireAuth: true,
-              builder: (context, params) => ActionsToCopyWidget(),
-            ),
-            FFRoute(
               name: 'onboarding_page',
               path: 'onboardingPage',
               requireAuth: true,
@@ -161,7 +155,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'forgotPassword_page',
               path: 'forgotPasswordPage',
-              requireAuth: true,
               builder: (context, params) => ForgotPasswordPageWidget(
                 email: params.getParam('email', ParamType.String),
               ),

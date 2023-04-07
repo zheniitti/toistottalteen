@@ -16,7 +16,8 @@ Future<SarjaStruct> myUpdateSarja(
   double? painoKg,
   double? kestoSekunteina,
   double? matkaMetreina,
-  bool? done,
+  DateTime? doneDatetime,
+  bool removeDoneDatetime,
 ) async {
   if (sarja == null && createSarjaIfNull) {
     sarja = createSarjaStruct(create: true, clearUnsetFields: false);
@@ -31,7 +32,9 @@ Future<SarjaStruct> myUpdateSarja(
     ..toistoMaara = toistoMaara ?? sarja.toistoMaara
     ..kestoSekunteina = kestoSekunteina ?? sarja.kestoSekunteina
     ..matkaMetreina = matkaMetreina ?? sarja.matkaMetreina
-    ..done = done ?? sarja.done;
+    ..doneDatetime = (removeDoneDatetime ?? false)
+        ? null
+        : doneDatetime ?? sarja.doneDatetime;
 
   SarjaStruct updatedSarjaStruct = updatedSarja.build();
   return updatedSarjaStruct;
