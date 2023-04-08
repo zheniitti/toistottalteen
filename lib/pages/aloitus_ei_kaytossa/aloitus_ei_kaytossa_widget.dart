@@ -47,61 +47,61 @@ class _AloitusEiKaytossaWidgetState extends State<AloitusEiKaytossaWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return WillPopScope(
-      onWillPop: () async => false,
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        floatingActionButton: Visibility(
-          visible: false,
-          child: FloatingActionButton.extended(
-            onPressed: () {
-              print('FloatingActionButton pressed ...');
-            },
-            backgroundColor: FlutterFlowTheme.of(context).primary,
-            icon: Icon(
-              Icons.add,
-            ),
-            elevation: 8.0,
-            label: Text(
-              FFLocalizations.of(context).getText(
-                'rmgg2g5f' /* Luo rutiini */,
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: WillPopScope(
+        onWillPop: () async => false,
+        child: Scaffold(
+          key: scaffoldKey,
+          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          floatingActionButton: Visibility(
+            visible: false,
+            child: FloatingActionButton.extended(
+              onPressed: () {
+                print('FloatingActionButton pressed ...');
+              },
+              backgroundColor: FlutterFlowTheme.of(context).primary,
+              icon: Icon(
+                Icons.add,
               ),
-              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Roboto',
-                    color: FlutterFlowTheme.of(context).secondary,
-                    fontSize: 16.0,
+              elevation: 8.0,
+              label: Text(
+                FFLocalizations.of(context).getText(
+                  'rmgg2g5f' /* Luo rutiini */,
+                ),
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Roboto',
+                      color: FlutterFlowTheme.of(context).secondary,
+                      fontSize: 16.0,
+                    ),
+              ),
+            ),
+          ),
+          drawer: Drawer(
+            elevation: 16.0,
+            child: wrapWithModel(
+              model: _model.sivupalkkiModel,
+              updateCallback: () => setState(() {}),
+              child: SivupalkkiWidget(),
+            ),
+          ),
+          appBar: AppBar(
+            backgroundColor: FlutterFlowTheme.of(context).primary,
+            automaticallyImplyLeading: true,
+            title: Text(
+              FFLocalizations.of(context).getText(
+                'ogtztobw' /* Päänäkymä */,
+              ),
+              style: FlutterFlowTheme.of(context).titleSmall.override(
+                    fontFamily: 'Outfit',
+                    color: FlutterFlowTheme.of(context).primaryBackground,
                   ),
             ),
+            actions: [],
+            centerTitle: true,
+            elevation: 4.0,
           ),
-        ),
-        drawer: Drawer(
-          elevation: 16.0,
-          child: wrapWithModel(
-            model: _model.sivupalkkiModel,
-            updateCallback: () => setState(() {}),
-            child: SivupalkkiWidget(),
-          ),
-        ),
-        appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: true,
-          title: Text(
-            FFLocalizations.of(context).getText(
-              'ogtztobw' /* Päänäkymä */,
-            ),
-            style: FlutterFlowTheme.of(context).titleSmall.override(
-                  fontFamily: 'Outfit',
-                  color: FlutterFlowTheme.of(context).primaryBackground,
-                ),
-          ),
-          actions: [],
-          centerTitle: true,
-          elevation: 4.0,
-        ),
-        body: SafeArea(
-          child: GestureDetector(
-            onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+          body: SafeArea(
             child: Stack(
               children: [
                 Align(

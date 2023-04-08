@@ -279,42 +279,42 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
         final paasivuAppConfigRecord = paasivuAppConfigRecordList.isNotEmpty
             ? paasivuAppConfigRecordList.first
             : null;
-        return Scaffold(
-          key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-          floatingActionButton: Visibility(
-            visible: false,
-            child: FloatingActionButton.extended(
-              onPressed: () {
-                print('FloatingActionButton pressed ...');
-              },
-              backgroundColor: FlutterFlowTheme.of(context).primary,
-              icon: Icon(
-                Icons.add,
-              ),
-              elevation: 8.0,
-              label: Text(
-                FFLocalizations.of(context).getText(
-                  't1qezc6y' /* Luo treenirutiini */,
+        return GestureDetector(
+          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+          child: Scaffold(
+            key: scaffoldKey,
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            floatingActionButton: Visibility(
+              visible: false,
+              child: FloatingActionButton.extended(
+                onPressed: () {
+                  print('FloatingActionButton pressed ...');
+                },
+                backgroundColor: FlutterFlowTheme.of(context).primary,
+                icon: Icon(
+                  Icons.add,
                 ),
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Roboto',
-                      color: FlutterFlowTheme.of(context).secondary,
-                    ),
+                elevation: 8.0,
+                label: Text(
+                  FFLocalizations.of(context).getText(
+                    't1qezc6y' /* Luo treenirutiini */,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Roboto',
+                        color: FlutterFlowTheme.of(context).secondary,
+                      ),
+                ),
               ),
             ),
-          ),
-          drawer: Drawer(
-            elevation: 16.0,
-            child: wrapWithModel(
-              model: _model.sivupalkkiModel,
-              updateCallback: () => setState(() {}),
-              child: SivupalkkiWidget(),
+            drawer: Drawer(
+              elevation: 16.0,
+              child: wrapWithModel(
+                model: _model.sivupalkkiModel,
+                updateCallback: () => setState(() {}),
+                child: SivupalkkiWidget(),
+              ),
             ),
-          ),
-          body: SafeArea(
-            child: GestureDetector(
-              onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+            body: SafeArea(
               child: StreamBuilder<List<TreeniSessiotRecord>>(
                 stream: queryTreeniSessiotRecord(
                   queryBuilder: (treeniSessiotRecord) => treeniSessiotRecord

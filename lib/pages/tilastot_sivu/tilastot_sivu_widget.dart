@@ -72,28 +72,28 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
         }
         List<TreeniSessiotRecord> tilastotSivuTreeniSessiotRecordList =
             snapshot.data!;
-        return Scaffold(
-          key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-          appBar: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).primary,
-            automaticallyImplyLeading: true,
-            title: Text(
-              FFLocalizations.of(context).getText(
-                'jxhd0x84' /* Analytiikka */,
+        return GestureDetector(
+          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+          child: Scaffold(
+            key: scaffoldKey,
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            appBar: AppBar(
+              backgroundColor: FlutterFlowTheme.of(context).primary,
+              automaticallyImplyLeading: true,
+              title: Text(
+                FFLocalizations.of(context).getText(
+                  'jxhd0x84' /* Analytiikka */,
+                ),
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      fontFamily: 'Roboto',
+                      color: Color(0xFFDADADA),
+                    ),
               ),
-              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Roboto',
-                    color: Color(0xFFDADADA),
-                  ),
+              actions: [],
+              centerTitle: true,
+              elevation: 4.0,
             ),
-            actions: [],
-            centerTitle: true,
-            elevation: 4.0,
-          ),
-          body: SafeArea(
-            child: GestureDetector(
-              onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+            body: SafeArea(
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,

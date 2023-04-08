@@ -44,29 +44,30 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primary,
-        iconTheme: IconThemeData(color: FlutterFlowTheme.of(context).secondary),
-        automaticallyImplyLeading: true,
-        title: Text(
-          FFLocalizations.of(context).getText(
-            'wpjuhtau' /* Subscription / Payment */,
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).primary,
+          iconTheme:
+              IconThemeData(color: FlutterFlowTheme.of(context).secondary),
+          automaticallyImplyLeading: true,
+          title: Text(
+            FFLocalizations.of(context).getText(
+              'wpjuhtau' /* Subscription / Payment */,
+            ),
+            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Roboto',
+                  color: FlutterFlowTheme.of(context).secondary,
+                ),
           ),
-          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                fontFamily: 'Roboto',
-                color: FlutterFlowTheme.of(context).secondary,
-              ),
+          actions: [],
+          centerTitle: true,
+          elevation: 0.0,
         ),
-        actions: [],
-        centerTitle: true,
-        elevation: 0.0,
-      ),
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+        body: SafeArea(
           child: Container(
             width: double.infinity,
             height: double.infinity,

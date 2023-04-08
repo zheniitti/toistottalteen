@@ -511,9 +511,10 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                 backgroundColor: Colors.transparent,
                                 barrierColor: Color(0x00000000),
                                 context: context,
-                                builder: (context) {
+                                builder: (bottomSheetContext) {
                                   return Padding(
-                                    padding: MediaQuery.of(context).viewInsets,
+                                    padding: MediaQuery.of(bottomSheetContext)
+                                        .viewInsets,
                                     child: BottomSheetRutiiniJaSessioWidget(
                                       rutiiniData: widget.rutiini,
                                       treeniSessioDoc: null,

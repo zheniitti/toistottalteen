@@ -43,6 +43,17 @@ class _FlutterFlowIconButtonState extends State<FlutterFlowIconButton> {
 
   @override
   void initState() {
+    super.initState();
+    _updateIcon();
+  }
+
+  @override
+  void didUpdateWidget(FlutterFlowIconButton oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _updateIcon();
+  }
+
+  void _updateIcon() {
     final isFontAwesome = widget.icon is FaIcon;
     if (isFontAwesome) {
       FaIcon icon = widget.icon as FaIcon;
@@ -61,7 +72,6 @@ class _FlutterFlowIconButtonState extends State<FlutterFlowIconButton> {
       iconSize = icon.size;
       iconColor = icon.color;
     }
-    super.initState();
   }
 
   @override

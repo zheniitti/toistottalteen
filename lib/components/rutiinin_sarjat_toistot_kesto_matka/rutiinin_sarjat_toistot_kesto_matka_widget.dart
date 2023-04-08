@@ -166,40 +166,40 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
 
     _model.textFieldSarjojoaController ??= TextEditingController(
         text: widget.rutiini?.liikkeet
-            ?.toList()?[widget.liikeIndex]
+            ?.toList()?[widget.liikeIndex!]
             ?.sarjaMaara
             ?.toString());
     _model.textFieldTOistojaController ??= TextEditingController(
         text: widget.rutiini?.liikkeet
-            ?.toList()?[widget.liikeIndex]
+            ?.toList()?[widget.liikeIndex!]
             ?.toistoMaara
             ?.toString());
     _model.textFieldPainoController ??= TextEditingController(
         text: widget.rutiini?.liikkeet
-            ?.toList()?[widget.liikeIndex]
+            ?.toList()?[widget.liikeIndex!]
             ?.aloitusPainoKg
             ?.toString());
     _model.textFieldTunnitController ??= TextEditingController(
         text: functions
             .remainingHours(widget.rutiini?.liikkeet
-                ?.toList()?[widget.liikeIndex]
+                ?.toList()?[widget.liikeIndex!]
                 ?.kestoSekunteina)
             .toString());
     _model.textFieldMinuutitController ??= TextEditingController(
         text: functions
             .remainingMinutes(widget.rutiini?.liikkeet
-                ?.toList()?[widget.liikeIndex]
+                ?.toList()?[widget.liikeIndex!]
                 ?.kestoSekunteina)
             .toString());
     _model.textFieldSekunnitController ??= TextEditingController(
         text: functions
             .remainingSeconds(widget.rutiini?.liikkeet
-                ?.toList()?[widget.liikeIndex]
+                ?.toList()?[widget.liikeIndex!]
                 ?.kestoSekunteina)
             .toString());
     _model.textFieldTavoiteMatkaController ??= TextEditingController(
         text: widget.rutiini?.liikkeet
-            ?.toList()?[widget.liikeIndex]
+            ?.toList()?[widget.liikeIndex!]
             ?.matkaMetri
             ?.toString());
     setupAnimations(
@@ -788,7 +788,8 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                   .asValidator(context),
                                               inputFormatters: [
                                                 FilteringTextInputFormatter
-                                                    .allow(RegExp('[0-9]'))
+                                                    .allow(
+                                                        RegExp('^\\d*\\.?\\d*'))
                                               ],
                                             ),
                                           ),
@@ -1096,8 +1097,8 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                           .asValidator(context),
                                                       inputFormatters: [
                                                         FilteringTextInputFormatter
-                                                            .allow(
-                                                                RegExp('[0-9]'))
+                                                            .allow(RegExp(
+                                                                '^([1-9]|[1-5][0-9])\$'))
                                                       ],
                                                     ),
                                                   ),
@@ -1130,7 +1131,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                               widget.rutiini
                                                                   ?.liikkeet
                                                                   ?.toList()?[widget
-                                                                      .liikeIndex]
+                                                                      .liikeIndex!]
                                                                   ?.nimi,
                                                               null,
                                                               int.tryParse(_model
@@ -1281,8 +1282,8 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                           .asValidator(context),
                                                       inputFormatters: [
                                                         FilteringTextInputFormatter
-                                                            .allow(
-                                                                RegExp('[0-9]'))
+                                                            .allow(RegExp(
+                                                                '^([1-9]|[1-5][0-9])(\\.?\\d*)?\$'))
                                                       ],
                                                     ),
                                                   ),
@@ -1401,7 +1402,8 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                                       .asValidator(context),
                                                   inputFormatters: [
                                                     FilteringTextInputFormatter
-                                                        .allow(RegExp('[0-9]'))
+                                                        .allow(RegExp(
+                                                            '^\\d*\\.?\\d*'))
                                                   ],
                                                 ),
                                               ),
@@ -1478,7 +1480,7 @@ class _RutiininSarjatToistotKestoMatkaWidgetState
                                         widget.liikeIndex!,
                                         widget.rutiini,
                                         widget.rutiini?.liikkeet
-                                            ?.toList()?[widget.liikeIndex]
+                                            ?.toList()?[widget.liikeIndex!]
                                             ?.nimi,
                                         null,
                                         valueOrDefault<int>(

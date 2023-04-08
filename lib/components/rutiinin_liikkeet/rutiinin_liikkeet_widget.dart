@@ -320,11 +320,11 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                   Colors.transparent,
                                               enableDrag: false,
                                               context: context,
-                                              builder: (context) {
+                                              builder: (bottomSheetContext) {
                                                 return Padding(
-                                                  padding:
-                                                      MediaQuery.of(context)
-                                                          .viewInsets,
+                                                  padding: MediaQuery.of(
+                                                          bottomSheetContext)
+                                                      .viewInsets,
                                                   child: Container(
                                                     height: double.infinity,
                                                     child:

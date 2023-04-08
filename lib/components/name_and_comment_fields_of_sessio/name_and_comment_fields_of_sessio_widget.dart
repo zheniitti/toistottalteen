@@ -1,6 +1,7 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
@@ -25,10 +26,13 @@ class NameAndCommentFieldsOfSessioWidget extends StatefulWidget {
   final TreeniSessiotRecord? sessioDoc;
 
   @override
-  _NameAndCommentFieldsOfSessioWidgetState createState() => _NameAndCommentFieldsOfSessioWidgetState();
+  _NameAndCommentFieldsOfSessioWidgetState createState() =>
+      _NameAndCommentFieldsOfSessioWidgetState();
 }
 
-class _NameAndCommentFieldsOfSessioWidgetState extends State<NameAndCommentFieldsOfSessioWidget> with TickerProviderStateMixin {
+class _NameAndCommentFieldsOfSessioWidgetState
+    extends State<NameAndCommentFieldsOfSessioWidget>
+    with TickerProviderStateMixin {
   late NameAndCommentFieldsOfSessioModel _model;
 
   final animationsMap = {
@@ -65,8 +69,10 @@ class _NameAndCommentFieldsOfSessioWidgetState extends State<NameAndCommentField
       _model.sessioDoc = widget.sessioDoc;
     });
 
-    _model.rutiininnimiController ??= TextEditingController(text: widget.sessioDoc!.treeniRutiiniData.nimi);
-    _model.rutiiniKommenttiController ??= TextEditingController(text: widget.sessioDoc!.treeniRutiiniData.kommentti);
+    _model.rutiininnimiController ??=
+        TextEditingController(text: widget.sessioDoc!.treeniRutiiniData.nimi);
+    _model.rutiiniKommenttiController ??= TextEditingController(
+        text: widget.sessioDoc!.treeniRutiiniData.kommentti);
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -95,7 +101,7 @@ class _NameAndCommentFieldsOfSessioWidgetState extends State<NameAndCommentField
         maxWidth: 640.0,
       ),
       decoration: BoxDecoration(
-        color: FlutterFlowTheme.of(context).secondaryBackground,
+        color: Color(0xB2FFFFFF),
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: Stack(
@@ -105,93 +111,158 @@ class _NameAndCommentFieldsOfSessioWidgetState extends State<NameAndCommentField
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                TextFormField(
-                  controller: _model.rutiininnimiController,
-                  onChanged: (_) => EasyDebounce.debounce(
-                    '_model.rutiininnimiController',
-                    Duration(milliseconds: 1000),
-                    () async {
-                      logFirebaseEvent('NAME_AND_COMMENT_FIELDS_OF_SESSIO_rutiin');
-                      logFirebaseEvent('rutiininnimi_custom_action');
-                      _model.updatedRutiiniFromNimiField = await actions.myUpdateTreeniRutiiniStruct(
-                        widget.sessioDoc!.treeniRutiiniData,
-                        null,
-                        _model.rutiininnimiController.text,
-                        widget.sessioDoc!.treeniRutiiniData.liikkeet?.toList()?.toList(),
-                        _model.rutiiniKommenttiController.text,
-                        null,
-                        null,
-                        false,
-                        true,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        functions.emptyJsonList()?.toList(),
-                        false,
-                        false,
+                AuthUserStreamWidget(
+                  builder: (context) => Autocomplete<String>(
+                    initialValue: TextEditingValue(
+                        text: widget.sessioDoc!.treeniRutiiniData.nimi!),
+                    optionsBuilder: (textEditingValue) {
+                      if (textEditingValue.text == '') {
+                        return const Iterable<String>.empty();
+                      }
+                      return functions
+                          .mapRutiiniNimet(
+                              (currentUserDocument?.treeniRutiinit?.toList() ??
+                                      [])
+                                  .toList())
+                          .toList()
+                          .where((option) {
+                        final lowercaseOption = option.toLowerCase();
+                        return lowercaseOption
+                            .contains(textEditingValue.text.toLowerCase());
+                      });
+                    },
+                    optionsViewBuilder: (context, onSelected, options) {
+                      return AutocompleteOptionsList(
+                        textFieldKey: _model.rutiininnimiKey,
+                        textController: _model.rutiininnimiController!,
+                        options: options.toList(),
+                        onSelected: onSelected,
+                        textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                        textHighlightStyle: TextStyle(),
+                        elevation: 4.0,
+                        optionBackgroundColor:
+                            FlutterFlowTheme.of(context).primaryBackground,
+                        optionHighlightColor:
+                            FlutterFlowTheme.of(context).secondaryBackground,
+                        maxHeight: 200.0,
                       );
-                      logFirebaseEvent('rutiininnimi_backend_call');
+                    },
+                    onSelected: (String selection) {
+                      setState(
+                          () => _model.rutiininnimiSelectedOption = selection);
+                      FocusScope.of(context).unfocus();
+                    },
+                    fieldViewBuilder: (
+                      context,
+                      textEditingController,
+                      focusNode,
+                      onEditingComplete,
+                    ) {
+                      _model.rutiininnimiController = textEditingController;
+                      return TextFormField(
+                        key: _model.rutiininnimiKey,
+                        controller: textEditingController,
+                        focusNode: focusNode,
+                        onEditingComplete: onEditingComplete,
+                        onChanged: (_) => EasyDebounce.debounce(
+                          '_model.rutiininnimiController',
+                          Duration(milliseconds: 1000),
+                          () async {
+                            logFirebaseEvent(
+                                'NAME_AND_COMMENT_FIELDS_OF_SESSIO_rutiin');
+                            logFirebaseEvent('rutiininnimi_custom_action');
+                            _model.updatedRutiiniFromNimiField =
+                                await actions.myUpdateTreeniRutiiniStruct(
+                              widget.sessioDoc!.treeniRutiiniData,
+                              null,
+                              _model.rutiininnimiController.text,
+                              widget.sessioDoc!.treeniRutiiniData.liikkeet
+                                  ?.toList()
+                                  ?.toList(),
+                              _model.rutiiniKommenttiController.text,
+                              null,
+                              null,
+                              false,
+                              true,
+                              null,
+                              null,
+                              null,
+                              null,
+                              null,
+                              null,
+                              null,
+                              functions.emptyJsonList()?.toList(),
+                              false,
+                              false,
+                            );
+                            logFirebaseEvent('rutiininnimi_backend_call');
 
-                      final treeniSessiotUpdateData = createTreeniSessiotRecordData(
-                        treeniRutiiniData: updateTreeniRutiiniStruct(
-                          _model.updatedRutiiniFromNimiField,
-                          clearUnsetFields: false,
+                            final treeniSessiotUpdateData =
+                                createTreeniSessiotRecordData(
+                              treeniRutiiniData: updateTreeniRutiiniStruct(
+                                _model.updatedRutiiniFromNimiField,
+                                clearUnsetFields: false,
+                              ),
+                            );
+                            await widget.sessioDoc!.reference
+                                .update(treeniSessiotUpdateData);
+
+                            setState(() {});
+                          },
                         ),
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          isDense: true,
+                          hintText: FFLocalizations.of(context).getText(
+                            'pah0obna' /* Treenin nimi */,
+                          ),
+                          hintStyle: FlutterFlowTheme.of(context)
+                              .titleMedium
+                              .override(
+                                fontFamily: 'Outfit',
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                              ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0x00000000),
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0x00000000),
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          errorBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0x00000000),
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          focusedErrorBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Color(0x00000000),
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          contentPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 2.0, 0.0, 4.0),
+                        ),
+                        style: FlutterFlowTheme.of(context).headlineSmall,
+                        textAlign: TextAlign.center,
+                        maxLines: null,
+                        minLines: 1,
+                        validator: _model.rutiininnimiControllerValidator
+                            .asValidator(context),
                       );
-                      await widget.sessioDoc!.reference.update(treeniSessiotUpdateData);
-
-                      setState(() {});
                     },
                   ),
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    isDense: true,
-                    hintText: FFLocalizations.of(context).getText(
-                      'pah0obna' /* Treenin nimi */,
-                    ),
-                    hintStyle: FlutterFlowTheme.of(context).titleMedium.override(
-                          fontFamily: 'Outfit',
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                        ),
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0x00000000),
-                        width: 1.0,
-                      ),
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0x00000000),
-                        width: 1.0,
-                      ),
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    errorBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0x00000000),
-                        width: 1.0,
-                      ),
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    focusedErrorBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0x00000000),
-                        width: 1.0,
-                      ),
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    contentPadding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 4.0),
-                  ),
-                  style: FlutterFlowTheme.of(context).headlineSmall,
-                  textAlign: TextAlign.center,
-                  maxLines: null,
-                  minLines: 1,
-                  validator: _model.rutiininnimiControllerValidator.asValidator(context),
                 ),
                 TextFormField(
                   controller: _model.rutiiniKommenttiController,
@@ -199,13 +270,17 @@ class _NameAndCommentFieldsOfSessioWidgetState extends State<NameAndCommentField
                     '_model.rutiiniKommenttiController',
                     Duration(milliseconds: 1000),
                     () async {
-                      logFirebaseEvent('NAME_AND_COMMENT_FIELDS_OF_SESSIO_rutiin');
+                      logFirebaseEvent(
+                          'NAME_AND_COMMENT_FIELDS_OF_SESSIO_rutiin');
                       logFirebaseEvent('rutiiniKommentti_custom_action');
-                      _model.updatedRutiiniFromNimiFieldCopy = await actions.myUpdateTreeniRutiiniStruct(
+                      _model.updatedRutiiniFromNimiFieldCopy =
+                          await actions.myUpdateTreeniRutiiniStruct(
                         widget.sessioDoc!.treeniRutiiniData,
                         null,
                         _model.rutiininnimiController.text,
-                        widget.sessioDoc!.treeniRutiiniData.liikkeet?.toList()?.toList(),
+                        widget.sessioDoc!.treeniRutiiniData.liikkeet
+                            ?.toList()
+                            ?.toList(),
                         _model.rutiiniKommenttiController.text,
                         null,
                         null,
@@ -224,13 +299,15 @@ class _NameAndCommentFieldsOfSessioWidgetState extends State<NameAndCommentField
                       );
                       logFirebaseEvent('rutiiniKommentti_backend_call');
 
-                      final treeniSessiotUpdateData = createTreeniSessiotRecordData(
+                      final treeniSessiotUpdateData =
+                          createTreeniSessiotRecordData(
                         treeniRutiiniData: updateTreeniRutiiniStruct(
                           _model.updatedRutiiniFromNimiFieldCopy,
                           clearUnsetFields: false,
                         ),
                       );
-                      await widget.sessioDoc!.reference.update(treeniSessiotUpdateData);
+                      await widget.sessioDoc!.reference
+                          .update(treeniSessiotUpdateData);
 
                       setState(() {});
                     },
@@ -271,7 +348,8 @@ class _NameAndCommentFieldsOfSessioWidgetState extends State<NameAndCommentField
                       ),
                       borderRadius: BorderRadius.circular(8.0),
                     ),
-                    contentPadding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 2.0),
+                    contentPadding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 2.0),
                   ),
                   style: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Roboto',
@@ -280,7 +358,8 @@ class _NameAndCommentFieldsOfSessioWidgetState extends State<NameAndCommentField
                       ),
                   textAlign: TextAlign.center,
                   maxLines: null,
-                  validator: _model.rutiiniKommenttiControllerValidator.asValidator(context),
+                  validator: _model.rutiiniKommenttiControllerValidator
+                      .asValidator(context),
                 ),
               ],
             ),
