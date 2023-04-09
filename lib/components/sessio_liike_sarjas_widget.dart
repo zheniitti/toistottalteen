@@ -10,7 +10,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:easy_debounce/easy_debounce.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -112,10 +111,6 @@ class _SessioLiikeSarjasWidgetState extends State<SessioLiikeSarjasWidget>
     super.initState();
     _model = createModel(context, () => SessioLiikeSarjasModel());
 
-    _model.textController1 ??= TextEditingController(text: widget.liike?.nimi);
-    _model.textController2 ??=
-        TextEditingController(text: widget.liike?.kommentti);
-
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -142,289 +137,17 @@ class _SessioLiikeSarjasWidgetState extends State<SessioLiikeSarjasWidget>
               children: [
                 Column(
                   mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 20.0, 0.0),
-                      child: TextFormField(
-                        controller: _model.textController1,
-                        onChanged: (_) => EasyDebounce.debounce(
-                          '_model.textController1',
-                          Duration(milliseconds: 1000),
-                          () async {
-                            logFirebaseEvent(
-                                'SESSIO_LIIKE_SARJAS_TextField_5ycb4l4l_O');
-                            logFirebaseEvent('TextField_custom_action');
-                            _model.updatedLiike =
-                                await actions.myUpdateLiikeStruct(
-                              widget.liike,
-                              null,
-                              _model.textController1.text,
-                              _model.textController2.text,
-                              null,
-                              null,
-                              null,
-                              null,
-                              null,
-                              null,
-                              null,
-                              false,
-                              null,
-                              null,
-                              null,
-                            );
-                            logFirebaseEvent('TextField_custom_action');
-                            _model.updatedRutiini =
-                                await actions.myUpdateTreeniRutiiniStruct(
-                              widget.treeniSessio!.treeniRutiiniData,
-                              null,
-                              null,
-                              widget.treeniSessio!.treeniRutiiniData.liikkeet
-                                  ?.toList()
-                                  ?.toList(),
-                              null,
-                              null,
-                              null,
-                              false,
-                              null,
-                              null,
-                              null,
-                              null,
-                              null,
-                              widget.liikeIndexInList,
-                              _model.updatedLiike,
-                              null,
-                              FFAppState().kopioidutLiikkeet.toList(),
-                              false,
-                              false,
-                            );
-                            logFirebaseEvent('TextField_backend_call');
-
-                            final treeniSessiotUpdateData =
-                                createTreeniSessiotRecordData(
-                              treeniRutiiniData: updateTreeniRutiiniStruct(
-                                _model.updatedRutiini,
-                                clearUnsetFields: false,
-                              ),
-                            );
-                            await widget.treeniSessio!.reference
-                                .update(treeniSessiotUpdateData);
-
-                            setState(() {});
-                          },
-                        ),
-                        readOnly: true,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          isDense: true,
-                          hintText: FFLocalizations.of(context).getText(
-                            'ne064nfk' /* Liikkeen nimi */,
-                          ),
-                          hintStyle:
-                              FlutterFlowTheme.of(context).bodySmall.override(
-                                    fontFamily: 'Roboto',
-                                    fontSize: 18.0,
-                                    lineHeight: 1.0,
-                                  ),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1.0,
-                            ),
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(4.0),
-                              topRight: Radius.circular(4.0),
-                            ),
-                          ),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1.0,
-                            ),
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(4.0),
-                              topRight: Radius.circular(4.0),
-                            ),
-                          ),
-                          errorBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1.0,
-                            ),
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(4.0),
-                              topRight: Radius.circular(4.0),
-                            ),
-                          ),
-                          focusedErrorBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1.0,
-                            ),
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(4.0),
-                              topRight: Radius.circular(4.0),
-                            ),
-                          ),
-                          contentPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 2.0),
-                        ),
-                        style:
-                            FlutterFlowTheme.of(context).titleMedium.override(
-                                  fontFamily: 'Outfit',
-                                  lineHeight: 1.0,
-                                ),
-                        textAlign: TextAlign.start,
-                        maxLines: 5,
-                        minLines: 1,
-                        validator: _model.textController1Validator
-                            .asValidator(context),
-                      ),
+                    Text(
+                      widget.liike!.nimi!,
+                      style: FlutterFlowTheme.of(context).titleSmall,
                     ),
-                    if (!widget.liike!.tehty! ||
-                        (widget.liike?.kommentti != null &&
-                            widget.liike?.kommentti != '') ||
-                        true)
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 2.0),
-                        child: TextFormField(
-                          controller: _model.textController2,
-                          onChanged: (_) => EasyDebounce.debounce(
-                            '_model.textController2',
-                            Duration(milliseconds: 500),
-                            () async {
-                              logFirebaseEvent(
-                                  'SESSIO_LIIKE_SARJAS_TextField_3b7c2eld_O');
-                              logFirebaseEvent('TextField_custom_action');
-                              _model.updatedLiikeCopy =
-                                  await actions.myUpdateLiikeStruct(
-                                widget.liike,
-                                null,
-                                _model.textController1.text,
-                                _model.textController2.text,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null,
-                              );
-                              logFirebaseEvent('TextField_custom_action');
-                              _model.updatedRutiiniCopy =
-                                  await actions.myUpdateTreeniRutiiniStruct(
-                                widget.treeniSessio!.treeniRutiiniData,
-                                null,
-                                null,
-                                widget.treeniSessio!.treeniRutiiniData.liikkeet
-                                    ?.toList()
-                                    ?.toList(),
-                                null,
-                                null,
-                                null,
-                                false,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null,
-                                widget.liikeIndexInList,
-                                _model.updatedLiikeCopy,
-                                null,
-                                FFAppState().kopioidutLiikkeet.toList(),
-                                null,
-                                null,
-                              );
-                              logFirebaseEvent('TextField_backend_call');
-
-                              final treeniSessiotUpdateData =
-                                  createTreeniSessiotRecordData(
-                                treeniRutiiniData: updateTreeniRutiiniStruct(
-                                  _model.updatedRutiiniCopy,
-                                  clearUnsetFields: false,
-                                ),
-                              );
-                              await widget.treeniSessio!.reference
-                                  .update(treeniSessiotUpdateData);
-
-                              setState(() {});
-                            },
-                          ),
-                          readOnly: true,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            isDense: true,
-                            hintText: FFLocalizations.of(context).getText(
-                              '6kidjlno' /* Kommentti (vapaaehtoinen) */,
-                            ),
-                            hintStyle:
-                                FlutterFlowTheme.of(context).bodySmall.override(
-                                      fontFamily: 'Roboto',
-                                      fontSize: 14.0,
-                                      lineHeight: 1.0,
-                                    ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1.0,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1.0,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            errorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1.0,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            focusedErrorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1.0,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 2.0, 0.0, 2.0),
-                          ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Roboto',
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.normal,
-                                    lineHeight: 1.0,
-                                  ),
-                          textAlign: TextAlign.start,
-                          maxLines: 20,
-                          minLines: 1,
-                          validator: _model.textController2Validator
-                              .asValidator(context),
-                        ),
-                      ),
+                    Text(
+                      widget.liike!.kommentti!,
+                      maxLines: 5,
+                      style: FlutterFlowTheme.of(context).bodyMedium,
+                    ),
                   ],
                 ),
                 Align(
@@ -737,12 +460,8 @@ sarja */
                                                                     widget
                                                                         .liike,
                                                                     null,
-                                                                    _model
-                                                                        .textController1
-                                                                        .text,
-                                                                    _model
-                                                                        .textController2
-                                                                        .text,
+                                                                    null,
+                                                                    null,
                                                                     null,
                                                                     null,
                                                                     null,
@@ -1043,8 +762,8 @@ sarja */
                               await actions.myUpdateLiikeStruct(
                             widget.liike,
                             null,
-                            _model.textController1.text,
-                            _model.textController2.text,
+                            null,
+                            null,
                             null,
                             false,
                             null,
@@ -1128,8 +847,8 @@ sarja */
                                 await actions.myUpdateLiikeStruct(
                               widget.liike,
                               null,
-                              _model.textController1.text,
-                              _model.textController2.text,
+                              null,
+                              null,
                               null,
                               !widget.liike!.tehty!,
                               null,
@@ -1222,8 +941,8 @@ sarja */
             ),
             theme: ExpandableThemeData(
               tapHeaderToExpand: true,
-              tapBodyToExpand: false,
-              tapBodyToCollapse: false,
+              tapBodyToExpand: true,
+              tapBodyToCollapse: true,
               headerAlignment: ExpandablePanelHeaderAlignment.center,
               hasIcon: true,
             ),

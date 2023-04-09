@@ -1,5 +1,6 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/navbar2_widget.dart';
 import '/components/sivupalkki/sivupalkki_widget.dart';
 import '/components/workout_duration_text/workout_duration_text_widget.dart';
 import '/flutter_flow/flutter_flow_ad_banner.dart';
@@ -10,25 +11,21 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/sivu_rutiinit_komponentti/sivu_rutiinit_komponentti_widget.dart';
 import '/pages/sivu_treenaa_komponentti/sivu_treenaa_komponentti_widget.dart';
 import '/pages/sivu_treeni_historia_komponentti/sivu_treeni_historia_komponentti_widget.dart';
-import 'dart:async';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/revenue_cat_util.dart' as revenue_cat;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
 class PaasivuModel extends FlutterFlowModel {
   ///  Local state fields for this page.
 
-  TreeniSessiotRecord? valittuSessioDoc;
+  bool isLatestUnfinnishedWorkout = false;
 
   ///  State fields for stateful widgets in this page.
 
@@ -45,8 +42,8 @@ class PaasivuModel extends FlutterFlowModel {
   TextEditingController? textFieldSeachBarController;
   String? textFieldSeachBarSelectedOption;
   String? Function(BuildContext, String?)? textFieldSeachBarControllerValidator;
-  // State field(s) for LottieAnimation widget.
-  late bool lottieAnimationStatus;
+  // Model for navbar2 component.
+  late Navbar2Model navbar2Model;
   // Model for sivupalkki component.
   late SivupalkkiModel sivupalkkiModel;
 
@@ -61,7 +58,7 @@ class PaasivuModel extends FlutterFlowModel {
         createModel(context, () => SivuTreenaaKomponenttiModel());
     workoutDurationTextModel =
         createModel(context, () => WorkoutDurationTextModel());
-    lottieAnimationStatus =false;
+    navbar2Model = createModel(context, () => Navbar2Model());
     sivupalkkiModel = createModel(context, () => SivupalkkiModel());
   }
 
@@ -70,6 +67,7 @@ class PaasivuModel extends FlutterFlowModel {
     sivuTreeniHistoriaKomponenttiModel.dispose();
     sivuTreenaaOmponenttiModel.dispose();
     workoutDurationTextModel.dispose();
+    navbar2Model.dispose();
     sivupalkkiModel.dispose();
   }
 

@@ -10,7 +10,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:easy_debounce/easy_debounce.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -23,20 +22,6 @@ import 'package:provider/provider.dart';
 class SessioLiikeSarjasModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
-  // State field(s) for TextField widget.
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
-  // Stores action output result for [Custom Action - myUpdateLiikeStruct] action in TextField widget.
-  LiikeStruct? updatedLiike;
-  // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in TextField widget.
-  TreeniRutiiniStruct? updatedRutiini;
-  // State field(s) for TextField widget.
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
-  // Stores action output result for [Custom Action - myUpdateLiikeStruct] action in TextField widget.
-  LiikeStruct? updatedLiikeCopy;
-  // Stores action output result for [Custom Action - myUpdateTreeniRutiiniStruct] action in TextField widget.
-  TreeniRutiiniStruct? updatedRutiiniCopy;
   // Models for otherTypeLiikeFields dynamic component.
   late FlutterFlowDynamicModels<OtherTypeLiikeFieldsModel>
       otherTypeLiikeFieldsModels;
@@ -67,8 +52,6 @@ class SessioLiikeSarjasModel extends FlutterFlowModel {
   }
 
   void dispose() {
-    textController1?.dispose();
-    textController2?.dispose();
     otherTypeLiikeFieldsModels.dispose();
   }
 

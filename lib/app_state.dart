@@ -571,6 +571,12 @@ class FFAppState extends ChangeNotifier {
     _kopioidutLiikkeet.removeAt(_index);
   }
 
+  bool _isLatestUnfinnishedWorkout = false;
+  bool get isLatestUnfinnishedWorkout => _isLatestUnfinnishedWorkout;
+  set isLatestUnfinnishedWorkout(bool _value) {
+    _isLatestUnfinnishedWorkout = _value;
+  }
+
   final _startedWorkoutSessionsManager =
       StreamRequestManager<List<TreeniSessiotRecord>>();
   Stream<List<TreeniSessiotRecord>> startedWorkoutSessions({

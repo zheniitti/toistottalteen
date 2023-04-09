@@ -1153,18 +1153,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // sessioLiikeSarjas
   {
-    'ne064nfk': {
-      'fi': 'Liikkeen nimi',
-      'en': '',
-    },
-    'zts0sgmf': {
-      'fi': '',
-      'en': '',
-    },
-    '6kidjlno': {
-      'fi': 'Kommentti (vapaaehtoinen)',
-      'en': '',
-    },
     'paq49ccg': {
       'fi': 'Toistot',
       'en': '',

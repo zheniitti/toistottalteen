@@ -19,6 +19,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'sessio_model.dart';
 export 'sessio_model.dart';
 
@@ -46,8 +47,8 @@ class _SessioWidgetState extends State<SessioWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 1200.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: 0,
+          end: 1,
         ),
       ],
     ),
@@ -81,7 +82,7 @@ class _SessioWidgetState extends State<SessioWidget>
     return Container(
       width: double.infinity,
       constraints: BoxConstraints(
-        maxWidth: 500.0,
+        maxWidth: 500,
       ),
       decoration: BoxDecoration(
         color: (widget.treeniSessio!.alku == null) ||
@@ -89,311 +90,338 @@ class _SessioWidgetState extends State<SessioWidget>
                 widget.treeniSessio!.isEditing!
             ? FlutterFlowTheme.of(context).activeWidgetBackground
             : FlutterFlowTheme.of(context).inactiveWidgetBackground,
-        borderRadius: BorderRadius.circular(22.0),
+        borderRadius: BorderRadius.circular(22),
       ),
       child: Container(
         width: double.infinity,
-        color: Colors.white,
+        color: Color(0x00000000),
         child: ExpandableNotifier(
           initialExpanded: false,
           child: ExpandablePanel(
             header: Stack(
               children: [
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    if (widget.treeniSessio != null)
-                      Container(
-                        width: double.infinity,
-                        decoration: BoxDecoration(),
-                        child: Wrap(
-                          spacing: 8.0,
-                          runSpacing: 8.0,
-                          alignment: WrapAlignment.start,
-                          crossAxisAlignment: WrapCrossAlignment.start,
-                          direction: Axis.horizontal,
-                          runAlignment: WrapAlignment.start,
-                          verticalDirection: VerticalDirection.down,
-                          clipBehavior: Clip.none,
-                          children: [
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(8, 8, 22, 0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      if (widget.treeniSessio != null)
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
+                          child: Container(
+                            width: double.infinity,
+                            decoration: BoxDecoration(),
+                            child: Wrap(
+                              spacing: 22,
+                              runSpacing: 8,
+                              alignment: WrapAlignment.start,
+                              crossAxisAlignment: WrapCrossAlignment.start,
+                              direction: Axis.horizontal,
+                              runAlignment: WrapAlignment.start,
+                              verticalDirection: VerticalDirection.down,
+                              clipBehavior: Clip.none,
                               children: [
-                                InkWell(
-                                  onTap: () async {
-                                    logFirebaseEvent(
-                                        'SESSIO_COMP_RichText_7vt6koup_ON_TAP');
-                                    logFirebaseEvent(
-                                        'RichText_date_time_picker');
-                                    final _datePicked1Date =
-                                        await showDatePicker(
-                                      context: context,
-                                      initialDate: getCurrentTimestamp,
-                                      firstDate: DateTime(1900),
-                                      lastDate: DateTime(2050),
-                                    );
-
-                                    TimeOfDay? _datePicked1Time;
-                                    if (_datePicked1Date != null) {
-                                      _datePicked1Time = await showTimePicker(
-                                        context: context,
-                                        initialTime: TimeOfDay.fromDateTime(
-                                            getCurrentTimestamp),
-                                      );
-                                    }
-
-                                    if (_datePicked1Date != null &&
-                                        _datePicked1Time != null) {
-                                      setState(() {
-                                        _model.datePicked1 = DateTime(
-                                          _datePicked1Date.year,
-                                          _datePicked1Date.month,
-                                          _datePicked1Date.day,
-                                          _datePicked1Time!.hour,
-                                          _datePicked1Time.minute,
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    InkWell(
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'SESSIO_COMP_RichText_7vt6koup_ON_TAP');
+                                        logFirebaseEvent(
+                                            'RichText_date_time_picker');
+                                        final _datePicked1Date =
+                                            await showDatePicker(
+                                          context: context,
+                                          initialDate: getCurrentTimestamp,
+                                          firstDate: DateTime(1900),
+                                          lastDate: DateTime(2050),
                                         );
-                                      });
-                                    }
-                                    logFirebaseEvent('RichText_backend_call');
 
-                                    final treeniSessiotUpdateData =
-                                        createTreeniSessiotRecordData(
-                                      alku: _model.datePicked1,
-                                    );
-                                    await widget.treeniSessio!.reference
-                                        .update(treeniSessiotUpdateData);
-                                  },
-                                  child: RichText(
-                                    text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                          text: dateTimeFormat(
-                                            'MMMEd',
-                                            widget.treeniSessio!.alku!,
-                                            locale: FFLocalizations.of(context)
-                                                .languageCode,
-                                          ),
-                                          style: TextStyle(),
-                                        ),
-                                        TextSpan(
-                                          text: FFLocalizations.of(context)
-                                              .getText(
-                                            '5jsli42l' /* 
+                                        TimeOfDay? _datePicked1Time;
+                                        if (_datePicked1Date != null) {
+                                          _datePicked1Time =
+                                              await showTimePicker(
+                                            context: context,
+                                            initialTime: TimeOfDay.fromDateTime(
+                                                getCurrentTimestamp),
+                                          );
+                                        }
+
+                                        if (_datePicked1Date != null &&
+                                            _datePicked1Time != null) {
+                                          setState(() {
+                                            _model.datePicked1 = DateTime(
+                                              _datePicked1Date.year,
+                                              _datePicked1Date.month,
+                                              _datePicked1Date.day,
+                                              _datePicked1Time!.hour,
+                                              _datePicked1Time.minute,
+                                            );
+                                          });
+                                        }
+                                        logFirebaseEvent(
+                                            'RichText_backend_call');
+
+                                        final treeniSessiotUpdateData =
+                                            createTreeniSessiotRecordData(
+                                          alku: _model.datePicked1,
+                                        );
+                                        await widget.treeniSessio!.reference
+                                            .update(treeniSessiotUpdateData);
+                                      },
+                                      child: RichText(
+                                        text: TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: dateTimeFormat(
+                                                'd/M/y',
+                                                widget.treeniSessio!.alku!,
+                                                locale:
+                                                    FFLocalizations.of(context)
+                                                        .languageCode,
+                                              ),
+                                              style: TextStyle(),
+                                            ),
+                                            TextSpan(
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                '5jsli42l' /* 
  */
-                                            ,
-                                          ),
-                                          style: TextStyle(),
-                                        ),
-                                        TextSpan(
-                                          text: valueOrDefault<String>(
-                                            dateTimeFormat(
-                                              'Hm',
-                                              widget.treeniSessio!.alku,
-                                              locale:
-                                                  FFLocalizations.of(context)
-                                                      .languageCode,
+                                                ,
+                                              ),
+                                              style: TextStyle(),
                                             ),
-                                            'Ei aloitettu',
-                                          ),
-                                          style: TextStyle(),
-                                        ),
-                                        TextSpan(
-                                          text: FFLocalizations.of(context)
-                                              .getText(
-                                            'w3ztekll' /*  -  */,
-                                          ),
-                                          style: TextStyle(),
-                                        ),
-                                        TextSpan(
-                                          text: valueOrDefault<String>(
-                                            dateTimeFormat(
-                                              'Hm',
-                                              widget.treeniSessio!.loppu,
-                                              locale:
-                                                  FFLocalizations.of(context)
+                                            TextSpan(
+                                              text: valueOrDefault<String>(
+                                                dateTimeFormat(
+                                                  'Hm',
+                                                  widget.treeniSessio!.alku,
+                                                  locale: FFLocalizations.of(
+                                                          context)
                                                       .languageCode,
+                                                ),
+                                                'Ei aloitettu',
+                                              ),
+                                              style: TextStyle(),
                                             ),
-                                            'Ei lopetettu',
-                                          ),
-                                          style: TextStyle(),
-                                        )
-                                      ],
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                            TextSpan(
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                'w3ztekll' /*  -  */,
+                                              ),
+                                              style: TextStyle(),
+                                            ),
+                                            TextSpan(
+                                              text: valueOrDefault<String>(
+                                                dateTimeFormat(
+                                                  'Hm',
+                                                  widget.treeniSessio!.loppu,
+                                                  locale: FFLocalizations.of(
+                                                          context)
+                                                      .languageCode,
+                                                ),
+                                                'Ei lopetettu',
+                                              ),
+                                              style: TextStyle(),
+                                            )
+                                          ],
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
+                                        textAlign: TextAlign.start,
+                                      ),
                                     ),
-                                    textAlign: TextAlign.start,
+                                  ],
+                                ),
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    InkWell(
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'SESSIO_COMP_RichText_mfk9zdp2_ON_TAP');
+                                        logFirebaseEvent(
+                                            'RichText_date_time_picker');
+                                        final _datePicked2Date =
+                                            await showDatePicker(
+                                          context: context,
+                                          initialDate: getCurrentTimestamp,
+                                          firstDate: DateTime(1900),
+                                          lastDate: DateTime(2050),
+                                        );
+
+                                        TimeOfDay? _datePicked2Time;
+                                        if (_datePicked2Date != null) {
+                                          _datePicked2Time =
+                                              await showTimePicker(
+                                            context: context,
+                                            initialTime: TimeOfDay.fromDateTime(
+                                                getCurrentTimestamp),
+                                          );
+                                        }
+
+                                        if (_datePicked2Date != null &&
+                                            _datePicked2Time != null) {
+                                          setState(() {
+                                            _model.datePicked2 = DateTime(
+                                              _datePicked2Date.year,
+                                              _datePicked2Date.month,
+                                              _datePicked2Date.day,
+                                              _datePicked2Time!.hour,
+                                              _datePicked2Time.minute,
+                                            );
+                                          });
+                                        }
+                                        logFirebaseEvent(
+                                            'RichText_backend_call');
+
+                                        final treeniSessiotUpdateData =
+                                            createTreeniSessiotRecordData(
+                                          loppu: _model.datePicked2,
+                                        );
+                                        await widget.treeniSessio!.reference
+                                            .update(treeniSessiotUpdateData);
+                                      },
+                                      child: RichText(
+                                        text: TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                'ydiiiguc' /* Kesto:
+ */
+                                                ,
+                                              ),
+                                              style: TextStyle(),
+                                            ),
+                                            TextSpan(
+                                              text: functions
+                                                  .durationFromStartEnd(
+                                                      widget.treeniSessio!.alku,
+                                                      widget
+                                                          .treeniSessio!.loppu,
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .languageCode),
+                                              style: TextStyle(),
+                                            )
+                                          ],
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
+                                        textAlign: TextAlign.start,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Visibility(
+                                  visible: false,
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      RichText(
+                                        text: TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                'y6vzjpet' /* Liikkeitä:
+ */
+                                                ,
+                                              ),
+                                              style: TextStyle(),
+                                            ),
+                                            TextSpan(
+                                              text: valueOrDefault<String>(
+                                                widget.treeniSessio!
+                                                    .treeniRutiiniData.liikkeet
+                                                    ?.toList()
+                                                    ?.length
+                                                    ?.toString(),
+                                                '0',
+                                              ),
+                                              style: TextStyle(),
+                                            )
+                                          ],
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ],
                             ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                InkWell(
-                                  onTap: () async {
-                                    logFirebaseEvent(
-                                        'SESSIO_COMP_RichText_mfk9zdp2_ON_TAP');
-                                    logFirebaseEvent(
-                                        'RichText_date_time_picker');
-                                    final _datePicked2Date =
-                                        await showDatePicker(
-                                      context: context,
-                                      initialDate: getCurrentTimestamp,
-                                      firstDate: DateTime(1900),
-                                      lastDate: DateTime(2050),
-                                    );
-
-                                    TimeOfDay? _datePicked2Time;
-                                    if (_datePicked2Date != null) {
-                                      _datePicked2Time = await showTimePicker(
-                                        context: context,
-                                        initialTime: TimeOfDay.fromDateTime(
-                                            getCurrentTimestamp),
-                                      );
-                                    }
-
-                                    if (_datePicked2Date != null &&
-                                        _datePicked2Time != null) {
-                                      setState(() {
-                                        _model.datePicked2 = DateTime(
-                                          _datePicked2Date.year,
-                                          _datePicked2Date.month,
-                                          _datePicked2Date.day,
-                                          _datePicked2Time!.hour,
-                                          _datePicked2Time.minute,
-                                        );
-                                      });
-                                    }
-                                    logFirebaseEvent('RichText_backend_call');
-
-                                    final treeniSessiotUpdateData =
-                                        createTreeniSessiotRecordData(
-                                      loppu: _model.datePicked2,
-                                    );
-                                    await widget.treeniSessio!.reference
-                                        .update(treeniSessiotUpdateData);
-                                  },
-                                  child: RichText(
-                                    text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                          text: FFLocalizations.of(context)
-                                              .getText(
-                                            'ydiiiguc' /* Kesto:
- */
-                                            ,
-                                          ),
-                                          style: TextStyle(),
-                                        ),
-                                        TextSpan(
-                                          text: functions.durationFromStartEnd(
-                                              widget.treeniSessio!.alku,
-                                              widget.treeniSessio!.loppu,
-                                              FFLocalizations.of(context)
-                                                  .languageCode),
-                                          style: TextStyle(),
-                                        )
-                                      ],
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
-                                    ),
-                                    textAlign: TextAlign.start,
-                                  ),
-                                ),
-                              ],
+                          ),
+                        ),
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          if (valueOrDefault<bool>(
+                            widget.treeniSessio!.treeniRutiiniData.nimi !=
+                                    null &&
+                                widget.treeniSessio!.treeniRutiiniData.nimi !=
+                                    '',
+                            false,
+                          ))
+                            Text(
+                              widget.treeniSessio!.treeniRutiiniData.nimi!,
+                              style: FlutterFlowTheme.of(context).titleSmall,
                             ),
-                            Visibility(
-                              visible: false,
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
+                          if (widget.treeniSessio!.treeniRutiiniData.nimi ==
+                                  null ||
+                              widget.treeniSessio!.treeniRutiiniData.nimi == '')
+                            RichText(
+                              text: TextSpan(
                                 children: [
-                                  RichText(
-                                    text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                          text: FFLocalizations.of(context)
-                                              .getText(
-                                            'y6vzjpet' /* Liikkeitä:
- */
-                                            ,
-                                          ),
-                                          style: TextStyle(),
-                                        ),
-                                        TextSpan(
-                                          text: valueOrDefault<String>(
-                                            widget.treeniSessio!
-                                                .treeniRutiiniData.liikkeet
-                                                ?.toList()
-                                                ?.length
-                                                ?.toString(),
-                                            '0',
-                                          ),
-                                          style: TextStyle(),
-                                        )
-                                      ],
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                  TextSpan(
+                                    text: dateTimeFormat(
+                                      'EEEE',
+                                      widget.treeniSessio!.alku!,
+                                      locale: FFLocalizations.of(context)
+                                          .languageCode,
                                     ),
-                                    textAlign: TextAlign.center,
+                                    style: TextStyle(),
                                   ),
+                                  TextSpan(
+                                    text: FFLocalizations.of(context).getText(
+                                      'vjrwisv6' /*  treeni */,
+                                    ),
+                                    style:
+                                        FlutterFlowTheme.of(context).titleSmall,
+                                  )
                                 ],
+                                style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
-                          ],
-                        ),
-                      ),
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          widget.treeniSessio!.treeniRutiiniData.nimi!,
-                          style: FlutterFlowTheme.of(context).titleSmall,
-                        ),
-                        if (widget.treeniSessio!.treeniRutiiniData.nimi ==
-                                null ||
-                            widget.treeniSessio!.treeniRutiiniData.nimi == '')
-                          RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: dateTimeFormat(
-                                    'EEEE',
-                                    widget.treeniSessio!.alku!,
-                                    locale: FFLocalizations.of(context)
-                                        .languageCode,
-                                  ),
-                                  style: TextStyle(),
-                                ),
-                                TextSpan(
-                                  text: FFLocalizations.of(context).getText(
-                                    'vjrwisv6' /*  treeni */,
-                                  ),
-                                  style:
-                                      FlutterFlowTheme.of(context).titleSmall,
-                                )
-                              ],
+                          if (widget.treeniSessio!.treeniRutiiniData
+                                      .kommentti !=
+                                  null &&
+                              widget.treeniSessio!.treeniRutiiniData
+                                      .kommentti !=
+                                  '')
+                            SelectionArea(
+                                child: Text(
+                              widget.treeniSessio!.treeniRutiiniData.kommentti!
+                                  .maybeHandleOverflow(
+                                maxChars: 50,
+                                replacement: '…',
+                              ),
                               style: FlutterFlowTheme.of(context).bodyMedium,
-                            ),
-                          ),
-                        SelectionArea(
-                            child: Text(
-                          widget.treeniSessio!.treeniRutiiniData.kommentti!
-                              .maybeHandleOverflow(
-                            maxChars: 50,
-                            replacement: '…',
-                          ),
-                          style: FlutterFlowTheme.of(context).bodyMedium,
-                        )),
-                      ],
-                    ),
-                  ],
+                            )),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(1.0, 0.0),
+                  alignment: AlignmentDirectional(1, 0),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 8.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 6, 8, 0),
                     child: InkWell(
                       onTap: () async {
                         logFirebaseEvent('SESSIO_COMP_Icon_vthfjdmh_ON_TAP');
@@ -419,7 +447,7 @@ class _SessioWidgetState extends State<SessioWidget>
                       child: Icon(
                         Icons.more_vert_rounded,
                         color: Colors.black,
-                        size: 24.0,
+                        size: 24,
                       ),
                     ),
                   ),
@@ -427,20 +455,20 @@ class _SessioWidgetState extends State<SessioWidget>
               ],
             ),
             collapsed: Container(
-              width: 100.0,
-              height: 0.0,
+              width: 100,
+              height: 0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
               ),
             ),
             expanded: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 8.0),
+              padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 8),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Divider(
-                    thickness: 1.0,
+                    thickness: 1,
                   ),
                   Builder(
                     builder: (context) {
@@ -451,6 +479,7 @@ class _SessioWidgetState extends State<SessioWidget>
                           [];
                       return ListView.builder(
                         padding: EdgeInsets.zero,
+                        primary: false,
                         shrinkWrap: true,
                         scrollDirection: Axis.vertical,
                         itemCount: sessionLiikkeet.length,
@@ -519,23 +548,21 @@ class _SessioWidgetState extends State<SessioWidget>
                     ),
                     options: FFButtonOptions(
                       width: double.infinity,
-                      height: 40.0,
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      height: 40,
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                      iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                       color: FlutterFlowTheme.of(context).tertiary,
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Roboto',
                                 color: Colors.white,
                               ),
-                      elevation: 2.0,
+                      elevation: 2,
                       borderSide: BorderSide(
                         color: Colors.transparent,
-                        width: 1.0,
+                        width: 1,
                       ),
-                      borderRadius: BorderRadius.circular(12.0),
+                      borderRadius: BorderRadius.circular(12),
                     ),
                   ),
                 ],

@@ -168,7 +168,8 @@ class _SivuRutiinitKomponenttiWidgetState
                     ),
                     if ((widget.latestSessio != null) &&
                         (widget.latestSessio!.loppu == null) &&
-                        (widget.latestSessio!.alku != null))
+                        (widget.latestSessio!.alku != null) &&
+                        false)
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
