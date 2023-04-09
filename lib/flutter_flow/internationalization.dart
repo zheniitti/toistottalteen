@@ -360,18 +360,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // builder
   {
-    'v217xhtu': {
-      'fi': 'Ylävartalotreeni',
-      'en': 'Upper body workout',
-    },
-    'cfxbyihj': {
-      'fi': 'Aloitettu: ',
-      'en': 'Started: ',
-    },
-    'kyjyqea3': {
-      'fi': '30 min sitten dsltkphklp',
-      'en': '',
-    },
     'u76vj92f': {
       'fi': 'Aloita uusi treeni',
       'en': 'Start a new workout',
@@ -668,9 +656,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Liikkeitä:\n',
       'en': 'Exercises:\n',
     },
-    '40odsxq6': {
-      'fi': 'Muokkaa',
-      'en': 'Edit',
+    'vjrwisv6': {
+      'fi': ' treeni',
+      'en': ' workout',
     },
     'hmew5d0m': {
       'fi': 'Treenaa uudestaan',
@@ -1160,6 +1148,45 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '9fivvb5b': {
       'fi': 'Option 1',
+      'en': '',
+    },
+  },
+  // sessioLiikeSarjas
+  {
+    'ne064nfk': {
+      'fi': 'Liikkeen nimi',
+      'en': '',
+    },
+    'zts0sgmf': {
+      'fi': '',
+      'en': '',
+    },
+    '6kidjlno': {
+      'fi': 'Kommentti (vapaaehtoinen)',
+      'en': '',
+    },
+    'paq49ccg': {
+      'fi': 'Toistot',
+      'en': '',
+    },
+    '0aim9tx5': {
+      'fi': 'Paino (kg)',
+      'en': '',
+    },
+    '0fuvage0': {
+      'fi': '.\nsarja',
+      'en': '',
+    },
+    '0mhrww78': {
+      'fi': 'Tehty',
+      'en': '',
+    },
+    'ipp6f4rc': {
+      'fi': 'Lisää sarja',
+      'en': '',
+    },
+    'uwy0fdd7': {
+      'fi': 'Tehty',
       'en': '',
     },
   },

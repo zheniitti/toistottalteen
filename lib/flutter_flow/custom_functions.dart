@@ -478,7 +478,7 @@ dynamic singleLiikeStats(
 bool isAllSarjaDone(List<SarjaStruct>? sarjaList) {
   if (sarjaList == null || sarjaList.isEmpty) return false;
   for (SarjaStruct sarja in sarjaList) {
-    if (sarja.doneDatetime != null) return false;
+    if (sarja.doneDatetime == null) return false;
   }
   return true;
 }

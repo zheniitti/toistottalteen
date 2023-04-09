@@ -71,6 +71,13 @@ class _$SarjaStructSerializer implements StructuredSerializer<SarjaStruct> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(DateTime)));
     }
+    value = object.isWarmupSet;
+    if (value != null) {
+      result
+        ..add('isWarmupSet')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
@@ -113,6 +120,10 @@ class _$SarjaStructSerializer implements StructuredSerializer<SarjaStruct> {
           result.doneDatetime = serializers.deserialize(value,
               specifiedType: const FullType(DateTime)) as DateTime?;
           break;
+        case 'isWarmupSet':
+          result.isWarmupSet = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
         case 'firestoreUtilData':
           result.firestoreUtilData = serializers.deserialize(value,
                   specifiedType: const FullType(FirestoreUtilData))!
@@ -141,6 +152,8 @@ class _$SarjaStruct extends SarjaStruct {
   @override
   final DateTime? doneDatetime;
   @override
+  final bool? isWarmupSet;
+  @override
   final FirestoreUtilData firestoreUtilData;
 
   factory _$SarjaStruct([void Function(SarjaStructBuilder)? updates]) =>
@@ -154,6 +167,7 @@ class _$SarjaStruct extends SarjaStruct {
       this.createdTime,
       this.modifiedTime,
       this.doneDatetime,
+      this.isWarmupSet,
       required this.firestoreUtilData})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -178,6 +192,7 @@ class _$SarjaStruct extends SarjaStruct {
         createdTime == other.createdTime &&
         modifiedTime == other.modifiedTime &&
         doneDatetime == other.doneDatetime &&
+        isWarmupSet == other.isWarmupSet &&
         firestoreUtilData == other.firestoreUtilData;
   }
 
@@ -191,6 +206,7 @@ class _$SarjaStruct extends SarjaStruct {
     _$hash = $jc(_$hash, createdTime.hashCode);
     _$hash = $jc(_$hash, modifiedTime.hashCode);
     _$hash = $jc(_$hash, doneDatetime.hashCode);
+    _$hash = $jc(_$hash, isWarmupSet.hashCode);
     _$hash = $jc(_$hash, firestoreUtilData.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -206,6 +222,7 @@ class _$SarjaStruct extends SarjaStruct {
           ..add('createdTime', createdTime)
           ..add('modifiedTime', modifiedTime)
           ..add('doneDatetime', doneDatetime)
+          ..add('isWarmupSet', isWarmupSet)
           ..add('firestoreUtilData', firestoreUtilData))
         .toString();
   }
@@ -246,6 +263,10 @@ class SarjaStructBuilder implements Builder<SarjaStruct, SarjaStructBuilder> {
   set doneDatetime(DateTime? doneDatetime) =>
       _$this._doneDatetime = doneDatetime;
 
+  bool? _isWarmupSet;
+  bool? get isWarmupSet => _$this._isWarmupSet;
+  set isWarmupSet(bool? isWarmupSet) => _$this._isWarmupSet = isWarmupSet;
+
   FirestoreUtilData? _firestoreUtilData;
   FirestoreUtilData? get firestoreUtilData => _$this._firestoreUtilData;
   set firestoreUtilData(FirestoreUtilData? firestoreUtilData) =>
@@ -265,6 +286,7 @@ class SarjaStructBuilder implements Builder<SarjaStruct, SarjaStructBuilder> {
       _createdTime = $v.createdTime;
       _modifiedTime = $v.modifiedTime;
       _doneDatetime = $v.doneDatetime;
+      _isWarmupSet = $v.isWarmupSet;
       _firestoreUtilData = $v.firestoreUtilData;
       _$v = null;
     }
@@ -295,6 +317,7 @@ class SarjaStructBuilder implements Builder<SarjaStruct, SarjaStructBuilder> {
             createdTime: createdTime,
             modifiedTime: modifiedTime,
             doneDatetime: doneDatetime,
+            isWarmupSet: isWarmupSet,
             firestoreUtilData: BuiltValueNullFieldError.checkNotNull(
                 firestoreUtilData, r'SarjaStruct', 'firestoreUtilData'));
     replace(_$result);

@@ -19,11 +19,11 @@ class BottomSheetLiikeWidget extends StatefulWidget {
   const BottomSheetLiikeWidget({
     Key? key,
     this.sessioDoc,
-    required this.liikeIndex,
+    this.liikeIndex,
   }) : super(key: key);
 
   final TreeniSessiotRecord? sessioDoc;
-  final int liikeIndex;
+  final int? liikeIndex;
 
   @override
   _BottomSheetLiikeWidgetState createState() => _BottomSheetLiikeWidgetState();

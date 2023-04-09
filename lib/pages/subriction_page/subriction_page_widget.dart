@@ -27,8 +27,7 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
     super.initState();
     _model = createModel(context, () => SubrictionPageModel());
 
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'subrictionPage'});
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'subrictionPage'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -51,8 +50,7 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primary,
-          iconTheme:
-              IconThemeData(color: FlutterFlowTheme.of(context).secondary),
+          iconTheme: IconThemeData(color: FlutterFlowTheme.of(context).secondary),
           automaticallyImplyLeading: true,
           title: Text(
             FFLocalizations.of(context).getText(
@@ -92,8 +90,7 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
@@ -108,8 +105,7 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -125,12 +121,9 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                               unselectedWidgetColor: Color(0xFF95A1AC),
                             ),
                             child: CheckboxListTile(
-                              value: _model.checkboxListTileValue1 ??=
-                                  !revenue_cat.activeEntitlementIds
-                                      .contains('Premium'),
+                              value: _model.checkboxListTileValue1 ??= !revenue_cat.activeEntitlementIds.contains('Premium'),
                               onChanged: (newValue) async {
-                                setState(() =>
-                                    _model.checkboxListTileValue1 = newValue!);
+                                setState(() => _model.checkboxListTileValue1 = newValue!);
                               },
                               title: Text(
                                 FFLocalizations.of(context).getText(
@@ -142,23 +135,18 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                                 FFLocalizations.of(context).getText(
                                   'ddywiwkf' /* Ilmainen */,
                                 ),
-                                style:
-                                    FlutterFlowTheme.of(context).headlineSmall,
+                                style: FlutterFlowTheme.of(context).headlineSmall,
                               ),
-                              tileColor: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
+                              tileColor: FlutterFlowTheme.of(context).primaryBackground,
                               activeColor: FlutterFlowTheme.of(context).primary,
-                              checkColor:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              checkColor: FlutterFlowTheme.of(context).primaryBtnText,
                               dense: false,
                               controlAffinity: ListTileControlAffinity.trailing,
-                              contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 12.0, 0.0),
+                              contentPadding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 24.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 24.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 '3p7287li' /* Sisältää mainokset ja muut raj... */,
@@ -172,8 +160,7 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -187,14 +174,12 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                   child: InkWell(
                     onTap: () async {
                       logFirebaseEvent('SUBRICTION_Container_x1ry4mvr_ON_TAP');
                       logFirebaseEvent('Container_revenue_cat');
-                      final isEntitled =
-                          await revenue_cat.isEntitled('Premium');
+                      final isEntitled = await revenue_cat.isEntitled('Premium');
                       if (isEntitled == null) {
                         return;
                       } else if (!isEntitled) {
@@ -203,12 +188,9 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
 
                       if (!isEntitled) {
                         logFirebaseEvent('Container_revenue_cat');
-                        _model.didPurchase = await revenue_cat.purchasePackage(
-                            revenue_cat
-                                .offerings!.current!.monthly!.identifier);
+                        _model.didPurchase = await revenue_cat.purchasePackage(revenue_cat.offerings!.current!.monthly!.identifier);
                         if (_model.didPurchase!) {
-                          logFirebaseEvent(
-                              'Container_close_dialog,_drawer,_etc');
+                          logFirebaseEvent('Container_close_dialog,_drawer,_etc');
                           Navigator.pop(context);
                           logFirebaseEvent('Container_show_snack_bar');
                           ScaffoldMessenger.of(context).showSnackBar(
@@ -216,13 +198,11 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                               content: Text(
                                 'yee! 😊',
                                 style: TextStyle(
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  color: FlutterFlowTheme.of(context).primaryText,
                                 ),
                               ),
                               duration: Duration(milliseconds: 4000),
-                              backgroundColor:
-                                  FlutterFlowTheme.of(context).secondary,
+                              backgroundColor: FlutterFlowTheme.of(context).secondary,
                             ),
                           );
                         } else {
@@ -232,13 +212,11 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                               content: Text(
                                 'Nooo😬',
                                 style: TextStyle(
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
+                                  color: FlutterFlowTheme.of(context).primaryText,
                                 ),
                               ),
                               duration: Duration(milliseconds: 4000),
-                              backgroundColor:
-                                  FlutterFlowTheme.of(context).secondary,
+                              backgroundColor: FlutterFlowTheme.of(context).secondary,
                             ),
                           );
                         }
@@ -260,8 +238,7 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -277,12 +254,9 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                                 unselectedWidgetColor: Color(0xFF95A1AC),
                               ),
                               child: CheckboxListTile(
-                                value: _model.checkboxListTileValue2 ??=
-                                    revenue_cat.activeEntitlementIds
-                                        .contains('Premium'),
+                                value: _model.checkboxListTileValue2 ??= revenue_cat.activeEntitlementIds.contains('Premium'),
                                 onChanged: (newValue) async {
-                                  setState(() => _model.checkboxListTileValue2 =
-                                      newValue!);
+                                  setState(() => _model.checkboxListTileValue2 = newValue!);
                                 },
                                 title: Text(
                                   FFLocalizations.of(context).getText(
@@ -291,27 +265,19 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                                   style: FlutterFlowTheme.of(context).bodySmall,
                                 ),
                                 subtitle: Text(
-                                  revenue_cat.offerings!.current!.monthly!
-                                      .storeProduct.priceString,
-                                  style: FlutterFlowTheme.of(context)
-                                      .headlineSmall,
+                                  revenue_cat.offerings!.current!.monthly!.storeProduct.priceString,
+                                  style: FlutterFlowTheme.of(context).headlineSmall,
                                 ),
-                                tileColor: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                checkColor:
-                                    FlutterFlowTheme.of(context).primaryBtnText,
+                                tileColor: FlutterFlowTheme.of(context).primaryBackground,
+                                activeColor: FlutterFlowTheme.of(context).primary,
+                                checkColor: FlutterFlowTheme.of(context).primaryBtnText,
                                 dense: false,
-                                controlAffinity:
-                                    ListTileControlAffinity.trailing,
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 12.0, 0.0),
+                                controlAffinity: ListTileControlAffinity.trailing,
+                                contentPadding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 24.0, 0.0),
+                              padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 24.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
                                   'dtagbld2' /* Ei mainoksia, ei muita rajoitu... */,
@@ -326,8 +292,7 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
@@ -342,8 +307,7 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -359,12 +323,9 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                               unselectedWidgetColor: Color(0xFF95A1AC),
                             ),
                             child: CheckboxListTile(
-                              value: _model.checkboxListTileValue3 ??=
-                                  revenue_cat.activeEntitlementIds.contains(
-                                      'toistottalteen_annual:toistottalteen-annual'),
+                              value: _model.checkboxListTileValue3 ??= revenue_cat.activeEntitlementIds.contains('toistottalteen_annual:toistottalteen-annual'),
                               onChanged: (newValue) async {
-                                setState(() =>
-                                    _model.checkboxListTileValue3 = newValue!);
+                                setState(() => _model.checkboxListTileValue3 = newValue!);
                               },
                               title: Text(
                                 FFLocalizations.of(context).getText(
@@ -373,25 +334,19 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                                 style: FlutterFlowTheme.of(context).bodySmall,
                               ),
                               subtitle: Text(
-                                revenue_cat.offerings!.current!.annual!
-                                    .storeProduct.priceString,
-                                style:
-                                    FlutterFlowTheme.of(context).headlineSmall,
+                                'revenue_cat.offerings!.current!.annual.storeProduct.priceString',
+                                style: FlutterFlowTheme.of(context).headlineSmall,
                               ),
-                              tileColor: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
+                              tileColor: FlutterFlowTheme.of(context).primaryBackground,
                               activeColor: FlutterFlowTheme.of(context).primary,
-                              checkColor:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              checkColor: FlutterFlowTheme.of(context).primaryBtnText,
                               dense: false,
                               controlAffinity: ListTileControlAffinity.trailing,
-                              contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 12.0, 0.0),
+                              contentPadding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 24.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 24.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 'bzi4a8ik' /* Ei mainoksia + ei muita rajoit... */,
@@ -405,8 +360,7 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
@@ -421,8 +375,7 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -440,8 +393,7 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                             child: CheckboxListTile(
                               value: _model.checkboxListTileValue4 ??= false,
                               onChanged: (newValue) async {
-                                setState(() =>
-                                    _model.checkboxListTileValue4 = newValue!);
+                                setState(() => _model.checkboxListTileValue4 = newValue!);
                               },
                               title: Text(
                                 FFLocalizations.of(context).getText(
@@ -450,25 +402,19 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                                 style: FlutterFlowTheme.of(context).bodySmall,
                               ),
                               subtitle: Text(
-                                revenue_cat.offerings!.current!.lifetime!
-                                    .storeProduct.priceString,
-                                style:
-                                    FlutterFlowTheme.of(context).headlineSmall,
+                                revenue_cat.offerings!.current!.lifetime!.storeProduct.priceString,
+                                style: FlutterFlowTheme.of(context).headlineSmall,
                               ),
-                              tileColor: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
+                              tileColor: FlutterFlowTheme.of(context).primaryBackground,
                               activeColor: FlutterFlowTheme.of(context).primary,
-                              checkColor:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              checkColor: FlutterFlowTheme.of(context).primaryBtnText,
                               dense: false,
                               controlAffinity: ListTileControlAffinity.trailing,
-                              contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 12.0, 0.0),
+                              contentPadding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 24.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 24.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 'rkeo8bcf' /* Ei mainoksia + ei muita rajoit... */,
@@ -477,8 +423,7 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 24.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 24.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 'gf6voqtu' /* Maksa kerran ja nauti premiumj... */,
@@ -507,17 +452,13 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                         options: FFButtonOptions(
                           width: 270.0,
                           height: 50.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primaryText,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Roboto',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                  ),
+                          textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Roboto',
+                                color: FlutterFlowTheme.of(context).primaryBackground,
+                              ),
                           elevation: 2.0,
                           borderSide: BorderSide(
                             color: Colors.transparent,

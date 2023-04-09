@@ -50,7 +50,8 @@ class _FlutterFlowAdBannerState extends State<FlutterFlowAdBanner> {
   Widget build(BuildContext context) {
     var loadingText = 'Ad Loading... \n\n';
     if (widget.showsTestAd) {
-      loadingText += 'If this takes a long time, you may have to check whether the ad is '
+      loadingText +=
+          'If this takes a long time, you may have to check whether the ad is '
           'being covered from a parent widget. For example, a larger width than '
           'the device screen size or a large border radius encompassing the ad banner '
           'may stop ads from loading.\n\n'
@@ -91,7 +92,9 @@ class _FlutterFlowAdBannerState extends State<FlutterFlowAdBanner> {
           )
         : await AdSize.getAnchoredAdaptiveBannerAdSize(
             widget.width == null ? Orientation.portrait : Orientation.landscape,
-            widget.width == null ? MediaQuery.of(context).size.width.truncate() : MediaQuery.of(context).size.height.truncate(),
+            widget.width == null
+                ? MediaQuery.of(context).size.width.truncate()
+                : MediaQuery.of(context).size.height.truncate(),
           );
 
     if (size == null) {
@@ -126,7 +129,7 @@ class _FlutterFlowAdBannerState extends State<FlutterFlowAdBanner> {
       ),
     );
     try {
-      await banner.load();
+    await banner.load();
     } on Exception catch (e) {
       print('Failed to load banner ad: $e');
     }

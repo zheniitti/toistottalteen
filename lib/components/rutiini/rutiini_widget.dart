@@ -1244,6 +1244,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                           updateCallback: () => setState(() {}),
                           child: RutiininLiikkeetWidget(
                             rutiini: widget.rutiini,
+                            sessioDoc: null,
                           ),
                         ),
                       ),
