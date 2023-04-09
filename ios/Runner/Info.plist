@@ -57,12 +57,19 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
 
 
 	<key>PermissionGroupNotification</key>
     <string>Sovellus tarvitsee luvan lähettää ilmoituksia</string>
 	<key>NSCalendarsUsageDescription</key>
     <string>Lupa käyttää kalenteria tarvitaan, jotta treenien lisääminen kalenteriin onnistuisi.</string>
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>fetch</string>
+        <string>remote-notification</string>
+    </array>
 
 
 	<key>UILaunchStoryboardName</key>

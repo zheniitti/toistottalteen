@@ -21,11 +21,11 @@ class RutiininSarjatToistotKestoMatkaWidget extends StatefulWidget {
   const RutiininSarjatToistotKestoMatkaWidget({
     Key? key,
     this.rutiini,
-    required this.liikeIndex,
+    this.liikeIndex,
   }) : super(key: key);
 
   final TreeniRutiiniStruct? rutiini;
-  final int liikeIndex;
+  final int? liikeIndex;
 
   @override
   _RutiininSarjatToistotKestoMatkaWidgetState createState() =>

@@ -144,7 +144,7 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget>
                                   _model.updatedLiikeFromSwitchOn =
                                       await actions.myUpdateLiikeStruct(
                                     widget.sessioDoc!.treeniRutiiniData.liikkeet
-                                        ?.toList()?[widget.liikeIndex],
+                                        ?.toList()?[widget.liikeIndex!],
                                     null,
                                     null,
                                     null,
@@ -208,7 +208,7 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget>
                                   _model.updatedLiikeFromSwitchOff =
                                       await actions.myUpdateLiikeStruct(
                                     widget.sessioDoc!.treeniRutiiniData.liikkeet
-                                        ?.toList()?[widget.liikeIndex],
+                                        ?.toList()?[widget.liikeIndex!],
                                     null,
                                     null,
                                     null,
@@ -317,7 +317,7 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget>
                         FFAppState().kopioidutLiikkeet = functions
                             .liikeToLiikeJsonList(
                                 widget.sessioDoc!.treeniRutiiniData.liikkeet
-                                    ?.toList()?[widget.liikeIndex],
+                                    ?.toList()?[widget.liikeIndex!],
                                 functions.nullLiikeList()?.toList())!
                             .toList();
                       });
