@@ -631,6 +631,29 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
+  // paasivuWithPageview
+  {
+    '8iscfiix': {
+      'fi': 'Aloita treeni',
+      'en': 'Start workout',
+    },
+    'en8w5iq2': {
+      'fi': 'Option 1',
+      'en': '',
+    },
+    'ngkj2h22': {
+      'fi': 'Lopeta',
+      'en': 'Finish',
+    },
+    '858ldjbd': {
+      'fi': 'Luo treenirutiini',
+      'en': 'Create new routine',
+    },
+    'a1ioybeh': {
+      'fi': 'Treenirutiinit (ohjelmat)',
+      'en': 'Training routines',
+    },
+  },
   // ToistotTalteenText
   {
     'ezf7x56w': {
@@ -1153,6 +1176,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // sessioLiikeSarjas
   {
+    'gl0py1hq': {
+      'fi': 'sarjaa',
+      'en': 'sets',
+    },
     'paq49ccg': {
       'fi': 'Toistot',
       'en': '',
@@ -1171,7 +1198,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ipp6f4rc': {
       'fi': 'Lisää sarja',
-      'en': '',
+      'en': 'Add a set',
     },
     'uwy0fdd7': {
       'fi': 'Tehty',

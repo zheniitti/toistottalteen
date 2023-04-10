@@ -18,7 +18,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-
 import 'sessio_liike_sarjas_model.dart';
 export 'sessio_liike_sarjas_model.dart';
 
@@ -35,10 +34,12 @@ class SessioLiikeSarjasWidget extends StatefulWidget {
   final int? liikeIndexInList;
 
   @override
-  _SessioLiikeSarjasWidgetState createState() => _SessioLiikeSarjasWidgetState();
+  _SessioLiikeSarjasWidgetState createState() =>
+      _SessioLiikeSarjasWidgetState();
 }
 
-class _SessioLiikeSarjasWidgetState extends State<SessioLiikeSarjasWidget> with TickerProviderStateMixin {
+class _SessioLiikeSarjasWidgetState extends State<SessioLiikeSarjasWidget>
+    with TickerProviderStateMixin {
   late SessioLiikeSarjasModel _model;
 
   final animationsMap = {
@@ -49,8 +50,8 @@ class _SessioLiikeSarjasWidgetState extends State<SessioLiikeSarjasWidget> with 
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -61,15 +62,15 @@ class _SessioLiikeSarjasWidgetState extends State<SessioLiikeSarjasWidget> with 
           curve: Curves.elasticOut,
           delay: 1000.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         ScaleEffect(
           curve: Curves.elasticOut,
           delay: 1000.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -80,8 +81,8 @@ class _SessioLiikeSarjasWidgetState extends State<SessioLiikeSarjasWidget> with 
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -92,8 +93,8 @@ class _SessioLiikeSarjasWidgetState extends State<SessioLiikeSarjasWidget> with 
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -146,22 +147,29 @@ class _SessioLiikeSarjasWidgetState extends State<SessioLiikeSarjasWidget> with 
                           style: FlutterFlowTheme.of(context).titleSmall,
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 0.0, 0.0, 0.0),
                           child: Text(
                             valueOrDefault<String>(
-                              widget.liike?.sarjat?.toList()?.length?.toString(),
+                              widget.liike?.sarjat
+                                  ?.toList()
+                                  ?.length
+                                  ?.toString(),
                               '0',
                             ),
                             style: FlutterFlowTheme.of(context).titleSmall,
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              4.0, 0.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               'gl0py1hq' /* sarjaa */,
                             ),
-                            style: FlutterFlowTheme.of(context).titleSmall.override(
+                            style: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
                                   fontFamily: 'Roboto',
                                   fontWeight: FontWeight.normal,
                                 ),
@@ -177,17 +185,19 @@ class _SessioLiikeSarjasWidgetState extends State<SessioLiikeSarjasWidget> with 
                   ],
                 ),
                 Align(
-                  alignment: AlignmentDirectional(1, 0),
+                  alignment: AlignmentDirectional(1.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       if (false)
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              10.0, 10.0, 10.0, 10.0),
                           child: InkWell(
                             onTap: () async {
-                              logFirebaseEvent('SESSIO_LIIKE_SARJAS_Icon_more_ON_TAP');
+                              logFirebaseEvent(
+                                  'SESSIO_LIIKE_SARJAS_Icon_more_ON_TAP');
                               logFirebaseEvent('Icon_more_bottom_sheet');
                               showModalBottomSheet(
                                 isScrollControlled: true,
@@ -195,7 +205,8 @@ class _SessioLiikeSarjasWidgetState extends State<SessioLiikeSarjasWidget> with 
                                 context: context,
                                 builder: (bottomSheetContext) {
                                   return Padding(
-                                    padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                                    padding: MediaQuery.of(bottomSheetContext)
+                                        .viewInsets,
                                     child: BottomSheetLiikeWidget(
                                       sessioDoc: widget.treeniSessio,
                                       liikeIndex: valueOrDefault<int>(
@@ -210,7 +221,7 @@ class _SessioLiikeSarjasWidgetState extends State<SessioLiikeSarjasWidget> with 
                             child: Icon(
                               Icons.more_vert_rounded,
                               color: FlutterFlowTheme.of(context).primary,
-                              size: 24,
+                              size: 24.0,
                             ),
                           ),
                         ),
@@ -220,8 +231,8 @@ class _SessioLiikeSarjasWidgetState extends State<SessioLiikeSarjasWidget> with 
               ],
             ),
             collapsed: Container(
-              width: MediaQuery.of(context).size.width,
-              height: 0,
+              width: MediaQuery.of(context).size.width * 1.0,
+              height: 0.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
               ),
@@ -230,14 +241,15 @@ class _SessioLiikeSarjasWidgetState extends State<SessioLiikeSarjasWidget> with 
               mainAxisSize: MainAxisSize.min,
               children: [
                 Divider(
-                  height: 1,
-                  thickness: 1,
+                  height: 1.0,
+                  thickness: 1.0,
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                   child: Builder(
                     builder: (context) {
-                      final sarjat = widget.liike?.sarjat?.toList()?.toList() ?? [];
+                      final sarjat =
+                          widget.liike?.sarjat?.toList()?.toList() ?? [];
                       return Column(
                         mainAxisSize: MainAxisSize.min,
                         children: List.generate(sarjat.length, (sarjatIndex) {
@@ -245,7 +257,8 @@ class _SessioLiikeSarjasWidgetState extends State<SessioLiikeSarjasWidget> with 
                           return Stack(
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 2),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 2.0),
                                 child: Container(
                                   decoration: BoxDecoration(),
                                   child: Column(
@@ -253,95 +266,142 @@ class _SessioLiikeSarjasWidgetState extends State<SessioLiikeSarjasWidget> with 
                                     children: [
                                       Container(
                                         decoration: BoxDecoration(
-                                          color: sarjatItem.doneDatetime != null ? FlutterFlowTheme.of(context).inactiveWidgetBackground : FlutterFlowTheme.of(context).secondaryBackground,
+                                          color: sarjatItem.doneDatetime != null
+                                              ? FlutterFlowTheme.of(context)
+                                                  .inactiveWidgetBackground
+                                              : FlutterFlowTheme.of(context)
+                                                  .secondaryBackground,
                                         ),
                                         child: Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(0, 3, 0, 3),
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 3.0, 0.0, 3.0),
                                           child: Stack(
-                                            alignment: AlignmentDirectional(0, -1),
+                                            alignment:
+                                                AlignmentDirectional(0.0, -1.0),
                                             children: [
                                               if (valueOrDefault<bool>(
-                                                widget.liike?.isOtherExerciseType,
+                                                widget
+                                                    .liike?.isOtherExerciseType,
                                                 false,
                                               ))
                                                 wrapWithModel(
-                                                  model: _model.otherTypeLiikeFieldsModels.getModel(
-                                                    sarjatItem.createdTime!.toString(),
+                                                  model: _model
+                                                      .otherTypeLiikeFieldsModels
+                                                      .getModel(
+                                                    sarjatItem.createdTime!
+                                                        .toString(),
                                                     sarjatIndex,
                                                   ),
-                                                  updateCallback: () => setState(() {}),
-                                                  child: OtherTypeLiikeFieldsWidget(
+                                                  updateCallback: () =>
+                                                      setState(() {}),
+                                                  child:
+                                                      OtherTypeLiikeFieldsWidget(
                                                     key: Key(
                                                       'Keyp9n_${sarjatItem.createdTime!.toString()}',
                                                     ),
                                                     liike: widget.liike,
                                                     sarja: sarjatItem,
-                                                    liikeIndex: widget.liikeIndexInList,
+                                                    liikeIndex:
+                                                        widget.liikeIndexInList,
                                                     sarjaIndex: sarjatIndex,
-                                                    sessioDoc: widget.treeniSessio,
+                                                    sessioDoc:
+                                                        widget.treeniSessio,
                                                   ),
                                                 ),
                                               if (!valueOrDefault<bool>(
-                                                widget.liike?.isOtherExerciseType,
+                                                widget
+                                                    .liike?.isOtherExerciseType,
                                                 true,
                                               ))
                                                 Wrap(
-                                                  spacing: 8,
-                                                  runSpacing: 4,
+                                                  spacing: 8.0,
+                                                  runSpacing: 4.0,
                                                   alignment: WrapAlignment.end,
-                                                  crossAxisAlignment: WrapCrossAlignment.center,
+                                                  crossAxisAlignment:
+                                                      WrapCrossAlignment.center,
                                                   direction: Axis.horizontal,
-                                                  runAlignment: WrapAlignment.center,
-                                                  verticalDirection: VerticalDirection.down,
+                                                  runAlignment:
+                                                      WrapAlignment.center,
+                                                  verticalDirection:
+                                                      VerticalDirection.down,
                                                   clipBehavior: Clip.none,
                                                   children: [
                                                     Column(
-                                                      mainAxisSize: MainAxisSize.max,
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
                                                       children: [
                                                         Text(
-                                                          FFLocalizations.of(context).getText(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
                                                             'paq49ccg' /* Toistot */,
                                                           ),
-                                                          style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                fontFamily: 'Roboto',
-                                                                color: FlutterFlowTheme.of(context).primary,
-                                                                fontSize: 12,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                                fontSize: 12.0,
                                                               ),
                                                         ),
                                                         Container(
-                                                          width: 100,
-                                                          decoration: BoxDecoration(),
-                                                          child: SarjaToistotTextfieldWidget(
-                                                            key: Key('Keyrhm_${sarjatIndex}_of_${sarjat.length}'),
-                                                            sarjaIndex: sarjatIndex,
-                                                            liikeIndex: widget.liikeIndexInList,
+                                                          width: 100.0,
+                                                          decoration:
+                                                              BoxDecoration(),
+                                                          child:
+                                                              SarjaToistotTextfieldWidget(
+                                                            key: Key(
+                                                                'Keyrhm_${sarjatIndex}_of_${sarjat.length}'),
+                                                            sarjaIndex:
+                                                                sarjatIndex,
+                                                            liikeIndex: widget
+                                                                .liikeIndexInList,
                                                             sarja: sarjatItem,
-                                                            sessioDoc: widget.treeniSessio,
+                                                            sessioDoc: widget
+                                                                .treeniSessio,
                                                           ),
                                                         ),
                                                       ],
                                                     ),
                                                     Column(
-                                                      mainAxisSize: MainAxisSize.max,
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
                                                       children: [
                                                         Text(
-                                                          FFLocalizations.of(context).getText(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
                                                             '0aim9tx5' /* Paino (kg) */,
                                                           ),
-                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                fontFamily: 'Roboto',
-                                                                fontSize: 12,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                fontSize: 12.0,
                                                               ),
                                                         ),
                                                         Container(
-                                                          width: 100,
-                                                          decoration: BoxDecoration(),
-                                                          child: SarjaPainoTextfieldWidget(
-                                                            key: Key('Key1t9_${sarjatIndex}_of_${sarjat.length}'),
-                                                            sarjaIndex: sarjatIndex,
-                                                            liikeIndex: widget.liikeIndexInList,
+                                                          width: 100.0,
+                                                          decoration:
+                                                              BoxDecoration(),
+                                                          child:
+                                                              SarjaPainoTextfieldWidget(
+                                                            key: Key(
+                                                                'Key1t9_${sarjatIndex}_of_${sarjat.length}'),
+                                                            sarjaIndex:
+                                                                sarjatIndex,
+                                                            liikeIndex: widget
+                                                                .liikeIndexInList,
                                                             sarja: sarjatItem,
-                                                            sessioDoc: widget.treeniSessio,
+                                                            sessioDoc: widget
+                                                                .treeniSessio,
                                                           ),
                                                         ),
                                                       ],
@@ -349,52 +409,90 @@ class _SessioLiikeSarjasWidgetState extends State<SessioLiikeSarjasWidget> with 
                                                   ],
                                                 ),
                                               Align(
-                                                alignment: AlignmentDirectional(-1, -1),
+                                                alignment: AlignmentDirectional(
+                                                    -1.0, -1.0),
                                                 child: Row(
-                                                  mainAxisSize: MainAxisSize.min,
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
                                                   children: [
                                                     Column(
-                                                      mainAxisSize: MainAxisSize.min,
-                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
                                                       children: [
                                                         Padding(
-                                                          padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      12.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
                                                           child: RichText(
                                                             text: TextSpan(
                                                               children: [
                                                                 TextSpan(
-                                                                  text: (sarjatIndex + 1).toString(),
-                                                                  style: TextStyle(),
+                                                                  text: (sarjatIndex +
+                                                                          1)
+                                                                      .toString(),
+                                                                  style:
+                                                                      TextStyle(),
                                                                 ),
                                                                 TextSpan(
-                                                                  text: FFLocalizations.of(context).getText(
+                                                                  text: FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
                                                                     '0fuvage0' /* .
 sarja */
                                                                     ,
                                                                   ),
-                                                                  style: TextStyle(),
+                                                                  style:
+                                                                      TextStyle(),
                                                                 )
                                                               ],
-                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                    fontFamily: 'Roboto',
-                                                                    fontSize: 12,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Roboto',
+                                                                    fontSize:
+                                                                        12.0,
                                                                   ),
                                                             ),
-                                                            textAlign: TextAlign.center,
+                                                            textAlign: TextAlign
+                                                                .center,
                                                             maxLines: 2,
                                                           ),
                                                         ),
-                                                        if (!widget.liike!.tehty!)
+                                                        if (!widget
+                                                            .liike!.tehty!)
                                                           Align(
-                                                            alignment: AlignmentDirectional(1, 0),
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    1.0, 0.0),
                                                             child: Padding(
-                                                              padding: EdgeInsetsDirectional.fromSTEB(10, 4, 10, 0),
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          10.0,
+                                                                          4.0,
+                                                                          10.0,
+                                                                          0.0),
                                                               child: InkWell(
-                                                                onTap: () async {
-                                                                  logFirebaseEvent('SESSIO_LIIKE_SARJAS_Icon_ue93p3f9_ON_TAP');
-                                                                  logFirebaseEvent('Icon_custom_action');
-                                                                  _model.updatedLiikeCopy2 = await actions.myUpdateLiikeStruct(
-                                                                    widget.liike,
+                                                                onTap:
+                                                                    () async {
+                                                                  logFirebaseEvent(
+                                                                      'SESSIO_LIIKE_SARJAS_Icon_ue93p3f9_ON_TAP');
+                                                                  logFirebaseEvent(
+                                                                      'Icon_custom_action');
+                                                                  _model.updatedLiikeCopy2 =
+                                                                      await actions
+                                                                          .myUpdateLiikeStruct(
+                                                                    widget
+                                                                        .liike,
                                                                     null,
                                                                     null,
                                                                     null,
@@ -410,12 +508,22 @@ sarja */
                                                                     null,
                                                                     null,
                                                                   );
-                                                                  logFirebaseEvent('Icon_custom_action');
-                                                                  _model.updatedRutiiniCopy2 = await actions.myUpdateTreeniRutiiniStruct(
-                                                                    widget.treeniSessio!.treeniRutiiniData,
+                                                                  logFirebaseEvent(
+                                                                      'Icon_custom_action');
+                                                                  _model.updatedRutiiniCopy2 =
+                                                                      await actions
+                                                                          .myUpdateTreeniRutiiniStruct(
+                                                                    widget
+                                                                        .treeniSessio!
+                                                                        .treeniRutiiniData,
                                                                     null,
                                                                     null,
-                                                                    widget.treeniSessio!.treeniRutiiniData.liikkeet?.toList()?.toList(),
+                                                                    widget
+                                                                        .treeniSessio!
+                                                                        .treeniRutiiniData
+                                                                        .liikkeet
+                                                                        ?.toList()
+                                                                        ?.toList(),
                                                                     null,
                                                                     null,
                                                                     null,
@@ -425,31 +533,49 @@ sarja */
                                                                     null,
                                                                     null,
                                                                     null,
-                                                                    widget.liikeIndexInList,
-                                                                    _model.updatedLiikeCopy2,
+                                                                    widget
+                                                                        .liikeIndexInList,
+                                                                    _model
+                                                                        .updatedLiikeCopy2,
                                                                     null,
-                                                                    functions.emptyJsonList()?.toList(),
+                                                                    functions
+                                                                        .emptyJsonList()
+                                                                        ?.toList(),
                                                                     false,
                                                                     false,
                                                                   );
-                                                                  logFirebaseEvent('Icon_backend_call');
+                                                                  logFirebaseEvent(
+                                                                      'Icon_backend_call');
 
-                                                                  final treeniSessiotUpdateData = createTreeniSessiotRecordData(
-                                                                    treeniRutiiniData: updateTreeniRutiiniStruct(
-                                                                      _model.updatedRutiiniCopy2,
-                                                                      clearUnsetFields: false,
+                                                                  final treeniSessiotUpdateData =
+                                                                      createTreeniSessiotRecordData(
+                                                                    treeniRutiiniData:
+                                                                        updateTreeniRutiiniStruct(
+                                                                      _model
+                                                                          .updatedRutiiniCopy2,
+                                                                      clearUnsetFields:
+                                                                          false,
                                                                     ),
                                                                   );
-                                                                  await widget.treeniSessio!.reference.update(treeniSessiotUpdateData);
+                                                                  await widget
+                                                                      .treeniSessio!
+                                                                      .reference
+                                                                      .update(
+                                                                          treeniSessiotUpdateData);
 
-                                                                  setState(() {});
+                                                                  setState(
+                                                                      () {});
                                                                 },
                                                                 child: Icon(
-                                                                  Icons.remove_circle_rounded,
-                                                                  color: Color(0xFFFF0000),
-                                                                  size: 24,
+                                                                  Icons
+                                                                      .remove_circle_rounded,
+                                                                  color: Color(
+                                                                      0xFFFF0000),
+                                                                  size: 24.0,
                                                                 ),
-                                                              ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation1']!),
+                                                              ).animateOnPageLoad(
+                                                                  animationsMap[
+                                                                      'iconOnPageLoadAnimation1']!),
                                                             ),
                                                           ),
                                                       ],
@@ -458,14 +584,21 @@ sarja */
                                                 ),
                                               ),
                                               Align(
-                                                alignment: AlignmentDirectional(1, 1),
+                                                alignment: AlignmentDirectional(
+                                                    1.0, 1.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional.fromSTEB(0, 12, 12, 0),
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 12.0, 12.0, 0.0),
                                                   child: InkWell(
                                                     onTap: () async {
-                                                      logFirebaseEvent('SESSIO_LIIKE_SARJAS_Row_tkwxd0wu_ON_TAP');
-                                                      logFirebaseEvent('Row_custom_action');
-                                                      _model.updatedSarja = await actions.myUpdateSarja(
+                                                      logFirebaseEvent(
+                                                          'SESSIO_LIIKE_SARJAS_Row_tkwxd0wu_ON_TAP');
+                                                      logFirebaseEvent(
+                                                          'Row_custom_action');
+                                                      _model.updatedSarja =
+                                                          await actions
+                                                              .myUpdateSarja(
                                                         sarjatItem,
                                                         true,
                                                         null,
@@ -473,11 +606,20 @@ sarja */
                                                         null,
                                                         null,
                                                         null,
-                                                        sarjatItem.doneDatetime != null ? null : getCurrentTimestamp,
-                                                        sarjatItem.doneDatetime != null ? true : false,
+                                                        sarjatItem.doneDatetime !=
+                                                                null
+                                                            ? null
+                                                            : getCurrentTimestamp,
+                                                        sarjatItem.doneDatetime !=
+                                                                null
+                                                            ? true
+                                                            : false,
                                                       );
-                                                      logFirebaseEvent('Row_custom_action');
-                                                      _model.updatedLiikeCopy3 = await actions.myUpdateLiikeStruct(
+                                                      logFirebaseEvent(
+                                                          'Row_custom_action');
+                                                      _model.updatedLiikeCopy3 =
+                                                          await actions
+                                                              .myUpdateLiikeStruct(
                                                         widget.liike,
                                                         null,
                                                         null,
@@ -494,12 +636,21 @@ sarja */
                                                         sarjatIndex,
                                                         _model.updatedSarja,
                                                       );
-                                                      logFirebaseEvent('Row_custom_action');
-                                                      _model.updatedRutiiniCopy3 = await actions.myUpdateTreeniRutiiniStruct(
-                                                        widget.treeniSessio!.treeniRutiiniData,
+                                                      logFirebaseEvent(
+                                                          'Row_custom_action');
+                                                      _model.updatedRutiiniCopy3 =
+                                                          await actions
+                                                              .myUpdateTreeniRutiiniStruct(
+                                                        widget.treeniSessio!
+                                                            .treeniRutiiniData,
                                                         null,
                                                         null,
-                                                        widget.treeniSessio!.treeniRutiiniData.liikkeet?.toList()?.toList(),
+                                                        widget
+                                                            .treeniSessio!
+                                                            .treeniRutiiniData
+                                                            .liikkeet
+                                                            ?.toList()
+                                                            ?.toList(),
                                                         null,
                                                         null,
                                                         null,
@@ -510,61 +661,97 @@ sarja */
                                                         null,
                                                         null,
                                                         widget.liikeIndexInList,
-                                                        _model.updatedLiikeCopy3,
+                                                        _model
+                                                            .updatedLiikeCopy3,
                                                         null,
-                                                        functions.emptyJsonList()?.toList(),
+                                                        functions
+                                                            .emptyJsonList()
+                                                            ?.toList(),
                                                         false,
                                                         false,
                                                       );
-                                                      logFirebaseEvent('Row_backend_call');
+                                                      logFirebaseEvent(
+                                                          'Row_backend_call');
 
-                                                      final treeniSessiotUpdateData = createTreeniSessiotRecordData(
-                                                        treeniRutiiniData: updateTreeniRutiiniStruct(
-                                                          _model.updatedRutiiniCopy3,
-                                                          clearUnsetFields: false,
+                                                      final treeniSessiotUpdateData =
+                                                          createTreeniSessiotRecordData(
+                                                        treeniRutiiniData:
+                                                            updateTreeniRutiiniStruct(
+                                                          _model
+                                                              .updatedRutiiniCopy3,
+                                                          clearUnsetFields:
+                                                              false,
                                                         ),
                                                       );
-                                                      await widget.treeniSessio!.reference.update(treeniSessiotUpdateData);
+                                                      await widget.treeniSessio!
+                                                          .reference
+                                                          .update(
+                                                              treeniSessiotUpdateData);
 
                                                       setState(() {});
                                                     },
                                                     child: Row(
-                                                      mainAxisSize: MainAxisSize.min,
-                                                      mainAxisAlignment: MainAxisAlignment.center,
+                                                      mainAxisSize:
+                                                          MainAxisSize.min,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
                                                       children: [
                                                         Column(
-                                                          mainAxisSize: MainAxisSize.min,
+                                                          mainAxisSize:
+                                                              MainAxisSize.min,
                                                           children: [
                                                             Container(
-                                                              width: 30,
-                                                              decoration: BoxDecoration(),
+                                                              width: 30.0,
+                                                              decoration:
+                                                                  BoxDecoration(),
                                                               child: Stack(
-                                                                alignment: AlignmentDirectional(0, 0),
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0.0,
+                                                                        0.0),
                                                                 children: [
-                                                                  if (valueOrDefault<bool>(
-                                                                    sarjatItem.doneDatetime != null,
+                                                                  if (valueOrDefault<
+                                                                      bool>(
+                                                                    sarjatItem
+                                                                            .doneDatetime !=
+                                                                        null,
                                                                     false,
                                                                   ))
                                                                     Icon(
-                                                                      Icons.done_rounded,
-                                                                      color: Colors.black,
-                                                                      size: 20,
-                                                                    ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation2']!),
+                                                                      Icons
+                                                                          .done_rounded,
+                                                                      color: Colors
+                                                                          .black,
+                                                                      size:
+                                                                          20.0,
+                                                                    ).animateOnPageLoad(
+                                                                        animationsMap[
+                                                                            'iconOnPageLoadAnimation2']!),
                                                                   Icon(
-                                                                    Icons.check_box_outline_blank_rounded,
-                                                                    color: Colors.black,
-                                                                    size: 24,
+                                                                    Icons
+                                                                        .check_box_outline_blank_rounded,
+                                                                    color: Colors
+                                                                        .black,
+                                                                    size: 24.0,
                                                                   ),
                                                                 ],
                                                               ),
                                                             ),
                                                             Text(
-                                                              FFLocalizations.of(context).getText(
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
                                                                 '0mhrww78' /* Tehty */,
                                                               ),
-                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                    fontFamily: 'Roboto',
-                                                                    fontSize: 10,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Roboto',
+                                                                    fontSize:
+                                                                        10.0,
                                                                   ),
                                                             ),
                                                           ],
@@ -579,12 +766,13 @@ sarja */
                                         ),
                                       ),
                                       Divider(
-                                        height: 1,
-                                        thickness: 1,
+                                        height: 1.0,
+                                        thickness: 1.0,
                                       ),
                                     ],
                                   ),
-                                ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!),
+                                ).animateOnPageLoad(animationsMap[
+                                    'containerOnPageLoadAnimation']!),
                               ),
                             ],
                           );
@@ -594,16 +782,18 @@ sarja */
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(12, 8, 12, 8),
+                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       InkWell(
                         onTap: () async {
-                          logFirebaseEvent('SESSIO_LIIKE_SARJAS_Row_g8xw87r2_ON_TAP');
+                          logFirebaseEvent(
+                              'SESSIO_LIIKE_SARJAS_Row_g8xw87r2_ON_TAP');
                           logFirebaseEvent('Row_custom_action');
-                          _model.updatedLiikeFromAddSarjaButton = await actions.myUpdateLiikeStruct(
+                          _model.updatedLiikeFromAddSarjaButton =
+                              await actions.myUpdateLiikeStruct(
                             widget.liike,
                             null,
                             null,
@@ -621,11 +811,14 @@ sarja */
                             null,
                           );
                           logFirebaseEvent('Row_custom_action');
-                          _model.updatedRutiiniAddSarjaButton = await actions.myUpdateTreeniRutiiniStruct(
+                          _model.updatedRutiiniAddSarjaButton =
+                              await actions.myUpdateTreeniRutiiniStruct(
                             widget.treeniSessio!.treeniRutiiniData,
                             null,
                             null,
-                            widget.treeniSessio!.treeniRutiiniData.liikkeet?.toList()?.toList(),
+                            widget.treeniSessio!.treeniRutiiniData.liikkeet
+                                ?.toList()
+                                ?.toList(),
                             null,
                             null,
                             null,
@@ -644,13 +837,15 @@ sarja */
                           );
                           logFirebaseEvent('Row_backend_call');
 
-                          final treeniSessiotUpdateData = createTreeniSessiotRecordData(
+                          final treeniSessiotUpdateData =
+                              createTreeniSessiotRecordData(
                             treeniRutiiniData: updateTreeniRutiiniStruct(
                               _model.updatedRutiiniAddSarjaButton,
                               clearUnsetFields: false,
                             ),
                           );
-                          await widget.treeniSessio!.reference.update(treeniSessiotUpdateData);
+                          await widget.treeniSessio!.reference
+                              .update(treeniSessiotUpdateData);
 
                           setState(() {});
                         },
@@ -659,11 +854,12 @@ sarja */
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(4, 0, 4, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  4.0, 0.0, 4.0, 0.0),
                               child: Icon(
                                 Icons.add_circle_outline_rounded,
                                 color: Colors.black,
-                                size: 24,
+                                size: 24.0,
                               ),
                             ),
                             Text(
@@ -678,9 +874,11 @@ sarja */
                       if (false)
                         InkWell(
                           onTap: () async {
-                            logFirebaseEvent('SESSIO_LIIKE_SARJAS_Row_skrd5wxm_ON_TAP');
+                            logFirebaseEvent(
+                                'SESSIO_LIIKE_SARJAS_Row_skrd5wxm_ON_TAP');
                             logFirebaseEvent('Row_custom_action');
-                            _model.updatedLiikeFromTehtyCheckBox = await actions.myUpdateLiikeStruct(
+                            _model.updatedLiikeFromTehtyCheckBox =
+                                await actions.myUpdateLiikeStruct(
                               widget.liike,
                               null,
                               null,
@@ -698,11 +896,14 @@ sarja */
                               null,
                             );
                             logFirebaseEvent('Row_custom_action');
-                            _model.updatedRutiiniTehtyCheckBox = await actions.myUpdateTreeniRutiiniStruct(
+                            _model.updatedRutiiniTehtyCheckBox =
+                                await actions.myUpdateTreeniRutiiniStruct(
                               widget.treeniSessio!.treeniRutiiniData,
                               null,
                               null,
-                              widget.treeniSessio!.treeniRutiiniData.liikkeet?.toList()?.toList(),
+                              widget.treeniSessio!.treeniRutiiniData.liikkeet
+                                  ?.toList()
+                                  ?.toList(),
                               null,
                               null,
                               null,
@@ -721,13 +922,15 @@ sarja */
                             );
                             logFirebaseEvent('Row_backend_call');
 
-                            final treeniSessiotUpdateData = createTreeniSessiotRecordData(
+                            final treeniSessiotUpdateData =
+                                createTreeniSessiotRecordData(
                               treeniRutiiniData: updateTreeniRutiiniStruct(
                                 _model.updatedRutiiniTehtyCheckBox,
                                 clearUnsetFields: false,
                               ),
                             );
-                            await widget.treeniSessio!.reference.update(treeniSessiotUpdateData);
+                            await widget.treeniSessio!.reference
+                                .update(treeniSessiotUpdateData);
 
                             setState(() {});
                           },
@@ -742,21 +945,22 @@ sarja */
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                               Container(
-                                width: 30,
+                                width: 30.0,
                                 decoration: BoxDecoration(),
                                 child: Stack(
-                                  alignment: AlignmentDirectional(0, 0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   children: [
                                     if (widget.liike?.tehty ?? true)
                                       Icon(
                                         Icons.done_rounded,
                                         color: Colors.black,
-                                        size: 20,
-                                      ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation3']!),
+                                        size: 20.0,
+                                      ).animateOnPageLoad(animationsMap[
+                                          'iconOnPageLoadAnimation3']!),
                                     Icon(
                                       Icons.check_box_outline_blank_rounded,
                                       color: Colors.black,
-                                      size: 24,
+                                      size: 24.0,
                                     ),
                                   ],
                                 ),

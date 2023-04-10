@@ -24,3 +24,5 @@ export '/pages/verify_phone_nuber_page/verify_phone_nuber_page_widget.dart'
     show VerifyPhoneNuberPageWidget;
 export '/pages/subriction_page/subriction_page_widget.dart'
     show SubrictionPageWidget;
+export '/pages/paasivu_with_pageview/paasivu_with_pageview_widget.dart'
+    show PaasivuWithPageviewWidget;

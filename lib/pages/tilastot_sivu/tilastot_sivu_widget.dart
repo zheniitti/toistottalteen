@@ -243,23 +243,123 @@ class _TilastotSivuWidgetState extends State<TilastotSivuWidget> {
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    if (valueOrDefault(
-                                            currentUserDocument
-                                                ?.treeniaYhteensa,
-                                            0) >=
-                                        10)
-                                      AuthUserStreamWidget(
-                                        builder: (context) => FaIcon(
-                                          FontAwesomeIcons.trophy,
-                                          color: Colors.black,
-                                          size: 24.0,
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 0.0, 0.0),
+                                      child: Container(
+                                        width: 100.0,
+                                        height: 100.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                        ),
+                                        child: Visibility(
+                                          visible: valueOrDefault(
+                                                  currentUserDocument
+                                                      ?.treeniaYhteensa,
+                                                  0) >=
+                                              10,
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: AuthUserStreamWidget(
+                                              builder: (context) => FaIcon(
+                                                FontAwesomeIcons.trophy,
+                                                color: Colors.black,
+                                                size: 24.0,
+                                              ),
+                                            ),
+                                          ),
                                         ),
                                       ),
+                                    ),
+                                    Container(
+                                      width: 100.0,
+                                      height: 100.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: Visibility(
+                                        visible: valueOrDefault(
+                                                currentUserDocument
+                                                    ?.treeniaYhteensa,
+                                                0) >=
+                                            20,
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: AuthUserStreamWidget(
+                                            builder: (context) => FaIcon(
+                                              FontAwesomeIcons.medal,
+                                              color: Colors.black,
+                                              size: 24.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      width: 100.0,
+                                      height: 100.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: Visibility(
+                                        visible: valueOrDefault(
+                                                currentUserDocument
+                                                    ?.treeniaYhteensa,
+                                                0) >=
+                                            30,
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: AuthUserStreamWidget(
+                                            builder: (context) => FaIcon(
+                                              FontAwesomeIcons.award,
+                                              color: Colors.black,
+                                              size: 24.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      width: 100.0,
+                                      height: 100.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: Visibility(
+                                        visible: valueOrDefault(
+                                                currentUserDocument
+                                                    ?.treeniaYhteensa,
+                                                0) >=
+                                            50,
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: AuthUserStreamWidget(
+                                            builder: (context) => FaIcon(
+                                              FontAwesomeIcons.medapps,
+                                              color: Colors.black,
+                                              size: 24.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),
                             ],
                           ),
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [],
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
