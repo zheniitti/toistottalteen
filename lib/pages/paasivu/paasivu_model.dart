@@ -31,10 +31,10 @@ class PaasivuModel extends FlutterFlowModel {
 
   // Model for sivu_rutiinit_komponentti.
   late SivuRutiinitKomponenttiModel sivuRutiinitKomponenttiModel;
-  // Model for sivu_treeniHistoria_komponentti.
-  late SivuTreeniHistoriaKomponenttiModel sivuTreeniHistoriaKomponenttiModel;
   // Model for sivu_treenaa_omponentti.
   late SivuTreenaaKomponenttiModel sivuTreenaaOmponenttiModel;
+  // Model for sivu_treeniHistoria_komponentti.
+  late SivuTreeniHistoriaKomponenttiModel sivuTreeniHistoriaKomponenttiModel;
   // Model for workoutDurationText component.
   late WorkoutDurationTextModel workoutDurationTextModel;
   // State field(s) for TextField_seachBar widget.
@@ -52,10 +52,10 @@ class PaasivuModel extends FlutterFlowModel {
   void initState(BuildContext context) {
     sivuRutiinitKomponenttiModel =
         createModel(context, () => SivuRutiinitKomponenttiModel());
-    sivuTreeniHistoriaKomponenttiModel =
-        createModel(context, () => SivuTreeniHistoriaKomponenttiModel());
     sivuTreenaaOmponenttiModel =
         createModel(context, () => SivuTreenaaKomponenttiModel());
+    sivuTreeniHistoriaKomponenttiModel =
+        createModel(context, () => SivuTreeniHistoriaKomponenttiModel());
     workoutDurationTextModel =
         createModel(context, () => WorkoutDurationTextModel());
     navbar2Model = createModel(context, () => Navbar2Model());
@@ -64,8 +64,8 @@ class PaasivuModel extends FlutterFlowModel {
 
   void dispose() {
     sivuRutiinitKomponenttiModel.dispose();
-    sivuTreeniHistoriaKomponenttiModel.dispose();
     sivuTreenaaOmponenttiModel.dispose();
+    sivuTreeniHistoriaKomponenttiModel.dispose();
     workoutDurationTextModel.dispose();
     navbar2Model.dispose();
     sivupalkkiModel.dispose();
