@@ -125,7 +125,7 @@ class _Navbar2WidgetState extends State<Navbar2Widget>
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('NAVBAR2_COMP_navbar2_ON_INIT_STATE');
       logFirebaseEvent('navbar2_start_periodic_action');
-      _model.instantTimer = InstantTimer.periodic(
+     /*  _model.instantTimer = InstantTimer.periodic(
         duration: Duration(milliseconds: 1000),
         callback: (timer) async {
           logFirebaseEvent('navbar2_update_app_state');
@@ -147,7 +147,7 @@ class _Navbar2WidgetState extends State<Navbar2Widget>
           });
         },
         startImmediately: true,
-      );
+      ); */
     });
 
     if (!isWeb) {

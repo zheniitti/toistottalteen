@@ -35,8 +35,7 @@ class SessioWidget extends StatefulWidget {
   _SessioWidgetState createState() => _SessioWidgetState();
 }
 
-class _SessioWidgetState extends State<SessioWidget>
-    with TickerProviderStateMixin {
+class _SessioWidgetState extends State<SessioWidget> with TickerProviderStateMixin {
   late SessioModel _model;
 
   final animationsMap = {
@@ -85,12 +84,8 @@ class _SessioWidgetState extends State<SessioWidget>
         maxWidth: 500,
       ),
       decoration: BoxDecoration(
-        color: (widget.treeniSessio!.alku == null) ||
-                (widget.treeniSessio!.loppu == null) ||
-                widget.treeniSessio!.isEditing!
-            ? FlutterFlowTheme.of(context).activeWidgetBackground
-            : FlutterFlowTheme.of(context).inactiveWidgetBackground,
-        borderRadius: BorderRadius.circular(22),
+        color: (widget.treeniSessio!.alku == null) || (widget.treeniSessio!.loppu == null) || widget.treeniSessio!.isEditing! ? FlutterFlowTheme.of(context).activeWidgetBackground : FlutterFlowTheme.of(context).inactiveWidgetBackground,
+        borderRadius: BorderRadius.circular(18),
       ),
       child: Container(
         width: double.infinity,
@@ -127,12 +122,9 @@ class _SessioWidgetState extends State<SessioWidget>
                                   children: [
                                     InkWell(
                                       onTap: () async {
-                                        logFirebaseEvent(
-                                            'SESSIO_COMP_RichText_7vt6koup_ON_TAP');
-                                        logFirebaseEvent(
-                                            'RichText_date_time_picker');
-                                        final _datePicked1Date =
-                                            await showDatePicker(
+                                        logFirebaseEvent('SESSIO_COMP_RichText_7vt6koup_ON_TAP');
+                                        logFirebaseEvent('RichText_date_time_picker');
+                                        final _datePicked1Date = await showDatePicker(
                                           context: context,
                                           initialDate: getCurrentTimestamp,
                                           firstDate: DateTime(1900),
@@ -141,16 +133,13 @@ class _SessioWidgetState extends State<SessioWidget>
 
                                         TimeOfDay? _datePicked1Time;
                                         if (_datePicked1Date != null) {
-                                          _datePicked1Time =
-                                              await showTimePicker(
+                                          _datePicked1Time = await showTimePicker(
                                             context: context,
-                                            initialTime: TimeOfDay.fromDateTime(
-                                                getCurrentTimestamp),
+                                            initialTime: TimeOfDay.fromDateTime(getCurrentTimestamp),
                                           );
                                         }
 
-                                        if (_datePicked1Date != null &&
-                                            _datePicked1Time != null) {
+                                        if (_datePicked1Date != null && _datePicked1Time != null) {
                                           setState(() {
                                             _model.datePicked1 = DateTime(
                                               _datePicked1Date.year,
@@ -161,15 +150,12 @@ class _SessioWidgetState extends State<SessioWidget>
                                             );
                                           });
                                         }
-                                        logFirebaseEvent(
-                                            'RichText_backend_call');
+                                        logFirebaseEvent('RichText_backend_call');
 
-                                        final treeniSessiotUpdateData =
-                                            createTreeniSessiotRecordData(
+                                        final treeniSessiotUpdateData = createTreeniSessiotRecordData(
                                           alku: _model.datePicked1,
                                         );
-                                        await widget.treeniSessio!.reference
-                                            .update(treeniSessiotUpdateData);
+                                        await widget.treeniSessio!.reference.update(treeniSessiotUpdateData);
                                       },
                                       child: RichText(
                                         text: TextSpan(
@@ -178,15 +164,12 @@ class _SessioWidgetState extends State<SessioWidget>
                                               text: dateTimeFormat(
                                                 'd/M/y',
                                                 widget.treeniSessio!.alku!,
-                                                locale:
-                                                    FFLocalizations.of(context)
-                                                        .languageCode,
+                                                locale: FFLocalizations.of(context).languageCode,
                                               ),
                                               style: TextStyle(),
                                             ),
                                             TextSpan(
-                                              text: FFLocalizations.of(context)
-                                                  .getText(
+                                              text: FFLocalizations.of(context).getText(
                                                 '5jsli42l' /* 
  */
                                                 ,
@@ -198,17 +181,14 @@ class _SessioWidgetState extends State<SessioWidget>
                                                 dateTimeFormat(
                                                   'Hm',
                                                   widget.treeniSessio!.alku,
-                                                  locale: FFLocalizations.of(
-                                                          context)
-                                                      .languageCode,
+                                                  locale: FFLocalizations.of(context).languageCode,
                                                 ),
                                                 'Ei aloitettu',
                                               ),
                                               style: TextStyle(),
                                             ),
                                             TextSpan(
-                                              text: FFLocalizations.of(context)
-                                                  .getText(
+                                              text: FFLocalizations.of(context).getText(
                                                 'w3ztekll' /*  -  */,
                                               ),
                                               style: TextStyle(),
@@ -218,17 +198,14 @@ class _SessioWidgetState extends State<SessioWidget>
                                                 dateTimeFormat(
                                                   'Hm',
                                                   widget.treeniSessio!.loppu,
-                                                  locale: FFLocalizations.of(
-                                                          context)
-                                                      .languageCode,
+                                                  locale: FFLocalizations.of(context).languageCode,
                                                 ),
                                                 'Ei lopetettu',
                                               ),
                                               style: TextStyle(),
                                             )
                                           ],
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                          style: FlutterFlowTheme.of(context).bodyMedium,
                                         ),
                                         textAlign: TextAlign.start,
                                       ),
@@ -240,12 +217,9 @@ class _SessioWidgetState extends State<SessioWidget>
                                   children: [
                                     InkWell(
                                       onTap: () async {
-                                        logFirebaseEvent(
-                                            'SESSIO_COMP_RichText_mfk9zdp2_ON_TAP');
-                                        logFirebaseEvent(
-                                            'RichText_date_time_picker');
-                                        final _datePicked2Date =
-                                            await showDatePicker(
+                                        logFirebaseEvent('SESSIO_COMP_RichText_mfk9zdp2_ON_TAP');
+                                        logFirebaseEvent('RichText_date_time_picker');
+                                        final _datePicked2Date = await showDatePicker(
                                           context: context,
                                           initialDate: getCurrentTimestamp,
                                           firstDate: DateTime(1900),
@@ -254,16 +228,13 @@ class _SessioWidgetState extends State<SessioWidget>
 
                                         TimeOfDay? _datePicked2Time;
                                         if (_datePicked2Date != null) {
-                                          _datePicked2Time =
-                                              await showTimePicker(
+                                          _datePicked2Time = await showTimePicker(
                                             context: context,
-                                            initialTime: TimeOfDay.fromDateTime(
-                                                getCurrentTimestamp),
+                                            initialTime: TimeOfDay.fromDateTime(getCurrentTimestamp),
                                           );
                                         }
 
-                                        if (_datePicked2Date != null &&
-                                            _datePicked2Time != null) {
+                                        if (_datePicked2Date != null && _datePicked2Time != null) {
                                           setState(() {
                                             _model.datePicked2 = DateTime(
                                               _datePicked2Date.year,
@@ -274,22 +245,18 @@ class _SessioWidgetState extends State<SessioWidget>
                                             );
                                           });
                                         }
-                                        logFirebaseEvent(
-                                            'RichText_backend_call');
+                                        logFirebaseEvent('RichText_backend_call');
 
-                                        final treeniSessiotUpdateData =
-                                            createTreeniSessiotRecordData(
+                                        final treeniSessiotUpdateData = createTreeniSessiotRecordData(
                                           loppu: _model.datePicked2,
                                         );
-                                        await widget.treeniSessio!.reference
-                                            .update(treeniSessiotUpdateData);
+                                        await widget.treeniSessio!.reference.update(treeniSessiotUpdateData);
                                       },
                                       child: RichText(
                                         text: TextSpan(
                                           children: [
                                             TextSpan(
-                                              text: FFLocalizations.of(context)
-                                                  .getText(
+                                              text: FFLocalizations.of(context).getText(
                                                 'ydiiiguc' /* Kesto:
  */
                                                 ,
@@ -297,19 +264,11 @@ class _SessioWidgetState extends State<SessioWidget>
                                               style: TextStyle(),
                                             ),
                                             TextSpan(
-                                              text: functions
-                                                  .durationFromStartEnd(
-                                                      widget.treeniSessio!.alku,
-                                                      widget
-                                                          .treeniSessio!.loppu,
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .languageCode),
+                                              text: functions.durationFromStartEnd(widget.treeniSessio!.alku, widget.treeniSessio!.loppu, FFLocalizations.of(context).languageCode),
                                               style: TextStyle(),
                                             )
                                           ],
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                          style: FlutterFlowTheme.of(context).bodyMedium,
                                         ),
                                         textAlign: TextAlign.start,
                                       ),
@@ -325,8 +284,7 @@ class _SessioWidgetState extends State<SessioWidget>
                                         text: TextSpan(
                                           children: [
                                             TextSpan(
-                                              text: FFLocalizations.of(context)
-                                                  .getText(
+                                              text: FFLocalizations.of(context).getText(
                                                 'y6vzjpet' /* Liikkeitä:
  */
                                                 ,
@@ -335,18 +293,13 @@ class _SessioWidgetState extends State<SessioWidget>
                                             ),
                                             TextSpan(
                                               text: valueOrDefault<String>(
-                                                widget.treeniSessio!
-                                                    .treeniRutiiniData.liikkeet
-                                                    ?.toList()
-                                                    ?.length
-                                                    ?.toString(),
+                                                widget.treeniSessio!.treeniRutiiniData.liikkeet?.toList()?.length?.toString(),
                                                 '0',
                                               ),
                                               style: TextStyle(),
                                             )
                                           ],
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                          style: FlutterFlowTheme.of(context).bodyMedium,
                                         ),
                                         textAlign: TextAlign.center,
                                       ),
@@ -362,19 +315,14 @@ class _SessioWidgetState extends State<SessioWidget>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           if (valueOrDefault<bool>(
-                            widget.treeniSessio!.treeniRutiiniData.nimi !=
-                                    null &&
-                                widget.treeniSessio!.treeniRutiiniData.nimi !=
-                                    '',
+                            widget.treeniSessio!.treeniRutiiniData.nimi != null && widget.treeniSessio!.treeniRutiiniData.nimi != '',
                             false,
                           ))
                             Text(
                               widget.treeniSessio!.treeniRutiiniData.nimi!,
                               style: FlutterFlowTheme.of(context).titleSmall,
                             ),
-                          if (widget.treeniSessio!.treeniRutiiniData.nimi ==
-                                  null ||
-                              widget.treeniSessio!.treeniRutiiniData.nimi == '')
+                          if (widget.treeniSessio!.treeniRutiiniData.nimi == null || widget.treeniSessio!.treeniRutiiniData.nimi == '')
                             RichText(
                               text: TextSpan(
                                 children: [
@@ -382,8 +330,7 @@ class _SessioWidgetState extends State<SessioWidget>
                                     text: dateTimeFormat(
                                       'EEEE',
                                       widget.treeniSessio!.alku!,
-                                      locale: FFLocalizations.of(context)
-                                          .languageCode,
+                                      locale: FFLocalizations.of(context).languageCode,
                                     ),
                                     style: TextStyle(),
                                   ),
@@ -391,23 +338,16 @@ class _SessioWidgetState extends State<SessioWidget>
                                     text: FFLocalizations.of(context).getText(
                                       'vjrwisv6' /*  treeni */,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).titleSmall,
+                                    style: FlutterFlowTheme.of(context).titleSmall,
                                   )
                                 ],
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
-                          if (widget.treeniSessio!.treeniRutiiniData
-                                      .kommentti !=
-                                  null &&
-                              widget.treeniSessio!.treeniRutiiniData
-                                      .kommentti !=
-                                  '')
+                          if (widget.treeniSessio!.treeniRutiiniData.kommentti != null && widget.treeniSessio!.treeniRutiiniData.kommentti != '')
                             SelectionArea(
                                 child: Text(
-                              widget.treeniSessio!.treeniRutiiniData.kommentti!
-                                  .maybeHandleOverflow(
+                              widget.treeniSessio!.treeniRutiiniData.kommentti!.maybeHandleOverflow(
                                 maxChars: 50,
                                 replacement: '…',
                               ),
@@ -433,11 +373,9 @@ class _SessioWidgetState extends State<SessioWidget>
                           context: context,
                           builder: (bottomSheetContext) {
                             return Padding(
-                              padding:
-                                  MediaQuery.of(bottomSheetContext).viewInsets,
+                              padding: MediaQuery.of(bottomSheetContext).viewInsets,
                               child: BottomSheetRutiiniJaSessioWidget(
-                                rutiiniData:
-                                    widget.treeniSessio!.treeniRutiiniData,
+                                rutiiniData: widget.treeniSessio!.treeniRutiiniData,
                                 treeniSessioDoc: widget.treeniSessio,
                               ),
                             );
@@ -472,11 +410,7 @@ class _SessioWidgetState extends State<SessioWidget>
                   ),
                   Builder(
                     builder: (context) {
-                      final sessionLiikkeet = widget
-                              .treeniSessio!.treeniRutiiniData.liikkeet
-                              ?.toList()
-                              ?.toList() ??
-                          [];
+                      final sessionLiikkeet = widget.treeniSessio!.treeniRutiiniData.liikkeet?.toList()?.toList() ?? [];
                       return ListView.builder(
                         padding: EdgeInsets.zero,
                         primary: false,
@@ -484,8 +418,7 @@ class _SessioWidgetState extends State<SessioWidget>
                         scrollDirection: Axis.vertical,
                         itemCount: sessionLiikkeet.length,
                         itemBuilder: (context, sessionLiikkeetIndex) {
-                          final sessionLiikkeetItem =
-                              sessionLiikkeet[sessionLiikkeetIndex];
+                          final sessionLiikkeetItem = sessionLiikkeet[sessionLiikkeetIndex];
                           return wrapWithModel(
                             model: _model.sessioLiikeSarjasModels.getModel(
                               sessionLiikkeetItem.createdTime!.toString(),
@@ -519,21 +452,16 @@ class _SessioWidgetState extends State<SessioWidget>
                         true,
                         null,
                       );
-                      logFirebaseEvent(
-                          'Button_uudestaan_start_periodic_action');
+                      logFirebaseEvent('Button_uudestaan_start_periodic_action');
                       _model.instantTimer = InstantTimer.periodic(
                         duration: Duration(milliseconds: 100),
                         callback: (timer) async {
-                          if (widget.treeniSessio != null
-                              ? (widget.treeniSessio!.loppu == null)
-                              : false) {
-                            logFirebaseEvent(
-                                'Button_uudestaan_update_app_state');
+                          if (widget.treeniSessio != null ? (widget.treeniSessio!.loppu == null) : false) {
+                            logFirebaseEvent('Button_uudestaan_update_app_state');
                             _model.updatePage(() {
                               FFAppState().navBarIndex = 1;
                             });
-                            logFirebaseEvent(
-                                'Button_uudestaan_stop_periodic_action');
+                            logFirebaseEvent('Button_uudestaan_stop_periodic_action');
                             null?.cancel();
                             return;
                           } else {
@@ -552,11 +480,10 @@ class _SessioWidgetState extends State<SessioWidget>
                       padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                       iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                       color: FlutterFlowTheme.of(context).tertiary,
-                      textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Roboto',
-                                color: Colors.white,
-                              ),
+                      textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                            fontFamily: 'Roboto',
+                            color: Colors.white,
+                          ),
                       elevation: 2,
                       borderSide: BorderSide(
                         color: Colors.transparent,
