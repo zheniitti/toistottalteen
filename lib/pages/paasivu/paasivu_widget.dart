@@ -266,15 +266,38 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                               child: Stack(
                                 children: [
                                   if (FFAppState().navBarIndex == 0)
-                                    Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                    NavigatorPage(
+                                      navigatorKey: navigatorKeys[0]!,
+                                      child: Align(
+                                        alignment: AlignmentDirectional(0.0, 0.0),
+                                        child: wrapWithModel(
+                                          model:
+                                              _model.sivuRutiinitKomponenttiModel,
+                                          updateCallback: () => setState(() {}),
+                                          updateOnChange: true,
+                                          child: SivuRutiinitKomponenttiWidget(
+                                            latestSessio:
+                                                containerQueryLatestSessioTreeniSessiotRecordList
+                                                            .length >
+                                                        0
+                                                    ? containerQueryLatestSessioTreeniSessiotRecordList
+                                                        .first
+                                                    : null,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  if (FFAppState().navBarIndex == 2)
+                                    NavigatorPage(
+                                      navigatorKey: navigatorKeys[1]!,
                                       child: wrapWithModel(
-                                        model:
-                                            _model.sivuRutiinitKomponenttiModel,
+                                        model: _model
+                                            .sivuTreeniHistoriaKomponenttiModel,
                                         updateCallback: () => setState(() {}),
                                         updateOnChange: true,
-                                        child: SivuRutiinitKomponenttiWidget(
-                                          latestSessio:
+                                        child:
+                                            SivuTreeniHistoriaKomponenttiWidget(
+                                          latestSessioStreamDoc:
                                               containerQueryLatestSessioTreeniSessiotRecordList
                                                           .length >
                                                       0
@@ -284,37 +307,23 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                         ),
                                       ),
                                     ),
-                                  if (FFAppState().navBarIndex == 2)
-                                    wrapWithModel(
-                                      model: _model
-                                          .sivuTreeniHistoriaKomponenttiModel,
-                                      updateCallback: () => setState(() {}),
-                                      updateOnChange: true,
-                                      child:
-                                          SivuTreeniHistoriaKomponenttiWidget(
-                                        latestSessioStreamDoc:
-                                            containerQueryLatestSessioTreeniSessiotRecordList
-                                                        .length >
-                                                    0
-                                                ? containerQueryLatestSessioTreeniSessiotRecordList
-                                                    .first
-                                                : null,
-                                      ),
-                                    ),
                                   if ((FFAppState().navBarIndex == 1) ||
                                       FFAppState().showTreenaaTaiLuoRutiiniSivu)
-                                    wrapWithModel(
-                                      model: _model.sivuTreenaaOmponenttiModel,
-                                      updateCallback: () => setState(() {}),
-                                      updateOnChange: true,
-                                      child: SivuTreenaaKomponenttiWidget(
-                                        sessioDoc:
-                                            containerQueryLatestSessioTreeniSessiotRecordList
-                                                        .length >
-                                                    0
-                                                ? containerQueryLatestSessioTreeniSessiotRecordList
-                                                    .first
-                                                : null,
+                                    NavigatorPage(
+                                      navigatorKey: navigatorKeys[2]!,
+                                      child: wrapWithModel(
+                                        model: _model.sivuTreenaaOmponenttiModel,
+                                        updateCallback: () => setState(() {}),
+                                        updateOnChange: true,
+                                        child: SivuTreenaaKomponenttiWidget(
+                                          sessioDoc:
+                                              containerQueryLatestSessioTreeniSessiotRecordList
+                                                          .length >
+                                                      0
+                                                  ? containerQueryLatestSessioTreeniSessiotRecordList
+                                                      .first
+                                                  : null,
+                                        ),
                                       ),
                                     ),
                                 ],
@@ -1081,6 +1090,35 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
               ),
             ),
           ),
+        );
+      },
+    );
+  }
+}
+
+Map<int, GlobalKey> navigatorKeys = {
+    0: GlobalKey(),
+    1: GlobalKey(),
+    2: GlobalKey(),
+  };
+
+class NavigatorPage extends StatelessWidget {
+  NavigatorPage({required this.navigatorKey, required this.child});
+
+  final Widget child;
+  final GlobalKey navigatorKey;
+
+  @override
+  Widget build(BuildContext context) {
+   
+    return Navigator(
+      key: navigatorKey,
+      onGenerateRoute: (RouteSettings settings) {
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (BuildContext context) {
+            return child;
+          },
         );
       },
     );
