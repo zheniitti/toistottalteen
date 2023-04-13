@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "869597166249-ovstcvvili6ds03svv0ofsikn7td6b60.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fi.toistotTalteen",
+            "certificate_hash": "f2eeace8df8e4b7a7f67421e2225d92a5b4faf96"
+          }
+        },
+        {
           "client_id": "869597166249-vraeqo4qobqjuovk7rr4nueqcq507hcv.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

@@ -403,18 +403,22 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                 ),
                 Align(
                   alignment: AlignmentDirectional(-1.0, 0.0),
-                  child: InkWell(
-                    onTap: () async {
-                      logFirebaseEvent('SIVUPALKKI_COMP_Text_4b9wzens_ON_TAP');
-                      logFirebaseEvent('Text_launch_u_r_l');
-                      await launchURL(
-                          'https://sites.google.com/view/toistottalteen-privacypolicy');
-                    },
-                    child: Text(
-                      FFLocalizations.of(context).getText(
-                        '2ttiy67c' /* Tietosuoja ja käyttöehdot */,
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                    child: InkWell(
+                      onTap: () async {
+                        logFirebaseEvent(
+                            'SIVUPALKKI_COMP_Text_4b9wzens_ON_TAP');
+                        logFirebaseEvent('Text_launch_u_r_l');
+                        await launchURL(
+                            'https://sites.google.com/view/toistottalteen-privacypolicy');
+                      },
+                      child: Text(
+                        FFLocalizations.of(context).getText(
+                          '2ttiy67c' /* Tietosuoja ja käyttöehdot */,
+                        ),
+                        style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
-                      style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ),
                 ),

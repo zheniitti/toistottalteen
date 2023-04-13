@@ -482,3 +482,13 @@ bool isAllSarjaDone(List<SarjaStruct>? sarjaList) {
   }
   return true;
 }
+
+List<String> addToStringList(
+  List<String>? list,
+  List<String>? list2,
+) {
+  if (list == null || list2 == null) return [];
+  list2.addAll(list);
+  list2.toSet();
+  return list2;
+}

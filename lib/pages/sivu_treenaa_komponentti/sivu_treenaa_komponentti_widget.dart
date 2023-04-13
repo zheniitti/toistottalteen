@@ -153,7 +153,7 @@ class _SivuTreenaaKomponenttiWidgetState
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 22.0),
                     child: Column(
-                      mainAxisSize: MainAxisSize.max,
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -179,7 +179,7 @@ class _SivuTreenaaKomponenttiWidgetState
                                   [];
                               return Column(
                                 mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: List.generate(rutiininLiikkeet.length,
                                     (rutiininLiikkeetIndex) {
                                   final rutiininLiikkeetItem =

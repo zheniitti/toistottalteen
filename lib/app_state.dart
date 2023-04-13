@@ -94,6 +94,9 @@ class FFAppState extends ChangeNotifier {
     _onCreationUserReference =
         (await secureStorage.getString('ff_onCreationUserReference'))?.ref ??
             _onCreationUserReference;
+    _isAnonymouslyLoggedIn =
+        await secureStorage.getBool('ff_isAnonymouslyLoggedIn') ??
+            _isAnonymouslyLoggedIn;
   }
 
   void update(VoidCallback callback) {
@@ -575,6 +578,17 @@ class FFAppState extends ChangeNotifier {
   bool get isLatestUnfinnishedWorkout => _isLatestUnfinnishedWorkout;
   set isLatestUnfinnishedWorkout(bool _value) {
     _isLatestUnfinnishedWorkout = _value;
+  }
+
+  bool _isAnonymouslyLoggedIn = false;
+  bool get isAnonymouslyLoggedIn => _isAnonymouslyLoggedIn;
+  set isAnonymouslyLoggedIn(bool _value) {
+    _isAnonymouslyLoggedIn = _value;
+    secureStorage.setBool('ff_isAnonymouslyLoggedIn', _value);
+  }
+
+  void deleteIsAnonymouslyLoggedIn() {
+    secureStorage.delete(key: 'ff_isAnonymouslyLoggedIn');
   }
 
   final _startedWorkoutSessionsManager =

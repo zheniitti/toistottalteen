@@ -135,10 +135,12 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('RUTIININ_LIIKKEET_rutiininLiikkeet_ON_IN');
       logFirebaseEvent('rutiininLiikkeet_update_widget_state');
-      _model.isSessio = valueOrDefault<bool>(
-        widget.sessioDoc != null,
-        false,
-      );
+      setState(() {
+        _model.isSessio = valueOrDefault<bool>(
+          widget.sessioDoc != null,
+          false,
+        );
+      });
     });
 
     setupAnimations(
@@ -303,7 +305,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                         liike: liikkeetItem,
                                       ),
                                       Visibility(
-                                        visible: valueOrDefault<bool>(
+                                        visible: !valueOrDefault<bool>(
                                           _model.isSessio,
                                           false,
                                         ),
