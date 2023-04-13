@@ -5,6 +5,7 @@ import '/components/other_type_liike_fields/other_type_liike_fields_widget.dart'
 import '/components/sarja_paino_textfield/sarja_paino_textfield_widget.dart';
 import '/components/sarja_toistot_textfield/sarja_toistot_textfield_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
@@ -177,138 +178,198 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 20.0, 0.0),
-                        child: TextFormField(
-                          controller: _model.textController1,
-                          onChanged: (_) => EasyDebounce.debounce(
-                            '_model.textController1',
-                            Duration(milliseconds: 1000),
-                            () async {
-                              logFirebaseEvent(
-                                  'LIIKE_TREENIN_AIKANA_TextField_fgw8ho34_');
-                              logFirebaseEvent('TextField_custom_action');
-                              _model.updatedLiike =
-                                  await actions.myUpdateLiikeStruct(
-                                widget.liike,
-                                null,
-                                _model.textController1.text,
-                                _model.textController2.text,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null,
-                                false,
-                                null,
-                                null,
-                                null,
-                              );
-                              logFirebaseEvent('TextField_custom_action');
-                              _model.updatedRutiini =
-                                  await actions.myUpdateTreeniRutiiniStruct(
-                                widget.treeniSessio!.treeniRutiiniData,
-                                null,
-                                null,
-                                widget.treeniSessio!.treeniRutiiniData.liikkeet
-                                    ?.toList()
-                                    ?.toList(),
-                                null,
-                                null,
-                                null,
-                                false,
-                                null,
-                                null,
-                                null,
-                                null,
-                                null,
-                                widget.liikeIndexInList,
-                                _model.updatedLiike,
-                                null,
-                                FFAppState().kopioidutLiikkeet.toList(),
-                                false,
-                                false,
-                              );
-                              logFirebaseEvent('TextField_backend_call');
-
-                              final treeniSessiotUpdateData =
-                                  createTreeniSessiotRecordData(
-                                treeniRutiiniData: updateTreeniRutiiniStruct(
-                                  _model.updatedRutiini,
-                                  clearUnsetFields: false,
-                                ),
-                              );
-                              await widget.treeniSessio!.reference
-                                  .update(treeniSessiotUpdateData);
-
-                              setState(() {});
+                        child: AuthUserStreamWidget(
+                          builder: (context) => Autocomplete<String>(
+                            initialValue:
+                                TextEditingValue(text: widget.liike!.nimi!),
+                            optionsBuilder: (textEditingValue) {
+                              if (textEditingValue.text == '') {
+                                return const Iterable<String>.empty();
+                              }
+                              return (currentUserDocument?.liikeNames
+                                          ?.toList() ??
+                                      [])
+                                  .toList()
+                                  .where((option) {
+                                final lowercaseOption = option.toLowerCase();
+                                return lowercaseOption.contains(
+                                    textEditingValue.text.toLowerCase());
+                              });
                             },
-                          ),
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            isDense: true,
-                            hintText: FFLocalizations.of(context).getText(
-                              '29oo50bm' /* Liikkeen nimi */,
-                            ),
-                            hintStyle:
-                                FlutterFlowTheme.of(context).bodySmall.override(
-                                      fontFamily: 'Roboto',
-                                      fontSize: 18.0,
+                            optionsViewBuilder: (context, onSelected, options) {
+                              return AutocompleteOptionsList(
+                                textFieldKey: _model.textFieldKey1,
+                                textController: _model.textController1!,
+                                options: options.toList(),
+                                onSelected: onSelected,
+                                textStyle:
+                                    FlutterFlowTheme.of(context).bodyMedium,
+                                textHighlightStyle: TextStyle(),
+                                elevation: 4.0,
+                                optionBackgroundColor:
+                                    FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                optionHighlightColor:
+                                    FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                maxHeight: 200.0,
+                              );
+                            },
+                            onSelected: (String selection) {
+                              setState(() =>
+                                  _model.textFieldSelectedOption1 = selection);
+                              FocusScope.of(context).unfocus();
+                            },
+                            fieldViewBuilder: (
+                              context,
+                              textEditingController,
+                              focusNode,
+                              onEditingComplete,
+                            ) {
+                              _model.textController1 = textEditingController;
+                              return TextFormField(
+                                key: _model.textFieldKey1,
+                                controller: textEditingController,
+                                focusNode: focusNode,
+                                onEditingComplete: onEditingComplete,
+                                onChanged: (_) => EasyDebounce.debounce(
+                                  '_model.textController1',
+                                  Duration(milliseconds: 1000),
+                                  () async {
+                                    logFirebaseEvent(
+                                        'LIIKE_TREENIN_AIKANA_TextField_fgw8ho34_');
+                                    logFirebaseEvent('TextField_custom_action');
+                                    _model.updatedLiike =
+                                        await actions.myUpdateLiikeStruct(
+                                      widget.liike,
+                                      null,
+                                      _model.textController1.text,
+                                      _model.textController2.text,
+                                      null,
+                                      null,
+                                      null,
+                                      null,
+                                      null,
+                                      null,
+                                      null,
+                                      false,
+                                      null,
+                                      null,
+                                      null,
+                                    );
+                                    logFirebaseEvent('TextField_custom_action');
+                                    _model.updatedRutiini = await actions
+                                        .myUpdateTreeniRutiiniStruct(
+                                      widget.treeniSessio!.treeniRutiiniData,
+                                      null,
+                                      null,
+                                      widget.treeniSessio!.treeniRutiiniData
+                                          .liikkeet
+                                          ?.toList()
+                                          ?.toList(),
+                                      null,
+                                      null,
+                                      null,
+                                      false,
+                                      null,
+                                      null,
+                                      null,
+                                      null,
+                                      null,
+                                      widget.liikeIndexInList,
+                                      _model.updatedLiike,
+                                      null,
+                                      FFAppState().kopioidutLiikkeet.toList(),
+                                      false,
+                                      false,
+                                    );
+                                    logFirebaseEvent('TextField_backend_call');
+
+                                    final treeniSessiotUpdateData =
+                                        createTreeniSessiotRecordData(
+                                      treeniRutiiniData:
+                                          updateTreeniRutiiniStruct(
+                                        _model.updatedRutiini,
+                                        clearUnsetFields: false,
+                                      ),
+                                    );
+                                    await widget.treeniSessio!.reference
+                                        .update(treeniSessiotUpdateData);
+
+                                    setState(() {});
+                                  },
+                                ),
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  isDense: true,
+                                  hintText: FFLocalizations.of(context).getText(
+                                    '29oo50bm' /* Liikkeen nimi */,
+                                  ),
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        fontSize: 18.0,
+                                        lineHeight: 1.0,
+                                      ),
+                                  enabledBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  focusedBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  errorBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  focusedErrorBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0x00000000),
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: const BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                  ),
+                                  contentPadding:
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 2.0),
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .titleMedium
+                                    .override(
+                                      fontFamily: 'Outfit',
                                       lineHeight: 1.0,
                                     ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1.0,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1.0,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            errorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1.0,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            focusedErrorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1.0,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 2.0),
+                                textAlign: TextAlign.start,
+                                maxLines: 5,
+                                minLines: 1,
+                                validator: _model.textController1Validator
+                                    .asValidator(context),
+                              );
+                            },
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).titleMedium.override(
-                                    fontFamily: 'Outfit',
-                                    lineHeight: 1.0,
-                                  ),
-                          textAlign: TextAlign.start,
-                          maxLines: 5,
-                          minLines: 1,
-                          validator: _model.textController1Validator
-                              .asValidator(context),
                         ),
                       ),
                       if (!widget.liike!.tehty! ||
@@ -603,6 +664,44 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
+                                                            '1zpp3lp9' /* Paino (kg) */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                fontSize: 12.0,
+                                                              ),
+                                                        ),
+                                                        Container(
+                                                          width: 100.0,
+                                                          decoration:
+                                                              BoxDecoration(),
+                                                          child:
+                                                              SarjaPainoTextfieldWidget(
+                                                            key: Key(
+                                                                'Key3ik_${sarjatIndex}_of_${sarjat.length}'),
+                                                            sarjaIndex:
+                                                                sarjatIndex,
+                                                            liikeIndex: widget
+                                                                .liikeIndexInList,
+                                                            sarja: sarjatItem,
+                                                            sessioDoc: widget
+                                                                .treeniSessio,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
                                                             'u1j0c71n' /* Toistot */,
                                                           ),
                                                           style: FlutterFlowTheme
@@ -636,44 +735,6 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                                                         ),
                                                       ],
                                                     ),
-                                                    Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            '1zpp3lp9' /* Paino (kg) */,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                fontSize: 12.0,
-                                                              ),
-                                                        ),
-                                                        Container(
-                                                          width: 100.0,
-                                                          decoration:
-                                                              BoxDecoration(),
-                                                          child:
-                                                              SarjaPainoTextfieldWidget(
-                                                            key: Key(
-                                                                'Key3ik_${sarjatIndex}_of_${sarjat.length}'),
-                                                            sarjaIndex:
-                                                                sarjatIndex,
-                                                            liikeIndex: widget
-                                                                .liikeIndexInList,
-                                                            sarja: sarjatItem,
-                                                            sessioDoc: widget
-                                                                .treeniSessio,
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
                                                   ],
                                                 ),
                                               Align(
@@ -688,7 +749,7 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                                                           MainAxisSize.min,
                                                       crossAxisAlignment:
                                                           CrossAxisAlignment
-                                                              .start,
+                                                              .center,
                                                       children: [
                                                         Padding(
                                                           padding:

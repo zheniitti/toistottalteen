@@ -195,7 +195,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                             ),
                                             style: TextStyle(
                                               fontFamily: 'Satoshi',
-                                              color: Color(0xFFD1D1E2),
+                                              color: Color(0xE7FFFFFF),
                                               fontWeight: FontWeight.w500,
                                               fontSize: 25.0,
                                             ),
@@ -217,7 +217,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
                                               fontFamily: 'Satoshi',
-                                              color: Color(0xFFD1D1E2),
+                                              color: Color(0xDFFFFFFF),
                                               fontWeight: FontWeight.w300,
                                               fontSize: 17.0,
                                             ),
@@ -260,7 +260,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                             EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
+                                            .tertiary,
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .override(
@@ -344,8 +344,8 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                     ),
                                     Stack(
                                       children: [
-                                        FFButtonWidget(
-                                          onPressed: () async {
+                                        InkWell(
+                                          onLongPress: () async {
                                             logFirebaseEvent(
                                                 'GET_STARTED_SIVU_JATKA_ILMAN_KIRJAUTUMIS');
                                             if (!_model.pressedAnonymousLogin) {
@@ -365,7 +365,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                               // getPlatform
                                               logFirebaseEvent(
                                                   'Button_getPlatform');
-                                              _model.platformString =
+                                              _model.platformStringCopy2 =
                                                   await actions
                                                       .platformString();
                                               if (columnEsimerkkiDataRecord !=
@@ -382,6 +382,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                                             .languageCode,
                                                     uid: currentUserUid,
                                                     isAnonymous: true,
+                                                    isDebugUser: true,
                                                   ),
                                                   'created_time': FieldValue
                                                       .serverTimestamp(),
@@ -407,6 +408,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                                             .languageCode,
                                                     uid: currentUserUid,
                                                     isAnonymous: true,
+                                                    isDebugUser: true,
                                                   ),
                                                   'created_time': FieldValue
                                                       .serverTimestamp(),
@@ -418,42 +420,122 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                               logFirebaseEvent(
                                                   'Button_navigate_to');
 
-                                              context.pushNamedAuth(
+                                              context.goNamedAuth(
                                                   'paasivu', mounted);
                                             }
 
                                             setState(() {});
                                           },
-                                          text: FFLocalizations.of(context)
-                                              .getText(
-                                            'm7gpe2ik' /* Jatka ilman kirjautumista */,
-                                          ),
-                                          options: FFButtonOptions(
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: Color(0x0014181B),
-                                            textStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .titleMedium
-                                                .override(
-                                                  fontFamily: 'Outfit',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondary,
-                                                  fontSize: 20.0,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                            borderSide: BorderSide(
-                                              color: Colors.transparent,
-                                              width: 1.0,
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              logFirebaseEvent(
+                                                  'GET_STARTED_SIVU_JATKA_ILMAN_KIRJAUTUMIS');
+                                              if (!_model
+                                                  .pressedAnonymousLogin) {
+                                                logFirebaseEvent(
+                                                    'Button_update_widget_state');
+                                                _model.pressedAnonymousLogin =
+                                                    false;
+                                                logFirebaseEvent('Button_auth');
+                                                GoRouter.of(context)
+                                                    .prepareAuthEvent();
+                                                final user =
+                                                    await signInAnonymously(
+                                                        context);
+                                                if (user == null) {
+                                                  return;
+                                                }
+                                                // getPlatform
+                                                logFirebaseEvent(
+                                                    'Button_getPlatform');
+                                                _model.platformString =
+                                                    await actions
+                                                        .platformString();
+                                                if (columnEsimerkkiDataRecord !=
+                                                    null) {
+                                                  // updateUsersRecord
+                                                  logFirebaseEvent(
+                                                      'Button_updateUsersRecord');
+
+                                                  final usersUpdateData1 = {
+                                                    ...createUsersRecordData(
+                                                      appLangCode:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                      uid: currentUserUid,
+                                                      isAnonymous: true,
+                                                    ),
+                                                    'created_time': FieldValue
+                                                        .serverTimestamp(),
+                                                    'treeniRutiinit':
+                                                        getTreeniRutiiniListFirestoreData(
+                                                      columnEsimerkkiDataRecord!
+                                                          .esimerkkiRutiinit!
+                                                          .toList(),
+                                                    ),
+                                                  };
+                                                  await currentUserReference!
+                                                      .update(usersUpdateData1);
+                                                } else {
+                                                  // updateUsersRecord
+                                                  logFirebaseEvent(
+                                                      'Button_updateUsersRecord');
+
+                                                  final usersUpdateData2 = {
+                                                    ...createUsersRecordData(
+                                                      appLangCode:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                      uid: currentUserUid,
+                                                      isAnonymous: true,
+                                                    ),
+                                                    'created_time': FieldValue
+                                                        .serverTimestamp(),
+                                                  };
+                                                  await currentUserReference!
+                                                      .update(usersUpdateData2);
+                                                }
+
+                                                logFirebaseEvent(
+                                                    'Button_navigate_to');
+
+                                                context.goNamedAuth(
+                                                    'paasivu', mounted);
+                                              }
+
+                                              setState(() {});
+                                            },
+                                            text: FFLocalizations.of(context)
+                                                .getText(
+                                              'm7gpe2ik' /* Jatka ilman kirjautumista */,
                                             ),
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
+                                            options: FFButtonOptions(
+                                              height: 40.0,
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color: Color(0x0014181B),
+                                              textStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleMedium
+                                                  .override(
+                                                    fontFamily: 'Outfit',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondary,
+                                                    fontSize: 20.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
                                           ),
                                         ),
                                       ],

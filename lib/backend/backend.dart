@@ -9,6 +9,7 @@ import 'schema/users_record.dart';
 import 'schema/app_config_record.dart';
 import 'schema/treeni_sessiot_record.dart';
 import 'schema/esimerkki_data_record.dart';
+import 'schema/feedbacks_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -20,6 +21,7 @@ export 'schema/users_record.dart';
 export 'schema/app_config_record.dart';
 export 'schema/treeni_sessiot_record.dart';
 export 'schema/esimerkki_data_record.dart';
+export 'schema/feedbacks_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -223,6 +225,58 @@ Future<FFFirestorePage<EsimerkkiDataRecord>> queryEsimerkkiDataRecordPage({
     queryCollectionPage(
       EsimerkkiDataRecord.collection,
       EsimerkkiDataRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query FeedbacksRecords (as a Stream and as a Future).
+Future<int> queryFeedbacksRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      FeedbacksRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<FeedbacksRecord>> queryFeedbacksRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      FeedbacksRecord.collection,
+      FeedbacksRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<FeedbacksRecord>> queryFeedbacksRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      FeedbacksRecord.collection,
+      FeedbacksRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<FeedbacksRecord>> queryFeedbacksRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      FeedbacksRecord.collection,
+      FeedbacksRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

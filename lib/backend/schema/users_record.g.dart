@@ -130,6 +130,13 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
             specifiedType:
                 const FullType(BuiltList, const [const FullType(String)])));
     }
+    value = object.isDebugUser;
+    if (value != null) {
+      result
+        ..add('isDebugUser')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -223,6 +230,10 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
                       BuiltList, const [const FullType(String)]))!
               as BuiltList<Object?>);
           break;
+        case 'isDebugUser':
+          result.isDebugUser = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -270,6 +281,8 @@ class _$UsersRecord extends UsersRecord {
   @override
   final BuiltList<String>? liikeNames;
   @override
+  final bool? isDebugUser;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$UsersRecord([void Function(UsersRecordBuilder)? updates]) =>
@@ -292,6 +305,7 @@ class _$UsersRecord extends UsersRecord {
       this.treeniaYhteensa,
       this.isAnonymous,
       this.liikeNames,
+      this.isDebugUser,
       this.ffRef})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -325,6 +339,7 @@ class _$UsersRecord extends UsersRecord {
         treeniaYhteensa == other.treeniaYhteensa &&
         isAnonymous == other.isAnonymous &&
         liikeNames == other.liikeNames &&
+        isDebugUser == other.isDebugUser &&
         ffRef == other.ffRef;
   }
 
@@ -347,6 +362,7 @@ class _$UsersRecord extends UsersRecord {
     _$hash = $jc(_$hash, treeniaYhteensa.hashCode);
     _$hash = $jc(_$hash, isAnonymous.hashCode);
     _$hash = $jc(_$hash, liikeNames.hashCode);
+    _$hash = $jc(_$hash, isDebugUser.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -371,6 +387,7 @@ class _$UsersRecord extends UsersRecord {
           ..add('treeniaYhteensa', treeniaYhteensa)
           ..add('isAnonymous', isAnonymous)
           ..add('liikeNames', liikeNames)
+          ..add('isDebugUser', isDebugUser)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -455,6 +472,10 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   set liikeNames(ListBuilder<String>? liikeNames) =>
       _$this._liikeNames = liikeNames;
 
+  bool? _isDebugUser;
+  bool? get isDebugUser => _$this._isDebugUser;
+  set isDebugUser(bool? isDebugUser) => _$this._isDebugUser = isDebugUser;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -482,6 +503,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _treeniaYhteensa = $v.treeniaYhteensa;
       _isAnonymous = $v.isAnonymous;
       _liikeNames = $v.liikeNames?.toBuilder();
+      _isDebugUser = $v.isDebugUser;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -523,6 +545,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
               treeniaYhteensa: treeniaYhteensa,
               isAnonymous: isAnonymous,
               liikeNames: _liikeNames?.build(),
+              isDebugUser: isDebugUser,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;

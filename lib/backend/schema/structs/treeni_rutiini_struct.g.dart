@@ -78,6 +78,14 @@ class _$TreeniRutiiniStructSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(DateTime)));
     }
+    value = object.liikeNames;
+    if (value != null) {
+      result
+        ..add('liikeNames')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
     return result;
   }
 
@@ -128,6 +136,12 @@ class _$TreeniRutiiniStructSerializer
           result.modifiedTime = serializers.deserialize(value,
               specifiedType: const FullType(DateTime)) as DateTime?;
           break;
+        case 'liikeNames':
+          result.liikeNames.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
+              as BuiltList<Object?>);
+          break;
         case 'firestoreUtilData':
           result.firestoreUtilData = serializers.deserialize(value,
                   specifiedType: const FullType(FirestoreUtilData))!
@@ -158,6 +172,8 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
   @override
   final DateTime? modifiedTime;
   @override
+  final BuiltList<String>? liikeNames;
+  @override
   final FirestoreUtilData firestoreUtilData;
 
   factory _$TreeniRutiiniStruct(
@@ -173,6 +189,7 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
       this.finishedEditing,
       required this.valitutViikonPaivat,
       this.modifiedTime,
+      this.liikeNames,
       required this.firestoreUtilData})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -204,6 +221,7 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
         finishedEditing == other.finishedEditing &&
         valitutViikonPaivat == other.valitutViikonPaivat &&
         modifiedTime == other.modifiedTime &&
+        liikeNames == other.liikeNames &&
         firestoreUtilData == other.firestoreUtilData;
   }
 
@@ -218,6 +236,7 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
     _$hash = $jc(_$hash, finishedEditing.hashCode);
     _$hash = $jc(_$hash, valitutViikonPaivat.hashCode);
     _$hash = $jc(_$hash, modifiedTime.hashCode);
+    _$hash = $jc(_$hash, liikeNames.hashCode);
     _$hash = $jc(_$hash, firestoreUtilData.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -234,6 +253,7 @@ class _$TreeniRutiiniStruct extends TreeniRutiiniStruct {
           ..add('finishedEditing', finishedEditing)
           ..add('valitutViikonPaivat', valitutViikonPaivat)
           ..add('modifiedTime', modifiedTime)
+          ..add('liikeNames', liikeNames)
           ..add('firestoreUtilData', firestoreUtilData))
         .toString();
   }
@@ -283,6 +303,12 @@ class TreeniRutiiniStructBuilder
   set modifiedTime(DateTime? modifiedTime) =>
       _$this._modifiedTime = modifiedTime;
 
+  ListBuilder<String>? _liikeNames;
+  ListBuilder<String> get liikeNames =>
+      _$this._liikeNames ??= new ListBuilder<String>();
+  set liikeNames(ListBuilder<String>? liikeNames) =>
+      _$this._liikeNames = liikeNames;
+
   FirestoreUtilData? _firestoreUtilData;
   FirestoreUtilData? get firestoreUtilData => _$this._firestoreUtilData;
   set firestoreUtilData(FirestoreUtilData? firestoreUtilData) =>
@@ -303,6 +329,7 @@ class TreeniRutiiniStructBuilder
       _finishedEditing = $v.finishedEditing;
       _valitutViikonPaivat = $v.valitutViikonPaivat.toBuilder();
       _modifiedTime = $v.modifiedTime;
+      _liikeNames = $v.liikeNames?.toBuilder();
       _firestoreUtilData = $v.firestoreUtilData;
       _$v = null;
     }
@@ -336,6 +363,7 @@ class TreeniRutiiniStructBuilder
               finishedEditing: finishedEditing,
               valitutViikonPaivat: valitutViikonPaivat.build(),
               modifiedTime: modifiedTime,
+              liikeNames: _liikeNames?.build(),
               firestoreUtilData: BuiltValueNullFieldError.checkNotNull(
                   firestoreUtilData,
                   r'TreeniRutiiniStruct',
@@ -348,6 +376,9 @@ class TreeniRutiiniStructBuilder
 
         _$failedField = 'valitutViikonPaivat';
         valitutViikonPaivat.build();
+
+        _$failedField = 'liikeNames';
+        _liikeNames?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'TreeniRutiiniStruct', _$failedField, e.toString());

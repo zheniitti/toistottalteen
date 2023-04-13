@@ -4,10 +4,8 @@ import '/components/ad_banner_padding/ad_banner_padding_widget.dart';
 import '/components/button_luo_rutiini/button_luo_rutiini_widget.dart';
 import '/components/keskenerainen_treeni_komponentti/keskenerainen_treeni_komponentti_widget.dart';
 import '/components/rutiini/rutiini_widget.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +63,7 @@ class _SivuRutiinitKomponenttiWidgetState
       ),
       child: SingleChildScrollView(
         child: Column(
-          mainAxisSize: MainAxisSize.max,
+          mainAxisSize: MainAxisSize.min,
           children: [
             wrapWithModel(
               model: _model.adBannerPaddingModel,
@@ -83,86 +81,15 @@ class _SivuRutiinitKomponenttiWidgetState
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
-                      child: SingleChildScrollView(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 30.0),
-                                child: wrapWithModel(
-                                  model: _model.buttonLuoRutiiniModel,
-                                  updateCallback: () => setState(() {}),
-                                  child: ButtonLuoRutiiniWidget(),
-                                ),
-                              ),
-                            ),
-                            if (false)
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 30.0),
-                                child: Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.8,
-                                  height: 70.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  child: AuthUserStreamWidget(
-                                    builder: (context) =>
-                                        FlutterFlowDropDown<String>(
-                                      controller: _model.dropDownController ??=
-                                          FormFieldController<String>(null),
-                                      options: functions
-                                          .mapRutiiniNimet((currentUserDocument
-                                                      ?.treeniRutiinit
-                                                      ?.toList() ??
-                                                  [])
-                                              .toList())
-                                          .toList(),
-                                      onChanged: (val) => setState(
-                                          () => _model.dropDownValue = val),
-                                      width: 180.0,
-                                      height: 50.0,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall,
-                                      hintText:
-                                          FFLocalizations.of(context).getText(
-                                        '68nw3eu6' /* Valitse treenirutiini */,
-                                      ),
-                                      elevation: 2.0,
-                                      borderColor: Colors.transparent,
-                                      borderWidth: 0.0,
-                                      borderRadius: 0.0,
-                                      margin: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 4.0, 12.0, 4.0),
-                                      hidesUnderline: true,
-                                      isSearchable: false,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            if ((currentUserDocument?.treeniRutiinit
-                                            ?.toList() ??
-                                        [])
-                                    .length ==
-                                0)
-                              AuthUserStreamWidget(
-                                builder: (context) => Container(
-                                  width: 100.0,
-                                  height: 250.0,
-                                  decoration: BoxDecoration(),
-                                ),
-                              ),
-                          ],
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 50.0, 0.0, 30.0),
+                        child: wrapWithModel(
+                          model: _model.buttonLuoRutiiniModel,
+                          updateCallback: () => setState(() {}),
+                          child: ButtonLuoRutiiniWidget(),
                         ),
                       ),
                     ),

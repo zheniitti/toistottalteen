@@ -9,6 +9,7 @@ part of 'serializers.dart';
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(AppConfigRecord.serializer)
       ..add(EsimerkkiDataRecord.serializer)
+      ..add(FeedbacksRecord.serializer)
       ..add(LiikeStruct.serializer)
       ..add(SarjaStruct.serializer)
       ..add(TreeniRutiiniStruct.serializer)
@@ -20,8 +21,14 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(LiikeStruct)]),
           () => new ListBuilder<LiikeStruct>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(SarjaStruct)]),
           () => new ListBuilder<SarjaStruct>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())

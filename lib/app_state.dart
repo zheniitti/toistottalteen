@@ -91,12 +91,6 @@ class FFAppState extends ChangeNotifier {
             _testLatLng;
     _isCreatingRutiini = await secureStorage.getBool('ff_isCreatingRutiini') ??
         _isCreatingRutiini;
-    _onCreationUserReference =
-        (await secureStorage.getString('ff_onCreationUserReference'))?.ref ??
-            _onCreationUserReference;
-    _isAnonymouslyLoggedIn =
-        await secureStorage.getBool('ff_isAnonymouslyLoggedIn') ??
-            _isAnonymouslyLoggedIn;
   }
 
   void update(VoidCallback callback) {
@@ -543,19 +537,6 @@ class FFAppState extends ChangeNotifier {
     _valittuMuokattavaLiikeIndex = _value;
   }
 
-  DocumentReference? _onCreationUserReference;
-  DocumentReference? get onCreationUserReference => _onCreationUserReference;
-  set onCreationUserReference(DocumentReference? _value) {
-    _onCreationUserReference = _value;
-    _value != null
-        ? secureStorage.setString('ff_onCreationUserReference', _value.path)
-        : secureStorage.remove('ff_onCreationUserReference');
-  }
-
-  void deleteOnCreationUserReference() {
-    secureStorage.delete(key: 'ff_onCreationUserReference');
-  }
-
   List<dynamic> _kopioidutLiikkeet = [];
   List<dynamic> get kopioidutLiikkeet => _kopioidutLiikkeet;
   set kopioidutLiikkeet(List<dynamic> _value) {
@@ -580,15 +561,10 @@ class FFAppState extends ChangeNotifier {
     _isLatestUnfinnishedWorkout = _value;
   }
 
-  bool _isAnonymouslyLoggedIn = false;
-  bool get isAnonymouslyLoggedIn => _isAnonymouslyLoggedIn;
-  set isAnonymouslyLoggedIn(bool _value) {
-    _isAnonymouslyLoggedIn = _value;
-    secureStorage.setBool('ff_isAnonymouslyLoggedIn', _value);
-  }
-
-  void deleteIsAnonymouslyLoggedIn() {
-    secureStorage.delete(key: 'ff_isAnonymouslyLoggedIn');
+  DocumentReference? _anonymousUserRef;
+  DocumentReference? get anonymousUserRef => _anonymousUserRef;
+  set anonymousUserRef(DocumentReference? _value) {
+    _anonymousUserRef = _value;
   }
 
   final _startedWorkoutSessionsManager =

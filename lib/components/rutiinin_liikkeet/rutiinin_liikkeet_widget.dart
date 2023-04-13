@@ -404,25 +404,6 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                             ),
                                                       ),
                                                       TextSpan(
-                                                        text:
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                          'sqgnk84v' /*  sarjaa */,
-                                                        ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Roboto',
-                                                              fontSize: 14.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w300,
-                                                            ),
-                                                      ),
-                                                      TextSpan(
                                                         text: ' x ',
                                                         style: FlutterFlowTheme
                                                                 .of(context)
@@ -448,45 +429,6 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                                                       FontWeight
                                                                           .w500,
                                                                 ),
-                                                      ),
-                                                      TextSpan(
-                                                        text:
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                          '5aat8tgq' /*  toistoa   */,
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w300,
-                                                                ),
-                                                      ),
-                                                      TextSpan(
-                                                        text: liikkeetItem
-                                                            .aloitusPainoKg!
-                                                            .toString(),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                      ),
-                                                      TextSpan(
-                                                        text: ' kg',
-                                                        style: TextStyle(),
                                                       )
                                                     ],
                                                     style: FlutterFlowTheme.of(

@@ -654,6 +654,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Training routines',
     },
   },
+  // FeedbackPage
+  {
+    '8tcwvc8s': {
+      'fi': 'Type here to respond...',
+      'en': '',
+    },
+    'g8jwin03': {
+      'fi': 'Lähetä',
+      'en': 'Send',
+    },
+    '69s07yb4': {
+      'fi': 'Palautteet',
+      'en': 'Feedback',
+    },
+    'nxkp7745': {
+      'fi': 'Home',
+      'en': '',
+    },
+  },
   // ToistotTalteenText
   {
     'ezf7x56w': {
@@ -724,6 +743,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Liikkeen nimi',
       'en': 'Excercise name',
     },
+    'hijwa5p7': {
+      'fi': 'Option 1',
+      'en': '',
+    },
     'z0aezlp0': {
       'fi': '',
       'en': '',
@@ -732,13 +755,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Kommentti (vapaaehtoinen)',
       'en': 'Commment (Optional)',
     },
-    'u1j0c71n': {
-      'fi': 'Toistot',
-      'en': 'Reps',
-    },
     '1zpp3lp9': {
       'fi': 'Paino (kg)',
       'en': 'Weight (kg)',
+    },
+    'u1j0c71n': {
+      'fi': 'Toistot',
+      'en': 'Reps',
     },
     'hcx7u96d': {
       'fi': '.\nsarja',
@@ -798,18 +821,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // sivu_rutiinit_komponentti
   {
-    'pr2ftdmo': {
-      'fi': 'Ylävartalo',
-      'en': 'Upperbody',
-    },
-    '1d67hhk0': {
-      'fi': 'Työntävät',
-      'en': 'Push',
-    },
-    '68nw3eu6': {
-      'fi': 'Valitse treenirutiini',
-      'en': 'Select routine',
-    },
     'fl9eccts': {
       'fi': 'Hakutulokset hakusanalla ',
       'en': 'Search result for ',
@@ -963,14 +974,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // rutiininLiikkeet
   {
-    'sqgnk84v': {
-      'fi': ' sarjaa',
-      'en': ' sets',
-    },
-    '5aat8tgq': {
-      'fi': ' toistoa  ',
-      'en': ' reps  ',
-    },
     'kyunprgy': {
       'fi': ' tuntia ',
       'en': ' hours ',
@@ -1017,29 +1020,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Muu liike',
       'en': 'Other',
     },
-    'gvvprt6x': {
-      'fi': 'Sarjoja',
+    'euebpkmp': {
+      'fi': 'Sarjat',
       'en': 'Sets',
     },
-    'yjs84ujo': {
-      'fi': '0',
-      'en': '0',
-    },
-    'dhzfkcwc': {
-      'fi': 'Toistoja',
+    'xd9oxn6z': {
+      'fi': 'Toistot',
       'en': 'Reps',
-    },
-    'jxc1vh6s': {
-      'fi': '0',
-      'en': '0',
     },
     'odm165t6': {
       'fi': 'Paino',
       'en': 'Weigth',
-    },
-    'shv30dhh': {
-      'fi': '0',
-      'en': '0',
     },
     'nz790l15': {
       'fi': 'Tunnit',
@@ -1207,6 +1198,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Miscellaneous
   {
+    '55582ub6': {
+      'fi': '',
+      'en': '',
+    },
+    'aeg187sw': {
+      'fi': '',
+      'en': '',
+    },
     'tjoan72u': {
       'fi': 'Sovellus tarvitsee luvan lähettää ilmoituksia',
       'en': 'Permission needed for sending notifications',

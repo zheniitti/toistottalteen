@@ -175,6 +175,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'paasivuWithPageview',
               requireAuth: true,
               builder: (context, params) => PaasivuWithPageviewWidget(),
+            ),
+            FFRoute(
+              name: 'FeedbackPage',
+              path: 'feedbackPage',
+              requireAuth: true,
+              builder: (context, params) => FeedbackPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

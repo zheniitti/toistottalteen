@@ -1645,27 +1645,6 @@ numero */
                                                           _model.showEmailFields =
                                                               true;
                                                         });
-                                                        if (loggedIn) {
-                                                          logFirebaseEvent(
-                                                              'Container_backend_call');
-
-                                                          final usersUpdateData =
-                                                              createUsersRecordData(
-                                                            isAnonymous: false,
-                                                          );
-                                                          await currentUserReference!
-                                                              .update(
-                                                                  usersUpdateData);
-                                                          logFirebaseEvent(
-                                                              'Container_navigate_to');
-                                                          if (Navigator.of(
-                                                                  context)
-                                                              .canPop()) {
-                                                            context.pop();
-                                                          }
-                                                          context.pushNamed(
-                                                              'paasivu');
-                                                        }
                                                       },
                                                       child: Container(
                                                         width: 50.0,
@@ -2262,6 +2241,7 @@ numero */
                                                         final usersUpdateData =
                                                             createUsersRecordData(
                                                           isAnonymous: false,
+                                                          email: '',
                                                         );
                                                         await currentUserReference!
                                                             .update(

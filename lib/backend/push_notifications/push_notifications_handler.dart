@@ -133,6 +133,7 @@ final parametersBuilderMap =
   'verifyPhoneNuber_page': ParameterData.none(),
   'subrictionPage': ParameterData.none(),
   'paasivuWithPageview': ParameterData.none(),
+  'FeedbackPage': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

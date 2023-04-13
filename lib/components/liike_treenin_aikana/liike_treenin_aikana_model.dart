@@ -5,6 +5,7 @@ import '/components/other_type_liike_fields/other_type_liike_fields_widget.dart'
 import '/components/sarja_paino_textfield/sarja_paino_textfield_widget.dart';
 import '/components/sarja_toistot_textfield/sarja_toistot_textfield_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
@@ -27,7 +28,9 @@ class LiikeTreeninAikanaModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for TextField widget.
+  final textFieldKey1 = GlobalKey();
   TextEditingController? textController1;
+  String? textFieldSelectedOption1;
   String? Function(BuildContext, String?)? textController1Validator;
   // Stores action output result for [Custom Action - myUpdateLiikeStruct] action in TextField widget.
   LiikeStruct? updatedLiike;
@@ -70,7 +73,6 @@ class LiikeTreeninAikanaModel extends FlutterFlowModel {
   }
 
   void dispose() {
-    textController1?.dispose();
     textController2?.dispose();
     otherTypeLiikeFieldsModels.dispose();
   }

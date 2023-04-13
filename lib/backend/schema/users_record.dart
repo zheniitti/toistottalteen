@@ -45,6 +45,8 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
 
   BuiltList<String>? get liikeNames;
 
+  bool? get isDebugUser;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -63,7 +65,8 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
     ..treeniKestoYhteensaSekunteina = 0.0
     ..treeniaYhteensa = 0
     ..isAnonymous = false
-    ..liikeNames = ListBuilder();
+    ..liikeNames = ListBuilder()
+    ..isDebugUser = false;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('users');
@@ -101,6 +104,7 @@ Map<String, dynamic> createUsersRecordData({
   double? treeniKestoYhteensaSekunteina,
   int? treeniaYhteensa,
   bool? isAnonymous,
+  bool? isDebugUser,
 }) {
   final firestoreData = serializers.toFirestore(
     UsersRecord.serializer,
@@ -121,7 +125,8 @@ Map<String, dynamic> createUsersRecordData({
         ..treeniKestoYhteensaSekunteina = treeniKestoYhteensaSekunteina
         ..treeniaYhteensa = treeniaYhteensa
         ..isAnonymous = isAnonymous
-        ..liikeNames = null,
+        ..liikeNames = null
+        ..isDebugUser = isDebugUser,
     ),
   );
 

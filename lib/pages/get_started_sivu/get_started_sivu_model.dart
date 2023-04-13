@@ -27,6 +27,8 @@ class GetStartedSivuModel extends FlutterFlowModel {
   String? platformStringCopy;
   // Stores action output result for [Custom Action - platformString] action in Button widget.
   String? platformString;
+  // Stores action output result for [Custom Action - platformString] action in Button widget.
+  String? platformStringCopy2;
 
   /// Initialization and disposal methods.
 

@@ -458,6 +458,10 @@ class _OtherTypeLiikeFieldsWidgetState extends State<OtherTypeLiikeFieldsWidget>
                           keyboardType: TextInputType.number,
                           validator: _model.textController2Validator
                               .asValidator(context),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(
+                                RegExp('^([1-9]|[1-5][0-9])\$'))
+                          ],
                         ),
                       ),
                     ],

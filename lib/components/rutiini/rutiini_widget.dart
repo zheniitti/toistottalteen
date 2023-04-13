@@ -386,42 +386,91 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              4.0, 8.0, 0.0, 0.0),
-                          child: InkWell(
-                            onTap: () async {
-                              logFirebaseEvent(
-                                  'RUTIINI_COMP_Icon_ynovwc9w_ON_TAP');
-                              logFirebaseEvent('Icon_custom_action');
-                              await actions.updateUserDocTreenirutiini(
-                                widget.rutiini,
-                                null,
-                                null,
-                                !widget.rutiini!.finishedEditing!,
-                                true,
-                                null,
-                                _model.textFieldNimiController.text,
-                                _model.textFieldKommenttiController.text,
-                                widget.rutiini?.liikkeet?.toList()?.toList(),
-                                null,
-                                null,
-                                null,
-                                _model.textFieldKommenttiController.text !=
-                                        null &&
+                        Stack(
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  4.0, 8.0, 0.0, 0.0),
+                              child: InkWell(
+                                onTap: () async {
+                                  logFirebaseEvent(
+                                      'RUTIINI_COMP_Icon_dkrmu2jx_ON_TAP');
+                                  logFirebaseEvent('Icon_custom_action');
+                                  await actions.updateUserDocTreenirutiini(
+                                    widget.rutiini,
+                                    null,
+                                    null,
+                                    !widget.rutiini!.finishedEditing!,
+                                    true,
+                                    null,
+                                    _model.textFieldNimiController.text,
+                                    _model.textFieldKommenttiController.text,
+                                    widget.rutiini?.liikkeet
+                                        ?.toList()
+                                        ?.toList(),
+                                    null,
+                                    null,
+                                    null,
                                     _model.textFieldKommenttiController.text !=
-                                        '',
-                                false,
-                                false,
-                                false,
-                              );
-                            },
-                            child: FaIcon(
-                              FontAwesomeIcons.edit,
-                              color: Colors.black,
-                              size: 24.0,
+                                            null &&
+                                        _model.textFieldKommenttiController
+                                                .text !=
+                                            '',
+                                    false,
+                                    false,
+                                    false,
+                                  );
+                                },
+                                child: FaIcon(
+                                  FontAwesomeIcons.edit,
+                                  color: Colors.black,
+                                  size: 24.0,
+                                ),
+                              ),
                             ),
-                          ),
+                            if (!widget.rutiini!.finishedEditing!)
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    4.0, 8.0, 0.0, 0.0),
+                                child: InkWell(
+                                  onTap: () async {
+                                    logFirebaseEvent(
+                                        'RUTIINI_COMP_Icon_ynovwc9w_ON_TAP');
+                                    logFirebaseEvent('Icon_custom_action');
+                                    await actions.updateUserDocTreenirutiini(
+                                      widget.rutiini,
+                                      null,
+                                      null,
+                                      !widget.rutiini!.finishedEditing!,
+                                      true,
+                                      null,
+                                      _model.textFieldNimiController.text,
+                                      _model.textFieldKommenttiController.text,
+                                      widget.rutiini?.liikkeet
+                                          ?.toList()
+                                          ?.toList(),
+                                      null,
+                                      null,
+                                      null,
+                                      _model.textFieldKommenttiController
+                                                  .text !=
+                                              null &&
+                                          _model.textFieldKommenttiController
+                                                  .text !=
+                                              '',
+                                      false,
+                                      false,
+                                      false,
+                                    );
+                                  },
+                                  child: FaIcon(
+                                    FontAwesomeIcons.solidEdit,
+                                    color: Colors.black,
+                                    size: 24.0,
+                                  ),
+                                ),
+                              ),
+                          ],
                         ),
                         Expanded(
                           child: Padding(

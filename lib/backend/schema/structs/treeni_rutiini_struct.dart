@@ -27,6 +27,8 @@ abstract class TreeniRutiiniStruct
 
   DateTime? get modifiedTime;
 
+  BuiltList<String>? get liikeNames;
+
   /// Utility class for Firestore updates
   FirestoreUtilData get firestoreUtilData;
 
@@ -37,6 +39,7 @@ abstract class TreeniRutiiniStruct
     ..isTreeniPohja = false
     ..finishedEditing = false
     ..valitutViikonPaivat = ValitutViikonPaivatStructBuilder()
+    ..liikeNames = ListBuilder()
     ..firestoreUtilData = FirestoreUtilData();
 
   TreeniRutiiniStruct._();
@@ -69,6 +72,7 @@ TreeniRutiiniStruct createTreeniRutiiniStruct({
         ..valitutViikonPaivat = valitutViikonPaivat?.toBuilder() ??
             ValitutViikonPaivatStructBuilder()
         ..modifiedTime = modifiedTime
+        ..liikeNames = null
         ..firestoreUtilData = FirestoreUtilData(
           clearUnsetFields: clearUnsetFields,
           create: create,
