@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/ad_banner_padding/ad_banner_padding_widget.dart';
 import '/components/liike_treenin_aikana/liike_treenin_aikana_widget.dart';

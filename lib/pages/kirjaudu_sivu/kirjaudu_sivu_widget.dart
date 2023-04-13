@@ -1,5 +1,5 @@
-import '/auth/auth_util.dart';
-import '/auth/firebase_user_provider.dart';
+import '/auth/firebase_auth/auth_util.dart';
+import '/auth/firebase_auth/firebase_user_provider.dart';
 import '/backend/backend.dart';
 import '/components/toistot_talteen_text/toistot_talteen_text_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -309,8 +309,9 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                                         context)
                                                                     .prepareAuthEvent();
                                                                 final user =
-                                                                    await signInWithGoogle(
-                                                                        context);
+                                                                    await authManager
+                                                                        .signInWithGoogle(
+                                                                            context);
                                                                 if (user ==
                                                                     null) {
                                                                   return;
@@ -419,8 +420,9 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                                           context)
                                                                       .prepareAuthEvent();
                                                                   final user =
-                                                                      await signInWithApple(
-                                                                          context);
+                                                                      await authManager
+                                                                          .signInWithApple(
+                                                                              context);
                                                                   if (user ==
                                                                       null) {
                                                                     return;
@@ -995,7 +997,8 @@ numero */
                                                               .prepareAuthEvent();
 
                                                           final user =
-                                                              await signInWithEmail(
+                                                              await authManager
+                                                                  .signInWithEmail(
                                                             context,
                                                             _model
                                                                 .emailAddressLoginController
@@ -1340,7 +1343,8 @@ numero */
                                                         );
                                                         return;
                                                       }
-                                                      await beginPhoneAuth(
+                                                      await authManager
+                                                          .beginPhoneAuth(
                                                         context: context,
                                                         phoneNumber:
                                                             phoneNumberVal,
@@ -1475,8 +1479,9 @@ numero */
                                                         GoRouter.of(context)
                                                             .prepareAuthEvent();
                                                         final user =
-                                                            await signInWithGoogle(
-                                                                context);
+                                                            await authManager
+                                                                .signInWithGoogle(
+                                                                    context);
                                                         if (user == null) {
                                                           return;
                                                         }
@@ -1559,8 +1564,9 @@ numero */
                                                           GoRouter.of(context)
                                                               .prepareAuthEvent();
                                                           final user =
-                                                              await signInWithApple(
-                                                                  context);
+                                                              await authManager
+                                                                  .signInWithApple(
+                                                                      context);
                                                           if (user == null) {
                                                             return;
                                                           }
@@ -2222,7 +2228,8 @@ numero */
                                                         }
 
                                                         final user =
-                                                            await createAccountWithEmail(
+                                                            await authManager
+                                                                .createAccountWithEmail(
                                                           context,
                                                           _model
                                                               .emailAddressCreateAccController
@@ -2239,10 +2246,18 @@ numero */
                                                             'Button_backend_call');
 
                                                         final usersUpdateData =
-                                                            createUsersRecordData(
-                                                          isAnonymous: false,
-                                                          email: '',
-                                                        );
+                                                            {
+                                                          ...createUsersRecordData(
+                                                            isAnonymous: false,
+                                                            email: '',
+                                                          ),
+                                                          'anonymousAccounts':
+                                                              FieldValue
+                                                                  .arrayUnion([
+                                                            FFAppState()
+                                                                .anonymousUserRef
+                                                          ]),
+                                                        };
                                                         await currentUserReference!
                                                             .update(
                                                                 usersUpdateData);
@@ -2483,7 +2498,8 @@ numero */
                                                         );
                                                         return;
                                                       }
-                                                      await beginPhoneAuth(
+                                                      await authManager
+                                                          .beginPhoneAuth(
                                                         context: context,
                                                         phoneNumber:
                                                             phoneNumberVal,

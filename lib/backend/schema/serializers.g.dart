@@ -45,7 +45,13 @@ Serializers _$serializers = (new Serializers().toBuilder()
           () => new ListBuilder<TreeniRutiiniStruct>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>()))
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(
+                DocumentReference, const [const FullType.nullable(Object)])
+          ]),
+          () => new ListBuilder<DocumentReference<Object?>>()))
     .build();
 
 // ignore_for_file: deprecated_member_use_from_same_package,type=lint

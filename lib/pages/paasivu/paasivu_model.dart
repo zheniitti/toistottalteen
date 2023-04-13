@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/navbar2_widget.dart';
 import '/components/sivupalkki/sivupalkki_widget.dart';

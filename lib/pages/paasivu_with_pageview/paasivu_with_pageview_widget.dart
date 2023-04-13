@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/sivupalkki/sivupalkki_widget.dart';
 import '/components/workout_duration_text/workout_duration_text_widget.dart';
@@ -43,6 +43,11 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget>
   final _unfocusNode = FocusNode();
   late StreamSubscription<bool> _keyboardVisibilitySubscription;
   bool _isKeyboardVisible = false;
+  int get pageViewCurrentIndex => _model.pageViewController != null &&
+          _model.pageViewController!.hasClients &&
+          _model.pageViewController!.page != null
+      ? _model.pageViewController!.page!.round()
+      : 0;
 
   final animationsMap = {
     'iconOnActionTriggerAnimation': AnimationInfo(
@@ -362,10 +367,8 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget>
                                     'PAASIVU_WITH_PAGEVIEW_PageView_upzoex91_');
                                 logFirebaseEvent('PageView_update_app_state');
                                 setState(() {
-                                  FFAppState().navBarIndex = _model
-                                          .pageViewController?.page
-                                          ?.round() ??
-                                      0;
+                                  FFAppState().navBarIndex =
+                                      pageViewCurrentIndex;
                                 });
                               },
                               scrollDirection: Axis.horizontal,

@@ -137,6 +137,16 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.anonymousAccounts;
+    if (value != null) {
+      result
+        ..add('anonymousAccounts')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltList, const [
+              const FullType(
+                  DocumentReference, const [const FullType.nullable(Object)])
+            ])));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -234,6 +244,13 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
           result.isDebugUser = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
           break;
+        case 'anonymousAccounts':
+          result.anonymousAccounts.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(
+                    DocumentReference, const [const FullType.nullable(Object)])
+              ]))! as BuiltList<Object?>);
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -283,6 +300,8 @@ class _$UsersRecord extends UsersRecord {
   @override
   final bool? isDebugUser;
   @override
+  final BuiltList<DocumentReference<Object?>>? anonymousAccounts;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$UsersRecord([void Function(UsersRecordBuilder)? updates]) =>
@@ -306,6 +325,7 @@ class _$UsersRecord extends UsersRecord {
       this.isAnonymous,
       this.liikeNames,
       this.isDebugUser,
+      this.anonymousAccounts,
       this.ffRef})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -340,6 +360,7 @@ class _$UsersRecord extends UsersRecord {
         isAnonymous == other.isAnonymous &&
         liikeNames == other.liikeNames &&
         isDebugUser == other.isDebugUser &&
+        anonymousAccounts == other.anonymousAccounts &&
         ffRef == other.ffRef;
   }
 
@@ -363,6 +384,7 @@ class _$UsersRecord extends UsersRecord {
     _$hash = $jc(_$hash, isAnonymous.hashCode);
     _$hash = $jc(_$hash, liikeNames.hashCode);
     _$hash = $jc(_$hash, isDebugUser.hashCode);
+    _$hash = $jc(_$hash, anonymousAccounts.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -388,6 +410,7 @@ class _$UsersRecord extends UsersRecord {
           ..add('isAnonymous', isAnonymous)
           ..add('liikeNames', liikeNames)
           ..add('isDebugUser', isDebugUser)
+          ..add('anonymousAccounts', anonymousAccounts)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -476,6 +499,14 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   bool? get isDebugUser => _$this._isDebugUser;
   set isDebugUser(bool? isDebugUser) => _$this._isDebugUser = isDebugUser;
 
+  ListBuilder<DocumentReference<Object?>>? _anonymousAccounts;
+  ListBuilder<DocumentReference<Object?>> get anonymousAccounts =>
+      _$this._anonymousAccounts ??=
+          new ListBuilder<DocumentReference<Object?>>();
+  set anonymousAccounts(
+          ListBuilder<DocumentReference<Object?>>? anonymousAccounts) =>
+      _$this._anonymousAccounts = anonymousAccounts;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -504,6 +535,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _isAnonymous = $v.isAnonymous;
       _liikeNames = $v.liikeNames?.toBuilder();
       _isDebugUser = $v.isDebugUser;
+      _anonymousAccounts = $v.anonymousAccounts?.toBuilder();
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -546,6 +578,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
               isAnonymous: isAnonymous,
               liikeNames: _liikeNames?.build(),
               isDebugUser: isDebugUser,
+              anonymousAccounts: _anonymousAccounts?.build(),
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;
@@ -558,6 +591,9 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
 
         _$failedField = 'liikeNames';
         _liikeNames?.build();
+
+        _$failedField = 'anonymousAccounts';
+        _anonymousAccounts?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'UsersRecord', _$failedField, e.toString());

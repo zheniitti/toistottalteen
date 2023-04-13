@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/ad_banner_padding/ad_banner_padding_widget.dart';
 import '/components/button_luo_rutiini/button_luo_rutiini_widget.dart';

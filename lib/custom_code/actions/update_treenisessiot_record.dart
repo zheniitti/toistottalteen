@@ -12,7 +12,7 @@ import 'index.dart'; // Imports other custom actions
 
 import 'index.dart'; // Imports other custom actions
 
-import '../../auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 
 Future updateTreenisessiotRecord(
   TreeniSessiotRecord? sessiotRecord,

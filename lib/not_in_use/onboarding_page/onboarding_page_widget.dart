@@ -21,6 +21,11 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
   late OnboardingPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  int get pageViewCurrentIndex => _model.pageViewController != null &&
+          _model.pageViewController!.hasClients &&
+          _model.pageViewController!.page != null
+      ? _model.pageViewController!.page!.round()
+      : 0;
 
   @override
   void initState() {
@@ -339,8 +344,8 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                                 PageController(initialPage: 0),
                             count: 3,
                             axisDirection: Axis.horizontal,
-                            onDotClicked: (i) {
-                              _model.pageViewController!.animateToPage(
+                            onDotClicked: (i) async {
+                              await _model.pageViewController!.animateToPage(
                                 i,
                                 duration: Duration(milliseconds: 500),
                                 curve: Curves.ease,
@@ -377,8 +382,7 @@ class _OnboardingPageWidgetState extends State<OnboardingPageWidget> {
                     onPressed: () async {
                       logFirebaseEvent(
                           'ONBOARDING_PAGE_PAGE_CONTINUE_BTN_ON_TAP');
-                      if ((_model.pageViewController?.page?.round() ?? 0) !=
-                          2) {
+                      if (pageViewCurrentIndex != 2) {
                         logFirebaseEvent('Button_page_view');
                         await _model.pageViewController?.nextPage(
                           duration: Duration(milliseconds: 300),

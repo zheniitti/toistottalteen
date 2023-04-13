@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import '../../auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 
 Future updateUserDocTreenirutiini(
   TreeniRutiiniStruct? treeniRutiini,

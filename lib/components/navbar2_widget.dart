@@ -251,7 +251,7 @@ class _Navbar2WidgetState extends State<Navbar2Widget>
                         Icon(
                           Icons.featured_play_list_rounded,
                           color: FlutterFlowTheme.of(context).secondary,
-                          size: 36.0,
+                          size: 30.0,
                         ),
                         RichText(
                           text: TextSpan(
@@ -303,36 +303,46 @@ class _Navbar2WidgetState extends State<Navbar2Widget>
                           : Color(0x00000000),
                       borderRadius: BorderRadius.circular(8.0),
                     ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Lottie.network(
-                          'https://assets8.lottiefiles.com/packages/lf20_ixy19tfg.json',
-                          width: 60.0,
-                          height: 40.0,
-                          fit: BoxFit.cover,
-                          frameRate: FrameRate(60.0),
-                          animate: FFAppState().isLatestUnfinnishedWorkout,
-                        ),
-                        RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text:
-                                    FFLocalizations.of(context).getVariableText(
-                                  fiText: 'Treenaa',
-                                  enText: 'Workout',
-                                ),
-                                style: TextStyle(
-                                  color: FlutterFlowTheme.of(context).secondary,
-                                ),
-                              )
-                            ],
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                    alignment: AlignmentDirectional(0.0, 0.0),
+                    child: Container(
+                      width: double.infinity,
+                      height: double.infinity,
+                      child: Stack(
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(0.0, -1.0),
+                            child: Lottie.network(
+                              'https://assets8.lottiefiles.com/packages/lf20_ixy19tfg.json',
+                              width: 130.0,
+                              height: 40.0,
+                              fit: BoxFit.cover,
+                              frameRate: FrameRate(60.0),
+                              animate: FFAppState().isLatestUnfinnishedWorkout,
+                            ),
                           ),
-                        ),
-                      ],
+                          Align(
+                            alignment: AlignmentDirectional(0.0, 1.0),
+                            child: RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: FFLocalizations.of(context)
+                                        .getVariableText(
+                                      fiText: 'Treenaa',
+                                      enText: 'Workout',
+                                    ),
+                                    style: TextStyle(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondary,
+                                    ),
+                                  )
+                                ],
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ).animateOnActionTrigger(
@@ -372,7 +382,7 @@ class _Navbar2WidgetState extends State<Navbar2Widget>
                         Icon(
                           Icons.history_toggle_off_rounded,
                           color: FlutterFlowTheme.of(context).secondary,
-                          size: 36.0,
+                          size: 30.0,
                         ),
                         RichText(
                           text: TextSpan(

@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/toistot_talteen_text/toistot_talteen_text_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -288,8 +288,8 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                           logFirebaseEvent('Text_auth');
                                           GoRouter.of(context)
                                               .prepareAuthEvent();
-                                          final user =
-                                              await signInAnonymously(context);
+                                          final user = await authManager
+                                              .signInAnonymously(context);
                                           if (user == null) {
                                             return;
                                           }
@@ -356,9 +356,8 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                               logFirebaseEvent('Button_auth');
                                               GoRouter.of(context)
                                                   .prepareAuthEvent();
-                                              final user =
-                                                  await signInAnonymously(
-                                                      context);
+                                              final user = await authManager
+                                                  .signInAnonymously(context);
                                               if (user == null) {
                                                 return;
                                               }
@@ -439,9 +438,8 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                                 logFirebaseEvent('Button_auth');
                                                 GoRouter.of(context)
                                                     .prepareAuthEvent();
-                                                final user =
-                                                    await signInAnonymously(
-                                                        context);
+                                                final user = await authManager
+                                                    .signInAnonymously(context);
                                                 if (user == null) {
                                                   return;
                                                 }

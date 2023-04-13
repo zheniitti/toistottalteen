@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/bottom_sheet_liike/bottom_sheet_liike_widget.dart';
 import '/components/other_type_liike_fields/other_type_liike_fields_widget.dart';

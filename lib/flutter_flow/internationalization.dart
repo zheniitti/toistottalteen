@@ -1032,37 +1032,37 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Paino',
       'en': 'Weigth',
     },
-    'nz790l15': {
-      'fi': 'Tunnit',
-      'en': 'Hours',
+    'l902twkl': {
+      'fi': 'tunnit',
+      'en': 'hours',
     },
-    'lxvwsp6b': {
-      'fi': '0',
-      'en': '0',
+    'nz790l15': {
+      'fi': '',
+      'en': '',
+    },
+    'ojelm1c7': {
+      'fi': 'minuutit',
+      'en': 'minutes',
     },
     'vjqtyunu': {
-      'fi': 'Minuutit',
-      'en': 'Minutes',
+      'fi': '',
+      'en': '',
     },
-    '5il8gfi6': {
-      'fi': '0',
-      'en': '0',
+    'etxlmgz3': {
+      'fi': 'sekunnit',
+      'en': 'seconds',
     },
     'oeeapx3v': {
-      'fi': 'Sekunnit',
-      'en': 'Secs',
+      'fi': '',
+      'en': '',
     },
-    'rny4ijb3': {
-      'fi': '0',
-      'en': '0',
+    'xp3fncw0': {
+      'fi': 'Tavaoitematka (metrit)',
+      'en': 'Distance (meters)',
     },
     '9nrrllh6': {
-      'fi': 'Tavoitematka (metreinä)',
-      'en': 'Goal distance (meters)',
-    },
-    '9yecgbpi': {
-      'fi': '0 m',
-      'en': '0 m',
+      'fi': '',
+      'en': '',
     },
     'i7qdvfiw': {
       'fi': 'Tyhjennä',

@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/bottom_sheet_liike/bottom_sheet_liike_widget.dart';
 import '/components/other_type_liike_fields/other_type_liike_fields_widget.dart';
@@ -240,10 +240,6 @@ class _SessioLiikeSarjasWidgetState extends State<SessioLiikeSarjasWidget>
             expanded: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Divider(
-                  height: 1.0,
-                  thickness: 1.0,
-                ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                   child: Builder(

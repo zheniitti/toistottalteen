@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/bottom_sheet_rutiini_ja_sessio/bottom_sheet_rutiini_ja_sessio_widget.dart';
 import '/components/sessio_liike_sarjas/sessio_liike_sarjas_widget.dart';
@@ -136,7 +136,7 @@ class _SessioWidgetState extends State<SessioWidget>
                                           context: context,
                                           initialDate: getCurrentTimestamp,
                                           firstDate: DateTime(1900),
-                                          lastDate: DateTime(2050),
+                                          lastDate: getCurrentTimestamp,
                                         );
 
                                         TimeOfDay? _datePicked1Time;
@@ -249,7 +249,7 @@ class _SessioWidgetState extends State<SessioWidget>
                                           context: context,
                                           initialDate: getCurrentTimestamp,
                                           firstDate: DateTime(1900),
-                                          lastDate: DateTime(2050),
+                                          lastDate: getCurrentTimestamp,
                                         );
 
                                         TimeOfDay? _datePicked2Time;

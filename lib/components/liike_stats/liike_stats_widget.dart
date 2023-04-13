@@ -30,6 +30,12 @@ class LiikeStatsWidget extends StatefulWidget {
 class _LiikeStatsWidgetState extends State<LiikeStatsWidget> {
   late LiikeStatsModel _model;
 
+  int get pageViewCurrentIndex => _model.pageViewController != null &&
+          _model.pageViewController!.hasClients &&
+          _model.pageViewController!.page != null
+      ? _model.pageViewController!.page!.round()
+      : 0;
+
   @override
   void setState(VoidCallback callback) {
     super.setState(callback);
@@ -161,8 +167,8 @@ class _LiikeStatsWidgetState extends State<LiikeStatsWidget> {
                           PageController(initialPage: 0),
                       count: 3,
                       axisDirection: Axis.horizontal,
-                      onDotClicked: (i) {
-                        _model.pageViewController!.animateToPage(
+                      onDotClicked: (i) async {
+                        await _model.pageViewController!.animateToPage(
                           i,
                           duration: Duration(milliseconds: 500),
                           curve: Curves.ease,

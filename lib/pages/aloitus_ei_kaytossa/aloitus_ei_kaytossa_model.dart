@@ -18,7 +18,7 @@ class AloitusEiKaytossaModel extends FlutterFlowModel {
   PageController? pageViewController;
   // State field(s) for DropDown widget.
   String? dropDownValue;
-  FormFieldController<String>? dropDownController;
+  FormFieldController<String>? dropDownValueController;
   // Model for button_aloitaTreenaaminen component.
   late ButtonAloitaTreenaaminenModel buttonAloitaTreenaaminenModel;
 

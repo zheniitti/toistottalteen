@@ -24,6 +24,11 @@ class _AloitusEiKaytossaWidgetState extends State<AloitusEiKaytossaWidget> {
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
+  int get pageViewCurrentIndex => _model.pageViewController != null &&
+          _model.pageViewController!.hasClients &&
+          _model.pageViewController!.page != null
+      ? _model.pageViewController!.page!.round()
+      : 0;
 
   @override
   void initState() {
@@ -168,10 +173,10 @@ class _AloitusEiKaytossaWidgetState extends State<AloitusEiKaytossaWidget> {
                                                 BorderRadius.circular(8.0),
                                           ),
                                           child: FlutterFlowDropDown<String>(
-                                            controller:
-                                                _model.dropDownController ??=
-                                                    FormFieldController<String>(
-                                                        null),
+                                            controller: _model
+                                                    .dropDownValueController ??=
+                                                FormFieldController<String>(
+                                                    null),
                                             options: [
                                               FFLocalizations.of(context)
                                                   .getText(
