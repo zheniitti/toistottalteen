@@ -1,0 +1,2 @@
+PermissionGroupNotification = "Sovellus tarvitsee luvan lähettää ilmoituksia";
+NSCalendarsUsageDescription = "Lupa käyttää kalenteria tarvitaan, jotta treenien lisääminen kalenteriin onnistuisi.";
