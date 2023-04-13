@@ -21,6 +21,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'paasivu_model.dart';
 export 'paasivu_model.dart';
 
@@ -31,8 +32,7 @@ class PaasivuWidget extends StatefulWidget {
   _PaasivuWidgetState createState() => _PaasivuWidgetState();
 }
 
-class _PaasivuWidgetState extends State<PaasivuWidget>
-    with TickerProviderStateMixin {
+class _PaasivuWidgetState extends State<PaasivuWidget> with TickerProviderStateMixin {
   late PaasivuModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -47,7 +47,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 300.ms,
-          begin: 0.0,
+          begin: 0,
           end: 0.5,
         ),
       ],
@@ -69,7 +69,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
           delay: 0.ms,
           duration: 900.ms,
           begin: 0.6,
-          end: 1.0,
+          end: 1,
         ),
       ],
     ),
@@ -81,15 +81,15 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 800.ms,
-          begin: Offset(0.0, -100.0),
-          end: Offset(0.0, 0.0),
+          begin: Offset(0, -100),
+          end: Offset(0, 0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: 0,
+          end: 1,
         ),
       ],
     ),
@@ -101,8 +101,8 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
           curve: Curves.easeInOut,
           delay: 2000.ms,
           duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: 0,
+          end: 1,
         ),
       ],
     ),
@@ -114,15 +114,15 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
           curve: Curves.easeInOut,
           delay: 500.ms,
           duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: 0,
+          end: 1,
         ),
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 500.ms,
           duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: 0,
+          end: 1,
         ),
       ],
     ),
@@ -146,12 +146,9 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
       FFAppState().anonymousUserRef = currentUserReference;
     });
 
-    _model.textFieldSeachBarController ??=
-        TextEditingController(text: FFAppState().searchbarText);
+    _model.textFieldSeachBarController ??= TextEditingController(text: FFAppState().searchbarText);
     setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
+      animationsMap.values.where((anim) => anim.trigger == AnimationTrigger.onActionTrigger || !anim.applyInitialState),
       this,
     );
 
@@ -179,8 +176,8 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
         if (!snapshot.hasData) {
           return Center(
             child: SizedBox(
-              width: 40.0,
-              height: 40.0,
+              width: 40,
+              height: 40,
               child: CircularProgressIndicator(
                 color: FlutterFlowTheme.of(context).primary,
               ),
@@ -188,9 +185,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
           );
         }
         List<AppConfigRecord> paasivuAppConfigRecordList = snapshot.data!;
-        final paasivuAppConfigRecord = paasivuAppConfigRecordList.isNotEmpty
-            ? paasivuAppConfigRecordList.first
-            : null;
+        final paasivuAppConfigRecord = paasivuAppConfigRecordList.isNotEmpty ? paasivuAppConfigRecordList.first : null;
         return GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: WillPopScope(
@@ -208,7 +203,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                   icon: Icon(
                     Icons.add,
                   ),
-                  elevation: 8.0,
+                  elevation: 8,
                   label: Text(
                     FFLocalizations.of(context).getText(
                       't1qezc6y' /* Luo treenirutiini */,
@@ -221,7 +216,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                 ),
               ),
               drawer: Drawer(
-                elevation: 16.0,
+                elevation: 16,
                 child: wrapWithModel(
                   model: _model.sivupalkkiModel,
                   updateCallback: () => setState(() {}),
@@ -231,10 +226,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
               body: SafeArea(
                 child: StreamBuilder<List<TreeniSessiotRecord>>(
                   stream: queryTreeniSessiotRecord(
-                    queryBuilder: (treeniSessiotRecord) => treeniSessiotRecord
-                        .where('userRef', isEqualTo: currentUserReference)
-                        .where('loppu', isEqualTo: null)
-                        .orderBy('docCreatedTime', descending: true),
+                    queryBuilder: (treeniSessiotRecord) => treeniSessiotRecord.where('userRef', isEqualTo: currentUserReference).where('loppu', isEqualTo: null).orderBy('docCreatedTime', descending: true),
                     limit: 5,
                   ),
                   builder: (context, snapshot) {
@@ -242,85 +234,57 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                     if (!snapshot.hasData) {
                       return Center(
                         child: SizedBox(
-                          width: 50.0,
-                          height: 50.0,
+                          width: 50,
+                          height: 50,
                           child: SpinKitCircle(
                             color: FlutterFlowTheme.of(context).primary,
-                            size: 50.0,
+                            size: 50,
                           ),
                         ),
                       );
                     }
-                    List<TreeniSessiotRecord>
-                        containerQueryLatestSessioTreeniSessiotRecordList =
-                        snapshot.data!;
+                    List<TreeniSessiotRecord> containerQueryLatestSessioTreeniSessiotRecordList = snapshot.data!;
                     return Container(
                       decoration: BoxDecoration(),
                       child: Container(
-                        width: MediaQuery.of(context).size.width * 1.0,
-                        height: MediaQuery.of(context).size.height * 1.0,
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height * 1,
                         child: Stack(
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 60.0, 0.0, 0.0),
+                              padding: EdgeInsetsDirectional.fromSTEB(0, 60, 0, 0),
                               child: Container(
-                                width: MediaQuery.of(context).size.width * 1.0,
+                                width: MediaQuery.of(context).size.width,
                                 child: Stack(
                                   children: [
                                     if (FFAppState().navBarIndex == 0)
                                       Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                        alignment: AlignmentDirectional(0, 0),
                                         child: wrapWithModel(
-                                          model: _model
-                                              .sivuRutiinitKomponenttiModel,
+                                          model: _model.sivuRutiinitKomponenttiModel,
                                           updateCallback: () => setState(() {}),
                                           updateOnChange: true,
                                           child: SivuRutiinitKomponenttiWidget(
-                                            latestSessio:
-                                                containerQueryLatestSessioTreeniSessiotRecordList
-                                                            .length >
-                                                        0
-                                                    ? containerQueryLatestSessioTreeniSessiotRecordList
-                                                        .first
-                                                    : null,
+                                            latestSessio: containerQueryLatestSessioTreeniSessiotRecordList.length > 0 ? containerQueryLatestSessioTreeniSessiotRecordList.first : null,
                                           ),
                                         ),
                                       ),
-                                    if ((FFAppState().navBarIndex == 1) ||
-                                        FFAppState()
-                                            .showTreenaaTaiLuoRutiiniSivu)
+                                    if ((FFAppState().navBarIndex == 1) || FFAppState().showTreenaaTaiLuoRutiiniSivu)
                                       wrapWithModel(
-                                        model:
-                                            _model.sivuTreenaaOmponenttiModel,
+                                        model: _model.sivuTreenaaOmponenttiModel,
                                         updateCallback: () => setState(() {}),
                                         updateOnChange: true,
                                         child: SivuTreenaaKomponenttiWidget(
-                                          sessioDoc:
-                                              containerQueryLatestSessioTreeniSessiotRecordList
-                                                          .length >
-                                                      0
-                                                  ? containerQueryLatestSessioTreeniSessiotRecordList
-                                                      .first
-                                                  : null,
+                                          sessioDoc: containerQueryLatestSessioTreeniSessiotRecordList.length > 0 ? containerQueryLatestSessioTreeniSessiotRecordList.first : null,
                                         ),
                                       ),
                                     if (FFAppState().navBarIndex == 2)
                                       wrapWithModel(
-                                        model: _model
-                                            .sivuTreeniHistoriaKomponenttiModel,
+                                        model: _model.sivuTreeniHistoriaKomponenttiModel,
                                         updateCallback: () => setState(() {}),
                                         updateOnChange: true,
-                                        child:
-                                            SivuTreeniHistoriaKomponenttiWidget(
-                                          latestSessioStreamDoc:
-                                              containerQueryLatestSessioTreeniSessiotRecordList
-                                                          .length >
-                                                      0
-                                                  ? containerQueryLatestSessioTreeniSessiotRecordList
-                                                      .first
-                                                  : null,
+                                        child: SivuTreeniHistoriaKomponenttiWidget(
+                                          latestSessioStreamDoc: containerQueryLatestSessioTreeniSessiotRecordList.length > 0 ? containerQueryLatestSessioTreeniSessiotRecordList.first : null,
                                         ),
                                       ),
                                   ],
@@ -332,18 +296,17 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                               children: [
                                 Material(
                                   color: Colors.transparent,
-                                  elevation: 1.0,
+                                  elevation: 1,
                                   child: Container(
                                     width: double.infinity,
-                                    height: 54.0,
+                                    height: 54,
                                     decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
+                                      color: FlutterFlowTheme.of(context).primary,
                                       boxShadow: [
                                         BoxShadow(
-                                          blurRadius: 4.0,
+                                          blurRadius: 4,
                                           color: Color(0x33000000),
-                                          offset: Offset(0.0, 2.0),
+                                          offset: Offset(0, 2),
                                         )
                                       ],
                                     ),
@@ -353,45 +316,26 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                         Expanded(
                                           flex: 1,
                                           child: Align(
-                                            alignment:
-                                                AlignmentDirectional(-1.0, 0.0),
+                                            alignment: AlignmentDirectional(-1, 0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 0.0, 0.0, 0.0),
+                                              padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                                               child: InkWell(
                                                 onTap: () async {
-                                                  logFirebaseEvent(
-                                                      'PAASIVU_PAGE_Icon_drawer_ON_TAP');
-                                                  logFirebaseEvent(
-                                                      'Icon_drawer_drawer');
-                                                  scaffoldKey.currentState!
-                                                      .openDrawer();
-                                                  logFirebaseEvent(
-                                                      'Icon_drawer_widget_animation');
-                                                  if (animationsMap[
-                                                          'iconOnActionTriggerAnimation'] !=
-                                                      null) {
-                                                    animationsMap[
-                                                            'iconOnActionTriggerAnimation']!
-                                                        .controller
-                                                        .forward(from: 0.0)
-                                                        .whenComplete(animationsMap[
-                                                                'iconOnActionTriggerAnimation']!
-                                                            .controller
-                                                            .reverse);
+                                                  logFirebaseEvent('PAASIVU_PAGE_Icon_drawer_ON_TAP');
+                                                  logFirebaseEvent('Icon_drawer_drawer');
+                                                  scaffoldKey.currentState!.openDrawer();
+                                                  logFirebaseEvent('Icon_drawer_widget_animation');
+                                                  if (animationsMap['iconOnActionTriggerAnimation'] != null) {
+                                                    animationsMap['iconOnActionTriggerAnimation']!.controller.forward(from: 0.0).whenComplete(animationsMap['iconOnActionTriggerAnimation']!.controller.reverse);
                                                   }
                                                 },
                                                 child: Icon(
                                                   Icons.menu_rounded,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondary,
-                                                  size: 28.0,
+                                                  color: FlutterFlowTheme.of(context).secondary,
+                                                  size: 28,
                                                 ),
                                               ).animateOnActionTrigger(
-                                                animationsMap[
-                                                    'iconOnActionTriggerAnimation']!,
+                                                animationsMap['iconOnActionTriggerAnimation']!,
                                               ),
                                             ),
                                           ),
@@ -399,121 +343,60 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                         Expanded(
                                           flex: 4,
                                           child: Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                            alignment: AlignmentDirectional(0, 0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
-                                                if (FFAppState().navBarIndex ==
-                                                    1)
+                                                if (FFAppState().navBarIndex == 1)
                                                   Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
+                                                    mainAxisSize: MainAxisSize.max,
                                                     children: [
-                                                      if (containerQueryLatestSessioTreeniSessiotRecordList
-                                                                  .length >
-                                                              0
-                                                          ? ((containerQueryLatestSessioTreeniSessiotRecordList
-                                                                      .first
-                                                                      .alku !=
-                                                                  null) &&
-                                                              (containerQueryLatestSessioTreeniSessiotRecordList
-                                                                      .first
-                                                                      .loppu ==
-                                                                  null))
-                                                          : false)
+                                                      if (containerQueryLatestSessioTreeniSessiotRecordList.length > 0 ? ((containerQueryLatestSessioTreeniSessiotRecordList.first.alku != null) && (containerQueryLatestSessioTreeniSessiotRecordList.first.loppu == null)) : false)
                                                         wrapWithModel(
-                                                          model: _model
-                                                              .workoutDurationTextModel,
-                                                          updateCallback: () =>
-                                                              setState(() {}),
+                                                          model: _model.workoutDurationTextModel,
+                                                          updateCallback: () => setState(() {}),
                                                           updateOnChange: true,
-                                                          child:
-                                                              WorkoutDurationTextWidget(
-                                                            sessioDoc: containerQueryLatestSessioTreeniSessiotRecordList
-                                                                        .length >
-                                                                    0
-                                                                ? containerQueryLatestSessioTreeniSessiotRecordList
-                                                                    .first
-                                                                : null,
+                                                          child: WorkoutDurationTextWidget(
+                                                            sessioDoc: containerQueryLatestSessioTreeniSessiotRecordList.length > 0 ? containerQueryLatestSessioTreeniSessiotRecordList.first : null,
                                                           ),
                                                         ),
-                                                      if (containerQueryLatestSessioTreeniSessiotRecordList
-                                                                  .length >
-                                                              0
-                                                          ? (containerQueryLatestSessioTreeniSessiotRecordList
-                                                                  .first.alku ==
-                                                              null)
-                                                          : false)
+                                                      if (containerQueryLatestSessioTreeniSessiotRecordList.length > 0 ? (containerQueryLatestSessioTreeniSessiotRecordList.first.alku == null) : false)
                                                         InkWell(
                                                           onTap: () async {
-                                                            logFirebaseEvent(
-                                                                'PAASIVU_PAGE_Row_aloitaAjanOtto_ON_TAP');
-                                                            logFirebaseEvent(
-                                                                'Row_aloitaAjanOtto_backend_call');
+                                                            logFirebaseEvent('PAASIVU_PAGE_Row_aloitaAjanOtto_ON_TAP');
+                                                            logFirebaseEvent('Row_aloitaAjanOtto_backend_call');
 
-                                                            final treeniSessiotUpdateData =
-                                                                {
-                                                              'alku': FieldValue
-                                                                  .serverTimestamp(),
+                                                            final treeniSessiotUpdateData = {
+                                                              'alku': FieldValue.serverTimestamp(),
                                                             };
-                                                            await containerQueryLatestSessioTreeniSessiotRecordList
-                                                                .first.reference
-                                                                .update(
-                                                                    treeniSessiotUpdateData);
+                                                            await containerQueryLatestSessioTreeniSessiotRecordList.first.reference.update(treeniSessiotUpdateData);
                                                           },
                                                           child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .min,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
+                                                            mainAxisSize: MainAxisSize.min,
+                                                            mainAxisAlignment: MainAxisAlignment.center,
                                                             children: [
                                                               Icon(
-                                                                Icons
-                                                                    .not_started_rounded,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondary,
-                                                                size: 30.0,
+                                                                Icons.not_started_rounded,
+                                                                color: FlutterFlowTheme.of(context).secondary,
+                                                                size: 30,
                                                               ),
                                                               Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            16.0,
-                                                                            0.0),
+                                                                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
                                                                 child: Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .center,
+                                                                  mainAxisSize: MainAxisSize.max,
+                                                                  mainAxisAlignment: MainAxisAlignment.center,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          2.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(2, 0, 0, 0),
+                                                                      child: Text(
+                                                                        FFLocalizations.of(context).getText(
                                                                           'uw6dunth' /* Aloita treeni */,
                                                                         ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
+                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                               fontFamily: 'Roboto',
                                                                               color: FlutterFlowTheme.of(context).secondary,
-                                                                              fontSize: 14.0,
+                                                                              fontSize: 14,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -522,99 +405,45 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                               ),
                                                             ],
                                                           ),
-                                                        ).animateOnPageLoad(
-                                                            animationsMap[
-                                                                'rowOnPageLoadAnimation1']!),
+                                                        ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation1']!),
                                                     ],
                                                   ),
-                                                if (FFAppState().navBarIndex !=
-                                                    1)
+                                                if (FFAppState().navBarIndex != 1)
                                                   Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.0, 0.0),
+                                                    alignment: AlignmentDirectional(0, 0),
                                                     child: AuthUserStreamWidget(
-                                                      builder: (context) =>
-                                                          Autocomplete<String>(
-                                                        initialValue:
-                                                            TextEditingValue(
-                                                                text: FFAppState()
-                                                                    .searchbarText),
-                                                        optionsBuilder:
-                                                            (textEditingValue) {
-                                                          if (textEditingValue
-                                                                  .text ==
-                                                              '') {
-                                                            return const Iterable<
-                                                                String>.empty();
+                                                      builder: (context) => Autocomplete<String>(
+                                                        initialValue: TextEditingValue(text: FFAppState().searchbarText),
+                                                        optionsBuilder: (textEditingValue) {
+                                                          if (textEditingValue.text == '') {
+                                                            return const Iterable<String>.empty();
                                                           }
-                                                          return functions
-                                                              .mapRutiiniNimet(
-                                                                  (currentUserDocument
-                                                                              ?.treeniRutiinit
-                                                                              ?.toList() ??
-                                                                          [])
-                                                                      .toList())
-                                                              .toList()
-                                                              .where((option) {
-                                                            final lowercaseOption =
-                                                                option
-                                                                    .toLowerCase();
-                                                            return lowercaseOption
-                                                                .contains(
-                                                                    textEditingValue
-                                                                        .text
-                                                                        .toLowerCase());
+                                                          return functions.mapRutiiniNimet((currentUserDocument?.treeniRutiinit?.toList() ?? []).toList()).toList().where((option) {
+                                                            final lowercaseOption = option.toLowerCase();
+                                                            return lowercaseOption.contains(textEditingValue.text.toLowerCase());
                                                           });
                                                         },
-                                                        optionsViewBuilder:
-                                                            (context,
-                                                                onSelected,
-                                                                options) {
+                                                        optionsViewBuilder: (context, onSelected, options) {
                                                           return AutocompleteOptionsList(
-                                                            textFieldKey: _model
-                                                                .textFieldSeachBarKey,
-                                                            textController: _model
-                                                                .textFieldSeachBarController!,
-                                                            options: options
-                                                                .toList(),
-                                                            onSelected:
-                                                                onSelected,
-                                                            textStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleSmall
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Roboto',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondary,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .normal,
-                                                                    ),
-                                                            textHighlightStyle:
-                                                                TextStyle(),
-                                                            elevation: 4.0,
-                                                            optionBackgroundColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                            optionHighlightColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                            maxHeight: 300.0,
+                                                            textFieldKey: _model.textFieldSeachBarKey,
+                                                            textController: _model.textFieldSeachBarController!,
+                                                            options: options.toList(),
+                                                            onSelected: onSelected,
+                                                            textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                  fontFamily: 'Roboto',
+                                                                  color: FlutterFlowTheme.of(context).secondary,
+                                                                  fontWeight: FontWeight.normal,
+                                                                ),
+                                                            textHighlightStyle: TextStyle(),
+                                                            elevation: 4,
+                                                            optionBackgroundColor: FlutterFlowTheme.of(context).primary,
+                                                            optionHighlightColor: FlutterFlowTheme.of(context).secondaryText,
+                                                            maxHeight: 300,
                                                           );
                                                         },
-                                                        onSelected:
-                                                            (String selection) {
-                                                          setState(() => _model
-                                                                  .textFieldSeachBarSelectedOption =
-                                                              selection);
-                                                          FocusScope.of(context)
-                                                              .unfocus();
+                                                        onSelected: (String selection) {
+                                                          setState(() => _model.textFieldSeachBarSelectedOption = selection);
+                                                          FocusScope.of(context).unfocus();
                                                         },
                                                         fieldViewBuilder: (
                                                           context,
@@ -622,210 +451,113 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                           focusNode,
                                                           onEditingComplete,
                                                         ) {
-                                                          _model.textFieldSeachBarController =
-                                                              textEditingController;
+                                                          _model.textFieldSeachBarController = textEditingController;
                                                           return TextFormField(
-                                                            key: _model
-                                                                .textFieldSeachBarKey,
-                                                            controller:
-                                                                textEditingController,
-                                                            focusNode:
-                                                                focusNode,
-                                                            onEditingComplete:
-                                                                onEditingComplete,
-                                                            onChanged: (_) =>
-                                                                EasyDebounce
-                                                                    .debounce(
+                                                            key: _model.textFieldSeachBarKey,
+                                                            controller: textEditingController,
+                                                            focusNode: focusNode,
+                                                            onEditingComplete: onEditingComplete,
+                                                            onChanged: (_) => EasyDebounce.debounce(
                                                               '_model.textFieldSeachBarController',
-                                                              Duration(
-                                                                  milliseconds:
-                                                                      1000),
+                                                              Duration(milliseconds: 1000),
                                                               () async {
-                                                                logFirebaseEvent(
-                                                                    'PAASIVU_TextField_seachBar_ON_TEXTFIELD_');
-                                                                logFirebaseEvent(
-                                                                    'TextField_seachBar_update_app_state');
+                                                                logFirebaseEvent('PAASIVU_TextField_seachBar_ON_TEXTFIELD_');
+                                                                logFirebaseEvent('TextField_seachBar_update_app_state');
                                                                 setState(() {
-                                                                  FFAppState()
-                                                                          .searchbarText =
-                                                                      _model
-                                                                          .textFieldSeachBarController
-                                                                          .text;
+                                                                  FFAppState().searchbarText = _model.textFieldSeachBarController.text;
                                                                 });
                                                               },
                                                             ),
                                                             obscureText: false,
-                                                            decoration:
-                                                                InputDecoration(
+                                                            decoration: InputDecoration(
                                                               isDense: true,
-                                                              hintText: FFLocalizations
-                                                                      .of(context)
-                                                                  .getVariableText(
+                                                              hintText: FFLocalizations.of(context).getVariableText(
                                                                 fiText: () {
-                                                                  if (FFAppState()
-                                                                          .navBarIndex ==
-                                                                      0) {
+                                                                  if (FFAppState().navBarIndex == 0) {
                                                                     return 'Hae treenipohja nimellä';
-                                                                  } else if (FFAppState()
-                                                                          .navBarIndex ==
-                                                                      2) {
+                                                                  } else if (FFAppState().navBarIndex == 2) {
                                                                     return 'Hae treenihistoria nimellä';
                                                                   } else {
                                                                     return 'Haku';
                                                                   }
                                                                 }(),
                                                                 enText: () {
-                                                                  if (FFAppState()
-                                                                          .navBarIndex ==
-                                                                      0) {
+                                                                  if (FFAppState().navBarIndex == 0) {
                                                                     return 'Hae treenipohja nimellä';
-                                                                  } else if (FFAppState()
-                                                                          .navBarIndex ==
-                                                                      2) {
+                                                                  } else if (FFAppState().navBarIndex == 2) {
                                                                     return 'Hae treenihistoria nimellä';
                                                                   } else {
                                                                     return 'Haku';
                                                                   }
                                                                 }(),
                                                               ),
-                                                              hintStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodySmall
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Roboto',
-                                                                        color: Color(
-                                                                            0x81FFFFFF),
-                                                                        fontSize:
-                                                                            16.0,
-                                                                      ),
-                                                              enabledBorder:
-                                                                  UnderlineInputBorder(
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: Color(
-                                                                      0x00000000),
-                                                                  width: 1.0,
+                                                              hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                    fontFamily: 'Roboto',
+                                                                    color: Color(0x81FFFFFF),
+                                                                    fontSize: 16,
+                                                                  ),
+                                                              enabledBorder: UnderlineInputBorder(
+                                                                borderSide: BorderSide(
+                                                                  color: Color(0x00000000),
+                                                                  width: 1,
                                                                 ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8.0),
+                                                                borderRadius: BorderRadius.circular(8),
                                                               ),
-                                                              focusedBorder:
-                                                                  UnderlineInputBorder(
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: Color(
-                                                                      0x00000000),
-                                                                  width: 1.0,
+                                                              focusedBorder: UnderlineInputBorder(
+                                                                borderSide: BorderSide(
+                                                                  color: Color(0x00000000),
+                                                                  width: 1,
                                                                 ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8.0),
+                                                                borderRadius: BorderRadius.circular(8),
                                                               ),
-                                                              errorBorder:
-                                                                  UnderlineInputBorder(
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: Color(
-                                                                      0x00000000),
-                                                                  width: 1.0,
+                                                              errorBorder: UnderlineInputBorder(
+                                                                borderSide: BorderSide(
+                                                                  color: Color(0x00000000),
+                                                                  width: 1,
                                                                 ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8.0),
+                                                                borderRadius: BorderRadius.circular(8),
                                                               ),
-                                                              focusedErrorBorder:
-                                                                  UnderlineInputBorder(
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: Color(
-                                                                      0x00000000),
-                                                                  width: 1.0,
+                                                              focusedErrorBorder: UnderlineInputBorder(
+                                                                borderSide: BorderSide(
+                                                                  color: Color(0x00000000),
+                                                                  width: 1,
                                                                 ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8.0),
+                                                                borderRadius: BorderRadius.circular(8),
                                                               ),
-                                                              contentPadding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          13.0,
-                                                                          13.0,
-                                                                          13.0,
-                                                                          13.0),
+                                                              contentPadding: EdgeInsetsDirectional.fromSTEB(13, 13, 13, 13),
                                                               prefixIcon: Icon(
-                                                                Icons
-                                                                    .search_rounded,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondary,
-                                                                size: 24.0,
+                                                                Icons.search_rounded,
+                                                                color: FlutterFlowTheme.of(context).secondary,
+                                                                size: 24,
                                                               ),
-                                                              suffixIcon: _model
-                                                                      .textFieldSeachBarController!
-                                                                      .text
-                                                                      .isNotEmpty
+                                                              suffixIcon: _model.textFieldSeachBarController!.text.isNotEmpty
                                                                   ? InkWell(
-                                                                      onTap:
-                                                                          () async {
-                                                                        _model
-                                                                            .textFieldSeachBarController
-                                                                            ?.clear();
-                                                                        logFirebaseEvent(
-                                                                            'PAASIVU_TextField_seachBar_ON_TEXTFIELD_');
-                                                                        logFirebaseEvent(
-                                                                            'TextField_seachBar_update_app_state');
-                                                                        setState(
-                                                                            () {
-                                                                          FFAppState().searchbarText = _model
-                                                                              .textFieldSeachBarController
-                                                                              .text;
+                                                                      onTap: () async {
+                                                                        _model.textFieldSeachBarController?.clear();
+                                                                        logFirebaseEvent('PAASIVU_TextField_seachBar_ON_TEXTFIELD_');
+                                                                        logFirebaseEvent('TextField_seachBar_update_app_state');
+                                                                        setState(() {
+                                                                          FFAppState().searchbarText = _model.textFieldSeachBarController.text;
                                                                         });
-                                                                        setState(
-                                                                            () {});
+                                                                        setState(() {});
                                                                       },
-                                                                      child:
-                                                                          Icon(
-                                                                        Icons
-                                                                            .clear,
-                                                                        color: FFAppState().searchbarText != null &&
-                                                                                FFAppState().searchbarText != ''
-                                                                            ? FlutterFlowTheme.of(context).secondary
-                                                                            : Colors.transparent,
-                                                                        size:
-                                                                            24.0,
+                                                                      child: Icon(
+                                                                        Icons.clear,
+                                                                        color: FFAppState().searchbarText != null && FFAppState().searchbarText != '' ? FlutterFlowTheme.of(context).secondary : Colors.transparent,
+                                                                        size: 24,
                                                                       ),
                                                                     )
                                                                   : null,
                                                             ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondary,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
+                                                            style: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                  fontFamily: 'Roboto',
+                                                                  color: FlutterFlowTheme.of(context).secondary,
+                                                                  fontWeight: FontWeight.normal,
                                                                 ),
-                                                            validator: _model
-                                                                .textFieldSeachBarControllerValidator
-                                                                .asValidator(
-                                                                    context),
+                                                            validator: _model.textFieldSeachBarControllerValidator.asValidator(context),
                                                           );
                                                         },
-                                                      ).animateOnPageLoad(
-                                                              animationsMap[
-                                                                  'textFieldOnPageLoadAnimation']!),
+                                                      ).animateOnPageLoad(animationsMap['textFieldOnPageLoadAnimation']!),
                                                     ),
                                                   ),
                                               ],
@@ -836,81 +568,49 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                           Expanded(
                                             flex: 1,
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 4.0, 0.0),
+                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 4, 0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.min,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
+                                                mainAxisAlignment: MainAxisAlignment.center,
                                                 children: [
                                                   if (valueOrDefault<bool>(
-                                                        containerQueryLatestSessioTreeniSessiotRecordList
-                                                                .length >
-                                                            0,
+                                                        containerQueryLatestSessioTreeniSessiotRecordList.length > 0,
                                                         false,
                                                       ) &&
                                                       valueOrDefault<bool>(
-                                                        containerQueryLatestSessioTreeniSessiotRecordList
-                                                                .first.alku ==
-                                                            null,
+                                                        containerQueryLatestSessioTreeniSessiotRecordList.first.alku == null,
                                                         false,
                                                       ) &&
                                                       valueOrDefault<bool>(
-                                                        containerQueryLatestSessioTreeniSessiotRecordList
-                                                                .first.loppu ==
-                                                            null,
+                                                        containerQueryLatestSessioTreeniSessiotRecordList.first.loppu == null,
                                                         false,
                                                       ))
                                                     Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              1.0, 0.0),
+                                                      alignment: AlignmentDirectional(1, 0),
                                                       child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    22.0,
-                                                                    0.0),
+                                                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 22, 0),
                                                         child: InkWell(
                                                           onTap: () async {
-                                                            logFirebaseEvent(
-                                                                'PAASIVU_PAGE_Icon_ofdgz8ab_ON_TAP');
-                                                            logFirebaseEvent(
-                                                                'Icon_backend_call');
-                                                            await containerQueryLatestSessioTreeniSessiotRecordList
-                                                                .first.reference
-                                                                .delete();
+                                                            logFirebaseEvent('PAASIVU_PAGE_Icon_ofdgz8ab_ON_TAP');
+                                                            logFirebaseEvent('Icon_backend_call');
+                                                            await containerQueryLatestSessioTreeniSessiotRecordList.first.reference.delete();
                                                           },
                                                           child: Icon(
-                                                            Icons
-                                                                .delete_rounded,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .deleteRed,
-                                                            size: 28.0,
+                                                            Icons.delete_rounded,
+                                                            color: FlutterFlowTheme.of(context).deleteRed,
+                                                            size: 28,
                                                           ),
                                                         ),
                                                       ),
                                                     ),
-                                                  if (containerQueryLatestSessioTreeniSessiotRecordList
-                                                              .length >
-                                                          0
+                                                  if (containerQueryLatestSessioTreeniSessiotRecordList.length > 0
                                                       ? valueOrDefault<bool>(
                                                           valueOrDefault<bool>(
-                                                                containerQueryLatestSessioTreeniSessiotRecordList
-                                                                        .first
-                                                                        .alku !=
-                                                                    null,
+                                                                containerQueryLatestSessioTreeniSessiotRecordList.first.alku != null,
                                                                 false,
                                                               ) &&
-                                                              valueOrDefault<
-                                                                  bool>(
-                                                                containerQueryLatestSessioTreeniSessiotRecordList
-                                                                        .first
-                                                                        .loppu ==
-                                                                    null,
+                                                              valueOrDefault<bool>(
+                                                                containerQueryLatestSessioTreeniSessiotRecordList.first.loppu == null,
                                                                 true,
                                                               ),
                                                           false,
@@ -918,91 +618,52 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                       : false)
                                                     InkWell(
                                                       onTap: () async {
-                                                        logFirebaseEvent(
-                                                            'PAASIVU_PAGE_Row_lopetaTreeni_ON_TAP');
-                                                        logFirebaseEvent(
-                                                            'Row_lopetaTreeni_backend_call');
+                                                        logFirebaseEvent('PAASIVU_PAGE_Row_lopetaTreeni_ON_TAP');
+                                                        logFirebaseEvent('Row_lopetaTreeni_backend_call');
 
-                                                        final treeniSessiotUpdateData =
-                                                            {
-                                                          'loppu': FieldValue
-                                                              .serverTimestamp(),
+                                                        final treeniSessiotUpdateData = {
+                                                          'loppu': FieldValue.serverTimestamp(),
                                                         };
-                                                        await containerQueryLatestSessioTreeniSessiotRecordList
-                                                            .first.reference
-                                                            .update(
-                                                                treeniSessiotUpdateData);
-                                                        logFirebaseEvent(
-                                                            'Row_lopetaTreeni_backend_call');
+                                                        await containerQueryLatestSessioTreeniSessiotRecordList.first.reference.update(treeniSessiotUpdateData);
+                                                        logFirebaseEvent('Row_lopetaTreeni_backend_call');
 
-                                                        final usersUpdateData =
-                                                            {
-                                                          'treeniKestoYhteensaSekunteina':
-                                                              FieldValue
-                                                                  .increment(
-                                                                      1.0),
-                                                          'treeniaYhteensa':
-                                                              FieldValue
-                                                                  .increment(1),
+                                                        final usersUpdateData = {
+                                                          'treeniKestoYhteensaSekunteina': FieldValue.increment(functions.doubleDurationInSecondsFromStarAndEnd(containerQueryLatestSessioTreeniSessiotRecordList.first.alku, containerQueryLatestSessioTreeniSessiotRecordList.first.loppu)),
+                                                          'treeniaYhteensa': FieldValue.increment(1),
                                                         };
-                                                        await currentUserReference!
-                                                            .update(
-                                                                usersUpdateData);
+                                                        await currentUserReference!.update(usersUpdateData);
+                                                        logFirebaseEvent('Row_lopetaTreeni_update_app_state');
+                                                        setState(() {
+                                                          FFAppState().navBarIndex = 2;
+                                                        });
                                                       },
                                                       child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
+                                                        mainAxisSize: MainAxisSize.max,
+                                                        mainAxisAlignment: MainAxisAlignment.center,
                                                         children: [
                                                           Expanded(
                                                             child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .center,
+                                                              mainAxisSize: MainAxisSize.max,
+                                                              mainAxisAlignment: MainAxisAlignment.center,
+                                                              crossAxisAlignment: CrossAxisAlignment.center,
                                                               children: [
                                                                 Icon(
-                                                                  Icons
-                                                                      .stop_circle_rounded,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .deleteRed,
-                                                                  size: 30.0,
+                                                                  Icons.stop_circle_rounded,
+                                                                  color: FlutterFlowTheme.of(context).deleteRed,
+                                                                  size: 30,
                                                                 ),
                                                                 if (false)
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            2.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                    padding: EdgeInsetsDirectional.fromSTEB(2, 0, 0, 0),
                                                                     child: Text(
-                                                                      FFLocalizations.of(
-                                                                              context)
-                                                                          .getText(
+                                                                      FFLocalizations.of(context).getText(
                                                                         'ouj3p8pa' /* Lopeta */,
                                                                       ),
-                                                                      textAlign:
-                                                                          TextAlign
-                                                                              .center,
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Roboto',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondary,
-                                                                            fontSize:
-                                                                                12.0,
+                                                                      textAlign: TextAlign.center,
+                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                            fontFamily: 'Roboto',
+                                                                            color: FlutterFlowTheme.of(context).secondary,
+                                                                            fontSize: 12,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -1011,12 +672,9 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                                           ),
                                                         ],
                                                       ),
-                                                    ).animateOnPageLoad(
-                                                        animationsMap[
-                                                            'rowOnPageLoadAnimation2']!),
+                                                    ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation2']!),
                                                 ],
-                                              ).animateOnPageLoad(animationsMap[
-                                                  'columnOnPageLoadAnimation']!),
+                                              ).animateOnPageLoad(animationsMap['columnOnPageLoadAnimation']!),
                                             ),
                                           ),
                                       ],
@@ -1026,14 +684,11 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                 if (revenue_cat.activeEntitlementIds.length == 0
                                     ? () {
                                         if (isAndroid) {
-                                          return getRemoteConfigBool(
-                                              'showAdBanner_android');
+                                          return getRemoteConfigBool('showAdBanner_android');
                                         } else if (isiOS) {
-                                          return getRemoteConfigBool(
-                                              'showAdBanner_ios');
+                                          return getRemoteConfigBool('showAdBanner_ios');
                                         } else if (isWeb) {
-                                          return getRemoteConfigBool(
-                                              'showAdBanner_web');
+                                          return getRemoteConfigBool('showAdBanner_web');
                                         } else {
                                           return false;
                                         }
@@ -1041,30 +696,28 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                     : false)
                                   Container(
                                     constraints: BoxConstraints(
-                                      maxWidth: 600.0,
-                                      maxHeight: 60.0,
+                                      maxWidth: 600,
+                                      maxHeight: 60,
                                     ),
                                     decoration: BoxDecoration(
                                       color: Colors.transparent,
                                       borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(8.0),
-                                        bottomRight: Radius.circular(8.0),
-                                        topLeft: Radius.circular(0.0),
-                                        topRight: Radius.circular(0.0),
+                                        bottomLeft: Radius.circular(8),
+                                        bottomRight: Radius.circular(8),
+                                        topLeft: Radius.circular(0),
+                                        topRight: Radius.circular(0),
                                       ),
                                     ),
                                     child: FlutterFlowAdBanner(
                                       showsTestAd: true,
-                                      iOSAdUnitID:
-                                          'ca-app-pub-6667798289242281/3798313004',
-                                      androidAdUnitID:
-                                          'ca-app-pub-6667798289242281/8613432088',
+                                      iOSAdUnitID: 'ca-app-pub-6667798289242281/3798313004',
+                                      androidAdUnitID: 'ca-app-pub-6667798289242281/8613432088',
                                     ),
                                   ),
                               ],
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.0, 1.0),
+                              alignment: AlignmentDirectional(0, 1),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
@@ -1073,9 +726,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                     updateCallback: () => setState(() {}),
                                     updateOnChange: true,
                                     child: Navbar2Widget(
-                                      treeniSessiot:
-                                          containerQueryLatestSessioTreeniSessiotRecordList
-                                              .toList(),
+                                      treeniSessiot: containerQueryLatestSessioTreeniSessiotRecordList.toList(),
                                     ),
                                   ),
                                 ],

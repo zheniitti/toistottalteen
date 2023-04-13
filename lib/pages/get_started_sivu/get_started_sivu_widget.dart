@@ -23,8 +23,7 @@ class GetStartedSivuWidget extends StatefulWidget {
   _GetStartedSivuWidgetState createState() => _GetStartedSivuWidgetState();
 }
 
-class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
-    with TickerProviderStateMixin {
+class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget> with TickerProviderStateMixin {
   late GetStartedSivuModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -86,8 +85,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
     super.initState();
     _model = createModel(context, () => GetStartedSivuModel());
 
-    logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'getStarted_sivu'});
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'getStarted_sivu'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('GET_STARTED_SIVU_getStarted_sivu_ON_INIT');
@@ -151,12 +149,8 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                           ),
                         );
                       }
-                      List<EsimerkkiDataRecord> columnEsimerkkiDataRecordList =
-                          snapshot.data!;
-                      final columnEsimerkkiDataRecord =
-                          columnEsimerkkiDataRecordList.isNotEmpty
-                              ? columnEsimerkkiDataRecordList.first
-                              : null;
+                      List<EsimerkkiDataRecord> columnEsimerkkiDataRecordList = snapshot.data!;
+                      final columnEsimerkkiDataRecord = columnEsimerkkiDataRecordList.isNotEmpty ? columnEsimerkkiDataRecordList.first : null;
                       return Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -171,24 +165,19 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 70.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 70.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 50.0),
+                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 50.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                        alignment: AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 21.0),
+                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 21.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               'aizxhddb' /* Tallenna treenisuoritukset */,
@@ -199,17 +188,13 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                               fontWeight: FontWeight.w500,
                                               fontSize: 25.0,
                                             ),
-                                          ).animateOnPageLoad(animationsMap[
-                                              'textOnPageLoadAnimation1']!),
+                                          ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation1']!),
                                         ),
                                       ),
                                       Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                        alignment: AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  47.0, 0.0, 47.0, 0.0),
+                                          padding: EdgeInsetsDirectional.fromSTEB(47.0, 0.0, 47.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               'lpepy92t' /* Kirjaa muistiin treeniharjoitt... */,
@@ -221,8 +206,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                               fontWeight: FontWeight.w300,
                                               fontSize: 17.0,
                                             ),
-                                          ).animateOnPageLoad(animationsMap[
-                                              'textOnPageLoadAnimation2']!),
+                                          ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation2']!),
                                         ),
                                       ),
                                     ],
@@ -233,10 +217,8 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                   children: [
                                     FFButtonWidget(
                                       onPressed: () async {
-                                        logFirebaseEvent(
-                                            'GET_STARTED_SIVU_PAGE_Button_uusi_ON_TAP');
-                                        logFirebaseEvent(
-                                            'Button_uusi_navigate_to');
+                                        logFirebaseEvent('GET_STARTED_SIVU_PAGE_Button_uusi_ON_TAP');
+                                        logFirebaseEvent('Button_uusi_navigate_to');
 
                                         context.pushNamed(
                                           'kirjaudu_sivu',
@@ -246,6 +228,13 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                               ParamType.int,
                                             ),
                                           }.withoutNulls,
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType: PageTransitionType.fade,
+                                              duration: Duration(milliseconds: 300),
+                                            ),
+                                          },
                                         );
                                       },
                                       text: FFLocalizations.of(context).getText(
@@ -254,16 +243,10 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                       options: FFButtonOptions(
                                         width: 300.0,
                                         height: 80.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 0.0),
-                                        iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .tertiary,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleMedium
-                                            .override(
+                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                        iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context).tertiary,
+                                        textStyle: FlutterFlowTheme.of(context).titleMedium.override(
                                               fontFamily: 'Outfit',
                                               fontSize: 20.0,
                                               fontWeight: FontWeight.w500,
@@ -273,270 +256,214 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                           color: Colors.transparent,
                                           width: 1.0,
                                         ),
-                                        borderRadius:
-                                            BorderRadius.circular(28.0),
+                                        borderRadius: BorderRadius.circular(28.0),
                                       ),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'buttonOnPageLoadAnimation']!),
+                                    ).animateOnPageLoad(animationsMap['buttonOnPageLoadAnimation']!),
+                                    if (getRemoteConfigBool('isEnabled_anonymousLogin'))
+                                      Stack(
+                                        children: [
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 0.0),
+                                                child: InkWell(
+                                                  onTap: () async {
+                                                    logFirebaseEvent('GET_STARTED_SIVU_Text_lpngc9ib_ON_TAP');
+                                                    logFirebaseEvent('Text_auth');
+                                                    GoRouter.of(context).prepareAuthEvent();
+                                                    final user = await authManager.signInAnonymously(context);
+                                                    if (user == null) {
+                                                      return;
+                                                    }
+                                                    // getPlatform
+                                                    logFirebaseEvent('Text_getPlatform');
+                                                    _model.platformStringCopy = await actions.platformString();
+                                                    // updateUsersRecord
+                                                    logFirebaseEvent('Text_updateUsersRecord');
+
+                                                    final usersUpdateData = {
+                                                      ...createUsersRecordData(
+                                                        appLangCode: FFLocalizations.of(context).languageCode,
+                                                        uid: currentUserUid,
+                                                      ),
+                                                      'created_time': FieldValue.serverTimestamp(),
+                                                      'treeniRutiinit': getTreeniRutiiniListFirestoreData(
+                                                        columnEsimerkkiDataRecord!.esimerkkiRutiinit!.toList(),
+                                                      ),
+                                                    };
+                                                    await currentUserReference!.update(usersUpdateData);
+                                                    logFirebaseEvent('Text_navigate_to');
+
+                                                    context.goNamedAuth('paasivu', mounted);
+
+                                                    setState(() {});
+                                                  },
+                                                  child: Text(
+                                                    FFLocalizations.of(context).getText(
+                                                      'rwzc4awh' /* tai */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(context).titleMedium.override(
+                                                          fontFamily: 'Outfit',
+                                                          color: FlutterFlowTheme.of(context).secondary,
+                                                          fontSize: 18.0,
+                                                          fontWeight: FontWeight.normal,
+                                                        ),
+                                                  ),
+                                                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation3']!),
+                                              ),
+                                              InkWell(
+                                                onLongPress: () async {
+                                                  logFirebaseEvent('GET_STARTED_SIVU_JATKA_ILMAN_KIRJAUTUMIS');
+                                                  if (!_model.pressedAnonymousLogin) {
+                                                    logFirebaseEvent('Button_update_widget_state');
+                                                    _model.pressedAnonymousLogin = false;
+                                                    logFirebaseEvent('Button_auth');
+                                                    GoRouter.of(context).prepareAuthEvent();
+                                                    final user = await authManager.signInAnonymously(context);
+                                                    if (user == null) {
+                                                      return;
+                                                    }
+                                                    // getPlatform
+                                                    logFirebaseEvent('Button_getPlatform');
+                                                    _model.platformStringCopy2 = await actions.platformString();
+                                                    if (columnEsimerkkiDataRecord != null) {
+                                                      // updateUsersRecord
+                                                      logFirebaseEvent('Button_updateUsersRecord');
+
+                                                      final usersUpdateData1 = {
+                                                        ...createUsersRecordData(
+                                                          appLangCode: FFLocalizations.of(context).languageCode,
+                                                          uid: currentUserUid,
+                                                          isAnonymous: true,
+                                                          isDebugUser: true,
+                                                        ),
+                                                        'created_time': FieldValue.serverTimestamp(),
+                                                        'treeniRutiinit': getTreeniRutiiniListFirestoreData(
+                                                          columnEsimerkkiDataRecord!.esimerkkiRutiinit!.toList(),
+                                                        ),
+                                                      };
+                                                      await currentUserReference!.update(usersUpdateData1);
+                                                    } else {
+                                                      // updateUsersRecord
+                                                      logFirebaseEvent('Button_updateUsersRecord');
+
+                                                      final usersUpdateData2 = {
+                                                        ...createUsersRecordData(
+                                                          appLangCode: FFLocalizations.of(context).languageCode,
+                                                          uid: currentUserUid,
+                                                          isAnonymous: true,
+                                                          isDebugUser: true,
+                                                        ),
+                                                        'created_time': FieldValue.serverTimestamp(),
+                                                      };
+                                                      await currentUserReference!.update(usersUpdateData2);
+                                                    }
+
+                                                    logFirebaseEvent('Button_navigate_to');
+
+                                                    context.goNamedAuth('paasivu', mounted);
+                                                  }
+
+                                                  setState(() {});
+                                                },
+                                                child: FFButtonWidget(
+                                                  onPressed: () async {
+                                                    logFirebaseEvent('GET_STARTED_SIVU_JATKA_ILMAN_KIRJAUTUMIS');
+                                                    if (!_model.pressedAnonymousLogin) {
+                                                      logFirebaseEvent('Button_update_widget_state');
+                                                      _model.pressedAnonymousLogin = false;
+                                                      logFirebaseEvent('Button_auth');
+                                                      GoRouter.of(context).prepareAuthEvent();
+                                                      final user = await authManager.signInAnonymously(context);
+                                                      if (user == null) {
+                                                        return;
+                                                      }
+                                                      // getPlatform
+                                                      logFirebaseEvent('Button_getPlatform');
+                                                      _model.platformString = await actions.platformString();
+                                                      if (columnEsimerkkiDataRecord != null) {
+                                                        // updateUsersRecord
+                                                        logFirebaseEvent('Button_updateUsersRecord');
+
+                                                        final usersUpdateData1 = {
+                                                          ...createUsersRecordData(
+                                                            appLangCode: FFLocalizations.of(context).languageCode,
+                                                            uid: currentUserUid,
+                                                            isAnonymous: true,
+                                                          ),
+                                                          'created_time': FieldValue.serverTimestamp(),
+                                                          'treeniRutiinit': getTreeniRutiiniListFirestoreData(
+                                                            columnEsimerkkiDataRecord!.esimerkkiRutiinit!.toList(),
+                                                          ),
+                                                        };
+                                                        await currentUserReference!.update(usersUpdateData1);
+                                                      } else {
+                                                        // updateUsersRecord
+                                                        logFirebaseEvent('Button_updateUsersRecord');
+
+                                                        final usersUpdateData2 = {
+                                                          ...createUsersRecordData(
+                                                            appLangCode: FFLocalizations.of(context).languageCode,
+                                                            uid: currentUserUid,
+                                                            isAnonymous: true,
+                                                          ),
+                                                          'created_time': FieldValue.serverTimestamp(),
+                                                        };
+                                                        await currentUserReference!.update(usersUpdateData2);
+                                                      }
+
+                                                      logFirebaseEvent('Button_navigate_to');
+
+                                                      context.goNamedAuth('paasivu', mounted);
+                                                    }
+
+                                                    setState(() {});
+                                                  },
+                                                  text: FFLocalizations.of(context).getText(
+                                                    'm7gpe2ik' /* Jatka ilman kirjautumista */,
+                                                  ),
+                                                  options: FFButtonOptions(
+                                                    height: 40.0,
+                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                    iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                    color: Color(0x0014181B),
+                                                    textStyle: FlutterFlowTheme.of(context).titleMedium.override(
+                                                          fontFamily: 'Outfit',
+                                                          color: FlutterFlowTheme.of(context).secondary,
+                                                          fontSize: 18.0,
+                                                          fontWeight: FontWeight.w500,
+                                                        ),
+                                                    borderSide: BorderSide(
+                                                      color: Colors.transparent,
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius: BorderRadius.circular(8.0),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 24.0, 0.0, 0.0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 22.0, 0.0, 0.0),
                                       child: InkWell(
                                         onTap: () async {
-                                          logFirebaseEvent(
-                                              'GET_STARTED_SIVU_Text_lpngc9ib_ON_TAP');
-                                          logFirebaseEvent('Text_auth');
-                                          GoRouter.of(context)
-                                              .prepareAuthEvent();
-                                          final user = await authManager
-                                              .signInAnonymously(context);
-                                          if (user == null) {
-                                            return;
-                                          }
-                                          // getPlatform
-                                          logFirebaseEvent('Text_getPlatform');
-                                          _model.platformStringCopy =
-                                              await actions.platformString();
-                                          // updateUsersRecord
-                                          logFirebaseEvent(
-                                              'Text_updateUsersRecord');
-
-                                          final usersUpdateData = {
-                                            ...createUsersRecordData(
-                                              appLangCode:
-                                                  FFLocalizations.of(context)
-                                                      .languageCode,
-                                              uid: currentUserUid,
-                                            ),
-                                            'created_time':
-                                                FieldValue.serverTimestamp(),
-                                            'treeniRutiinit':
-                                                getTreeniRutiiniListFirestoreData(
-                                              columnEsimerkkiDataRecord!
-                                                  .esimerkkiRutiinit!
-                                                  .toList(),
-                                            ),
-                                          };
-                                          await currentUserReference!
-                                              .update(usersUpdateData);
-                                          logFirebaseEvent('Text_navigate_to');
-
-                                          context.goNamedAuth(
-                                              'paasivu', mounted);
-
-                                          setState(() {});
+                                          logFirebaseEvent('GET_STARTED_SIVU_Text_1qlf7apm_ON_TAP');
+                                          logFirebaseEvent('Text_launch_u_r_l');
+                                          await launchURL(getRemoteConfigString('privacyPolicyUrl'));
                                         },
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'rwzc4awh' /* tai */,
+                                            'hqdjtyfp' /* Tietosuoja ja käyttöehdot */,
                                           ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .titleMedium
-                                              .override(
-                                                fontFamily: 'Outfit',
-                                                color: Color(0xFFDADADA),
-                                                fontSize: 20.0,
-                                                fontWeight: FontWeight.normal,
+                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                fontFamily: 'Roboto',
+                                                color: FlutterFlowTheme.of(context).secondary,
                                               ),
                                         ),
-                                      ).animateOnPageLoad(animationsMap[
-                                          'textOnPageLoadAnimation3']!),
-                                    ),
-                                    Stack(
-                                      children: [
-                                        InkWell(
-                                          onLongPress: () async {
-                                            logFirebaseEvent(
-                                                'GET_STARTED_SIVU_JATKA_ILMAN_KIRJAUTUMIS');
-                                            if (!_model.pressedAnonymousLogin) {
-                                              logFirebaseEvent(
-                                                  'Button_update_widget_state');
-                                              _model.pressedAnonymousLogin =
-                                                  false;
-                                              logFirebaseEvent('Button_auth');
-                                              GoRouter.of(context)
-                                                  .prepareAuthEvent();
-                                              final user = await authManager
-                                                  .signInAnonymously(context);
-                                              if (user == null) {
-                                                return;
-                                              }
-                                              // getPlatform
-                                              logFirebaseEvent(
-                                                  'Button_getPlatform');
-                                              _model.platformStringCopy2 =
-                                                  await actions
-                                                      .platformString();
-                                              if (columnEsimerkkiDataRecord !=
-                                                  null) {
-                                                // updateUsersRecord
-                                                logFirebaseEvent(
-                                                    'Button_updateUsersRecord');
-
-                                                final usersUpdateData1 = {
-                                                  ...createUsersRecordData(
-                                                    appLangCode:
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .languageCode,
-                                                    uid: currentUserUid,
-                                                    isAnonymous: true,
-                                                    isDebugUser: true,
-                                                  ),
-                                                  'created_time': FieldValue
-                                                      .serverTimestamp(),
-                                                  'treeniRutiinit':
-                                                      getTreeniRutiiniListFirestoreData(
-                                                    columnEsimerkkiDataRecord!
-                                                        .esimerkkiRutiinit!
-                                                        .toList(),
-                                                  ),
-                                                };
-                                                await currentUserReference!
-                                                    .update(usersUpdateData1);
-                                              } else {
-                                                // updateUsersRecord
-                                                logFirebaseEvent(
-                                                    'Button_updateUsersRecord');
-
-                                                final usersUpdateData2 = {
-                                                  ...createUsersRecordData(
-                                                    appLangCode:
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .languageCode,
-                                                    uid: currentUserUid,
-                                                    isAnonymous: true,
-                                                    isDebugUser: true,
-                                                  ),
-                                                  'created_time': FieldValue
-                                                      .serverTimestamp(),
-                                                };
-                                                await currentUserReference!
-                                                    .update(usersUpdateData2);
-                                              }
-
-                                              logFirebaseEvent(
-                                                  'Button_navigate_to');
-
-                                              context.goNamedAuth(
-                                                  'paasivu', mounted);
-                                            }
-
-                                            setState(() {});
-                                          },
-                                          child: FFButtonWidget(
-                                            onPressed: () async {
-                                              logFirebaseEvent(
-                                                  'GET_STARTED_SIVU_JATKA_ILMAN_KIRJAUTUMIS');
-                                              if (!_model
-                                                  .pressedAnonymousLogin) {
-                                                logFirebaseEvent(
-                                                    'Button_update_widget_state');
-                                                _model.pressedAnonymousLogin =
-                                                    false;
-                                                logFirebaseEvent('Button_auth');
-                                                GoRouter.of(context)
-                                                    .prepareAuthEvent();
-                                                final user = await authManager
-                                                    .signInAnonymously(context);
-                                                if (user == null) {
-                                                  return;
-                                                }
-                                                // getPlatform
-                                                logFirebaseEvent(
-                                                    'Button_getPlatform');
-                                                _model.platformString =
-                                                    await actions
-                                                        .platformString();
-                                                if (columnEsimerkkiDataRecord !=
-                                                    null) {
-                                                  // updateUsersRecord
-                                                  logFirebaseEvent(
-                                                      'Button_updateUsersRecord');
-
-                                                  final usersUpdateData1 = {
-                                                    ...createUsersRecordData(
-                                                      appLangCode:
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .languageCode,
-                                                      uid: currentUserUid,
-                                                      isAnonymous: true,
-                                                    ),
-                                                    'created_time': FieldValue
-                                                        .serverTimestamp(),
-                                                    'treeniRutiinit':
-                                                        getTreeniRutiiniListFirestoreData(
-                                                      columnEsimerkkiDataRecord!
-                                                          .esimerkkiRutiinit!
-                                                          .toList(),
-                                                    ),
-                                                  };
-                                                  await currentUserReference!
-                                                      .update(usersUpdateData1);
-                                                } else {
-                                                  // updateUsersRecord
-                                                  logFirebaseEvent(
-                                                      'Button_updateUsersRecord');
-
-                                                  final usersUpdateData2 = {
-                                                    ...createUsersRecordData(
-                                                      appLangCode:
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .languageCode,
-                                                      uid: currentUserUid,
-                                                      isAnonymous: true,
-                                                    ),
-                                                    'created_time': FieldValue
-                                                        .serverTimestamp(),
-                                                  };
-                                                  await currentUserReference!
-                                                      .update(usersUpdateData2);
-                                                }
-
-                                                logFirebaseEvent(
-                                                    'Button_navigate_to');
-
-                                                context.goNamedAuth(
-                                                    'paasivu', mounted);
-                                              }
-
-                                              setState(() {});
-                                            },
-                                            text: FFLocalizations.of(context)
-                                                .getText(
-                                              'm7gpe2ik' /* Jatka ilman kirjautumista */,
-                                            ),
-                                            options: FFButtonOptions(
-                                              height: 40.0,
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color: Color(0x0014181B),
-                                              textStyle: FlutterFlowTheme.of(
-                                                      context)
-                                                  .titleMedium
-                                                  .override(
-                                                    fontFamily: 'Outfit',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondary,
-                                                    fontSize: 20.0,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
-                                              borderSide: BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
+                                      ),
                                     ),
                                   ],
                                 ),

@@ -201,6 +201,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Jatka ilman kirjautumista',
       'en': 'Continue without login',
     },
+    'hqdjtyfp': {
+      'fi': 'Tietosuoja ja käyttöehdot',
+      'en': 'Privacy policy and Use terms',
+    },
     '0mk4h58t': {
       'fi': 'Home',
       'en': 'Home',
@@ -782,6 +786,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // sivupalkki
   {
+    '994miiuh': {
+      'fi': 'Hello World',
+      'en': '',
+    },
     'ku53fmbs': {
       'fi': 'Luo tili tai kirjaudu',
       'en': 'Create account or login',
@@ -817,6 +825,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '2ttiy67c': {
       'fi': 'Tietosuoja ja käyttöehdot',
       'en': 'Privacy policy and User agreetment',
+    },
+    'nn03r681': {
+      'fi': 'Kirjaudu ulos',
+      'en': 'Log out',
     },
   },
   // sivu_rutiinit_komponentti

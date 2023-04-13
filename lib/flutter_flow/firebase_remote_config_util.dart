@@ -10,7 +10,9 @@ Future initializeFirebaseRemoteConfig() async {
     'privacyPolicyUrl': '',
     'showAdBanner_ios': true,
     'showAdBanner_web': true,
-    'showCreateAccountToAnonymouslyLoggedInUser': true,
+    'isEnabled_anonymousLogin': true,
+    'isEnabled_statisticsPage': true,
+    'isEnabled_phoneLogin': true,
   });
   await FirebaseRemoteConfig.instance.fetchAndActivate();
 }
