@@ -72,13 +72,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, _) =>
-          appStateNotifier.loggedIn ? PaasivuWidget() : GetStartedSivuWidget(),
+          appStateNotifier.loggedIn ? PaasivuWithPageviewWidget() : GetStartedSivuWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? PaasivuWidget()
+              ? PaasivuWithPageviewWidget()
               : GetStartedSivuWidget(),
           routes: [
             FFRoute(

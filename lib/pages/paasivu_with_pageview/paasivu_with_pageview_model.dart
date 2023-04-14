@@ -10,19 +10,15 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/sivu_rutiinit_komponentti/sivu_rutiinit_komponentti_widget.dart';
 import '/pages/sivu_treenaa_komponentti/sivu_treenaa_komponentti_widget.dart';
 import '/pages/sivu_treeni_historia_komponentti/sivu_treeni_historia_komponentti_widget.dart';
-import 'dart:async';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/revenue_cat_util.dart' as revenue_cat;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
 class PaasivuWithPageviewModel extends FlutterFlowModel {
@@ -32,13 +28,11 @@ class PaasivuWithPageviewModel extends FlutterFlowModel {
 
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for PageView widget.
-  PageController? pageViewController;
-  // Model for sivu_rutiinit_komponentti.
+  // Model for sivu_rutiinit_komponentti component.
   late SivuRutiinitKomponenttiModel sivuRutiinitKomponenttiModel;
-  // Model for sivu_treenaa_omponentti.
-  late SivuTreenaaKomponenttiModel sivuTreenaaOmponenttiModel;
-  // Model for sivu_treeniHistoria_komponentti.
+  // Model for sivu_treenaa_komponentti component.
+  late SivuTreenaaKomponenttiModel sivuTreenaaKomponenttiModel;
+  // Model for sivu_treeniHistoria_komponentti component.
   late SivuTreeniHistoriaKomponenttiModel sivuTreeniHistoriaKomponenttiModel;
   // Model for workoutDurationText component.
   late WorkoutDurationTextModel workoutDurationTextModel;
@@ -55,7 +49,7 @@ class PaasivuWithPageviewModel extends FlutterFlowModel {
   void initState(BuildContext context) {
     sivuRutiinitKomponenttiModel =
         createModel(context, () => SivuRutiinitKomponenttiModel());
-    sivuTreenaaOmponenttiModel =
+    sivuTreenaaKomponenttiModel =
         createModel(context, () => SivuTreenaaKomponenttiModel());
     sivuTreeniHistoriaKomponenttiModel =
         createModel(context, () => SivuTreeniHistoriaKomponenttiModel());
@@ -66,7 +60,7 @@ class PaasivuWithPageviewModel extends FlutterFlowModel {
 
   void dispose() {
     sivuRutiinitKomponenttiModel.dispose();
-    sivuTreenaaOmponenttiModel.dispose();
+    sivuTreenaaKomponenttiModel.dispose();
     sivuTreeniHistoriaKomponenttiModel.dispose();
     workoutDurationTextModel.dispose();
     sivupalkkiModel.dispose();
