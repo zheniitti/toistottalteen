@@ -8,8 +8,7 @@ import '../flutter_flow_theme.dart';
 import '../../backend/backend.dart';
 
 import '../../auth/base_auth_user_provider.dart';
-import '../../backend/push_notifications/push_notifications_handler.dart'
-    show PushNotificationsHandler;
+import '../../backend/push_notifications/push_notifications_handler.dart' show PushNotificationsHandler;
 
 import '../../index.dart';
 import '../../main.dart';
@@ -71,15 +70,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, _) =>
-          appStateNotifier.loggedIn ? PaasivuWidget() : GetStartedSivuWidget(),
+      errorBuilder: (context, _) => appStateNotifier.loggedIn ? PaasivuWithPageviewWidget() : GetStartedSivuWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => appStateNotifier.loggedIn
-              ? PaasivuWidget()
-              : GetStartedSivuWidget(),
+          builder: (context, _) => appStateNotifier.loggedIn ? PaasivuWithPageviewWidget() : GetStartedSivuWidget(),
           routes: [
             FFRoute(
               name: 'tilastot_sivu',
@@ -190,9 +186,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
 
 extension NavParamExtensions on Map<String, String?> {
   Map<String, String> get withoutNulls => Map.fromEntries(
-        entries
-            .where((e) => e.value != null)
-            .map((e) => MapEntry(e.key, e.value!)),
+        entries.where((e) => e.value != null).map((e) => MapEntry(e.key, e.value!)),
       );
 }
 
@@ -243,30 +237,20 @@ extension NavigationExtensions on BuildContext {
 }
 
 extension GoRouterExtensions on GoRouter {
-  AppStateNotifier get appState =>
-      (routerDelegate.refreshListenable as AppStateNotifier);
-  void prepareAuthEvent([bool ignoreRedirect = false]) =>
-      appState.hasRedirect() && !ignoreRedirect
-          ? null
-          : appState.updateNotifyOnAuthChange(false);
-  bool shouldRedirect(bool ignoreRedirect) =>
-      !ignoreRedirect && appState.hasRedirect();
+  AppStateNotifier get appState => (routerDelegate.refreshListenable as AppStateNotifier);
+  void prepareAuthEvent([bool ignoreRedirect = false]) => appState.hasRedirect() && !ignoreRedirect ? null : appState.updateNotifyOnAuthChange(false);
+  bool shouldRedirect(bool ignoreRedirect) => !ignoreRedirect && appState.hasRedirect();
   void clearRedirectLocation() => appState.clearRedirectLocation();
-  void setRedirectLocationIfUnset(String location) =>
-      (routerDelegate.refreshListenable as AppStateNotifier)
-          .updateNotifyOnAuthChange(false);
+  void setRedirectLocationIfUnset(String location) => (routerDelegate.refreshListenable as AppStateNotifier).updateNotifyOnAuthChange(false);
 }
 
 extension _GoRouterStateExtensions on GoRouterState {
-  Map<String, dynamic> get extraMap =>
-      extra != null ? extra as Map<String, dynamic> : {};
+  Map<String, dynamic> get extraMap => extra != null ? extra as Map<String, dynamic> : {};
   Map<String, dynamic> get allParams => <String, dynamic>{}
     ..addAll(params)
     ..addAll(queryParams)
     ..addAll(extraMap);
-  TransitionInfo get transitionInfo => extraMap.containsKey(kTransitionInfoKey)
-      ? extraMap[kTransitionInfoKey] as TransitionInfo
-      : TransitionInfo.appDefault();
+  TransitionInfo get transitionInfo => extraMap.containsKey(kTransitionInfoKey) ? extraMap[kTransitionInfoKey] as TransitionInfo : TransitionInfo.appDefault();
 }
 
 class FFParameters {
@@ -279,18 +263,13 @@ class FFParameters {
 
   // Parameters are empty if the params map is empty or if the only parameter
   // present is the special extra parameter reserved for the transition info.
-  bool get isEmpty =>
-      state.allParams.isEmpty ||
-      (state.extraMap.length == 1 &&
-          state.extraMap.containsKey(kTransitionInfoKey));
-  bool isAsyncParam(MapEntry<String, dynamic> param) =>
-      asyncParams.containsKey(param.key) && param.value is String;
+  bool get isEmpty => state.allParams.isEmpty || (state.extraMap.length == 1 && state.extraMap.containsKey(kTransitionInfoKey));
+  bool isAsyncParam(MapEntry<String, dynamic> param) => asyncParams.containsKey(param.key) && param.value is String;
   bool get hasFutures => state.allParams.entries.any(isAsyncParam);
   Future<bool> completeFutures() => Future.wait(
         state.allParams.entries.where(isAsyncParam).map(
           (param) async {
-            final doc = await asyncParams[param.key]!(param.value)
-                .onError((_, __) => null);
+            final doc = await asyncParams[param.key]!(param.value).onError((_, __) => null);
             if (doc != null) {
               futureParamValues[param.key] = doc;
               return true;
