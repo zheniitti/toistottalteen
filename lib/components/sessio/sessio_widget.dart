@@ -515,7 +515,8 @@ class _SessioWidgetState extends State<SessioWidget>
                       );
                     },
                   ),
-                  if (widget.treeniSessio!.loppu == null)
+                  if ((widget.treeniSessio!.loppu != null) &&
+                      (widget.treeniSessio!.alku != null))
                     FFButtonWidget(
                       onPressed: () async {
                         logFirebaseEvent('SESSIO_COMP_Button_uudestaan_ON_TAP');

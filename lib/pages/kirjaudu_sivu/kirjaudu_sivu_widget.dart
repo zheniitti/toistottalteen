@@ -1487,7 +1487,8 @@ numero */
                                                         }
 
                                                         context.goNamedAuth(
-                                                            'paasivu', mounted);
+                                                            'paasivuWithPageview',
+                                                            mounted);
                                                       },
                                                       child: Container(
                                                         width: 50.0,
@@ -1572,7 +1573,7 @@ numero */
                                                           }
 
                                                           context.goNamedAuth(
-                                                              'paasivu',
+                                                              'paasivuWithPageview',
                                                               mounted);
                                                         },
                                                         child: Container(

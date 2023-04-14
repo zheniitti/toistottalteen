@@ -680,17 +680,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // FeedbackPage
   {
+    '69s07yb4': {
+      'fi': 'Palautteet',
+      'en': 'Feedback',
+    },
     '8tcwvc8s': {
-      'fi': 'Type here to respond...',
-      'en': '',
+      'fi': 'Kirjoita tähän...',
+      'en': 'Type here...',
     },
     'g8jwin03': {
       'fi': 'Lähetä',
       'en': 'Send',
-    },
-    '69s07yb4': {
-      'fi': 'Palautteet',
-      'en': 'Feedback',
     },
     'nxkp7745': {
       'fi': 'Home',
@@ -834,17 +834,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Premiumjäsenyys',
       'en': 'Premium subscription',
     },
-    'sh3jbjpm': {
-      'fi': 'Tumma teema',
-      'en': 'Dark mode',
-    },
-    'ny2fhrqk': {
+    'psbwsnlf': {
       'fi': 'Lähetä palaute',
       'en': 'Send feedback',
     },
     '2ttiy67c': {
       'fi': 'Tietosuoja ja käyttöehdot',
       'en': 'Privacy policy and User agreetment',
+    },
+    'ny2fhrqk': {
+      'fi': 'Lähetä palaute',
+      'en': 'Send feedback',
     },
     'nn03r681': {
       'fi': 'Kirjaudu ulos',
@@ -870,6 +870,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'elbafojn': {
       'fi': 'Kopioi liikkeet',
       'en': 'Copy excercises',
+    },
+    'pygax2u5': {
+      'fi': 'Luo treenipohja',
+      'en': 'Create routine',
+    },
+    '0vq9oyjs': {
+      'fi': '',
+      'en': '',
     },
     'e0l254zt': {
       'fi': 'Muokkaa',

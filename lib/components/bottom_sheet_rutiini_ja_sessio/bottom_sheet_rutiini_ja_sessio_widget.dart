@@ -114,21 +114,30 @@ class _BottomSheetRutiiniJaSessioWidgetState
                             'BOTTOM_SHEET_RUTIINI_JA_SESSIO_ListTile_');
                         logFirebaseEvent('ListTile_close_dialog,_drawer,_etc');
                         Navigator.pop(context);
+                        logFirebaseEvent('ListTile_update_app_state');
+                        FFAppState().kopioidutLiikkeet = functions
+                            .liikeToLiikeJsonList(
+                                null,
+                                widget.rutiiniData?.liikkeet
+                                    ?.toList()
+                                    ?.toList())!
+                            .toList();
                         logFirebaseEvent('ListTile_show_snack_bar');
                         ScaffoldMessenger.of(context).clearSnackBars();
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(
                               FFLocalizations.of(context).getVariableText(
-                                fiText: '🙁 Tämä toiminto ei toimi vielä...',
-                                enText: '🙁This function doesn\'t work yet',
+                                fiText: 'Kopioitu!',
+                                enText: 'Copied!',
                               ),
                               style: TextStyle(
                                 color: FlutterFlowTheme.of(context).secondary,
                               ),
                             ),
                             duration: Duration(milliseconds: 4000),
-                            backgroundColor: Color(0xFFE00000),
+                            backgroundColor:
+                                FlutterFlowTheme.of(context).success,
                           ),
                         );
                       },
@@ -142,6 +151,89 @@ class _BottomSheetRutiiniJaSessioWidgetState
                         ),
                         trailing: Icon(
                           Icons.content_copy_rounded,
+                          color: Color(0xFF303030),
+                          size: 30.0,
+                        ),
+                        tileColor:
+                            FlutterFlowTheme.of(context).secondaryBackground,
+                        dense: false,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12.0),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              if (widget.treeniSessioDoc != null)
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                  child: Container(
+                    width: double.infinity,
+                    constraints: BoxConstraints(
+                      maxWidth: 300.0,
+                    ),
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    child: InkWell(
+                      onTap: () async {
+                        logFirebaseEvent(
+                            'BOTTOM_SHEET_RUTIINI_JA_SESSIO_ListTile_');
+                        logFirebaseEvent('ListTile_custom_action');
+                        _model.newRutiini =
+                            await actions.myUpdateTreeniRutiiniStruct(
+                          widget.treeniSessioDoc!.treeniRutiiniData,
+                          getCurrentTimestamp,
+                          null,
+                          functions.nullLiikeList()?.toList(),
+                          'null',
+                          null,
+                          null,
+                          true,
+                          true,
+                          false,
+                          null,
+                          null,
+                          null,
+                          null,
+                          null,
+                          null,
+                          functions.emptyJsonList()?.toList(),
+                          false,
+                          false,
+                        );
+                        logFirebaseEvent('ListTile_backend_call');
+
+                        final usersUpdateData = {
+                          'treeniRutiinit': FieldValue.arrayUnion([
+                            getTreeniRutiiniFirestoreData(
+                              updateTreeniRutiiniStruct(
+                                _model.newRutiini,
+                                clearUnsetFields: false,
+                              ),
+                              true,
+                            )
+                          ]),
+                        };
+                        await currentUserReference!.update(usersUpdateData);
+                        logFirebaseEvent('ListTile_close_dialog,_drawer,_etc');
+                        Navigator.pop(context);
+                        logFirebaseEvent('ListTile_update_app_state');
+                        FFAppState().navBarIndex = 0;
+
+                        setState(() {});
+                      },
+                      child: ListTile(
+                        title: Text(
+                          FFLocalizations.of(context).getText(
+                            'pygax2u5' /* Luo treenipohja */,
+                          ),
+                          textAlign: TextAlign.center,
+                          style: FlutterFlowTheme.of(context).headlineSmall,
+                        ),
+                        trailing: Icon(
+                          Icons.library_add_outlined,
                           color: Color(0xFF303030),
                           size: 30.0,
                         ),

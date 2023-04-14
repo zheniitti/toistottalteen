@@ -222,7 +222,7 @@ class _VerifyPhoneNuberPageWidgetState
                   return;
                 }
 
-                context.goNamedAuth('paasivu', mounted);
+                context.goNamedAuth('paasivuWithPageview', mounted);
               },
               text: FFLocalizations.of(context).getText(
                 'ptclw37b' /* Vahvista */,
