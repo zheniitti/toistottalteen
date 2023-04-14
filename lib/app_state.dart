@@ -91,6 +91,8 @@ class FFAppState extends ChangeNotifier {
             _testLatLng;
     _isCreatingRutiini = await secureStorage.getBool('ff_isCreatingRutiini') ??
         _isCreatingRutiini;
+    _isDebugUser =
+        await secureStorage.getBool('ff_isDebugUser') ?? _isDebugUser;
   }
 
   void update(VoidCallback callback) {
@@ -565,6 +567,17 @@ class FFAppState extends ChangeNotifier {
   DocumentReference? get anonymousUserRef => _anonymousUserRef;
   set anonymousUserRef(DocumentReference? _value) {
     _anonymousUserRef = _value;
+  }
+
+  bool _isDebugUser = false;
+  bool get isDebugUser => _isDebugUser;
+  set isDebugUser(bool _value) {
+    _isDebugUser = _value;
+    secureStorage.setBool('ff_isDebugUser', _value);
+  }
+
+  void deleteIsDebugUser() {
+    secureStorage.delete(key: 'ff_isDebugUser');
   }
 
   final _startedWorkoutSessionsManager =

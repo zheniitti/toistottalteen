@@ -364,12 +364,32 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // builder
   {
-    'u76vj92f': {
-      'fi': 'Aloita uusi treeni',
-      'en': 'Start a new workout',
-    },
     'v1rlq3l4': {
       'fi': 'Rakennellaan ja kokeillaan erilaisia widgetteja',
+      'en': '',
+    },
+    '56h7z490': {
+      'fi': 'Example 1',
+      'en': '',
+    },
+    'yqr3d67j': {
+      'fi': 'Tab View 1',
+      'en': '',
+    },
+    'jrtjhhn9': {
+      'fi': 'Example 2',
+      'en': '',
+    },
+    '00a35bg7': {
+      'fi': 'Tab View 2',
+      'en': '',
+    },
+    'lonyrktz': {
+      'fi': 'Example 3',
+      'en': '',
+    },
+    'wd1ipl2k': {
+      'fi': 'Tab View 3',
       'en': '',
     },
     't3ej29tw': {
@@ -648,6 +668,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'ngkj2h22': {
       'fi': 'Lopeta',
       'en': 'Finish',
+    },
+    '2qxo5v64': {
+      'fi': 'Example 1',
+      'en': '',
+    },
+    'sudc2sft': {
+      'fi': 'Example 2',
+      'en': '',
+    },
+    'wqbf6lbw': {
+      'fi': 'Example 3',
+      'en': '',
     },
     '858ldjbd': {
       'fi': 'Luo treenirutiini',

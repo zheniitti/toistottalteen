@@ -13,6 +13,8 @@ Future initializeFirebaseRemoteConfig() async {
     'isEnabled_anonymousLogin': true,
     'isEnabled_statisticsPage': true,
     'isEnabled_phoneLogin': true,
+    'isEnabled_subscription': false,
+    'showStatisticsPage': false,
   });
   await FirebaseRemoteConfig.instance.fetchAndActivate();
 }
