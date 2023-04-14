@@ -43,6 +43,8 @@ class PaasivuWithPageviewModel extends FlutterFlowModel {
   String? Function(BuildContext, String?)? textFieldSeachBarControllerValidator;
   // Model for sivupalkki component.
   late SivupalkkiModel sivupalkkiModel;
+  //Do not delete ->
+  late TabController tabController;
 
   /// Initialization and disposal methods.
 

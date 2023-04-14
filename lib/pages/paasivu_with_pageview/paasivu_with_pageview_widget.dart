@@ -131,7 +131,7 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
   void initState() {
     super.initState();
     _model = createModel(context, () => PaasivuWithPageviewModel());
-
+    _model.tabController = TabController(length: 3, vsync: this); //Do not delete this line
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'paasivuWithPageview'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -629,51 +629,43 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                           ),
                         ),
                         Expanded(
-                          child: DefaultTabController(
-                            length: 3,
-                            initialIndex: min(
-                                valueOrDefault<int>(
-                                  FFAppState().navBarIndex,
-                                  0,
+                          child: Column(
+                            children: [
+                              Expanded(
+                                child: TabBarView(
+                                  controller: _model.tabController,
+                                  children: [
+                                    KeepAliveWidgetWrapper(
+                                      builder: (context) => wrapWithModel(
+                                        model: _model.sivuRutiinitKomponenttiModel,
+                                        updateCallback: () => setState(() {}),
+                                        child: SivuRutiinitKomponenttiWidget(
+                                          latestSessio: containerQueryLatestSessioTreeniSessiotRecordList.first,
+                                        ),
+                                      ),
+                                    ),
+                                    KeepAliveWidgetWrapper(
+                                      builder: (context) => wrapWithModel(
+                                        model: _model.sivuTreenaaKomponenttiModel,
+                                        updateCallback: () => setState(() {}),
+                                        child: SivuTreenaaKomponenttiWidget(
+                                          sessioDoc: containerQueryLatestSessioTreeniSessiotRecordList.first,
+                                        ),
+                                      ),
+                                    ),
+                                    KeepAliveWidgetWrapper(
+                                      builder: (context) => wrapWithModel(
+                                        model: _model.sivuTreeniHistoriaKomponenttiModel,
+                                        updateCallback: () => setState(() {}),
+                                        child: SivuTreeniHistoriaKomponenttiWidget(
+                                          latestSessioStreamDoc: containerQueryLatestSessioTreeniSessiotRecordList.first,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                2),
-                            child: Column(
-                              children: [
-                                Expanded(
-                                  child: TabBarView(
-                                    children: [
-                                      KeepAliveWidgetWrapper(
-                                        builder: (context) => wrapWithModel(
-                                          model: _model.sivuRutiinitKomponenttiModel,
-                                          updateCallback: () => setState(() {}),
-                                          child: SivuRutiinitKomponenttiWidget(
-                                            latestSessio: containerQueryLatestSessioTreeniSessiotRecordList.first,
-                                          ),
-                                        ),
-                                      ),
-                                      KeepAliveWidgetWrapper(
-                                        builder: (context) => wrapWithModel(
-                                          model: _model.sivuTreenaaKomponenttiModel,
-                                          updateCallback: () => setState(() {}),
-                                          child: SivuTreenaaKomponenttiWidget(
-                                            sessioDoc: containerQueryLatestSessioTreeniSessiotRecordList.first,
-                                          ),
-                                        ),
-                                      ),
-                                      KeepAliveWidgetWrapper(
-                                        builder: (context) => wrapWithModel(
-                                          model: _model.sivuTreeniHistoriaKomponenttiModel,
-                                          updateCallback: () => setState(() {}),
-                                          child: SivuTreeniHistoriaKomponenttiWidget(
-                                            latestSessioStreamDoc: containerQueryLatestSessioTreeniSessiotRecordList.first,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
                         if (revenue_cat.activeEntitlementIds.length == 0
