@@ -1,8 +1,8 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/mainos_palkki_widget.dart';
 import '/components/sivupalkki/sivupalkki_widget.dart';
 import '/components/workout_duration_text/workout_duration_text_widget.dart';
-import '/flutter_flow/flutter_flow_ad_banner.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -12,7 +12,6 @@ import '/pages/sivu_treenaa_komponentti/sivu_treenaa_komponentti_widget.dart';
 import '/pages/sivu_treeni_historia_komponentti/sivu_treeni_historia_komponentti_widget.dart';
 import 'dart:async';
 import '/flutter_flow/custom_functions.dart' as functions;
-import '/flutter_flow/revenue_cat_util.dart' as revenue_cat;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/gestures.dart';
@@ -32,6 +31,8 @@ class PaasivuWithPageviewModel extends FlutterFlowModel {
 
   ///  State fields for stateful widgets in this page.
 
+  // Model for sivupalkki component.
+  late SivupalkkiModel sivupalkkiModel;
   // State field(s) for PageView widget.
   PageController? pageViewController;
   // Model for sivu_rutiinit_komponentti.
@@ -47,12 +48,13 @@ class PaasivuWithPageviewModel extends FlutterFlowModel {
   TextEditingController? textFieldSeachBarController;
   String? textFieldSeachBarSelectedOption;
   String? Function(BuildContext, String?)? textFieldSeachBarControllerValidator;
-  // Model for sivupalkki component.
-  late SivupalkkiModel sivupalkkiModel;
+  // Model for MainosPalkki component.
+  late MainosPalkkiModel mainosPalkkiModel;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
+    sivupalkkiModel = createModel(context, () => SivupalkkiModel());
     sivuRutiinitKomponenttiModel =
         createModel(context, () => SivuRutiinitKomponenttiModel());
     sivuTreenaaOmponenttiModel =
@@ -61,15 +63,16 @@ class PaasivuWithPageviewModel extends FlutterFlowModel {
         createModel(context, () => SivuTreeniHistoriaKomponenttiModel());
     workoutDurationTextModel =
         createModel(context, () => WorkoutDurationTextModel());
-    sivupalkkiModel = createModel(context, () => SivupalkkiModel());
+    mainosPalkkiModel = createModel(context, () => MainosPalkkiModel());
   }
 
   void dispose() {
+    sivupalkkiModel.dispose();
     sivuRutiinitKomponenttiModel.dispose();
     sivuTreenaaOmponenttiModel.dispose();
     sivuTreeniHistoriaKomponenttiModel.dispose();
     workoutDurationTextModel.dispose();
-    sivupalkkiModel.dispose();
+    mainosPalkkiModel.dispose();
   }
 
   /// Additional helper methods are added here.
