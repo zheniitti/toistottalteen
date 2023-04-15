@@ -134,6 +134,11 @@ final parametersBuilderMap =
   'subrictionPage': ParameterData.none(),
   'paasivuWithPageview': ParameterData.none(),
   'FeedbackPage': ParameterData.none(),
+  'Webview1': (data) async => ParameterData(
+        allParams: {
+          'url': getParameter<String>(data, 'url'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

@@ -26,4 +26,5 @@ export '/pages/subriction_page/subriction_page_widget.dart'
     show SubrictionPageWidget;
 export '/pages/paasivu_with_pageview/paasivu_with_pageview_widget.dart'
     show PaasivuWithPageviewWidget;
-export '/feedback_page/feedback_page_widget.dart' show FeedbackPageWidget;
+export '/pages/feedback_page/feedback_page_widget.dart' show FeedbackPageWidget;
+export '/webview1/webview1_widget.dart' show Webview1Widget;

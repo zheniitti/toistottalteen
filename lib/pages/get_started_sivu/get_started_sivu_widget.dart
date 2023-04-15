@@ -595,9 +595,18 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                         onTap: () async {
                                           logFirebaseEvent(
                                               'GET_STARTED_SIVU_Text_1qlf7apm_ON_TAP');
-                                          logFirebaseEvent('Text_launch_u_r_l');
-                                          await launchURL(getRemoteConfigString(
-                                              'privacyPolicyUrl'));
+                                          logFirebaseEvent('Text_navigate_to');
+
+                                          context.pushNamed(
+                                            'Webview1',
+                                            queryParams: {
+                                              'url': serializeParam(
+                                                getRemoteConfigString(
+                                                    'privacyPolicyUrl'),
+                                                ParamType.String,
+                                              ),
+                                            }.withoutNulls,
+                                          );
                                         },
                                         child: Text(
                                           FFLocalizations.of(context).getText(

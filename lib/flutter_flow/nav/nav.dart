@@ -182,6 +182,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'feedbackPage',
               requireAuth: true,
               builder: (context, params) => FeedbackPageWidget(),
+            ),
+            FFRoute(
+              name: 'Webview1',
+              path: 'webview1',
+              builder: (context, params) => Webview1Widget(
+                url: params.getParam('url', ParamType.String),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

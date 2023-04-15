@@ -697,6 +697,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
+  // Webview1
+  {
+    'psm9gyoz': {
+      'fi': 'Home',
+      'en': '',
+    },
+  },
   // ToistotTalteenText
   {
     'ezf7x56w': {

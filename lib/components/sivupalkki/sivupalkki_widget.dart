@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_language_selector.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -129,7 +130,8 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                                     alignment:
                                                         AlignmentDirectional(
                                                             -1.0, 0.0),
-                                                    child: Text(
+                                                    child: SelectionArea(
+                                                        child: AutoSizeText(
                                                       currentUserEmail,
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -142,7 +144,7 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                                                         context)
                                                                     .secondary,
                                                               ),
-                                                    ),
+                                                    )),
                                                   ),
                                                 ],
                                               ),
@@ -711,9 +713,17 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                               onTap: () async {
                                 logFirebaseEvent(
                                     'SIVUPALKKI_COMP_Text_4b9wzens_ON_TAP');
-                                logFirebaseEvent('Text_launch_u_r_l');
-                                await launchURL(
-                                    'https://sites.google.com/view/toistottalteen-privacypolicy');
+                                logFirebaseEvent('Text_navigate_to');
+
+                                context.pushNamed(
+                                  'Webview1',
+                                  queryParams: {
+                                    'url': serializeParam(
+                                      getRemoteConfigString('privacyPolicyUrl'),
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
+                                );
                               },
                               child: Text(
                                 FFLocalizations.of(context).getText(
