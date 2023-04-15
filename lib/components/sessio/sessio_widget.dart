@@ -468,6 +468,8 @@ class _SessioWidgetState extends State<SessioWidget>
                                   'Button_uudestaan_update_app_state');
                               _model.updatePage(() {
                                 FFAppState().navBarIndex = 1;
+                                FFAppState().modiedNavbarIndexTime =
+                                    getCurrentTimestamp;
                               });
                               logFirebaseEvent(
                                   'Button_uudestaan_stop_periodic_action');

@@ -699,7 +699,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Webview1
   {
-    'eapozrsw': {
+    'zq2hggwg': {
       'fi': 'Home',
       'en': '',
     },
