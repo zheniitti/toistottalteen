@@ -24,8 +24,6 @@ class FeedbackPageModel extends FlutterFlowModel {
 
   ///  State fields for stateful widgets in this page.
 
-  // Models for FeedbackMessage dynamic component.
-  late FlutterFlowDynamicModels<FeedbackMessageModel> feedbackMessageModels;
   // State field(s) for feedbackMessage widget.
   TextEditingController? feedbackMessageController;
   String? Function(BuildContext, String?)? feedbackMessageControllerValidator;
@@ -35,13 +33,9 @@ class FeedbackPageModel extends FlutterFlowModel {
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {
-    feedbackMessageModels =
-        FlutterFlowDynamicModels(() => FeedbackMessageModel());
-  }
+  void initState(BuildContext context) {}
 
   void dispose() {
-    feedbackMessageModels.dispose();
     feedbackMessageController?.dispose();
   }
 

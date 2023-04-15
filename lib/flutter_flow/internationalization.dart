@@ -699,7 +699,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Webview1
   {
-    'psm9gyoz': {
+    'eapozrsw': {
       'fi': 'Home',
       'en': '',
     },
@@ -713,27 +713,23 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // sessio
   {
-    '5jsli42l': {
-      'fi': '\n',
-      'en': '\n',
-    },
     'w3ztekll': {
       'fi': ' - ',
       'en': ' - ',
     },
     'ydiiiguc': {
-      'fi': 'Kesto:\n',
-      'en': 'Duration:\n',
+      'fi': 'Kesto: ',
+      'en': 'Duration: ',
     },
     'y6vzjpet': {
-      'fi': 'Liikkeitä:\n',
-      'en': 'Exercises:\n',
+      'fi': 'Liikkeitä:',
+      'en': 'Exercises:',
     },
     'vjrwisv6': {
       'fi': ' treeni',
       'en': ' workout',
     },
-    'hmew5d0m': {
+    '7rjum2jr': {
       'fi': 'Treenaa uudestaan',
       'en': 'Workout again',
     },

@@ -9,7 +9,6 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
-
 import 'feedback_message_model.dart';
 export 'feedback_message_model.dart';
 
@@ -54,7 +53,7 @@ class _FeedbackMessageWidgetState extends State<FeedbackMessageWidget> {
     context.watch<FFAppState>();
 
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+      padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,7 +74,7 @@ class _FeedbackMessageWidgetState extends State<FeedbackMessageWidget> {
               ),
               if (widget.feedback!.userRef == currentUserReference)
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                   child: InkWell(
                     onTap: () async {
                       logFirebaseEvent('FEEDBACK_MESSAGE_Icon_4u9i7zgv_ON_TAP');
@@ -85,7 +84,7 @@ class _FeedbackMessageWidgetState extends State<FeedbackMessageWidget> {
                     child: Icon(
                       Icons.delete_rounded,
                       color: FlutterFlowTheme.of(context).deleteRed,
-                      size: 24,
+                      size: 24.0,
                     ),
                   ),
                 ),
@@ -100,7 +99,7 @@ class _FeedbackMessageWidgetState extends State<FeedbackMessageWidget> {
             false,
           ))
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
               child: Builder(
                 builder: (context) {
                   final uploadedPhotos = widget.feedback!.photoUrls!.toList();
@@ -108,21 +107,25 @@ class _FeedbackMessageWidgetState extends State<FeedbackMessageWidget> {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
-                      children: List.generate(uploadedPhotos.length, (uploadedPhotosIndex) {
-                        final uploadedPhotosItem = uploadedPhotos[uploadedPhotosIndex];
+                      children: List.generate(uploadedPhotos.length,
+                          (uploadedPhotosIndex) {
+                        final uploadedPhotosItem =
+                            uploadedPhotos[uploadedPhotosIndex];
                         return Container(
                           constraints: BoxConstraints(
-                            minWidth: 70,
-                            minHeight: 70,
+                            minWidth: 70.0,
+                            minHeight: 70.0,
                             maxWidth: MediaQuery.of(context).size.width * 0.7,
                             maxHeight: MediaQuery.of(context).size.height * 0.5,
                           ),
                           decoration: BoxDecoration(),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 6, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 6.0, 0.0),
                             child: InkWell(
                               onTap: () async {
-                                logFirebaseEvent('FEEDBACK_MESSAGE_Image_dkt57db5_ON_TAP');
+                                logFirebaseEvent(
+                                    'FEEDBACK_MESSAGE_Image_dkt57db5_ON_TAP');
                                 logFirebaseEvent('Image_expand_image');
                                 await Navigator.push(
                                   context,
@@ -144,7 +147,7 @@ class _FeedbackMessageWidgetState extends State<FeedbackMessageWidget> {
                                 tag: uploadedPhotosItem,
                                 transitionOnUserGestures: true,
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(12),
+                                  borderRadius: BorderRadius.circular(12.0),
                                   child: CachedNetworkImage(
                                     imageUrl: uploadedPhotosItem,
                                     fit: BoxFit.cover,

@@ -2,7 +2,6 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/instant_timer.dart';
 import 'dart:async';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -120,33 +119,6 @@ class _Navbar2WidgetState extends State<Navbar2Widget>
   void initState() {
     super.initState();
     _model = createModel(context, () => Navbar2Model());
-
-    // On component load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('NAVBAR2_COMP_navbar2_ON_INIT_STATE');
-      logFirebaseEvent('navbar2_start_periodic_action');
-      _model.instantTimer = InstantTimer.periodic(
-        duration: Duration(milliseconds: 1000),
-        callback: (timer) async {
-          logFirebaseEvent('navbar2_update_app_state');
-          FFAppState().isLatestUnfinnishedWorkout =
-              widget.treeniSessiot!.length > 0
-                  ? valueOrDefault<bool>(
-                      valueOrDefault<bool>(
-                            widget.treeniSessiot?.first!.alku != null,
-                            false,
-                          ) &&
-                          valueOrDefault<bool>(
-                            widget.treeniSessiot?.first!.loppu == null,
-                            true,
-                          ),
-                      false,
-                    )
-                  : false;
-        },
-        startImmediately: true,
-      );
-    });
 
     if (!isWeb) {
       _keyboardVisibilitySubscription =

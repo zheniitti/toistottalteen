@@ -269,7 +269,7 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                     currentUserEmail == '')
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 8.0, 0.0, 8.0),
+                                        0.0, 16.0, 0.0, 16.0),
                                     child: InkWell(
                                       onTap: () async {
                                         logFirebaseEvent(
@@ -504,7 +504,7 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                     'isEnabled_statisticsPage'))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 8.0, 0.0, 8.0),
+                                        0.0, 16.0, 0.0, 16.0),
                                     child: InkWell(
                                       onTap: () async {
                                         logFirebaseEvent(
@@ -556,7 +556,7 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                     'isEnabled_subscription'))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 8.0, 0.0, 8.0),
+                                        0.0, 16.0, 0.0, 16.0),
                                     child: InkWell(
                                       onTap: () async {
                                         logFirebaseEvent(
@@ -607,7 +607,7 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                 if (getRemoteConfigBool('showSendFeedabkPage'))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 8.0, 0.0, 8.0),
+                                        0.0, 16.0, 0.0, 8.0),
                                     child: InkWell(
                                       onTap: () async {
                                         logFirebaseEvent(

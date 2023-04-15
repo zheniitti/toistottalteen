@@ -592,6 +592,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Roboto',
                               fontSize: 14.0,
+                              fontWeight: FontWeight.w300,
                             ),
                         textAlign: TextAlign.center,
                         maxLines: null,

@@ -177,96 +177,103 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Stack(
-                    children: [
-                      if (!widget.rutiini!.finishedEditing!)
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 4.0, 8.0, 4.0),
-                          child: InkWell(
-                            onTap: () async {
-                              logFirebaseEvent(
-                                  'RUTIININ_LIIKKEET_Icon_deleteLiike_ON_TA');
-                              logFirebaseEvent(
-                                  'Icon_deleteLiike_custom_action');
-                              await actions.updateUserDocTreenirutiini(
-                                widget.rutiini,
-                                null,
-                                null,
-                                false,
-                                true,
-                                liikkeetIndex,
-                                null,
-                                null,
-                                widget.rutiini?.liikkeet?.toList()?.toList(),
-                                null,
-                                null,
-                                null,
-                                null,
-                                true,
-                                false,
-                                false,
-                              );
-                            },
-                            child: Icon(
-                              Icons.remove_circle_rounded,
-                              color: FlutterFlowTheme.of(context).deleteRed,
-                              size: 24.0,
-                            ),
-                          )
-                              .animateOnPageLoad(
-                                  animationsMap['iconOnPageLoadAnimation1']!)
-                              .animateOnActionTrigger(
-                                animationsMap['iconOnActionTriggerAnimation1']!,
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+                    child: Stack(
+                      children: [
+                        if (!widget.rutiini!.finishedEditing!)
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 4.0, 8.0, 4.0),
+                            child: InkWell(
+                              onTap: () async {
+                                logFirebaseEvent(
+                                    'RUTIININ_LIIKKEET_Icon_deleteLiike_ON_TA');
+                                logFirebaseEvent(
+                                    'Icon_deleteLiike_custom_action');
+                                await actions.updateUserDocTreenirutiini(
+                                  widget.rutiini,
+                                  null,
+                                  null,
+                                  false,
+                                  true,
+                                  liikkeetIndex,
+                                  null,
+                                  null,
+                                  widget.rutiini?.liikkeet?.toList()?.toList(),
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  true,
+                                  false,
+                                  false,
+                                );
+                              },
+                              child: Icon(
+                                Icons.remove_circle_rounded,
+                                color: FlutterFlowTheme.of(context).deleteRed,
+                                size: 24.0,
                               ),
-                        ),
-                      if (widget.rutiini?.finishedEditing ?? true)
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 4.0, 8.0, 4.0),
-                          child: InkWell(
-                            onTap: () async {
-                              logFirebaseEvent(
-                                  'RUTIININ_LIIKKEET_Icon_copyLiike_ON_TAP');
-                              logFirebaseEvent(
-                                  'Icon_copyLiike_update_app_state');
-                              FFAppState().kopioidutLiikkeet = functions
-                                  .liikeToLiikeJsonList(liikkeetItem,
-                                      functions.nullLiikeList()?.toList())!
-                                  .toList();
-                              logFirebaseEvent('Icon_copyLiike_show_snack_bar');
-                              ScaffoldMessenger.of(context).clearSnackBars();
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    FFLocalizations.of(context).getVariableText(
-                                      fiText: 'Liike kopioitu',
-                                      enText: 'Excersice copied',
-                                    ),
-                                    style: TextStyle(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                    ),
-                                  ),
-                                  duration: Duration(milliseconds: 3000),
-                                  backgroundColor:
-                                      FlutterFlowTheme.of(context).secondary,
+                            )
+                                .animateOnPageLoad(
+                                    animationsMap['iconOnPageLoadAnimation1']!)
+                                .animateOnActionTrigger(
+                                  animationsMap[
+                                      'iconOnActionTriggerAnimation1']!,
                                 ),
-                              );
-                            },
-                            child: Icon(
-                              Icons.content_copy_rounded,
-                              color: FlutterFlowTheme.of(context).primary,
-                              size: 24.0,
-                            ),
-                          )
-                              .animateOnPageLoad(
-                                  animationsMap['iconOnPageLoadAnimation2']!)
-                              .animateOnActionTrigger(
-                                animationsMap['iconOnActionTriggerAnimation2']!,
+                          ),
+                        if (widget.rutiini?.finishedEditing ?? true)
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 4.0, 8.0, 4.0),
+                            child: InkWell(
+                              onTap: () async {
+                                logFirebaseEvent(
+                                    'RUTIININ_LIIKKEET_Icon_copyLiike_ON_TAP');
+                                logFirebaseEvent(
+                                    'Icon_copyLiike_update_app_state');
+                                FFAppState().kopioidutLiikkeet = functions
+                                    .liikeToLiikeJsonList(liikkeetItem,
+                                        functions.nullLiikeList()?.toList())!
+                                    .toList();
+                                logFirebaseEvent(
+                                    'Icon_copyLiike_show_snack_bar');
+                                ScaffoldMessenger.of(context).clearSnackBars();
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      FFLocalizations.of(context)
+                                          .getVariableText(
+                                        fiText: 'Liike kopioitu',
+                                        enText: 'Excersice copied',
+                                      ),
+                                      style: TextStyle(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                      ),
+                                    ),
+                                    duration: Duration(milliseconds: 3000),
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context).secondary,
+                                  ),
+                                );
+                              },
+                              child: Icon(
+                                Icons.content_copy_rounded,
+                                color: FlutterFlowTheme.of(context).primary,
+                                size: 24.0,
                               ),
-                        ),
-                    ],
+                            )
+                                .animateOnPageLoad(
+                                    animationsMap['iconOnPageLoadAnimation2']!)
+                                .animateOnActionTrigger(
+                                  animationsMap[
+                                      'iconOnActionTriggerAnimation2']!,
+                                ),
+                          ),
+                      ],
+                    ),
                   ),
                   Expanded(
                     child: Padding(

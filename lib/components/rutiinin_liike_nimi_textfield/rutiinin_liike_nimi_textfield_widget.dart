@@ -139,6 +139,7 @@ class _RutiininLiikeNimiTextfieldWidgetState
       ),
       style: FlutterFlowTheme.of(context).titleSmall.override(
             fontFamily: 'Roboto',
+            fontSize: 18.0,
             fontWeight: FontWeight.normal,
           ),
       textAlign: TextAlign.start,

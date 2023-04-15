@@ -580,6 +580,12 @@ class FFAppState extends ChangeNotifier {
     secureStorage.delete(key: 'ff_isDebugUser');
   }
 
+  DateTime? _modiedNavbarIndexTime;
+  DateTime? get modiedNavbarIndexTime => _modiedNavbarIndexTime;
+  set modiedNavbarIndexTime(DateTime? _value) {
+    _modiedNavbarIndexTime = _value;
+  }
+
   final _startedWorkoutSessionsManager =
       StreamRequestManager<List<TreeniSessiotRecord>>();
   Stream<List<TreeniSessiotRecord>> startedWorkoutSessions({

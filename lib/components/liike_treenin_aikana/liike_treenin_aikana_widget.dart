@@ -508,7 +508,7 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
                                 .override(
                                   fontFamily: 'Roboto',
                                   fontSize: 14.0,
-                                  fontWeight: FontWeight.normal,
+                                  fontWeight: FontWeight.w300,
                                   lineHeight: 1.0,
                                 ),
                             textAlign: TextAlign.start,
