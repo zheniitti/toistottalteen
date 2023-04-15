@@ -1,5 +1,4 @@
 import 'package:toistot_talteen/myCustomScrollPhysics.dart';
-
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/mainos_palkki_widget.dart';
@@ -248,6 +247,15 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
+    //Do not delete ->
+    if (_model.pageViewController != null && _model.pageViewController!.hasClients && FFAppState().navBarIndex != _model.pageViewController!.page!.truncate()) {
+      _model.pageViewController!.animateToPage(
+        FFAppState().navBarIndex,
+        duration: Duration(milliseconds: 200),
+        curve: Curves.easeInOut,
+      );
+    }
+    //Do not delete <-
 
     return StreamBuilder<List<AppConfigRecord>>(
       stream: queryAppConfigRecord(
@@ -708,6 +716,7 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                                       logFirebaseEvent('Row_lopetaTreeni_update_app_state');
                                                       setState(() {
                                                         FFAppState().navBarIndex = 2;
+                                                        FFAppState().modiedNavbarIndexTime = getCurrentTimestamp;
                                                       });
                                                     },
                                                     child: Row(
@@ -806,7 +815,10 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                                   animationsMap['containerOnActionTriggerAnimation1']!.controller.forward(from: 0.0).whenComplete(animationsMap['containerOnActionTriggerAnimation1']!.controller.reverse);
                                                 }
                                                 logFirebaseEvent('Container_update_app_state');
-                                                FFAppState().navBarIndex = 0;
+                                                setState(() {
+                                                  FFAppState().navBarIndex = 0;
+                                                  FFAppState().modiedNavbarIndexTime = getCurrentTimestamp;
+                                                });
                                               },
                                               child: Container(
                                                 width: 100.0,
@@ -852,8 +864,11 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                                 if (animationsMap['containerOnActionTriggerAnimation2'] != null) {
                                                   animationsMap['containerOnActionTriggerAnimation2']!.controller.forward(from: 0.0).whenComplete(animationsMap['containerOnActionTriggerAnimation2']!.controller.reverse);
                                                 }
-                                                logFirebaseEvent('Container_page_view');
-                                                FFAppState().navBarIndex = 1;
+                                                logFirebaseEvent('Container_update_app_state');
+                                                setState(() {
+                                                  FFAppState().navBarIndex = 1;
+                                                  FFAppState().modiedNavbarIndexTime = getCurrentTimestamp;
+                                                });
                                               },
                                               child: Container(
                                                 width: 100.0,
@@ -911,7 +926,10 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                                   animationsMap['containerOnActionTriggerAnimation3']!.controller.forward(from: 0.0).whenComplete(animationsMap['containerOnActionTriggerAnimation3']!.controller.reverse);
                                                 }
                                                 logFirebaseEvent('Container_update_app_state');
-                                                FFAppState().navBarIndex = 2;
+                                                setState(() {
+                                                  FFAppState().navBarIndex = 2;
+                                                  FFAppState().modiedNavbarIndexTime = getCurrentTimestamp;
+                                                });
                                               },
                                               child: Container(
                                                 width: 100.0,
