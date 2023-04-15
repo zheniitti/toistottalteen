@@ -434,6 +434,7 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                               onTap: () async {
                                                 logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_Icon_drawer_ON_TAP');
                                                 logFirebaseEvent('Icon_drawer_drawer');
+                                                FocusScope.of(context).requestFocus(FocusNode()); // Do not delete this line
                                                 scaffoldKey.currentState!.openDrawer();
                                                 logFirebaseEvent('Icon_drawer_widget_animation');
                                                 if (animationsMap['iconOnActionTriggerAnimation'] != null) {
