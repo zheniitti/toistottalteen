@@ -136,10 +136,10 @@ class _SessioWidgetState extends State<SessioWidget>
                                     InkWell(
                                       onTap: () async {
                                         logFirebaseEvent(
-                                            'SESSIO_COMP_RichText_7vt6koup_ON_TAP');
+                                            'SESSIO_COMP_Text_3gkxd3te_ON_TAP');
                                         logFirebaseEvent(
-                                            'RichText_date_time_picker');
-                                        final _datePickedDate =
+                                            'Text_date_time_picker');
+                                        final _datePicked1Date =
                                             await showDatePicker(
                                           context: context,
                                           initialDate: getCurrentTimestamp,
@@ -147,9 +147,9 @@ class _SessioWidgetState extends State<SessioWidget>
                                           lastDate: getCurrentTimestamp,
                                         );
 
-                                        TimeOfDay? _datePickedTime;
-                                        if (_datePickedDate != null) {
-                                          _datePickedTime =
+                                        TimeOfDay? _datePicked1Time;
+                                        if (_datePicked1Date != null) {
+                                          _datePicked1Time =
                                               await showTimePicker(
                                             context: context,
                                             initialTime: TimeOfDay.fromDateTime(
@@ -157,69 +157,103 @@ class _SessioWidgetState extends State<SessioWidget>
                                           );
                                         }
 
-                                        if (_datePickedDate != null &&
-                                            _datePickedTime != null) {
+                                        if (_datePicked1Date != null &&
+                                            _datePicked1Time != null) {
                                           setState(() {
-                                            _model.datePicked = DateTime(
-                                              _datePickedDate.year,
-                                              _datePickedDate.month,
-                                              _datePickedDate.day,
-                                              _datePickedTime!.hour,
-                                              _datePickedTime.minute,
+                                            _model.datePicked1 = DateTime(
+                                              _datePicked1Date.year,
+                                              _datePicked1Date.month,
+                                              _datePicked1Date.day,
+                                              _datePicked1Time!.hour,
+                                              _datePicked1Time.minute,
                                             );
                                           });
                                         }
-                                        logFirebaseEvent(
-                                            'RichText_backend_call');
+                                        logFirebaseEvent('Text_backend_call');
 
                                         final treeniSessiotUpdateData =
                                             createTreeniSessiotRecordData(
-                                          alku: _model.datePicked,
+                                          alku: widget.treeniSessio!.alku,
                                         );
                                         await widget.treeniSessio!.reference
                                             .update(treeniSessiotUpdateData);
                                       },
-                                      child: RichText(
-                                        text: TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: valueOrDefault<String>(
-                                                dateTimeFormat(
-                                                  'Hm',
-                                                  widget.treeniSessio!.alku,
-                                                  locale: FFLocalizations.of(
-                                                          context)
-                                                      .languageCode,
-                                                ),
-                                                'Ei aloitettu',
-                                              ),
-                                              style: TextStyle(),
-                                            ),
-                                            TextSpan(
-                                              text: FFLocalizations.of(context)
-                                                  .getText(
-                                                'w3ztekll' /*  -  */,
-                                              ),
-                                              style: TextStyle(),
-                                            ),
-                                            TextSpan(
-                                              text: valueOrDefault<String>(
-                                                dateTimeFormat(
-                                                  'Hm',
-                                                  widget.treeniSessio!.loppu,
-                                                  locale: FFLocalizations.of(
-                                                          context)
-                                                      .languageCode,
-                                                ),
-                                                'Ei lopetettu',
-                                              ),
-                                              style: TextStyle(),
-                                            )
-                                          ],
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                      child: Text(
+                                        valueOrDefault<String>(
+                                          dateTimeFormat(
+                                            'Hm',
+                                            widget.treeniSessio!.alku,
+                                            locale: FFLocalizations.of(context)
+                                                .languageCode,
+                                          ),
+                                          'Ei aloitettu',
                                         ),
-                                        textAlign: TextAlign.start,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                      ),
+                                    ),
+                                    Text(
+                                      '  -  ',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    ),
+                                    InkWell(
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'SESSIO_COMP_Text_wf1ejdph_ON_TAP');
+                                        logFirebaseEvent(
+                                            'Text_date_time_picker');
+                                        final _datePicked2Date =
+                                            await showDatePicker(
+                                          context: context,
+                                          initialDate: getCurrentTimestamp,
+                                          firstDate: DateTime(1900),
+                                          lastDate: getCurrentTimestamp,
+                                        );
+
+                                        TimeOfDay? _datePicked2Time;
+                                        if (_datePicked2Date != null) {
+                                          _datePicked2Time =
+                                              await showTimePicker(
+                                            context: context,
+                                            initialTime: TimeOfDay.fromDateTime(
+                                                getCurrentTimestamp),
+                                          );
+                                        }
+
+                                        if (_datePicked2Date != null &&
+                                            _datePicked2Time != null) {
+                                          setState(() {
+                                            _model.datePicked2 = DateTime(
+                                              _datePicked2Date.year,
+                                              _datePicked2Date.month,
+                                              _datePicked2Date.day,
+                                              _datePicked2Time!.hour,
+                                              _datePicked2Time.minute,
+                                            );
+                                          });
+                                        }
+                                        logFirebaseEvent('Text_backend_call');
+
+                                        final treeniSessiotUpdateData =
+                                            createTreeniSessiotRecordData(
+                                          loppu: _model.datePicked2,
+                                        );
+                                        await widget.treeniSessio!.reference
+                                            .update(treeniSessiotUpdateData);
+                                      },
+                                      child: Text(
+                                        valueOrDefault<String>(
+                                          dateTimeFormat(
+                                            'Hm',
+                                            widget.treeniSessio!.loppu,
+                                            locale: FFLocalizations.of(context)
+                                                .languageCode,
+                                          ),
+                                          'Ei aloitettu',
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
                                       ),
                                     ),
                                   ],

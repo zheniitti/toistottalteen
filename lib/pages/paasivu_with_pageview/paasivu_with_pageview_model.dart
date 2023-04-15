@@ -12,6 +12,7 @@ import '/pages/sivu_rutiinit_komponentti/sivu_rutiinit_komponentti_widget.dart';
 import '/pages/sivu_treenaa_komponentti/sivu_treenaa_komponentti_widget.dart';
 import '/pages/sivu_treeni_historia_komponentti/sivu_treeni_historia_komponentti_widget.dart';
 import 'dart:async';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';

@@ -28,13 +28,11 @@ class WorkoutDurationTextWidget extends StatefulWidget {
 class _WorkoutDurationTextWidgetState extends State<WorkoutDurationTextWidget> {
   late WorkoutDurationTextModel _model;
 
-  /* do not delete -->
   @override
   void setState(VoidCallback callback) {
     super.setState(callback);
     _model.onUpdate();
   }
-  */
 
   @override
   void initState() {
@@ -48,7 +46,6 @@ class _WorkoutDurationTextWidgetState extends State<WorkoutDurationTextWidget> {
       _model.instantTimer = InstantTimer.periodic(
         duration: Duration(milliseconds: 1000),
         callback: (timer) async {
-          if (mounted) {
           logFirebaseEvent('workoutDurationText_update_widget_state');
           setState(() {
             _model.durationString = functions.durationFromStartEnd(
@@ -56,7 +53,6 @@ class _WorkoutDurationTextWidgetState extends State<WorkoutDurationTextWidget> {
                 widget.sessioDoc!.loppu,
                 FFLocalizations.of(context).languageCode);
           });
-          }
         },
         startImmediately: true,
       );

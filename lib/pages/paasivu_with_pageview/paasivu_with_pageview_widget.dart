@@ -13,6 +13,7 @@ import '/pages/sivu_rutiinit_komponentti/sivu_rutiinit_komponentti_widget.dart';
 import '/pages/sivu_treenaa_komponentti/sivu_treenaa_komponentti_widget.dart';
 import '/pages/sivu_treeni_historia_komponentti/sivu_treeni_historia_komponentti_widget.dart';
 import 'dart:async';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
@@ -354,6 +355,10 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                       2)),
                               onPageChanged: (_) async {
                                 logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_PageView_1ws0twx1_');
+                                logFirebaseEvent('PageView_custom_action');
+                                await actions.unfocusNode(
+                                  context,
+                                );
                                 logFirebaseEvent('PageView_wait__delay');
                                 await Future.delayed(const Duration(milliseconds: 200));
                                 logFirebaseEvent('PageView_update_app_state');
@@ -521,155 +526,157 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                                   ],
                                                 ),
                                               if (FFAppState().navBarIndex != 1)
-                                                Align(
-                                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                                  child: AuthUserStreamWidget(
-                                                    builder: (context) => Autocomplete<String>(
-                                                      initialValue: TextEditingValue(text: FFAppState().searchbarText),
-                                                      optionsBuilder: (textEditingValue) {
-                                                        if (textEditingValue.text == '') {
-                                                          return const Iterable<String>.empty();
-                                                        }
-                                                        return functions.mapRutiiniNimet((currentUserDocument?.treeniRutiinit?.toList() ?? []).toList()).toList().where((option) {
-                                                          final lowercaseOption = option.toLowerCase();
-                                                          return lowercaseOption.contains(textEditingValue.text.toLowerCase());
-                                                        });
-                                                      },
-                                                      optionsViewBuilder: (context, onSelected, options) {
-                                                        return AutocompleteOptionsList(
-                                                          textFieldKey: _model.textFieldSeachBarKey,
-                                                          textController: _model.textFieldSeachBarController!,
-                                                          options: options.toList(),
-                                                          onSelected: onSelected,
-                                                          textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                fontFamily: 'Roboto',
-                                                                color: FlutterFlowTheme.of(context).secondary,
-                                                                fontWeight: FontWeight.normal,
-                                                              ),
-                                                          textHighlightStyle: TextStyle(),
-                                                          elevation: 4.0,
-                                                          optionBackgroundColor: FlutterFlowTheme.of(context).primary,
-                                                          optionHighlightColor: FlutterFlowTheme.of(context).secondaryText,
-                                                          maxHeight: 300.0,
-                                                        );
-                                                      },
-                                                      onSelected: (String selection) {
-                                                        setState(() => _model.textFieldSeachBarSelectedOption = selection);
-                                                        FocusScope.of(context).unfocus();
-                                                      },
-                                                      fieldViewBuilder: (
-                                                        context,
-                                                        textEditingController,
-                                                        focusNode,
-                                                        onEditingComplete,
-                                                      ) {
-                                                        _model.textFieldSeachBarController = textEditingController;
-                                                        return TextFormField(
-                                                          key: _model.textFieldSeachBarKey,
-                                                          controller: textEditingController,
-                                                          focusNode: focusNode,
-                                                          onEditingComplete: onEditingComplete,
-                                                          onChanged: (_) => EasyDebounce.debounce(
-                                                            '_model.textFieldSeachBarController',
-                                                            Duration(milliseconds: 1000),
-                                                            () async {
-                                                              logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_TextField_seachBar');
-                                                              logFirebaseEvent('TextField_seachBar_update_app_state');
-                                                              setState(() {
-                                                                FFAppState().searchbarText = _model.textFieldSeachBarController.text;
-                                                              });
-                                                            },
-                                                          ),
-                                                          obscureText: false,
-                                                          decoration: InputDecoration(
-                                                            isDense: true,
-                                                            hintText: FFLocalizations.of(context).getVariableText(
-                                                              fiText: () {
-                                                                if (FFAppState().navBarIndex == 0) {
-                                                                  return 'Hae treenipohja nimellä';
-                                                                } else if (FFAppState().navBarIndex == 2) {
-                                                                  return 'Hae treenihistoria nimellä';
-                                                                } else {
-                                                                  return 'Haku';
-                                                                }
-                                                              }(),
-                                                              enText: () {
-                                                                if (FFAppState().navBarIndex == 0) {
-                                                                  return 'Hae treenipohja nimellä';
-                                                                } else if (FFAppState().navBarIndex == 2) {
-                                                                  return 'Hae treenihistoria nimellä';
-                                                                } else {
-                                                                  return 'Haku';
-                                                                }
-                                                              }(),
-                                                            ),
-                                                            hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
+                                                Expanded(
+                                                  child: Align(
+                                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                                    child: AuthUserStreamWidget(
+                                                      builder: (context) => Autocomplete<String>(
+                                                        initialValue: TextEditingValue(text: FFAppState().searchbarText),
+                                                        optionsBuilder: (textEditingValue) {
+                                                          if (textEditingValue.text == '') {
+                                                            return const Iterable<String>.empty();
+                                                          }
+                                                          return functions.mapRutiiniNimet((currentUserDocument?.treeniRutiinit?.toList() ?? []).toList()).toList().where((option) {
+                                                            final lowercaseOption = option.toLowerCase();
+                                                            return lowercaseOption.contains(textEditingValue.text.toLowerCase());
+                                                          });
+                                                        },
+                                                        optionsViewBuilder: (context, onSelected, options) {
+                                                          return AutocompleteOptionsList(
+                                                            textFieldKey: _model.textFieldSeachBarKey,
+                                                            textController: _model.textFieldSeachBarController!,
+                                                            options: options.toList(),
+                                                            onSelected: onSelected,
+                                                            textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                   fontFamily: 'Roboto',
-                                                                  color: Color(0x81FFFFFF),
-                                                                  fontSize: 16.0,
+                                                                  color: FlutterFlowTheme.of(context).secondary,
+                                                                  fontWeight: FontWeight.normal,
                                                                 ),
-                                                            enabledBorder: UnderlineInputBorder(
-                                                              borderSide: BorderSide(
-                                                                color: Color(0x00000000),
-                                                                width: 1.0,
+                                                            textHighlightStyle: TextStyle(),
+                                                            elevation: 4.0,
+                                                            optionBackgroundColor: FlutterFlowTheme.of(context).primary,
+                                                            optionHighlightColor: FlutterFlowTheme.of(context).secondaryText,
+                                                            maxHeight: 300.0,
+                                                          );
+                                                        },
+                                                        onSelected: (String selection) {
+                                                          setState(() => _model.textFieldSeachBarSelectedOption = selection);
+                                                          FocusScope.of(context).unfocus();
+                                                        },
+                                                        fieldViewBuilder: (
+                                                          context,
+                                                          textEditingController,
+                                                          focusNode,
+                                                          onEditingComplete,
+                                                        ) {
+                                                          _model.textFieldSeachBarController = textEditingController;
+                                                          return TextFormField(
+                                                            key: _model.textFieldSeachBarKey,
+                                                            controller: textEditingController,
+                                                            focusNode: focusNode,
+                                                            onEditingComplete: onEditingComplete,
+                                                            onChanged: (_) => EasyDebounce.debounce(
+                                                              '_model.textFieldSeachBarController',
+                                                              Duration(milliseconds: 2000),
+                                                              () async {
+                                                                logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_TextField_seachBar');
+                                                                logFirebaseEvent('TextField_seachBar_update_app_state');
+                                                                setState(() {
+                                                                  FFAppState().searchbarText = _model.textFieldSeachBarController.text;
+                                                                });
+                                                              },
+                                                            ),
+                                                            obscureText: false,
+                                                            decoration: InputDecoration(
+                                                              isDense: true,
+                                                              hintText: FFLocalizations.of(context).getVariableText(
+                                                                fiText: () {
+                                                                  if (FFAppState().navBarIndex == 0) {
+                                                                    return 'Hae treenipohja nimellä';
+                                                                  } else if (FFAppState().navBarIndex == 2) {
+                                                                    return 'Hae treenihistoria nimellä';
+                                                                  } else {
+                                                                    return 'Haku';
+                                                                  }
+                                                                }(),
+                                                                enText: () {
+                                                                  if (FFAppState().navBarIndex == 0) {
+                                                                    return 'Hae treenipohja nimellä';
+                                                                  } else if (FFAppState().navBarIndex == 2) {
+                                                                    return 'Hae treenihistoria nimellä';
+                                                                  } else {
+                                                                    return 'Haku';
+                                                                  }
+                                                                }(),
                                                               ),
-                                                              borderRadius: BorderRadius.circular(8.0),
-                                                            ),
-                                                            focusedBorder: UnderlineInputBorder(
-                                                              borderSide: BorderSide(
-                                                                color: Color(0x00000000),
-                                                                width: 1.0,
+                                                              hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                    fontFamily: 'Roboto',
+                                                                    color: Color(0x81FFFFFF),
+                                                                    fontSize: 16.0,
+                                                                  ),
+                                                              enabledBorder: UnderlineInputBorder(
+                                                                borderSide: BorderSide(
+                                                                  color: Color(0x00000000),
+                                                                  width: 1.0,
+                                                                ),
+                                                                borderRadius: BorderRadius.circular(8.0),
                                                               ),
-                                                              borderRadius: BorderRadius.circular(8.0),
-                                                            ),
-                                                            errorBorder: UnderlineInputBorder(
-                                                              borderSide: BorderSide(
-                                                                color: Color(0x00000000),
-                                                                width: 1.0,
+                                                              focusedBorder: UnderlineInputBorder(
+                                                                borderSide: BorderSide(
+                                                                  color: Color(0x00000000),
+                                                                  width: 1.0,
+                                                                ),
+                                                                borderRadius: BorderRadius.circular(8.0),
                                                               ),
-                                                              borderRadius: BorderRadius.circular(8.0),
-                                                            ),
-                                                            focusedErrorBorder: UnderlineInputBorder(
-                                                              borderSide: BorderSide(
-                                                                color: Color(0x00000000),
-                                                                width: 1.0,
+                                                              errorBorder: UnderlineInputBorder(
+                                                                borderSide: BorderSide(
+                                                                  color: Color(0x00000000),
+                                                                  width: 1.0,
+                                                                ),
+                                                                borderRadius: BorderRadius.circular(8.0),
                                                               ),
-                                                              borderRadius: BorderRadius.circular(8.0),
-                                                            ),
-                                                            contentPadding: EdgeInsetsDirectional.fromSTEB(13.0, 13.0, 13.0, 13.0),
-                                                            prefixIcon: Icon(
-                                                              Icons.search_rounded,
-                                                              color: FlutterFlowTheme.of(context).secondary,
-                                                              size: 24.0,
-                                                            ),
-                                                            suffixIcon: _model.textFieldSeachBarController!.text.isNotEmpty
-                                                                ? InkWell(
-                                                                    onTap: () async {
-                                                                      _model.textFieldSeachBarController?.clear();
-                                                                      logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_TextField_seachBar');
-                                                                      logFirebaseEvent('TextField_seachBar_update_app_state');
-                                                                      setState(() {
-                                                                        FFAppState().searchbarText = _model.textFieldSeachBarController.text;
-                                                                      });
-                                                                      setState(() {});
-                                                                    },
-                                                                    child: Icon(
-                                                                      Icons.clear,
-                                                                      color: FFAppState().searchbarText != null && FFAppState().searchbarText != '' ? FlutterFlowTheme.of(context).secondary : Colors.transparent,
-                                                                      size: 24.0,
-                                                                    ),
-                                                                  )
-                                                                : null,
-                                                          ),
-                                                          style: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                fontFamily: 'Roboto',
+                                                              focusedErrorBorder: UnderlineInputBorder(
+                                                                borderSide: BorderSide(
+                                                                  color: Color(0x00000000),
+                                                                  width: 1.0,
+                                                                ),
+                                                                borderRadius: BorderRadius.circular(8.0),
+                                                              ),
+                                                              contentPadding: EdgeInsetsDirectional.fromSTEB(13.0, 13.0, 13.0, 13.0),
+                                                              prefixIcon: Icon(
+                                                                Icons.search_rounded,
                                                                 color: FlutterFlowTheme.of(context).secondary,
-                                                                fontWeight: FontWeight.normal,
+                                                                size: 24.0,
                                                               ),
-                                                          validator: _model.textFieldSeachBarControllerValidator.asValidator(context),
-                                                        );
-                                                      },
-                                                    ).animateOnPageLoad(animationsMap['textFieldOnPageLoadAnimation']!),
+                                                              suffixIcon: _model.textFieldSeachBarController!.text.isNotEmpty
+                                                                  ? InkWell(
+                                                                      onTap: () async {
+                                                                        _model.textFieldSeachBarController?.clear();
+                                                                        logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_TextField_seachBar');
+                                                                        logFirebaseEvent('TextField_seachBar_update_app_state');
+                                                                        setState(() {
+                                                                          FFAppState().searchbarText = _model.textFieldSeachBarController.text;
+                                                                        });
+                                                                        setState(() {});
+                                                                      },
+                                                                      child: Icon(
+                                                                        Icons.clear,
+                                                                        color: FFAppState().searchbarText != null && FFAppState().searchbarText != '' ? FlutterFlowTheme.of(context).secondary : Colors.transparent,
+                                                                        size: 24.0,
+                                                                      ),
+                                                                    )
+                                                                  : null,
+                                                            ),
+                                                            style: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                  fontFamily: 'Roboto',
+                                                                  color: FlutterFlowTheme.of(context).secondary,
+                                                                  fontWeight: FontWeight.normal,
+                                                                ),
+                                                            validator: _model.textFieldSeachBarControllerValidator.asValidator(context),
+                                                          );
+                                                        },
+                                                      ).animateOnPageLoad(animationsMap['textFieldOnPageLoadAnimation']!),
+                                                    ),
                                                   ),
                                                 ),
                                             ],

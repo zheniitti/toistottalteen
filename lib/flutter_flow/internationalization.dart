@@ -699,7 +699,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Webview1
   {
-    'zq2hggwg': {
+    'sl0tcm67': {
       'fi': 'Home',
       'en': '',
     },
@@ -713,10 +713,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // sessio
   {
-    'w3ztekll': {
-      'fi': ' - ',
-      'en': ' - ',
-    },
     'ydiiiguc': {
       'fi': 'Kesto: ',
       'en': 'Duration: ',
@@ -781,30 +777,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'l7w663ju': {
       'fi': 'Kommentti (vapaaehtoinen)',
       'en': 'Commment (Optional)',
-    },
-    '1zpp3lp9': {
-      'fi': 'Paino (kg)',
-      'en': 'Weight (kg)',
-    },
-    'u1j0c71n': {
-      'fi': 'Toistot',
-      'en': 'Reps',
-    },
-    'hcx7u96d': {
-      'fi': '.\nsarja',
-      'en': '.\nset',
-    },
-    '8zdi9oyj': {
-      'fi': 'Tehty',
-      'en': 'Done',
-    },
-    'dxvry4te': {
-      'fi': 'Lisää sarja',
-      'en': 'Add a set',
-    },
-    'rrk6y01u': {
-      'fi': 'Tehty',
-      'en': 'Done',
     },
   },
   // sivupalkki
@@ -1214,29 +1186,32 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'sarjaa',
       'en': 'sets',
     },
-    'paq49ccg': {
-      'fi': 'Toistot',
-      'en': '',
-    },
-    '0aim9tx5': {
+  },
+  // sarjatTreeninAikana
+  {
+    'pcie3aom': {
       'fi': 'Paino (kg)',
-      'en': '',
+      'en': 'Weight (kg)',
     },
-    '0fuvage0': {
+    'i1hh5xau': {
+      'fi': 'Toistot',
+      'en': 'Reps',
+    },
+    '6wdceyvb': {
       'fi': '.\nsarja',
-      'en': '',
+      'en': '.\nset',
     },
-    '0mhrww78': {
+    'hx98f9iz': {
       'fi': 'Tehty',
-      'en': '',
+      'en': 'Done',
     },
-    'ipp6f4rc': {
+    'wtzx9j32': {
       'fi': 'Lisää sarja',
       'en': 'Add a set',
     },
-    'uwy0fdd7': {
+    'zfrwzd38': {
       'fi': 'Tehty',
-      'en': '',
+      'en': 'Done',
     },
   },
   // Miscellaneous

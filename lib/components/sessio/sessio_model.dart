@@ -23,7 +23,8 @@ import 'package:provider/provider.dart';
 class SessioModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
-  DateTime? datePicked;
+  DateTime? datePicked1;
+  DateTime? datePicked2;
   // Models for sessioLiikeSarjas dynamic component.
   late FlutterFlowDynamicModels<SessioLiikeSarjasModel> sessioLiikeSarjasModels;
   InstantTimer? instantTimer;
