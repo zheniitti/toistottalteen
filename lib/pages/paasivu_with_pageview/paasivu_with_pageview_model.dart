@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/instant_timer.dart';
 import '/pages/sivu_rutiinit_komponentti/sivu_rutiinit_komponentti_widget.dart';
 import '/pages/sivu_treenaa_komponentti/sivu_treenaa_komponentti_widget.dart';
 import '/pages/sivu_treeni_historia_komponentti/sivu_treeni_historia_komponentti_widget.dart';
@@ -31,6 +32,7 @@ class PaasivuWithPageviewModel extends FlutterFlowModel {
 
   ///  State fields for stateful widgets in this page.
 
+  InstantTimer? instantTimer;
   // Model for sivupalkki component.
   late SivupalkkiModel sivupalkkiModel;
   // State field(s) for PageView widget.
@@ -67,6 +69,7 @@ class PaasivuWithPageviewModel extends FlutterFlowModel {
   }
 
   void dispose() {
+    instantTimer?.cancel();
     sivupalkkiModel.dispose();
     sivuRutiinitKomponenttiModel.dispose();
     sivuTreenaaOmponenttiModel.dispose();
