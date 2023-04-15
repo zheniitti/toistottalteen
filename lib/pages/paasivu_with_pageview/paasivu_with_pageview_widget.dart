@@ -1,3 +1,5 @@
+import 'package:toistot_talteen/myCustomScrollPhysics.dart';
+
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/mainos_palkki_widget.dart';
@@ -239,10 +241,6 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
-    //Do not delte -->
-    if (FFAppState().navBarIndex != pageViewCurrentIndex && _model.pageViewController != null) {
-      _model.pageViewController?.jumpToPage(FFAppState().navBarIndex);
-    }
 
     return StreamBuilder<List<AppConfigRecord>>(
       stream: queryAppConfigRecord(
@@ -330,10 +328,19 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                             width: double.infinity,
                             height: double.infinity,
                             child: PageView(
-                              //physics: const NeverScrollableScrollPhysics(),
-                              controller: _model.pageViewController ??= PageController(initialPage: 1),
+                              // Do not delete following line -->
+                              physics: MyCustomTabViewScrollPhysics(parent: const ScrollPhysics()),
+                              controller: _model.pageViewController ??= PageController(
+                                  initialPage: min(
+                                      valueOrDefault<int>(
+                                        FFAppState().navBarIndex,
+                                        0,
+                                      ),
+                                      2)),
                               onPageChanged: (_) async {
-                                logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_PageView_upzoex91_');
+                                logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_PageView_1ws0twx1_');
+                                logFirebaseEvent('PageView_wait__delay');
+                                await Future.delayed(const Duration(milliseconds: 200));
                                 logFirebaseEvent('PageView_update_app_state');
                                 setState(() {
                                   FFAppState().navBarIndex = pageViewCurrentIndex;
@@ -344,6 +351,7 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                 Align(
                                   alignment: AlignmentDirectional(0.0, 0.0),
                                   child: KeepAliveWidgetWrapper(
+                                    // do not delete this line
                                     builder: (context) => wrapWithModel(
                                       model: _model.sivuRutiinitKomponenttiModel,
                                       updateCallback: () => setState(() {}),
@@ -355,6 +363,7 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                   ),
                                 ),
                                 KeepAliveWidgetWrapper(
+                                  // do not delete this line
                                   builder: (context) => wrapWithModel(
                                     model: _model.sivuTreenaaOmponenttiModel,
                                     updateCallback: () => setState(() {}),
@@ -365,6 +374,7 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                   ),
                                 ),
                                 KeepAliveWidgetWrapper(
+                                  // do not delete this line
                                   builder: (context) => wrapWithModel(
                                     model: _model.sivuTreeniHistoriaKomponenttiModel,
                                     updateCallback: () => setState(() {}),
@@ -820,7 +830,7 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                                 logFirebaseEvent('Container_page_view');
                                                 await _model.pageViewController?.animateToPage(
                                                   0,
-                                                  duration: Duration(milliseconds: 500),
+                                                  duration: Duration(milliseconds: 200), // Do not delete this line
                                                   curve: Curves.ease,
                                                 );
                                               },
