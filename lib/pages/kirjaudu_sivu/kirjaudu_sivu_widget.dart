@@ -2198,10 +2198,7 @@ numero */
                                                     onPressed: () async {
                                                       logFirebaseEvent(
                                                           'KIRJAUDU_SIVU_PAGE_LUO_TILI_BTN_ON_TAP');
-                                                      if (valueOrDefault<bool>(
-                                                          currentUserDocument
-                                                              ?.isAnonymous,
-                                                          false)) {
+                                                      if (true) {
                                                         logFirebaseEvent(
                                                             'Button_auth');
                                                         GoRouter.of(context)
