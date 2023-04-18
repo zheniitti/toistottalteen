@@ -17,7 +17,6 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
 import 'flutter_flow/revenue_cat_util.dart' as revenue_cat;
-import 'backend/stripe/payment_manager.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,7 +31,6 @@ void main() async {
     "goog_iATpxJUGjUuMReuBybBWVZsABVZ",
     loadDataAfterLaunch: true,
   );
-  await initializeStripe();
   if (!kIsWeb) {
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   }
