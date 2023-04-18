@@ -337,7 +337,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                                         .pop();
                                                                   }
                                                                   context.pushNamedAuth(
-                                                                      'paasivu',
+                                                                      'paasivuWithPageview',
                                                                       mounted);
                                                                 }
                                                               },
@@ -448,7 +448,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                                           .pop();
                                                                     }
                                                                     context.pushNamedAuth(
-                                                                        'paasivu',
+                                                                        'paasivuWithPageview',
                                                                         mounted);
                                                                   }
                                                                 },
@@ -1030,10 +1030,9 @@ numero */
                                                                 .canPop()) {
                                                               context.pop();
                                                             }
-                                                            context
-                                                                .pushNamedAuth(
-                                                                    'paasivu',
-                                                                    mounted);
+                                                            context.pushNamedAuth(
+                                                                'paasivuWithPageview',
+                                                                mounted);
                                                           }
                                                         },
                                                         text:
@@ -2267,7 +2266,8 @@ numero */
                                                           context.pop();
                                                         }
                                                         context.pushNamedAuth(
-                                                            'paasivu', mounted);
+                                                            'paasivuWithPageview',
+                                                            mounted);
                                                       }
                                                     },
                                                     text: FFLocalizations.of(

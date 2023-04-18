@@ -124,29 +124,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
-  // paasivu
-  {
-    'uw6dunth': {
-      'fi': 'Aloita treeni',
-      'en': 'Start workout',
-    },
-    '9mvzr5ip': {
-      'fi': 'Option 1',
-      'en': '',
-    },
-    'ouj3p8pa': {
-      'fi': 'Lopeta',
-      'en': 'Finish',
-    },
-    't1qezc6y': {
-      'fi': 'Luo treenirutiini',
-      'en': 'Create new routine',
-    },
-    'l6zlq5ni': {
-      'fi': 'Treenirutiinit (ohjelmat)',
-      'en': 'Training routines',
-    },
-  },
   // aloitus_eiKaytossa
   {
     'rmgg2g5f': {

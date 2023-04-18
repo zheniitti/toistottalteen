@@ -89,12 +89,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => TilastotSivuWidget(),
             ),
             FFRoute(
-              name: 'paasivu',
-              path: 'paasivu',
-              requireAuth: true,
-              builder: (context, params) => PaasivuWidget(),
-            ),
-            FFRoute(
               name: 'aloitus_eiKaytossa',
               path: 'aloitusEiKaytossa',
               requireAuth: true,

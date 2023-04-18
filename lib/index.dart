@@ -1,6 +1,5 @@
 // Export pages
 export '/pages/tilastot_sivu/tilastot_sivu_widget.dart' show TilastotSivuWidget;
-export '/pages/paasivu/paasivu_widget.dart' show PaasivuWidget;
 export '/pages/aloitus_ei_kaytossa/aloitus_ei_kaytossa_widget.dart'
     show AloitusEiKaytossaWidget;
 export '/pages/get_started_sivu/get_started_sivu_widget.dart'

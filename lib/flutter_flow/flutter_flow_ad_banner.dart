@@ -128,11 +128,7 @@ class _FlutterFlowAdBannerState extends State<FlutterFlowAdBanner> {
         onAdClosed: (Ad ad) => print('$BannerAd onAdClosed.'),
       ),
     );
-    try {
     await banner.load();
-    } on Exception catch (e) {
-      print('Failed to load banner ad: $e');
-    }
 
     adWidget = AdWidget(ad: banner);
     setState(() {});

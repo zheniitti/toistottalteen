@@ -457,7 +457,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget>
                       logFirebaseEvent('SIGN_IN_PAGE_PAGE_SIGN_IN_BTN_ON_TAP');
                       logFirebaseEvent('Button_navigate_to');
 
-                      context.pushNamed('paasivu');
+                      context.pushNamed('paasivuWithPageview');
                     },
                     text: FFLocalizations.of(context).getText(
                       'cdr4uu8p' /* Sign In */,

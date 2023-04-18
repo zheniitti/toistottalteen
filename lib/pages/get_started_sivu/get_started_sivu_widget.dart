@@ -347,7 +347,8 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                                         'Text_navigate_to');
 
                                                     context.goNamedAuth(
-                                                        'paasivu', mounted);
+                                                        'paasivuWithPageview',
+                                                        mounted);
 
                                                     setState(() {});
                                                   },
@@ -454,7 +455,8 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                                         'Button_navigate_to');
 
                                                     context.goNamedAuth(
-                                                        'paasivu', mounted);
+                                                        'paasivuWithPageview',
+                                                        mounted);
                                                   }
 
                                                   setState(() {});
@@ -541,7 +543,8 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                                           'Button_navigate_to');
 
                                                       context.goNamedAuth(
-                                                          'paasivu', mounted);
+                                                          'paasivuWithPageview',
+                                                          mounted);
                                                     }
 
                                                     setState(() {});

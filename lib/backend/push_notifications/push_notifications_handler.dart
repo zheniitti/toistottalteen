@@ -110,7 +110,6 @@ class ParameterData {
 final parametersBuilderMap =
     <String, Future<ParameterData> Function(Map<String, dynamic>)>{
   'tilastot_sivu': ParameterData.none(),
-  'paasivu': ParameterData.none(),
   'aloitus_eiKaytossa': ParameterData.none(),
   'getStarted_sivu': ParameterData.none(),
   'registerPage': ParameterData.none(),

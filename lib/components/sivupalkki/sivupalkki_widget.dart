@@ -588,6 +588,57 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                       ),
                                     ),
                                   ),
+                                if (getRemoteConfigBool('showSendFeedabkPage'))
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 8.0, 0.0, 8.0),
+                                    child: InkWell(
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'SIVUPALKKI_COMP_Row_ybqd0d9j_ON_TAP');
+                                        logFirebaseEvent('Row_navigate_to');
+
+                                        context.pushNamed('FeedbackPage');
+                                      },
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 22.0, 0.0),
+                                            child: Icon(
+                                              Icons.chat_bubble_outlined,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondary,
+                                              size: 30.0,
+                                            ),
+                                          ),
+                                          Align(
+                                            alignment:
+                                                AlignmentDirectional(-1.0, 0.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'mu0qny93' /* Lähetä palaute */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
                               ],
                             ),
                           ),
@@ -633,14 +684,14 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                             thickness: 1.0,
                             color: FlutterFlowTheme.of(context).secondary,
                           ),
-                          if (getRemoteConfigBool('showSendFeedabkPage'))
+                          if (false)
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 8.0, 0.0, 8.0),
                               child: InkWell(
                                 onTap: () async {
                                   logFirebaseEvent(
-                                      'SIVUPALKKI_COMP_Row_ybqd0d9j_ON_TAP');
+                                      'SIVUPALKKI_COMP_Row_vh1jhxe6_ON_TAP');
                                   logFirebaseEvent('Row_navigate_to');
 
                                   context.pushNamed('FeedbackPage');
@@ -663,7 +714,7 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                           AlignmentDirectional(-1.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'mu0qny93' /* Lähetä palaute */,
+                                          'ornov325' /* Tietoa sovelluksesta */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .titleSmall
@@ -679,49 +730,6 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                 ),
                               ),
                             ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 8.0, 0.0, 8.0),
-                            child: InkWell(
-                              onTap: () async {
-                                logFirebaseEvent(
-                                    'SIVUPALKKI_COMP_Row_vh1jhxe6_ON_TAP');
-                                logFirebaseEvent('Row_navigate_to');
-
-                                context.pushNamed('FeedbackPage');
-                              },
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 22.0, 0.0),
-                                    child: Icon(
-                                      Icons.chat_bubble_outlined,
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      size: 30.0,
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'ornov325' /* Tietoa sovelluksesta */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondary,
-                                          ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 4.0, 0.0, 0.0),

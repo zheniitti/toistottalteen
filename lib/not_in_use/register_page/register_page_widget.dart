@@ -556,7 +556,7 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                       logFirebaseEvent('REGISTER_CREATE_ACCOUNT_BTN_ON_TAP');
                       logFirebaseEvent('Button_navigate_to');
 
-                      context.pushNamed('paasivu');
+                      context.pushNamed('paasivuWithPageview');
                     },
                     text: FFLocalizations.of(context).getText(
                       'pbxocv0b' /* Create Account */,
