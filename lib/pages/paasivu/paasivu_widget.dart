@@ -144,6 +144,19 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
       logFirebaseEvent('paasivu_update_app_state');
       FFAppState().addToSessioChunkListLastItemDateTime(getCurrentTimestamp);
       FFAppState().anonymousUserRef = currentUserReference;
+      FFAppState().showAdbanner = revenue_cat.activeEntitlementIds.length == 0
+          ? () {
+              if (isAndroid) {
+                return getRemoteConfigBool('showAdBanner_android');
+              } else if (isiOS) {
+                return getRemoteConfigBool('showAdBanner_ios');
+              } else if (isWeb) {
+                return getRemoteConfigBool('showAdBanner_web');
+              } else {
+                return false;
+              }
+            }()
+          : false;
     });
 
     _model.textFieldSeachBarController ??=
@@ -261,74 +274,8 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                         height: MediaQuery.of(context).size.height * 1.0,
                         child: Stack(
                           children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 60.0, 0.0, 0.0),
-                              child: Container(
-                                width: MediaQuery.of(context).size.width * 1.0,
-                                child: Stack(
-                                  children: [
-                                    if (FFAppState().navBarIndex == 0)
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: wrapWithModel(
-                                          model: _model
-                                              .sivuRutiinitKomponenttiModel,
-                                          updateCallback: () => setState(() {}),
-                                          updateOnChange: true,
-                                          child: SivuRutiinitKomponenttiWidget(
-                                            latestSessio:
-                                                containerQueryLatestSessioTreeniSessiotRecordList
-                                                            .length >
-                                                        0
-                                                    ? containerQueryLatestSessioTreeniSessiotRecordList
-                                                        .first
-                                                    : null,
-                                          ),
-                                        ),
-                                      ),
-                                    if ((FFAppState().navBarIndex == 1) ||
-                                        FFAppState()
-                                            .showTreenaaTaiLuoRutiiniSivu)
-                                      wrapWithModel(
-                                        model:
-                                            _model.sivuTreenaaOmponenttiModel,
-                                        updateCallback: () => setState(() {}),
-                                        updateOnChange: true,
-                                        child: SivuTreenaaKomponenttiWidget(
-                                          sessioDoc:
-                                              containerQueryLatestSessioTreeniSessiotRecordList
-                                                          .length >
-                                                      0
-                                                  ? containerQueryLatestSessioTreeniSessiotRecordList
-                                                      .first
-                                                  : null,
-                                        ),
-                                      ),
-                                    if (FFAppState().navBarIndex == 2)
-                                      wrapWithModel(
-                                        model: _model
-                                            .sivuTreeniHistoriaKomponenttiModel,
-                                        updateCallback: () => setState(() {}),
-                                        updateOnChange: true,
-                                        child:
-                                            SivuTreeniHistoriaKomponenttiWidget(
-                                          latestSessioStreamDoc:
-                                              containerQueryLatestSessioTreeniSessiotRecordList
-                                                          .length >
-                                                      0
-                                                  ? containerQueryLatestSessioTreeniSessiotRecordList
-                                                      .first
-                                                  : null,
-                                        ),
-                                      ),
-                                  ],
-                                ),
-                              ),
-                            ),
                             Column(
-                              mainAxisSize: MainAxisSize.min,
+                              mainAxisSize: MainAxisSize.max,
                               children: [
                                 Material(
                                   color: Colors.transparent,
@@ -1034,22 +981,7 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                     ),
                                   ),
                                 ),
-                                if (revenue_cat.activeEntitlementIds.length == 0
-                                    ? () {
-                                        if (isAndroid) {
-                                          return getRemoteConfigBool(
-                                              'showAdBanner_android');
-                                        } else if (isiOS) {
-                                          return getRemoteConfigBool(
-                                              'showAdBanner_ios');
-                                        } else if (isWeb) {
-                                          return getRemoteConfigBool(
-                                              'showAdBanner_web');
-                                        } else {
-                                          return false;
-                                        }
-                                      }()
-                                    : false)
+                                if (FFAppState().showAdbanner)
                                   Container(
                                     constraints: BoxConstraints(
                                       maxWidth: 600.0,
@@ -1072,6 +1004,71 @@ class _PaasivuWidgetState extends State<PaasivuWidget>
                                           'ca-app-pub-6667798289242281/8613432088',
                                     ),
                                   ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 1.0,
+                                  child: Stack(
+                                    children: [
+                                      if (FFAppState().navBarIndex == 0)
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: wrapWithModel(
+                                            model: _model
+                                                .sivuRutiinitKomponenttiModel,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            updateOnChange: true,
+                                            child:
+                                                SivuRutiinitKomponenttiWidget(
+                                              latestSessio:
+                                                  containerQueryLatestSessioTreeniSessiotRecordList
+                                                              .length >
+                                                          0
+                                                      ? containerQueryLatestSessioTreeniSessiotRecordList
+                                                          .first
+                                                      : null,
+                                            ),
+                                          ),
+                                        ),
+                                      if ((FFAppState().navBarIndex == 1) ||
+                                          FFAppState()
+                                              .showTreenaaTaiLuoRutiiniSivu)
+                                        wrapWithModel(
+                                          model:
+                                              _model.sivuTreenaaOmponenttiModel,
+                                          updateCallback: () => setState(() {}),
+                                          updateOnChange: true,
+                                          child: SivuTreenaaKomponenttiWidget(
+                                            sessioDoc:
+                                                containerQueryLatestSessioTreeniSessiotRecordList
+                                                            .length >
+                                                        0
+                                                    ? containerQueryLatestSessioTreeniSessiotRecordList
+                                                        .first
+                                                    : null,
+                                          ),
+                                        ),
+                                      if (FFAppState().navBarIndex == 2)
+                                        wrapWithModel(
+                                          model: _model
+                                              .sivuTreeniHistoriaKomponenttiModel,
+                                          updateCallback: () => setState(() {}),
+                                          updateOnChange: true,
+                                          child:
+                                              SivuTreeniHistoriaKomponenttiWidget(
+                                            latestSessioStreamDoc:
+                                                containerQueryLatestSessioTreeniSessiotRecordList
+                                                            .length >
+                                                        0
+                                                    ? containerQueryLatestSessioTreeniSessiotRecordList
+                                                        .first
+                                                    : null,
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                ),
                               ],
                             ),
                             Align(

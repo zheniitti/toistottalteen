@@ -684,7 +684,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Palautteet',
       'en': 'Feedback',
     },
-    '8tcwvc8s': {
+    'm26op9sp': {
       'fi': 'Kirjoita tähän...',
       'en': 'Type here...',
     },
@@ -699,7 +699,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Webview1
   {
-    'sl0tcm67': {
+    '0zr7jbti': {
       'fi': 'Home',
       'en': '',
     },
@@ -716,10 +716,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'ydiiiguc': {
       'fi': 'Kesto: ',
       'en': 'Duration: ',
-    },
-    'y6vzjpet': {
-      'fi': 'Liikkeitä:',
-      'en': 'Exercises:',
     },
     'vjrwisv6': {
       'fi': ' treeni',
@@ -781,10 +777,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // sivupalkki
   {
-    '994miiuh': {
-      'fi': 'Hello World',
-      'en': '',
-    },
     'ku53fmbs': {
       'fi': 'Luo tili tai kirjaudu',
       'en': 'Create account or login',
@@ -809,9 +801,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Premiumjäsenyys',
       'en': 'Premium subscription',
     },
-    'psbwsnlf': {
+    'mu0qny93': {
       'fi': 'Lähetä palaute',
       'en': 'Send feedback',
+    },
+    'ornov325': {
+      'fi': 'Tietoa sovelluksesta',
+      'en': 'About the app',
     },
     '2ttiy67c': {
       'fi': 'Tietosuoja ja käyttöehdot',
@@ -1212,6 +1208,29 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'zfrwzd38': {
       'fi': 'Tehty',
       'en': 'Done',
+    },
+  },
+  // RevenueCatSubsriptionPaywall
+  {
+    'lrqejpcm': {
+      'fi': '✨ Magic Weather Premium',
+      'en': '',
+    },
+    'czvjejf2': {
+      'fi': 'Please review the options below and upgrade.',
+      'en': '',
+    },
+    '1h5i1pe2': {
+      'fi': 'Buy',
+      'en': '',
+    },
+    'svxy8m08': {
+      'fi': 'Buy',
+      'en': '',
+    },
+    '0sem4kiu': {
+      'fi': 'Restore Purchases',
+      'en': '',
     },
   },
   // Miscellaneous

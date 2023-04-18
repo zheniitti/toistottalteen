@@ -1,6 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/ad_banner_padding/ad_banner_padding_widget.dart';
 import '/components/liike_treenin_aikana/liike_treenin_aikana_widget.dart';
 import '/components/name_and_comment_fields_of_sessio/name_and_comment_fields_of_sessio_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -144,11 +143,6 @@ class _SivuTreenaaKomponenttiWidgetState
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  wrapWithModel(
-                    model: _model.adBannerPaddingModel,
-                    updateCallback: () => setState(() {}),
-                    child: AdBannerPaddingWidget(),
-                  ),
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 22.0),
@@ -157,7 +151,7 @@ class _SivuTreenaaKomponenttiWidgetState
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 20.0, 0.0, 0.0),
+                              0.0, 12.0, 0.0, 0.0),
                           child: wrapWithModel(
                             model: _model.nameAndCommentFieldsOfSessioModel,
                             updateCallback: () => setState(() {}),

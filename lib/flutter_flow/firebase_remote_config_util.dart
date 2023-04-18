@@ -16,6 +16,7 @@ Future initializeFirebaseRemoteConfig() async {
     'isEnabled_subscription': false,
     'showStatisticsPage': false,
     'showSendFeedabkPage': true,
+    'isEnabled_subscriptionFeatures': true,
   });
   await FirebaseRemoteConfig.instance.fetchAndActivate();
 }

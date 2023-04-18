@@ -93,6 +93,8 @@ class FFAppState extends ChangeNotifier {
         _isCreatingRutiini;
     _isDebugUser =
         await secureStorage.getBool('ff_isDebugUser') ?? _isDebugUser;
+    _showAdbanner =
+        await secureStorage.getBool('ff_showAdbanner') ?? _showAdbanner;
   }
 
   void update(VoidCallback callback) {
@@ -584,6 +586,17 @@ class FFAppState extends ChangeNotifier {
   DateTime? get modiedNavbarIndexTime => _modiedNavbarIndexTime;
   set modiedNavbarIndexTime(DateTime? _value) {
     _modiedNavbarIndexTime = _value;
+  }
+
+  bool _showAdbanner = false;
+  bool get showAdbanner => _showAdbanner;
+  set showAdbanner(bool _value) {
+    _showAdbanner = _value;
+    secureStorage.setBool('ff_showAdbanner', _value);
+  }
+
+  void deleteShowAdbanner() {
+    secureStorage.delete(key: 'ff_showAdbanner');
   }
 
   final _startedWorkoutSessionsManager =

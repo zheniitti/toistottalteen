@@ -1,6 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/ad_banner_padding/ad_banner_padding_widget.dart';
 import '/components/button_luo_rutiini/button_luo_rutiini_widget.dart';
 import '/components/keskenerainen_treeni_komponentti/keskenerainen_treeni_komponentti_widget.dart';
 import '/components/rutiini/rutiini_widget.dart';
@@ -65,11 +64,6 @@ class _SivuRutiinitKomponenttiWidgetState
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            wrapWithModel(
-              model: _model.adBannerPaddingModel,
-              updateCallback: () => setState(() {}),
-              child: AdBannerPaddingWidget(),
-            ),
             Container(
               constraints: BoxConstraints(
                 maxWidth: 600.0,

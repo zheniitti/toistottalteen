@@ -7,11 +7,10 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/upload_data.dart';
-import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
@@ -31,8 +30,6 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
-  late StreamSubscription<bool> _keyboardVisibilitySubscription;
-  bool _isKeyboardVisible = false;
 
   @override
   void initState() {
@@ -48,15 +45,6 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
       _model.pageOpenTime = getCurrentTimestamp;
     });
 
-    if (!isWeb) {
-      _keyboardVisibilitySubscription =
-          KeyboardVisibilityController().onChange.listen((bool visible) {
-        setState(() {
-          _isKeyboardVisible = visible;
-        });
-      });
-    }
-
     _model.feedbackMessageController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -66,9 +54,6 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
     _model.dispose();
 
     _unfocusNode.dispose();
-    if (!isWeb) {
-      _keyboardVisibilitySubscription.cancel();
-    }
     super.dispose();
   }
 
@@ -172,86 +157,10 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                            ),
-                            child: TextFormField(
-                              controller: _model.feedbackMessageController,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                labelStyle: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      fontFamily: 'Outfit',
-                                      color: Color(0xFF57636C),
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                hintText: FFLocalizations.of(context).getText(
-                                  '8tcwvc8s' /* Kirjoita tähän... */,
-                                ),
-                                hintStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Lexend Deca',
-                                      color: Color(0xFF57636C),
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Colors.white,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(4.0),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(4.0),
-                                ),
-                                errorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(4.0),
-                                ),
-                                focusedErrorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(4.0),
-                                ),
-                                filled: true,
-                                fillColor: Colors.white,
-                                contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 24.0, 20.0, 24.0),
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Outfit',
-                                    color: Color(0xFF101213),
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                              maxLines: 10,
-                              minLines: 1,
-                              validator: _model
-                                  .feedbackMessageControllerValidator
-                                  .asValidator(context),
-                            ),
-                          ),
-                          if (!(isWeb
-                              ? MediaQuery.of(context).viewInsets.bottom > 0
-                              : _isKeyboardVisible))
-                            Column(
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 0.0),
+                            child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 if (_model.uploadedFileUrls.length > 0)
@@ -281,120 +190,161 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                                                         final uploadedPhotosItem =
                                                             uploadedPhotos[
                                                                 uploadedPhotosIndex];
-                                                        return Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      6.0,
-                                                                      0.0),
-                                                          child: InkWell(
-                                                            onTap: () async {
-                                                              logFirebaseEvent(
-                                                                  'FEEDBACK_PAGE_PAGE_Image_yr6znkar_ON_TAP');
-                                                              logFirebaseEvent(
-                                                                  'Image_expand_image');
-                                                              await Navigator
-                                                                  .push(
-                                                                context,
-                                                                PageTransition(
-                                                                  type:
-                                                                      PageTransitionType
+                                                        return Stack(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  1.0, -1.0),
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          12.0,
+                                                                          12.0,
+                                                                          0.0),
+                                                              child: InkWell(
+                                                                onTap:
+                                                                    () async {
+                                                                  logFirebaseEvent(
+                                                                      'FEEDBACK_PAGE_PAGE_Image_yr6znkar_ON_TAP');
+                                                                  logFirebaseEvent(
+                                                                      'Image_expand_image');
+                                                                  await Navigator
+                                                                      .push(
+                                                                    context,
+                                                                    PageTransition(
+                                                                      type: PageTransitionType
                                                                           .fade,
+                                                                      child:
+                                                                          FlutterFlowExpandedImageView(
+                                                                        image: Image
+                                                                            .network(
+                                                                          uploadedPhotosItem,
+                                                                          fit: BoxFit
+                                                                              .contain,
+                                                                        ),
+                                                                        allowRotation:
+                                                                            true,
+                                                                        tag:
+                                                                            uploadedPhotosItem,
+                                                                        useHeroAnimation:
+                                                                            true,
+                                                                      ),
+                                                                    ),
+                                                                  );
+                                                                },
+                                                                child: Hero(
+                                                                  tag:
+                                                                      uploadedPhotosItem,
+                                                                  transitionOnUserGestures:
+                                                                      true,
                                                                   child:
-                                                                      FlutterFlowExpandedImageView(
-                                                                    image: Image
+                                                                      ClipRRect(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            12.0),
+                                                                    child: Image
                                                                         .network(
                                                                       uploadedPhotosItem,
+                                                                      width:
+                                                                          70.0,
+                                                                      height:
+                                                                          50.0,
                                                                       fit: BoxFit
-                                                                          .contain,
+                                                                          .cover,
                                                                     ),
-                                                                    allowRotation:
-                                                                        true,
-                                                                    tag:
-                                                                        uploadedPhotosItem,
-                                                                    useHeroAnimation:
-                                                                        true,
                                                                   ),
-                                                                ),
-                                                              );
-                                                            },
-                                                            child: Hero(
-                                                              tag:
-                                                                  uploadedPhotosItem,
-                                                              transitionOnUserGestures:
-                                                                  true,
-                                                              child: ClipRRect(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            12.0),
-                                                                child: Image
-                                                                    .network(
-                                                                  uploadedPhotosItem,
-                                                                  width: 70.0,
-                                                                  height: 50.0,
-                                                                  fit: BoxFit
-                                                                      .cover,
                                                                 ),
                                                               ),
                                                             ),
-                                                          ),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      1.0,
+                                                                      -1.0),
+                                                              child: InkWell(
+                                                                onTap:
+                                                                    () async {
+                                                                  logFirebaseEvent(
+                                                                      'FEEDBACK_PAGE_PAGE_Icon_w55w9f5k_ON_TAP');
+                                                                  logFirebaseEvent(
+                                                                      'Icon_delete_data');
+                                                                  await FirebaseStorage
+                                                                      .instance
+                                                                      .refFromURL(
+                                                                          uploadedPhotosItem)
+                                                                      .delete();
+                                                                },
+                                                                child: Icon(
+                                                                  Icons.delete,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .deleteRed,
+                                                                  size: 24.0,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
                                                         );
                                                       }),
                                                     ),
                                                   );
                                                 },
                                               ),
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    1.0, 0.0),
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                    gradient: LinearGradient(
-                                                      colors: [
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondary,
-                                                        Color(0x00FFFFFF)
-                                                      ],
-                                                      stops: [0.5, 1.0],
-                                                      begin:
-                                                          AlignmentDirectional(
-                                                              1.0, 0.0),
-                                                      end: AlignmentDirectional(
-                                                          -1.0, 0),
+                                              if (false)
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          1.0, 0.0),
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                      gradient: LinearGradient(
+                                                        colors: [
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondary,
+                                                          Color(0x00FFFFFF)
+                                                        ],
+                                                        stops: [0.5, 1.0],
+                                                        begin:
+                                                            AlignmentDirectional(
+                                                                1.0, 0.0),
+                                                        end:
+                                                            AlignmentDirectional(
+                                                                -1.0, 0),
+                                                      ),
                                                     ),
-                                                  ),
-                                                  child: FlutterFlowIconButton(
-                                                    borderColor:
-                                                        Colors.transparent,
-                                                    borderRadius: 30.0,
-                                                    borderWidth: 1.0,
-                                                    buttonSize: 50.0,
-                                                    icon: Icon(
-                                                      Icons.delete_outline,
-                                                      color: Color(0xFFFF5963),
-                                                      size: 30.0,
+                                                    child:
+                                                        FlutterFlowIconButton(
+                                                      borderColor:
+                                                          Colors.transparent,
+                                                      borderRadius: 30.0,
+                                                      borderWidth: 1.0,
+                                                      buttonSize: 50.0,
+                                                      icon: Icon(
+                                                        Icons.delete_outline,
+                                                        color:
+                                                            Color(0xFFFF5963),
+                                                        size: 30.0,
+                                                      ),
+                                                      onPressed: () async {
+                                                        logFirebaseEvent(
+                                                            'FEEDBACK_delete_outline_ICN_ON_TAP');
+                                                        logFirebaseEvent(
+                                                            'IconButton_clear_uploaded_data');
+                                                        setState(() {
+                                                          _model.isDataUploading =
+                                                              false;
+                                                          _model.uploadedLocalFiles =
+                                                              [];
+                                                          _model.uploadedFileUrls =
+                                                              [];
+                                                        });
+                                                      },
                                                     ),
-                                                    onPressed: () async {
-                                                      logFirebaseEvent(
-                                                          'FEEDBACK_delete_outline_ICN_ON_TAP');
-                                                      logFirebaseEvent(
-                                                          'IconButton_clear_uploaded_data');
-                                                      setState(() {
-                                                        _model.isDataUploading =
-                                                            false;
-                                                        _model.uploadedLocalFiles =
-                                                            [];
-                                                        _model.uploadedFileUrls =
-                                                            [];
-                                                      });
-                                                    },
                                                   ),
                                                 ),
-                                              ),
                                             ],
                                           ),
                                         ),
@@ -514,92 +464,180 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                                         ),
                                       Expanded(
                                         child: Container(
-                                          width: 150.0,
-                                          height: 44.0,
+                                          width: double.infinity,
                                           decoration: BoxDecoration(
                                             color: Colors.white,
                                           ),
-                                          child: InkWell(
-                                            onTap: () async {
-                                              logFirebaseEvent(
-                                                  'FEEDBACK_PAGE_PAGE_Row_ymmjksk0_ON_TAP');
-                                              if (_model.feedbackMessageController
-                                                          .text !=
-                                                      null &&
-                                                  _model.feedbackMessageController
-                                                          .text !=
-                                                      '') {
-                                                logFirebaseEvent(
-                                                    'Row_backend_call');
-
-                                                final feedbacksCreateData = {
-                                                  ...createFeedbacksRecordData(
-                                                    userRef:
-                                                        currentUserReference,
-                                                    message: _model
-                                                        .feedbackMessageController
-                                                        .text,
+                                          child: TextFormField(
+                                            controller: _model
+                                                .feedbackMessageController,
+                                            obscureText: false,
+                                            decoration: InputDecoration(
+                                              labelStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Outfit',
+                                                        color:
+                                                            Color(0xFF57636C),
+                                                        fontSize: 14.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                              hintText:
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                'm26op9sp' /* Kirjoita tähän... */,
+                                              ),
+                                              hintStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Lexend Deca',
+                                                    color: Color(0xFF57636C),
+                                                    fontSize: 14.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
                                                   ),
-                                                  'createdTime': FieldValue
-                                                      .serverTimestamp(),
-                                                  'photoUrls':
-                                                      _model.uploadedFileUrls,
-                                                };
-                                                await FeedbacksRecord.collection
-                                                    .doc()
-                                                    .set(feedbacksCreateData);
-                                                logFirebaseEvent(
-                                                    'Row_clear_text_fields');
-                                                setState(() {
-                                                  _model
-                                                      .feedbackMessageController
-                                                      ?.clear();
-                                                });
-                                                logFirebaseEvent(
-                                                    'Row_clear_uploaded_data');
-                                                setState(() {
-                                                  _model.isDataUploading =
-                                                      false;
-                                                  _model.uploadedLocalFiles =
-                                                      [];
-                                                  _model.uploadedFileUrls = [];
-                                                });
-                                              }
-                                            },
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.end,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 12.0, 0.0),
-                                                  child: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'g8jwin03' /* Lähetä */,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Outfit',
-                                                          color:
-                                                              Color(0xFF39D2C0),
-                                                          fontSize: 14.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                                  ),
+                                              enabledBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: Colors.white,
+                                                  width: 1.0,
                                                 ),
-                                                Icon(
-                                                  Icons.send_rounded,
-                                                  color: Color(0xFF39D2C0),
-                                                  size: 28.0,
+                                                borderRadius:
+                                                    BorderRadius.circular(4.0),
+                                              ),
+                                              focusedBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: Color(0x00000000),
+                                                  width: 1.0,
                                                 ),
-                                              ],
+                                                borderRadius:
+                                                    BorderRadius.circular(4.0),
+                                              ),
+                                              errorBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: Color(0x00000000),
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(4.0),
+                                              ),
+                                              focusedErrorBorder:
+                                                  OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: Color(0x00000000),
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(4.0),
+                                              ),
+                                              filled: true,
+                                              fillColor: Colors.white,
+                                              contentPadding:
+                                                  EdgeInsetsDirectional
+                                                      .fromSTEB(16.0, 24.0,
+                                                          20.0, 24.0),
                                             ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Outfit',
+                                                  color: Color(0xFF101213),
+                                                  fontSize: 14.0,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                            maxLines: 10,
+                                            minLines: 1,
+                                            validator: _model
+                                                .feedbackMessageControllerValidator
+                                                .asValidator(context),
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 44.0,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                        ),
+                                        child: InkWell(
+                                          onTap: () async {
+                                            logFirebaseEvent(
+                                                'FEEDBACK_PAGE_PAGE_Row_ymmjksk0_ON_TAP');
+                                            if ((_model.isDataUploading ==
+                                                    false) &&
+                                                (_model.feedbackMessageController
+                                                            .text !=
+                                                        null &&
+                                                    _model.feedbackMessageController
+                                                            .text !=
+                                                        '')) {
+                                              logFirebaseEvent(
+                                                  'Row_backend_call');
+
+                                              final feedbacksCreateData = {
+                                                ...createFeedbacksRecordData(
+                                                  userRef: currentUserReference,
+                                                  message: _model
+                                                      .feedbackMessageController
+                                                      .text,
+                                                ),
+                                                'createdTime': FieldValue
+                                                    .serverTimestamp(),
+                                                'photoUrls':
+                                                    _model.uploadedFileUrls,
+                                              };
+                                              await FeedbacksRecord.collection
+                                                  .doc()
+                                                  .set(feedbacksCreateData);
+                                              logFirebaseEvent(
+                                                  'Row_clear_text_fields');
+                                              setState(() {
+                                                _model.feedbackMessageController
+                                                    ?.clear();
+                                              });
+                                              logFirebaseEvent(
+                                                  'Row_clear_uploaded_data');
+                                              setState(() {
+                                                _model.isDataUploading = false;
+                                                _model.uploadedLocalFiles = [];
+                                                _model.uploadedFileUrls = [];
+                                              });
+                                            }
+                                          },
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 12.0, 0.0),
+                                                child: Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'g8jwin03' /* Lähetä */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Outfit',
+                                                        color:
+                                                            Color(0xFF39D2C0),
+                                                        fontSize: 14.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              ),
+                                              Icon(
+                                                Icons.send_rounded,
+                                                color: Color(0xFF39D2C0),
+                                                size: 28.0,
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ),
@@ -608,6 +646,7 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                                 ),
                               ],
                             ),
+                          ),
                         ],
                       ),
                     ),

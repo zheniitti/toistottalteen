@@ -29,12 +29,6 @@ class PaasivuModel extends FlutterFlowModel {
 
   ///  State fields for stateful widgets in this page.
 
-  // Model for sivu_rutiinit_komponentti.
-  late SivuRutiinitKomponenttiModel sivuRutiinitKomponenttiModel;
-  // Model for sivu_treenaa_omponentti.
-  late SivuTreenaaKomponenttiModel sivuTreenaaOmponenttiModel;
-  // Model for sivu_treeniHistoria_komponentti.
-  late SivuTreeniHistoriaKomponenttiModel sivuTreeniHistoriaKomponenttiModel;
   // Model for workoutDurationText component.
   late WorkoutDurationTextModel workoutDurationTextModel;
   // State field(s) for TextField_seachBar widget.
@@ -42,6 +36,12 @@ class PaasivuModel extends FlutterFlowModel {
   TextEditingController? textFieldSeachBarController;
   String? textFieldSeachBarSelectedOption;
   String? Function(BuildContext, String?)? textFieldSeachBarControllerValidator;
+  // Model for sivu_rutiinit_komponentti.
+  late SivuRutiinitKomponenttiModel sivuRutiinitKomponenttiModel;
+  // Model for sivu_treenaa_omponentti.
+  late SivuTreenaaKomponenttiModel sivuTreenaaOmponenttiModel;
+  // Model for sivu_treeniHistoria_komponentti.
+  late SivuTreeniHistoriaKomponenttiModel sivuTreeniHistoriaKomponenttiModel;
   // Model for navbar2 component.
   late Navbar2Model navbar2Model;
   // Model for sivupalkki component.
@@ -50,23 +50,23 @@ class PaasivuModel extends FlutterFlowModel {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
+    workoutDurationTextModel =
+        createModel(context, () => WorkoutDurationTextModel());
     sivuRutiinitKomponenttiModel =
         createModel(context, () => SivuRutiinitKomponenttiModel());
     sivuTreenaaOmponenttiModel =
         createModel(context, () => SivuTreenaaKomponenttiModel());
     sivuTreeniHistoriaKomponenttiModel =
         createModel(context, () => SivuTreeniHistoriaKomponenttiModel());
-    workoutDurationTextModel =
-        createModel(context, () => WorkoutDurationTextModel());
     navbar2Model = createModel(context, () => Navbar2Model());
     sivupalkkiModel = createModel(context, () => SivupalkkiModel());
   }
 
   void dispose() {
+    workoutDurationTextModel.dispose();
     sivuRutiinitKomponenttiModel.dispose();
     sivuTreenaaOmponenttiModel.dispose();
     sivuTreeniHistoriaKomponenttiModel.dispose();
-    workoutDurationTextModel.dispose();
     navbar2Model.dispose();
     sivupalkkiModel.dispose();
   }

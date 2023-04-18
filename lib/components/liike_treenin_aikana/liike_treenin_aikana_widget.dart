@@ -512,13 +512,16 @@ class _LiikeTreeninAikanaWidgetState extends State<LiikeTreeninAikanaWidget>
               height: 1.0,
               thickness: 1.0,
             ),
-            wrapWithModel(
-              model: _model.sarjatTreeninAikanaModel,
-              updateCallback: () => setState(() {}),
-              child: SarjatTreeninAikanaWidget(
-                liikeIndexInList: widget.liikeIndexInList,
-                liike: widget.liike,
-                treeniSessio: widget.treeniSessio,
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
+              child: wrapWithModel(
+                model: _model.sarjatTreeninAikanaModel,
+                updateCallback: () => setState(() {}),
+                child: SarjatTreeninAikanaWidget(
+                  liikeIndexInList: widget.liikeIndexInList,
+                  liike: widget.liike,
+                  treeniSessio: widget.treeniSessio,
+                ),
               ),
             ),
           ],

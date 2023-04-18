@@ -1,5 +1,4 @@
 import '/backend/backend.dart';
-import '/components/ad_banner_padding/ad_banner_padding_widget.dart';
 import '/components/sessio_chunk_lista/sessio_chunk_lista_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -64,11 +63,6 @@ class _SivuTreeniHistoriaKomponenttiWidgetState
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              wrapWithModel(
-                model: _model.adBannerPaddingModel,
-                updateCallback: () => setState(() {}),
-                child: AdBannerPaddingWidget(),
-              ),
               if (false)
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),

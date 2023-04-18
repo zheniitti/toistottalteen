@@ -57,102 +57,93 @@ class _SessioLiikeSarjasWidgetState extends State<SessioLiikeSarjasWidget> {
     context.watch<FFAppState>();
 
     return Container(
-      decoration: BoxDecoration(),
+      decoration: BoxDecoration(
+        color: Color(0x49FFFFFF),
+      ),
       child: Container(
         width: double.infinity,
         color: Color(0x00000000),
         child: ExpandableNotifier(
           initialExpanded: false,
           child: ExpandablePanel(
-            header: Stack(
+            header: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          widget.liike!.nimi!,
-                          style: FlutterFlowTheme.of(context).titleSmall,
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 0.0, 0.0, 0.0),
-                          child: Text(
-                            valueOrDefault<String>(
-                              widget.liike?.sarjat
-                                  ?.toList()
-                                  ?.length
-                                  ?.toString(),
-                              '0',
-                            ),
-                            style: FlutterFlowTheme.of(context).titleSmall,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              4.0, 0.0, 0.0, 0.0),
-                          child: Text(
-                            FFLocalizations.of(context).getText(
-                              'gl0py1hq' /* sarjaa */,
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Roboto',
-                                  fontWeight: FontWeight.normal,
+                if (false)
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                    child: InkWell(
+                      onTap: () async {
+                        logFirebaseEvent(
+                            'SESSIO_LIIKE_SARJAS_Icon_more_ON_TAP');
+                        logFirebaseEvent('Icon_more_bottom_sheet');
+                        showModalBottomSheet(
+                          isScrollControlled: true,
+                          backgroundColor: Color(0x00FFFFFF),
+                          context: context,
+                          builder: (bottomSheetContext) {
+                            return Padding(
+                              padding:
+                                  MediaQuery.of(bottomSheetContext).viewInsets,
+                              child: BottomSheetLiikeWidget(
+                                sessioDoc: widget.treeniSessio,
+                                liikeIndex: valueOrDefault<int>(
+                                  widget.liikeIndexInList,
+                                  99999999999,
                                 ),
-                          ),
+                              ),
+                            );
+                          },
+                        ).then((value) => setState(() {}));
+                      },
+                      child: Icon(
+                        Icons.more_vert_rounded,
+                        color: FlutterFlowTheme.of(context).primary,
+                        size: 24.0,
+                      ),
+                    ),
+                  ),
+                Wrap(
+                  spacing: 0.0,
+                  runSpacing: 4.0,
+                  alignment: WrapAlignment.start,
+                  crossAxisAlignment: WrapCrossAlignment.start,
+                  direction: Axis.horizontal,
+                  runAlignment: WrapAlignment.start,
+                  verticalDirection: VerticalDirection.down,
+                  clipBehavior: Clip.none,
+                  children: [
+                    Text(
+                      widget.liike!.nimi!,
+                      style: FlutterFlowTheme.of(context).titleSmall,
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
+                      child: Text(
+                        valueOrDefault<String>(
+                          widget.liike?.sarjat?.toList()?.length?.toString(),
+                          '0',
                         ),
-                      ],
+                        style: FlutterFlowTheme.of(context).titleSmall,
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                      child: Text(
+                        FFLocalizations.of(context).getText(
+                          'gl0py1hq' /* sarjaa */,
+                        ),
+                        style: FlutterFlowTheme.of(context).titleSmall.override(
+                              fontFamily: 'Roboto',
+                              fontWeight: FontWeight.normal,
+                            ),
+                      ),
                     ),
                   ],
-                ),
-                Align(
-                  alignment: AlignmentDirectional(1.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      if (false)
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 10.0, 10.0, 10.0),
-                          child: InkWell(
-                            onTap: () async {
-                              logFirebaseEvent(
-                                  'SESSIO_LIIKE_SARJAS_Icon_more_ON_TAP');
-                              logFirebaseEvent('Icon_more_bottom_sheet');
-                              showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Color(0x00FFFFFF),
-                                context: context,
-                                builder: (bottomSheetContext) {
-                                  return Padding(
-                                    padding: MediaQuery.of(bottomSheetContext)
-                                        .viewInsets,
-                                    child: BottomSheetLiikeWidget(
-                                      sessioDoc: widget.treeniSessio,
-                                      liikeIndex: valueOrDefault<int>(
-                                        widget.liikeIndexInList,
-                                        99999999999,
-                                      ),
-                                    ),
-                                  );
-                                },
-                              ).then((value) => setState(() {}));
-                            },
-                            child: Icon(
-                              Icons.more_vert_rounded,
-                              color: FlutterFlowTheme.of(context).primary,
-                              size: 24.0,
-                            ),
-                          ),
-                        ),
-                    ],
-                  ),
                 ),
               ],
             ),
@@ -167,18 +158,21 @@ class _SessioLiikeSarjasWidgetState extends State<SessioLiikeSarjasWidget> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  widget.liike!.kommentti!,
-                  maxLines: 5,
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.w300,
-                      ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 4.0),
+                  child: Text(
+                    widget.liike!.kommentti!,
+                    maxLines: 5,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.w300,
+                        ),
+                  ),
                 ),
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: wrapWithModel(
                     model: _model.sarjatTreeninAikanaModel,
