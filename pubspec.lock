@@ -699,6 +699,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.1.0"
+  flutter_stripe:
+    dependency: "direct main"
+    description:
+      name: flutter_stripe
+      sha256: "54670bd24fad81847c3dbf86f9fe3d06df18eda1e0f49f332e9f113420523c90"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.0"
+  flutter_stripe_web:
+    dependency: "direct main"
+    description:
+      name: flutter_stripe_web
+      sha256: "4b6fc64074ddf21e0b2c6b9f9e9da4a7512eaae0db7bb153a6a47ec00670044e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -909,14 +925,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.6.2"
-  infinite_scroll_pagination:
-    dependency: "direct main"
-    description:
-      name: infinite_scroll_pagination
-      sha256: "9517328f4e373f08f57dbb11c5aac5b05554142024d6b60c903f3b73476d52db"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.2.0"
   intl:
     dependency: "direct main"
     description:
@@ -1370,14 +1378,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
-  sliver_tools:
-    dependency: transitive
-    description:
-      name: sliver_tools
-      sha256: ccdc502098a8bfa07b3ec582c282620031481300035584e1bb3aca296a505e8c
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.10"
   smooth_page_indicator:
     dependency: "direct main"
     description:
@@ -1458,6 +1458,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  stripe_android:
+    dependency: "direct main"
+    description:
+      name: stripe_android
+      sha256: f2f2cadb918b631e119df73052b49f4a38d0beabf5ecf92c011bbe3239079364
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.0"
+  stripe_ios:
+    dependency: "direct main"
+    description:
+      name: stripe_ios
+      sha256: "22afab97f193cc4499ecfa7a9cc9a8f8b29306c9430c439e1bb7779ea9f205a6"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.0"
+  stripe_platform_interface:
+    dependency: "direct main"
+    description:
+      name: stripe_platform_interface
+      sha256: cebb101234b5b04c5c548e5aad04225388e35bedfb410bdfe471dbe2017e3048
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.0"
   substring_highlight:
     dependency: "direct main"
     description:
@@ -1694,42 +1718,43 @@ packages:
     dependency: transitive
     description:
       name: webview_flutter
-      sha256: "47663d51a9061451aa3880a214ee9a65dcbb933b77bc44388e194279ab3ccaf6"
+      sha256: "392c1d83b70fe2495de3ea2c84531268d5b8de2de3f01086a53334d8b6030a88"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.7"
+    version: "3.0.4"
   webview_flutter_android:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: webview_flutter_android
-      sha256: "489c4162cbddea9116a9622f0f881c3cc26317d119322150d7608f2223ffa72d"
+      sha256: f463704e765eb3480d3e0f79bf0fbc41cb1746c2301c510643a2d049b82fed09
       url: "https://pub.dev"
     source: hosted
-    version: "3.5.2"
+    version: "2.10.3"
   webview_flutter_platform_interface:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: webview_flutter_platform_interface
-      sha256: "6341f92977609be71391f4d4dcd64bfaa8ac657af1dfb2e231b5c1724e8c6c36"
+      sha256: "812165e4e34ca677bdfbfa58c01e33b27fd03ab5fa75b70832d4b7d4ca1fa8cf"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.0"
+    version: "1.9.5"
   webview_flutter_wkwebview:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: webview_flutter_wkwebview
-      sha256: "2ef3f65fd49061c18e4d837a411308f2850417f2d0a7c11aad2c3857bee12c18"
+      sha256: a5364369c758892aa487cbf59ea41d9edd10f9d9baf06a94e80f1bd1b4c7bbc0
       url: "https://pub.dev"
     source: hosted
-    version: "3.3.0"
+    version: "2.9.5"
   webviewx_plus:
     dependency: "direct main"
     description:
-      name: webviewx_plus
-      sha256: "212ec3ce8b03b7a39e47b8ea7f859e4797d8f1c0928790eb9ed7ba4c2ac7e923"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.3.3"
+      path: "."
+      ref: HEAD
+      resolved-ref: "0642eb7a9df3a07eb260d62736ab72c3a9cc5bb3"
+      url: "https://github.com/FlutterFlow/webviewx_plus.git"
+    source: git
+    version: "0.3.2"
   win32:
     dependency: transitive
     description:
