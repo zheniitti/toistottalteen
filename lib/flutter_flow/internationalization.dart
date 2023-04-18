@@ -567,7 +567,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
-  // subrictionPage
+  // subsrictionPage
   {
     'hwgol8rz': {
       'fi': 'Sinun jäsenyytesi',
@@ -582,8 +582,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'No cost',
     },
     '3p7287li': {
-      'fi': 'Sisältää mainokset ja muut rajoitukset',
-      'en': 'Contains ads and other limits',
+      'fi': 'Sisältää mainokset',
+      'en': 'Contains ads',
     },
     '2zf8p5oc': {
       'fi': 'Muut tarjoukset',
@@ -594,8 +594,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Monthly Premium',
     },
     'dtagbld2': {
-      'fi': 'Ei mainoksia, ei muita rajoituksia',
-      'en': 'Gain unlimited access to all the content we have to offer! ',
+      'fi': 'Tue sovelluksen kehitystä ja poista mainokset',
+      'en': 'Support app development and remove ads',
     },
     'x8bvpqai': {
       'fi': 'Vuosittainen Premium-jäsenyys',
@@ -610,21 +610,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Elinikäinen premium jäsenyys',
       'en': 'Lifetime premium',
     },
-    'rkeo8bcf': {
-      'fi': 'Ei mainoksia + ei muita rajoituksia',
-      'en':
-          'No ads and Gain unlimited access to all the content we have to offer! ',
-    },
     'gf6voqtu': {
-      'fi': 'Maksa kerran ja nauti premiumjäsenyydestä koko loppuelämäsi',
+      'fi': 'Maksa kerran ja nauti premiumeduita koko loppuelämäsi',
       'en': 'Pay once and enjoy premium features for the rest of your life',
     },
-    '9v7axq1b': {
-      'fi': 'Jatka',
-      'en': 'Continue',
-    },
     'wpjuhtau': {
-      'fi': 'Subscription / Payment',
+      'fi': '',
       'en': '',
     },
     'ragyctx6': {
@@ -771,8 +762,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Workout Statistics',
     },
     'uvhkl89u': {
-      'fi': 'Premiumjäsenyys',
-      'en': 'Premium subscription',
+      'fi': 'Lahjoita ja tue',
+      'en': 'Donate and support',
     },
     'mu0qny93': {
       'fi': 'Lähetä palaute',
@@ -791,6 +782,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Send feedback',
     },
     'nn03r681': {
+      'fi': 'Kirjaudu ulos',
+      'en': 'Log out',
+    },
+    'fm0iywi0': {
       'fi': 'Kirjaudu ulos',
       'en': 'Log out',
     },
@@ -861,12 +856,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'New exercise',
     },
     'hr61kg7a': {
-      'fi': 'Sinulla ei ole keskeneräistä treeniä',
-      'en': 'You don\'t have unfinished workouts',
+      'fi': 'Valitse treenattava treenipohja\n\ntai',
+      'en': 'Choose a routine to workout\n\nor',
     },
     'uz6rq23u': {
-      'fi': 'Aloita uusi treeni',
-      'en': 'Start a new workout',
+      'fi': 'Aloita tyhjä treeni',
+      'en': 'Start an empty workout',
     },
   },
   // rutiini
@@ -1186,24 +1181,88 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // RevenueCatSubsriptionPaywall
   {
     'lrqejpcm': {
-      'fi': '✨ Magic Weather Premium',
-      'en': '',
+      'fi': '✨Tue sovelluskehitystä',
+      'en': '✨Support app development',
     },
     'czvjejf2': {
-      'fi': 'Please review the options below and upgrade.',
-      'en': '',
+      'fi':
+          'Sovellukseen kehittämiseen on käytetty yli sata tuntia ilman palkkiota. Tue kehittäjää lahjoittamalla',
+      'en':
+          'More than a hundred hours have been spent on developing the application. Support the developer by donating',
+    },
+    'x5xjq0bo': {
+      'fi': 'Kuukausittainen lahjoitus',
+      'en': 'Monthly donation',
+    },
+    '2vcgcvkw': {
+      'fi': 'Anna tukesi kuukausittain ja nauti mainoksettomasta sovelluksesta',
+      'en': 'By s',
     },
     '1h5i1pe2': {
-      'fi': 'Buy',
+      'fi': 'Valitse',
+      'en': 'Select',
+    },
+    'skryuv7y': {
+      'fi': 'Ostettu',
+      'en': 'Purchased',
+    },
+    '57n31ntm': {
+      'fi': 'Vuosittainen lahjoitus',
+      'en': 'Annual donation',
+    },
+    '5i255jps': {
+      'fi': 'Anna tukesi vuosittain  ja nauti mainoksettomasta sovelluksesta',
+      'en': 'Give your support and remove ads from the app for one year',
+    },
+    'iqr7fluo': {
+      'fi': 'Valitse',
+      'en': 'Select',
+    },
+    '8ofym9jq': {
+      'fi': 'Ostettu',
+      'en': 'Purchased',
+    },
+    'gh1dh197': {
+      'fi': 'Valitse summa itse',
+      'en': 'Select the ',
+    },
+    '1wfoam8t': {
+      'fi':
+          'Poista mainokset koko loppuelämäsi. Saat päätä itse kuinka paljon haluat maksaa',
+      'en':
+          'Remove ads for the rest of your life. Decide yourself how much you want to pay (minimum 20)',
+    },
+    '38hizisn': {
+      'fi': 'Hello World dstasdt',
       'en': '',
     },
-    'svxy8m08': {
-      'fi': 'Buy',
-      'en': '',
+    'k0e3j8fm': {
+      'fi': 'Valitse',
+      'en': 'Select',
+    },
+    'nb921mia': {
+      'fi': 'Ostettu',
+      'en': 'Purchased',
+    },
+    'ozdly97p': {
+      'fi': 'Kertalahjoitus',
+      'en': 'One time support',
+    },
+    'aqttc467': {
+      'fi': 'Poista mainokset koko loppuelämäsi',
+      'en': 'Remove ads for the rest of your life',
+    },
+    'oue3r96t': {
+      'fi': 'Valitse',
+      'en': 'Select',
+    },
+    'ycuf03w5': {
+      'fi': 'Ostettu',
+      'en': 'Purchased',
     },
     '0sem4kiu': {
-      'fi': 'Restore Purchases',
-      'en': '',
+      'fi': 'Aktivoi  aiempi ostos',
+      'en': 'Restore purchase',
     },
   },
   // Miscellaneous

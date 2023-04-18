@@ -368,7 +368,7 @@ class _SivuTreenaaKomponenttiWidgetState
                                 0.0, 0.0, 0.0, 30.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                'hr61kg7a' /* Sinulla ei ole keskeneräistä t... */,
+                                'hr61kg7a' /* Valitse treenattava treenipohj... */,
                               ),
                               textAlign: TextAlign.center,
                               style: FlutterFlowTheme.of(context).titleMedium,
@@ -433,7 +433,7 @@ class _SivuTreenaaKomponenttiWidgetState
                                     .set(treeniSessiotCreateData);
                               },
                               text: FFLocalizations.of(context).getText(
-                                'uz6rq23u' /* Aloita uusi treeni */,
+                                'uz6rq23u' /* Aloita tyhjä treeni */,
                               ),
                               options: FFButtonOptions(
                                 width: 240.0,

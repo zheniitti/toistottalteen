@@ -130,7 +130,7 @@ final parametersBuilderMap =
         },
       ),
   'verifyPhoneNuber_page': ParameterData.none(),
-  'subrictionPage': ParameterData.none(),
+  'subsrictionPage': ParameterData.none(),
   'paasivuWithPageview': ParameterData.none(),
   'FeedbackPage': ParameterData.none(),
   'Webview1': (data) async => ParameterData(

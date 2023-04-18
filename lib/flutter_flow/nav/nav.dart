@@ -160,10 +160,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => VerifyPhoneNuberPageWidget(),
             ),
             FFRoute(
-              name: 'subrictionPage',
-              path: 'subrictionPage',
+              name: 'subsrictionPage',
+              path: 'subsrictionPage',
               requireAuth: true,
-              builder: (context, params) => SubrictionPageWidget(),
+              builder: (context, params) => SubsrictionPageWidget(),
             ),
             FFRoute(
               name: 'paasivuWithPageview',

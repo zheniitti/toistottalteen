@@ -14,7 +14,11 @@ class RevenueCatSubsriptionPaywallModel extends FlutterFlowModel {
   // Stores action output result for [RevenueCat - Purchase] action in Button widget.
   bool? didPurchaseMonth;
   // Stores action output result for [RevenueCat - Purchase] action in Button widget.
-  bool? didPurchaseYear;
+  bool? didPurchase;
+  // Stores action output result for [RevenueCat - Purchase] action in Button widget.
+  bool? didPurchaseAnnual;
+  // Stores action output result for [RevenueCat - Purchase] action in Button widget.
+  bool? didPurchaseLifeTime;
 
   /// Initialization and disposal methods.
 

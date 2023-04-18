@@ -351,11 +351,6 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                                       ],
                                     ),
                                   ),
-                                Divider(
-                                  height: 4.0,
-                                  thickness: 1.0,
-                                  color: Color(0xFFE0E3E7),
-                                ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 16.0, 8.0),

@@ -51,7 +51,9 @@ class _RevenueCatSubsriptionPaywallWidgetState
       borderRadius: BorderRadius.circular(0.0),
       child: Container(
         width: double.infinity,
-        height: MediaQuery.of(context).size.height * 1.0,
+        constraints: BoxConstraints(
+          maxWidth: 600.0,
+        ),
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
           boxShadow: [
@@ -70,15 +72,15 @@ class _RevenueCatSubsriptionPaywallWidgetState
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
           child: Column(
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 8.0),
                 child: SelectionArea(
                     child: Text(
                   FFLocalizations.of(context).getText(
-                    'lrqejpcm' /* ✨ Magic Weather Premium */,
+                    'lrqejpcm' /* ✨Tue sovelluskehitystä */,
                   ),
                   textAlign: TextAlign.start,
                   style: FlutterFlowTheme.of(context).titleMedium.override(
@@ -87,17 +89,18 @@ class _RevenueCatSubsriptionPaywallWidgetState
                       ),
                 )),
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 10.0, 10.0),
-                child: SelectionArea(
-                    child: Text(
-                  FFLocalizations.of(context).getText(
-                    'czvjejf2' /* Please review the options belo... */,
-                  ),
-                  textAlign: TextAlign.start,
-                  style: FlutterFlowTheme.of(context).bodySmall,
-                )),
-              ),
+              if (false)
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 10.0, 10.0),
+                  child: SelectionArea(
+                      child: Text(
+                    FFLocalizations.of(context).getText(
+                      'czvjejf2' /* Sovellukseen kehittämiseen on ... */,
+                    ),
+                    textAlign: TextAlign.center,
+                    style: FlutterFlowTheme.of(context).bodySmall,
+                  )),
+                ),
               if (!isWeb)
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
@@ -114,7 +117,7 @@ class _RevenueCatSubsriptionPaywallWidgetState
                       ],
                       borderRadius: BorderRadius.circular(12.0),
                       border: Border.all(
-                        //color: FlutterFlowTheme.of(context).weatherCloudy,
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
                         width: 2.0,
                       ),
                     ),
@@ -125,42 +128,44 @@ class _RevenueCatSubsriptionPaywallWidgetState
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SelectionArea(
-                                  child: AutoSizeText(
-                                revenue_cat.offerings!.current!.monthly!
-                                    .storeProduct.title
-                                    .maybeHandleOverflow(
-                                  maxChars: 13,
-                                  replacement: '…',
-                                ),
-                                textAlign: TextAlign.start,
-                                style: FlutterFlowTheme.of(context)
-                                    .titleMedium
-                                    .override(
-                                      fontFamily: 'Outfit',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                    ),
-                              )),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 5.0, 0.0, 0.0),
-                                child: SelectionArea(
-                                    child: Text(
-                                  revenue_cat.offerings!.current!.monthly!
-                                      .storeProduct.description,
+                          Expanded(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SelectionArea(
+                                    child: AutoSizeText(
+                                  FFLocalizations.of(context).getText(
+                                    'x5xjq0bo' /* Kuukausittainen lahjoitus */,
+                                  ),
                                   textAlign: TextAlign.start,
-                                  style: FlutterFlowTheme.of(context).bodySmall,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .override(
+                                        fontFamily: 'Outfit',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                      ),
                                 )),
-                              ),
-                            ],
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 5.0, 0.0, 0.0),
+                                  child: SelectionArea(
+                                      child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      '2vcgcvkw' /* Anna tukesi kuukausittain ja n... */,
+                                    ),
+                                    textAlign: TextAlign.start,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodySmall,
+                                  )),
+                                ),
+                              ],
+                            ),
                           ),
                           Column(
                             mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               SelectionArea(
                                   child: Text(
@@ -174,38 +179,155 @@ class _RevenueCatSubsriptionPaywallWidgetState
                                           .primaryText,
                                     ),
                               )),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
-                                child: FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
-                                  },
-                                  text: FFLocalizations.of(context).getText(
-                                    '1h5i1pe2' /* Buy */,
-                                  ),
-                                  options: FFButtonOptions(
-                                    width: 80.0,
-                                    height: 32.0,
+                              Stack(
+                                children: [
+                                  Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: Colors.white,
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        logFirebaseEvent(
+                                            'REVENUE_CAT_SUBSRIPTION_PAYWALL_VALITSE_');
+                                        logFirebaseEvent('Button_revenue_cat');
+                                        final isEntitled = await revenue_cat
+                                            .isEntitled('Premium');
+                                        if (isEntitled == null) {
+                                          return;
+                                        } else if (!isEntitled) {
+                                          await revenue_cat.loadOfferings();
+                                        }
+
+                                        if (!isEntitled) {
+                                          logFirebaseEvent(
+                                              'Button_revenue_cat');
+                                          _model.didPurchase = await revenue_cat
+                                              .purchasePackage(revenue_cat
+                                                  .offerings!
+                                                  .current!
+                                                  .monthly!
+                                                  .identifier);
+                                          if (_model.didPurchase!) {
+                                            logFirebaseEvent(
+                                                'Button_close_dialog,_drawer,_etc');
+                                            Navigator.pop(context);
+                                            logFirebaseEvent(
+                                                'Button_show_snack_bar');
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'yee! 😊',
+                                                  style: TextStyle(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                  ),
+                                                ),
+                                                duration: Duration(
+                                                    milliseconds: 4000),
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                            );
+                                          } else {
+                                            logFirebaseEvent(
+                                                'Button_show_snack_bar');
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Oh... 😓',
+                                                  style: TextStyle(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                  ),
+                                                ),
+                                                duration: Duration(
+                                                    milliseconds: 4000),
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                            );
+                                          }
+                                        }
+
+                                        setState(() {});
+                                      },
+                                      text: FFLocalizations.of(context).getText(
+                                        '1h5i1pe2' /* Valitse */,
+                                      ),
+                                      options: FFButtonOptions(
+                                        width: 80.0,
+                                        height: 32.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .tertiary,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color: Colors.white,
+                                            ),
+                                        elevation: 2.0,
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1.0,
                                         ),
-                                    elevation: 2.0,
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1.0,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
                                     ),
-                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
-                                ),
+                                  if (revenue_cat.activeEntitlementIds.contains(
+                                          ' monthly_subscription:toistottalteen-monthly-premium-1') ==
+                                      true)
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 10.0, 0.0, 0.0),
+                                      child: FFButtonWidget(
+                                        onPressed: () {
+                                          print('Button pressed ...');
+                                        },
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'skryuv7y' /* Ostettu */,
+                                        ),
+                                        options: FFButtonOptions(
+                                          width: 80.0,
+                                          height: 32.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    color: Colors.white,
+                                                  ),
+                                          elevation: 2.0,
+                                          borderSide: BorderSide(
+                                            color: Colors.transparent,
+                                            width: 1.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                      ),
+                                    ),
+                                ],
                               ),
                             ],
                           ),
@@ -230,7 +352,7 @@ class _RevenueCatSubsriptionPaywallWidgetState
                       ],
                       borderRadius: BorderRadius.circular(12.0),
                       border: Border.all(
-                       // color: FlutterFlowTheme.of(context).weatherCloudy,
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
                         width: 2.0,
                       ),
                     ),
@@ -241,42 +363,44 @@ class _RevenueCatSubsriptionPaywallWidgetState
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SelectionArea(
-                                  child: AutoSizeText(
-                                revenue_cat.offerings!.current!.annual!
-                                    .storeProduct.title
-                                    .maybeHandleOverflow(
-                                  maxChars: 12,
-                                  replacement: '…',
-                                ),
-                                textAlign: TextAlign.start,
-                                style: FlutterFlowTheme.of(context)
-                                    .titleMedium
-                                    .override(
-                                      fontFamily: 'Outfit',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                    ),
-                              )),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 5.0, 0.0, 0.0),
-                                child: SelectionArea(
-                                    child: Text(
-                                  revenue_cat.offerings!.current!.annual!
-                                      .storeProduct.description,
+                          Expanded(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SelectionArea(
+                                    child: AutoSizeText(
+                                  FFLocalizations.of(context).getText(
+                                    '57n31ntm' /* Vuosittainen lahjoitus */,
+                                  ),
                                   textAlign: TextAlign.start,
-                                  style: FlutterFlowTheme.of(context).bodySmall,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .override(
+                                        fontFamily: 'Outfit',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                      ),
                                 )),
-                              ),
-                            ],
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 5.0, 0.0, 0.0),
+                                  child: SelectionArea(
+                                      child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      '5i255jps' /* Anna tukesi vuosittain  ja nau... */,
+                                    ),
+                                    textAlign: TextAlign.start,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodySmall,
+                                  )),
+                                ),
+                              ],
+                            ),
                           ),
                           Column(
                             mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               SelectionArea(
                                   child: Text(
@@ -290,38 +414,156 @@ class _RevenueCatSubsriptionPaywallWidgetState
                                           .primaryText,
                                     ),
                               )),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 0.0),
-                                child: FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
-                                  },
-                                  text: FFLocalizations.of(context).getText(
-                                    'svxy8m08' /* Buy */,
-                                  ),
-                                  options: FFButtonOptions(
-                                    width: 80.0,
-                                    height: 32.0,
+                              Stack(
+                                children: [
+                                  Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Roboto',
-                                          color: Colors.white,
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        logFirebaseEvent(
+                                            'REVENUE_CAT_SUBSRIPTION_PAYWALL_VALITSE_');
+                                        logFirebaseEvent('Button_revenue_cat');
+                                        final isEntitled = await revenue_cat
+                                            .isEntitled('Premium');
+                                        if (isEntitled == null) {
+                                          return;
+                                        } else if (!isEntitled) {
+                                          await revenue_cat.loadOfferings();
+                                        }
+
+                                        if (!isEntitled) {
+                                          logFirebaseEvent(
+                                              'Button_revenue_cat');
+                                          _model.didPurchaseAnnual =
+                                              await revenue_cat.purchasePackage(
+                                                  revenue_cat
+                                                      .offerings!
+                                                      .current!
+                                                      .annual!
+                                                      .identifier);
+                                          if (_model.didPurchaseAnnual!) {
+                                            logFirebaseEvent(
+                                                'Button_close_dialog,_drawer,_etc');
+                                            Navigator.pop(context);
+                                            logFirebaseEvent(
+                                                'Button_show_snack_bar');
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'yeeeeeeeee! 😊',
+                                                  style: TextStyle(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                  ),
+                                                ),
+                                                duration: Duration(
+                                                    milliseconds: 4000),
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                            );
+                                          } else {
+                                            logFirebaseEvent(
+                                                'Button_show_snack_bar');
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Oh... 😓',
+                                                  style: TextStyle(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                  ),
+                                                ),
+                                                duration: Duration(
+                                                    milliseconds: 4000),
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                            );
+                                          }
+                                        }
+
+                                        setState(() {});
+                                      },
+                                      text: FFLocalizations.of(context).getText(
+                                        'iqr7fluo' /* Valitse */,
+                                      ),
+                                      options: FFButtonOptions(
+                                        width: 80.0,
+                                        height: 32.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .tertiary,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color: Colors.white,
+                                            ),
+                                        elevation: 2.0,
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1.0,
                                         ),
-                                    elevation: 2.0,
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1.0,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
                                     ),
-                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
-                                ),
+                                  if (revenue_cat.activeEntitlementIds.contains(
+                                          ' toistottalteen_annual:toistottalteen-annual') ==
+                                      true)
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 10.0, 0.0, 0.0),
+                                      child: FFButtonWidget(
+                                        onPressed: () {
+                                          print('Button pressed ...');
+                                        },
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          '8ofym9jq' /* Ostettu */,
+                                        ),
+                                        options: FFButtonOptions(
+                                          width: 80.0,
+                                          height: 32.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    color: Colors.white,
+                                                  ),
+                                          elevation: 2.0,
+                                          borderSide: BorderSide(
+                                            color: Colors.transparent,
+                                            width: 1.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                      ),
+                                    ),
+                                ],
                               ),
                             ],
                           ),
@@ -330,15 +572,451 @@ class _RevenueCatSubsriptionPaywallWidgetState
                     ),
                   ),
                 ),
-              Spacer(),
+              if (false)
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                  child: Container(
+                    width: 100.0,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 4.0,
+                          color: Color(0x33000000),
+                          offset: Offset(0.0, 2.0),
+                        )
+                      ],
+                      borderRadius: BorderRadius.circular(12.0),
+                      border: Border.all(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        width: 2.0,
+                      ),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          12.0, 12.0, 12.0, 12.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SelectionArea(
+                                    child: AutoSizeText(
+                                  FFLocalizations.of(context).getText(
+                                    'gh1dh197' /* Valitse summa itse */,
+                                  ),
+                                  textAlign: TextAlign.start,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .override(
+                                        fontFamily: 'Outfit',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                      ),
+                                )),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 5.0, 0.0, 0.0),
+                                  child: SelectionArea(
+                                      child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      '1wfoam8t' /* Poista mainokset koko loppuelä... */,
+                                    ),
+                                    textAlign: TextAlign.start,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodySmall,
+                                  )),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              SelectionArea(
+                                  child: Text(
+                                FFLocalizations.of(context).getText(
+                                  '38hizisn' /* Hello World dstasdt */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                              )),
+                              Stack(
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        logFirebaseEvent(
+                                            'REVENUE_CAT_SUBSRIPTION_PAYWALL_VALITSE_');
+                                        logFirebaseEvent('Button_revenue_cat');
+                                        final isEntitled = await revenue_cat
+                                            .isEntitled('Premium');
+                                        if (isEntitled == null) {
+                                          return;
+                                        } else if (!isEntitled) {
+                                          await revenue_cat.loadOfferings();
+                                        }
+
+                                        if (!isEntitled) {
+                                          logFirebaseEvent(
+                                              'Button_revenue_cat');
+                                          _model.didPurchaseLifeTime =
+                                              await revenue_cat.purchasePackage(
+                                                  revenue_cat
+                                                      .offerings!
+                                                      .current!
+                                                      .monthly!
+                                                      .identifier);
+                                          if (_model.didPurchaseLifeTime!) {
+                                            logFirebaseEvent(
+                                                'Button_close_dialog,_drawer,_etc');
+                                            Navigator.pop(context);
+                                            logFirebaseEvent(
+                                                'Button_show_snack_bar');
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'yeeeeeeee! 😊',
+                                                  style: TextStyle(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                  ),
+                                                ),
+                                                duration: Duration(
+                                                    milliseconds: 4000),
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                            );
+                                          } else {
+                                            logFirebaseEvent(
+                                                'Button_show_snack_bar');
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Oh... 😓',
+                                                  style: TextStyle(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                  ),
+                                                ),
+                                                duration: Duration(
+                                                    milliseconds: 4000),
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                            );
+                                          }
+                                        }
+
+                                        setState(() {});
+                                      },
+                                      text: FFLocalizations.of(context).getText(
+                                        'k0e3j8fm' /* Valitse */,
+                                      ),
+                                      options: FFButtonOptions(
+                                        width: 80.0,
+                                        height: 32.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .tertiary,
+                                            ),
+                                        elevation: 2.0,
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: FFButtonWidget(
+                                      onPressed: () {
+                                        print('Button pressed ...');
+                                      },
+                                      text: FFLocalizations.of(context).getText(
+                                        'nb921mia' /* Ostettu */,
+                                      ),
+                                      options: FFButtonOptions(
+                                        width: 80.0,
+                                        height: 32.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color: Colors.white,
+                                            ),
+                                        elevation: 2.0,
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              if (!isWeb)
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                  child: Container(
+                    width: 100.0,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 4.0,
+                          color: Color(0x33000000),
+                          offset: Offset(0.0, 2.0),
+                        )
+                      ],
+                      borderRadius: BorderRadius.circular(12.0),
+                      border: Border.all(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        width: 2.0,
+                      ),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          12.0, 12.0, 12.0, 12.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SelectionArea(
+                                    child: AutoSizeText(
+                                  FFLocalizations.of(context).getText(
+                                    'ozdly97p' /* Kertalahjoitus */,
+                                  ),
+                                  textAlign: TextAlign.start,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .override(
+                                        fontFamily: 'Outfit',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                      ),
+                                )),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 5.0, 0.0, 0.0),
+                                  child: SelectionArea(
+                                      child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'aqttc467' /* Poista mainokset koko loppuelä... */,
+                                    ),
+                                    textAlign: TextAlign.start,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodySmall,
+                                  )),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              SelectionArea(
+                                  child: Text(
+                                revenue_cat.offerings!.current!.lifetime!
+                                    .storeProduct.priceString,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                    ),
+                              )),
+                              Stack(
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        logFirebaseEvent(
+                                            'REVENUE_CAT_SUBSRIPTION_PAYWALL_VALITSE_');
+                                        logFirebaseEvent('Button_revenue_cat');
+                                        _model.didPurchaseMonth =
+                                            await revenue_cat.purchasePackage(
+                                                revenue_cat.offerings!.current!
+                                                    .monthly!.identifier);
+                                        if (_model.didPurchaseMonth!) {
+                                          logFirebaseEvent(
+                                              'Button_bottom_sheet');
+                                          Navigator.pop(context);
+                                        } else {
+                                          logFirebaseEvent(
+                                              'Button_show_snack_bar');
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                'Unable to purchase!',
+                                                style: TextStyle(
+                                                  color: Color(0xFFF8FAFF),
+                                                ),
+                                              ),
+                                              duration:
+                                                  Duration(milliseconds: 4000),
+                                            ),
+                                          );
+                                        }
+
+                                        setState(() {});
+                                      },
+                                      text: FFLocalizations.of(context).getText(
+                                        'oue3r96t' /* Valitse */,
+                                      ),
+                                      options: FFButtonOptions(
+                                        width: 80.0,
+                                        height: 32.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .tertiary,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .tertiary,
+                                            ),
+                                        elevation: 2.0,
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                    ),
+                                  ),
+                                  if (valueOrDefault<bool>(
+                                    revenue_cat.activeEntitlementIds.contains(
+                                            ' toistottalteen_lifetime_purchase') ==
+                                        true,
+                                    false,
+                                  ))
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 10.0, 0.0, 0.0),
+                                      child: FFButtonWidget(
+                                        onPressed: () {
+                                          print('Button pressed ...');
+                                        },
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'ycuf03w5' /* Ostettu */,
+                                        ),
+                                        options: FFButtonOptions(
+                                          width: 80.0,
+                                          height: 32.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          textStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmall
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    color: Colors.white,
+                                                  ),
+                                          elevation: 2.0,
+                                          borderSide: BorderSide(
+                                            color: Colors.transparent,
+                                            width: 1.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                      ),
+                                    ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(32.0, 20.0, 32.0, 36.0),
+                padding: EdgeInsetsDirectional.fromSTEB(32.0, 50.0, 32.0, 22.0),
                 child: FFButtonWidget(
-                  onPressed: () {
-                    print('RestorePurchases pressed ...');
+                  onPressed: () async {
+                    logFirebaseEvent(
+                        'REVENUE_CAT_SUBSRIPTION_PAYWALL_RestoreP');
+                    logFirebaseEvent('RestorePurchases_revenue_cat');
+                    await revenue_cat.restorePurchases();
                   },
                   text: FFLocalizations.of(context).getText(
-                    '0sem4kiu' /* Restore Purchases */,
+                    '0sem4kiu' /* Aktivoi  aiempi ostos */,
                   ),
                   options: FFButtonOptions(
                     width: 130.0,
@@ -346,7 +1024,7 @@ class _RevenueCatSubsriptionPaywallWidgetState
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).tertiary,
+                    color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Roboto',
                           color: FlutterFlowTheme.of(context).primaryBtnText,

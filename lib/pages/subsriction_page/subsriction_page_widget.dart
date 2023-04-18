@@ -1,23 +1,22 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/revenue_cat_util.dart' as revenue_cat;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'subriction_page_model.dart';
-export 'subriction_page_model.dart';
+import 'subsriction_page_model.dart';
+export 'subsriction_page_model.dart';
 
-class SubrictionPageWidget extends StatefulWidget {
-  const SubrictionPageWidget({Key? key}) : super(key: key);
+class SubsrictionPageWidget extends StatefulWidget {
+  const SubsrictionPageWidget({Key? key}) : super(key: key);
 
   @override
-  _SubrictionPageWidgetState createState() => _SubrictionPageWidgetState();
+  _SubsrictionPageWidgetState createState() => _SubsrictionPageWidgetState();
 }
 
-class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
-  late SubrictionPageModel _model;
+class _SubsrictionPageWidgetState extends State<SubsrictionPageWidget> {
+  late SubsrictionPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
@@ -25,10 +24,10 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => SubrictionPageModel());
+    _model = createModel(context, () => SubsrictionPageModel());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'subrictionPage'});
+        parameters: {'screen_name': 'subsrictionPage'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -56,7 +55,7 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
           automaticallyImplyLeading: true,
           title: Text(
             FFLocalizations.of(context).getText(
-              'wpjuhtau' /* Subscription / Payment */,
+              'wpjuhtau' /*  */,
             ),
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Roboto',
@@ -161,7 +160,7 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                                 12.0, 0.0, 24.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                '3p7287li' /* Sisältää mainokset ja muut raj... */,
+                                '3p7287li' /* Sisältää mainokset */,
                               ),
                               style: FlutterFlowTheme.of(context).bodySmall,
                             ),
@@ -191,7 +190,7 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                       EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                   child: InkWell(
                     onTap: () async {
-                      logFirebaseEvent('SUBRICTION_Container_x1ry4mvr_ON_TAP');
+                      logFirebaseEvent('SUBSRICTION_Container_x1ry4mvr_ON_TAP');
                       logFirebaseEvent('Container_revenue_cat');
                       final isEntitled =
                           await revenue_cat.isEntitled('Premium');
@@ -314,7 +313,7 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                                   12.0, 0.0, 24.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  'dtagbld2' /* Ei mainoksia, ei muita rajoitu... */,
+                                  'dtagbld2' /* Tue sovelluksen kehitystä ja p... */,
                                 ),
                                 style: FlutterFlowTheme.of(context).bodySmall,
                               ),
@@ -474,17 +473,7 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                                 12.0, 0.0, 24.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                'rkeo8bcf' /* Ei mainoksia + ei muita rajoit... */,
-                              ),
-                              style: FlutterFlowTheme.of(context).bodySmall,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 24.0, 0.0),
-                            child: Text(
-                              FFLocalizations.of(context).getText(
-                                'gf6voqtu' /* Maksa kerran ja nauti premiumj... */,
+                                'gf6voqtu' /* Maksa kerran ja nauti premiume... */,
                               ),
                               style: FlutterFlowTheme.of(context).bodySmall,
                             ),
@@ -492,43 +481,6 @@ class _SubrictionPageWidgetState extends State<SubrictionPageWidget> {
                         ],
                       ),
                     ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 22.0, 0.0, 24.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
-                        },
-                        text: FFLocalizations.of(context).getText(
-                          '9v7axq1b' /* Jatka */,
-                        ),
-                        options: FFButtonOptions(
-                          width: 270.0,
-                          height: 50.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Roboto',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                  ),
-                          elevation: 2.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
-                          ),
-                        ),
-                      ),
-                    ],
                   ),
                 ),
               ],

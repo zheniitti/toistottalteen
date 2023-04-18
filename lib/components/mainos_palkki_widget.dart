@@ -60,7 +60,7 @@ class _MainosPalkkiWidgetState extends State<MainosPalkkiWidget> {
           ),
         ),
         child: FlutterFlowAdBanner(
-          showsTestAd: true,
+          showsTestAd: false,
           iOSAdUnitID: 'ca-app-pub-6667798289242281/3798313004',
           androidAdUnitID: 'ca-app-pub-6667798289242281/8613432088',
         ),

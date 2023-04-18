@@ -11,7 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-
 import 'sivu_rutiinit_komponentti_model.dart';
 export 'sivu_rutiinit_komponentti_model.dart';
 
@@ -24,10 +23,12 @@ class SivuRutiinitKomponenttiWidget extends StatefulWidget {
   final TreeniSessiotRecord? latestSessio;
 
   @override
-  _SivuRutiinitKomponenttiWidgetState createState() => _SivuRutiinitKomponenttiWidgetState();
+  _SivuRutiinitKomponenttiWidgetState createState() =>
+      _SivuRutiinitKomponenttiWidgetState();
 }
 
-class _SivuRutiinitKomponenttiWidgetState extends State<SivuRutiinitKomponenttiWidget> {
+class _SivuRutiinitKomponenttiWidgetState
+    extends State<SivuRutiinitKomponenttiWidget> {
   late SivuRutiinitKomponenttiModel _model;
 
   @override
@@ -65,19 +66,20 @@ class _SivuRutiinitKomponenttiWidgetState extends State<SivuRutiinitKomponenttiW
           children: [
             Container(
               constraints: BoxConstraints(
-                maxWidth: 600,
+                maxWidth: 600.0,
               ),
               decoration: BoxDecoration(),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(0, 0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 30),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 40.0, 0.0, 30.0),
                         child: wrapWithModel(
                           model: _model.buttonLuoRutiiniModel,
                           updateCallback: () => setState(() {}),
@@ -85,9 +87,13 @@ class _SivuRutiinitKomponenttiWidgetState extends State<SivuRutiinitKomponenttiW
                         ),
                       ),
                     ),
-                    if ((widget.latestSessio != null) && (widget.latestSessio!.loppu == null) && (widget.latestSessio!.alku != null) && false)
+                    if ((widget.latestSessio != null) &&
+                        (widget.latestSessio!.loppu == null) &&
+                        (widget.latestSessio!.alku != null) &&
+                        false)
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                         child: wrapWithModel(
                           model: _model.keskenerainenTreeniKomponenttiModel,
                           updateCallback: () => setState(() {}),
@@ -101,11 +107,13 @@ class _SivuRutiinitKomponenttiWidgetState extends State<SivuRutiinitKomponenttiW
                       children: [
                         if ((FFAppState().navBarIndex == 0) &&
                             valueOrDefault<bool>(
-                              FFAppState().searchbarText != null && FFAppState().searchbarText != '',
+                              FFAppState().searchbarText != null &&
+                                  FFAppState().searchbarText != '',
                               false,
                             ))
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 8.0),
                             child: RichText(
                               text: TextSpan(
                                 children: [
@@ -117,7 +125,8 @@ class _SivuRutiinitKomponenttiWidgetState extends State<SivuRutiinitKomponenttiW
                                   ),
                                   TextSpan(
                                     text: FFAppState().searchbarText,
-                                    style: FlutterFlowTheme.of(context).labelLarge,
+                                    style:
+                                        FlutterFlowTheme.of(context).labelLarge,
                                   )
                                 ],
                                 style: FlutterFlowTheme.of(context).bodyMedium,
@@ -127,11 +136,21 @@ class _SivuRutiinitKomponenttiWidgetState extends State<SivuRutiinitKomponenttiW
                       ],
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 200),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 200.0),
                       child: AuthUserStreamWidget(
                         builder: (context) => Builder(
                           builder: (context) {
-                            final rutiinit = functions.filterRutiiniList((currentUserDocument?.treeniRutiinit?.toList() ?? []).toList(), FFAppState().searchbarText, FFAppState().navBarIndex, false).toList();
+                            final rutiinit = functions
+                                .filterRutiiniList(
+                                    (currentUserDocument?.treeniRutiinit
+                                                ?.toList() ??
+                                            [])
+                                        .toList(),
+                                    FFAppState().searchbarText,
+                                    FFAppState().navBarIndex,
+                                    false)
+                                .toList();
                             return ListView.builder(
                               padding: EdgeInsets.zero,
                               reverse: true,
@@ -142,9 +161,10 @@ class _SivuRutiinitKomponenttiWidgetState extends State<SivuRutiinitKomponenttiW
                               itemBuilder: (context, rutiinitIndex) {
                                 final rutiinitItem = rutiinit[rutiinitIndex];
                                 return Align(
-                                  alignment: AlignmentDirectional(0, 0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 20.0),
                                     child: wrapWithModel(
                                       model: _model.rutiiniModels.getModel(
                                         rutiinitItem.createdTime!.toString(),
@@ -156,8 +176,12 @@ class _SivuRutiinitKomponenttiWidgetState extends State<SivuRutiinitKomponenttiW
                                           'Keyppk_${rutiinitItem.createdTime!.toString()}',
                                         ),
                                         rutiini: rutiinitItem,
-                                        hasUnfinishedWorkout: (widget.latestSessio != null) && (widget.latestSessio!.loppu == null),
-                                        pageStateSelectedRutiini: _model.pageStateValittuRutiini,
+                                        hasUnfinishedWorkout:
+                                            (widget.latestSessio != null) &&
+                                                (widget.latestSessio!.loppu ==
+                                                    null),
+                                        pageStateSelectedRutiini:
+                                            _model.pageStateValittuRutiini,
                                         rutiiniListIndex: rutiinitIndex,
                                         latestSessioDoc: widget.latestSessio,
                                       ),

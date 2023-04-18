@@ -18,7 +18,6 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-
 import 'rutiini_model.dart';
 export 'rutiini_model.dart';
 
@@ -42,7 +41,8 @@ class RutiiniWidget extends StatefulWidget {
   _RutiiniWidgetState createState() => _RutiiniWidgetState();
 }
 
-class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateMixin {
+class _RutiiniWidgetState extends State<RutiiniWidget>
+    with TickerProviderStateMixin {
   late RutiiniModel _model;
 
   final animationsMap = {
@@ -55,8 +55,8 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
           curve: Curves.easeInOut,
           delay: 600.ms,
           duration: 1000.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -68,7 +68,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: 1,
+          begin: 1.0,
           end: 0.7,
         ),
       ],
@@ -80,15 +80,15 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 0.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -99,8 +99,8 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 1200.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -112,7 +112,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 200.ms,
-          begin: 1,
+          begin: 1.0,
           end: 0.9,
         ),
         ScaleEffect(
@@ -132,7 +132,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 200.ms,
-          begin: 1,
+          begin: 1.0,
           end: 0.9,
         ),
         ScaleEffect(
@@ -152,7 +152,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 200.ms,
-          begin: 1,
+          begin: 1.0,
           end: 0.9,
         ),
         ScaleEffect(
@@ -172,7 +172,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 200.ms,
-          begin: 1,
+          begin: 1.0,
           end: 0.9,
         ),
         ScaleEffect(
@@ -192,7 +192,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 200.ms,
-          begin: 1,
+          begin: 1.0,
           end: 0.9,
         ),
         ScaleEffect(
@@ -212,7 +212,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 200.ms,
-          begin: 1,
+          begin: 1.0,
           end: 0.9,
         ),
         ScaleEffect(
@@ -232,7 +232,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 200.ms,
-          begin: 1,
+          begin: 1.0,
           end: 0.9,
         ),
         ScaleEffect(
@@ -251,8 +251,8 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
           curve: Curves.easeInOut,
           delay: 420.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -273,7 +273,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
           delay: 0.ms,
           duration: 900.ms,
           begin: 0.6,
-          end: 1,
+          end: 1.0,
         ),
       ],
     ),
@@ -285,14 +285,14 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
           curve: Curves.bounceOut,
           delay: 0.ms,
           duration: 200.ms,
-          begin: 1,
+          begin: 1.0,
           end: 0.9,
         ),
         ScaleEffect(
           curve: Curves.bounceOut,
           delay: 200.ms,
           duration: 200.ms,
-          begin: 1,
+          begin: 1.0,
           end: 1.2,
         ),
       ],
@@ -306,15 +306,15 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
           curve: Curves.elasticOut,
           delay: 2000.ms,
           duration: 900.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         ScaleEffect(
           curve: Curves.elasticOut,
           delay: 2000.ms,
           duration: 900.ms,
           begin: 0.9,
-          end: 1,
+          end: 1.0,
         ),
       ],
     ),
@@ -331,10 +331,14 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
     super.initState();
     _model = createModel(context, () => RutiiniModel());
 
-    _model.textFieldNimiController ??= TextEditingController(text: widget.rutiini?.nimi);
-    _model.textFieldKommenttiController ??= TextEditingController(text: widget.rutiini?.kommentti);
+    _model.textFieldNimiController ??=
+        TextEditingController(text: widget.rutiini?.nimi);
+    _model.textFieldKommenttiController ??=
+        TextEditingController(text: widget.rutiini?.kommentti);
     setupAnimations(
-      animationsMap.values.where((anim) => anim.trigger == AnimationTrigger.onActionTrigger || !anim.applyInitialState),
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
       this,
     );
 
@@ -355,19 +359,21 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
     return Stack(
       children: [
         Container(
-          width: MediaQuery.of(context).size.width,
+          width: MediaQuery.of(context).size.width * 1.0,
           constraints: BoxConstraints(
-            maxWidth: 500,
+            maxWidth: 500.0,
           ),
           decoration: BoxDecoration(
             color: valueOrDefault<Color>(
-              !widget.rutiini!.finishedEditing! ? FlutterFlowTheme.of(context).activeWidgetBackground : FlutterFlowTheme.of(context).inactiveWidgetBackground,
+              !widget.rutiini!.finishedEditing!
+                  ? FlutterFlowTheme.of(context).activeWidgetBackground
+                  : FlutterFlowTheme.of(context).inactiveWidgetBackground,
               FlutterFlowTheme.of(context).secondaryBackground,
             ),
-            borderRadius: BorderRadius.circular(22),
+            borderRadius: BorderRadius.circular(22.0),
           ),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -383,15 +389,18 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                           children: [
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(20, 6, 20, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    20.0, 6.0, 20.0, 0.0),
                                 child: TextFormField(
                                   controller: _model.textFieldNimiController,
                                   onChanged: (_) => EasyDebounce.debounce(
                                     '_model.textFieldNimiController',
                                     Duration(milliseconds: 300),
                                     () async {
-                                      logFirebaseEvent('RUTIINI_TextField_nimi_ON_TEXTFIELD_CHAN');
-                                      logFirebaseEvent('TextField_nimi_custom_action');
+                                      logFirebaseEvent(
+                                          'RUTIINI_TextField_nimi_ON_TEXTFIELD_CHAN');
+                                      logFirebaseEvent(
+                                          'TextField_nimi_custom_action');
                                       await actions.updateUserDocTreenirutiini(
                                         widget.rutiini,
                                         null,
@@ -400,8 +409,11 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                         true,
                                         null,
                                         _model.textFieldNimiController.text,
-                                        _model.textFieldKommenttiController.text,
-                                        widget.rutiini?.liikkeet?.toList()?.toList(),
+                                        _model
+                                            .textFieldKommenttiController.text,
+                                        widget.rutiini?.liikkeet
+                                            ?.toList()
+                                            ?.toList(),
                                         null,
                                         null,
                                         null,
@@ -415,18 +427,21 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     isDense: true,
-                                    hintText: FFLocalizations.of(context).getText(
+                                    hintText:
+                                        FFLocalizations.of(context).getText(
                                       'yi3kozht' /* Treenipohjan nimi */,
                                     ),
-                                    hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
                                           fontFamily: 'Roboto',
-                                          fontSize: 18,
+                                          fontSize: 18.0,
                                           fontWeight: FontWeight.w300,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -436,7 +451,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                     focusedBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -446,7 +461,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                     errorBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -456,7 +471,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                     focusedErrorBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -464,15 +479,19 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                       ),
                                     ),
                                   ),
-                                  style: FlutterFlowTheme.of(context).titleSmall.override(
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
                                         fontFamily: 'Roboto',
-                                        fontSize: 18,
+                                        fontSize: 18.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                   textAlign: TextAlign.center,
                                   maxLines: 3,
                                   minLines: 1,
-                                  validator: _model.textFieldNimiControllerValidator.asValidator(context),
+                                  validator: _model
+                                      .textFieldNimiControllerValidator
+                                      .asValidator(context),
                                 ),
                               ),
                             ),
@@ -481,17 +500,23 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                         Container(
                           decoration: BoxDecoration(),
                           child: Visibility(
-                            visible: widget.rutiini?.nimi != null && widget.rutiini?.nimi != '' ? true : !widget.rutiini!.finishedEditing!,
+                            visible: widget.rutiini?.nimi != null &&
+                                    widget.rutiini?.nimi != ''
+                                ? true
+                                : !widget.rutiini!.finishedEditing!,
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 0.0, 8.0, 0.0),
                               child: TextFormField(
                                 controller: _model.textFieldKommenttiController,
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.textFieldKommenttiController',
                                   Duration(milliseconds: 300),
                                   () async {
-                                    logFirebaseEvent('RUTIINI_TextField_kommentti_ON_TEXTFIELD');
-                                    logFirebaseEvent('TextField_kommentti_custom_action');
+                                    logFirebaseEvent(
+                                        'RUTIINI_TextField_kommentti_ON_TEXTFIELD');
+                                    logFirebaseEvent(
+                                        'TextField_kommentti_custom_action');
                                     await actions.updateUserDocTreenirutiini(
                                       widget.rutiini,
                                       null,
@@ -501,7 +526,9 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                       null,
                                       _model.textFieldNimiController.text,
                                       null,
-                                      widget.rutiini?.liikkeet?.toList()?.toList(),
+                                      widget.rutiini?.liikkeet
+                                          ?.toList()
+                                          ?.toList(),
                                       null,
                                       null,
                                       null,
@@ -518,15 +545,17 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                   hintText: FFLocalizations.of(context).getText(
                                     'kiyozfj3' /* Treenipohjan kommentti 💬 */,
                                   ),
-                                  hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
                                         fontFamily: 'Roboto',
-                                        fontSize: 14,
+                                        fontSize: 14.0,
                                         fontWeight: FontWeight.w300,
                                       ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -536,7 +565,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                   focusedBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -546,7 +575,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                   errorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -556,37 +585,46 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                   focusedErrorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
                                       topRight: Radius.circular(4.0),
                                     ),
                                   ),
-                                  contentPadding: EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
+                                  contentPadding:
+                                      EdgeInsetsDirectional.fromSTEB(
+                                          4.0, 4.0, 4.0, 4.0),
                                 ),
-                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
                                       fontFamily: 'Roboto',
-                                      fontSize: 14,
+                                      fontSize: 14.0,
                                       fontWeight: FontWeight.w300,
                                     ),
                                 textAlign: TextAlign.center,
                                 maxLines: null,
                                 minLines: 1,
-                                validator: _model.textFieldKommenttiControllerValidator.asValidator(context),
-                              ).animateOnPageLoad(animationsMap['textFieldOnPageLoadAnimation']!),
+                                validator: _model
+                                    .textFieldKommenttiControllerValidator
+                                    .asValidator(context),
+                              ).animateOnPageLoad(animationsMap[
+                                  'textFieldOnPageLoadAnimation']!),
                             ),
                           ),
                         ),
                       ],
                     ),
                     Align(
-                      alignment: AlignmentDirectional(1, -1),
+                      alignment: AlignmentDirectional(1.0, -1.0),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                         child: InkWell(
                           onTap: () async {
-                            logFirebaseEvent('RUTIINI_COMP_Icon_pjviv9c5_ON_TAP');
+                            logFirebaseEvent(
+                                'RUTIINI_COMP_Icon_pjviv9c5_ON_TAP');
                             logFirebaseEvent('Icon_bottom_sheet');
                             showModalBottomSheet(
                               isScrollControlled: true,
@@ -595,7 +633,8 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                               context: context,
                               builder: (bottomSheetContext) {
                                 return Padding(
-                                  padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                                  padding: MediaQuery.of(bottomSheetContext)
+                                      .viewInsets,
                                   child: BottomSheetRutiiniJaSessioWidget(
                                     rutiiniData: widget.rutiini,
                                     treeniSessioDoc: null,
@@ -607,20 +646,23 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                           child: Icon(
                             Icons.more_vert_rounded,
                             color: Colors.black,
-                            size: 24,
+                            size: 24.0,
                           ),
-                        ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation']!),
+                        ).animateOnPageLoad(
+                            animationsMap['iconOnPageLoadAnimation']!),
                       ),
                     ),
                     Stack(
-                      alignment: AlignmentDirectional(-1, -1),
+                      alignment: AlignmentDirectional(-1.0, -1.0),
                       children: [
                         if (widget.rutiini?.finishedEditing ?? true)
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(4, 8, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                4.0, 8.0, 0.0, 0.0),
                             child: InkWell(
                               onTap: () async {
-                                logFirebaseEvent('RUTIINI_COMP_Icon_m5q1zcbg_ON_TAP');
+                                logFirebaseEvent(
+                                    'RUTIINI_COMP_Icon_m5q1zcbg_ON_TAP');
                                 logFirebaseEvent('Icon_custom_action');
                                 await actions.updateUserDocTreenirutiini(
                                   widget.rutiini,
@@ -635,7 +677,11 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                   null,
                                   null,
                                   null,
-                                  _model.textFieldKommenttiController.text != null && _model.textFieldKommenttiController.text != '',
+                                  _model.textFieldKommenttiController.text !=
+                                          null &&
+                                      _model.textFieldKommenttiController
+                                              .text !=
+                                          '',
                                   false,
                                   false,
                                   false,
@@ -644,16 +690,18 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                               child: FaIcon(
                                 FontAwesomeIcons.edit,
                                 color: Colors.black,
-                                size: 24,
+                                size: 24.0,
                               ),
                             ),
                           ),
                         if (false)
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(4, 8, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                4.0, 8.0, 0.0, 0.0),
                             child: InkWell(
                               onTap: () async {
-                                logFirebaseEvent('RUTIINI_COMP_Icon_oli3s13m_ON_TAP');
+                                logFirebaseEvent(
+                                    'RUTIINI_COMP_Icon_oli3s13m_ON_TAP');
                                 logFirebaseEvent('Icon_custom_action');
                                 await actions.updateUserDocTreenirutiini(
                                   widget.rutiini,
@@ -668,7 +716,11 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                   null,
                                   null,
                                   null,
-                                  _model.textFieldKommenttiController.text != null && _model.textFieldKommenttiController.text != '',
+                                  _model.textFieldKommenttiController.text !=
+                                          null &&
+                                      _model.textFieldKommenttiController
+                                              .text !=
+                                          '',
                                   false,
                                   false,
                                   false,
@@ -677,7 +729,7 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                               child: FaIcon(
                                 FontAwesomeIcons.solidEdit,
                                 color: Colors.black,
-                                size: 24,
+                                size: 24.0,
                               ),
                             ),
                           ),
@@ -686,18 +738,18 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                   ],
                 ),
                 Divider(
-                  thickness: 1,
+                  thickness: 1.0,
                 ),
                 if (!widget.rutiini!.finishedEditing!)
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 2, 0, 6),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 6.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         if (false)
                           Wrap(
-                            spacing: 4,
-                            runSpacing: 4,
+                            spacing: 4.0,
+                            runSpacing: 4.0,
                             alignment: WrapAlignment.start,
                             crossAxisAlignment: WrapCrossAlignment.start,
                             direction: Axis.horizontal,
@@ -707,10 +759,16 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                             children: [
                               FFButtonWidget(
                                 onPressed: () async {
-                                  logFirebaseEvent('RUTIINI_COMP_MA_BTN_ON_TAP');
+                                  logFirebaseEvent(
+                                      'RUTIINI_COMP_MA_BTN_ON_TAP');
                                   logFirebaseEvent('Button_widget_animation');
-                                  if (animationsMap['buttonOnActionTriggerAnimation1'] != null) {
-                                    animationsMap['buttonOnActionTriggerAnimation1']!.controller.forward(from: 0.0);
+                                  if (animationsMap[
+                                          'buttonOnActionTriggerAnimation1'] !=
+                                      null) {
+                                    animationsMap[
+                                            'buttonOnActionTriggerAnimation1']!
+                                        .controller
+                                        .forward(from: 0.0);
                                   }
                                   logFirebaseEvent('Button_custom_action');
                                   await actions.updateUserDocTreenirutiini(
@@ -722,9 +780,20 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                     null,
                                     _model.textFieldNimiController.text,
                                     _model.textFieldKommenttiController.text,
-                                    widget.rutiini?.liikkeet?.toList()?.toList(),
-                                    functions.updatedValitutViikonPaivat(widget.rutiini?.valitutViikonPaivat, !widget.rutiini!.valitutViikonPaivat!.ma!, widget.rutiini?.valitutViikonPaivat?.ti, widget.rutiini?.valitutViikonPaivat?.ke, widget.rutiini?.valitutViikonPaivat?.to,
-                                        widget.rutiini?.valitutViikonPaivat?.pe, widget.rutiini?.valitutViikonPaivat?.la, widget.rutiini?.valitutViikonPaivat?.su),
+                                    widget.rutiini?.liikkeet
+                                        ?.toList()
+                                        ?.toList(),
+                                    functions.updatedValitutViikonPaivat(
+                                        widget.rutiini?.valitutViikonPaivat,
+                                        !widget
+                                            .rutiini!.valitutViikonPaivat!.ma!,
+                                        widget.rutiini?.valitutViikonPaivat?.ti,
+                                        widget.rutiini?.valitutViikonPaivat?.ke,
+                                        widget.rutiini?.valitutViikonPaivat?.to,
+                                        widget.rutiini?.valitutViikonPaivat?.pe,
+                                        widget.rutiini?.valitutViikonPaivat?.la,
+                                        widget
+                                            .rutiini?.valitutViikonPaivat?.su),
                                     null,
                                     null,
                                     null,
@@ -737,31 +806,50 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                   'yod6uchb' /* Ma */,
                                 ),
                                 options: FFButtonOptions(
-                                  width: 50,
-                                  height: 40,
-                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                  color: widget.rutiini!.valitutViikonPaivat!.ma! ? FlutterFlowTheme.of(context).secondary : Color(0x9AFFFFFF),
-                                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                  width: 50.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: widget
+                                          .rutiini!.valitutViikonPaivat!.ma!
+                                      ? FlutterFlowTheme.of(context).secondary
+                                      : Color(0x9AFFFFFF),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
                                         fontFamily: 'Roboto',
-                                        color: widget.rutiini!.valitutViikonPaivat!.ma! ? FlutterFlowTheme.of(context).secondary : FlutterFlowTheme.of(context).primary,
+                                        color: widget.rutiini!
+                                                .valitutViikonPaivat!.ma!
+                                            ? FlutterFlowTheme.of(context)
+                                                .secondary
+                                            : FlutterFlowTheme.of(context)
+                                                .primary,
                                       ),
-                                  elevation: 1,
+                                  elevation: 1.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(12),
+                                  borderRadius: BorderRadius.circular(12.0),
                                 ),
                               ).animateOnActionTrigger(
-                                animationsMap['buttonOnActionTriggerAnimation1']!,
+                                animationsMap[
+                                    'buttonOnActionTriggerAnimation1']!,
                               ),
                               FFButtonWidget(
                                 onPressed: () async {
-                                  logFirebaseEvent('RUTIINI_COMP_TI_BTN_ON_TAP');
+                                  logFirebaseEvent(
+                                      'RUTIINI_COMP_TI_BTN_ON_TAP');
                                   logFirebaseEvent('Button_widget_animation');
-                                  if (animationsMap['buttonOnActionTriggerAnimation2'] != null) {
-                                    animationsMap['buttonOnActionTriggerAnimation2']!.controller.forward(from: 0.0);
+                                  if (animationsMap[
+                                          'buttonOnActionTriggerAnimation2'] !=
+                                      null) {
+                                    animationsMap[
+                                            'buttonOnActionTriggerAnimation2']!
+                                        .controller
+                                        .forward(from: 0.0);
                                   }
                                   logFirebaseEvent('Button_custom_action');
                                   await actions.updateUserDocTreenirutiini(
@@ -773,9 +861,20 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                     null,
                                     _model.textFieldNimiController.text,
                                     _model.textFieldKommenttiController.text,
-                                    widget.rutiini?.liikkeet?.toList()?.toList(),
-                                    functions.updatedValitutViikonPaivat(widget.rutiini?.valitutViikonPaivat, widget.rutiini?.valitutViikonPaivat?.ma, !widget.rutiini!.valitutViikonPaivat!.ti!, widget.rutiini?.valitutViikonPaivat?.ke, widget.rutiini?.valitutViikonPaivat?.to,
-                                        widget.rutiini?.valitutViikonPaivat?.pe, widget.rutiini?.valitutViikonPaivat?.la, widget.rutiini?.valitutViikonPaivat?.su),
+                                    widget.rutiini?.liikkeet
+                                        ?.toList()
+                                        ?.toList(),
+                                    functions.updatedValitutViikonPaivat(
+                                        widget.rutiini?.valitutViikonPaivat,
+                                        widget.rutiini?.valitutViikonPaivat?.ma,
+                                        !widget
+                                            .rutiini!.valitutViikonPaivat!.ti!,
+                                        widget.rutiini?.valitutViikonPaivat?.ke,
+                                        widget.rutiini?.valitutViikonPaivat?.to,
+                                        widget.rutiini?.valitutViikonPaivat?.pe,
+                                        widget.rutiini?.valitutViikonPaivat?.la,
+                                        widget
+                                            .rutiini?.valitutViikonPaivat?.su),
                                     null,
                                     null,
                                     null,
@@ -788,31 +887,51 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                   'vv4fc4r4' /* Ti */,
                                 ),
                                 options: FFButtonOptions(
-                                  width: 50,
-                                  height: 40,
-                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                  color: widget.rutiini!.valitutViikonPaivat!.ti! ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).secondaryBackground,
-                                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                  width: 50.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color:
+                                      widget.rutiini!.valitutViikonPaivat!.ti!
+                                          ? FlutterFlowTheme.of(context).primary
+                                          : FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
                                         fontFamily: 'Roboto',
-                                        color: widget.rutiini!.valitutViikonPaivat!.ti! ? FlutterFlowTheme.of(context).secondary : FlutterFlowTheme.of(context).primary,
+                                        color: widget.rutiini!
+                                                .valitutViikonPaivat!.ti!
+                                            ? FlutterFlowTheme.of(context)
+                                                .secondary
+                                            : FlutterFlowTheme.of(context)
+                                                .primary,
                                       ),
-                                  elevation: 1,
+                                  elevation: 1.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(12),
+                                  borderRadius: BorderRadius.circular(12.0),
                                 ),
                               ).animateOnActionTrigger(
-                                animationsMap['buttonOnActionTriggerAnimation2']!,
+                                animationsMap[
+                                    'buttonOnActionTriggerAnimation2']!,
                               ),
                               FFButtonWidget(
                                 onPressed: () async {
-                                  logFirebaseEvent('RUTIINI_COMP_KE_BTN_ON_TAP');
+                                  logFirebaseEvent(
+                                      'RUTIINI_COMP_KE_BTN_ON_TAP');
                                   logFirebaseEvent('Button_widget_animation');
-                                  if (animationsMap['buttonOnActionTriggerAnimation3'] != null) {
-                                    animationsMap['buttonOnActionTriggerAnimation3']!.controller.forward(from: 0.0);
+                                  if (animationsMap[
+                                          'buttonOnActionTriggerAnimation3'] !=
+                                      null) {
+                                    animationsMap[
+                                            'buttonOnActionTriggerAnimation3']!
+                                        .controller
+                                        .forward(from: 0.0);
                                   }
                                   logFirebaseEvent('Button_custom_action');
                                   await actions.updateUserDocTreenirutiini(
@@ -824,9 +943,20 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                     null,
                                     _model.textFieldNimiController.text,
                                     _model.textFieldKommenttiController.text,
-                                    widget.rutiini?.liikkeet?.toList()?.toList(),
-                                    functions.updatedValitutViikonPaivat(widget.rutiini?.valitutViikonPaivat, widget.rutiini?.valitutViikonPaivat?.ma, widget.rutiini?.valitutViikonPaivat?.ti, !widget.rutiini!.valitutViikonPaivat!.ke!, widget.rutiini?.valitutViikonPaivat?.to,
-                                        widget.rutiini?.valitutViikonPaivat?.pe, widget.rutiini?.valitutViikonPaivat?.la, widget.rutiini?.valitutViikonPaivat?.su),
+                                    widget.rutiini?.liikkeet
+                                        ?.toList()
+                                        ?.toList(),
+                                    functions.updatedValitutViikonPaivat(
+                                        widget.rutiini?.valitutViikonPaivat,
+                                        widget.rutiini?.valitutViikonPaivat?.ma,
+                                        widget.rutiini?.valitutViikonPaivat?.ti,
+                                        !widget
+                                            .rutiini!.valitutViikonPaivat!.ke!,
+                                        widget.rutiini?.valitutViikonPaivat?.to,
+                                        widget.rutiini?.valitutViikonPaivat?.pe,
+                                        widget.rutiini?.valitutViikonPaivat?.la,
+                                        widget
+                                            .rutiini?.valitutViikonPaivat?.su),
                                     null,
                                     null,
                                     null,
@@ -839,31 +969,51 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                   'yuw8d4lw' /* Ke */,
                                 ),
                                 options: FFButtonOptions(
-                                  width: 50,
-                                  height: 40,
-                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                  color: widget.rutiini!.valitutViikonPaivat!.ke! ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).secondaryBackground,
-                                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                  width: 50.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color:
+                                      widget.rutiini!.valitutViikonPaivat!.ke!
+                                          ? FlutterFlowTheme.of(context).primary
+                                          : FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
                                         fontFamily: 'Roboto',
-                                        color: widget.rutiini!.valitutViikonPaivat!.ke! ? FlutterFlowTheme.of(context).secondary : FlutterFlowTheme.of(context).primary,
+                                        color: widget.rutiini!
+                                                .valitutViikonPaivat!.ke!
+                                            ? FlutterFlowTheme.of(context)
+                                                .secondary
+                                            : FlutterFlowTheme.of(context)
+                                                .primary,
                                       ),
-                                  elevation: 1,
+                                  elevation: 1.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(12),
+                                  borderRadius: BorderRadius.circular(12.0),
                                 ),
                               ).animateOnActionTrigger(
-                                animationsMap['buttonOnActionTriggerAnimation3']!,
+                                animationsMap[
+                                    'buttonOnActionTriggerAnimation3']!,
                               ),
                               FFButtonWidget(
                                 onPressed: () async {
-                                  logFirebaseEvent('RUTIINI_COMP_TO_BTN_ON_TAP');
+                                  logFirebaseEvent(
+                                      'RUTIINI_COMP_TO_BTN_ON_TAP');
                                   logFirebaseEvent('Button_widget_animation');
-                                  if (animationsMap['buttonOnActionTriggerAnimation4'] != null) {
-                                    animationsMap['buttonOnActionTriggerAnimation4']!.controller.forward(from: 0.0);
+                                  if (animationsMap[
+                                          'buttonOnActionTriggerAnimation4'] !=
+                                      null) {
+                                    animationsMap[
+                                            'buttonOnActionTriggerAnimation4']!
+                                        .controller
+                                        .forward(from: 0.0);
                                   }
                                   logFirebaseEvent('Button_custom_action');
                                   await actions.updateUserDocTreenirutiini(
@@ -875,9 +1025,20 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                     null,
                                     _model.textFieldNimiController.text,
                                     _model.textFieldKommenttiController.text,
-                                    widget.rutiini?.liikkeet?.toList()?.toList(),
-                                    functions.updatedValitutViikonPaivat(widget.rutiini?.valitutViikonPaivat, widget.rutiini?.valitutViikonPaivat?.ma, widget.rutiini?.valitutViikonPaivat?.ti, widget.rutiini?.valitutViikonPaivat?.ke, !widget.rutiini!.valitutViikonPaivat!.to!,
-                                        widget.rutiini?.valitutViikonPaivat?.pe, widget.rutiini?.valitutViikonPaivat?.la, widget.rutiini?.valitutViikonPaivat?.su),
+                                    widget.rutiini?.liikkeet
+                                        ?.toList()
+                                        ?.toList(),
+                                    functions.updatedValitutViikonPaivat(
+                                        widget.rutiini?.valitutViikonPaivat,
+                                        widget.rutiini?.valitutViikonPaivat?.ma,
+                                        widget.rutiini?.valitutViikonPaivat?.ti,
+                                        widget.rutiini?.valitutViikonPaivat?.ke,
+                                        !widget
+                                            .rutiini!.valitutViikonPaivat!.to!,
+                                        widget.rutiini?.valitutViikonPaivat?.pe,
+                                        widget.rutiini?.valitutViikonPaivat?.la,
+                                        widget
+                                            .rutiini?.valitutViikonPaivat?.su),
                                     null,
                                     null,
                                     null,
@@ -890,31 +1051,51 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                   'ruf636mt' /* To */,
                                 ),
                                 options: FFButtonOptions(
-                                  width: 50,
-                                  height: 40,
-                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                  color: widget.rutiini!.valitutViikonPaivat!.to! ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).secondaryBackground,
-                                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                  width: 50.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color:
+                                      widget.rutiini!.valitutViikonPaivat!.to!
+                                          ? FlutterFlowTheme.of(context).primary
+                                          : FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
                                         fontFamily: 'Roboto',
-                                        color: widget.rutiini!.valitutViikonPaivat!.to! ? FlutterFlowTheme.of(context).secondary : FlutterFlowTheme.of(context).primary,
+                                        color: widget.rutiini!
+                                                .valitutViikonPaivat!.to!
+                                            ? FlutterFlowTheme.of(context)
+                                                .secondary
+                                            : FlutterFlowTheme.of(context)
+                                                .primary,
                                       ),
-                                  elevation: 1,
+                                  elevation: 1.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(12),
+                                  borderRadius: BorderRadius.circular(12.0),
                                 ),
                               ).animateOnActionTrigger(
-                                animationsMap['buttonOnActionTriggerAnimation4']!,
+                                animationsMap[
+                                    'buttonOnActionTriggerAnimation4']!,
                               ),
                               FFButtonWidget(
                                 onPressed: () async {
-                                  logFirebaseEvent('RUTIINI_COMP_PE_BTN_ON_TAP');
+                                  logFirebaseEvent(
+                                      'RUTIINI_COMP_PE_BTN_ON_TAP');
                                   logFirebaseEvent('Button_widget_animation');
-                                  if (animationsMap['buttonOnActionTriggerAnimation5'] != null) {
-                                    animationsMap['buttonOnActionTriggerAnimation5']!.controller.forward(from: 0.0);
+                                  if (animationsMap[
+                                          'buttonOnActionTriggerAnimation5'] !=
+                                      null) {
+                                    animationsMap[
+                                            'buttonOnActionTriggerAnimation5']!
+                                        .controller
+                                        .forward(from: 0.0);
                                   }
                                   logFirebaseEvent('Button_custom_action');
                                   await actions.updateUserDocTreenirutiini(
@@ -926,9 +1107,20 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                     null,
                                     _model.textFieldNimiController.text,
                                     _model.textFieldKommenttiController.text,
-                                    widget.rutiini?.liikkeet?.toList()?.toList(),
-                                    functions.updatedValitutViikonPaivat(widget.rutiini?.valitutViikonPaivat, widget.rutiini?.valitutViikonPaivat?.ma, widget.rutiini?.valitutViikonPaivat?.ti, widget.rutiini?.valitutViikonPaivat?.ke, widget.rutiini?.valitutViikonPaivat?.to,
-                                        !widget.rutiini!.valitutViikonPaivat!.pe!, widget.rutiini?.valitutViikonPaivat?.la, widget.rutiini?.valitutViikonPaivat?.su),
+                                    widget.rutiini?.liikkeet
+                                        ?.toList()
+                                        ?.toList(),
+                                    functions.updatedValitutViikonPaivat(
+                                        widget.rutiini?.valitutViikonPaivat,
+                                        widget.rutiini?.valitutViikonPaivat?.ma,
+                                        widget.rutiini?.valitutViikonPaivat?.ti,
+                                        widget.rutiini?.valitutViikonPaivat?.ke,
+                                        widget.rutiini?.valitutViikonPaivat?.to,
+                                        !widget
+                                            .rutiini!.valitutViikonPaivat!.pe!,
+                                        widget.rutiini?.valitutViikonPaivat?.la,
+                                        widget
+                                            .rutiini?.valitutViikonPaivat?.su),
                                     null,
                                     null,
                                     null,
@@ -941,31 +1133,51 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                   'an7uyedx' /* Pe */,
                                 ),
                                 options: FFButtonOptions(
-                                  width: 50,
-                                  height: 40,
-                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                  color: widget.rutiini!.valitutViikonPaivat!.pe! ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).secondaryBackground,
-                                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                  width: 50.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color:
+                                      widget.rutiini!.valitutViikonPaivat!.pe!
+                                          ? FlutterFlowTheme.of(context).primary
+                                          : FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
                                         fontFamily: 'Roboto',
-                                        color: widget.rutiini!.valitutViikonPaivat!.pe! ? FlutterFlowTheme.of(context).secondary : FlutterFlowTheme.of(context).primary,
+                                        color: widget.rutiini!
+                                                .valitutViikonPaivat!.pe!
+                                            ? FlutterFlowTheme.of(context)
+                                                .secondary
+                                            : FlutterFlowTheme.of(context)
+                                                .primary,
                                       ),
-                                  elevation: 1,
+                                  elevation: 1.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(12),
+                                  borderRadius: BorderRadius.circular(12.0),
                                 ),
                               ).animateOnActionTrigger(
-                                animationsMap['buttonOnActionTriggerAnimation5']!,
+                                animationsMap[
+                                    'buttonOnActionTriggerAnimation5']!,
                               ),
                               FFButtonWidget(
                                 onPressed: () async {
-                                  logFirebaseEvent('RUTIINI_COMP_LA_BTN_ON_TAP');
+                                  logFirebaseEvent(
+                                      'RUTIINI_COMP_LA_BTN_ON_TAP');
                                   logFirebaseEvent('Button_widget_animation');
-                                  if (animationsMap['buttonOnActionTriggerAnimation6'] != null) {
-                                    animationsMap['buttonOnActionTriggerAnimation6']!.controller.forward(from: 0.0);
+                                  if (animationsMap[
+                                          'buttonOnActionTriggerAnimation6'] !=
+                                      null) {
+                                    animationsMap[
+                                            'buttonOnActionTriggerAnimation6']!
+                                        .controller
+                                        .forward(from: 0.0);
                                   }
                                   logFirebaseEvent('Button_custom_action');
                                   await actions.updateUserDocTreenirutiini(
@@ -977,9 +1189,20 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                     null,
                                     _model.textFieldNimiController.text,
                                     _model.textFieldKommenttiController.text,
-                                    widget.rutiini?.liikkeet?.toList()?.toList(),
-                                    functions.updatedValitutViikonPaivat(widget.rutiini?.valitutViikonPaivat, widget.rutiini?.valitutViikonPaivat?.ma, widget.rutiini?.valitutViikonPaivat?.ti, widget.rutiini?.valitutViikonPaivat?.ke, widget.rutiini?.valitutViikonPaivat?.to,
-                                        widget.rutiini?.valitutViikonPaivat?.pe, !widget.rutiini!.valitutViikonPaivat!.la!, widget.rutiini?.valitutViikonPaivat?.su),
+                                    widget.rutiini?.liikkeet
+                                        ?.toList()
+                                        ?.toList(),
+                                    functions.updatedValitutViikonPaivat(
+                                        widget.rutiini?.valitutViikonPaivat,
+                                        widget.rutiini?.valitutViikonPaivat?.ma,
+                                        widget.rutiini?.valitutViikonPaivat?.ti,
+                                        widget.rutiini?.valitutViikonPaivat?.ke,
+                                        widget.rutiini?.valitutViikonPaivat?.to,
+                                        widget.rutiini?.valitutViikonPaivat?.pe,
+                                        !widget
+                                            .rutiini!.valitutViikonPaivat!.la!,
+                                        widget
+                                            .rutiini?.valitutViikonPaivat?.su),
                                     null,
                                     null,
                                     null,
@@ -992,31 +1215,51 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                   'vlibsxm0' /* La */,
                                 ),
                                 options: FFButtonOptions(
-                                  width: 50,
-                                  height: 40,
-                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                  color: widget.rutiini!.valitutViikonPaivat!.la! ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).secondaryBackground,
-                                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                  width: 50.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color:
+                                      widget.rutiini!.valitutViikonPaivat!.la!
+                                          ? FlutterFlowTheme.of(context).primary
+                                          : FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
                                         fontFamily: 'Roboto',
-                                        color: widget.rutiini!.valitutViikonPaivat!.la! ? FlutterFlowTheme.of(context).secondary : FlutterFlowTheme.of(context).primary,
+                                        color: widget.rutiini!
+                                                .valitutViikonPaivat!.la!
+                                            ? FlutterFlowTheme.of(context)
+                                                .secondary
+                                            : FlutterFlowTheme.of(context)
+                                                .primary,
                                       ),
-                                  elevation: 1,
+                                  elevation: 1.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(12),
+                                  borderRadius: BorderRadius.circular(12.0),
                                 ),
                               ).animateOnActionTrigger(
-                                animationsMap['buttonOnActionTriggerAnimation6']!,
+                                animationsMap[
+                                    'buttonOnActionTriggerAnimation6']!,
                               ),
                               FFButtonWidget(
                                 onPressed: () async {
-                                  logFirebaseEvent('RUTIINI_COMP_SU_BTN_ON_TAP');
+                                  logFirebaseEvent(
+                                      'RUTIINI_COMP_SU_BTN_ON_TAP');
                                   logFirebaseEvent('Button_widget_animation');
-                                  if (animationsMap['buttonOnActionTriggerAnimation7'] != null) {
-                                    animationsMap['buttonOnActionTriggerAnimation7']!.controller.forward(from: 0.0);
+                                  if (animationsMap[
+                                          'buttonOnActionTriggerAnimation7'] !=
+                                      null) {
+                                    animationsMap[
+                                            'buttonOnActionTriggerAnimation7']!
+                                        .controller
+                                        .forward(from: 0.0);
                                   }
                                   logFirebaseEvent('Button_custom_action');
                                   await actions.updateUserDocTreenirutiini(
@@ -1028,9 +1271,19 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                     null,
                                     _model.textFieldNimiController.text,
                                     _model.textFieldKommenttiController.text,
-                                    widget.rutiini?.liikkeet?.toList()?.toList(),
-                                    functions.updatedValitutViikonPaivat(widget.rutiini?.valitutViikonPaivat, widget.rutiini?.valitutViikonPaivat?.ma, widget.rutiini?.valitutViikonPaivat?.ti, widget.rutiini?.valitutViikonPaivat?.ke, widget.rutiini?.valitutViikonPaivat?.to,
-                                        widget.rutiini?.valitutViikonPaivat?.pe, widget.rutiini?.valitutViikonPaivat?.la, !widget.rutiini!.valitutViikonPaivat!.su!),
+                                    widget.rutiini?.liikkeet
+                                        ?.toList()
+                                        ?.toList(),
+                                    functions.updatedValitutViikonPaivat(
+                                        widget.rutiini?.valitutViikonPaivat,
+                                        widget.rutiini?.valitutViikonPaivat?.ma,
+                                        widget.rutiini?.valitutViikonPaivat?.ti,
+                                        widget.rutiini?.valitutViikonPaivat?.ke,
+                                        widget.rutiini?.valitutViikonPaivat?.to,
+                                        widget.rutiini?.valitutViikonPaivat?.pe,
+                                        widget.rutiini?.valitutViikonPaivat?.la,
+                                        !widget
+                                            .rutiini!.valitutViikonPaivat!.su!),
                                     null,
                                     null,
                                     null,
@@ -1043,24 +1296,38 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                   'c5mfuuxh' /* Su */,
                                 ),
                                 options: FFButtonOptions(
-                                  width: 50,
-                                  height: 40,
-                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                  color: widget.rutiini!.valitutViikonPaivat!.su! ? FlutterFlowTheme.of(context).primary : FlutterFlowTheme.of(context).secondaryBackground,
-                                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                  width: 50.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color:
+                                      widget.rutiini!.valitutViikonPaivat!.su!
+                                          ? FlutterFlowTheme.of(context).primary
+                                          : FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
                                         fontFamily: 'Roboto',
-                                        color: widget.rutiini!.valitutViikonPaivat!.su! ? FlutterFlowTheme.of(context).secondary : FlutterFlowTheme.of(context).primary,
+                                        color: widget.rutiini!
+                                                .valitutViikonPaivat!.su!
+                                            ? FlutterFlowTheme.of(context)
+                                                .secondary
+                                            : FlutterFlowTheme.of(context)
+                                                .primary,
                                       ),
-                                  elevation: 1,
+                                  elevation: 1.0,
                                   borderSide: BorderSide(
                                     color: Colors.transparent,
-                                    width: 1,
+                                    width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(12),
+                                  borderRadius: BorderRadius.circular(12.0),
                                 ),
                               ).animateOnActionTrigger(
-                                animationsMap['buttonOnActionTriggerAnimation7']!,
+                                animationsMap[
+                                    'buttonOnActionTriggerAnimation7']!,
                               ),
                               Visibility(
                                 visible: !widget.rutiini!.finishedEditing!,
@@ -1068,24 +1335,34 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
                                     Align(
-                                      alignment: AlignmentDirectional(-1, 0),
+                                      alignment:
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             'qqp0ddb4' /* Treenipäivät  */,
                                           ),
-                                          style: FlutterFlowTheme.of(context).bodyMedium,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
                                         ),
                                       ),
                                     ),
                                     Align(
-                                      alignment: AlignmentDirectional(-1, 0),
+                                      alignment:
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 0.0, 0.0),
                                         child: Text(
-                                          functions.treenipaivatString(widget.rutiini!.valitutViikonPaivat!, FFLocalizations.of(context).languageCode)!,
-                                          style: FlutterFlowTheme.of(context).bodyMedium,
+                                          functions.treenipaivatString(
+                                              widget.rutiini!
+                                                  .valitutViikonPaivat!,
+                                              FFLocalizations.of(context)
+                                                  .languageCode)!,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
                                         ),
                                       ),
                                     ),
@@ -1098,12 +1375,13 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                     ),
                   ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 8),
+                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 8.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 4),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
                         child: wrapWithModel(
                           model: _model.rutiininLiikkeetModel,
                           updateCallback: () => setState(() {}),
@@ -1114,13 +1392,16 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                         ),
                       ),
                       Divider(
-                        thickness: 1,
+                        thickness: 1.0,
                       ),
-                      if (widget.rutiini!.finishedEditing! && (widget.rutiini!.liikkeet!.toList().length > 0))
+                      if (widget.rutiini!.finishedEditing! &&
+                          (widget.rutiini!.liikkeet!.toList().length > 0))
                         FFButtonWidget(
                           onPressed: () async {
-                            logFirebaseEvent('RUTIINI_COMP_Button_startWorkout_ON_TAP');
-                            logFirebaseEvent('Button_startWorkout_custom_action');
+                            logFirebaseEvent(
+                                'RUTIINI_COMP_Button_startWorkout_ON_TAP');
+                            logFirebaseEvent(
+                                'Button_startWorkout_custom_action');
                             await actions.updateTreenisessiotRecord(
                               null,
                               getCurrentTimestamp,
@@ -1131,17 +1412,23 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                               true,
                               true,
                             );
-                            logFirebaseEvent('Button_startWorkout_start_periodic_actio');
+                            logFirebaseEvent(
+                                'Button_startWorkout_start_periodic_actio');
                             _model.instantTimer = InstantTimer.periodic(
                               duration: Duration(milliseconds: 100),
                               callback: (timer) async {
-                                if (widget.latestSessioDoc != null ? (widget.latestSessioDoc!.loppu == null) : false) {
-                                  logFirebaseEvent('Button_startWorkout_update_app_state');
+                                if (widget.latestSessioDoc != null
+                                    ? (widget.latestSessioDoc!.loppu == null)
+                                    : false) {
+                                  logFirebaseEvent(
+                                      'Button_startWorkout_update_app_state');
                                   _model.updatePage(() {
                                     FFAppState().navBarIndex = 1;
-                                    FFAppState().modiedNavbarIndexTime = getCurrentTimestamp;
+                                    FFAppState().modiedNavbarIndexTime =
+                                        getCurrentTimestamp;
                                   });
-                                  logFirebaseEvent('Button_startWorkout_stop_periodic_action');
+                                  logFirebaseEvent(
+                                      'Button_startWorkout_stop_periodic_action');
                                   _model.instantTimer?.cancel();
                                   return;
                                 } else {
@@ -1156,26 +1443,32 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                           ),
                           options: FFButtonOptions(
                             width: double.infinity,
-                            height: 40,
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                            height: 40.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).tertiary,
-                            textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
                                   fontFamily: 'Roboto',
                                   color: Colors.white,
                                 ),
-                            elevation: 2,
+                            elevation: 2.0,
                             borderSide: BorderSide(
                               color: Colors.transparent,
-                              width: 1,
+                              width: 1.0,
                             ),
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(12.0),
                           ),
-                        ).animateOnPageLoad(animationsMap['buttonOnPageLoadAnimation']!),
-                      if (!(widget.rutiini!.finishedEditing! && (widget.rutiini!.liikkeet!.toList().length > 0)))
+                        ).animateOnPageLoad(
+                            animationsMap['buttonOnPageLoadAnimation']!),
+                      if (!(widget.rutiini!.finishedEditing! &&
+                          (widget.rutiini!.liikkeet!.toList().length > 0)))
                         Container(
                           width: double.infinity,
-                          height: 40,
+                          height: 40.0,
                           decoration: BoxDecoration(),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -1183,8 +1476,10 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                             children: [
                               InkWell(
                                 onTap: () async {
-                                  logFirebaseEvent('RUTIINI_COMP_Row_lisaaLiike_ON_TAP');
-                                  logFirebaseEvent('Row_lisaaLiike_custom_action');
+                                  logFirebaseEvent(
+                                      'RUTIINI_COMP_Row_lisaaLiike_ON_TAP');
+                                  logFirebaseEvent(
+                                      'Row_lisaaLiike_custom_action');
                                   await actions.updateUserDocTreenirutiini(
                                     widget.rutiini,
                                     true,
@@ -1194,7 +1489,9 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                     null,
                                     _model.textFieldNimiController.text,
                                     _model.textFieldKommenttiController.text,
-                                    widget.rutiini?.liikkeet?.toList()?.toList(),
+                                    widget.rutiini?.liikkeet
+                                        ?.toList()
+                                        ?.toList(),
                                     null,
                                     null,
                                     null,
@@ -1208,32 +1505,39 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 4, 0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 4.0, 0.0),
                                       child: Icon(
                                         Icons.add_rounded,
                                         color: Colors.black,
-                                        size: 24,
+                                        size: 24.0,
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 4, 0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 4.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
                                           'm9mgmk0g' /* Lisää harjoitusliike */,
                                         ),
-                                        style: FlutterFlowTheme.of(context).titleSmall,
+                                        style: FlutterFlowTheme.of(context)
+                                            .titleSmall,
                                       ),
                                     ),
                                   ],
                                 ),
-                              ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation1']!),
+                              ).animateOnPageLoad(
+                                  animationsMap['rowOnPageLoadAnimation1']!),
                               if (!widget.rutiini!.finishedEditing!)
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(4, 8, 4, 8),
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      4.0, 8.0, 4.0, 8.0),
                                   child: InkWell(
                                     onTap: () async {
-                                      logFirebaseEvent('RUTIINI_COMP_Row_lopetaMuokkaus_ON_TAP');
-                                      logFirebaseEvent('Row_lopetaMuokkaus_custom_action');
+                                      logFirebaseEvent(
+                                          'RUTIINI_COMP_Row_lopetaMuokkaus_ON_TAP');
+                                      logFirebaseEvent(
+                                          'Row_lopetaMuokkaus_custom_action');
                                       await actions.updateUserDocTreenirutiini(
                                         widget.rutiini,
                                         null,
@@ -1242,22 +1546,42 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                         true,
                                         null,
                                         _model.textFieldNimiController.text,
-                                        _model.textFieldKommenttiController.text,
-                                        widget.rutiini?.liikkeet?.toList()?.toList(),
+                                        _model
+                                            .textFieldKommenttiController.text,
+                                        widget.rutiini?.liikkeet
+                                            ?.toList()
+                                            ?.toList(),
                                         null,
                                         null,
                                         null,
-                                        _model.textFieldKommenttiController.text != null && _model.textFieldKommenttiController.text != '',
+                                        _model.textFieldKommenttiController
+                                                    .text !=
+                                                null &&
+                                            _model.textFieldKommenttiController
+                                                    .text !=
+                                                '',
                                         true,
                                         false,
                                         true,
                                       );
-                                      logFirebaseEvent('Row_lopetaMuokkaus_backend_call');
+                                      logFirebaseEvent(
+                                          'Row_lopetaMuokkaus_backend_call');
 
                                       final usersUpdateData = {
-                                        'liikeNames': functions.addToStringList(widget.rutiini?.liikkeet?.toList()?.map((e) => e.nimi).withoutNulls.toList()?.toList(), (currentUserDocument?.liikeNames?.toList() ?? []).toList()),
+                                        'liikeNames': functions.addToStringList(
+                                            widget.rutiini?.liikkeet
+                                                ?.toList()
+                                                ?.map((e) => e.nimi)
+                                                .withoutNulls
+                                                .toList()
+                                                ?.toList(),
+                                            (currentUserDocument?.liikeNames
+                                                        ?.toList() ??
+                                                    [])
+                                                .toList()),
                                       };
-                                      await currentUserReference!.update(usersUpdateData);
+                                      await currentUserReference!
+                                          .update(usersUpdateData);
                                     },
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -1267,12 +1591,17 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
                                           FFLocalizations.of(context).getText(
                                             '1qnpeziw' /* Lopeta muokkaus */,
                                           ),
-                                          style: FlutterFlowTheme.of(context).titleSmall,
+                                          style: FlutterFlowTheme.of(context)
+                                              .titleSmall,
                                         ),
                                       ],
                                     ),
-                                  ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation2']!).animateOnActionTrigger(
-                                        animationsMap['rowOnActionTriggerAnimation']!,
+                                  )
+                                      .animateOnPageLoad(animationsMap[
+                                          'rowOnPageLoadAnimation2']!)
+                                      .animateOnActionTrigger(
+                                        animationsMap[
+                                            'rowOnActionTriggerAnimation']!,
                                       ),
                                 ),
                             ],
@@ -1284,7 +1613,9 @@ class _RutiiniWidgetState extends State<RutiiniWidget> with TickerProviderStateM
               ],
             ),
           ),
-        ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!).animateOnActionTrigger(
+        )
+            .animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!)
+            .animateOnActionTrigger(
               animationsMap['containerOnActionTriggerAnimation']!,
             ),
       ],
