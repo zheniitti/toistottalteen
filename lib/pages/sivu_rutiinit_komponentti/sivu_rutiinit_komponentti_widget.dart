@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'sivu_rutiinit_komponentti_model.dart';
 export 'sivu_rutiinit_komponentti_model.dart';
 
@@ -23,12 +24,10 @@ class SivuRutiinitKomponenttiWidget extends StatefulWidget {
   final TreeniSessiotRecord? latestSessio;
 
   @override
-  _SivuRutiinitKomponenttiWidgetState createState() =>
-      _SivuRutiinitKomponenttiWidgetState();
+  _SivuRutiinitKomponenttiWidgetState createState() => _SivuRutiinitKomponenttiWidgetState();
 }
 
-class _SivuRutiinitKomponenttiWidgetState
-    extends State<SivuRutiinitKomponenttiWidget> {
+class _SivuRutiinitKomponenttiWidgetState extends State<SivuRutiinitKomponenttiWidget> {
   late SivuRutiinitKomponenttiModel _model;
 
   @override
@@ -66,20 +65,19 @@ class _SivuRutiinitKomponenttiWidgetState
           children: [
             Container(
               constraints: BoxConstraints(
-                maxWidth: 600.0,
+                maxWidth: 600,
               ),
               decoration: BoxDecoration(),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0, 0),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            0.0, 50.0, 0.0, 30.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 30),
                         child: wrapWithModel(
                           model: _model.buttonLuoRutiiniModel,
                           updateCallback: () => setState(() {}),
@@ -87,13 +85,9 @@ class _SivuRutiinitKomponenttiWidgetState
                         ),
                       ),
                     ),
-                    if ((widget.latestSessio != null) &&
-                        (widget.latestSessio!.loppu == null) &&
-                        (widget.latestSessio!.alku != null) &&
-                        false)
+                    if ((widget.latestSessio != null) && (widget.latestSessio!.loppu == null) && (widget.latestSessio!.alku != null) && false)
                       Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
                         child: wrapWithModel(
                           model: _model.keskenerainenTreeniKomponenttiModel,
                           updateCallback: () => setState(() {}),
@@ -107,13 +101,11 @@ class _SivuRutiinitKomponenttiWidgetState
                       children: [
                         if ((FFAppState().navBarIndex == 0) &&
                             valueOrDefault<bool>(
-                              FFAppState().searchbarText != null &&
-                                  FFAppState().searchbarText != '',
+                              FFAppState().searchbarText != null && FFAppState().searchbarText != '',
                               false,
                             ))
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 8.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                             child: RichText(
                               text: TextSpan(
                                 children: [
@@ -125,8 +117,7 @@ class _SivuRutiinitKomponenttiWidgetState
                                   ),
                                   TextSpan(
                                     text: FFAppState().searchbarText,
-                                    style:
-                                        FlutterFlowTheme.of(context).labelLarge,
+                                    style: FlutterFlowTheme.of(context).labelLarge,
                                   )
                                 ],
                                 style: FlutterFlowTheme.of(context).bodyMedium,
@@ -136,21 +127,11 @@ class _SivuRutiinitKomponenttiWidgetState
                       ],
                     ),
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 200.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 200),
                       child: AuthUserStreamWidget(
                         builder: (context) => Builder(
                           builder: (context) {
-                            final rutiinit = functions
-                                .filterRutiiniList(
-                                    (currentUserDocument?.treeniRutiinit
-                                                ?.toList() ??
-                                            [])
-                                        .toList(),
-                                    FFAppState().searchbarText,
-                                    FFAppState().navBarIndex,
-                                    false)
-                                .toList();
+                            final rutiinit = functions.filterRutiiniList((currentUserDocument?.treeniRutiinit?.toList() ?? []).toList(), FFAppState().searchbarText, FFAppState().navBarIndex, false).toList();
                             return ListView.builder(
                               padding: EdgeInsets.zero,
                               reverse: true,
@@ -160,28 +141,26 @@ class _SivuRutiinitKomponenttiWidgetState
                               itemCount: rutiinit.length,
                               itemBuilder: (context, rutiinitIndex) {
                                 final rutiinitItem = rutiinit[rutiinitIndex];
-                                return Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 20.0),
-                                  child: wrapWithModel(
-                                    model: _model.rutiiniModels.getModel(
-                                      rutiinitItem.createdTime!.toString(),
-                                      rutiinitIndex,
-                                    ),
-                                    updateCallback: () => setState(() {}),
-                                    child: RutiiniWidget(
-                                      key: Key(
-                                        'Keyppk_${rutiinitItem.createdTime!.toString()}',
+                                return Align(
+                                  alignment: AlignmentDirectional(0, 0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                                    child: wrapWithModel(
+                                      model: _model.rutiiniModels.getModel(
+                                        rutiinitItem.createdTime!.toString(),
+                                        rutiinitIndex,
                                       ),
-                                      rutiini: rutiinitItem,
-                                      hasUnfinishedWorkout:
-                                          (widget.latestSessio != null) &&
-                                              (widget.latestSessio!.loppu ==
-                                                  null),
-                                      pageStateSelectedRutiini:
-                                          _model.pageStateValittuRutiini,
-                                      rutiiniListIndex: rutiinitIndex,
-                                      latestSessioDoc: widget.latestSessio,
+                                      updateCallback: () => setState(() {}),
+                                      child: RutiiniWidget(
+                                        key: Key(
+                                          'Keyppk_${rutiinitItem.createdTime!.toString()}',
+                                        ),
+                                        rutiini: rutiinitItem,
+                                        hasUnfinishedWorkout: (widget.latestSessio != null) && (widget.latestSessio!.loppu == null),
+                                        pageStateSelectedRutiini: _model.pageStateValittuRutiini,
+                                        rutiiniListIndex: rutiinitIndex,
+                                        latestSessioDoc: widget.latestSessio,
+                                      ),
                                     ),
                                   ),
                                 );

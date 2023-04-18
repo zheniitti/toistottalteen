@@ -789,217 +789,213 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                 ),
                             ],
                           ),
-                          if (responsiveVisibility(
-                            context: context,
-                            tabletLandscape: false,
-                          ))
-                            Align(
-                              alignment: AlignmentDirectional(0.0, 1.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  if (!(isWeb ? MediaQuery.of(context).viewInsets.bottom > 0 : _isKeyboardVisible))
-                                    Align(
-                                      alignment: AlignmentDirectional(0.0, 1.0),
-                                      child: Container(
-                                        width: MediaQuery.of(context).size.width * 1.0,
-                                        height: 76.0,
-                                        constraints: BoxConstraints(
-                                          maxWidth: 1000.0,
-                                          maxHeight: 200.0,
+                          Align(
+                            alignment: AlignmentDirectional(0.0, 1.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                if (!(isWeb ? MediaQuery.of(context).viewInsets.bottom > 0 : _isKeyboardVisible))
+                                  Align(
+                                    alignment: AlignmentDirectional(0.0, 1.0),
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width * 1.0,
+                                      height: 76.0,
+                                      constraints: BoxConstraints(
+                                        maxWidth: 1000.0,
+                                        maxHeight: 200.0,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context).primary,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            blurRadius: 5.0,
+                                            color: Color(0x33000000),
+                                            offset: Offset(0.0, 5.0),
+                                            spreadRadius: 2.0,
+                                          )
+                                        ],
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(0.0),
+                                          bottomRight: Radius.circular(0.0),
+                                          topLeft: Radius.circular(12.0),
+                                          topRight: Radius.circular(12.0),
                                         ),
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context).primary,
-                                          boxShadow: [
-                                            BoxShadow(
-                                              blurRadius: 5.0,
-                                              color: Color(0x33000000),
-                                              offset: Offset(0.0, 5.0),
-                                              spreadRadius: 2.0,
-                                            )
-                                          ],
-                                          borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(0.0),
-                                            bottomRight: Radius.circular(0.0),
-                                            topLeft: Radius.circular(12.0),
-                                            topRight: Radius.circular(12.0),
-                                          ),
-                                        ),
-                                        child: Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                            children: [
-                                              InkWell(
-                                                onTap: () async {
-                                                  logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_Container_xsfpwyl4');
-                                                  logFirebaseEvent('Container_widget_animation');
-                                                  if (animationsMap['containerOnActionTriggerAnimation1'] != null) {
-                                                    animationsMap['containerOnActionTriggerAnimation1']!.controller.forward(from: 0.0).whenComplete(animationsMap['containerOnActionTriggerAnimation1']!.controller.reverse);
-                                                  }
-                                                  logFirebaseEvent('Container_update_app_state');
-                                                  setState(() {
-                                                    FFAppState().navBarIndex = 0;
-                                                    FFAppState().modiedNavbarIndexTime = getCurrentTimestamp;
-                                                  });
-                                                },
-                                                child: Container(
-                                                  width: 100.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FFAppState().navBarIndex == 0 ? FlutterFlowTheme.of(context).tertiary : Color(0x00000000),
-                                                    borderRadius: BorderRadius.circular(8.0),
-                                                  ),
-                                                  child: Column(
-                                                    mainAxisSize: MainAxisSize.max,
-                                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                    children: [
-                                                      Icon(
-                                                        Icons.featured_play_list_rounded,
-                                                        color: FlutterFlowTheme.of(context).secondary,
-                                                        size: 30.0,
-                                                      ),
-                                                      RichText(
-                                                        text: TextSpan(
-                                                          children: [
-                                                            TextSpan(
-                                                              text: FFLocalizations.of(context).getVariableText(
-                                                                fiText: 'Treenipohjat',
-                                                                enText: 'Routines',
-                                                              ),
-                                                              style: TextStyle(
-                                                                color: FlutterFlowTheme.of(context).secondary,
-                                                              ),
-                                                            )
-                                                          ],
-                                                          style: FlutterFlowTheme.of(context).bodyMedium,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            InkWell(
+                                              onTap: () async {
+                                                logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_Container_xsfpwyl4');
+                                                logFirebaseEvent('Container_widget_animation');
+                                                if (animationsMap['containerOnActionTriggerAnimation1'] != null) {
+                                                  animationsMap['containerOnActionTriggerAnimation1']!.controller.forward(from: 0.0).whenComplete(animationsMap['containerOnActionTriggerAnimation1']!.controller.reverse);
+                                                }
+                                                logFirebaseEvent('Container_update_app_state');
+                                                setState(() {
+                                                  FFAppState().navBarIndex = 0;
+                                                  FFAppState().modiedNavbarIndexTime = getCurrentTimestamp;
+                                                });
+                                              },
+                                              child: Container(
+                                                width: 100.0,
+                                                decoration: BoxDecoration(
+                                                  color: FFAppState().navBarIndex == 0 ? FlutterFlowTheme.of(context).tertiary : Color(0x00000000),
+                                                  borderRadius: BorderRadius.circular(8.0),
                                                 ),
-                                              ).animateOnActionTrigger(
-                                                animationsMap['containerOnActionTriggerAnimation1']!,
-                                              ),
-                                              InkWell(
-                                                onTap: () async {
-                                                  logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_Container_0p6xlils');
-                                                  logFirebaseEvent('Container_widget_animation');
-                                                  if (animationsMap['containerOnActionTriggerAnimation2'] != null) {
-                                                    animationsMap['containerOnActionTriggerAnimation2']!.controller.forward(from: 0.0).whenComplete(animationsMap['containerOnActionTriggerAnimation2']!.controller.reverse);
-                                                  }
-                                                  logFirebaseEvent('Container_update_app_state');
-                                                  setState(() {
-                                                    FFAppState().navBarIndex = 1;
-                                                    FFAppState().modiedNavbarIndexTime = getCurrentTimestamp;
-                                                  });
-                                                },
-                                                child: Container(
-                                                  width: 100.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FFAppState().navBarIndex == 1 ? FlutterFlowTheme.of(context).tertiary : Color(0x00000000),
-                                                    borderRadius: BorderRadius.circular(8.0),
-                                                  ),
-                                                  child: Container(
-                                                    width: double.infinity,
-                                                    height: double.infinity,
-                                                    child: Stack(
-                                                      children: [
-                                                        Align(
-                                                          alignment: AlignmentDirectional(0.0, -1.0),
-                                                          child: Lottie.network(
-                                                            'https://assets8.lottiefiles.com/packages/lf20_ixy19tfg.json',
-                                                            width: 130.0,
-                                                            height: 40.0,
-                                                            fit: BoxFit.cover,
-                                                            frameRate: FrameRate(60.0),
-                                                            animate: FFAppState().isLatestUnfinnishedWorkout,
-                                                          ),
-                                                        ),
-                                                        Align(
-                                                          alignment: AlignmentDirectional(0.0, 1.0),
-                                                          child: RichText(
-                                                            text: TextSpan(
-                                                              children: [
-                                                                TextSpan(
-                                                                  text: FFLocalizations.of(context).getVariableText(
-                                                                    fiText: 'Treenaa',
-                                                                    enText: 'Workout',
-                                                                  ),
-                                                                  style: TextStyle(
-                                                                    color: FlutterFlowTheme.of(context).secondary,
-                                                                  ),
-                                                                )
-                                                              ],
-                                                              style: FlutterFlowTheme.of(context).bodyMedium,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
+                                                child: Column(
+                                                  mainAxisSize: MainAxisSize.max,
+                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                  children: [
+                                                    Icon(
+                                                      Icons.featured_play_list_rounded,
+                                                      color: FlutterFlowTheme.of(context).secondary,
+                                                      size: 30.0,
                                                     ),
-                                                  ),
-                                                ),
-                                              ).animateOnActionTrigger(
-                                                animationsMap['containerOnActionTriggerAnimation2']!,
-                                              ),
-                                              InkWell(
-                                                onTap: () async {
-                                                  logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_Container_101u927u');
-                                                  logFirebaseEvent('Container_widget_animation');
-                                                  if (animationsMap['containerOnActionTriggerAnimation3'] != null) {
-                                                    animationsMap['containerOnActionTriggerAnimation3']!.controller.forward(from: 0.0).whenComplete(animationsMap['containerOnActionTriggerAnimation3']!.controller.reverse);
-                                                  }
-                                                  logFirebaseEvent('Container_update_app_state');
-                                                  setState(() {
-                                                    FFAppState().navBarIndex = 2;
-                                                    FFAppState().modiedNavbarIndexTime = getCurrentTimestamp;
-                                                  });
-                                                },
-                                                child: Container(
-                                                  width: 100.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FFAppState().navBarIndex == 2 ? FlutterFlowTheme.of(context).tertiary : Color(0x00000000),
-                                                    borderRadius: BorderRadius.circular(8.0),
-                                                  ),
-                                                  child: Column(
-                                                    mainAxisSize: MainAxisSize.max,
-                                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                    children: [
-                                                      Icon(
-                                                        Icons.history_toggle_off_rounded,
-                                                        color: FlutterFlowTheme.of(context).secondary,
-                                                        size: 30.0,
+                                                    RichText(
+                                                      text: TextSpan(
+                                                        children: [
+                                                          TextSpan(
+                                                            text: FFLocalizations.of(context).getVariableText(
+                                                              fiText: 'Treenipohjat',
+                                                              enText: 'Routines',
+                                                            ),
+                                                            style: TextStyle(
+                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                            ),
+                                                          )
+                                                        ],
+                                                        style: FlutterFlowTheme.of(context).bodyMedium,
                                                       ),
-                                                      RichText(
-                                                        text: TextSpan(
-                                                          children: [
-                                                            TextSpan(
-                                                              text: FFLocalizations.of(context).getVariableText(
-                                                                fiText: 'Treenit',
-                                                                enText: 'Workouts',
-                                                              ),
-                                                              style: TextStyle(
-                                                                color: FlutterFlowTheme.of(context).secondary,
-                                                              ),
-                                                            )
-                                                          ],
-                                                          style: FlutterFlowTheme.of(context).bodyMedium,
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ).animateOnActionTrigger(
+                                              animationsMap['containerOnActionTriggerAnimation1']!,
+                                            ),
+                                            InkWell(
+                                              onTap: () async {
+                                                logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_Container_0p6xlils');
+                                                logFirebaseEvent('Container_widget_animation');
+                                                if (animationsMap['containerOnActionTriggerAnimation2'] != null) {
+                                                  animationsMap['containerOnActionTriggerAnimation2']!.controller.forward(from: 0.0).whenComplete(animationsMap['containerOnActionTriggerAnimation2']!.controller.reverse);
+                                                }
+                                                logFirebaseEvent('Container_update_app_state');
+                                                setState(() {
+                                                  FFAppState().navBarIndex = 1;
+                                                  FFAppState().modiedNavbarIndexTime = getCurrentTimestamp;
+                                                });
+                                              },
+                                              child: Container(
+                                                width: 100.0,
+                                                decoration: BoxDecoration(
+                                                  color: FFAppState().navBarIndex == 1 ? FlutterFlowTheme.of(context).tertiary : Color(0x00000000),
+                                                  borderRadius: BorderRadius.circular(8.0),
+                                                ),
+                                                child: Container(
+                                                  width: double.infinity,
+                                                  height: double.infinity,
+                                                  child: Stack(
+                                                    children: [
+                                                      Align(
+                                                        alignment: AlignmentDirectional(0.0, -1.0),
+                                                        child: Lottie.network(
+                                                          'https://assets8.lottiefiles.com/packages/lf20_ixy19tfg.json',
+                                                          width: 130.0,
+                                                          height: 40.0,
+                                                          fit: BoxFit.cover,
+                                                          frameRate: FrameRate(60.0),
+                                                          animate: FFAppState().isLatestUnfinnishedWorkout,
+                                                        ),
+                                                      ),
+                                                      Align(
+                                                        alignment: AlignmentDirectional(0.0, 1.0),
+                                                        child: RichText(
+                                                          text: TextSpan(
+                                                            children: [
+                                                              TextSpan(
+                                                                text: FFLocalizations.of(context).getVariableText(
+                                                                  fiText: 'Treenaa',
+                                                                  enText: 'Workout',
+                                                                ),
+                                                                style: TextStyle(
+                                                                  color: FlutterFlowTheme.of(context).secondary,
+                                                                ),
+                                                              )
+                                                            ],
+                                                            style: FlutterFlowTheme.of(context).bodyMedium,
+                                                          ),
                                                         ),
                                                       ),
                                                     ],
                                                   ),
                                                 ),
-                                              ).animateOnActionTrigger(
-                                                animationsMap['containerOnActionTriggerAnimation3']!,
                                               ),
-                                            ],
-                                          ),
+                                            ).animateOnActionTrigger(
+                                              animationsMap['containerOnActionTriggerAnimation2']!,
+                                            ),
+                                            InkWell(
+                                              onTap: () async {
+                                                logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_Container_101u927u');
+                                                logFirebaseEvent('Container_widget_animation');
+                                                if (animationsMap['containerOnActionTriggerAnimation3'] != null) {
+                                                  animationsMap['containerOnActionTriggerAnimation3']!.controller.forward(from: 0.0).whenComplete(animationsMap['containerOnActionTriggerAnimation3']!.controller.reverse);
+                                                }
+                                                logFirebaseEvent('Container_update_app_state');
+                                                setState(() {
+                                                  FFAppState().navBarIndex = 2;
+                                                  FFAppState().modiedNavbarIndexTime = getCurrentTimestamp;
+                                                });
+                                              },
+                                              child: Container(
+                                                width: 100.0,
+                                                decoration: BoxDecoration(
+                                                  color: FFAppState().navBarIndex == 2 ? FlutterFlowTheme.of(context).tertiary : Color(0x00000000),
+                                                  borderRadius: BorderRadius.circular(8.0),
+                                                ),
+                                                child: Column(
+                                                  mainAxisSize: MainAxisSize.max,
+                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                  children: [
+                                                    Icon(
+                                                      Icons.history_toggle_off_rounded,
+                                                      color: FlutterFlowTheme.of(context).secondary,
+                                                      size: 30.0,
+                                                    ),
+                                                    RichText(
+                                                      text: TextSpan(
+                                                        children: [
+                                                          TextSpan(
+                                                            text: FFLocalizations.of(context).getVariableText(
+                                                              fiText: 'Treenit',
+                                                              enText: 'Workouts',
+                                                            ),
+                                                            style: TextStyle(
+                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                            ),
+                                                          )
+                                                        ],
+                                                        style: FlutterFlowTheme.of(context).bodyMedium,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ).animateOnActionTrigger(
+                                              animationsMap['containerOnActionTriggerAnimation3']!,
+                                            ),
+                                          ],
                                         ),
-                                      ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!),
-                                    ),
-                                ],
-                              ),
+                                      ),
+                                    ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!),
+                                  ),
+                              ],
                             ),
+                          ),
                         ],
                       ),
                     ),

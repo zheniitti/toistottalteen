@@ -565,12 +565,6 @@ class FFAppState extends ChangeNotifier {
     _isLatestUnfinnishedWorkout = _value;
   }
 
-  DocumentReference? _anonymousUserRef;
-  DocumentReference? get anonymousUserRef => _anonymousUserRef;
-  set anonymousUserRef(DocumentReference? _value) {
-    _anonymousUserRef = _value;
-  }
-
   bool _isDebugUser = false;
   bool get isDebugUser => _isDebugUser;
   set isDebugUser(bool _value) {
@@ -597,6 +591,13 @@ class FFAppState extends ChangeNotifier {
 
   void deleteShowAdbanner() {
     secureStorage.delete(key: 'ff_showAdbanner');
+  }
+
+  DocumentReference? _anonymouslyLoggedInUserAccountRef;
+  DocumentReference? get anonymouslyLoggedInUserAccountRef =>
+      _anonymouslyLoggedInUserAccountRef;
+  set anonymouslyLoggedInUserAccountRef(DocumentReference? _value) {
+    _anonymouslyLoggedInUserAccountRef = _value;
   }
 
   final _startedWorkoutSessionsManager =

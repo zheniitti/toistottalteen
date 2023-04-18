@@ -762,10 +762,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Treenirutiinit',
       'en': 'Workout routines',
     },
-    't717139a': {
-      'fi': '  (käynnissä)',
-      'en': '',
-    },
     'kmmmsdb7': {
       'fi': 'Treenihistoria',
       'en': 'Workout history',

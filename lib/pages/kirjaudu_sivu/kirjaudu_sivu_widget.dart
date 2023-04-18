@@ -2252,7 +2252,7 @@ numero */
                                                               FieldValue
                                                                   .arrayUnion([
                                                             FFAppState()
-                                                                .anonymousUserRef
+                                                                .anonymouslyLoggedInUserAccountRef
                                                           ]),
                                                         };
                                                         await currentUserReference!

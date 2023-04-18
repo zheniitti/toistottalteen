@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_ad_banner.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/revenue_cat_util.dart' as revenue_cat;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -45,24 +44,10 @@ class _MainosPalkkiWidgetState extends State<MainosPalkkiWidget> {
     context.watch<FFAppState>();
 
     return Visibility(
-      visible: getRemoteConfigBool('isEnabled_subscription')
-          ? (revenue_cat.activeEntitlementIds.length == 0
-              ? () {
-                  if (isAndroid) {
-                    return getRemoteConfigBool('showAdBanner_android');
-                  } else if (isiOS) {
-                    return getRemoteConfigBool('showAdBanner_ios');
-                  } else if (isWeb) {
-                    return getRemoteConfigBool('showAdBanner_web');
-                  } else {
-                    return false;
-                  }
-                }()
-              : false)
-          : false,
+      visible: FFAppState().showAdbanner,
       child: Container(
         constraints: BoxConstraints(
-          maxWidth: 600.0,
+          maxWidth: 1000.0,
           maxHeight: 60.0,
         ),
         decoration: BoxDecoration(
