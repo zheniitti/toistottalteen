@@ -1181,8 +1181,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // RevenueCatSubsriptionPaywall
   {
     'lrqejpcm': {
-      'fi': '✨Tue sovelluskehitystä',
-      'en': '✨Support app development',
+      'fi': '✨Lahjoita ja poista mainokset',
+      'en': '✨Donate and remove ads',
     },
     'czvjejf2': {
       'fi':
@@ -1195,8 +1195,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Monthly donation',
     },
     '2vcgcvkw': {
-      'fi': 'Anna tukesi kuukausittain ja nauti mainoksettomasta sovelluksesta',
-      'en': 'By s',
+      'fi': 'Nauti mainoksettomasta sovelluksesta',
+      'en': 'Remove ads for one month',
     },
     '1h5i1pe2': {
       'fi': 'Valitse',
@@ -1211,8 +1211,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Annual donation',
     },
     '5i255jps': {
-      'fi': 'Anna tukesi vuosittain  ja nauti mainoksettomasta sovelluksesta',
-      'en': 'Give your support and remove ads from the app for one year',
+      'fi': 'Nauti mainoksettomasta sovelluksesta vuodeksi',
+      'en': 'Remove ads for one year',
     },
     'iqr7fluo': {
       'fi': 'Valitse',
@@ -1222,31 +1222,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Ostettu',
       'en': 'Purchased',
     },
-    'gh1dh197': {
-      'fi': 'Valitse summa itse',
-      'en': 'Select the ',
-    },
-    '1wfoam8t': {
-      'fi':
-          'Poista mainokset koko loppuelämäsi. Saat päätä itse kuinka paljon haluat maksaa',
-      'en':
-          'Remove ads for the rest of your life. Decide yourself how much you want to pay (minimum 20)',
-    },
-    '38hizisn': {
-      'fi': 'Hello World dstasdt',
-      'en': '',
-    },
-    'k0e3j8fm': {
-      'fi': 'Valitse',
-      'en': 'Select',
-    },
-    'nb921mia': {
-      'fi': 'Ostettu',
-      'en': 'Purchased',
-    },
     'ozdly97p': {
       'fi': 'Kertalahjoitus',
-      'en': 'One time support',
+      'en': 'One time donation',
     },
     'aqttc467': {
       'fi': 'Poista mainokset koko loppuelämäsi',
@@ -1261,7 +1239,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Purchased',
     },
     '0sem4kiu': {
-      'fi': 'Aktivoi  aiempi ostos',
+      'fi': 'Aktivoi voimassaoleva ostos',
       'en': 'Restore purchase',
     },
   },
