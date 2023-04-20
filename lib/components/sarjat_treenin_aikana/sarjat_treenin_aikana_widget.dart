@@ -67,8 +67,8 @@ class _SarjatTreeninAikanaWidgetState extends State<SarjatTreeninAikanaWidget>
           curve: Curves.elasticOut,
           delay: 1000.ms,
           duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: Offset(0.0, 0.0),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -370,6 +370,15 @@ sarja */
                                                                         10.0,
                                                                         0.0),
                                                             child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
                                                               onTap: () async {
                                                                 logFirebaseEvent(
                                                                     'SARJAT_TREENIN_AIKANA_Icon_41jsa7wi_ON_T');
@@ -476,6 +485,14 @@ sarja */
                                                     .fromSTEB(
                                                         0.0, 12.0, 6.0, 0.0),
                                                 child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
                                                   onTap: () async {
                                                     logFirebaseEvent(
                                                         'SARJAT_TREENIN_AIKANA_Row_al58ucjz_ON_TA');
@@ -674,6 +691,10 @@ sarja */
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
                 onTap: () async {
                   logFirebaseEvent('SARJAT_TREENIN_AIKANA_Row_doneif38_ON_TA');
                   logFirebaseEvent('Row_custom_action');
@@ -757,6 +778,10 @@ sarja */
               ),
               if (false)
                 InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
                   onTap: () async {
                     logFirebaseEvent(
                         'SARJAT_TREENIN_AIKANA_Row_0bqlm5pv_ON_TA');

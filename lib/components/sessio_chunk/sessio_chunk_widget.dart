@@ -139,6 +139,10 @@ class _SessioChunkWidgetState extends State<SessioChunkWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
                   child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
                     onTap: () async {
                       logFirebaseEvent(
                           'SESSIO_CHUNK_COMP_Text_qh7abvfe_ON_TAP');

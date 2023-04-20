@@ -190,6 +190,10 @@ class _Navbar2WidgetState extends State<Navbar2Widget>
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
                   onTap: () async {
                     logFirebaseEvent('NAVBAR2_COMP_Container_fxbr1drn_ON_TAP');
                     logFirebaseEvent('Container_widget_animation');
@@ -249,6 +253,10 @@ class _Navbar2WidgetState extends State<Navbar2Widget>
                   animationsMap['containerOnActionTriggerAnimation1']!,
                 ),
                 InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
                   onTap: () async {
                     logFirebaseEvent('NAVBAR2_COMP_Container_kz8mez2q_ON_TAP');
                     logFirebaseEvent('Container_widget_animation');
@@ -321,6 +329,10 @@ class _Navbar2WidgetState extends State<Navbar2Widget>
                   animationsMap['containerOnActionTriggerAnimation2']!,
                 ),
                 InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
                   onTap: () async {
                     logFirebaseEvent('NAVBAR2_COMP_Container_qc49548v_ON_TAP');
                     logFirebaseEvent('Container_widget_animation');
@@ -381,6 +393,10 @@ class _Navbar2WidgetState extends State<Navbar2Widget>
                 ),
                 if (false)
                   InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
                     onTap: () async {
                       logFirebaseEvent(
                           'NAVBAR2_COMP_Container_iuvhpji2_ON_TAP');

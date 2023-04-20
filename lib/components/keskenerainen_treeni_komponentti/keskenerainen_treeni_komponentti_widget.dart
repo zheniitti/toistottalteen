@@ -44,8 +44,8 @@ class _KeskenerainenTreeniKomponenttiWidgetState
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 2000.ms,
-          begin: 0.96,
-          end: 1.0,
+          begin: Offset(0.96, 0.96),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -76,8 +76,8 @@ class _KeskenerainenTreeniKomponenttiWidgetState
           curve: Curves.elasticOut,
           delay: 2000.ms,
           duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: Offset(0.0, 0.0),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -215,6 +215,10 @@ class _KeskenerainenTreeniKomponenttiWidgetState
                   child: Align(
                     alignment: AlignmentDirectional(1.0, -1.0),
                     child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
                       onTap: () async {
                         logFirebaseEvent(
                             'KESKENERAINEN_TREENI_KOMPONENTTI_Icon_6u');

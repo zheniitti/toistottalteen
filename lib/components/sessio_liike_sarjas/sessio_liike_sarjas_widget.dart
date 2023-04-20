@@ -75,6 +75,10 @@ class _SessioLiikeSarjasWidgetState extends State<SessioLiikeSarjasWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                     child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
                       onTap: () async {
                         logFirebaseEvent(
                             'SESSIO_LIIKE_SARJAS_Icon_more_ON_TAP');

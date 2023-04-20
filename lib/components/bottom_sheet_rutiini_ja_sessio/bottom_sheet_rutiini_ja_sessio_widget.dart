@@ -109,6 +109,10 @@ class _BottomSheetRutiiniJaSessioWidgetState
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                     child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
                       onTap: () async {
                         logFirebaseEvent(
                             'BOTTOM_SHEET_RUTIINI_JA_SESSIO_ListTile_');
@@ -177,6 +181,10 @@ class _BottomSheetRutiiniJaSessioWidgetState
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                     child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
                       onTap: () async {
                         logFirebaseEvent(
                             'BOTTOM_SHEET_RUTIINI_JA_SESSIO_ListTile_');
@@ -262,6 +270,10 @@ class _BottomSheetRutiiniJaSessioWidgetState
                     children: [
                       if (widget.rutiiniData?.finishedEditing ?? true)
                         InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                           onTap: () async {
                             logFirebaseEvent(
                                 'BOTTOM_SHEET_RUTIINI_JA_SESSIO_ListTile_');
@@ -315,6 +327,10 @@ class _BottomSheetRutiiniJaSessioWidgetState
                         ),
                       if (!widget.rutiiniData!.finishedEditing!)
                         InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                           onTap: () async {
                             logFirebaseEvent(
                                 'BOTTOM_SHEET_RUTIINI_JA_SESSIO_ListTile_');
@@ -380,6 +396,10 @@ class _BottomSheetRutiiniJaSessioWidgetState
                   borderRadius: BorderRadius.circular(12.0),
                 ),
                 child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
                   onLongPress: () async {
                     logFirebaseEvent(
                         'BOTTOM_SHEET_RUTIINI_JA_SESSIO_ListTile_');

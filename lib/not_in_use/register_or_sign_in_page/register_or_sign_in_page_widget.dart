@@ -318,6 +318,10 @@ class _RegisterOrSignInPageWidgetState extends State<RegisterOrSignInPageWidget>
                         shape: BoxShape.circle,
                       ),
                       child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         onTap: () async {
                           logFirebaseEvent(
                               'REGISTER_OR_SIGN_IN_Image_zmu99xj3_ON_TA');

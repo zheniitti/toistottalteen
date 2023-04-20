@@ -183,6 +183,10 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
                 onTap: () async {
                   logFirebaseEvent('NAVIGATION_BAR_Container_8dx41aen_ON_TAP');
                   logFirebaseEvent('Container_widget_animation');
@@ -241,6 +245,10 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
                 animationsMap['containerOnActionTriggerAnimation1']!,
               ),
               InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
                 onTap: () async {
                   logFirebaseEvent('NAVIGATION_BAR_Container_5pr6gwjo_ON_TAP');
                   logFirebaseEvent('Container_widget_animation');
@@ -302,6 +310,10 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
                 animationsMap['containerOnActionTriggerAnimation2']!,
               ),
               InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
                 onTap: () async {
                   logFirebaseEvent('NAVIGATION_BAR_Container_0i6hubd6_ON_TAP');
                   logFirebaseEvent('Container_widget_animation');
@@ -361,6 +373,10 @@ class _NavigationBarWidgetState extends State<NavigationBarWidget>
               ),
               if (false)
                 InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
                   onTap: () async {
                     logFirebaseEvent(
                         'NAVIGATION_BAR_Container_dp5acew7_ON_TAP');

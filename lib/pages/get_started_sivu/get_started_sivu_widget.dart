@@ -299,6 +299,14 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                                     .fromSTEB(
                                                         0.0, 18.0, 0.0, 0.0),
                                                 child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
                                                   onTap: () async {
                                                     logFirebaseEvent(
                                                         'GET_STARTED_SIVU_Text_lpngc9ib_ON_TAP');
@@ -347,8 +355,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                                         'Text_navigate_to');
 
                                                     context.goNamedAuth(
-                                                        'paasivuWithPageview',
-                                                        mounted);
+                                                        'paasivu', mounted);
 
                                                     setState(() {});
                                                   },
@@ -374,6 +381,11 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                                     'textOnPageLoadAnimation3']!),
                                               ),
                                               InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
                                                 onLongPress: () async {
                                                   logFirebaseEvent(
                                                       'GET_STARTED_SIVU_JATKA_ILMAN_KIRJAUTUMIS');
@@ -455,8 +467,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                                         'Button_navigate_to');
 
                                                     context.goNamedAuth(
-                                                        'paasivuWithPageview',
-                                                        mounted);
+                                                        'paasivu', mounted);
                                                   }
 
                                                   setState(() {});
@@ -543,8 +554,7 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                                           'Button_navigate_to');
 
                                                       context.goNamedAuth(
-                                                          'paasivuWithPageview',
-                                                          mounted);
+                                                          'paasivu', mounted);
                                                     }
 
                                                     setState(() {});
@@ -595,6 +605,10 @@ class _GetStartedSivuWidgetState extends State<GetStartedSivuWidget>
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 22.0, 0.0, 0.0),
                                       child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
                                         onTap: () async {
                                           logFirebaseEvent(
                                               'GET_STARTED_SIVU_Text_1qlf7apm_ON_TAP');

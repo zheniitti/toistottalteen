@@ -1,5 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/components/revenue_cat_subsription_paywall_widget.dart';
+import '/components/revenue_cat_subsription_paywall/revenue_cat_subsription_paywall_widget.dart';
 import '/flutter_flow/flutter_flow_language_selector.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -171,6 +171,14 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                                 mainAxisSize: MainAxisSize.min,
                                                 children: [
                                                   InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
                                                     onTap: () async {
                                                       logFirebaseEvent(
                                                           'SIVUPALKKI_COMP_RichText_6ycy9n8r_ON_TAP');
@@ -272,6 +280,10 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                           0.0, 16.0, 0.0, 16.0),
                                       child: AuthUserStreamWidget(
                                         builder: (context) => InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
                                           onTap: () async {
                                             logFirebaseEvent(
                                                 'SIVUPALKKI_COMP_Row_48iupzve_ON_TAP');
@@ -339,6 +351,10 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 8.0, 0.0, 8.0),
                                           child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
                                             onTap: () async {
                                               logFirebaseEvent(
                                                   'SIVUPALKKI_COMP_Row_2iowzp08_ON_TAP');
@@ -371,6 +387,14 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                                       AlignmentDirectional(
                                                           -1.0, 0.0),
                                                   child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
                                                     onTap: () async {
                                                       logFirebaseEvent(
                                                           'SIVUPALKKI_Text_treenirutiinit_ON_TAP');
@@ -413,6 +437,10 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 8.0, 0.0, 8.0),
                                           child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
                                             onTap: () async {
                                               logFirebaseEvent(
                                                   'SIVUPALKKI_COMP_Row_c295vkmc_ON_TAP');
@@ -531,6 +559,10 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 16.0, 0.0, 16.0),
                                       child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
                                         onTap: () async {
                                           logFirebaseEvent(
                                               'SIVUPALKKI_COMP_Row_95lguv3f_ON_TAP');
@@ -572,6 +604,28 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                                         ),
                                               ),
                                             ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(6.0, 0.0, 0.0, 0.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '5enw2bkt' /* (kehitys kesken) */,
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondary,
+                                                          fontSize: 14.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                              ),
+                                            ),
                                           ],
                                         ),
                                       ),
@@ -586,6 +640,10 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 16.0, 0.0, 16.0),
                                       child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
                                         onTap: () async {
                                           logFirebaseEvent(
                                               'SIVUPALKKI_COMP_Row_rnd97pam_ON_TAP');
@@ -649,6 +707,10 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 16.0, 0.0, 8.0),
                                       child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
                                         onTap: () async {
                                           logFirebaseEvent(
                                               'SIVUPALKKI_COMP_Row_ybqd0d9j_ON_TAP');
@@ -746,6 +808,10 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 8.0, 0.0, 8.0),
                               child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
                                 onTap: () async {
                                   logFirebaseEvent(
                                       'SIVUPALKKI_COMP_Row_vh1jhxe6_ON_TAP');
@@ -791,6 +857,10 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 4.0, 0.0, 0.0),
                             child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
                               onTap: () async {
                                 logFirebaseEvent(
                                     'SIVUPALKKI_COMP_Text_4b9wzens_ON_TAP');
@@ -826,6 +896,10 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 8.0, 0.0, 0.0),
                               child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
                                 onTap: () async {
                                   logFirebaseEvent(
                                       'SIVUPALKKI_COMP_Text_4j47elvn_ON_TAP');
@@ -855,6 +929,10 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 8.0, 0.0, 0.0),
                                 child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
                                   onTap: () async {
                                     logFirebaseEvent(
                                         'SIVUPALKKI_COMP_Text_uiifcf87_ON_TAP');
@@ -926,6 +1004,10 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 8.0, 0.0, 0.0),
                                   child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
                                     onTap: () async {
                                       logFirebaseEvent(
                                           'SIVUPALKKI_COMP_Text_8zu69pjx_ON_TAP');

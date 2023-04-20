@@ -217,6 +217,10 @@ class _SignInPageWidgetState extends State<SignInPageWidget>
                             shape: BoxShape.circle,
                           ),
                           child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               logFirebaseEvent(
                                   'SIGN_IN_PAGE_PAGE_Image_rab0dwhr_ON_TAP');
@@ -457,7 +461,7 @@ class _SignInPageWidgetState extends State<SignInPageWidget>
                       logFirebaseEvent('SIGN_IN_PAGE_PAGE_SIGN_IN_BTN_ON_TAP');
                       logFirebaseEvent('Button_navigate_to');
 
-                      context.pushNamed('paasivuWithPageview');
+                      context.pushNamed('paasivu');
                     },
                     text: FFLocalizations.of(context).getText(
                       'cdr4uu8p' /* Sign In */,
@@ -598,6 +602,10 @@ class _SignInPageWidgetState extends State<SignInPageWidget>
                         ),
                       ),
                       InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         onTap: () async {
                           logFirebaseEvent(
                               'SIGN_IN_PAGE_PAGE_Text_lod6hz20_ON_TAP');

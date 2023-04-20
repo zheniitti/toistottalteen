@@ -17,6 +17,7 @@ Future initializeFirebaseRemoteConfig() async {
     'showStatisticsPage': false,
     'showSendFeedabkPage': true,
     'isEnabled_subscriptionFeatures': true,
+    'navbar_workoutbutton_LottieAnimationUrl': '',
   });
   await FirebaseRemoteConfig.instance.fetchAndActivate();
 }

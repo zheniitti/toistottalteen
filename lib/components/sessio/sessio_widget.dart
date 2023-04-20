@@ -137,6 +137,10 @@ class _SessioWidgetState extends State<SessioWidget>
                                   ),
                                 ),
                                 InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
                                   onTap: () async {
                                     logFirebaseEvent(
                                         'SESSIO_COMP_Text_3gkxd3te_ON_TAP');
@@ -199,6 +203,10 @@ class _SessioWidgetState extends State<SessioWidget>
                                       FlutterFlowTheme.of(context).bodyMedium,
                                 ),
                                 InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
                                   onTap: () async {
                                     logFirebaseEvent(
                                         'SESSIO_COMP_Text_wf1ejdph_ON_TAP');
@@ -337,6 +345,10 @@ class _SessioWidgetState extends State<SessioWidget>
                   child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 8.0, 0.0),
                     child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
                       onTap: () async {
                         logFirebaseEvent('SESSIO_COMP_Icon_vthfjdmh_ON_TAP');
                         logFirebaseEvent('Icon_bottom_sheet');

@@ -21,9 +21,6 @@ export '/pages/forgot_password_page/forgot_password_page_widget.dart'
     show ForgotPasswordPageWidget;
 export '/pages/verify_phone_nuber_page/verify_phone_nuber_page_widget.dart'
     show VerifyPhoneNuberPageWidget;
-export '/pages/subsriction_page/subsriction_page_widget.dart'
-    show SubsrictionPageWidget;
-export '/pages/paasivu_with_pageview/paasivu_with_pageview_widget.dart'
-    show PaasivuWithPageviewWidget;
+export '/pages/paasivu/paasivu_widget.dart' show PaasivuWidget;
 export '/pages/feedback_page/feedback_page_widget.dart' show FeedbackPageWidget;
 export '/webview1/webview1_widget.dart' show Webview1Widget;

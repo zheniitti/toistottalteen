@@ -80,8 +80,8 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 0.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: Offset(0.0, 0.0),
+          end: Offset(1.0, 1.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -112,15 +112,15 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 200.ms,
-          begin: 1.0,
-          end: 0.9,
+          begin: Offset(1.0, 1.0),
+          end: Offset(0.9, 0.9),
         ),
         ScaleEffect(
           curve: Curves.bounceOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: 0.9,
-          end: 1.1,
+          begin: Offset(0.9, 0.9),
+          end: Offset(1.1, 1.1),
         ),
       ],
     ),
@@ -132,15 +132,15 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 200.ms,
-          begin: 1.0,
-          end: 0.9,
+          begin: Offset(1.0, 1.0),
+          end: Offset(0.9, 0.9),
         ),
         ScaleEffect(
           curve: Curves.bounceOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: 0.9,
-          end: 1.1,
+          begin: Offset(0.9, 0.9),
+          end: Offset(1.1, 1.1),
         ),
       ],
     ),
@@ -152,15 +152,15 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 200.ms,
-          begin: 1.0,
-          end: 0.9,
+          begin: Offset(1.0, 1.0),
+          end: Offset(0.9, 0.9),
         ),
         ScaleEffect(
           curve: Curves.bounceOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: 0.9,
-          end: 1.1,
+          begin: Offset(0.9, 0.9),
+          end: Offset(1.1, 1.1),
         ),
       ],
     ),
@@ -172,15 +172,15 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 200.ms,
-          begin: 1.0,
-          end: 0.9,
+          begin: Offset(1.0, 1.0),
+          end: Offset(0.9, 0.9),
         ),
         ScaleEffect(
           curve: Curves.bounceOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: 0.9,
-          end: 1.1,
+          begin: Offset(0.9, 0.9),
+          end: Offset(1.1, 1.1),
         ),
       ],
     ),
@@ -192,15 +192,15 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 200.ms,
-          begin: 1.0,
-          end: 0.9,
+          begin: Offset(1.0, 1.0),
+          end: Offset(0.9, 0.9),
         ),
         ScaleEffect(
           curve: Curves.bounceOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: 0.9,
-          end: 1.1,
+          begin: Offset(0.9, 0.9),
+          end: Offset(1.1, 1.1),
         ),
       ],
     ),
@@ -212,15 +212,15 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 200.ms,
-          begin: 1.0,
-          end: 0.9,
+          begin: Offset(1.0, 1.0),
+          end: Offset(0.9, 0.9),
         ),
         ScaleEffect(
           curve: Curves.bounceOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: 0.9,
-          end: 1.1,
+          begin: Offset(0.9, 0.9),
+          end: Offset(1.1, 1.1),
         ),
       ],
     ),
@@ -232,15 +232,15 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 200.ms,
-          begin: 1.0,
-          end: 0.9,
+          begin: Offset(1.0, 1.0),
+          end: Offset(0.9, 0.9),
         ),
         ScaleEffect(
           curve: Curves.bounceOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: 0.9,
-          end: 1.1,
+          begin: Offset(0.9, 0.9),
+          end: Offset(1.1, 1.1),
         ),
       ],
     ),
@@ -265,8 +265,8 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 900.ms,
-          begin: 0.97,
-          end: 1.01,
+          begin: Offset(0.97, 0.97),
+          end: Offset(1.01, 1.01),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
@@ -285,15 +285,15 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
           curve: Curves.bounceOut,
           delay: 0.ms,
           duration: 200.ms,
-          begin: 1.0,
-          end: 0.9,
+          begin: Offset(1.0, 1.0),
+          end: Offset(0.9, 0.9),
         ),
         ScaleEffect(
           curve: Curves.bounceOut,
           delay: 200.ms,
           duration: 200.ms,
-          begin: 1.0,
-          end: 1.2,
+          begin: Offset(1.0, 1.0),
+          end: Offset(1.2, 1.2),
         ),
       ],
     ),
@@ -313,8 +313,8 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
           curve: Curves.elasticOut,
           delay: 2000.ms,
           duration: 900.ms,
-          begin: 0.9,
-          end: 1.0,
+          begin: Offset(0.9, 0.9),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -622,6 +622,10 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                         child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                           onTap: () async {
                             logFirebaseEvent(
                                 'RUTIINI_COMP_Icon_pjviv9c5_ON_TAP');
@@ -660,6 +664,10 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 4.0, 8.0, 0.0, 0.0),
                             child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
                               onTap: () async {
                                 logFirebaseEvent(
                                     'RUTIINI_COMP_Icon_m5q1zcbg_ON_TAP');
@@ -699,6 +707,10 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 4.0, 8.0, 0.0, 0.0),
                             child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
                               onTap: () async {
                                 logFirebaseEvent(
                                     'RUTIINI_COMP_Icon_oli3s13m_ON_TAP');
@@ -1485,6 +1497,10 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
                                       onTap: () async {
                                         logFirebaseEvent(
                                             'RUTIINI_COMP_Row_lisaaLiike_ON_TAP');
@@ -1549,6 +1565,10 @@ class _RutiiniWidgetState extends State<RutiiniWidget>
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             4.0, 8.0, 4.0, 8.0),
                                         child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
                                           onTap: () async {
                                             logFirebaseEvent(
                                                 'RUTIINI_COMP_Row_lopetaMuokkaus_ON_TAP');

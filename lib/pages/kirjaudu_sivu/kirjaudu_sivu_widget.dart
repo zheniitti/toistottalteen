@@ -149,6 +149,10 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                     padding:
                         EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 0.0, 0.0),
                     child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
                       onTap: () async {
                         logFirebaseEvent(
                             'KIRJAUDU_SIVU_PAGE_Icon_3wfhamup_ON_TAP');
@@ -193,30 +197,33 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                           1),
                       child: Column(
                         children: [
-                          TabBar(
-                            isScrollable: true,
-                            labelColor: Colors.white,
-                            labelStyle: FlutterFlowTheme.of(context)
-                                .titleMedium
-                                .override(
-                                  fontFamily: 'Outfit',
-                                  color: Color(0xFF0F1113),
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.w500,
+                          Align(
+                            alignment: Alignment(0.0, 0),
+                            child: TabBar(
+                              isScrollable: true,
+                              labelColor: Colors.white,
+                              labelStyle: FlutterFlowTheme.of(context)
+                                  .titleMedium
+                                  .override(
+                                    fontFamily: 'Outfit',
+                                    color: Color(0xFF0F1113),
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                              indicatorColor: Colors.white,
+                              tabs: [
+                                Tab(
+                                  text: FFLocalizations.of(context).getText(
+                                    'faomx7ia' /* Kirjaudu */,
+                                  ),
                                 ),
-                            indicatorColor: Colors.white,
-                            tabs: [
-                              Tab(
-                                text: FFLocalizations.of(context).getText(
-                                  'faomx7ia' /* Kirjaudu */,
+                                Tab(
+                                  text: FFLocalizations.of(context).getText(
+                                    'shz6a9m8' /* Luo tili */,
+                                  ),
                                 ),
-                              ),
-                              Tab(
-                                text: FFLocalizations.of(context).getText(
-                                  'shz6a9m8' /* Luo tili */,
-                                ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                           Expanded(
                             child: TabBarView(
@@ -300,6 +307,15 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                               MainAxisSize.max,
                                                           children: [
                                                             InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
                                                               onTap: () async {
                                                                 logFirebaseEvent(
                                                                     'KIRJAUDU_SIVU_Container_aw30qtra_ON_TAP');
@@ -337,7 +353,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                                         .pop();
                                                                   }
                                                                   context.pushNamedAuth(
-                                                                      'paasivuWithPageview',
+                                                                      'paasivu',
                                                                       mounted);
                                                                 }
                                                               },
@@ -384,6 +400,15 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                                     .max,
                                                             children: [
                                                               InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
                                                                 onTap:
                                                                     () async {
                                                                   logFirebaseEvent(
@@ -422,7 +447,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                                           .pop();
                                                                     }
                                                                     context.pushNamedAuth(
-                                                                        'paasivuWithPageview',
+                                                                        'paasivu',
                                                                         mounted);
                                                                   }
                                                                 },
@@ -468,6 +493,15 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                               MainAxisSize.max,
                                                           children: [
                                                             InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
                                                               onTap: () async {
                                                                 logFirebaseEvent(
                                                                     'KIRJAUDU_SIVU_Container_vna5zltq_ON_TAP');
@@ -521,6 +555,15 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                               MainAxisSize.max,
                                                           children: [
                                                             InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
                                                               onTap: () async {
                                                                 logFirebaseEvent(
                                                                     'KIRJAUDU_SIVU_Container_e2aqo5hc_ON_TAP');
@@ -920,9 +963,10 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                                 .canPop()) {
                                                               context.pop();
                                                             }
-                                                            context.pushNamedAuth(
-                                                                'paasivuWithPageview',
-                                                                mounted);
+                                                            context
+                                                                .pushNamedAuth(
+                                                                    'paasivu',
+                                                                    mounted);
                                                           }
                                                         },
                                                         text:
@@ -1360,6 +1404,14 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                       MainAxisSize.max,
                                                   children: [
                                                     InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
                                                       onTap: () async {
                                                         logFirebaseEvent(
                                                             'KIRJAUDU_SIVU_Container_0khtpejl_ON_TAP');
@@ -1376,8 +1428,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                         }
 
                                                         context.goNamedAuth(
-                                                            'paasivuWithPageview',
-                                                            mounted);
+                                                            'paasivu', mounted);
                                                       },
                                                       child: Container(
                                                         width: 60.0,
@@ -1417,6 +1468,14 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                         MainAxisSize.max,
                                                     children: [
                                                       InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
                                                         onTap: () async {
                                                           logFirebaseEvent(
                                                               'KIRJAUDU_SIVU_Container_4x61yn26_ON_TAP');
@@ -1433,7 +1492,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                           }
 
                                                           context.goNamedAuth(
-                                                              'paasivuWithPageview',
+                                                              'paasivu',
                                                               mounted);
                                                         },
                                                         child: Container(
@@ -1473,6 +1532,14 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                       MainAxisSize.max,
                                                   children: [
                                                     InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
                                                       onTap: () async {
                                                         logFirebaseEvent(
                                                             'KIRJAUDU_SIVU_Container_mlusneh8_ON_TAP');
@@ -1521,6 +1588,14 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                       MainAxisSize.max,
                                                   children: [
                                                     InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
                                                       onTap: () async {
                                                         logFirebaseEvent(
                                                             'KIRJAUDU_SIVU_Container_8r32o2cr_ON_TAP');
@@ -2032,8 +2107,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                           context.pop();
                                                         }
                                                         context.pushNamedAuth(
-                                                            'paasivuWithPageview',
-                                                            mounted);
+                                                            'paasivu', mounted);
                                                       }
                                                     },
                                                     text: FFLocalizations.of(

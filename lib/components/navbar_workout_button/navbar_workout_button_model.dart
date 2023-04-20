@@ -12,7 +12,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
-class NvabarWorkoutButtonModel extends FlutterFlowModel {
+class NavbarWorkoutButtonModel extends FlutterFlowModel {
   ///  Local state fields for this component.
 
   bool? isPlayingIconAnimation = false;
@@ -22,7 +22,7 @@ class NvabarWorkoutButtonModel extends FlutterFlowModel {
   InstantTimer? instantTimer;
   // State field(s) for LottieAnimation widget.
   late bool lottieAnimationStatus;
-  late bool lottieAnimationInitialStatus;
+  late bool lottieAnimationInitialStatus; // Do not remove late keyword.
 
   /// Initialization and disposal methods.
 

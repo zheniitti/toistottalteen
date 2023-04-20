@@ -511,63 +511,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '',
     },
   },
-  // subsrictionPage
-  {
-    'hwgol8rz': {
-      'fi': 'Sinun jäsenyytesi',
-      'en': 'Your subscription',
-    },
-    'br2c5t9e': {
-      'fi': 'Basic käyttäjä',
-      'en': 'Basic',
-    },
-    'ddywiwkf': {
-      'fi': 'Ilmainen',
-      'en': 'No cost',
-    },
-    '3p7287li': {
-      'fi': 'Sisältää mainokset',
-      'en': 'Contains ads',
-    },
-    '2zf8p5oc': {
-      'fi': 'Muut tarjoukset',
-      'en': 'Other offers',
-    },
-    '5vook0a2': {
-      'fi': 'Kuukausittain Premium-jäsenyys',
-      'en': 'Monthly Premium',
-    },
-    'dtagbld2': {
-      'fi': 'Tue sovelluksen kehitystä ja poista mainokset',
-      'en': 'Support app development and remove ads',
-    },
-    'x8bvpqai': {
-      'fi': 'Vuosittainen Premium-jäsenyys',
-      'en': 'Annual Premium subsription',
-    },
-    'bzi4a8ik': {
-      'fi': 'Ei mainoksia + ei muita rajoituksia',
-      'en':
-          'No ads and Gain unlimited access to all the content we have to offer! ',
-    },
-    'uolqmsaw': {
-      'fi': 'Elinikäinen premium jäsenyys',
-      'en': 'Lifetime premium',
-    },
-    'gf6voqtu': {
-      'fi': 'Maksa kerran ja nauti premiumeduita koko loppuelämäsi',
-      'en': 'Pay once and enjoy premium features for the rest of your life',
-    },
-    'wpjuhtau': {
-      'fi': '',
-      'en': '',
-    },
-    'ragyctx6': {
-      'fi': 'Home',
-      'en': '',
-    },
-  },
-  // paasivuWithPageview
+  // paasivu
   {
     '858ldjbd': {
       'fi': 'Luo treenirutiini',
@@ -704,6 +648,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'e4qtfwaz': {
       'fi': 'Treenitilastot',
       'en': 'Workout Statistics',
+    },
+    '5enw2bkt': {
+      'fi': '(kehitys kesken)',
+      'en': '(in development)',
     },
     'uvhkl89u': {
       'fi': 'Lahjoita ja tue',
@@ -1139,7 +1087,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Monthly donation',
     },
     '2vcgcvkw': {
-      'fi': 'Nauti mainoksettomasta sovelluksesta',
+      'fi': 'Nauti mainoksettomasta sovelluksesta kuukaudeksi',
       'en': 'Remove ads for one month',
     },
     '1h5i1pe2': {

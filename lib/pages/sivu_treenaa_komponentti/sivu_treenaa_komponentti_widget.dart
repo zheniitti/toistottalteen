@@ -56,8 +56,8 @@ class _SivuTreenaaKomponenttiWidgetState
           curve: Curves.elasticOut,
           delay: 1000.ms,
           duration: 800.ms,
-          begin: 0.7,
-          end: 1.0,
+          begin: Offset(0.7, 0.7),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -228,6 +228,10 @@ class _SivuTreenaaKomponenttiWidgetState
                         padding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 0.0, 20.0, 240.0),
                         child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                           onTap: () async {
                             logFirebaseEvent(
                                 'SIVU_TREENAA_KOMPONENTTI_Container_paini');

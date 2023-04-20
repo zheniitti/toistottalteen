@@ -52,8 +52,8 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
           curve: Curves.elasticOut,
           delay: 1000.ms,
           duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: Offset(0.0, 0.0),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -72,8 +72,8 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
           curve: Curves.elasticOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: 1.0,
-          end: 0.0,
+          begin: Offset(1.0, 1.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -93,8 +93,8 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
           curve: Curves.elasticOut,
           delay: 1000.ms,
           duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
+          begin: Offset(0.0, 0.0),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -113,8 +113,8 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
           curve: Curves.elasticOut,
           delay: 0.ms,
           duration: 400.ms,
-          begin: 1.0,
-          end: 0.0,
+          begin: Offset(1.0, 1.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -186,6 +186,10 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 4.0, 8.0, 4.0),
                             child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
                               onTap: () async {
                                 logFirebaseEvent(
                                     'RUTIININ_LIIKKEET_Icon_deleteLiike_ON_TA');
@@ -228,6 +232,10 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 4.0, 8.0, 4.0),
                             child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
                               onTap: () async {
                                 logFirebaseEvent(
                                     'RUTIININ_LIIKKEET_Icon_copyLiike_ON_TAP');
@@ -317,6 +325,10 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget>
                                           false,
                                         ),
                                         child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
                                           onTap: () async {
                                             logFirebaseEvent(
                                                 'RUTIININ_LIIKKEET_Column_sarjatToistotMu');

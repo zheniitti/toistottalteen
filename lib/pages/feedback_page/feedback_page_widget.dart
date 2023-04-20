@@ -207,6 +207,15 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                                                                           12.0,
                                                                           0.0),
                                                               child: InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
                                                                 onTap:
                                                                     () async {
                                                                   logFirebaseEvent(
@@ -267,6 +276,15 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                                                                       1.0,
                                                                       -1.0),
                                                               child: InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
                                                                 onTap:
                                                                     () async {
                                                                   logFirebaseEvent(
@@ -418,6 +436,8 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                                                               width: m
                                                                   .dimensions
                                                                   ?.width,
+                                                              blurHash:
+                                                                  m.blurHash,
                                                             ))
                                                         .toList();
 
@@ -559,6 +579,10 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                                           color: Colors.white,
                                         ),
                                         child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
                                           onTap: () async {
                                             logFirebaseEvent(
                                                 'FEEDBACK_PAGE_PAGE_Row_ymmjksk0_ON_TAP');

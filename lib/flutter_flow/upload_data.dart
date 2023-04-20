@@ -1,4 +1,4 @@
-import 'dart:typed_data';
+import 'dart:async';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -19,11 +19,13 @@ class SelectedMedia {
     this.filePath,
     required this.bytes,
     this.dimensions,
+    this.blurHash,
   });
   final String storagePath;
   final String? filePath;
   final Uint8List bytes;
   final MediaDimensions? dimensions;
+  final String? blurHash;
 }
 
 class MediaDimensions {
@@ -53,6 +55,7 @@ Future<List<SelectedMedia>?> selectMediaWithSourceBottomSheet({
   Color textColor = const Color(0xFF111417),
   Color backgroundColor = const Color(0xFFF5F5F5),
   bool includeDimensions = false,
+  bool includeBlurHash = false,
 }) async {
   final createUploadMediaListTile =
       (String label, MediaSource mediaSource) => ListTile(
@@ -141,6 +144,7 @@ Future<List<SelectedMedia>?> selectMediaWithSourceBottomSheet({
         (mediaSource == MediaSource.camera && allowVideo && !allowPhoto),
     mediaSource: mediaSource,
     includeDimensions: includeDimensions,
+    includeBlurHash: includeBlurHash,
   );
 }
 
@@ -153,6 +157,7 @@ Future<List<SelectedMedia>?> selectMedia({
   MediaSource mediaSource = MediaSource.camera,
   bool multiImage = false,
   bool includeDimensions = false,
+  bool includeBlurHash = false,
 }) async {
   final picker = ImagePicker();
 
@@ -176,6 +181,7 @@ Future<List<SelectedMedia>?> selectMedia({
               ? _getVideoDimensions(media.path)
               : _getImageDimensions(mediaBytes)
           : null;
+
       return SelectedMedia(
         storagePath: path,
         filePath: media.path,
@@ -207,6 +213,7 @@ Future<List<SelectedMedia>?> selectMedia({
           ? _getVideoDimensions(pickedMedia.path)
           : _getImageDimensions(mediaBytes)
       : null;
+
   return [
     SelectedMedia(
       storagePath: path,

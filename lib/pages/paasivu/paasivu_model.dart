@@ -1,7 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/mainos_palkki_widget.dart';
-import '/components/nvabar_workout_button_widget.dart';
+import '/components/navbar_workout_button/navbar_workout_button_widget.dart';
 import '/components/sivupalkki/sivupalkki_widget.dart';
 import '/components/workout_duration_text/workout_duration_text_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -13,6 +13,7 @@ import '/pages/sivu_treenaa_komponentti/sivu_treenaa_komponentti_widget.dart';
 import '/pages/sivu_treeni_historia_komponentti/sivu_treeni_historia_komponentti_widget.dart';
 import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/admob_util.dart' as admob;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/revenue_cat_util.dart' as revenue_cat;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -26,7 +27,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class PaasivuWithPageviewModel extends FlutterFlowModel {
+class PaasivuModel extends FlutterFlowModel {
   ///  Local state fields for this page.
 
   bool isLatestUnfinnishedWorkout = false;
@@ -50,10 +51,12 @@ class PaasivuWithPageviewModel extends FlutterFlowModel {
   TextEditingController? textFieldSeachBarController;
   String? textFieldSeachBarSelectedOption;
   String? Function(BuildContext, String?)? textFieldSeachBarControllerValidator;
+  // Stores action output result for [AdMob - Show Interstitial Ad] action in Row_lopetaTreeni widget.
+  bool? interstitialAdSuccess;
   // Model for MainosPalkki component.
   late MainosPalkkiModel mainosPalkkiModel;
-  // Model for nvabar_workoutButton component.
-  late NvabarWorkoutButtonModel nvabarWorkoutButtonModel;
+  // Model for navbar_workoutButton component.
+  late NavbarWorkoutButtonModel navbarWorkoutButtonModel;
 
   /// Initialization and disposal methods.
 
@@ -68,8 +71,8 @@ class PaasivuWithPageviewModel extends FlutterFlowModel {
     workoutDurationTextModel =
         createModel(context, () => WorkoutDurationTextModel());
     mainosPalkkiModel = createModel(context, () => MainosPalkkiModel());
-    nvabarWorkoutButtonModel =
-        createModel(context, () => NvabarWorkoutButtonModel());
+    navbarWorkoutButtonModel =
+        createModel(context, () => NavbarWorkoutButtonModel());
   }
 
   void dispose() {
@@ -79,7 +82,7 @@ class PaasivuWithPageviewModel extends FlutterFlowModel {
     sivuTreeniHistoriaKomponenttiModel.dispose();
     workoutDurationTextModel.dispose();
     mainosPalkkiModel.dispose();
-    nvabarWorkoutButtonModel.dispose();
+    navbarWorkoutButtonModel.dispose();
   }
 
   /// Additional helper methods are added here.

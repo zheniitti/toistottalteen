@@ -309,6 +309,10 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget>
                     borderRadius: BorderRadius.circular(12.0),
                   ),
                   child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
                     onTap: () async {
                       logFirebaseEvent(
                           'BOTTOM_SHEET_LIIKE_ListTile_qnrl7udd_ON_');
@@ -363,6 +367,10 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget>
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                           onTap: () async {
                             logFirebaseEvent(
                                 'BOTTOM_SHEET_LIIKE_ListTile_7lcrp35l_ON_');
@@ -447,6 +455,10 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget>
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                           onTap: () async {
                             logFirebaseEvent(
                                 'BOTTOM_SHEET_LIIKE_ListTile_3bpj5b6l_ON_');
@@ -530,6 +542,10 @@ class _BottomSheetLiikeWidgetState extends State<BottomSheetLiikeWidget>
                   borderRadius: BorderRadius.circular(12.0),
                 ),
                 child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
                   onLongPress: () async {
                     logFirebaseEvent(
                         'BOTTOM_SHEET_LIIKE_ListTile_uaqv3mkg_ON_');

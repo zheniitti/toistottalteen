@@ -71,15 +71,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, _) => appStateNotifier.loggedIn
-          ? PaasivuWithPageviewWidget()
-          : GetStartedSivuWidget(),
+      errorBuilder: (context, _) =>
+          appStateNotifier.loggedIn ? PaasivuWidget() : GetStartedSivuWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? PaasivuWithPageviewWidget()
+              ? PaasivuWidget()
               : GetStartedSivuWidget(),
           routes: [
             FFRoute(
@@ -160,16 +159,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => VerifyPhoneNuberPageWidget(),
             ),
             FFRoute(
-              name: 'subsrictionPage',
-              path: 'subsrictionPage',
+              name: 'paasivu',
+              path: 'paasivu',
               requireAuth: true,
-              builder: (context, params) => SubsrictionPageWidget(),
-            ),
-            FFRoute(
-              name: 'paasivuWithPageview',
-              path: 'paasivuWithPageview',
-              requireAuth: true,
-              builder: (context, params) => PaasivuWithPageviewWidget(),
+              builder: (context, params) => PaasivuWidget(),
             ),
             FFRoute(
               name: 'FeedbackPage',

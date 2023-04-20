@@ -250,6 +250,10 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                             shape: BoxShape.circle,
                           ),
                           child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               logFirebaseEvent(
                                   'REGISTER_PAGE_PAGE_Image_a21r0qb0_ON_TAP');
@@ -556,7 +560,7 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                       logFirebaseEvent('REGISTER_CREATE_ACCOUNT_BTN_ON_TAP');
                       logFirebaseEvent('Button_navigate_to');
 
-                      context.pushNamed('paasivuWithPageview');
+                      context.pushNamed('paasivu');
                     },
                     text: FFLocalizations.of(context).getText(
                       'pbxocv0b' /* Create Account */,
@@ -697,6 +701,10 @@ class _RegisterPageWidgetState extends State<RegisterPageWidget>
                         ),
                       ),
                       InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         onTap: () async {
                           logFirebaseEvent(
                               'REGISTER_PAGE_PAGE_Text_y518nym8_ON_TAP');

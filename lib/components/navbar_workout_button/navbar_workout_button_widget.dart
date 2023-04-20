@@ -11,12 +11,11 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
+import 'navbar_workout_button_model.dart';
+export 'navbar_workout_button_model.dart';
 
-import 'nvabar_workout_button_model.dart';
-export 'nvabar_workout_button_model.dart';
-
-class NvabarWorkoutButtonWidget extends StatefulWidget {
-  const NvabarWorkoutButtonWidget({
+class NavbarWorkoutButtonWidget extends StatefulWidget {
+  const NavbarWorkoutButtonWidget({
     Key? key,
     this.activeTreenisessions,
   }) : super(key: key);
@@ -24,11 +23,13 @@ class NvabarWorkoutButtonWidget extends StatefulWidget {
   final List<TreeniSessiotRecord>? activeTreenisessions;
 
   @override
-  _NvabarWorkoutButtonWidgetState createState() => _NvabarWorkoutButtonWidgetState();
+  _NavbarWorkoutButtonWidgetState createState() =>
+      _NavbarWorkoutButtonWidgetState();
 }
 
-class _NvabarWorkoutButtonWidgetState extends State<NvabarWorkoutButtonWidget> with TickerProviderStateMixin {
-  late NvabarWorkoutButtonModel _model;
+class _NavbarWorkoutButtonWidgetState extends State<NavbarWorkoutButtonWidget>
+    with TickerProviderStateMixin {
+  late NavbarWorkoutButtonModel _model;
 
   final animationsMap = {
     'containerOnActionTriggerAnimation': AnimationInfo(
@@ -48,7 +49,7 @@ class _NvabarWorkoutButtonWidgetState extends State<NvabarWorkoutButtonWidget> w
 
   @override
   void setState(VoidCallback callback) {
-    if (mounted) {
+     if (mounted) {
       // Do not remove if mounted check.
       super.setState(callback);
       _model.onUpdate();
@@ -58,12 +59,12 @@ class _NvabarWorkoutButtonWidgetState extends State<NvabarWorkoutButtonWidget> w
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => NvabarWorkoutButtonModel());
+    _model = createModel(context, () => NavbarWorkoutButtonModel());
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('NVABAR_WORKOUT_BUTTON_nvabar_workoutButt');
-      logFirebaseEvent('nvabar_workoutButton_start_periodic_acti');
+      logFirebaseEvent('NAVBAR_WORKOUT_BUTTON_navbar_workoutButt');
+      logFirebaseEvent('navbar_workoutButton_start_periodic_acti');
       _model.instantTimer = InstantTimer.periodic(
         duration: Duration(milliseconds: 1000),
         callback: (timer) async {
@@ -81,16 +82,19 @@ class _NvabarWorkoutButtonWidgetState extends State<NvabarWorkoutButtonWidget> w
                     false,
                   )
                 : false) {
-              logFirebaseEvent('nvabar_workoutButton_lottie_animation');
-              if (_model.lottieAnimationStatus == _model.lottieAnimationInitialStatus) {
-                setState(() => _model.lottieAnimationStatus = !_model.lottieAnimationStatus);
+              logFirebaseEvent('navbar_workoutButton_lottie_animation');
+              if (_model.lottieAnimationStatus ==
+                  _model.lottieAnimationInitialStatus) {
+                setState(() => _model.lottieAnimationStatus =
+                    !_model.lottieAnimationStatus);
               }
-              logFirebaseEvent('nvabar_workoutButton_update_widget_state');
+              logFirebaseEvent('navbar_workoutButton_update_widget_state');
               _model.isPlayingIconAnimation = true;
             } else {
-              logFirebaseEvent('nvabar_workoutButton_lottie_animation');
-              setState(() => _model.lottieAnimationStatus = !_model.lottieAnimationStatus);
-              logFirebaseEvent('nvabar_workoutButton_update_widget_state');
+              logFirebaseEvent('navbar_workoutButton_lottie_animation');
+              setState(() =>
+                  _model.lottieAnimationStatus = !_model.lottieAnimationStatus);
+              logFirebaseEvent('navbar_workoutButton_update_widget_state');
               _model.isPlayingIconAnimation = false;
             }
           } else {
@@ -107,11 +111,13 @@ class _NvabarWorkoutButtonWidgetState extends State<NvabarWorkoutButtonWidget> w
                     false,
                   )
                 : false) {
-              logFirebaseEvent('nvabar_workoutButton_lottie_animation');
-              if (_model.lottieAnimationStatus == _model.lottieAnimationInitialStatus) {
-                setState(() => _model.lottieAnimationStatus = !_model.lottieAnimationStatus);
+              logFirebaseEvent('navbar_workoutButton_lottie_animation');
+              if (_model.lottieAnimationStatus ==
+                  _model.lottieAnimationInitialStatus) {
+                setState(() => _model.lottieAnimationStatus =
+                    !_model.lottieAnimationStatus);
               }
-              logFirebaseEvent('nvabar_workoutButton_update_widget_state');
+              logFirebaseEvent('navbar_workoutButton_update_widget_state');
               _model.isPlayingIconAnimation = true;
             }
           }
@@ -121,7 +127,9 @@ class _NvabarWorkoutButtonWidgetState extends State<NvabarWorkoutButtonWidget> w
     });
 
     setupAnimations(
-      animationsMap.values.where((anim) => anim.trigger == AnimationTrigger.onActionTrigger || !anim.applyInitialState),
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
       this,
     );
 
@@ -140,11 +148,20 @@ class _NvabarWorkoutButtonWidgetState extends State<NvabarWorkoutButtonWidget> w
     context.watch<FFAppState>();
 
     return InkWell(
+      splashColor: Colors.transparent,
+      focusColor: Colors.transparent,
+      hoverColor: Colors.transparent,
+      highlightColor: Colors.transparent,
       onTap: () async {
-        logFirebaseEvent('NVABAR_WORKOUT_BUTTON_Container_obgfdozu');
+        logFirebaseEvent('NAVBAR_WORKOUT_BUTTON_Container_obgfdozu');
         logFirebaseEvent('Container_widget_animation');
         if (animationsMap['containerOnActionTriggerAnimation'] != null) {
-          animationsMap['containerOnActionTriggerAnimation']!.controller.forward(from: 0.0).whenComplete(animationsMap['containerOnActionTriggerAnimation']!.controller.reverse);
+          animationsMap['containerOnActionTriggerAnimation']!
+              .controller
+              .forward(from: 0.0)
+              .whenComplete(animationsMap['containerOnActionTriggerAnimation']!
+                  .controller
+                  .reverse);
         }
         logFirebaseEvent('Container_update_app_state');
         setState(() {
@@ -153,10 +170,12 @@ class _NvabarWorkoutButtonWidgetState extends State<NvabarWorkoutButtonWidget> w
         });
       },
       child: Container(
-        width: 100,
+        width: 100.0,
         decoration: BoxDecoration(
-          color: FFAppState().navBarIndex == 1 ? FlutterFlowTheme.of(context).tertiary : Color(0x00000000),
-          borderRadius: BorderRadius.circular(8),
+          color: FFAppState().navBarIndex == 1
+              ? FlutterFlowTheme.of(context).tertiary
+              : Color(0x00000000),
+          borderRadius: BorderRadius.circular(8.0),
         ),
         child: Container(
           width: double.infinity,
@@ -165,8 +184,15 @@ class _NvabarWorkoutButtonWidgetState extends State<NvabarWorkoutButtonWidget> w
             children: [
               if (_model.isPlayingIconAnimation ?? true)
                 Align(
-                  alignment: AlignmentDirectional(0, -1),
-                  child: Lottie.network('https://assets8.lottiefiles.com/packages/lf20_ixy19tfg.json', width: 130, height: 40, fit: BoxFit.cover, frameRate: FrameRate(60), animate: _model.lottieAnimationStatus),
+                  alignment: AlignmentDirectional(0.0, -1.0),
+                  child: Lottie.network(
+                      getRemoteConfigString(
+                          'navbar_workoutbutton_LottieAnimationUrl'),
+                      width: 130.0,
+                      height: 40.0,
+                      fit: BoxFit.cover,
+                      frameRate: FrameRate(60.0),
+                      animate: _model.lottieAnimationStatus),
                 ),
               Column(
                 mainAxisSize: MainAxisSize.max,
@@ -177,11 +203,11 @@ class _NvabarWorkoutButtonWidgetState extends State<NvabarWorkoutButtonWidget> w
                       child: Icon(
                         Icons.accessibility_new_rounded,
                         color: FlutterFlowTheme.of(context).secondary,
-                        size: 30,
+                        size: 30.0,
                       ),
                     ),
                   Align(
-                    alignment: AlignmentDirectional(0, 1),
+                    alignment: AlignmentDirectional(0.0, 1.0),
                     child: RichText(
                       text: TextSpan(
                         children: [

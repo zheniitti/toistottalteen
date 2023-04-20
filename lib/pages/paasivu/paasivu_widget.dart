@@ -1,8 +1,7 @@
-import 'package:toistot_talteen/myCustomScrollPhysics.dart'; // Do not remove this import
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/mainos_palkki_widget.dart';
-import '/components/nvabar_workout_button_widget.dart';
+import '/components/navbar_workout_button/navbar_workout_button_widget.dart';
 import '/components/sivupalkki/sivupalkki_widget.dart';
 import '/components/workout_duration_text/workout_duration_text_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -14,6 +13,7 @@ import '/pages/sivu_treenaa_komponentti/sivu_treenaa_komponentti_widget.dart';
 import '/pages/sivu_treeni_historia_komponentti/sivu_treeni_historia_komponentti_widget.dart';
 import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/admob_util.dart' as admob;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/revenue_cat_util.dart' as revenue_cat;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -26,19 +26,19 @@ import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'paasivu_model.dart';
+export 'paasivu_model.dart';
+import 'package:toistot_talteen/myCustomScrollPhysics.dart'; // Do not remove this import
 
-import 'paasivu_with_pageview_model.dart';
-export 'paasivu_with_pageview_model.dart';
-
-class PaasivuWithPageviewWidget extends StatefulWidget {
-  const PaasivuWithPageviewWidget({Key? key}) : super(key: key);
+class PaasivuWidget extends StatefulWidget {
+  const PaasivuWidget({Key? key}) : super(key: key);
 
   @override
-  _PaasivuWithPageviewWidgetState createState() => _PaasivuWithPageviewWidgetState();
+  _PaasivuWidgetState createState() => _PaasivuWidgetState();
 }
 
-class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> with TickerProviderStateMixin {
-  late PaasivuWithPageviewModel _model;
+class _PaasivuWidgetState extends State<PaasivuWidget> with TickerProviderStateMixin {
+  late PaasivuModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
@@ -55,7 +55,7 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 300.ms,
-          begin: 0,
+          begin: 0.0,
           end: 0.5,
         ),
       ],
@@ -69,15 +69,15 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 900.ms,
-          begin: 0.97,
-          end: 1.01,
+          begin: Offset(0.97, 0.97),
+          end: Offset(1.01, 1.01),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 900.ms,
           begin: 0.6,
-          end: 1,
+          end: 1.0,
         ),
       ],
     ),
@@ -89,15 +89,15 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 800.ms,
-          begin: Offset(0, -100),
-          end: Offset(0, 0),
+          begin: Offset(0.0, -100.0),
+          end: Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 800.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -109,8 +109,8 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
           curve: Curves.easeInOut,
           delay: 2000.ms,
           duration: 800.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -122,15 +122,15 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
           curve: Curves.easeInOut,
           delay: 500.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         ScaleEffect(
           curve: Curves.easeInOut,
           delay: 500.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: Offset(0.0, 0.0),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -142,15 +142,15 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(0, 100),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 100.0),
+          end: Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -185,17 +185,17 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => PaasivuWithPageviewModel());
+    _model = createModel(context, () => PaasivuModel());
 
-    logFirebaseEvent('screen_view', parameters: {'screen_name': 'paasivuWithPageview'});
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'paasivu'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_paasivuWithPagevie');
-      logFirebaseEvent('paasivuWithPageview_set_dark_mode_settin');
+      logFirebaseEvent('PAASIVU_PAGE_paasivu_ON_INIT_STATE');
+      logFirebaseEvent('paasivu_set_dark_mode_settings');
       setDarkModeSetting(context, ThemeMode.light);
-      logFirebaseEvent('paasivuWithPageview_update_app_state');
+      logFirebaseEvent('paasivu_update_app_state');
       FFAppState().sessioChunkListLastItemDateTime = [];
-      logFirebaseEvent('paasivuWithPageview_update_app_state');
+      logFirebaseEvent('paasivu_update_app_state');
       FFAppState().addToSessioChunkListLastItemDateTime(getCurrentTimestamp);
       FFAppState().showAdbanner = getRemoteConfigBool('isEnabled_subscription')
           ? (revenue_cat.activeEntitlementIds.length == 0
@@ -212,6 +212,17 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                 }()
               : false)
           : false;
+      logFirebaseEvent('paasivu_wait__delay');
+      await Future.delayed(const Duration(milliseconds: 600000));
+      if (FFAppState().showAdbanner) {
+        logFirebaseEvent('paasivu_ad_mob');
+
+        admob.loadInterstitialAd(
+          "ca-app-pub-6667798289242281/5165830992",
+          "ca-app-pub-6667798289242281/4227357681",
+          true,
+        );
+      }
     });
 
     if (!isWeb) {
@@ -264,16 +275,16 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
         if (!snapshot.hasData) {
           return Center(
             child: SizedBox(
-              width: 40,
-              height: 40,
+              width: 40.0,
+              height: 40.0,
               child: CircularProgressIndicator(
                 color: FlutterFlowTheme.of(context).primary,
               ),
             ),
           );
         }
-        List<AppConfigRecord> paasivuWithPageviewAppConfigRecordList = snapshot.data!;
-        final paasivuWithPageviewAppConfigRecord = paasivuWithPageviewAppConfigRecordList.isNotEmpty ? paasivuWithPageviewAppConfigRecordList.first : null;
+        List<AppConfigRecord> paasivuAppConfigRecordList = snapshot.data!;
+        final paasivuAppConfigRecord = paasivuAppConfigRecordList.isNotEmpty ? paasivuAppConfigRecordList.first : null;
         return GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Scaffold(
@@ -289,7 +300,7 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                 icon: Icon(
                   Icons.add,
                 ),
-                elevation: 8,
+                elevation: 8.0,
                 label: Text(
                   FFLocalizations.of(context).getText(
                     '858ldjbd' /* Luo treenirutiini */,
@@ -302,7 +313,7 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
               ),
             ),
             drawer: Drawer(
-              elevation: 16,
+              elevation: 16.0,
               child: wrapWithModel(
                 model: _model.sivupalkkiModel,
                 updateCallback: () => setState(() {}),
@@ -320,11 +331,11 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                   if (!snapshot.hasData) {
                     return Center(
                       child: SizedBox(
-                        width: 50,
-                        height: 50,
+                        width: 50.0,
+                        height: 50.0,
                         child: SpinKitCircle(
                           color: FlutterFlowTheme.of(context).primary,
-                          size: 50,
+                          size: 50.0,
                         ),
                       ),
                     );
@@ -333,8 +344,8 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                   return Container(
                     decoration: BoxDecoration(),
                     child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height * 1,
+                      width: MediaQuery.of(context).size.width * 1.0,
+                      height: MediaQuery.of(context).size.height * 1.0,
                       child: Stack(
                         children: [
                           Padding(
@@ -343,8 +354,6 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                               width: double.infinity,
                               height: double.infinity,
                               child: PageView(
-                                // Do not delete following line -->
-                                physics: MyCustomTabViewScrollPhysics(parent: const ScrollPhysics()),
                                 controller: _model.pageViewController ??= PageController(
                                     initialPage: min(
                                         valueOrDefault<int>(
@@ -353,7 +362,7 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                         ),
                                         2)),
                                 onPageChanged: (_) async {
-                                  logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_PageView_1ws0twx1_');
+                                  logFirebaseEvent('PAASIVU_PageView_1ws0twx1_ON_WIDGET_SWIP');
                                   logFirebaseEvent('PageView_custom_action');
                                   await actions.unfocusNode(
                                     context,
@@ -366,6 +375,8 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                   });
                                 },
                                 scrollDirection: Axis.horizontal,
+                                // Do not delete following line -->
+                                physics: MyCustomTabViewScrollPhysics(parent: const ScrollPhysics()),
                                 children: [
                                   Align(
                                     alignment: AlignmentDirectional(0.0, 0.0),
@@ -412,17 +423,17 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                             children: [
                               Material(
                                 color: Colors.transparent,
-                                elevation: 1,
+                                elevation: 1.0,
                                 child: Container(
                                   width: double.infinity,
-                                  height: 54,
+                                  height: 54.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context).primary,
                                     boxShadow: [
                                       BoxShadow(
-                                        blurRadius: 4,
+                                        blurRadius: 4.0,
                                         color: Color(0x33000000),
-                                        offset: Offset(0, 2),
+                                        offset: Offset(0.0, 2.0),
                                       )
                                     ],
                                   ),
@@ -432,12 +443,16 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                       Expanded(
                                         flex: 1,
                                         child: Align(
-                                          alignment: AlignmentDirectional(-1, 0),
+                                          alignment: AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
-                                            padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                            padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                             child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor: Colors.transparent,
                                               onTap: () async {
-                                                logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_Icon_drawer_ON_TAP');
+                                                logFirebaseEvent('PAASIVU_PAGE_Icon_drawer_ON_TAP');
                                                 logFirebaseEvent('Icon_drawer_drawer');
                                                 scaffoldKey.currentState!.openDrawer();
                                                 logFirebaseEvent('Icon_drawer_widget_animation');
@@ -448,7 +463,7 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                               child: Icon(
                                                 Icons.menu_rounded,
                                                 color: FlutterFlowTheme.of(context).secondary,
-                                                size: 28,
+                                                size: 28.0,
                                               ),
                                             ).animateOnActionTrigger(
                                               animationsMap['iconOnActionTriggerAnimation']!,
@@ -459,7 +474,7 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                       Expanded(
                                         flex: 4,
                                         child: Align(
-                                          alignment: AlignmentDirectional(0, 0),
+                                          alignment: AlignmentDirectional(0.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment: MainAxisAlignment.center,
@@ -478,8 +493,12 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                                       ),
                                                     if (containerQueryLatestSessioTreeniSessiotRecordList.length > 0 ? (containerQueryLatestSessioTreeniSessiotRecordList.first.alku == null) : false)
                                                       InkWell(
+                                                        splashColor: Colors.transparent,
+                                                        focusColor: Colors.transparent,
+                                                        hoverColor: Colors.transparent,
+                                                        highlightColor: Colors.transparent,
                                                         onTap: () async {
-                                                          logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_Row_aloitaAjanOtto');
+                                                          logFirebaseEvent('PAASIVU_PAGE_Row_aloitaAjanOtto_ON_TAP');
                                                           logFirebaseEvent('Row_aloitaAjanOtto_backend_call');
 
                                                           final treeniSessiotUpdateData = {
@@ -494,16 +513,16 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                                             Icon(
                                                               Icons.not_started_rounded,
                                                               color: FlutterFlowTheme.of(context).secondary,
-                                                              size: 30,
+                                                              size: 30.0,
                                                             ),
                                                             Padding(
-                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                                                               child: Column(
                                                                 mainAxisSize: MainAxisSize.max,
                                                                 mainAxisAlignment: MainAxisAlignment.center,
                                                                 children: [
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional.fromSTEB(2, 0, 0, 0),
+                                                                    padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 0.0),
                                                                     child: Text(
                                                                       FFLocalizations.of(context).getText(
                                                                         'akpw7eif' /* Aloita treeni */,
@@ -511,7 +530,7 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                             fontFamily: 'Roboto',
                                                                             color: FlutterFlowTheme.of(context).secondary,
-                                                                            fontSize: 14,
+                                                                            fontSize: 14.0,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -526,7 +545,7 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                               if (FFAppState().navBarIndex != 1)
                                                 Expanded(
                                                   child: Align(
-                                                    alignment: AlignmentDirectional(0, 0),
+                                                    alignment: AlignmentDirectional(0.0, 0.0),
                                                     child: AuthUserStreamWidget(
                                                       builder: (context) => Autocomplete<String>(
                                                         initialValue: TextEditingValue(text: FFAppState().searchbarText),
@@ -551,10 +570,10 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                                                   fontWeight: FontWeight.normal,
                                                                 ),
                                                             textHighlightStyle: TextStyle(),
-                                                            elevation: 4,
+                                                            elevation: 4.0,
                                                             optionBackgroundColor: FlutterFlowTheme.of(context).primary,
                                                             optionHighlightColor: FlutterFlowTheme.of(context).secondaryText,
-                                                            maxHeight: 300,
+                                                            maxHeight: 300.0,
                                                           );
                                                         },
                                                         onSelected: (String selection) {
@@ -577,7 +596,7 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                                               '_model.textFieldSeachBarController',
                                                               Duration(milliseconds: 2000),
                                                               () async {
-                                                                logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_TextField_seachBar');
+                                                                logFirebaseEvent('PAASIVU_TextField_seachBar_ON_TEXTFIELD_');
                                                                 logFirebaseEvent('TextField_seachBar_update_app_state');
                                                                 setState(() {
                                                                   FFAppState().searchbarText = _model.textFieldSeachBarController.text;
@@ -610,47 +629,47 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                                               hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
                                                                     fontFamily: 'Roboto',
                                                                     color: Color(0x81FFFFFF),
-                                                                    fontSize: 16,
+                                                                    fontSize: 16.0,
                                                                   ),
                                                               enabledBorder: UnderlineInputBorder(
                                                                 borderSide: BorderSide(
                                                                   color: Color(0x00000000),
-                                                                  width: 1,
+                                                                  width: 1.0,
                                                                 ),
-                                                                borderRadius: BorderRadius.circular(8),
+                                                                borderRadius: BorderRadius.circular(8.0),
                                                               ),
                                                               focusedBorder: UnderlineInputBorder(
                                                                 borderSide: BorderSide(
                                                                   color: Color(0x00000000),
-                                                                  width: 1,
+                                                                  width: 1.0,
                                                                 ),
-                                                                borderRadius: BorderRadius.circular(8),
+                                                                borderRadius: BorderRadius.circular(8.0),
                                                               ),
                                                               errorBorder: UnderlineInputBorder(
                                                                 borderSide: BorderSide(
                                                                   color: Color(0x00000000),
-                                                                  width: 1,
+                                                                  width: 1.0,
                                                                 ),
-                                                                borderRadius: BorderRadius.circular(8),
+                                                                borderRadius: BorderRadius.circular(8.0),
                                                               ),
                                                               focusedErrorBorder: UnderlineInputBorder(
                                                                 borderSide: BorderSide(
                                                                   color: Color(0x00000000),
-                                                                  width: 1,
+                                                                  width: 1.0,
                                                                 ),
-                                                                borderRadius: BorderRadius.circular(8),
+                                                                borderRadius: BorderRadius.circular(8.0),
                                                               ),
-                                                              contentPadding: EdgeInsetsDirectional.fromSTEB(13, 13, 13, 13),
+                                                              contentPadding: EdgeInsetsDirectional.fromSTEB(13.0, 13.0, 13.0, 13.0),
                                                               prefixIcon: Icon(
                                                                 Icons.search_rounded,
                                                                 color: FlutterFlowTheme.of(context).secondary,
-                                                                size: 24,
+                                                                size: 24.0,
                                                               ),
                                                               suffixIcon: _model.textFieldSeachBarController!.text.isNotEmpty
                                                                   ? InkWell(
                                                                       onTap: () async {
                                                                         _model.textFieldSeachBarController?.clear();
-                                                                        logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_TextField_seachBar');
+                                                                        logFirebaseEvent('PAASIVU_TextField_seachBar_ON_TEXTFIELD_');
                                                                         logFirebaseEvent('TextField_seachBar_update_app_state');
                                                                         setState(() {
                                                                           FFAppState().searchbarText = _model.textFieldSeachBarController.text;
@@ -660,7 +679,7 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                                                       child: Icon(
                                                                         Icons.clear,
                                                                         color: FFAppState().searchbarText != null && FFAppState().searchbarText != '' ? FlutterFlowTheme.of(context).secondary : Colors.transparent,
-                                                                        size: 24,
+                                                                        size: 24.0,
                                                                       ),
                                                                     )
                                                                   : null,
@@ -685,7 +704,7 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                         Expanded(
                                           flex: 1,
                                           child: Padding(
-                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 4, 0),
+                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.min,
                                               mainAxisAlignment: MainAxisAlignment.center,
@@ -704,8 +723,12 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                                       )
                                                     : false)
                                                   InkWell(
+                                                    splashColor: Colors.transparent,
+                                                    focusColor: Colors.transparent,
+                                                    hoverColor: Colors.transparent,
+                                                    highlightColor: Colors.transparent,
                                                     onTap: () async {
-                                                      logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_Row_lopetaTreeni_O');
+                                                      logFirebaseEvent('PAASIVU_PAGE_Row_lopetaTreeni_ON_TAP');
                                                       logFirebaseEvent('Row_lopetaTreeni_backend_call');
 
                                                       final treeniSessiotUpdateData = {
@@ -719,11 +742,20 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                                         'treeniaYhteensa': FieldValue.increment(1),
                                                       };
                                                       await currentUserReference!.update(usersUpdateData);
+                                                      if (functions.doubleDurationInSecondsFromStarAndEnd(containerQueryLatestSessioTreeniSessiotRecordList.first.alku, getCurrentTimestamp) > 20.0) {
+                                                        if (FFAppState().showAdbanner) {
+                                                          logFirebaseEvent('Row_lopetaTreeni_ad_mob');
+
+                                                          _model.interstitialAdSuccess = await admob.showInterstitialAd();
+                                                        }
+                                                      }
                                                       logFirebaseEvent('Row_lopetaTreeni_update_app_state');
                                                       setState(() {
                                                         FFAppState().navBarIndex = 2;
                                                         FFAppState().modiedNavbarIndexTime = getCurrentTimestamp;
                                                       });
+
+                                                      setState(() {});
                                                     },
                                                     child: Row(
                                                       mainAxisSize: MainAxisSize.max,
@@ -738,10 +770,10 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                                               Icon(
                                                                 Icons.stop_circle_rounded,
                                                                 color: FlutterFlowTheme.of(context).deleteRed,
-                                                                size: 30,
+                                                                size: 30.0,
                                                               ),
                                                               Padding(
-                                                                padding: EdgeInsetsDirectional.fromSTEB(2, 0, 0, 0),
+                                                                padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 0.0),
                                                                 child: Text(
                                                                   FFLocalizations.of(context).getText(
                                                                     '0pd3kqsz' /* Lopeta */,
@@ -750,7 +782,7 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                         fontFamily: 'Roboto',
                                                                         color: FlutterFlowTheme.of(context).secondary,
-                                                                        fontSize: 12,
+                                                                        fontSize: 12.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -781,46 +813,50 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                             tabletLandscape: false,
                           ))
                             Align(
-                              alignment: AlignmentDirectional(0, 1),
+                              alignment: AlignmentDirectional(0.0, 1.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   if (!((isWeb ? MediaQuery.of(context).viewInsets.bottom > 0 : _isKeyboardVisible) || (MediaQuery.of(context).size.height <= 450.0)))
                                     Align(
-                                      alignment: AlignmentDirectional(0, 1),
+                                      alignment: AlignmentDirectional(0.0, 1.0),
                                       child: Container(
-                                        width: MediaQuery.of(context).size.width,
-                                        height: 76,
+                                        width: MediaQuery.of(context).size.width * 1.0,
+                                        height: 76.0,
                                         constraints: BoxConstraints(
-                                          maxWidth: 1000,
-                                          maxHeight: 200,
+                                          maxWidth: 1000.0,
+                                          maxHeight: 200.0,
                                         ),
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context).primary,
                                           boxShadow: [
                                             BoxShadow(
-                                              blurRadius: 5,
+                                              blurRadius: 5.0,
                                               color: Color(0x33000000),
-                                              offset: Offset(0, 5),
-                                              spreadRadius: 2,
+                                              offset: Offset(0.0, 5.0),
+                                              spreadRadius: 2.0,
                                             )
                                           ],
                                           borderRadius: BorderRadius.only(
-                                            bottomLeft: Radius.circular(0),
-                                            bottomRight: Radius.circular(0),
-                                            topLeft: Radius.circular(12),
-                                            topRight: Radius.circular(12),
+                                            bottomLeft: Radius.circular(0.0),
+                                            bottomRight: Radius.circular(0.0),
+                                            topLeft: Radius.circular(12.0),
+                                            topRight: Radius.circular(12.0),
                                           ),
                                         ),
                                         child: Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+                                          padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                             children: [
                                               InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor: Colors.transparent,
                                                 onTap: () async {
-                                                  logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_Container_xsfpwyl4');
+                                                  logFirebaseEvent('PAASIVU_PAGE_Container_xsfpwyl4_ON_TAP');
                                                   logFirebaseEvent('Container_widget_animation');
                                                   if (animationsMap['containerOnActionTriggerAnimation1'] != null) {
                                                     animationsMap['containerOnActionTriggerAnimation1']!.controller.forward(from: 0.0).whenComplete(animationsMap['containerOnActionTriggerAnimation1']!.controller.reverse);
@@ -832,10 +868,10 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                                   });
                                                 },
                                                 child: Container(
-                                                  width: 100,
+                                                  width: 100.0,
                                                   decoration: BoxDecoration(
                                                     color: FFAppState().navBarIndex == 0 ? FlutterFlowTheme.of(context).tertiary : Color(0x00000000),
-                                                    borderRadius: BorderRadius.circular(8),
+                                                    borderRadius: BorderRadius.circular(8.0),
                                                   ),
                                                   child: Column(
                                                     mainAxisSize: MainAxisSize.max,
@@ -844,7 +880,7 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                                       Icon(
                                                         Icons.featured_play_list_rounded,
                                                         color: FlutterFlowTheme.of(context).secondary,
-                                                        size: 30,
+                                                        size: 30.0,
                                                       ),
                                                       RichText(
                                                         text: TextSpan(
@@ -869,16 +905,20 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                                 animationsMap['containerOnActionTriggerAnimation1']!,
                                               ),
                                               wrapWithModel(
-                                                model: _model.nvabarWorkoutButtonModel,
+                                                model: _model.navbarWorkoutButtonModel,
                                                 updateCallback: () => setState(() {}),
                                                 updateOnChange: true,
-                                                child: NvabarWorkoutButtonWidget(
+                                                child: NavbarWorkoutButtonWidget(
                                                   activeTreenisessions: containerQueryLatestSessioTreeniSessiotRecordList.toList(),
                                                 ),
                                               ),
                                               InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor: Colors.transparent,
                                                 onTap: () async {
-                                                  logFirebaseEvent('PAASIVU_WITH_PAGEVIEW_Container_101u927u');
+                                                  logFirebaseEvent('PAASIVU_PAGE_Container_101u927u_ON_TAP');
                                                   logFirebaseEvent('Container_widget_animation');
                                                   if (animationsMap['containerOnActionTriggerAnimation2'] != null) {
                                                     animationsMap['containerOnActionTriggerAnimation2']!.controller.forward(from: 0.0).whenComplete(animationsMap['containerOnActionTriggerAnimation2']!.controller.reverse);
@@ -890,10 +930,10 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                                   });
                                                 },
                                                 child: Container(
-                                                  width: 100,
+                                                  width: 100.0,
                                                   decoration: BoxDecoration(
                                                     color: FFAppState().navBarIndex == 2 ? FlutterFlowTheme.of(context).tertiary : Color(0x00000000),
-                                                    borderRadius: BorderRadius.circular(8),
+                                                    borderRadius: BorderRadius.circular(8.0),
                                                   ),
                                                   child: Column(
                                                     mainAxisSize: MainAxisSize.max,
@@ -902,7 +942,7 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget> w
                                                       Icon(
                                                         Icons.history_toggle_off_rounded,
                                                         color: FlutterFlowTheme.of(context).secondary,
-                                                        size: 30,
+                                                        size: 30.0,
                                                       ),
                                                       RichText(
                                                         text: TextSpan(
