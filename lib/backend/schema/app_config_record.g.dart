@@ -91,6 +91,13 @@ class _$AppConfigRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.navbarWorkoutbuttonLottieAnimationUrl;
+    if (value != null) {
+      result
+        ..add('navbar_workoutbutton_lottieAnimationUrl')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -156,6 +163,11 @@ class _$AppConfigRecordSerializer
           result.privacyPolicyUrl = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'navbar_workoutbutton_lottieAnimationUrl':
+          result.navbarWorkoutbuttonLottieAnimationUrl = serializers
+                  .deserialize(value, specifiedType: const FullType(String))
+              as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -191,6 +203,8 @@ class _$AppConfigRecord extends AppConfigRecord {
   @override
   final String? privacyPolicyUrl;
   @override
+  final String? navbarWorkoutbuttonLottieAnimationUrl;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$AppConfigRecord([void Function(AppConfigRecordBuilder)? updates]) =>
@@ -207,6 +221,7 @@ class _$AppConfigRecord extends AppConfigRecord {
       this.showAdsOnAllPlatforms,
       this.developersList,
       this.privacyPolicyUrl,
+      this.navbarWorkoutbuttonLottieAnimationUrl,
       this.ffRef})
       : super._();
 
@@ -232,6 +247,8 @@ class _$AppConfigRecord extends AppConfigRecord {
         showAdsOnAllPlatforms == other.showAdsOnAllPlatforms &&
         developersList == other.developersList &&
         privacyPolicyUrl == other.privacyPolicyUrl &&
+        navbarWorkoutbuttonLottieAnimationUrl ==
+            other.navbarWorkoutbuttonLottieAnimationUrl &&
         ffRef == other.ffRef;
   }
 
@@ -248,6 +265,7 @@ class _$AppConfigRecord extends AppConfigRecord {
     _$hash = $jc(_$hash, showAdsOnAllPlatforms.hashCode);
     _$hash = $jc(_$hash, developersList.hashCode);
     _$hash = $jc(_$hash, privacyPolicyUrl.hashCode);
+    _$hash = $jc(_$hash, navbarWorkoutbuttonLottieAnimationUrl.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -266,6 +284,8 @@ class _$AppConfigRecord extends AppConfigRecord {
           ..add('showAdsOnAllPlatforms', showAdsOnAllPlatforms)
           ..add('developersList', developersList)
           ..add('privacyPolicyUrl', privacyPolicyUrl)
+          ..add('navbarWorkoutbuttonLottieAnimationUrl',
+              navbarWorkoutbuttonLottieAnimationUrl)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -325,6 +345,14 @@ class AppConfigRecordBuilder
   set privacyPolicyUrl(String? privacyPolicyUrl) =>
       _$this._privacyPolicyUrl = privacyPolicyUrl;
 
+  String? _navbarWorkoutbuttonLottieAnimationUrl;
+  String? get navbarWorkoutbuttonLottieAnimationUrl =>
+      _$this._navbarWorkoutbuttonLottieAnimationUrl;
+  set navbarWorkoutbuttonLottieAnimationUrl(
+          String? navbarWorkoutbuttonLottieAnimationUrl) =>
+      _$this._navbarWorkoutbuttonLottieAnimationUrl =
+          navbarWorkoutbuttonLottieAnimationUrl;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -346,6 +374,8 @@ class AppConfigRecordBuilder
       _showAdsOnAllPlatforms = $v.showAdsOnAllPlatforms;
       _developersList = $v.developersList;
       _privacyPolicyUrl = $v.privacyPolicyUrl;
+      _navbarWorkoutbuttonLottieAnimationUrl =
+          $v.navbarWorkoutbuttonLottieAnimationUrl;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -379,6 +409,8 @@ class AppConfigRecordBuilder
             showAdsOnAllPlatforms: showAdsOnAllPlatforms,
             developersList: developersList,
             privacyPolicyUrl: privacyPolicyUrl,
+            navbarWorkoutbuttonLottieAnimationUrl:
+                navbarWorkoutbuttonLottieAnimationUrl,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

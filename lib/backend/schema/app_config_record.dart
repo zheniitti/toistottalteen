@@ -37,6 +37,9 @@ abstract class AppConfigRecord
 
   String? get privacyPolicyUrl;
 
+  @BuiltValueField(wireName: 'navbar_workoutbutton_lottieAnimationUrl')
+  String? get navbarWorkoutbuttonLottieAnimationUrl;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -50,7 +53,8 @@ abstract class AppConfigRecord
     ..showInterstitialAdIos = false
     ..showInterstitialAdWeb = false
     ..showAdsOnAllPlatforms = false
-    ..privacyPolicyUrl = '';
+    ..privacyPolicyUrl = ''
+    ..navbarWorkoutbuttonLottieAnimationUrl = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('appConfig');
@@ -84,6 +88,7 @@ Map<String, dynamic> createAppConfigRecordData({
   bool? showAdsOnAllPlatforms,
   DocumentReference? developersList,
   String? privacyPolicyUrl,
+  String? navbarWorkoutbuttonLottieAnimationUrl,
 }) {
   final firestoreData = serializers.toFirestore(
     AppConfigRecord.serializer,
@@ -98,7 +103,9 @@ Map<String, dynamic> createAppConfigRecordData({
         ..showInterstitialAdWeb = showInterstitialAdWeb
         ..showAdsOnAllPlatforms = showAdsOnAllPlatforms
         ..developersList = developersList
-        ..privacyPolicyUrl = privacyPolicyUrl,
+        ..privacyPolicyUrl = privacyPolicyUrl
+        ..navbarWorkoutbuttonLottieAnimationUrl =
+            navbarWorkoutbuttonLottieAnimationUrl,
     ),
   );
 
