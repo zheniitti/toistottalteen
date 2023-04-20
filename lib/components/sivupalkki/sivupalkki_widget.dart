@@ -78,7 +78,8 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 22.0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 22.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -90,17 +91,20 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                               borderRadius: BorderRadius.circular(12.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  12.0, 12.0, 12.0, 12.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  if (currentUserEmail != null && currentUserEmail != '')
+                                  if (currentUserEmail != null &&
+                                      currentUserEmail != '')
                                     Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 6.0),
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 6.0, 0.0, 6.0),
                                         child: Container(
                                           width: double.infinity,
                                           color: Color(0x00000000),
@@ -111,24 +115,40 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Padding(
-                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 22.0, 0.0),
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                22.0, 0.0),
                                                     child: Icon(
                                                       Icons.person_rounded,
-                                                      color: FlutterFlowTheme.of(context).secondary,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondary,
                                                       size: 30.0,
                                                     ),
                                                   ),
                                                   Expanded(
                                                     child: Align(
-                                                      alignment: AlignmentDirectional(-1.0, 0.0),
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              -1.0, 0.0),
                                                       child: SelectionArea(
                                                           child: AutoSizeText(
                                                         currentUserEmail,
-                                                        textAlign: TextAlign.start,
-                                                        style: FlutterFlowTheme.of(context).titleSmall.override(
-                                                              fontFamily: 'Roboto',
-                                                              color: FlutterFlowTheme.of(context).secondary,
-                                                            ),
+                                                        textAlign:
+                                                            TextAlign.start,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                ),
                                                       )),
                                                     ),
                                                   ),
@@ -137,10 +157,15 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                               collapsed: Visibility(
                                                 visible: false,
                                                 child: Container(
-                                                  width: MediaQuery.of(context).size.width * 1.0,
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      1.0,
                                                   height: 0.0,
                                                   decoration: BoxDecoration(),
-                                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
                                                 ),
                                               ),
                                               expanded: Column(
@@ -148,25 +173,45 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                                 children: [
                                                   InkWell(
                                                     onTap: () async {
-                                                      logFirebaseEvent('SIVUPALKKI_COMP_RichText_6ycy9n8r_ON_TAP');
-                                                      logFirebaseEvent('RichText_copy_to_clipboard');
-                                                      await Clipboard.setData(ClipboardData(text: currentUserReference!.id));
-                                                      logFirebaseEvent('RichText_close_dialog,_drawer,_etc');
+                                                      logFirebaseEvent(
+                                                          'SIVUPALKKI_COMP_RichText_6ycy9n8r_ON_TAP');
+                                                      logFirebaseEvent(
+                                                          'RichText_copy_to_clipboard');
+                                                      await Clipboard.setData(
+                                                          ClipboardData(
+                                                              text:
+                                                                  currentUserReference!
+                                                                      .id));
+                                                      logFirebaseEvent(
+                                                          'RichText_close_dialog,_drawer,_etc');
                                                       Navigator.pop(context);
-                                                      logFirebaseEvent('RichText_show_snack_bar');
-                                                      ScaffoldMessenger.of(context).showSnackBar(
+                                                      logFirebaseEvent(
+                                                          'RichText_show_snack_bar');
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
                                                         SnackBar(
                                                           content: Text(
-                                                            FFLocalizations.of(context).getVariableText(
-                                                              fiText: 'Kopioitu!',
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getVariableText(
+                                                              fiText:
+                                                                  'Kopioitu!',
                                                               enText: 'Kopied!',
                                                             ),
                                                             style: TextStyle(
-                                                              color: FlutterFlowTheme.of(context).primaryText,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryText,
                                                             ),
                                                           ),
-                                                          duration: Duration(milliseconds: 4000),
-                                                          backgroundColor: FlutterFlowTheme.of(context).success,
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  4000),
+                                                          backgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .success,
                                                         ),
                                                       );
                                                     },
@@ -176,17 +221,26 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                                           TextSpan(
                                                             text: 'UID:  ',
                                                             style: TextStyle(
-                                                              color: FlutterFlowTheme.of(context).tertiary,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .tertiary,
                                                             ),
                                                           ),
                                                           TextSpan(
-                                                            text: currentUserReference!.id,
+                                                            text:
+                                                                currentUserReference!
+                                                                    .id,
                                                             style: TextStyle(
-                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondary,
                                                             ),
                                                           )
                                                         ],
-                                                        style: FlutterFlowTheme.of(context).bodyMedium,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
                                                       ),
                                                     ),
                                                   ),
@@ -196,7 +250,9 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                                 tapHeaderToExpand: true,
                                                 tapBodyToExpand: false,
                                                 tapBodyToCollapse: false,
-                                                headerAlignment: ExpandablePanelHeaderAlignment.center,
+                                                headerAlignment:
+                                                    ExpandablePanelHeaderAlignment
+                                                        .center,
                                                 hasIcon: true,
                                               ),
                                             ),
@@ -204,14 +260,24 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                         ),
                                       ),
                                     ),
-                                  if (valueOrDefault<bool>(currentUserDocument?.isAnonymous, false) ? ((currentUserEmail == null || currentUserEmail == '') && (currentPhoneNumber == null || currentPhoneNumber == '')) : false)
+                                  if (valueOrDefault<bool>(
+                                          currentUserDocument?.isAnonymous,
+                                          false)
+                                      ? ((currentUserEmail == null ||
+                                              currentUserEmail == '') &&
+                                          (currentPhoneNumber == null ||
+                                              currentPhoneNumber == ''))
+                                      : false)
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 16.0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 16.0, 0.0, 16.0),
                                       child: AuthUserStreamWidget(
                                         builder: (context) => InkWell(
                                           onTap: () async {
-                                            logFirebaseEvent('SIVUPALKKI_COMP_Row_48iupzve_ON_TAP');
-                                            logFirebaseEvent('Row_close_dialog,_drawer,_etc');
+                                            logFirebaseEvent(
+                                                'SIVUPALKKI_COMP_Row_48iupzve_ON_TAP');
+                                            logFirebaseEvent(
+                                                'Row_close_dialog,_drawer,_etc');
                                             Navigator.pop(context);
                                             logFirebaseEvent('Row_navigate_to');
 
@@ -229,22 +295,34 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 22.0, 0.0),
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 22.0, 0.0),
                                                 child: Icon(
                                                   Icons.person_rounded,
-                                                  color: FlutterFlowTheme.of(context).secondary,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondary,
                                                   size: 30.0,
                                                 ),
                                               ),
                                               Align(
-                                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                                alignment: AlignmentDirectional(
+                                                    -1.0, 0.0),
                                                 child: Text(
-                                                  FFLocalizations.of(context).getText(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
                                                     'ku53fmbs' /* Luo tili tai kirjaudu */,
                                                   ),
-                                                  style: FlutterFlowTheme.of(context).titleSmall.override(
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .titleSmall
+                                                      .override(
                                                         fontFamily: 'Roboto',
-                                                        color: FlutterFlowTheme.of(context).secondary,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
                                                       ),
                                                 ),
                                               ),
@@ -253,22 +331,23 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                         ),
                                       ),
                                     ),
-                                  if (responsiveVisibility(
-                                    context: context,
-                                    phone: false,
-                                    desktop: false,
-                                  ))
+                                  if (false)
                                     Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 8.0),
                                           child: InkWell(
                                             onTap: () async {
-                                              logFirebaseEvent('SIVUPALKKI_COMP_Row_2iowzp08_ON_TAP');
-                                              logFirebaseEvent('Row_close_dialog,_drawer,_etc');
+                                              logFirebaseEvent(
+                                                  'SIVUPALKKI_COMP_Row_2iowzp08_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'Row_close_dialog,_drawer,_etc');
                                               Navigator.pop(context);
-                                              logFirebaseEvent('Row_update_app_state');
+                                              logFirebaseEvent(
+                                                  'Row_update_app_state');
                                               FFAppState().update(() {
                                                 FFAppState().navBarIndex = 0;
                                               });
@@ -277,33 +356,52 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 22.0, 0.0),
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 22.0, 0.0),
                                                   child: Icon(
                                                     Icons.sticky_note_2,
-                                                    color: FlutterFlowTheme.of(context).secondary,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondary,
                                                     size: 30.0,
                                                   ),
                                                 ),
                                                 Align(
-                                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          -1.0, 0.0),
                                                   child: InkWell(
                                                     onTap: () async {
-                                                      logFirebaseEvent('SIVUPALKKI_Text_treenirutiinit_ON_TAP');
-                                                      logFirebaseEvent('Text_treenirutiinit_close_dialog,_drawer');
+                                                      logFirebaseEvent(
+                                                          'SIVUPALKKI_Text_treenirutiinit_ON_TAP');
+                                                      logFirebaseEvent(
+                                                          'Text_treenirutiinit_close_dialog,_drawer');
                                                       Navigator.pop(context);
-                                                      logFirebaseEvent('Text_treenirutiinit_update_app_state');
+                                                      logFirebaseEvent(
+                                                          'Text_treenirutiinit_update_app_state');
                                                       FFAppState().update(() {
-                                                        FFAppState().navBarIndex = 0;
+                                                        FFAppState()
+                                                            .navBarIndex = 0;
                                                       });
                                                     },
                                                     child: Text(
-                                                      FFLocalizations.of(context).getText(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
                                                         'tmzzbmg6' /* Treenirutiinit */,
                                                       ),
-                                                      style: FlutterFlowTheme.of(context).titleSmall.override(
-                                                            fontFamily: 'Roboto',
-                                                            color: FlutterFlowTheme.of(context).secondary,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondary,
+                                                              ),
                                                     ),
                                                   ),
                                                 ),
@@ -312,47 +410,70 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 8.0),
                                           child: InkWell(
                                             onTap: () async {
-                                              logFirebaseEvent('SIVUPALKKI_COMP_Row_c295vkmc_ON_TAP');
-                                              logFirebaseEvent('Row_close_dialog,_drawer,_etc');
+                                              logFirebaseEvent(
+                                                  'SIVUPALKKI_COMP_Row_c295vkmc_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'Row_close_dialog,_drawer,_etc');
                                               Navigator.pop(context);
-                                              logFirebaseEvent('Row_update_app_state');
+                                              logFirebaseEvent(
+                                                  'Row_update_app_state');
                                               setState(() {
                                                 FFAppState().navBarIndex = 1;
-                                                FFAppState().showTreenaaTaiLuoRutiiniSivu = true;
+                                                FFAppState()
+                                                        .showTreenaaTaiLuoRutiiniSivu =
+                                                    true;
                                               });
                                             },
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 22.0, 0.0),
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 22.0, 0.0),
                                                   child: Icon(
-                                                    Icons.accessibility_new_rounded,
-                                                    color: FlutterFlowTheme.of(context).secondary,
+                                                    Icons
+                                                        .accessibility_new_rounded,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondary,
                                                     size: 30.0,
                                                   ),
                                                 ),
                                                 Expanded(
                                                   child: Align(
-                                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            -1.0, 0.0),
                                                     child: RichText(
                                                       text: TextSpan(
                                                         children: [
                                                           TextSpan(
-                                                            text: FFLocalizations.of(context).getVariableText(
+                                                            text: FFLocalizations
+                                                                    .of(context)
+                                                                .getVariableText(
                                                               fiText: 'Treenaa',
                                                               enText: 'Workout',
                                                             ),
                                                             style: TextStyle(),
                                                           )
                                                         ],
-                                                        style: FlutterFlowTheme.of(context).titleSmall.override(
-                                                              fontFamily: 'Roboto',
-                                                              color: FlutterFlowTheme.of(context).secondary,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                ),
                                                       ),
                                                     ),
                                                   ),
@@ -362,27 +483,41 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                           ),
                                         ),
                                         Padding(
-                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 8.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 22.0, 0.0),
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 22.0, 0.0),
                                                 child: Icon(
                                                   Icons.event_note_rounded,
-                                                  color: FlutterFlowTheme.of(context).secondary,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondary,
                                                   size: 30.0,
                                                 ),
                                               ),
                                               Align(
-                                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                                alignment: AlignmentDirectional(
+                                                    -1.0, 0.0),
                                                 child: Text(
-                                                  FFLocalizations.of(context).getText(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
                                                     'kmmmsdb7' /* Treenihistoria */,
                                                   ),
-                                                  style: FlutterFlowTheme.of(context).titleSmall.override(
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .titleSmall
+                                                      .override(
                                                         fontFamily: 'Roboto',
-                                                        color: FlutterFlowTheme.of(context).secondary,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
                                                       ),
                                                 ),
                                               ),
@@ -391,12 +526,15 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                         ),
                                       ],
                                     ),
-                                  if (getRemoteConfigBool('isEnabled_statisticsPage'))
+                                  if (getRemoteConfigBool(
+                                      'isEnabled_statisticsPage'))
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 16.0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 16.0, 0.0, 16.0),
                                       child: InkWell(
                                         onTap: () async {
-                                          logFirebaseEvent('SIVUPALKKI_COMP_Row_95lguv3f_ON_TAP');
+                                          logFirebaseEvent(
+                                              'SIVUPALKKI_COMP_Row_95lguv3f_ON_TAP');
                                           logFirebaseEvent('Row_navigate_to');
 
                                           context.pushNamed('tilastot_sivu');
@@ -405,23 +543,34 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 22.0, 0.0),
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 22.0, 0.0),
                                               child: Icon(
                                                 Icons.insert_chart_rounded,
-                                                color: FlutterFlowTheme.of(context).secondary,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
                                                 size: 30.0,
                                               ),
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(-1.0, 0.0),
+                                              alignment: AlignmentDirectional(
+                                                  -1.0, 0.0),
                                               child: Text(
-                                                FFLocalizations.of(context).getText(
+                                                FFLocalizations.of(context)
+                                                    .getText(
                                                   'e4qtfwaz' /* Treenitilastot */,
                                                 ),
-                                                style: FlutterFlowTheme.of(context).titleSmall.override(
-                                                      fontFamily: 'Roboto',
-                                                      color: FlutterFlowTheme.of(context).secondary,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondary,
+                                                        ),
                                               ),
                                             ),
                                           ],
@@ -430,10 +579,12 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                     ),
                                   if (getRemoteConfigBool('isEnabled_subscription') && revenue_cat.offerings != null /* do not remove revenue cat */)
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 16.0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 16.0, 0.0, 16.0),
                                       child: InkWell(
                                         onTap: () async {
-                                          logFirebaseEvent('SIVUPALKKI_COMP_Row_rnd97pam_ON_TAP');
+                                          logFirebaseEvent(
+                                              'SIVUPALKKI_COMP_Row_rnd97pam_ON_TAP');
                                           logFirebaseEvent('Row_bottom_sheet');
                                           await showModalBottomSheet(
                                             isScrollControlled: true,
@@ -441,8 +592,11 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                             context: context,
                                             builder: (bottomSheetContext) {
                                               return Padding(
-                                                padding: MediaQuery.of(bottomSheetContext).viewInsets,
-                                                child: RevenueCatSubsriptionPaywallWidget(),
+                                                padding: MediaQuery.of(
+                                                        bottomSheetContext)
+                                                    .viewInsets,
+                                                child:
+                                                    RevenueCatSubsriptionPaywallWidget(),
                                               );
                                             },
                                           ).then((value) => setState(() {}));
@@ -451,35 +605,49 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 22.0, 0.0),
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 22.0, 0.0),
                                               child: Icon(
                                                 Icons.auto_awesome,
-                                                color: FlutterFlowTheme.of(context).secondary,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
                                                 size: 30.0,
                                               ),
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(-1.0, 0.0),
+                                              alignment: AlignmentDirectional(
+                                                  -1.0, 0.0),
                                               child: Text(
-                                                FFLocalizations.of(context).getText(
+                                                FFLocalizations.of(context)
+                                                    .getText(
                                                   'uvhkl89u' /* Lahjoita ja tue */,
                                                 ),
-                                                style: FlutterFlowTheme.of(context).titleSmall.override(
-                                                      fontFamily: 'Roboto',
-                                                      color: FlutterFlowTheme.of(context).secondary,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondary,
+                                                        ),
                                               ),
                                             ),
                                           ],
                                         ),
                                       ),
                                     ),
-                                  if (getRemoteConfigBool('showSendFeedabkPage'))
+                                  if (getRemoteConfigBool(
+                                      'showSendFeedabkPage'))
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 8.0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 16.0, 0.0, 8.0),
                                       child: InkWell(
                                         onTap: () async {
-                                          logFirebaseEvent('SIVUPALKKI_COMP_Row_ybqd0d9j_ON_TAP');
+                                          logFirebaseEvent(
+                                              'SIVUPALKKI_COMP_Row_ybqd0d9j_ON_TAP');
                                           logFirebaseEvent('Row_navigate_to');
 
                                           context.pushNamed('FeedbackPage');
@@ -488,23 +656,34 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 22.0, 0.0),
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 22.0, 0.0),
                                               child: Icon(
                                                 Icons.chat_bubble_outlined,
-                                                color: FlutterFlowTheme.of(context).secondary,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
                                                 size: 30.0,
                                               ),
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(-1.0, 0.0),
+                                              alignment: AlignmentDirectional(
+                                                  -1.0, 0.0),
                                               child: Text(
-                                                FFLocalizations.of(context).getText(
+                                                FFLocalizations.of(context)
+                                                    .getText(
                                                   'mu0qny93' /* Lähetä palaute */,
                                                 ),
-                                                style: FlutterFlowTheme.of(context).titleSmall.override(
-                                                      fontFamily: 'Roboto',
-                                                      color: FlutterFlowTheme.of(context).secondary,
-                                                    ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondary,
+                                                        ),
                                               ),
                                             ),
                                           ],
@@ -526,26 +705,32 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          16.0, 16.0, 16.0, 16.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 8.0),
                             child: FlutterFlowLanguageSelector(
                               width: MediaQuery.of(context).size.width * 1.0,
                               height: 40.0,
-                              backgroundColor: FlutterFlowTheme.of(context).secondary,
+                              backgroundColor:
+                                  FlutterFlowTheme.of(context).secondary,
                               borderColor: Colors.transparent,
                               borderRadius: 8.0,
-                              textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                              textStyle:
+                                  FlutterFlowTheme.of(context).bodyMedium,
                               hideFlags: false,
                               flagSize: 24.0,
                               flagTextGap: 8.0,
-                              currentLanguage: FFLocalizations.of(context).languageCode,
+                              currentLanguage:
+                                  FFLocalizations.of(context).languageCode,
                               languages: FFLocalizations.languages(),
-                              onChanged: (lang) => setAppLanguage(context, lang),
+                              onChanged: (lang) =>
+                                  setAppLanguage(context, lang),
                             ),
                           ),
                           Divider(
@@ -554,10 +739,12 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                           ),
                           if (false)
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 8.0, 0.0, 8.0),
                               child: InkWell(
                                 onTap: () async {
-                                  logFirebaseEvent('SIVUPALKKI_COMP_Row_vh1jhxe6_ON_TAP');
+                                  logFirebaseEvent(
+                                      'SIVUPALKKI_COMP_Row_vh1jhxe6_ON_TAP');
                                   logFirebaseEvent('Row_navigate_to');
 
                                   context.pushNamed('FeedbackPage');
@@ -566,22 +753,29 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 22.0, 0.0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 22.0, 0.0),
                                       child: Icon(
                                         Icons.chat_bubble_outlined,
-                                        color: FlutterFlowTheme.of(context).secondary,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
                                         size: 30.0,
                                       ),
                                     ),
                                     Align(
-                                      alignment: AlignmentDirectional(-1.0, 0.0),
+                                      alignment:
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
                                           'ornov325' /* Tietoa sovelluksesta */,
                                         ),
-                                        style: FlutterFlowTheme.of(context).titleSmall.override(
+                                        style: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
                                               fontFamily: 'Roboto',
-                                              color: FlutterFlowTheme.of(context).secondary,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondary,
                                             ),
                                       ),
                                     ),
@@ -590,10 +784,12 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                               ),
                             ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 4.0, 0.0, 0.0),
                             child: InkWell(
                               onTap: () async {
-                                logFirebaseEvent('SIVUPALKKI_COMP_Text_4b9wzens_ON_TAP');
+                                logFirebaseEvent(
+                                    'SIVUPALKKI_COMP_Text_4b9wzens_ON_TAP');
                                 logFirebaseEvent('Text_navigate_to');
 
                                 context.pushNamed(
@@ -611,19 +807,24 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                   '2ttiy67c' /* Tietosuoja ja käyttöehdot */,
                                 ),
                                 textAlign: TextAlign.start,
-                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
                                       fontFamily: 'Roboto',
-                                      color: FlutterFlowTheme.of(context).secondary,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondary,
                                     ),
                               ),
                             ),
                           ),
                           if (false)
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 8.0, 0.0, 0.0),
                               child: InkWell(
                                 onTap: () async {
-                                  logFirebaseEvent('SIVUPALKKI_COMP_Text_4j47elvn_ON_TAP');
+                                  logFirebaseEvent(
+                                      'SIVUPALKKI_COMP_Text_4j47elvn_ON_TAP');
                                   logFirebaseEvent('Text_navigate_to');
 
                                   context.pushNamed('FeedbackPage');
@@ -632,9 +833,12 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                   FFLocalizations.of(context).getText(
                                     'ny2fhrqk' /* Lähetä palaute */,
                                   ),
-                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
                                         fontFamily: 'Roboto',
-                                        color: FlutterFlowTheme.of(context).secondary,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
                                       ),
                                 ),
                               ),
@@ -644,37 +848,51 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 8.0, 0.0, 0.0),
                                 child: InkWell(
                                   onTap: () async {
-                                    logFirebaseEvent('SIVUPALKKI_COMP_Text_uiifcf87_ON_TAP');
+                                    logFirebaseEvent(
+                                        'SIVUPALKKI_COMP_Text_uiifcf87_ON_TAP');
                                     logFirebaseEvent('Text_auth');
                                     GoRouter.of(context).prepareAuthEvent();
                                     await authManager.signOut();
-                                    GoRouter.of(context).clearRedirectLocation();
+                                    GoRouter.of(context)
+                                        .clearRedirectLocation();
 
                                     logFirebaseEvent('Text_update_app_state');
                                     FFAppState().deleteNavBarIndex();
                                     FFAppState().navBarIndex = 1;
 
-                                    FFAppState().deleteValittuTreenattavaHistorianSessioRef();
-                                    FFAppState().valittuTreenattavaHistorianSessioRef = null;
+                                    FFAppState()
+                                        .deleteValittuTreenattavaHistorianSessioRef();
+                                    FFAppState()
+                                            .valittuTreenattavaHistorianSessioRef =
+                                        null;
 
-                                    FFAppState().deleteValittuTreenattavaTreeniRutiini();
-                                    FFAppState().valittuTreenattavaTreeniRutiini = null;
+                                    FFAppState()
+                                        .deleteValittuTreenattavaTreeniRutiini();
+                                    FFAppState()
+                                        .valittuTreenattavaTreeniRutiini = null;
 
                                     FFAppState().isEditing = false;
-                                    FFAppState().showTreenaaTaiLuoRutiiniSivu = false;
+                                    FFAppState().showTreenaaTaiLuoRutiiniSivu =
+                                        false;
                                     FFAppState().deleteIsCreatingRutiini();
                                     FFAppState().isCreatingRutiini = false;
 
                                     FFAppState().searchbarText = '';
-                                    FFAppState().kopiedLiikeListFirestoreData = [];
-                                    FFAppState().sessioChunkListLastItemDateTime = [];
-                                    FFAppState().valittuMuokattavaRutiini = null;
-                                    FFAppState().valittuMuokattavaLiikeIndex = -1;
+                                    FFAppState().kopiedLiikeListFirestoreData =
+                                        [];
+                                    FFAppState()
+                                        .sessioChunkListLastItemDateTime = [];
+                                    FFAppState().valittuMuokattavaRutiini =
+                                        null;
+                                    FFAppState().valittuMuokattavaLiikeIndex =
+                                        -1;
                                     FFAppState().kopioidutLiikkeet = [];
-                                    FFAppState().isLatestUnfinnishedWorkout = false;
+                                    FFAppState().isLatestUnfinnishedWorkout =
+                                        false;
                                     FFAppState().deleteIsDebugUser();
                                     FFAppState().isDebugUser = false;
 
@@ -682,52 +900,71 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                     FFAppState().deleteShowAdbanner();
                                     FFAppState().showAdbanner = false;
 
-                                    context.goNamedAuth('getStarted_sivu', mounted);
+                                    context.goNamedAuth(
+                                        'getStarted_sivu', mounted);
                                   },
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       'nn03r681' /* Kirjaudu ulos */,
                                     ),
-                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
                                           fontFamily: 'Roboto',
-                                          color: FlutterFlowTheme.of(context).secondary,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondary,
                                         ),
                                   ),
                                 ),
                               ),
                               if (false)
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 8.0, 0.0, 0.0),
                                   child: InkWell(
                                     onTap: () async {
-                                      logFirebaseEvent('SIVUPALKKI_COMP_Text_8zu69pjx_ON_TAP');
+                                      logFirebaseEvent(
+                                          'SIVUPALKKI_COMP_Text_8zu69pjx_ON_TAP');
                                       logFirebaseEvent('Text_auth');
                                       GoRouter.of(context).prepareAuthEvent();
                                       await authManager.signOut();
-                                      GoRouter.of(context).clearRedirectLocation();
+                                      GoRouter.of(context)
+                                          .clearRedirectLocation();
 
                                       logFirebaseEvent('Text_update_app_state');
                                       FFAppState().deleteNavBarIndex();
                                       FFAppState().navBarIndex = 1;
 
-                                      FFAppState().deleteValittuTreenattavaHistorianSessioRef();
-                                      FFAppState().valittuTreenattavaHistorianSessioRef = null;
+                                      FFAppState()
+                                          .deleteValittuTreenattavaHistorianSessioRef();
+                                      FFAppState()
+                                              .valittuTreenattavaHistorianSessioRef =
+                                          null;
 
-                                      FFAppState().deleteValittuTreenattavaTreeniRutiini();
-                                      FFAppState().valittuTreenattavaTreeniRutiini = null;
+                                      FFAppState()
+                                          .deleteValittuTreenattavaTreeniRutiini();
+                                      FFAppState()
+                                              .valittuTreenattavaTreeniRutiini =
+                                          null;
 
                                       FFAppState().isEditing = false;
-                                      FFAppState().showTreenaaTaiLuoRutiiniSivu = false;
+                                      FFAppState()
+                                          .showTreenaaTaiLuoRutiiniSivu = false;
                                       FFAppState().deleteIsCreatingRutiini();
                                       FFAppState().isCreatingRutiini = false;
 
                                       FFAppState().searchbarText = '';
-                                      FFAppState().kopiedLiikeListFirestoreData = [];
-                                      FFAppState().sessioChunkListLastItemDateTime = [];
-                                      FFAppState().valittuMuokattavaRutiini = null;
-                                      FFAppState().valittuMuokattavaLiikeIndex = -1;
+                                      FFAppState()
+                                          .kopiedLiikeListFirestoreData = [];
+                                      FFAppState()
+                                          .sessioChunkListLastItemDateTime = [];
+                                      FFAppState().valittuMuokattavaRutiini =
+                                          null;
+                                      FFAppState().valittuMuokattavaLiikeIndex =
+                                          -1;
                                       FFAppState().kopioidutLiikkeet = [];
-                                      FFAppState().isLatestUnfinnishedWorkout = false;
+                                      FFAppState().isLatestUnfinnishedWorkout =
+                                          false;
                                       FFAppState().deleteIsDebugUser();
                                       FFAppState().isDebugUser = false;
 
@@ -735,15 +972,19 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                       FFAppState().deleteShowAdbanner();
                                       FFAppState().showAdbanner = false;
 
-                                      context.goNamedAuth('getStarted_sivu', mounted);
+                                      context.goNamedAuth(
+                                          'getStarted_sivu', mounted);
                                     },
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         'fm0iywi0' /* Kirjaudu ulos */,
                                       ),
-                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
                                             fontFamily: 'Roboto',
-                                            color: FlutterFlowTheme.of(context).secondary,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondary,
                                           ),
                                     ),
                                   ),

@@ -345,30 +345,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Rakennellaan ja kokeillaan erilaisia widgetteja',
       'en': '',
     },
-    '56h7z490': {
-      'fi': 'Example 1',
-      'en': '',
-    },
-    'yqr3d67j': {
-      'fi': 'Tab View 1',
-      'en': '',
-    },
-    'jrtjhhn9': {
-      'fi': 'Example 2',
-      'en': '',
-    },
-    '00a35bg7': {
-      'fi': 'Tab View 2',
-      'en': '',
-    },
-    'lonyrktz': {
-      'fi': 'Example 3',
-      'en': '',
-    },
-    'wd1ipl2k': {
-      'fi': 'Tab View 3',
-      'en': '',
-    },
     't3ej29tw': {
       'fi': 'Home',
       'en': '',
@@ -416,22 +392,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Kirjaudu seuraavilla vaihdoehdoilla',
       'en': 'Choose a login method',
     },
-    'bkk994m5': {
-      'fi': 'Google',
-      'en': 'Google',
-    },
-    'pgktub3b': {
-      'fi': 'Apple',
-      'en': 'Apple',
-    },
-    'faxkg7hm': {
-      'fi': 'Sähkö\nposti',
-      'en': 'Email',
-    },
-    'csbrhgrc': {
-      'fi': 'Puhelin\nnumero',
-      'en': 'Phone\nnumber',
-    },
     'o2cokl1b': {
       'fi': 'Sähköpostiosoite',
       'en': 'Email Address',
@@ -463,22 +423,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '85ixbazd': {
       'fi': 'Luo tili seuraavilla vaihtoehdoilla',
       'en': 'Choose a method to create account',
-    },
-    'mbvcwu2b': {
-      'fi': 'Google',
-      'en': 'Google',
-    },
-    'ycdu23af': {
-      'fi': 'Apple',
-      'en': 'Apple',
-    },
-    'jrhzkuav': {
-      'fi': 'Sähkö\nposti',
-      'en': 'Email',
-    },
-    '76tfpspt': {
-      'fi': 'Puhelin\nnumero',
-      'en': 'Phone\nnumber',
     },
     'bcx41kw3': {
       'fi': 'Sähköpostiosoite',
@@ -775,7 +719,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '2ttiy67c': {
       'fi': 'Tietosuoja ja käyttöehdot',
-      'en': 'Privacy policy and User agreetment',
+      'en': 'Privacy policy and Terms of Use',
     },
     'ny2fhrqk': {
       'fi': 'Lähetä palaute',

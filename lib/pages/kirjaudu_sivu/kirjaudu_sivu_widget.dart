@@ -342,8 +342,8 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                                 }
                                                               },
                                                               child: Container(
-                                                                width: 50.0,
-                                                                height: 50.0,
+                                                                width: 60.0,
+                                                                height: 60.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: Color(
@@ -371,34 +371,8 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                                       .google,
                                                                   color: Colors
                                                                       .white,
-                                                                  size: 24.0,
+                                                                  size: 30.0,
                                                                 ),
-                                                              ),
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          4.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              child: Text(
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .getText(
-                                                                  'bkk994m5' /* Google */,
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Roboto',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondary,
-                                                                    ),
                                                               ),
                                                             ),
                                                           ],
@@ -454,8 +428,8 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                                 },
                                                                 child:
                                                                     Container(
-                                                                  width: 50.0,
-                                                                  height: 50.0,
+                                                                  width: 60.0,
+                                                                  height: 60.0,
                                                                   decoration:
                                                                       BoxDecoration(
                                                                     color: Color(
@@ -483,33 +457,8 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                                         .apple,
                                                                     color: Colors
                                                                         .white,
-                                                                    size: 24.0,
+                                                                    size: 30.0,
                                                                   ),
-                                                                ),
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            4.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  FFLocalizations.of(
-                                                                          context)
-                                                                      .getText(
-                                                                    'pgktub3b' /* Apple */,
-                                                                  ),
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Roboto',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondary,
-                                                                      ),
                                                                 ),
                                                               ),
                                                             ],
@@ -532,8 +481,8 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                                 });
                                                               },
                                                               child: Container(
-                                                                width: 50.0,
-                                                                height: 50.0,
+                                                                width: 60.0,
+                                                                height: 60.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: Color(
@@ -561,39 +510,8 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget>
                                                                       .email_rounded,
                                                                   color: Colors
                                                                       .white,
-                                                                  size: 24.0,
+                                                                  size: 30.0,
                                                                 ),
-                                                              ),
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          4.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              child: Text(
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .getText(
-                                                                  'faxkg7hm' /* Sähkö
-posti */
-                                                                  ,
-                                                                ),
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .center,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Roboto',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondary,
-                                                                    ),
                                                               ),
                                                             ),
                                                           ],
@@ -616,8 +534,8 @@ posti */
                                                                 });
                                                               },
                                                               child: Container(
-                                                                width: 50.0,
-                                                                height: 50.0,
+                                                                width: 60.0,
+                                                                height: 60.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   color: Color(
@@ -645,36 +563,8 @@ posti */
                                                                       .phone_sharp,
                                                                   color: Colors
                                                                       .white,
-                                                                  size: 24.0,
+                                                                  size: 30.0,
                                                                 ),
-                                                              ),
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          4.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              child: Text(
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .getText(
-                                                                  'csbrhgrc' /* Puhelin
-numero */
-                                                                  ,
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Roboto',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondary,
-                                                                    ),
                                                               ),
                                                             ),
                                                           ],
@@ -1490,8 +1380,8 @@ numero */
                                                             mounted);
                                                       },
                                                       child: Container(
-                                                        width: 50.0,
-                                                        height: 50.0,
+                                                        width: 60.0,
+                                                        height: 60.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
@@ -1517,35 +1407,6 @@ numero */
                                                           color: Colors.white,
                                                           size: 24.0,
                                                         ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  4.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'mbvcwu2b' /* Google */,
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondary,
-                                                                ),
                                                       ),
                                                     ),
                                                   ],
@@ -1576,8 +1437,8 @@ numero */
                                                               mounted);
                                                         },
                                                         child: Container(
-                                                          width: 50.0,
-                                                          height: 50.0,
+                                                          width: 60.0,
+                                                          height: 60.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             color: Color(
@@ -1605,34 +1466,6 @@ numero */
                                                           ),
                                                         ),
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    4.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'ycdu23af' /* Apple */,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondary,
-                                                              ),
-                                                        ),
-                                                      ),
                                                     ],
                                                   ),
                                                 Column(
@@ -1653,8 +1486,8 @@ numero */
                                                         });
                                                       },
                                                       child: Container(
-                                                        width: 50.0,
-                                                        height: 50.0,
+                                                        width: 60.0,
+                                                        height: 60.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
@@ -1681,37 +1514,6 @@ numero */
                                                         ),
                                                       ),
                                                     ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  4.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'jrhzkuav' /* Sähkö
-posti */
-                                                          ,
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondary,
-                                                                ),
-                                                      ),
-                                                    ),
                                                   ],
                                                 ),
                                                 Column(
@@ -1732,8 +1534,8 @@ posti */
                                                         });
                                                       },
                                                       child: Container(
-                                                        width: 50.0,
-                                                        height: 50.0,
+                                                        width: 60.0,
+                                                        height: 60.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
@@ -1758,37 +1560,6 @@ posti */
                                                           color: Colors.white,
                                                           size: 24.0,
                                                         ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  4.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '76tfpspt' /* Puhelin
-numero */
-                                                          ,
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondary,
-                                                                ),
                                                       ),
                                                     ),
                                                   ],
