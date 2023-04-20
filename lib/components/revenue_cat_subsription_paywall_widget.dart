@@ -700,7 +700,7 @@ class _RevenueCatSubsriptionPaywallWidgetState extends State<RevenueCatSubsripti
           child: Center(
               child: Padding(
             padding: EdgeInsets.all(22),
-            child: Text('Nothing to show 😓'),
+            child: Text('There\'s a bug 😓 \nUnable to show in-app purchase paywall.'),
           )));
     }
   }
