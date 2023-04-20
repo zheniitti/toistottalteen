@@ -56,10 +56,11 @@ class _FeedbackMessageWidgetState extends State<FeedbackMessageWidget> {
       padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
       child: Column(
         mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(
             mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 dateTimeFormat(

@@ -14,7 +14,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'sivupalkki_model.dart';
 export 'sivupalkki_model.dart';
-import '/flutter_flow/revenue_cat_util.dart' as revenue_cat; // do not remove this line
 
 class SivupalkkiWidget extends StatefulWidget {
   const SivupalkkiWidget({Key? key}) : super(key: key);
@@ -577,7 +576,12 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                         ),
                                       ),
                                     ),
-                                  if (getRemoteConfigBool('isEnabled_subscription') && revenue_cat.offerings != null /* do not remove revenue cat */)
+                                  if (getRemoteConfigBool(
+                                          'isEnabled_subscription') &&
+                                      responsiveVisibility(
+                                        context: context,
+                                        desktop: false,
+                                      ))
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 16.0, 0.0, 16.0),

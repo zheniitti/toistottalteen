@@ -121,10 +121,13 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget> {
                           itemBuilder: (context, listViewIndex) {
                             final listViewFeedbacksRecord =
                                 listViewFeedbacksRecordList[listViewIndex];
-                            return FeedbackMessageWidget(
-                              key: Key(
-                                  'Key872_${listViewIndex}_of_${listViewFeedbacksRecordList.length}'),
-                              feedback: listViewFeedbacksRecord,
+                            return Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: FeedbackMessageWidget(
+                                key: Key(
+                                    'Key872_${listViewIndex}_of_${listViewFeedbacksRecordList.length}'),
+                                feedback: listViewFeedbacksRecord,
+                              ),
                             );
                           },
                         );
