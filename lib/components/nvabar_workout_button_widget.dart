@@ -163,28 +163,43 @@ class _NvabarWorkoutButtonWidgetState extends State<NvabarWorkoutButtonWidget> w
           height: double.infinity,
           child: Stack(
             children: [
-              Align(
-                alignment: AlignmentDirectional(0, -1),
-                child: Lottie.network('https://assets8.lottiefiles.com/packages/lf20_ixy19tfg.json', width: 130, height: 40, fit: BoxFit.cover, frameRate: FrameRate(60), animate: _model.lottieAnimationStatus),
-              ),
-              Align(
-                alignment: AlignmentDirectional(0, 1),
-                child: RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: FFLocalizations.of(context).getVariableText(
-                          fiText: 'Treenaa',
-                          enText: 'Workout',
-                        ),
-                        style: TextStyle(
-                          color: FlutterFlowTheme.of(context).secondary,
-                        ),
-                      )
-                    ],
-                    style: FlutterFlowTheme.of(context).bodyMedium,
-                  ),
+              if (_model.isPlayingIconAnimation ?? true)
+                Align(
+                  alignment: AlignmentDirectional(0, -1),
+                  child: Lottie.network('https://assets8.lottiefiles.com/packages/lf20_ixy19tfg.json', width: 130, height: 40, fit: BoxFit.cover, frameRate: FrameRate(60), animate: _model.lottieAnimationStatus),
                 ),
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  if (!_model.isPlayingIconAnimation!)
+                    Expanded(
+                      child: Icon(
+                        Icons.accessibility_new_rounded,
+                        color: FlutterFlowTheme.of(context).secondary,
+                        size: 30,
+                      ),
+                    ),
+                  Align(
+                    alignment: AlignmentDirectional(0, 1),
+                    child: RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: FFLocalizations.of(context).getVariableText(
+                              fiText: 'Treenaa',
+                              enText: 'Workout',
+                            ),
+                            style: TextStyle(
+                              color: FlutterFlowTheme.of(context).secondary,
+                            ),
+                          )
+                        ],
+                        style: FlutterFlowTheme.of(context).bodyMedium,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
