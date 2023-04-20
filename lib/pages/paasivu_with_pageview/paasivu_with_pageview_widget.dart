@@ -2,6 +2,7 @@ import 'package:toistot_talteen/myCustomScrollPhysics.dart'; // Do not remove th
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/mainos_palkki_widget.dart';
+import '/components/nvabar_workout_button_widget.dart';
 import '/components/sivupalkki/sivupalkki_widget.dart';
 import '/components/workout_duration_text/workout_duration_text_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -24,7 +25,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'paasivu_with_pageview_model.dart';
 export 'paasivu_with_pageview_model.dart';
@@ -173,19 +173,6 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget>
       ],
     ),
     'containerOnActionTriggerAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onActionTrigger,
-      applyInitialState: true,
-      effects: [
-        TiltEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: Offset(0, 0),
-          end: Offset(0, 3.142),
-        ),
-      ],
-    ),
-    'containerOnActionTriggerAnimation3': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
       applyInitialState: true,
       effects: [
@@ -554,7 +541,6 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget>
                                                             .workoutDurationTextModel,
                                                         updateCallback: () =>
                                                             setState(() {}),
-                                                        updateOnChange: true,
                                                         child:
                                                             WorkoutDurationTextWidget(
                                                           sessioDoc: containerQueryLatestSessioTreeniSessiotRecordList
@@ -1261,10 +1247,22 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget>
                                                 animationsMap[
                                                     'containerOnActionTriggerAnimation1']!,
                                               ),
+                                              wrapWithModel(
+                                                model: _model
+                                                    .nvabarWorkoutButtonModel,
+                                                updateCallback: () =>
+                                                    setState(() {}),
+                                                child:
+                                                    NvabarWorkoutButtonWidget(
+                                                  activeTreenisessions:
+                                                      containerQueryLatestSessioTreeniSessiotRecordList
+                                                          .toList(),
+                                                ),
+                                              ),
                                               InkWell(
                                                 onTap: () async {
                                                   logFirebaseEvent(
-                                                      'PAASIVU_WITH_PAGEVIEW_Container_0p6xlils');
+                                                      'PAASIVU_WITH_PAGEVIEW_Container_101u927u');
                                                   logFirebaseEvent(
                                                       'Container_widget_animation');
                                                   if (animationsMap[
@@ -1276,106 +1274,6 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget>
                                                         .forward(from: 0.0)
                                                         .whenComplete(animationsMap[
                                                                 'containerOnActionTriggerAnimation2']!
-                                                            .controller
-                                                            .reverse);
-                                                  }
-                                                  logFirebaseEvent(
-                                                      'Container_update_app_state');
-                                                  setState(() {
-                                                    FFAppState().navBarIndex =
-                                                        1;
-                                                    FFAppState()
-                                                            .modiedNavbarIndexTime =
-                                                        getCurrentTimestamp;
-                                                  });
-                                                },
-                                                child: Container(
-                                                  width: 100.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FFAppState()
-                                                                .navBarIndex ==
-                                                            1
-                                                        ? FlutterFlowTheme.of(
-                                                                context)
-                                                            .tertiary
-                                                        : Color(0x00000000),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                  ),
-                                                  child: Container(
-                                                    width: double.infinity,
-                                                    height: double.infinity,
-                                                    child: Stack(
-                                                      children: [
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, -1.0),
-                                                          child: Lottie.network(
-                                                            'https://assets8.lottiefiles.com/packages/lf20_ixy19tfg.json',
-                                                            width: 130.0,
-                                                            height: 40.0,
-                                                            fit: BoxFit.cover,
-                                                            frameRate:
-                                                                FrameRate(60.0),
-                                                            animate: FFAppState()
-                                                                .isLatestUnfinnishedWorkout,
-                                                          ),
-                                                        ),
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 1.0),
-                                                          child: RichText(
-                                                            text: TextSpan(
-                                                              children: [
-                                                                TextSpan(
-                                                                  text: FFLocalizations.of(
-                                                                          context)
-                                                                      .getVariableText(
-                                                                    fiText:
-                                                                        'Treenaa',
-                                                                    enText:
-                                                                        'Workout',
-                                                                  ),
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondary,
-                                                                  ),
-                                                                )
-                                                              ],
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ).animateOnActionTrigger(
-                                                animationsMap[
-                                                    'containerOnActionTriggerAnimation2']!,
-                                              ),
-                                              InkWell(
-                                                onTap: () async {
-                                                  logFirebaseEvent(
-                                                      'PAASIVU_WITH_PAGEVIEW_Container_101u927u');
-                                                  logFirebaseEvent(
-                                                      'Container_widget_animation');
-                                                  if (animationsMap[
-                                                          'containerOnActionTriggerAnimation3'] !=
-                                                      null) {
-                                                    animationsMap[
-                                                            'containerOnActionTriggerAnimation3']!
-                                                        .controller
-                                                        .forward(from: 0.0)
-                                                        .whenComplete(animationsMap[
-                                                                'containerOnActionTriggerAnimation3']!
                                                             .controller
                                                             .reverse);
                                                   }
@@ -1448,7 +1346,7 @@ class _PaasivuWithPageviewWidgetState extends State<PaasivuWithPageviewWidget>
                                                 ),
                                               ).animateOnActionTrigger(
                                                 animationsMap[
-                                                    'containerOnActionTriggerAnimation3']!,
+                                                    'containerOnActionTriggerAnimation2']!,
                                               ),
                                             ],
                                           ),

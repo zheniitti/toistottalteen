@@ -91,18 +91,17 @@ class _RevenueCatSubsriptionPaywallWidgetState
                       ),
                 )),
               ),
-              if (false)
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 10.0, 10.0),
-                  child: SelectionArea(
-                      child: Text(
-                    FFLocalizations.of(context).getText(
-                      'czvjejf2' /* Sovellukseen kehittämiseen on ... */,
-                    ),
-                    textAlign: TextAlign.center,
-                    style: FlutterFlowTheme.of(context).bodySmall,
-                  )),
-                ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 10.0, 10.0),
+                child: SelectionArea(
+                    child: Text(
+                  FFLocalizations.of(context).getText(
+                    'czvjejf2' /* Sovellukseen kehittämiseen on ... */,
+                  ),
+                  textAlign: TextAlign.center,
+                  style: FlutterFlowTheme.of(context).bodySmall,
+                )),
+              ),
               if (!isWeb)
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),

@@ -1130,9 +1130,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'czvjejf2': {
       'fi':
-          'Sovellukseen kehittämiseen on käytetty yli sata tuntia ilman palkkiota. Tue kehittäjää lahjoittamalla',
+          'Sovellukseen kehittämiseen on käytetty yli sata tuntia ilman palkkiota. Tue sovelluskehitystä lahjoittamalla',
       'en':
-          'More than a hundred hours have been spent on developing the application. Support the developer by donating',
+          'More than a hundred hours have been spent on developing the application. Support app development by donating',
     },
     'x5xjq0bo': {
       'fi': 'Kuukausittainen lahjoitus',

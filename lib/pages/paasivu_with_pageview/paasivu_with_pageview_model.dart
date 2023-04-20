@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/mainos_palkki_widget.dart';
+import '/components/nvabar_workout_button_widget.dart';
 import '/components/sivupalkki/sivupalkki_widget.dart';
 import '/components/workout_duration_text/workout_duration_text_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -23,7 +24,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
 class PaasivuWithPageviewModel extends FlutterFlowModel {
@@ -52,6 +52,8 @@ class PaasivuWithPageviewModel extends FlutterFlowModel {
   String? Function(BuildContext, String?)? textFieldSeachBarControllerValidator;
   // Model for MainosPalkki component.
   late MainosPalkkiModel mainosPalkkiModel;
+  // Model for nvabar_workoutButton component.
+  late NvabarWorkoutButtonModel nvabarWorkoutButtonModel;
 
   /// Initialization and disposal methods.
 
@@ -66,6 +68,8 @@ class PaasivuWithPageviewModel extends FlutterFlowModel {
     workoutDurationTextModel =
         createModel(context, () => WorkoutDurationTextModel());
     mainosPalkkiModel = createModel(context, () => MainosPalkkiModel());
+    nvabarWorkoutButtonModel =
+        createModel(context, () => NvabarWorkoutButtonModel());
   }
 
   void dispose() {
@@ -75,6 +79,7 @@ class PaasivuWithPageviewModel extends FlutterFlowModel {
     sivuTreeniHistoriaKomponenttiModel.dispose();
     workoutDurationTextModel.dispose();
     mainosPalkkiModel.dispose();
+    nvabarWorkoutButtonModel.dispose();
   }
 
   /// Additional helper methods are added here.
