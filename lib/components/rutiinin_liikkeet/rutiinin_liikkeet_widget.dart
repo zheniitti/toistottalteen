@@ -12,7 +12,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-
 import 'rutiinin_liikkeet_model.dart';
 export 'rutiinin_liikkeet_model.dart';
 
@@ -78,18 +77,18 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
           children: List.generate(liikkeet.length, (liikkeetIndex) {
             final liikkeetItem = liikkeet[liikkeetIndex];
             return Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 2, 0, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 2, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
                     child: Stack(
                       children: [
                         if (!widget.rutiini!.finishedEditing!)
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 4, 8, 4),
+                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 8.0, 4.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -120,13 +119,13 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                               child: Icon(
                                 Icons.remove_circle_rounded,
                                 color: FlutterFlowTheme.of(context).deleteRed,
-                                size: 24,
+                                size: 24.0,
                               ),
                             ),
                           ),
                         if (widget.rutiini?.finishedEditing ?? true)
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 4, 8, 4),
+                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 8.0, 4.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -157,7 +156,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                               child: Icon(
                                 Icons.content_copy_rounded,
                                 color: FlutterFlowTheme.of(context).primary,
-                                size: 24,
+                                size: 24.0,
                               ),
                             ),
                           ),
@@ -166,10 +165,10 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                   ),
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 4),
+                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                       child: Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
@@ -182,8 +181,8 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Wrap(
-                                    spacing: 0,
-                                    runSpacing: 0,
+                                    spacing: 0.0,
+                                    runSpacing: 0.0,
                                     alignment: WrapAlignment.start,
                                     crossAxisAlignment: WrapCrossAlignment.start,
                                     direction: Axis.horizontal,
@@ -263,7 +262,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                                                         text: liikkeetItem.sarjaMaara!.toString(),
                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                               fontFamily: 'Roboto',
-                                                              fontSize: 14,
+                                                              fontSize: 14.0,
                                                               fontWeight: FontWeight.w500,
                                                             ),
                                                       ),
@@ -271,7 +270,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                                                         text: ' x ',
                                                         style: FlutterFlowTheme.of(context).titleSmall.override(
                                                               fontFamily: 'Roboto',
-                                                              fontSize: 14,
+                                                              fontSize: 14.0,
                                                             ),
                                                       ),
                                                       TextSpan(
@@ -291,8 +290,8 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                                                   crossAxisAlignment: CrossAxisAlignment.start,
                                                   children: [
                                                     Wrap(
-                                                      spacing: 0,
-                                                      runSpacing: 0,
+                                                      spacing: 0.0,
+                                                      runSpacing: 0.0,
                                                       alignment: WrapAlignment.start,
                                                       crossAxisAlignment: WrapCrossAlignment.start,
                                                       direction: Axis.horizontal,
@@ -309,7 +308,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                                                                   (functions.remainingHours(liikkeetItem.kestoSekunteina).toString() != '0'))
                                                               : true,
                                                           child: Padding(
-                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 6, 0),
+                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
                                                             child: RichText(
                                                               text: TextSpan(
                                                                 children: [
@@ -317,7 +316,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                                                                     text: functions.remainingHours(liikkeetItem.kestoSekunteina).toString(),
                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                           fontFamily: 'Roboto',
-                                                                          fontSize: 14,
+                                                                          fontSize: 14.0,
                                                                           fontWeight: FontWeight.w500,
                                                                         ),
                                                                   ),
@@ -327,7 +326,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                                                                     ),
                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                           fontFamily: 'Roboto',
-                                                                          fontSize: 14,
+                                                                          fontSize: 14.0,
                                                                           fontWeight: FontWeight.w300,
                                                                         ),
                                                                   )
@@ -346,7 +345,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                                                                   (functions.remainingMinutes(liikkeetItem.kestoSekunteina).toString() != '0'))
                                                               : true,
                                                           child: Padding(
-                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 6, 0),
+                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
                                                             child: RichText(
                                                               text: TextSpan(
                                                                 children: [
@@ -354,7 +353,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                                                                     text: functions.remainingMinutes(liikkeetItem.kestoSekunteina).toString(),
                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                           fontFamily: 'Roboto',
-                                                                          fontSize: 14,
+                                                                          fontSize: 14.0,
                                                                           fontWeight: FontWeight.w500,
                                                                         ),
                                                                   ),
@@ -376,7 +375,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                                                         Visibility(
                                                           visible: widget.rutiini!.finishedEditing! ? ((liikkeetItem.kestoSekunteina != null) && (functions.remainingSeconds(liikkeetItem.kestoSekunteina).toString() != '0.0')) : true,
                                                           child: Padding(
-                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
+                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
                                                             child: RichText(
                                                               text: TextSpan(
                                                                 children: [
@@ -384,7 +383,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                                                                     text: functions.remainingSeconds(liikkeetItem.kestoSekunteina).toString(),
                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                           fontFamily: 'Roboto',
-                                                                          fontSize: 14,
+                                                                          fontSize: 14.0,
                                                                           fontWeight: FontWeight.w500,
                                                                         ),
                                                                   ),
@@ -423,7 +422,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                                                                   ),
                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                         fontFamily: 'Roboto',
-                                                                        fontSize: 14,
+                                                                        fontSize: 14.0,
                                                                         fontWeight: FontWeight.w500,
                                                                       ),
                                                                 ),
@@ -456,7 +455,7 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                                     false,
                                   ))
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(1, 0, 0, 0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(1.0, 0.0, 0.0, 0.0),
                                       child: RutiininLiikeKommenttiTextfieldWidget(
                                         key: Key('Keyst7_${liikkeetIndex}_of_${liikkeet.length}'),
                                         liikeIndex: liikkeetIndex,

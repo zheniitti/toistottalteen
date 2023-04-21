@@ -15,7 +15,6 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-
 import 'kirjaudu_sivu_model.dart';
 export 'kirjaudu_sivu_model.dart';
 
@@ -47,8 +46,8 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -60,8 +59,8 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -72,8 +71,8 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -85,8 +84,8 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -128,8 +127,8 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
         backgroundColor: Color(0xFF14181B),
         body: SafeArea(
           child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 1,
+            width: MediaQuery.of(context).size.width * 1.0,
+            height: MediaQuery.of(context).size.height * 1.0,
             decoration: BoxDecoration(
               color: Color(0xFF14181B),
               image: DecorationImage(
@@ -140,20 +139,20 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
               ),
             ),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(0),
+              borderRadius: BorderRadius.circular(0.0),
               child: BackdropFilter(
                 filter: ImageFilter.blur(
-                  sigmaX: 4,
-                  sigmaY: 4,
+                  sigmaX: 4.0,
+                  sigmaY: 4.0,
                 ),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(-1, 0),
+                      alignment: AlignmentDirectional(-1.0, 0.0),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(12, 12, 0, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 0.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -167,13 +166,13 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                           child: Icon(
                             Icons.arrow_back_rounded,
                             color: FlutterFlowTheme.of(context).secondary,
-                            size: 32,
+                            size: 32.0,
                           ),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 50.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -189,7 +188,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                     Expanded(
                       child: Container(
                         constraints: BoxConstraints(
-                          maxWidth: 500,
+                          maxWidth: 500.0,
                         ),
                         decoration: BoxDecoration(),
                         child: DefaultTabController(
@@ -203,14 +202,14 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                           child: Column(
                             children: [
                               Align(
-                                alignment: Alignment(0, 0),
+                                alignment: Alignment(0.0, 0),
                                 child: TabBar(
                                   isScrollable: true,
                                   labelColor: Colors.white,
                                   labelStyle: FlutterFlowTheme.of(context).titleMedium.override(
                                         fontFamily: 'Outfit',
                                         color: Color(0xFF0F1113),
-                                        fontSize: 18,
+                                        fontSize: 18.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                   indicatorColor: Colors.white,
@@ -233,7 +232,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                   children: [
                                     KeepAliveWidgetWrapper(
                                       builder: (context) => Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(44, 0, 44, 0),
+                                        padding: EdgeInsetsDirectional.fromSTEB(44.0, 0.0, 44.0, 0.0),
                                         child: SingleChildScrollView(
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -246,7 +245,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                     mainAxisSize: MainAxisSize.max,
                                                     children: [
                                                       Padding(
-                                                        padding: EdgeInsetsDirectional.fromSTEB(20, 22, 20, 0),
+                                                        padding: EdgeInsetsDirectional.fromSTEB(20.0, 22.0, 20.0, 0.0),
                                                         child: Row(
                                                           mainAxisSize: MainAxisSize.max,
                                                           mainAxisAlignment: MainAxisAlignment.center,
@@ -260,7 +259,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                                 style: FlutterFlowTheme.of(context).titleSmall.override(
                                                                       fontFamily: 'Outfit',
                                                                       color: Color(0xC8FFFFFF),
-                                                                      fontSize: 16,
+                                                                      fontSize: 16.0,
                                                                       fontWeight: FontWeight.normal,
                                                                     ),
                                                               ),
@@ -269,7 +268,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                         ),
                                                       ),
                                                       Padding(
-                                                        padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 8),
+                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 8.0),
                                                         child: Row(
                                                           mainAxisSize: MainAxisSize.max,
                                                           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -307,27 +306,27 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                                   },
                                                                   child: Material(
                                                                     color: Colors.transparent,
-                                                                    elevation: 3,
+                                                                    elevation: 3.0,
                                                                     shape: const CircleBorder(),
                                                                     child: Container(
-                                                                      width: 60,
-                                                                      height: 60,
+                                                                      width: 60.0,
+                                                                      height: 60.0,
                                                                       decoration: BoxDecoration(
                                                                         color: Color(0xFF0F1113),
                                                                         boxShadow: [
                                                                           BoxShadow(
-                                                                            blurRadius: 5,
+                                                                            blurRadius: 5.0,
                                                                             color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                            offset: Offset(0, 2),
+                                                                            offset: Offset(0.0, 2.0),
                                                                           )
                                                                         ],
                                                                         shape: BoxShape.circle,
                                                                       ),
-                                                                      alignment: AlignmentDirectional(0, 0),
+                                                                      alignment: AlignmentDirectional(0.0, 0.0),
                                                                       child: FaIcon(
                                                                         FontAwesomeIcons.google,
                                                                         color: Colors.white,
-                                                                        size: 30,
+                                                                        size: 30.0,
                                                                       ),
                                                                     ),
                                                                   ),
@@ -367,27 +366,27 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                                     },
                                                                     child: Material(
                                                                       color: Colors.transparent,
-                                                                      elevation: 3,
+                                                                      elevation: 3.0,
                                                                       shape: const CircleBorder(),
                                                                       child: Container(
-                                                                        width: 60,
-                                                                        height: 60,
+                                                                        width: 60.0,
+                                                                        height: 60.0,
                                                                         decoration: BoxDecoration(
                                                                           color: Color(0xFF0F1113),
                                                                           boxShadow: [
                                                                             BoxShadow(
-                                                                              blurRadius: 5,
+                                                                              blurRadius: 5.0,
                                                                               color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                              offset: Offset(0, 2),
+                                                                              offset: Offset(0.0, 2.0),
                                                                             )
                                                                           ],
                                                                           shape: BoxShape.circle,
                                                                         ),
-                                                                        alignment: AlignmentDirectional(0, 0),
+                                                                        alignment: AlignmentDirectional(0.0, 0.0),
                                                                         child: FaIcon(
                                                                           FontAwesomeIcons.apple,
                                                                           color: Colors.white,
-                                                                          size: 30,
+                                                                          size: 30.0,
                                                                         ),
                                                                       ),
                                                                     ),
@@ -412,27 +411,27 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                                   },
                                                                   child: Material(
                                                                     color: Colors.transparent,
-                                                                    elevation: 3,
+                                                                    elevation: 3.0,
                                                                     shape: const CircleBorder(),
                                                                     child: Container(
-                                                                      width: 60,
-                                                                      height: 60,
+                                                                      width: 60.0,
+                                                                      height: 60.0,
                                                                       decoration: BoxDecoration(
                                                                         color: Color(0xFF0F1113),
                                                                         boxShadow: [
                                                                           BoxShadow(
-                                                                            blurRadius: 5,
+                                                                            blurRadius: 5.0,
                                                                             color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                            offset: Offset(0, 2),
+                                                                            offset: Offset(0.0, 2.0),
                                                                           )
                                                                         ],
                                                                         shape: BoxShape.circle,
                                                                       ),
-                                                                      alignment: AlignmentDirectional(0, 0),
+                                                                      alignment: AlignmentDirectional(0.0, 0.0),
                                                                       child: Icon(
                                                                         Icons.email_rounded,
                                                                         color: Colors.white,
-                                                                        size: 30,
+                                                                        size: 30.0,
                                                                       ),
                                                                     ),
                                                                   ),
@@ -457,27 +456,27 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                                   },
                                                                   child: Material(
                                                                     color: Colors.transparent,
-                                                                    elevation: 3,
+                                                                    elevation: 3.0,
                                                                     shape: const CircleBorder(),
                                                                     child: Container(
-                                                                      width: 60,
-                                                                      height: 60,
+                                                                      width: 60.0,
+                                                                      height: 60.0,
                                                                       decoration: BoxDecoration(
                                                                         color: Color(0xFF0F1113),
                                                                         boxShadow: [
                                                                           BoxShadow(
-                                                                            blurRadius: 5,
+                                                                            blurRadius: 5.0,
                                                                             color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                            offset: Offset(0, 2),
+                                                                            offset: Offset(0.0, 2.0),
                                                                           )
                                                                         ],
                                                                         shape: BoxShape.circle,
                                                                       ),
-                                                                      alignment: AlignmentDirectional(0, 0),
+                                                                      alignment: AlignmentDirectional(0.0, 0.0),
                                                                       child: Icon(
                                                                         Icons.phone_sharp,
                                                                         color: Colors.white,
-                                                                        size: 30,
+                                                                        size: 30.0,
                                                                       ),
                                                                     ),
                                                                   ),
@@ -497,7 +496,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                       mainAxisSize: MainAxisSize.max,
                                                       children: [
                                                         Padding(
-                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                                                           child: TextFormField(
                                                             controller: _model.emailAddressLoginController,
                                                             obscureText: false,
@@ -508,58 +507,58 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                               labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                     fontFamily: 'Lexend Deca',
                                                                     color: Color(0xFF95A1AC),
-                                                                    fontSize: 14,
+                                                                    fontSize: 14.0,
                                                                     fontWeight: FontWeight.normal,
                                                                   ),
                                                               hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                     fontFamily: 'Lexend Deca',
                                                                     color: Color(0xFF95A1AC),
-                                                                    fontSize: 14,
+                                                                    fontSize: 14.0,
                                                                     fontWeight: FontWeight.normal,
                                                                   ),
                                                               enabledBorder: OutlineInputBorder(
                                                                 borderSide: BorderSide(
                                                                   color: Color(0x00000000),
-                                                                  width: 1,
+                                                                  width: 1.0,
                                                                 ),
-                                                                borderRadius: BorderRadius.circular(12),
+                                                                borderRadius: BorderRadius.circular(12.0),
                                                               ),
                                                               focusedBorder: OutlineInputBorder(
                                                                 borderSide: BorderSide(
                                                                   color: Color(0x00000000),
-                                                                  width: 1,
+                                                                  width: 1.0,
                                                                 ),
-                                                                borderRadius: BorderRadius.circular(12),
+                                                                borderRadius: BorderRadius.circular(12.0),
                                                               ),
                                                               errorBorder: OutlineInputBorder(
                                                                 borderSide: BorderSide(
                                                                   color: Color(0x00000000),
-                                                                  width: 1,
+                                                                  width: 1.0,
                                                                 ),
-                                                                borderRadius: BorderRadius.circular(12),
+                                                                borderRadius: BorderRadius.circular(12.0),
                                                               ),
                                                               focusedErrorBorder: OutlineInputBorder(
                                                                 borderSide: BorderSide(
                                                                   color: Color(0x00000000),
-                                                                  width: 1,
+                                                                  width: 1.0,
                                                                 ),
-                                                                borderRadius: BorderRadius.circular(12),
+                                                                borderRadius: BorderRadius.circular(12.0),
                                                               ),
                                                               filled: true,
                                                               fillColor: Colors.white,
-                                                              contentPadding: EdgeInsetsDirectional.fromSTEB(20, 24, 20, 24),
+                                                              contentPadding: EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 20.0, 24.0),
                                                             ),
                                                             style: FlutterFlowTheme.of(context).titleSmall.override(
                                                                   fontFamily: 'Outfit',
                                                                   color: Color(0xFF0F1113),
-                                                                  fontSize: 16,
+                                                                  fontSize: 16.0,
                                                                   fontWeight: FontWeight.normal,
                                                                 ),
                                                             validator: _model.emailAddressLoginControllerValidator.asValidator(context),
                                                           ),
                                                         ),
                                                         Padding(
-                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                                                           child: TextFormField(
                                                             controller: _model.passwordLoginController,
                                                             obscureText: !_model.passwordLoginVisibility,
@@ -570,46 +569,46 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                               labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                     fontFamily: 'Lexend Deca',
                                                                     color: Color(0xFF95A1AC),
-                                                                    fontSize: 14,
+                                                                    fontSize: 14.0,
                                                                     fontWeight: FontWeight.normal,
                                                                   ),
                                                               hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                     fontFamily: 'Lexend Deca',
                                                                     color: Color(0xFF95A1AC),
-                                                                    fontSize: 14,
+                                                                    fontSize: 14.0,
                                                                     fontWeight: FontWeight.normal,
                                                                   ),
                                                               enabledBorder: OutlineInputBorder(
                                                                 borderSide: BorderSide(
                                                                   color: Color(0x00000000),
-                                                                  width: 1,
+                                                                  width: 1.0,
                                                                 ),
-                                                                borderRadius: BorderRadius.circular(12),
+                                                                borderRadius: BorderRadius.circular(12.0),
                                                               ),
                                                               focusedBorder: OutlineInputBorder(
                                                                 borderSide: BorderSide(
                                                                   color: Color(0x00000000),
-                                                                  width: 1,
+                                                                  width: 1.0,
                                                                 ),
-                                                                borderRadius: BorderRadius.circular(12),
+                                                                borderRadius: BorderRadius.circular(12.0),
                                                               ),
                                                               errorBorder: OutlineInputBorder(
                                                                 borderSide: BorderSide(
                                                                   color: Color(0x00000000),
-                                                                  width: 1,
+                                                                  width: 1.0,
                                                                 ),
-                                                                borderRadius: BorderRadius.circular(12),
+                                                                borderRadius: BorderRadius.circular(12.0),
                                                               ),
                                                               focusedErrorBorder: OutlineInputBorder(
                                                                 borderSide: BorderSide(
                                                                   color: Color(0x00000000),
-                                                                  width: 1,
+                                                                  width: 1.0,
                                                                 ),
-                                                                borderRadius: BorderRadius.circular(12),
+                                                                borderRadius: BorderRadius.circular(12.0),
                                                               ),
                                                               filled: true,
                                                               fillColor: Colors.white,
-                                                              contentPadding: EdgeInsetsDirectional.fromSTEB(20, 24, 20, 24),
+                                                              contentPadding: EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 20.0, 24.0),
                                                               suffixIcon: InkWell(
                                                                 onTap: () => setState(
                                                                   () => _model.passwordLoginVisibility = !_model.passwordLoginVisibility,
@@ -618,21 +617,21 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                                 child: Icon(
                                                                   _model.passwordLoginVisibility ? Icons.visibility_outlined : Icons.visibility_off_outlined,
                                                                   color: Color(0xFF95A1AC),
-                                                                  size: 20,
+                                                                  size: 20.0,
                                                                 ),
                                                               ),
                                                             ),
                                                             style: FlutterFlowTheme.of(context).titleSmall.override(
                                                                   fontFamily: 'Outfit',
                                                                   color: Color(0xFF0F1113),
-                                                                  fontSize: 16,
+                                                                  fontSize: 16.0,
                                                                   fontWeight: FontWeight.normal,
                                                                 ),
                                                             validator: _model.passwordLoginControllerValidator.asValidator(context),
                                                           ),
                                                         ),
                                                         Padding(
-                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                                                           child: FFButtonWidget(
                                                             onPressed: () async {
                                                               logFirebaseEvent('KIRJAUDU_SIVU_PAGE_Button-Login_ON_TAP');
@@ -666,28 +665,28 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                               'fj8qah3m' /* Kirjaudu */,
                                                             ),
                                                             options: FFButtonOptions(
-                                                              width: 230,
-                                                              height: 50,
-                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                              width: 230.0,
+                                                              height: 50.0,
+                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                               color: FlutterFlowTheme.of(context).tertiary,
                                                               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                     fontFamily: 'Lexend Deca',
                                                                     color: Colors.white,
-                                                                    fontSize: 16,
+                                                                    fontSize: 16.0,
                                                                     fontWeight: FontWeight.normal,
                                                                   ),
-                                                              elevation: 3,
+                                                              elevation: 3.0,
                                                               borderSide: BorderSide(
                                                                 color: Colors.transparent,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
-                                                              borderRadius: BorderRadius.circular(12),
+                                                              borderRadius: BorderRadius.circular(12.0),
                                                             ),
                                                           ),
                                                         ),
                                                         Padding(
-                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                                                           child: FFButtonWidget(
                                                             onPressed: () async {
                                                               logFirebaseEvent('KIRJAUDU_SIVU_Button-ForgotPassword_ON_T');
@@ -707,21 +706,21 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                               'o0h72rrv' /* Unohditiko salasanasi? */,
                                                             ),
                                                             options: FFButtonOptions(
-                                                              width: 170,
-                                                              height: 40,
-                                                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                              width: 170.0,
+                                                              height: 40.0,
+                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                               color: Color(0x0039D2C0),
                                                               textStyle: FlutterFlowTheme.of(context).titleMedium.override(
                                                                     fontFamily: 'Outfit',
                                                                     color: Colors.white,
-                                                                    fontSize: 18,
+                                                                    fontSize: 18.0,
                                                                     fontWeight: FontWeight.w500,
                                                                   ),
-                                                              elevation: 0,
+                                                              elevation: 0.0,
                                                               borderSide: BorderSide(
                                                                 color: Colors.transparent,
-                                                                width: 1,
+                                                                width: 1.0,
                                                               ),
                                                             ),
                                                           ),
@@ -738,7 +737,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                   mainAxisSize: MainAxisSize.max,
                                                   children: [
                                                     Padding(
-                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                                                       child: TextFormField(
                                                         controller: _model.textfieldPhoneNumberController1,
                                                         autofillHints: [AutofillHints.telephoneNumber],
@@ -750,56 +749,56 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                           labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                 fontFamily: 'Lexend Deca',
                                                                 color: Color(0xFF95A1AC),
-                                                                fontSize: 14,
+                                                                fontSize: 14.0,
                                                                 fontWeight: FontWeight.normal,
                                                               ),
                                                           hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                 fontFamily: 'Lexend Deca',
                                                                 color: Color(0xFF95A1AC),
-                                                                fontSize: 14,
+                                                                fontSize: 14.0,
                                                                 fontWeight: FontWeight.normal,
                                                               ),
                                                           enabledBorder: OutlineInputBorder(
                                                             borderSide: BorderSide(
                                                               color: Color(0x00000000),
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
-                                                            borderRadius: BorderRadius.circular(8),
+                                                            borderRadius: BorderRadius.circular(8.0),
                                                           ),
                                                           focusedBorder: OutlineInputBorder(
                                                             borderSide: BorderSide(
                                                               color: Color(0x00000000),
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
-                                                            borderRadius: BorderRadius.circular(8),
+                                                            borderRadius: BorderRadius.circular(8.0),
                                                           ),
                                                           errorBorder: OutlineInputBorder(
                                                             borderSide: BorderSide(
                                                               color: Color(0x00000000),
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
-                                                            borderRadius: BorderRadius.circular(8),
+                                                            borderRadius: BorderRadius.circular(8.0),
                                                           ),
                                                           focusedErrorBorder: OutlineInputBorder(
                                                             borderSide: BorderSide(
                                                               color: Color(0x00000000),
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
-                                                            borderRadius: BorderRadius.circular(8),
+                                                            borderRadius: BorderRadius.circular(8.0),
                                                           ),
                                                           filled: true,
                                                           fillColor: Colors.white,
-                                                          contentPadding: EdgeInsetsDirectional.fromSTEB(20, 24, 20, 24),
+                                                          contentPadding: EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 20.0, 24.0),
                                                           prefixIcon: Icon(
                                                             Icons.phone_rounded,
                                                             color: FlutterFlowTheme.of(context).secondaryText,
-                                                            size: 24,
+                                                            size: 24.0,
                                                           ),
                                                         ),
                                                         style: FlutterFlowTheme.of(context).titleSmall.override(
                                                               fontFamily: 'Outfit',
                                                               color: Color(0xFF0F1113),
-                                                              fontSize: 16,
+                                                              fontSize: 16.0,
                                                               fontWeight: FontWeight.normal,
                                                             ),
                                                         maxLines: null,
@@ -807,7 +806,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                       ),
                                                     ),
                                                     Padding(
-                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
                                                           logFirebaseEvent('KIRJAUDU_SIVU_Button-LoginWithPhoneNumbe');
@@ -839,21 +838,21 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                           '2rl9emal' /* Lähetä vahvistuskoodi */,
                                                         ),
                                                         options: FFButtonOptions(
-                                                          width: 230,
-                                                          height: 50,
-                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                          iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                          width: 230.0,
+                                                          height: 50.0,
+                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                          iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                           color: FlutterFlowTheme.of(context).tertiary,
                                                           textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                 fontFamily: 'Lexend Deca',
                                                                 color: Colors.white,
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 fontWeight: FontWeight.normal,
                                                               ),
-                                                          elevation: 3,
+                                                          elevation: 3.0,
                                                           borderSide: BorderSide(
                                                             color: Colors.transparent,
-                                                            width: 1,
+                                                            width: 1.0,
                                                           ),
                                                         ),
                                                       ),
@@ -867,13 +866,13 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                     ),
                                     KeepAliveWidgetWrapper(
                                       builder: (context) => Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(44, 0, 44, 0),
+                                        padding: EdgeInsetsDirectional.fromSTEB(44.0, 0.0, 44.0, 0.0),
                                         child: SingleChildScrollView(
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional.fromSTEB(20, 22, 20, 0),
+                                                padding: EdgeInsetsDirectional.fromSTEB(20.0, 22.0, 20.0, 0.0),
                                                 child: Row(
                                                   mainAxisSize: MainAxisSize.max,
                                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -887,7 +886,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                         style: FlutterFlowTheme.of(context).titleSmall.override(
                                                               fontFamily: 'Outfit',
                                                               color: Color(0xC8FFFFFF),
-                                                              fontSize: 16,
+                                                              fontSize: 16.0,
                                                               fontWeight: FontWeight.normal,
                                                             ),
                                                       ),
@@ -896,7 +895,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 8),
+                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 8.0),
                                                 child: Row(
                                                   mainAxisSize: MainAxisSize.max,
                                                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -922,24 +921,24 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                             context.goNamedAuth('paasivu', mounted);
                                                           },
                                                           child: Container(
-                                                            width: 60,
-                                                            height: 60,
+                                                            width: 60.0,
+                                                            height: 60.0,
                                                             decoration: BoxDecoration(
                                                               color: Color(0xFF0F1113),
                                                               boxShadow: [
                                                                 BoxShadow(
-                                                                  blurRadius: 5,
+                                                                  blurRadius: 5.0,
                                                                   color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                  offset: Offset(0, 2),
+                                                                  offset: Offset(0.0, 2.0),
                                                                 )
                                                               ],
                                                               shape: BoxShape.circle,
                                                             ),
-                                                            alignment: AlignmentDirectional(0, 0),
+                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                             child: FaIcon(
                                                               FontAwesomeIcons.google,
                                                               color: Colors.white,
-                                                              size: 30,
+                                                              size: 30.0,
                                                             ),
                                                           ),
                                                         ),
@@ -966,24 +965,24 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                               context.goNamedAuth('paasivu', mounted);
                                                             },
                                                             child: Container(
-                                                              width: 60,
-                                                              height: 60,
+                                                              width: 60.0,
+                                                              height: 60.0,
                                                               decoration: BoxDecoration(
                                                                 color: Color(0xFF0F1113),
                                                                 boxShadow: [
                                                                   BoxShadow(
-                                                                    blurRadius: 5,
+                                                                    blurRadius: 5.0,
                                                                     color: FlutterFlowTheme.of(context).secondary,
-                                                                    offset: Offset(0, 2),
+                                                                    offset: Offset(0.0, 2.0),
                                                                   )
                                                                 ],
                                                                 shape: BoxShape.circle,
                                                               ),
-                                                              alignment: AlignmentDirectional(0, 0),
+                                                              alignment: AlignmentDirectional(0.0, 0.0),
                                                               child: FaIcon(
                                                                 FontAwesomeIcons.apple,
                                                                 color: Colors.white,
-                                                                size: 30,
+                                                                size: 30.0,
                                                               ),
                                                             ),
                                                           ),
@@ -1006,24 +1005,24 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                             });
                                                           },
                                                           child: Container(
-                                                            width: 60,
-                                                            height: 60,
+                                                            width: 60.0,
+                                                            height: 60.0,
                                                             decoration: BoxDecoration(
                                                               color: Color(0xFF0F1113),
                                                               boxShadow: [
                                                                 BoxShadow(
-                                                                  blurRadius: 5,
+                                                                  blurRadius: 5.0,
                                                                   color: FlutterFlowTheme.of(context).secondary,
-                                                                  offset: Offset(0, 2),
+                                                                  offset: Offset(0.0, 2.0),
                                                                 )
                                                               ],
                                                               shape: BoxShape.circle,
                                                             ),
-                                                            alignment: AlignmentDirectional(0, 0),
+                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                             child: Icon(
                                                               Icons.email_rounded,
                                                               color: Colors.white,
-                                                              size: 30,
+                                                              size: 30.0,
                                                             ),
                                                           ),
                                                         ),
@@ -1046,24 +1045,24 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                             });
                                                           },
                                                           child: Container(
-                                                            width: 60,
-                                                            height: 60,
+                                                            width: 60.0,
+                                                            height: 60.0,
                                                             decoration: BoxDecoration(
                                                               color: Color(0xFF0F1113),
                                                               boxShadow: [
                                                                 BoxShadow(
-                                                                  blurRadius: 5,
+                                                                  blurRadius: 5.0,
                                                                   color: FlutterFlowTheme.of(context).secondary,
-                                                                  offset: Offset(0, 2),
+                                                                  offset: Offset(0.0, 2.0),
                                                                 )
                                                               ],
                                                               shape: BoxShape.circle,
                                                             ),
-                                                            alignment: AlignmentDirectional(0, 0),
+                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                             child: Icon(
                                                               Icons.phone_sharp,
                                                               color: Colors.white,
-                                                              size: 30,
+                                                              size: 30.0,
                                                             ),
                                                           ),
                                                         ),
@@ -1080,7 +1079,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                   mainAxisSize: MainAxisSize.max,
                                                   children: [
                                                     Padding(
-                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                                                       child: TextFormField(
                                                         controller: _model.emailAddressCreateAccController,
                                                         obscureText: false,
@@ -1091,58 +1090,58 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                           labelStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                 fontFamily: 'Outfit',
                                                                 color: Color(0xFF57636C),
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 fontWeight: FontWeight.normal,
                                                               ),
                                                           hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                 fontFamily: 'Lexend Deca',
                                                                 color: Color(0xFF95A1AC),
-                                                                fontSize: 14,
+                                                                fontSize: 14.0,
                                                                 fontWeight: FontWeight.normal,
                                                               ),
                                                           enabledBorder: OutlineInputBorder(
                                                             borderSide: BorderSide(
                                                               color: Color(0x00000000),
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
-                                                            borderRadius: BorderRadius.circular(12),
+                                                            borderRadius: BorderRadius.circular(12.0),
                                                           ),
                                                           focusedBorder: OutlineInputBorder(
                                                             borderSide: BorderSide(
                                                               color: Color(0x00000000),
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
-                                                            borderRadius: BorderRadius.circular(12),
+                                                            borderRadius: BorderRadius.circular(12.0),
                                                           ),
                                                           errorBorder: OutlineInputBorder(
                                                             borderSide: BorderSide(
                                                               color: Color(0x00000000),
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
-                                                            borderRadius: BorderRadius.circular(12),
+                                                            borderRadius: BorderRadius.circular(12.0),
                                                           ),
                                                           focusedErrorBorder: OutlineInputBorder(
                                                             borderSide: BorderSide(
                                                               color: Color(0x00000000),
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
-                                                            borderRadius: BorderRadius.circular(12),
+                                                            borderRadius: BorderRadius.circular(12.0),
                                                           ),
                                                           filled: true,
                                                           fillColor: Colors.white,
-                                                          contentPadding: EdgeInsetsDirectional.fromSTEB(20, 24, 20, 24),
+                                                          contentPadding: EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 20.0, 24.0),
                                                         ),
                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                               fontFamily: 'Lexend Deca',
                                                               color: Color(0xFF14181B),
-                                                              fontSize: 14,
+                                                              fontSize: 14.0,
                                                               fontWeight: FontWeight.normal,
                                                             ),
                                                         validator: _model.emailAddressCreateAccControllerValidator.asValidator(context),
                                                       ),
                                                     ),
                                                     Padding(
-                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                                                       child: TextFormField(
                                                         controller: _model.passwordCreateAccController,
                                                         obscureText: !_model.passwordCreateAccVisibility,
@@ -1153,46 +1152,46 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                           labelStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                 fontFamily: 'Outfit',
                                                                 color: Color(0xFF57636C),
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 fontWeight: FontWeight.normal,
                                                               ),
                                                           hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                 fontFamily: 'Lexend Deca',
                                                                 color: Color(0xFF95A1AC),
-                                                                fontSize: 14,
+                                                                fontSize: 14.0,
                                                                 fontWeight: FontWeight.normal,
                                                               ),
                                                           enabledBorder: OutlineInputBorder(
                                                             borderSide: BorderSide(
                                                               color: Color(0x00000000),
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
-                                                            borderRadius: BorderRadius.circular(12),
+                                                            borderRadius: BorderRadius.circular(12.0),
                                                           ),
                                                           focusedBorder: OutlineInputBorder(
                                                             borderSide: BorderSide(
                                                               color: Color(0x00000000),
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
-                                                            borderRadius: BorderRadius.circular(12),
+                                                            borderRadius: BorderRadius.circular(12.0),
                                                           ),
                                                           errorBorder: OutlineInputBorder(
                                                             borderSide: BorderSide(
                                                               color: Color(0x00000000),
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
-                                                            borderRadius: BorderRadius.circular(12),
+                                                            borderRadius: BorderRadius.circular(12.0),
                                                           ),
                                                           focusedErrorBorder: OutlineInputBorder(
                                                             borderSide: BorderSide(
                                                               color: Color(0x00000000),
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
-                                                            borderRadius: BorderRadius.circular(12),
+                                                            borderRadius: BorderRadius.circular(12.0),
                                                           ),
                                                           filled: true,
                                                           fillColor: Colors.white,
-                                                          contentPadding: EdgeInsetsDirectional.fromSTEB(20, 24, 20, 24),
+                                                          contentPadding: EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 20.0, 24.0),
                                                           suffixIcon: InkWell(
                                                             onTap: () => setState(
                                                               () => _model.passwordCreateAccVisibility = !_model.passwordCreateAccVisibility,
@@ -1201,21 +1200,21 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                             child: Icon(
                                                               _model.passwordCreateAccVisibility ? Icons.visibility_outlined : Icons.visibility_off_outlined,
                                                               color: Color(0xFF95A1AC),
-                                                              size: 20,
+                                                              size: 20.0,
                                                             ),
                                                           ),
                                                         ),
                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                               fontFamily: 'Lexend Deca',
                                                               color: Color(0xFF14181B),
-                                                              fontSize: 14,
+                                                              fontSize: 14.0,
                                                               fontWeight: FontWeight.normal,
                                                             ),
                                                         validator: _model.passwordCreateAccControllerValidator.asValidator(context),
                                                       ),
                                                     ),
                                                     Padding(
-                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                                                       child: TextFormField(
                                                         controller: _model.passwordConfirmCreateAccController,
                                                         obscureText: !_model.passwordConfirmCreateAccVisibility,
@@ -1226,46 +1225,46 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                           labelStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                 fontFamily: 'Outfit',
                                                                 color: Color(0xFF57636C),
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 fontWeight: FontWeight.normal,
                                                               ),
                                                           hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                 fontFamily: 'Lexend Deca',
                                                                 color: Color(0xFF95A1AC),
-                                                                fontSize: 14,
+                                                                fontSize: 14.0,
                                                                 fontWeight: FontWeight.normal,
                                                               ),
                                                           enabledBorder: OutlineInputBorder(
                                                             borderSide: BorderSide(
                                                               color: Color(0x00000000),
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
-                                                            borderRadius: BorderRadius.circular(12),
+                                                            borderRadius: BorderRadius.circular(12.0),
                                                           ),
                                                           focusedBorder: OutlineInputBorder(
                                                             borderSide: BorderSide(
                                                               color: Color(0x00000000),
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
-                                                            borderRadius: BorderRadius.circular(12),
+                                                            borderRadius: BorderRadius.circular(12.0),
                                                           ),
                                                           errorBorder: OutlineInputBorder(
                                                             borderSide: BorderSide(
                                                               color: Color(0x00000000),
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
-                                                            borderRadius: BorderRadius.circular(12),
+                                                            borderRadius: BorderRadius.circular(12.0),
                                                           ),
                                                           focusedErrorBorder: OutlineInputBorder(
                                                             borderSide: BorderSide(
                                                               color: Color(0x00000000),
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
-                                                            borderRadius: BorderRadius.circular(12),
+                                                            borderRadius: BorderRadius.circular(12.0),
                                                           ),
                                                           filled: true,
                                                           fillColor: Colors.white,
-                                                          contentPadding: EdgeInsetsDirectional.fromSTEB(20, 24, 20, 24),
+                                                          contentPadding: EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 20.0, 24.0),
                                                           suffixIcon: InkWell(
                                                             onTap: () => setState(
                                                               () => _model.passwordConfirmCreateAccVisibility = !_model.passwordConfirmCreateAccVisibility,
@@ -1274,21 +1273,21 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                             child: Icon(
                                                               _model.passwordConfirmCreateAccVisibility ? Icons.visibility_outlined : Icons.visibility_off_outlined,
                                                               color: Color(0xFF95A1AC),
-                                                              size: 20,
+                                                              size: 20.0,
                                                             ),
                                                           ),
                                                         ),
                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                               fontFamily: 'Lexend Deca',
                                                               color: Color(0xFF14181B),
-                                                              fontSize: 14,
+                                                              fontSize: 14.0,
                                                               fontWeight: FontWeight.normal,
                                                             ),
                                                         validator: _model.passwordConfirmCreateAccControllerValidator.asValidator(context),
                                                       ),
                                                     ),
                                                     Padding(
-                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
                                                           logFirebaseEvent('KIRJAUDU_SIVU_PAGE_LUO_TILI_BTN_ON_TAP');
@@ -1324,7 +1323,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                                 isAnonymous: false,
                                                                 email: '',
                                                               ),
-                                                              'anonymousAccounts': FieldValue.arrayUnion([FFAppState().anonymouslyLoggedInUserAccountRef]),
+                                                              if (/* Do not remove if */ FFAppState().anonymouslyLoggedInUserAccountRef != null) 'anonymousAccounts': FieldValue.arrayUnion([FFAppState().anonymouslyLoggedInUserAccountRef]),
                                                             };
                                                             await currentUserReference!.update(usersUpdateData);
                                                             logFirebaseEvent('Button_navigate_to');
@@ -1338,23 +1337,23 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                           '73gnjam6' /* Luo tili */,
                                                         ),
                                                         options: FFButtonOptions(
-                                                          width: 230,
-                                                          height: 50,
-                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                          iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                          width: 230.0,
+                                                          height: 50.0,
+                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                          iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                           color: FlutterFlowTheme.of(context).tertiary,
                                                           textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                 fontFamily: 'Lexend Deca',
                                                                 color: Colors.white,
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 fontWeight: FontWeight.normal,
                                                               ),
-                                                          elevation: 3,
+                                                          elevation: 3.0,
                                                           borderSide: BorderSide(
                                                             color: Colors.transparent,
-                                                            width: 1,
+                                                            width: 1.0,
                                                           ),
-                                                          borderRadius: BorderRadius.circular(12),
+                                                          borderRadius: BorderRadius.circular(12.0),
                                                         ),
                                                       ),
                                                     ),
@@ -1368,7 +1367,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                   mainAxisSize: MainAxisSize.max,
                                                   children: [
                                                     Padding(
-                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                                                       child: TextFormField(
                                                         controller: _model.textfieldPhoneNumberController2,
                                                         autofillHints: [AutofillHints.telephoneNumber],
@@ -1380,7 +1379,7 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                           labelStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                 fontFamily: 'Lexend Deca',
                                                                 color: Color(0xFF95A1AC),
-                                                                fontSize: 14,
+                                                                fontSize: 14.0,
                                                                 fontWeight: FontWeight.normal,
                                                               ),
                                                           hintText: FFLocalizations.of(context).getText(
@@ -1389,57 +1388,57 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                           hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                 fontFamily: 'Lexend Deca',
                                                                 color: Color(0xFF95A1AC),
-                                                                fontSize: 14,
+                                                                fontSize: 14.0,
                                                                 fontWeight: FontWeight.normal,
                                                               ),
                                                           enabledBorder: OutlineInputBorder(
                                                             borderSide: BorderSide(
                                                               color: Color(0x00000000),
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
-                                                            borderRadius: BorderRadius.circular(12),
+                                                            borderRadius: BorderRadius.circular(12.0),
                                                           ),
                                                           focusedBorder: OutlineInputBorder(
                                                             borderSide: BorderSide(
                                                               color: Color(0x00000000),
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
-                                                            borderRadius: BorderRadius.circular(12),
+                                                            borderRadius: BorderRadius.circular(12.0),
                                                           ),
                                                           errorBorder: OutlineInputBorder(
                                                             borderSide: BorderSide(
                                                               color: Color(0x00000000),
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
-                                                            borderRadius: BorderRadius.circular(12),
+                                                            borderRadius: BorderRadius.circular(12.0),
                                                           ),
                                                           focusedErrorBorder: OutlineInputBorder(
                                                             borderSide: BorderSide(
                                                               color: Color(0x00000000),
-                                                              width: 1,
+                                                              width: 1.0,
                                                             ),
-                                                            borderRadius: BorderRadius.circular(12),
+                                                            borderRadius: BorderRadius.circular(12.0),
                                                           ),
                                                           filled: true,
                                                           fillColor: Colors.white,
-                                                          contentPadding: EdgeInsetsDirectional.fromSTEB(20, 24, 20, 24),
+                                                          contentPadding: EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 20.0, 24.0),
                                                           prefixIcon: Icon(
                                                             Icons.phone_rounded,
                                                             color: FlutterFlowTheme.of(context).secondaryText,
-                                                            size: 24,
+                                                            size: 24.0,
                                                           ),
                                                         ),
                                                         style: FlutterFlowTheme.of(context).titleSmall.override(
                                                               fontFamily: 'Outfit',
                                                               color: Color(0xFF0F1113),
-                                                              fontSize: 16,
+                                                              fontSize: 16.0,
                                                               fontWeight: FontWeight.normal,
                                                             ),
                                                         validator: _model.textfieldPhoneNumberController2Validator.asValidator(context),
                                                       ),
                                                     ),
                                                     Padding(
-                                                      padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+                                                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
                                                           logFirebaseEvent('KIRJAUDU_SIVU_Button-LoginWithPhoneNumbe');
@@ -1471,23 +1470,23 @@ class _KirjauduSivuWidgetState extends State<KirjauduSivuWidget> with TickerProv
                                                           'djspg1ze' /* Lähetä vahvistuskoodi */,
                                                         ),
                                                         options: FFButtonOptions(
-                                                          width: 230,
-                                                          height: 50,
-                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                                                          iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                                                          width: 230.0,
+                                                          height: 50.0,
+                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                          iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                           color: FlutterFlowTheme.of(context).tertiary,
                                                           textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                 fontFamily: 'Lexend Deca',
                                                                 color: Colors.white,
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                                 fontWeight: FontWeight.normal,
                                                               ),
-                                                          elevation: 3,
+                                                          elevation: 3.0,
                                                           borderSide: BorderSide(
                                                             color: Colors.transparent,
-                                                            width: 1,
+                                                            width: 1.0,
                                                           ),
-                                                          borderRadius: BorderRadius.circular(12),
+                                                          borderRadius: BorderRadius.circular(12.0),
                                                         ),
                                                       ),
                                                     ),

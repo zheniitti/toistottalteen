@@ -31,7 +31,7 @@ class FeedbackPageModel extends FlutterFlowModel {
   Do not remove comment
   bool isDataUploading = false;
   List<FFUploadedFile> uploadedLocalFiles = [];
-  List<String> uploadedFileUrls = []; 
+  List<String> uploadedFileUrls = [];
   */
 
   // State field(s) for feedbackMessage widget.
@@ -47,4 +47,5 @@ class FeedbackPageModel extends FlutterFlowModel {
   }
 
   /// Additional helper methods are added here.
+
 }

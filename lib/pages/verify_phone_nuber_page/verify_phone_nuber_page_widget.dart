@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-
 import 'verify_phone_nuber_page_model.dart';
 export 'verify_phone_nuber_page_model.dart';
 
@@ -48,7 +47,7 @@ class _VerifyPhoneNuberPageWidgetState extends State<VerifyPhoneNuberPageWidget>
       key: scaffoldKey,
       backgroundColor: Color(0xFFDCE5EB),
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60),
+        preferredSize: Size.fromHeight(60.0),
         child: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primary,
           iconTheme: IconThemeData(color: FlutterFlowTheme.of(context).secondary),
@@ -59,9 +58,9 @@ class _VerifyPhoneNuberPageWidgetState extends State<VerifyPhoneNuberPageWidget>
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Align(
-                alignment: AlignmentDirectional(-1, 0),
+                alignment: AlignmentDirectional(-1.0, 0.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
                       'js4yep2h' /* Takaisin */,
@@ -77,7 +76,7 @@ class _VerifyPhoneNuberPageWidgetState extends State<VerifyPhoneNuberPageWidget>
           ),
           actions: [],
           centerTitle: true,
-          elevation: 0,
+          elevation: 0.0,
         ),
       ),
       body: Column(
@@ -85,13 +84,13 @@ class _VerifyPhoneNuberPageWidgetState extends State<VerifyPhoneNuberPageWidget>
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20, 4, 20, 8),
+            padding: EdgeInsetsDirectional.fromSTEB(20.0, 4.0, 20.0, 8.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
+                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
                         '3a8m9btv' /* Olemme lähettäneet kuusinumero... */,
@@ -100,7 +99,7 @@ class _VerifyPhoneNuberPageWidgetState extends State<VerifyPhoneNuberPageWidget>
                       style: FlutterFlowTheme.of(context).bodySmall.override(
                             fontFamily: 'Outfit',
                             color: Color(0xFF57636C),
-                            fontSize: 14,
+                            fontSize: 14.0,
                             fontWeight: FontWeight.normal,
                           ),
                     ),
@@ -110,23 +109,23 @@ class _VerifyPhoneNuberPageWidgetState extends State<VerifyPhoneNuberPageWidget>
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(24, 4, 24, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 24.0, 0.0),
             child: Container(
               width: double.infinity,
-              height: 60,
+              height: 60.0,
               constraints: BoxConstraints(
-                maxWidth: 400,
+                maxWidth: 400.0,
               ),
               decoration: BoxDecoration(
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(
-                    blurRadius: 5,
+                    blurRadius: 5.0,
                     color: Color(0x4D101213),
-                    offset: Offset(0, 2),
+                    offset: Offset(0.0, 2.0),
                   )
                 ],
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8.0),
               ),
               child: TextFormField(
                 controller: _model.smsCodeController,
@@ -146,34 +145,34 @@ class _VerifyPhoneNuberPageWidgetState extends State<VerifyPhoneNuberPageWidget>
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0x00000000),
-                      width: 0,
+                      width: 0.0,
                     ),
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0x00000000),
-                      width: 0,
+                      width: 0.0,
                     ),
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
                   errorBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0x00000000),
-                      width: 0,
+                      width: 0.0,
                     ),
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0x00000000),
-                      width: 0,
+                      width: 0.0,
                     ),
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
                   filled: true,
                   fillColor: Colors.white,
-                  contentPadding: EdgeInsetsDirectional.fromSTEB(24, 0, 20, 0),
+                  contentPadding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 20.0, 0.0),
                   suffixIcon: _model.smsCodeController!.text.isNotEmpty
                       ? InkWell(
                           onTap: () async {
@@ -183,7 +182,7 @@ class _VerifyPhoneNuberPageWidgetState extends State<VerifyPhoneNuberPageWidget>
                           child: Icon(
                             Icons.clear,
                             color: Color(0xFF757575),
-                            size: 22,
+                            size: 22.0,
                           ),
                         )
                       : null,
@@ -196,7 +195,7 @@ class _VerifyPhoneNuberPageWidgetState extends State<VerifyPhoneNuberPageWidget>
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
             child: FFButtonWidget(
               onPressed: () async {
                 logFirebaseEvent('VERIFY_PHONE_NUBER_Button-Login_ON_TAP');
@@ -227,21 +226,21 @@ class _VerifyPhoneNuberPageWidgetState extends State<VerifyPhoneNuberPageWidget>
                 'ptclw37b' /* Vahvista */,
               ),
               options: FFButtonOptions(
-                width: 270,
-                height: 50,
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                width: 270.0,
+                height: 50.0,
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: Color(0xFF0F1113),
                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                       fontFamily: 'Outfit',
                       color: Colors.white,
-                      fontSize: 16,
+                      fontSize: 16.0,
                       fontWeight: FontWeight.normal,
                     ),
-                elevation: 3,
+                elevation: 3.0,
                 borderSide: BorderSide(
                   color: Colors.transparent,
-                  width: 1,
+                  width: 1.0,
                 ),
               ),
             ),
