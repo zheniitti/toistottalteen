@@ -104,10 +104,10 @@ class _PaasivuWidgetState extends State<PaasivuWidget> with TickerProviderStateM
     'columnOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        VisibilityEffect(duration: 2000.ms),
+        VisibilityEffect(duration: 300.ms),
         FadeEffect(
           curve: Curves.easeInOut,
-          delay: 2000.ms,
+          delay: 300.ms,
           duration: 800.ms,
           begin: 0.0,
           end: 1.0,
@@ -117,17 +117,17 @@ class _PaasivuWidgetState extends State<PaasivuWidget> with TickerProviderStateM
     'rowOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        VisibilityEffect(duration: 500.ms),
+        VisibilityEffect(duration: 300.ms),
         FadeEffect(
           curve: Curves.easeInOut,
-          delay: 500.ms,
+          delay: 300.ms,
           duration: 600.ms,
           begin: 0.0,
           end: 1.0,
         ),
         ScaleEffect(
           curve: Curves.easeInOut,
-          delay: 500.ms,
+          delay: 300.ms,
           duration: 600.ms,
           begin: Offset(0.0, 0.0),
           end: Offset(1.0, 1.0),
@@ -258,10 +258,8 @@ class _PaasivuWidgetState extends State<PaasivuWidget> with TickerProviderStateM
     context.watch<FFAppState>();
     //Do not delete ->
     if (_model.pageViewController != null && _model.pageViewController!.hasClients && FFAppState().navBarIndex != _model.pageViewController!.page!.truncate()) {
-      _model.pageViewController!.animateToPage(
+      _model.pageViewController!.jumpToPage(
         FFAppState().navBarIndex,
-        duration: Duration(milliseconds: 200),
-        curve: Curves.easeInOut,
       );
     }
     //Do not delete <-
