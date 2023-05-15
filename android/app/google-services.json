@@ -14,19 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "869597166249-gd493l4a43rd938ajk9jhossj03np3bb.apps.googleusercontent.com",
+          "client_id": "869597166249-7eh20qshmcekdr926cc4v4jsnt7eesnb.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "fi.toistotTalteen",
-            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
-          }
-        },
-        {
-          "client_id": "869597166249-nl1t9hch4v9iea7uvd0tc34r8c5pth0g.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "fi.toistotTalteen",
-            "certificate_hash": "ca91045e223623c2ebee8225e4d93b8dd2030fe4"
+            "certificate_hash": "91a0c6d1f3d87459966d26d4d5ac4f119380efd4"
           }
         },
         {
@@ -35,6 +27,14 @@
           "android_info": {
             "package_name": "fi.toistotTalteen",
             "certificate_hash": "f2eeace8df8e4b7a7f67421e2225d92a5b4faf96"
+          }
+        },
+        {
+          "client_id": "869597166249-vraeqo4qobqjuovk7rr4nueqcq507hcv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fi.toistotTalteen",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
           }
         },
         {
