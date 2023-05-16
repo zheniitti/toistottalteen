@@ -14,10 +14,12 @@ class VerifyPhoneNuberPageWidget extends StatefulWidget {
   const VerifyPhoneNuberPageWidget({Key? key}) : super(key: key);
 
   @override
-  _VerifyPhoneNuberPageWidgetState createState() => _VerifyPhoneNuberPageWidgetState();
+  _VerifyPhoneNuberPageWidgetState createState() =>
+      _VerifyPhoneNuberPageWidgetState();
 }
 
-class _VerifyPhoneNuberPageWidgetState extends State<VerifyPhoneNuberPageWidget> {
+class _VerifyPhoneNuberPageWidgetState
+    extends State<VerifyPhoneNuberPageWidget> {
   late VerifyPhoneNuberPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -27,7 +29,8 @@ class _VerifyPhoneNuberPageWidgetState extends State<VerifyPhoneNuberPageWidget>
     super.initState();
     _model = createModel(context, () => VerifyPhoneNuberPageModel());
 
-    logFirebaseEvent('screen_view', parameters: {'screen_name': 'verifyPhoneNuber_page'});
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'verifyPhoneNuber_page'});
     _model.smsCodeController ??= TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -50,7 +53,8 @@ class _VerifyPhoneNuberPageWidgetState extends State<VerifyPhoneNuberPageWidget>
         preferredSize: Size.fromHeight(60.0),
         child: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).primary,
-          iconTheme: IconThemeData(color: FlutterFlowTheme.of(context).secondary),
+          iconTheme:
+              IconThemeData(color: FlutterFlowTheme.of(context).secondary),
           automaticallyImplyLeading: true,
           title: Column(
             mainAxisSize: MainAxisSize.max,
@@ -172,7 +176,8 @@ class _VerifyPhoneNuberPageWidgetState extends State<VerifyPhoneNuberPageWidget>
                   ),
                   filled: true,
                   fillColor: Colors.white,
-                  contentPadding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 20.0, 0.0),
+                  contentPadding:
+                      EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 20.0, 0.0),
                   suffixIcon: _model.smsCodeController!.text.isNotEmpty
                       ? InkWell(
                           onTap: () async {
@@ -190,7 +195,8 @@ class _VerifyPhoneNuberPageWidgetState extends State<VerifyPhoneNuberPageWidget>
                 style: FlutterFlowTheme.of(context).titleMedium,
                 maxLines: null,
                 keyboardType: TextInputType.number,
-                validator: _model.smsCodeControllerValidator.asValidator(context),
+                validator:
+                    _model.smsCodeControllerValidator.asValidator(context),
               ),
             ),
           ),

@@ -88,15 +88,18 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                       children: [
                         if (!widget.rutiini!.finishedEditing!)
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 8.0, 4.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 4.0, 8.0, 4.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                logFirebaseEvent('RUTIININ_LIIKKEET_Icon_deleteLiike_ON_TA');
-                                logFirebaseEvent('Icon_deleteLiike_custom_action');
+                                logFirebaseEvent(
+                                    'RUTIININ_LIIKKEET_Icon_deleteLiike_ON_TA');
+                                logFirebaseEvent(
+                                    'Icon_deleteLiike_custom_action');
                                 await actions.updateUserDocTreenirutiini(
                                   widget.rutiini,
                                   null,
@@ -125,31 +128,41 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                           ),
                         if (widget.rutiini?.finishedEditing ?? true)
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 8.0, 4.0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 4.0, 8.0, 4.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                logFirebaseEvent('RUTIININ_LIIKKEET_Icon_copyLiike_ON_TAP');
-                                logFirebaseEvent('Icon_copyLiike_update_app_state');
-                                FFAppState().kopioidutLiikkeet = functions.liikeToLiikeJsonList(liikkeetItem, functions.nullLiikeList()?.toList())!.toList();
-                                logFirebaseEvent('Icon_copyLiike_show_snack_bar');
+                                logFirebaseEvent(
+                                    'RUTIININ_LIIKKEET_Icon_copyLiike_ON_TAP');
+                                logFirebaseEvent(
+                                    'Icon_copyLiike_update_app_state');
+                                FFAppState().kopioidutLiikkeet = functions
+                                    .liikeToLiikeJsonList(liikkeetItem,
+                                        functions.nullLiikeList()?.toList())!
+                                    .toList();
+                                logFirebaseEvent(
+                                    'Icon_copyLiike_show_snack_bar');
                                 ScaffoldMessenger.of(context).clearSnackBars();
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     content: Text(
-                                      FFLocalizations.of(context).getVariableText(
+                                      FFLocalizations.of(context)
+                                          .getVariableText(
                                         fiText: 'Liike kopioitu',
                                         enText: 'Excersice copied',
                                       ),
                                       style: TextStyle(
-                                        color: FlutterFlowTheme.of(context).primaryText,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
                                       ),
                                     ),
                                     duration: Duration(milliseconds: 3000),
-                                    backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context).secondary,
                                   ),
                                 );
                               },
@@ -165,7 +178,8 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                   ),
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8.0),
@@ -184,14 +198,16 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                                     spacing: 0.0,
                                     runSpacing: 0.0,
                                     alignment: WrapAlignment.start,
-                                    crossAxisAlignment: WrapCrossAlignment.start,
+                                    crossAxisAlignment:
+                                        WrapCrossAlignment.start,
                                     direction: Axis.horizontal,
                                     runAlignment: WrapAlignment.start,
                                     verticalDirection: VerticalDirection.down,
                                     clipBehavior: Clip.none,
                                     children: [
                                       RutiininLiikeNimiTextfieldWidget(
-                                        key: Key('Key8jh_${liikkeetIndex}_of_${liikkeet.length}'),
+                                        key: Key(
+                                            'Key8jh_${liikkeetIndex}_of_${liikkeet.length}'),
                                         liikeIndex: liikkeetIndex,
                                         rutiini: widget.rutiini,
                                         liike: liikkeetItem,
@@ -207,208 +223,375 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            logFirebaseEvent('RUTIININ_LIIKKEET_Column_sarjatToistotMu');
-                                            logFirebaseEvent('Column_sarjatToistotMuut_custom_action');
-                                            _model.jsonRutiiniCopy = await actions.rutiiniToJsonFirestoreData(
+                                            logFirebaseEvent(
+                                                'RUTIININ_LIIKKEET_Column_sarjatToistotMu');
+                                            logFirebaseEvent(
+                                                'Column_sarjatToistotMuut_custom_action');
+                                            _model.jsonRutiiniCopy =
+                                                await actions
+                                                    .rutiiniToJsonFirestoreData(
                                               widget.rutiini,
                                             );
                                             if (false) {
-                                              logFirebaseEvent('Column_sarjatToistotMuut_update_app_stat');
+                                              logFirebaseEvent(
+                                                  'Column_sarjatToistotMuut_update_app_stat');
                                               FFAppState().update(() {
-                                                FFAppState().valittuMuokattavaLiikeIndex = liikkeetIndex;
-                                                FFAppState().valittuMuokattavaRutiini = _model.jsonRutiiniCopy!;
+                                                FFAppState()
+                                                        .valittuMuokattavaLiikeIndex =
+                                                    liikkeetIndex;
+                                                FFAppState()
+                                                        .valittuMuokattavaRutiini =
+                                                    _model.jsonRutiiniCopy!;
                                               });
                                             } else {
-                                              logFirebaseEvent('Column_sarjatToistotMuut_bottom_sheet');
+                                              logFirebaseEvent(
+                                                  'Column_sarjatToistotMuut_bottom_sheet');
                                               showModalBottomSheet(
                                                 isScrollControlled: true,
-                                                backgroundColor: Colors.transparent,
+                                                backgroundColor:
+                                                    Colors.transparent,
                                                 enableDrag: false,
                                                 context: context,
                                                 builder: (bottomSheetContext) {
                                                   return Padding(
-                                                    padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                                                    padding: MediaQuery.of(
+                                                            bottomSheetContext)
+                                                        .viewInsets,
                                                     child: Container(
                                                       height: double.infinity,
-                                                      child: RutiininSarjatToistotKestoMatkaWidget(
+                                                      child:
+                                                          RutiininSarjatToistotKestoMatkaWidget(
                                                         rutiini: widget.rutiini,
-                                                        liikeIndex: liikkeetIndex,
+                                                        liikeIndex:
+                                                            liikkeetIndex,
                                                       ),
                                                     ),
                                                   );
                                                 },
-                                              ).then((value) => setState(() {}));
+                                              ).then(
+                                                  (value) => setState(() {}));
                                             }
 
                                             setState(() {});
                                           },
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             children: [
-                                              if (widget.rutiini!.finishedEditing!
+                                              if (widget
+                                                      .rutiini!.finishedEditing!
                                                   ? (valueOrDefault<bool>(
-                                                        liikkeetItem.sarjaMaara! > 0,
+                                                        liikkeetItem
+                                                                .sarjaMaara! >
+                                                            0,
                                                         false,
                                                       ) &&
-                                                      (liikkeetItem.toistoMaara! > 0) &&
-                                                      !liikkeetItem.isOtherExerciseType!)
-                                                  : !liikkeetItem.isOtherExerciseType!)
+                                                      (liikkeetItem
+                                                              .toistoMaara! >
+                                                          0) &&
+                                                      !liikkeetItem
+                                                          .isOtherExerciseType!)
+                                                  : !liikkeetItem
+                                                      .isOtherExerciseType!)
                                                 RichText(
                                                   text: TextSpan(
                                                     children: [
                                                       TextSpan(
-                                                        text: liikkeetItem.sarjaMaara!.toString(),
-                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                              fontFamily: 'Roboto',
+                                                        text: liikkeetItem
+                                                            .sarjaMaara!
+                                                            .toString(),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Roboto',
                                                               fontSize: 14.0,
-                                                              fontWeight: FontWeight.w500,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
                                                             ),
                                                       ),
                                                       TextSpan(
                                                         text: ' x ',
-                                                        style: FlutterFlowTheme.of(context).titleSmall.override(
-                                                              fontFamily: 'Roboto',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .titleSmall
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Roboto',
                                                               fontSize: 14.0,
                                                             ),
                                                       ),
                                                       TextSpan(
-                                                        text: liikkeetItem.toistoMaara!.toString(),
-                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                              fontFamily: 'Roboto',
-                                                              fontWeight: FontWeight.w500,
-                                                            ),
+                                                        text: liikkeetItem
+                                                            .toistoMaara!
+                                                            .toString(),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                ),
                                                       )
                                                     ],
-                                                    style: FlutterFlowTheme.of(context).bodyMedium,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
                                                   ),
                                                 ),
-                                              if (liikkeetItem.isOtherExerciseType ?? true)
+                                              if (liikkeetItem
+                                                      .isOtherExerciseType ??
+                                                  true)
                                                 Column(
-                                                  mainAxisSize: MainAxisSize.max,
-                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Wrap(
                                                       spacing: 0.0,
                                                       runSpacing: 0.0,
-                                                      alignment: WrapAlignment.start,
-                                                      crossAxisAlignment: WrapCrossAlignment.start,
-                                                      direction: Axis.horizontal,
-                                                      runAlignment: WrapAlignment.start,
-                                                      verticalDirection: VerticalDirection.down,
+                                                      alignment:
+                                                          WrapAlignment.start,
+                                                      crossAxisAlignment:
+                                                          WrapCrossAlignment
+                                                              .start,
+                                                      direction:
+                                                          Axis.horizontal,
+                                                      runAlignment:
+                                                          WrapAlignment.start,
+                                                      verticalDirection:
+                                                          VerticalDirection
+                                                              .down,
                                                       clipBehavior: Clip.none,
                                                       children: [
                                                         Visibility(
-                                                          visible: widget.rutiini!.finishedEditing!
-                                                              ? (valueOrDefault<bool>(
-                                                                    liikkeetItem.kestoSekunteina != null,
+                                                          visible: widget
+                                                                  .rutiini!
+                                                                  .finishedEditing!
+                                                              ? (valueOrDefault<
+                                                                      bool>(
+                                                                    liikkeetItem
+                                                                            .kestoSekunteina !=
+                                                                        null,
                                                                     false,
                                                                   ) &&
-                                                                  (functions.remainingHours(liikkeetItem.kestoSekunteina).toString() != '0'))
+                                                                  (functions
+                                                                          .remainingHours(
+                                                                              liikkeetItem.kestoSekunteina)
+                                                                          .toString() !=
+                                                                      '0'))
                                                               : true,
                                                           child: Padding(
-                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        6.0,
+                                                                        0.0),
                                                             child: RichText(
                                                               text: TextSpan(
                                                                 children: [
                                                                   TextSpan(
-                                                                    text: functions.remainingHours(liikkeetItem.kestoSekunteina).toString(),
-                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                          fontFamily: 'Roboto',
-                                                                          fontSize: 14.0,
-                                                                          fontWeight: FontWeight.w500,
+                                                                    text: functions
+                                                                        .remainingHours(
+                                                                            liikkeetItem.kestoSekunteina)
+                                                                        .toString(),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Roboto',
+                                                                          fontSize:
+                                                                              14.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
                                                                         ),
                                                                   ),
                                                                   TextSpan(
-                                                                    text: FFLocalizations.of(context).getText(
+                                                                    text: FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
                                                                       'kyunprgy' /*  tuntia  */,
                                                                     ),
-                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                          fontFamily: 'Roboto',
-                                                                          fontSize: 14.0,
-                                                                          fontWeight: FontWeight.w300,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Roboto',
+                                                                          fontSize:
+                                                                              14.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w300,
                                                                         ),
                                                                   )
                                                                 ],
-                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium,
                                                               ),
                                                             ),
                                                           ),
                                                         ),
                                                         Visibility(
-                                                          visible: widget.rutiini!.finishedEditing!
-                                                              ? (valueOrDefault<bool>(
-                                                                    liikkeetItem.kestoSekunteina != null,
+                                                          visible: widget
+                                                                  .rutiini!
+                                                                  .finishedEditing!
+                                                              ? (valueOrDefault<
+                                                                      bool>(
+                                                                    liikkeetItem
+                                                                            .kestoSekunteina !=
+                                                                        null,
                                                                     false,
                                                                   ) &&
-                                                                  (functions.remainingMinutes(liikkeetItem.kestoSekunteina).toString() != '0'))
+                                                                  (functions
+                                                                          .remainingMinutes(
+                                                                              liikkeetItem.kestoSekunteina)
+                                                                          .toString() !=
+                                                                      '0'))
                                                               : true,
                                                           child: Padding(
-                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 6.0, 0.0),
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        6.0,
+                                                                        0.0),
                                                             child: RichText(
                                                               text: TextSpan(
                                                                 children: [
                                                                   TextSpan(
-                                                                    text: functions.remainingMinutes(liikkeetItem.kestoSekunteina).toString(),
-                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                          fontFamily: 'Roboto',
-                                                                          fontSize: 14.0,
-                                                                          fontWeight: FontWeight.w500,
+                                                                    text: functions
+                                                                        .remainingMinutes(
+                                                                            liikkeetItem.kestoSekunteina)
+                                                                        .toString(),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Roboto',
+                                                                          fontSize:
+                                                                              14.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
                                                                         ),
                                                                   ),
                                                                   TextSpan(
-                                                                    text: FFLocalizations.of(context).getText(
+                                                                    text: FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
                                                                       'pa1hiz52' /*  minuuttia */,
                                                                     ),
-                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                          fontFamily: 'Roboto',
-                                                                          fontWeight: FontWeight.w300,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Roboto',
+                                                                          fontWeight:
+                                                                              FontWeight.w300,
                                                                         ),
                                                                   )
                                                                 ],
-                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium,
                                                               ),
                                                             ),
                                                           ),
                                                         ),
                                                         Visibility(
-                                                          visible: widget.rutiini!.finishedEditing! ? ((liikkeetItem.kestoSekunteina != null) && (functions.remainingSeconds(liikkeetItem.kestoSekunteina).toString() != '0.0')) : true,
+                                                          visible: widget
+                                                                  .rutiini!
+                                                                  .finishedEditing!
+                                                              ? ((liikkeetItem
+                                                                          .kestoSekunteina !=
+                                                                      null) &&
+                                                                  (functions
+                                                                          .remainingSeconds(
+                                                                              liikkeetItem.kestoSekunteina)
+                                                                          .toString() !=
+                                                                      '0.0'))
+                                                              : true,
                                                           child: Padding(
-                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        12.0,
+                                                                        0.0),
                                                             child: RichText(
                                                               text: TextSpan(
                                                                 children: [
                                                                   TextSpan(
-                                                                    text: functions.remainingSeconds(liikkeetItem.kestoSekunteina).toString(),
-                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                          fontFamily: 'Roboto',
-                                                                          fontSize: 14.0,
-                                                                          fontWeight: FontWeight.w500,
+                                                                    text: functions
+                                                                        .remainingSeconds(
+                                                                            liikkeetItem.kestoSekunteina)
+                                                                        .toString(),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Roboto',
+                                                                          fontSize:
+                                                                              14.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
                                                                         ),
                                                                   ),
                                                                   TextSpan(
-                                                                    text: FFLocalizations.of(context).getText(
+                                                                    text: FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
                                                                       '8r7ks2w3' /*  sekuntia */,
                                                                     ),
-                                                                    style: TextStyle(
-                                                                      fontWeight: FontWeight.w300,
+                                                                    style:
+                                                                        TextStyle(
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w300,
                                                                     ),
                                                                   )
                                                                 ],
-                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium,
                                                               ),
                                                             ),
                                                           ),
                                                         ),
                                                         Visibility(
-                                                          visible: widget.rutiini!.finishedEditing!
-                                                              ? (valueOrDefault<bool>(
-                                                                    liikkeetItem.matkaMetri != null,
+                                                          visible: widget
+                                                                  .rutiini!
+                                                                  .finishedEditing!
+                                                              ? (valueOrDefault<
+                                                                      bool>(
+                                                                    liikkeetItem
+                                                                            .matkaMetri !=
+                                                                        null,
                                                                     false,
                                                                   ) &&
-                                                                  valueOrDefault<bool>(
-                                                                    liikkeetItem.matkaMetri! > 0.0,
+                                                                  valueOrDefault<
+                                                                      bool>(
+                                                                    liikkeetItem
+                                                                            .matkaMetri! >
+                                                                        0.0,
                                                                     false,
                                                                   ))
                                                               : true,
@@ -416,26 +599,45 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                                                             text: TextSpan(
                                                               children: [
                                                                 TextSpan(
-                                                                  text: formatNumber(
-                                                                    liikkeetItem.matkaMetri!,
-                                                                    formatType: FormatType.compact,
+                                                                  text:
+                                                                      formatNumber(
+                                                                    liikkeetItem
+                                                                        .matkaMetri!,
+                                                                    formatType:
+                                                                        FormatType
+                                                                            .compact,
                                                                   ),
-                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                        fontFamily: 'Roboto',
-                                                                        fontSize: 14.0,
-                                                                        fontWeight: FontWeight.w500,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Roboto',
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        fontWeight:
+                                                                            FontWeight.w500,
                                                                       ),
                                                                 ),
                                                                 TextSpan(
-                                                                  text: FFLocalizations.of(context).getText(
+                                                                  text: FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
                                                                     'ud5vyksn' /* m */,
                                                                   ),
-                                                                  style: TextStyle(),
+                                                                  style:
+                                                                      TextStyle(),
                                                                 )
                                                               ],
-                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                    fontFamily: 'Roboto',
-                                                                    fontWeight: FontWeight.w500,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Roboto',
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
                                                                   ),
                                                             ),
                                                           ),
@@ -451,13 +653,20 @@ class _RutiininLiikkeetWidgetState extends State<RutiininLiikkeetWidget> {
                                     ],
                                   ),
                                   if (valueOrDefault<bool>(
-                                    widget.rutiini!.finishedEditing! ? (liikkeetItem.kommentti != null && liikkeetItem.kommentti != '') : (liikkeetItem.nimi != null && liikkeetItem.nimi != ''),
+                                    widget.rutiini!.finishedEditing!
+                                        ? (liikkeetItem.kommentti != null &&
+                                            liikkeetItem.kommentti != '')
+                                        : (liikkeetItem.nimi != null &&
+                                            liikkeetItem.nimi != ''),
                                     false,
                                   ))
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(1.0, 0.0, 0.0, 0.0),
-                                      child: RutiininLiikeKommenttiTextfieldWidget(
-                                        key: Key('Keyst7_${liikkeetIndex}_of_${liikkeet.length}'),
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          1.0, 0.0, 0.0, 0.0),
+                                      child:
+                                          RutiininLiikeKommenttiTextfieldWidget(
+                                        key: Key(
+                                            'Keyst7_${liikkeetIndex}_of_${liikkeet.length}'),
                                         liikeIndex: liikkeetIndex,
                                         rutiini: widget.rutiini,
                                         liike: liikkeetItem,

@@ -97,7 +97,7 @@ Future<bool?> isEntitled(String entitlementId) async {
 
 // https://docs.revenuecat.com/docs/user-ids
 Future login(String? uid) async {
-  if (uid == _loggedInUid) {
+  if (kIsWeb || uid == _loggedInUid) {
     return;
   }
   try {

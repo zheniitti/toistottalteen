@@ -353,7 +353,7 @@ List<LiikeStruct>? nullLiikeList() {
   return null;
 }
 
-List<dynamic> emptyJsonList() {
+List<dynamic>? emptyJsonList() {
   return [];
 }
 

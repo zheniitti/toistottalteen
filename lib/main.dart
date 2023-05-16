@@ -28,6 +28,8 @@ void main() async {
   await FFLocalizations.initialize();
 
   final appState = FFAppState(); // Initialize FFAppState
+  await appState.initializePersistedState();
+
   await revenue_cat.initialize(
     "appl_GzpKTGpzjMfzDDETPzlLeJXZTdj",
     "goog_iATpxJUGjUuMReuBybBWVZsABVZ",

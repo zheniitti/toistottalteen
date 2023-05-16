@@ -21,7 +21,8 @@ class WorkoutDurationTextWidget extends StatefulWidget {
   final TreeniSessiotRecord? sessioDoc;
 
   @override
-  _WorkoutDurationTextWidgetState createState() => _WorkoutDurationTextWidgetState();
+  _WorkoutDurationTextWidgetState createState() =>
+      _WorkoutDurationTextWidgetState();
 }
 
 class _WorkoutDurationTextWidgetState extends State<WorkoutDurationTextWidget> {
@@ -46,10 +47,13 @@ class _WorkoutDurationTextWidgetState extends State<WorkoutDurationTextWidget> {
         callback: (timer) async {
           if (mounted) {
             // Do not delete this line
-            logFirebaseEvent('workoutDurationText_update_widget_state');
-            setState(() {
-              _model.durationString = functions.durationFromStartEnd(widget.sessioDoc!.alku, widget.sessioDoc!.loppu, FFLocalizations.of(context).languageCode);
-            });
+          logFirebaseEvent('workoutDurationText_update_widget_state');
+          setState(() {
+            _model.durationString = functions.durationFromStartEnd(
+                widget.sessioDoc!.alku,
+                widget.sessioDoc!.loppu,
+                FFLocalizations.of(context).languageCode);
+          });
           }
         },
         startImmediately: true,

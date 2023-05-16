@@ -18,7 +18,7 @@ packages:
     source: hosted
     version: "1.0.10"
   analyzer:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: analyzer
       sha256: cc4242565347e98424ce9945c819c192ec0838cb9d1f6aa4a97cc96becbc5b27
@@ -636,7 +636,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_plugin_android_lifecycle:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_plugin_android_lifecycle
       sha256: c224ac897bed083dabf11f238dd11a239809b446740be0c2044608c50029ffdf
@@ -703,18 +703,18 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_stripe
-      sha256: "54670bd24fad81847c3dbf86f9fe3d06df18eda1e0f49f332e9f113420523c90"
+      sha256: "95f3c4b907493ff5cdd6b3cdeda03bb59c2bc409d0c0bfb44db948374f9c3595"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.0"
+    version: "9.1.1"
   flutter_stripe_web:
     dependency: "direct main"
     description:
       name: flutter_stripe_web
-      sha256: "4b6fc64074ddf21e0b2c6b9f9e9da4a7512eaae0db7bb153a6a47ec00670044e"
+      sha256: b83d98301d88dadc10a327fe7983244f1d38aedb235f44745d5117207ef31f68
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.0"
+    version: "4.0.1"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -789,6 +789,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.3"
+  google_identity_services_web:
+    dependency: transitive
+    description:
+      name: google_identity_services_web
+      sha256: "7940fdc3b1035db4d65d387c1bdd6f9574deaa6777411569c05ecc25672efacd"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.1"
   google_mobile_ads:
     dependency: "direct main"
     description:
@@ -801,42 +809,42 @@ packages:
     dependency: "direct main"
     description:
       name: google_sign_in
-      sha256: a8a411a395935e0cef56172298dfeaa7f3556babc56912d98a3b761106a470c2
+      sha256: "750d08ffb4cd469f13068d15844ffd1d60c7ac1ca3c815918ba4ce4af22a2ddb"
       url: "https://pub.dev"
     source: hosted
-    version: "5.4.0"
+    version: "6.0.2"
   google_sign_in_android:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: google_sign_in_android
-      sha256: "2efe7a35f8542b94f240661ef888ae74fcbdb1886908a6aac54404e2268be73c"
+      sha256: "6a740e8498920ecf5fc2849ae0e4412536d700230bc3169493a1d031fdfe1cca"
       url: "https://pub.dev"
     source: hosted
-    version: "6.1.9"
+    version: "6.1.8"
   google_sign_in_ios:
     dependency: "direct main"
     description:
       name: google_sign_in_ios
-      sha256: "8b80074ccda41b62553010b311506f5022f7d2701e4f22765546b3125450f9f3"
+      sha256: "2e1df687b17f7fddcaf9a0c7f994d0d19b5d41e8ce1d943013befd0a0ae67403"
       url: "https://pub.dev"
     source: hosted
-    version: "5.4.0"
+    version: "5.6.1"
   google_sign_in_platform_interface:
     dependency: "direct main"
     description:
       name: google_sign_in_platform_interface
-      sha256: "252d0fadcd1e7939f1e00602eca1020b585d448aaa4b87c33137ca8717cd9e87"
+      sha256: "95a9e0a8701b5485f2ca330fd1fc6f918f5ce088042ce1019c5e389d8574ae4c"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.0"
+    version: "2.4.0"
   google_sign_in_web:
     dependency: "direct main"
     description:
       name: google_sign_in_web
-      sha256: "5b35c221169a7b3e0fc15043ac09102ef542300ef92f2e1f05d5d8efde263af5"
+      sha256: "9f883b9b525297663510dfbbe8b04d39715aa0abba430851f501b7d1e4b0f465"
       url: "https://pub.dev"
     source: hosted
-    version: "0.10.2"
+    version: "0.11.0+2"
   graphs:
     dependency: transitive
     description:
@@ -1086,7 +1094,7 @@ packages:
     source: hosted
     version: "1.0.1"
   path_provider:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: path_provider
       sha256: c7edf82217d4b2952b2129a61d3ad60f1075b9299e629e149a8d2e39c2e6aad4
@@ -1094,7 +1102,7 @@ packages:
     source: hosted
     version: "2.0.14"
   path_provider_android:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: path_provider_android
       sha256: da97262be945a72270513700a92b39dd2f4a54dad55d061687e2e37a6390366a
@@ -1102,7 +1110,7 @@ packages:
     source: hosted
     version: "2.0.25"
   path_provider_foundation:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: path_provider_foundation
       sha256: ad4c4d011830462633f03eb34445a45345673dfd4faf1ab0b4735fbd93b19183
@@ -1118,7 +1126,7 @@ packages:
     source: hosted
     version: "2.1.10"
   path_provider_platform_interface:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: path_provider_platform_interface
       sha256: "57585299a729335f1298b43245842678cb9f43a6310351b18fb577d6e33165ec"
@@ -1257,10 +1265,10 @@ packages:
     dependency: "direct main"
     description:
       name: rxdart
-      sha256: "5d22055fd443806c03ef24a02000637cf51eae49c2a0168d38a43fc166b0209c"
+      sha256: "0c7c0cedd93788d996e33041ffecda924cc54389199cde4e6a34b440f50044cb"
       url: "https://pub.dev"
     source: hosted
-    version: "0.27.5"
+    version: "0.27.7"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -1345,10 +1353,10 @@ packages:
     dependency: "direct main"
     description:
       name: sign_in_with_apple
-      sha256: "425cf29f6c8730314d08d62a3193319b84f40940f1f6f0d9cea703aaf3205a03"
+      sha256: ac3b113767dfdd765078c507dad9d4d9fe96b669cc7bd88fc36fc15376fb3400
       url: "https://pub.dev"
     source: hosted
-    version: "4.1.0"
+    version: "4.3.0"
   sign_in_with_apple_platform_interface:
     dependency: "direct main"
     description:
@@ -1462,26 +1470,34 @@ packages:
     dependency: "direct main"
     description:
       name: stripe_android
-      sha256: f2f2cadb918b631e119df73052b49f4a38d0beabf5ecf92c011bbe3239079364
+      sha256: b0777d7d4db53e4cb6451a530e1d9d0aa09eca1304297944a236399b77b6357a
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.0"
+    version: "9.1.0"
   stripe_ios:
     dependency: "direct main"
     description:
       name: stripe_ios
-      sha256: "22afab97f193cc4499ecfa7a9cc9a8f8b29306c9430c439e1bb7779ea9f205a6"
+      sha256: "1ce3922c9e9fd2e3ced6b9d349966fa19074794eec1c9bac3cec1bca53e98c85"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.0"
+    version: "9.1.0"
+  stripe_js:
+    dependency: transitive
+    description:
+      name: stripe_js
+      sha256: "2d4ff88360b304207f950004e2768168bad977f15f0d5f3e44a9c069225c4cd3"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.0"
   stripe_platform_interface:
     dependency: "direct main"
     description:
       name: stripe_platform_interface
-      sha256: cebb101234b5b04c5c548e5aad04225388e35bedfb410bdfe471dbe2017e3048
+      sha256: "662a152075d1f3ac70b6b3302509381e716dd12e265316320a3a06c06c147f96"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.0"
+    version: "9.1.0"
   substring_highlight:
     dependency: "direct main"
     description:
@@ -1491,7 +1507,7 @@ packages:
     source: hosted
     version: "1.0.33"
   synchronized:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: synchronized
       sha256: "5fcbd27688af6082f5abd611af56ee575342c30e87541d0245f7ff99faa02c60"
@@ -1555,7 +1571,7 @@ packages:
     source: hosted
     version: "6.1.10"
   url_launcher_android:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: url_launcher_android
       sha256: a52628068d282d01a07cd86e6ba99e497aa45ce8c91159015b2416907d78e411
@@ -1563,7 +1579,7 @@ packages:
     source: hosted
     version: "6.0.27"
   url_launcher_ios:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: url_launcher_ios
       sha256: "9af7ea73259886b92199f9e42c116072f05ff9bea2dcb339ab935dfc957392c2"
@@ -1587,7 +1603,7 @@ packages:
     source: hosted
     version: "3.0.5"
   url_launcher_platform_interface:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: url_launcher_platform_interface
       sha256: "6c9ca697a5ae218ce56cece69d46128169a58aa8653c1b01d26fcd4aad8c4370"
