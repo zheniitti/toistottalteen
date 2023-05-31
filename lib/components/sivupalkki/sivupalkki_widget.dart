@@ -892,6 +892,75 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                               ),
                             ),
                           ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 0.0),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                logFirebaseEvent(
+                                    'SIVUPALKKI_COMP_Text_b5razz59_ON_TAP');
+                                logFirebaseEvent('Text_alert_dialog');
+                                var confirmDialogResponse = await showDialog<
+                                        bool>(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          title: Text('Delete user account'),
+                                          content: Text(
+                                              'This will permanently delete your account and all data associated with it. Are you sure you want to continue?'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext, false),
+                                              child: Text('Cancel'),
+                                            ),
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext, true),
+                                              child: Text('Confirm'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    ) ??
+                                    false;
+                                if (confirmDialogResponse) {
+                                  logFirebaseEvent('Text_auth');
+                                  await authManager.deleteUser(context);
+                                  logFirebaseEvent('Text_auth');
+                                  GoRouter.of(context).prepareAuthEvent();
+                                  await authManager.signOut();
+                                  GoRouter.of(context).clearRedirectLocation();
+
+                                  logFirebaseEvent('Text_navigate_to');
+
+                                  context.goNamedAuth(
+                                      'getStarted_sivu', context.mounted);
+                                } else {
+                                  logFirebaseEvent(
+                                      'Text_close_dialog,_drawer,_etc');
+                                  Navigator.pop(context);
+                                }
+                              },
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  'tu3s26fw' /* Poista tili */,
+                                ),
+                                textAlign: TextAlign.start,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondary,
+                                    ),
+                              ),
+                            ),
+                          ),
                           if (false)
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
@@ -984,7 +1053,7 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                     FFAppState().showAdbanner = false;
 
                                     context.goNamedAuth(
-                                        'getStarted_sivu', mounted);
+                                        'getStarted_sivu', context.mounted);
                                   },
                                   child: Text(
                                     FFLocalizations.of(context).getText(
@@ -1060,7 +1129,7 @@ class _SivupalkkiWidgetState extends State<SivupalkkiWidget> {
                                       FFAppState().showAdbanner = false;
 
                                       context.goNamedAuth(
-                                          'getStarted_sivu', mounted);
+                                          'getStarted_sivu', context.mounted);
                                     },
                                     child: Text(
                                       FFLocalizations.of(context).getText(
