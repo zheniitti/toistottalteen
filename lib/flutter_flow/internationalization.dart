@@ -669,6 +669,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'fi': 'Tietosuoja ja käyttöehdot',
       'en': 'Privacy policy and Terms of Use',
     },
+    'tu3s26fw': {
+      'fi': 'Poista tili',
+      'en': 'Delete account',
+    },
     'ny2fhrqk': {
       'fi': 'Lähetä palaute',
       'en': 'Send feedback',
